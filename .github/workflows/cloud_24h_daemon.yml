@@ -1,0 +1,46 @@
+name: Cloud 24H Nonstop Gparts & Worldwide Sourcing Daemon
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - 'cloud_24h_master_worker.mjs'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "cloud-24h-crawler"
+  cancel-in-progress: false
+
+jobs:
+  run-24h-crawlers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Run Gparts 40-Item Stock Watcher & 8-Country Sourcing Daemon
+        run: |
+          node cloud_24h_master_worker.mjs
+
+      - name: Commit & Push Live Cloud State
+        run: |
+          git config user.name "KOREA-SPART-24H-Bot"
+          git config user.email "zespy2614@gmail.com"
+          git pull --rebase origin main || true
+          git add docs/gparts_state.json docs/live_scan_stream_db.json
+          git diff --staged --quiet || git commit -m "☁️ [Auto-Sync] 24H Cloud Gparts & Worldwide State Update"
+          git push origin main || true
