@@ -1,0 +1,3 @@
+Set WshShell = CreateObject("WScript.Shell")
+p = "e" & ":" & "\" & ChrW(50504) & ChrW(54000) & ChrW(44536) & ChrW(47000) & ChrW(48708) & ChrW(54000) & "\" & ChrW(53364) & ChrW(46972) & ChrW(50864) & ChrW(46300) & "_" & "2" & "4" & ChrW(49884) & ChrW(44036) & "_" & ChrW(47924) & ChrW(51473) & ChrW(45800) & "_" & ChrW(44288) & ChrW(51228) & ChrW(49468) & ChrW(53552) & "\" & "p" & "c" & "_" & "2" & "4" & "h" & "_" & "a" & "u" & "t" & "o" & "s" & "t" & "a" & "r" & "t" & "_" & "w" & "a" & "t" & "c" & "h" & "d" & "o" & "g" & "." & "m" & "j" & "s"
+WshShell.Run """C:\Program Files\nodejs\node.exe"" """ & p & """", 0, False

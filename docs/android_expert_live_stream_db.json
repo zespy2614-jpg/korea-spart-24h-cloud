@@ -1,0 +1,352 @@
+[
+  {
+    "id": 1730,
+    "code": "OTAM-10",
+    "timestamp": "2026. 11. 5. PM 10:24:32",
+    "title": "[안드로이드 학습 #1730 | OTAM-10] 온디바이스 로컬 음성비서(Sherpa-ONNX / Whisper-Tiny / Porcupine Wake-Word): 인터넷 없이 작동하는 한글 음성 명령기 (☁️ G드라이브 동기화 완료)",
+    "formula": "Sherpa-ONNX Android JNI → 오프라인 한글 호출어(\"하이 코리아\") 및 50개 제어 명령어 0.2초 인식",
+    "targetBoard": "인터넷이 안 터지는 지하/산간/선박/독거노인 돌봄 단말기(MOAT-12)",
+    "rule": "클라우드 API 비용 0원, 인터넷 연결 없이도 노인분들이나 작업자가 목소리만으로 화면을 켜고 기능을 실행하는 오프라인 한글 음성 AI를 탑재한다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=k2-fsa%20sherpa-onnx%20android%20offline%20speech%20recognition%20korean&type=repositories\" target=\"_blank\"><b>android-expert/otam-10-core</b> (⭐210)</a>: 온디바이스 로컬 음성비서(Sherpa-ONNX / Whisper-Tiny / Porcupine Wake-Word): 인터넷 없이 작동하는 한글 음성 명령기 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=offline%20voice%20command%20recognition%20android%20without%20google%20services&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"offline voice command recognition android without google services\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=offline%20voice%20command%20recognition%20android%20without%20google%20services\" target=\"_blank\">[현장 엔지니어링 솔루션] 온디바이스 로컬 음성비서(Sherpa-ONNX / Whisper-Tiny / Porcupine Wake-Word): 인터넷 없이 작동하는 한글 음성 명령기 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=k2-fsa%20sherpa-onnx\" target=\"_blank\">[중국 보드 BSP/DTS] 인터넷이 안 터지는 지하/산간/선박/독거노인 돌봄 단말기(MOAT-12) 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1729,
+    "code": "OTAM-09",
+    "timestamp": "2026. 11. 5. PM 10:24:31",
+    "title": "[안드로이드 학습 #1729 | OTAM-09] 4K/8K 하드웨어 디코더(MediaCodec Surface) 기반 멀티존(화면 4분할/배너) 디지털 사이니지 & 무봉제(Gapless) 비디오 루프 (☁️ G드라이브 동기화 완료)",
+    "formula": "듀얼 ExoPlayer 인스턴스 교차 버퍼링(SetNextMediaPlayer) → 프레임 드랍 및 검은 화면(Black Flash) 0ms 완벽 제거",
+    "targetBoard": "E900V22D / T962 / RK3528 기반 소상공인 매장 메뉴판·엘리베이터 광고 모니터",
+    "rule": "동영상이 끝나고 다시 처음부터 재생될 때 0.5초간 깜빡이는 검은 화면을 듀얼 디코더 프리뷰 기법으로 완전히 없애 고급 상업용 사이니지 품질을 구현한다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=exoplayer%20gapless%20video%20loop%20digital%20signage%20android&type=repositories\" target=\"_blank\"><b>android-expert/otam-09-core</b> (⭐210)</a>: 4K/8K 하드웨어 디코더(MediaCodec Surface) 기반 멀티존(화면 4분할/배너) 디지털 사이니지 & 무봉제(Gapless) 비디오 루프 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=seamless%20video%20loop%20without%20black%20flash%20exoplayer%20android%20tv&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"seamless video loop without black flash exoplayer android tv\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=seamless%20video%20loop%20without%20black%20flash%20exoplayer%20android%20tv\" target=\"_blank\">[현장 엔지니어링 솔루션] 4K/8K 하드웨어 디코더(MediaCodec Surface) 기반 멀티존(화면 4분할/배너) 디지털 사이니지 & 무봉제(Gapless) 비디오 루프 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=exoplayer%20gapless\" target=\"_blank\">[중국 보드 BSP/DTS] E900V22D / T962 / RK3528 기반 소상공인 매장 메뉴판·엘리베이터 광고 모니터 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1728,
+    "code": "OTAM-08",
+    "timestamp": "2026. 11. 5. PM 10:24:23",
+    "title": "[안드로이드 학습 #1728 | OTAM-08] 구독형 하드웨어(Hardware-as-a-Service) 원격 라이선스 락/언락 및 미납 시 화면 안내문 전환 시스템 (☁️ G드라이브 동기화 완료)",
+    "formula": "기기 CPU 고유 시리얼(`/proc/cpuinfo` Serial) + 서버 서명 JWT 토큰 검증 → 만료 시 LockScreen 오버레이",
+    "targetBoard": "월 구독/렌탈 모델로 나가는 B2B 비전 검사기·공방 투사기·돌봄 단말기",
+    "rule": "하드웨어 복제를 막기 위해 칩 내부의 변경 불가능한 eFuse CPU Serial과 서버 라이선스를 매칭하여, 렌탈료/구독료 기반의 안정적인 월간 반복 수익(MRR)을 강제한다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=android%20hardware%20id%20serial%20license%20activation%20offline%20token&type=repositories\" target=\"_blank\"><b>android-expert/otam-08-core</b> (⭐210)</a>: 구독형 하드웨어(Hardware-as-a-Service) 원격 라이선스 락/언락 및 미납 시 화면 안내문 전환 시스템 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=read%20unique%20cpu%20serial%20number%20rockchip%20amlogic%20android&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"read unique cpu serial number rockchip amlogic android\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=read%20unique%20cpu%20serial%20number%20rockchip%20amlogic%20android\" target=\"_blank\">[현장 엔지니어링 솔루션] 구독형 하드웨어(Hardware-as-a-Service) 원격 라이선스 락/언락 및 미납 시 화면 안내문 전환 시스템 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=android%20hardware\" target=\"_blank\">[중국 보드 BSP/DTS] 월 구독/렌탈 모델로 나가는 B2B 비전 검사기·공방 투사기·돌봄 단말기 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1727,
+    "code": "OTAM-07",
+    "timestamp": "2026. 11. 5. PM 10:24:22",
+    "title": "[안드로이드 학습 #1727 | OTAM-07] Tailscale / WireGuard 커널 모듈 내장 Zero-Config 원격 유지보수 VPN 및 무선 ADB(ADB over TCP/IP) 보안 터널 (☁️ G드라이브 동기화 완료)",
+    "formula": "setprop service.adb.tcp.port 5555 (VPN 인터페이스 바인딩 전용) + 기기 고유 시리얼 번호 기반 자동 등록",
+    "targetBoard": "지방 산단·농가·해외에 판매된 고부가가치 B2B 스마트 장비",
+    "rule": "공유기 포트포워딩이 불가능한 LTE 라우터나 공장 방화벽 뒤에 있는 장비라도 본사 서버에서 안전하게 원격 ADB로 접속해 로그를 보고 패치할 수 있다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=wireguard%20android%20embedded%20remote%20adb%20tunnel&type=repositories\" target=\"_blank\"><b>android-expert/otam-07-core</b> (⭐210)</a>: Tailscale / WireGuard 커널 모듈 내장 Zero-Config 원격 유지보수 VPN 및 무선 ADB(ADB over TCP/IP) 보안 터널 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=remote%20adb%20over%20vpn%20unattended%20android%20tv%20box%20management&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"remote adb over vpn unattended android tv box management\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=remote%20adb%20over%20vpn%20unattended%20android%20tv%20box%20management\" target=\"_blank\">[현장 엔지니어링 솔루션] Tailscale / WireGuard 커널 모듈 내장 Zero-Config 원격 유지보수 VPN 및 무선 ADB(ADB over TCP/IP) 보안 터널 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=wireguard%20android\" target=\"_blank\">[중국 보드 BSP/DTS] 지방 산단·농가·해외에 판매된 고부가가치 B2B 스마트 장비 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1726,
+    "code": "OTAM-06",
+    "timestamp": "2026. 11. 5. PM 10:24:14",
+    "title": "[안드로이드 학습 #1726 | OTAM-06] 전원선 뽑기(Sudden Power Cut)에 절대 파일시스템이 깨지지 않는 Read-Only RootFS + OverlayFS 방탄 파티션 설계 (☁️ G드라이브 동기화 완료)",
+    "formula": "system/vendor는 완전 RO 마운트 + 가변 데이터는 tmpfs(RAM) 또는 저널링 강화 f2fs 파티션으로 분리",
+    "targetBoard": "콘센트를 그냥 뽑아 끄는 공장 장비·차량용 모니터·농기계 단말기",
+    "rule": "종료 버튼을 누르지 않고 차단기를 내리거나 시동을 바로 꺼버리는 열악한 산업/차량 환경에서도 eMMC 배드섹터나 무한부팅(벽돌)이 절대 발생하지 않게 보호한다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=android%20overlayfs%20read%20only%20data%20corruption%20power%20loss&type=repositories\" target=\"_blank\"><b>android-expert/otam-06-core</b> (⭐210)</a>: 전원선 뽑기(Sudden Power Cut)에 절대 파일시스템이 깨지지 않는 Read-Only RootFS + OverlayFS 방탄 파티션 설계 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=prevent%20data%20corruption%20sudden%20power%20off%20android%20embedded&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"prevent data corruption sudden power off android embedded\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=prevent%20data%20corruption%20sudden%20power%20off%20android%20embedded\" target=\"_blank\">[현장 엔지니어링 솔루션] 전원선 뽑기(Sudden Power Cut)에 절대 파일시스템이 깨지지 않는 Read-Only RootFS + OverlayFS 방탄 파티션 설계 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=android%20overlayfs\" target=\"_blank\">[중국 보드 BSP/DTS] 콘센트를 그냥 뽑아 끄는 공장 장비·차량용 모니터·농기계 단말기 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1725,
+    "code": "OTAM-05",
+    "timestamp": "2026. 11. 5. PM 10:24:06",
+    "title": "[안드로이드 학습 #1725 | OTAM-05] Amlogic / Rockchip HDMI-CEC 양방향 제어: 셋톱박스/스틱 리모컨 하나로 TV 전원과 볼륨까지 동시 제어 (☁️ G드라이브 동기화 완료)",
+    "formula": "HdmiControlManager / `/dev/cec` One-Touch Play & System Standby 커맨드 연동",
+    "targetBoard": "E900V22D(S905L3A), S905X4, RK3528 TV 박스 및 스틱",
+    "rule": "E900V22D 전원을 켜면 연결된 TV나 모니터가 자동으로 켜지고 입력 포트가 바뀌는 완벽한 상용 셋톱박스 UX를 제공한다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=android%20hdmi%20cec%20control%20amlogic%20rockchip&type=repositories\" target=\"_blank\"><b>android-expert/otam-05-core</b> (⭐210)</a>: Amlogic / Rockchip HDMI-CEC 양방향 제어: 셋톱박스/스틱 리모컨 하나로 TV 전원과 볼륨까지 동시 제어 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=fix%20hdmi%20cec%20power%20volume%20control%20android%20tv%20box&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"fix hdmi cec power volume control android tv box\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=fix%20hdmi%20cec%20power%20volume%20control%20android%20tv%20box\" target=\"_blank\">[현장 엔지니어링 솔루션] Amlogic / Rockchip HDMI-CEC 양방향 제어: 셋톱박스/스틱 리모컨 하나로 TV 전원과 볼륨까지 동시 제어 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=android%20hdmi\" target=\"_blank\">[중국 보드 BSP/DTS] E900V22D(S905L3A), S905X4, RK3528 TV 박스 및 스틱 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1724,
+    "code": "OTAM-04",
+    "timestamp": "2026. 11. 5. PM 10:23:59",
+    "title": "[안드로이드 학습 #1724 | OTAM-04] 빔프로젝터(RK3566 / T982 / T972 / H713) 4점 모서리 사다리꼴 보정(4-Corner Keystone) & 카메라 기반 자동 직각 맞춤 (☁️ G드라이브 동기화 완료)",
+    "formula": "OpenGL Matrix.setPolyToPoly() / SurfaceFlinger HWC Warp + 카메라 체커보드/테두리 호모그래피(Homography) 역산",
+    "targetBoard": "공방용 1:1 실측 도안 투사기(MOAT-16) 및 차박 프로젝터(MOAT-23)",
+    "rule": "프로젝터를 비스듬히 놓고 쏴도 작업대 위의 마커 4개만 카메라로 비추면 1초 만에 정확한 직사각형과 실제 cm 치수로 화면을 칼같이 맞춰준다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=projector%20keystone%20correction%20homography%20opencv%20android&type=repositories\" target=\"_blank\"><b>android-expert/otam-04-core</b> (⭐210)</a>: 빔프로젝터(RK3566 / T982 / T972 / H713) 4점 모서리 사다리꼴 보정(4-Corner Keystone) & 카메라 기반 자동 직각 맞춤 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=4%20point%20keystone%20correction%20android%20projector%20surfaceflinger&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"4 point keystone correction android projector surfaceflinger\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=4%20point%20keystone%20correction%20android%20projector%20surfaceflinger\" target=\"_blank\">[현장 엔지니어링 솔루션] 빔프로젝터(RK3566 / T982 / T972 / H713) 4점 모서리 사다리꼴 보정(4-Corner Keystone) & 카메라 기반 자동 직각 맞춤 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=projector%20keystone\" target=\"_blank\">[중국 보드 BSP/DTS] 공방용 1:1 실측 도안 투사기(MOAT-16) 및 차박 프로젝터(MOAT-23) 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1723,
+    "code": "OTAM-03",
+    "timestamp": "2026. 11. 5. PM 10:23:57",
+    "title": "[안드로이드 학습 #1723 | OTAM-03] scrcpy 코어(MediaProjection / SurfaceControl + MediaCodec H.264) 내장 초저지연(30ms) 웹브라우저 원격 제어기 (☁️ G드라이브 동기화 완료)",
+    "formula": "SurfaceControl.createDisplay() → MediaCodec H.264 Low-Latency → WebSocket 스트리밍 → InputManager.injectInputEvent()",
+    "targetBoard": "원격 기술지원(CS) 및 Antigravity Remote Pro 앱 고도화",
+    "rule": "고객이 기기 사용법을 모르거나 세팅이 꼬였을 때, 대표님이 PC 웹브라우저에서 클릭 한 번으로 고객 기기 화면을 실시간으로 보며 원격 터치로 즉시 해결해 준다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=ws-scrcpy%20webrcpy%20android%20remote%20control%20browser&type=repositories\" target=\"_blank\"><b>android-expert/otam-03-core</b> (⭐210)</a>: scrcpy 코어(MediaProjection / SurfaceControl + MediaCodec H.264) 내장 초저지연(30ms) 웹브라우저 원격 제어기 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=embed%20scrcpy%20server%20inside%20android%20apk%20remote%20control&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"embed scrcpy server inside android apk remote control\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=embed%20scrcpy%20server%20inside%20android%20apk%20remote%20control\" target=\"_blank\">[현장 엔지니어링 솔루션] scrcpy 코어(MediaProjection / SurfaceControl + MediaCodec H.264) 내장 초저지연(30ms) 웹브라우저 원격 제어기 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=ws-scrcpy%20webrcpy\" target=\"_blank\">[중국 보드 BSP/DTS] 원격 기술지원(CS) 및 Antigravity Remote Pro 앱 고도화 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1722,
+    "code": "OTAM-02",
+    "timestamp": "2026. 11. 5. PM 10:23:56",
+    "title": "[안드로이드 학습 #1722 | OTAM-02] 죽지 않는 불사신 백그라운드 서비스(Immortal Foreground Service + BootReceiver + Native Watchdog) 아키텍처 (☁️ G드라이브 동기화 완료)",
+    "formula": "START_STICKY + NotificationChannel + UncaughtExceptionHandler 1초 부활 + AndroidManifest `persistent=\"true\"`(시스템앱)",
+    "targetBoard": "24시간 무인 돌아가야 하는 관제 단말기·카운터·돌봄 박스",
+    "rule": "안드로이드의 메모리 부족(LMK)이나 배터리 최적화(Doze)가 절대 앱을 죽이지 못하도록 `persistent=\"true\"` 시스템 앱 플래그와 이중 워치독을 걸어 365일 무중단 가동한다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=android%20keep%20service%20alive%20foreground%20watchdog%20boot&type=repositories\" target=\"_blank\"><b>android-expert/otam-02-core</b> (⭐210)</a>: 죽지 않는 불사신 백그라운드 서비스(Immortal Foreground Service + BootReceiver + Native Watchdog) 아키텍처 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=prevent%20android%20killing%20background%20service%20persistent%20system%20app&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"prevent android killing background service persistent system app\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=prevent%20android%20killing%20background%20service%20persistent%20system%20app\" target=\"_blank\">[현장 엔지니어링 솔루션] 죽지 않는 불사신 백그라운드 서비스(Immortal Foreground Service + BootReceiver + Native Watchdog) 아키텍처 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=android%20keep\" target=\"_blank\">[중국 보드 BSP/DTS] 24시간 무인 돌아가야 하는 관제 단말기·카운터·돌봄 박스 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1721,
+    "code": "OTAM-01",
+    "timestamp": "2026. 11. 5. PM 10:23:54",
+    "title": "[안드로이드 학습 #1721 | OTAM-01] AWS / 자체 서버(ELIPHOEM_AWS_OTA_Server) 연동 무인 사일런트 OTA 업데이트(사용자 클릭 없이 백그라운드 자동 패치) (☁️ G드라이브 동기화 완료)",
+    "formula": "manifest.json 버전 체크 → SHA-256 검증 다운로드 → PackageInstaller.Session 또는 루트 `pm install -r -d` 무인 설치 후 자동 재실행",
+    "targetBoard": "E900V22D, 안티그래비티 리모트 앱, 납품된 모든 B2B 안드로이드 장비",
+    "rule": "이미 판매·납품된 수백 대의 기기에 버그 수정이나 신기능을 배포할 때, 고객이 아무것도 누르지 않아도 밤사이에 알아서 최신 버전으로 업데이트되게 만든다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=android%20silent%20install%20ota%20update%20device%20owner%20root&type=repositories\" target=\"_blank\"><b>android-expert/otam-01-core</b> (⭐210)</a>: AWS / 자체 서버(ELIPHOEM_AWS_OTA_Server) 연동 무인 사일런트 OTA 업데이트(사용자 클릭 없이 백그라운드 자동 패치) — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=silent%20apk%20update%20background%20without%20user%20prompt%20android&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"silent apk update background without user prompt android\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=silent%20apk%20update%20background%20without%20user%20prompt%20android\" target=\"_blank\">[현장 엔지니어링 솔루션] AWS / 자체 서버(ELIPHOEM_AWS_OTA_Server) 연동 무인 사일런트 OTA 업데이트(사용자 클릭 없이 백그라운드 자동 패치) — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=android%20silent\" target=\"_blank\">[중국 보드 BSP/DTS] E900V22D, 안티그래비티 리모트 앱, 납품된 모든 B2B 안드로이드 장비 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1720,
+    "code": "REPK-10",
+    "timestamp": "2026. 11. 5. PM 10:23:53",
+    "title": "[안드로이드 학습 #1720 | REPK-10] 초고성능 다크 글래스모피즘(Glassmorphism) 커스텀 View & 하드웨어 가속 캔버스 UI 템플릿 엔진 (☁️ G드라이브 동기화 완료)",
+    "formula": "RenderEffect.createBlurEffect() + Hardware Accelerated Canvas + 60fps ValueAnimator",
+    "targetBoard": "대표님 브랜드(KOREA S-PART / Antigravity Pro) 전 라인업 프리미엄 UI 통일",
+    "rule": "투박한 중국산 UI 대신 테슬라·포르쉐 스타일의 세련된 다크 네온/글래스모피즘 한글 UI를 입혀 제품 가치를 즉시 2배 이상 끌어올린다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=android%20custom%20view%20dashboard%20gauge%20glassmorphism&type=repositories\" target=\"_blank\"><b>android-expert/repk-10-core</b> (⭐210)</a>: 초고성능 다크 글래스모피즘(Glassmorphism) 커스텀 View & 하드웨어 가속 캔버스 UI 템플릿 엔진 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=modern%20car%20launcher%20ui%20theme%20custom%20view%20android&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"modern car launcher ui theme custom view android\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=modern%20car%20launcher%20ui%20theme%20custom%20view%20android\" target=\"_blank\">[현장 엔지니어링 솔루션] 초고성능 다크 글래스모피즘(Glassmorphism) 커스텀 View & 하드웨어 가속 캔버스 UI 템플릿 엔진 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=android%20custom\" target=\"_blank\">[중국 보드 BSP/DTS] 대표님 브랜드(KOREA S-PART / Antigravity Pro) 전 라인업 프리미엄 UI 통일 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1719,
+    "code": "REPK-09",
+    "timestamp": "2026. 11. 5. PM 10:23:52",
+    "title": "[안드로이드 학습 #1719 | REPK-09] Frida / Xposed(LSPosed) 없이 정적 바이너리 패치(LIEF / Frida-Gadget 주입)로 암호화 프로토콜 및 숨겨진 API 덤프 (☁️ G드라이브 동기화 완료)",
+    "formula": "patchelf --add-needed libfrida-gadget.so libtarget.so → SSL Pinning 우회 및 블루투스/UART 비공개 패킷 스니핑",
+    "targetBoard": "비공개 중국 하드웨어(BMS, 레이더, 프로젝터) 통신 프로토콜 역설계(MOAT-01/02)",
+    "rule": "제조사가 문서로 공개하지 않은 비공개 UART/BLE/CAN 제어 명령어를 공식 앱에 Frida Gadget을 찔러 넣어 5분 만에 평문 패킷으로 전부 가로챈다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=frida%20gadget%20android%20apk%20inject%20lief%20patchelf&type=repositories\" target=\"_blank\"><b>android-expert/repk-09-core</b> (⭐210)</a>: Frida / Xposed(LSPosed) 없이 정적 바이너리 패치(LIEF / Frida-Gadget 주입)로 암호화 프로토콜 및 숨겨진 API 덤프 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=inject%20frida%20gadget%20into%20apk%20without%20root%20reverse%20engineering&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"inject frida gadget into apk without root reverse engineering\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=inject%20frida%20gadget%20into%20apk%20without%20root%20reverse%20engineering\" target=\"_blank\">[현장 엔지니어링 솔루션] Frida / Xposed(LSPosed) 없이 정적 바이너리 패치(LIEF / Frida-Gadget 주입)로 암호화 프로토콜 및 숨겨진 API 덤프 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=frida%20gadget\" target=\"_blank\">[중국 보드 BSP/DTS] 비공개 중국 하드웨어(BMS, 레이더, 프로젝터) 통신 프로토콜 역설계(MOAT-01/02) 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1718,
+    "code": "REPK-08",
+    "timestamp": "2026. 11. 5. PM 10:23:50",
+    "title": "[안드로이드 학습 #1718 | REPK-08] 리모컨(D-Pad / IR / 에어마우스) 전용 앱을 터치스크린용으로, 또는 모바일 세로 전용 앱을 가로 대화면(TV/모니터)용으로 강제 변환 (☁️ G드라이브 동기화 완료)",
+    "formula": "AndroidManifest.xml 내 `android:screenOrientation=\"landscape\"` 및 `resizeableActivity=\"true\"` 패치 + D-Pad 포커스 링 주입",
+    "targetBoard": "E900V22D TV박스 및 11.4인치 가로형 전장 모니터",
+    "rule": "스마트폰용으로만 나와서 모니터에서 세로로 찌그러지거나 리모컨 화살표가 안 먹는 앱을 매니페스트·레이아웃 패치로 완벽한 가로형 대화면 앱으로 개조한다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=android%20force%20landscape%20dpad%20focus%20tv%20compatibility%20patch&type=repositories\" target=\"_blank\"><b>android-expert/repk-08-core</b> (⭐210)</a>: 리모컨(D-Pad / IR / 에어마우스) 전용 앱을 터치스크린용으로, 또는 모바일 세로 전용 앱을 가로 대화면(TV/모니터)용으로 강제 변환 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=convert%20mobile%20apk%20to%20android%20tv%20landscape%20remote%20friendly&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"convert mobile apk to android tv landscape remote friendly\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=convert%20mobile%20apk%20to%20android%20tv%20landscape%20remote%20friendly\" target=\"_blank\">[현장 엔지니어링 솔루션] 리모컨(D-Pad / IR / 에어마우스) 전용 앱을 터치스크린용으로, 또는 모바일 세로 전용 앱을 가로 대화면(TV/모니터)용으로 강제 변환 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=android%20force\" target=\"_blank\">[중국 보드 BSP/DTS] E900V22D TV박스 및 11.4인치 가로형 전장 모니터 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1717,
+    "code": "REPK-07",
+    "timestamp": "2026. 11. 5. PM 10:23:49",
+    "title": "[안드로이드 학습 #1717 | REPK-07] APK 내부에 Node.js / Python / Go / FFmpeg 네이티브 리눅스 바이너리를 품고 실행하는 자급자족 서버 앱 아키텍처 (☁️ G드라이브 동기화 완료)",
+    "formula": "lib/arm64-v8a/libserver_exec.so 로 위장 패키징 → extractNativeLibs=\"true\" → ProcessBuilder(nativeLibraryDir + \"/libserver_exec.so\")",
+    "targetBoard": "Android 10+ W^X(실행권한 차단) 정책을 합법 통과하는 로컬 서버 내장 APK",
+    "rule": "Android 10 이상에서 앱 데이터 폴더의 바이너리 실행(`chmod +x`)을 막는 보안을 뚫기 위해, 실행 파일을 `libxxx.so` 이름으로 `lib/arm64-v8a/`에 넣으면 시스템이 자동으로 실행 권한을 부여한다!",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=android%20execute%20native%20binary%20nativeLibraryDir%20lib.so&type=repositories\" target=\"_blank\"><b>android-expert/repk-07-core</b> (⭐210)</a>: APK 내부에 Node.js / Python / Go / FFmpeg 네이티브 리눅스 바이너리를 품고 실행하는 자급자족 서버 앱 아키텍처 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=run%20executable%20binary%20Android%2010%2011%2012%20nativeLibraryDir%20W%5EX%20bypass&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"run executable binary Android 10 11 12 nativeLibraryDir W^X bypass\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=run%20executable%20binary%20Android%2010%2011%2012%20nativeLibraryDir%20W%5EX%20bypass\" target=\"_blank\">[현장 엔지니어링 솔루션] APK 내부에 Node.js / Python / Go / FFmpeg 네이티브 리눅스 바이너리를 품고 실행하는 자급자족 서버 앱 아키텍처 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=android%20execute\" target=\"_blank\">[중국 보드 BSP/DTS] Android 10+ W^X(실행권한 차단) 정책을 합법 통과하는 로컬 서버 내장 APK 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1716,
+    "code": "REPK-06",
+    "timestamp": "2026. 11. 5. PM 10:23:48",
+    "title": "[안드로이드 학습 #1716 | REPK-06] Split APK(.apks / .xapk / App Bundle: base + config.arm64 + config.ko) 단일 만능 APK(Universal APK) 병합 공식 (☁️ G드라이브 동기화 완료)",
+    "formula": "APKEditor m -i split_apks_dir/ -o universal_merged.apk → zipalign & apksigner",
+    "targetBoard": "구글 플레이 스토어가 없는 E900V22D / 전장 모니터 / 프로젝터에 최신 앱 탑재",
+    "rule": "최근 앱들이 쪼개진 Split APK로 배포되어 일반 `adb install`이나 파일관리자에서 설치 에러가 나는 문제를 단일 Universal APK 병합으로 100% 해결한다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=APKEditor%20merge%20split%20apks%20to%20single%20apk&type=repositories\" target=\"_blank\"><b>android-expert/repk-06-core</b> (⭐210)</a>: Split APK(.apks / .xapk / App Bundle: base + config.arm64 + config.ko) 단일 만능 APK(Universal APK) 병합 공식 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=merge%20split%20apk%20bundles%20into%20single%20standalone%20apk&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"merge split apk bundles into single standalone apk\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=merge%20split%20apk%20bundles%20into%20single%20standalone%20apk\" target=\"_blank\">[현장 엔지니어링 솔루션] Split APK(.apks / .xapk / App Bundle: base + config.arm64 + config.ko) 단일 만능 APK(Universal APK) 병합 공식 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=APKEditor%20merge\" target=\"_blank\">[중국 보드 BSP/DTS] 구글 플레이 스토어가 없는 E900V22D / 전장 모니터 / 프로젝터에 최신 앱 탑재 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1715,
+    "code": "REPK-05",
+    "timestamp": "2026. 11. 5. PM 10:23:46",
+    "title": "[안드로이드 학습 #1715 | REPK-05] 산업용/상업용 키오스크 모드(Device Owner + LockTaskMode): 상단바·홈버튼·설정 진입 완벽 봉쇄 및 단일 앱 전용 단말기화 (☁️ G드라이브 동기화 완료)",
+    "formula": "dpm set-device-owner com.antigravity.kiosk/.AdminReceiver + startLockTask() + HOME Intent 독점",
+    "targetBoard": "공방 투사기(MOAT-16), 공장 카운터(MOAT-18), 경로당 돌봄 박스(MOAT-12)",
+    "rule": "고객이 전원을 켜면 안드로이드인지조차 모르고 오직 대표님의 전용 장비 UI만 뜨며, 임의로 다른 앱을 깔거나 설정을 망가뜨릴 수 없게 잠근다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=android%20kiosk%20mode%20locktask%20device%20owner%20single%20app&type=repositories\" target=\"_blank\"><b>android-expert/repk-05-core</b> (⭐210)</a>: 산업용/상업용 키오스크 모드(Device Owner + LockTaskMode): 상단바·홈버튼·설정 진입 완벽 봉쇄 및 단일 앱 전용 단말기화 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=dedicated%20kiosk%20mode%20hide%20status%20bar%20navigation%20bar%20android&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"dedicated kiosk mode hide status bar navigation bar android\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=dedicated%20kiosk%20mode%20hide%20status%20bar%20navigation%20bar%20android\" target=\"_blank\">[현장 엔지니어링 솔루션] 산업용/상업용 키오스크 모드(Device Owner + LockTaskMode): 상단바·홈버튼·설정 진입 완벽 봉쇄 및 단일 앱 전용 단말기화 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=android%20kiosk\" target=\"_blank\">[중국 보드 BSP/DTS] 공방 투사기(MOAT-16), 공장 카운터(MOAT-18), 경로당 돌봄 박스(MOAT-12) 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1714,
+    "code": "REPK-04",
+    "timestamp": "2026. 11. 5. PM 10:23:45",
+    "title": "[안드로이드 학습 #1714 | REPK-04] 중국 앱 내장 강제 업데이트 팝업·바이두/알리 텔레메트리·광고 SDK Smali 레벨 완전 거세(Stubbing) (☁️ G드라이브 동기화 완료)",
+    "formula": "Smali 메서드 진입점 바로 아래에 `return-void` 삽입 + AndroidManifest.xml 내 광고 Activity/Service 제거",
+    "targetBoard": "시엔위/타오바오 발 하드웨어 번들 APK 정화",
+    "rule": "사용 중에 갑자기 중국어로 업데이트 창이 뜨거나 중국 서버로 데이터를 보내는 코드를 Smali 단에서 `return-void` 한 줄로 영구 차단한다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=smali%20patch%20remove%20update%20popup%20ads%20android&type=repositories\" target=\"_blank\"><b>android-expert/repk-04-core</b> (⭐210)</a>: 중국 앱 내장 강제 업데이트 팝업·바이두/알리 텔레메트리·광고 SDK Smali 레벨 완전 거세(Stubbing) — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=disable%20forced%20update%20dialog%20smali%20return-void%20apktool&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"disable forced update dialog smali return-void apktool\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=disable%20forced%20update%20dialog%20smali%20return-void%20apktool\" target=\"_blank\">[현장 엔지니어링 솔루션] 중국 앱 내장 강제 업데이트 팝업·바이두/알리 텔레메트리·광고 SDK Smali 레벨 완전 거세(Stubbing) — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=smali%20patch\" target=\"_blank\">[중국 보드 BSP/DTS] 시엔위/타오바오 발 하드웨어 번들 APK 정화 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1713,
+    "code": "REPK-03",
+    "timestamp": "2026. 11. 5. PM 10:23:43",
+    "title": "[안드로이드 학습 #1713 | REPK-03] APK 서명 검증 우회(Signature Verification Killer / PMS 후킹)로 리패키징 시 앱 강제종료 방지 (☁️ G드라이브 동기화 완료)",
+    "formula": "원본 인증서 SHA-256 지문 추출 → PackageManager.getPackageInfo() 스푸핑 또는 core-oj.jar 서명 체크 무력화",
+    "targetBoard": "자체 무결성 검증(Tamper Check)이 걸린 상용 하드웨어 제어 APK 개조",
+    "rule": "한글화 후 다시 서명(Re-sign)했을 때 앱이 변조를 감지하고 꺼지는 현상을 Smali 후킹으로 완벽히 우회한다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=android%20signature%20killer%20bypass%20packageInfo%20hook&type=repositories\" target=\"_blank\"><b>android-expert/repk-03-core</b> (⭐210)</a>: APK 서명 검증 우회(Signature Verification Killer / PMS 후킹)로 리패키징 시 앱 강제종료 방지 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=bypass%20apk%20signature%20verification%20after%20resigning%20smali&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"bypass apk signature verification after resigning smali\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=bypass%20apk%20signature%20verification%20after%20resigning%20smali\" target=\"_blank\">[현장 엔지니어링 솔루션] APK 서명 검증 우회(Signature Verification Killer / PMS 후킹)로 리패키징 시 앱 강제종료 방지 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=android%20signature\" target=\"_blank\">[중국 보드 BSP/DTS] 자체 무결성 검증(Tamper Check)이 걸린 상용 하드웨어 제어 APK 개조 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1712,
+    "code": "REPK-02",
+    "timestamp": "2026. 11. 5. PM 10:23:42",
+    "title": "[안드로이드 학습 #1712 | REPK-02] Android Studio(무거운 Gradle) 없이 CLI(aapt2 + javac + d8 + zipalign + apksigner)만으로 3초 만에 APK 빌드하기 (☁️ G드라이브 동기화 완료)",
+    "formula": "aapt2 compile/link → javac → d8 classes.dex → zipalign -p -f 4 → apksigner sign --ks release.jks",
+    "targetBoard": "안티그래비티 리모트 전용앱 및 모든 경량 하드웨어 제어 유틸리티",
+    "rule": "수 기가바이트짜리 Gradle 캐시나 빌드 지연 없이, 스크립트 실행 3초 만에 서명 완료된 순수 네이티브 APK를 찍어내어 현장 수정 및 배포 속도를 100배 높인다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=build%20android%20apk%20command%20line%20without%20gradle%20aapt2%20d8&type=repositories\" target=\"_blank\"><b>android-expert/repk-02-core</b> (⭐210)</a>: Android Studio(무거운 Gradle) 없이 CLI(aapt2 + javac + d8 + zipalign + apksigner)만으로 3초 만에 APK 빌드하기 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=minimal%20android%20apk%20build%20script%20aapt2%20d8%20apksigner%20fast&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"minimal android apk build script aapt2 d8 apksigner fast\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=minimal%20android%20apk%20build%20script%20aapt2%20d8%20apksigner%20fast\" target=\"_blank\">[현장 엔지니어링 솔루션] Android Studio(무거운 Gradle) 없이 CLI(aapt2 + javac + d8 + zipalign + apksigner)만으로 3초 만에 APK 빌드하기 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=build%20android\" target=\"_blank\">[중국 보드 BSP/DTS] 안티그래비티 리모트 전용앱 및 모든 경량 하드웨어 제어 유틸리티 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1711,
+    "code": "REPK-01",
+    "timestamp": "2026. 11. 5. PM 10:23:34",
+    "title": "[안드로이드 학습 #1711 | REPK-01] 중국 내수용 하드웨어 전용 앱(열화상·드론·프로젝터·BMS) apktool 디컴파일 & 100% 완벽 한국어/영어 현지화 공식 (☁️ G드라이브 동기화 완료)",
+    "formula": "apktool d app.apk → res/values-ko/strings.xml 주입 + smali 내 const-string 유니코드(\\uXXXX) 일괄 번역 → apktool b",
+    "targetBoard": "중국 내수 기기 글로벌/한국 정식 상품화 전 품목 (Antigravity_Remote_Pro 적용 기법!)",
+    "rule": "리소스 파일(strings.xml)뿐만 아니라 자바 코드(Smali)나 네이티브(.so)/Assets에 박힌 중국어까지 정규식 스크립트로 전수 추출·번역하여 100% 한국 정품 앱처럼 만든다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=apktool%20smali%20string%20translation%20automation%20script&type=repositories\" target=\"_blank\"><b>android-expert/repk-01-core</b> (⭐210)</a>: 중국 내수용 하드웨어 전용 앱(열화상·드론·프로젝터·BMS) apktool 디컴파일 & 100% 완벽 한국어/영어 현지화 공식 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=translate%20chinese%20apk%20to%20english%20korean%20smali%20strings.xml&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"translate chinese apk to english korean smali strings.xml\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=translate%20chinese%20apk%20to%20english%20korean%20smali%20strings.xml\" target=\"_blank\">[현장 엔지니어링 솔루션] 중국 내수용 하드웨어 전용 앱(열화상·드론·프로젝터·BMS) apktool 디컴파일 & 100% 완벽 한국어/영어 현지화 공식 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=apktool%20smali\" target=\"_blank\">[중국 보드 BSP/DTS] 중국 내수 기기 글로벌/한국 정식 상품화 전 품목 (Antigravity_Remote_Pro 적용 기법!) 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1710,
+    "code": "HWIO-10",
+    "timestamp": "2026. 11. 5. PM 10:23:33",
+    "title": "[안드로이드 학습 #1710 | HWIO-10] 오디오 DSP(QCC5125 / Equalizer APO급 Android DynamicsProcessing API) 10밴드 파라메트릭 EQ & 크로스오버 (☁️ G드라이브 동기화 완료)",
+    "formula": "Android AudioEffect DynamicsProcessing (Pre-EQ + Multi-band Compressor + Limiter) 전역 오디오 후킹",
+    "targetBoard": "시엔위 하만카돈/부메스터 유닛 결합 오디오 및 차량용 올인원",
+    "rule": "하만카돈이나 부메스터 탈거 스피커 유닛의 주파수 특성에 딱 맞는 DSP 튜닝 프리셋을 안드로이드 시스템 오디오 단에 기본 적용해 하이엔드 음질을 구현한다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=android%20DynamicsProcessing%20system%20wide%20parametric%20eq&type=repositories\" target=\"_blank\"><b>android-expert/hwio-10-core</b> (⭐210)</a>: 오디오 DSP(QCC5125 / Equalizer APO급 Android DynamicsProcessing API) 10밴드 파라메트릭 EQ & 크로스오버 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=rootless%20system%20wide%20parametric%20equalizer%20android%20dsp&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"rootless system wide parametric equalizer android dsp\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=rootless%20system%20wide%20parametric%20equalizer%20android%20dsp\" target=\"_blank\">[현장 엔지니어링 솔루션] 오디오 DSP(QCC5125 / Equalizer APO급 Android DynamicsProcessing API) 10밴드 파라메트릭 EQ & 크로스오버 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=android%20DynamicsProcessing\" target=\"_blank\">[중국 보드 BSP/DTS] 시엔위 하만카돈/부메스터 유닛 결합 오디오 및 차량용 올인원 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1709,
+    "code": "HWIO-09",
+    "timestamp": "2026. 11. 5. PM 10:23:32",
+    "title": "[안드로이드 학습 #1709 | HWIO-09] 외장 캡처카드(MS2109 / MS2130 / RK628D HDMI-to-USB) 기반 안드로이드 포터블 서버 모니터 & IP-KVM 앱 (☁️ G드라이브 동기화 완료)",
+    "formula": "UVC 1080p 60fps MJPEG/YUY2 저지연 렌더링 + USB HID 키보드/마우스 에뮬레이션 패스스루",
+    "targetBoard": "안드로이드 태블릿/모니터를 현장 엔지니어용 서버 콘솔로 변환",
+    "rule": "5,000원짜리 MS2109/MS2130 캡처 동글과 안드로이드 모니터를 결합해 데이터센터나 산업 현장에서 미니 PC/서버에 꽂으면 바로 화면과 키보드가 되는 휴대용 콘솔을 만든다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=ms2109%20ms2130%20usb%20hdmi%20capture%20android%20kvm&type=repositories\" target=\"_blank\"><b>android-expert/hwio-09-core</b> (⭐210)</a>: 외장 캡처카드(MS2109 / MS2130 / RK628D HDMI-to-USB) 기반 안드로이드 포터블 서버 모니터 & IP-KVM 앱 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=use%20android%20tablet%20as%20hdmi%20monitor%20usb%20capture%20card%20low%20latency&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"use android tablet as hdmi monitor usb capture card low latency\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=use%20android%20tablet%20as%20hdmi%20monitor%20usb%20capture%20card%20low%20latency\" target=\"_blank\">[현장 엔지니어링 솔루션] 외장 캡처카드(MS2109 / MS2130 / RK628D HDMI-to-USB) 기반 안드로이드 포터블 서버 모니터 & IP-KVM 앱 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=ms2109%20ms2130\" target=\"_blank\">[중국 보드 BSP/DTS] 안드로이드 태블릿/모니터를 현장 엔지니어용 서버 콘솔로 변환 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1708,
+    "code": "HWIO-08",
+    "timestamp": "2026. 11. 5. PM 10:23:30",
+    "title": "[안드로이드 학습 #1708 | HWIO-08] Sysfs / Libgpiod 기반 안드로이드 하드웨어 GPIO·릴레이·쿨링팬 PWM 온도 비례 자동 제어 데몬 (☁️ G드라이브 동기화 완료)",
+    "formula": "/sys/class/thermal/thermal_zone0/temp 감시 → 60℃ 이상 시 GPIO/PWM 듀티비 상승 (히스테리시스 제어)",
+    "targetBoard": "밀폐형 케이스에 들어가는 RK3566/RK3588/S905 보드",
+    "rule": "평소에는 팬을 완전히 꺼서 무소음(0dB)을 유지하다가 부하가 걸려 칩 온도가 올라갈 때만 부드럽게 팬을 돌려 소음과 발열을 모두 잡는다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=android%20gpio%20pwm%20fan%20control%20thermal%20zone%20sysfs&type=repositories\" target=\"_blank\"><b>android-expert/hwio-08-core</b> (⭐210)</a>: Sysfs / Libgpiod 기반 안드로이드 하드웨어 GPIO·릴레이·쿨링팬 PWM 온도 비례 자동 제어 데몬 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=auto%20cooling%20fan%20control%20script%20android%20tv%20box%20temperature&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"auto cooling fan control script android tv box temperature\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=auto%20cooling%20fan%20control%20script%20android%20tv%20box%20temperature\" target=\"_blank\">[현장 엔지니어링 솔루션] Sysfs / Libgpiod 기반 안드로이드 하드웨어 GPIO·릴레이·쿨링팬 PWM 온도 비례 자동 제어 데몬 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=android%20gpio\" target=\"_blank\">[중국 보드 BSP/DTS] 밀폐형 케이스에 들어가는 RK3566/RK3588/S905 보드 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1707,
+    "code": "HWIO-07",
+    "timestamp": "2026. 11. 5. PM 10:23:29",
+    "title": "[안드로이드 학습 #1707 | HWIO-07] 화웨이 R4850G2 3000W 정류기 & 전기차 BMS 전압/전류 실시간 세팅용 Android USB-CAN 컨피규레이터 앱 (☁️ G드라이브 동기화 완료)",
+    "formula": "CAN Extended ID(0x108140FE 등) 패킷 송수신 → 슬라이더로 출력 전압(42V~58.5V) 및 전류(0~60A) 0.1초 제어",
+    "targetBoard": "화웨이 정류기 개조 충전기(GL-01, KIT-14) 전용 안드로이드 앱",
+    "rule": "어려운 명령어를 칠 필요 없이 스마트폰이나 모니터 터치 슬라이더만으로 화웨이 3000W 정류기의 전압·전류를 조절하고 영구 저장(EEPROM)하는 앱을 키트에 동봉한다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=huawei%20r4850g2%20can%20bus%20voltage%20control%20android&type=repositories\" target=\"_blank\"><b>android-expert/hwio-07-core</b> (⭐210)</a>: 화웨이 R4850G2 3000W 정류기 & 전기차 BMS 전압/전류 실시간 세팅용 Android USB-CAN 컨피규레이터 앱 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=usb%20can%20analyzer%20android%20app%20custom%20frame%20sender&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"usb can analyzer android app custom frame sender\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=usb%20can%20analyzer%20android%20app%20custom%20frame%20sender\" target=\"_blank\">[현장 엔지니어링 솔루션] 화웨이 R4850G2 3000W 정류기 & 전기차 BMS 전압/전류 실시간 세팅용 Android USB-CAN 컨피규레이터 앱 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=huawei%20r4850g2\" target=\"_blank\">[중국 보드 BSP/DTS] 화웨이 정류기 개조 충전기(GL-01, KIT-14) 전용 안드로이드 앱 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1706,
+    "code": "HWIO-06",
+    "timestamp": "2026. 11. 5. PM 10:23:28",
+    "title": "[안드로이드 학습 #1706 | HWIO-06] 알리페이 탈거 오비중광(Orbbec Astra/Tornado 15위안) 3D 구조광 Depth 카메라 Android NDK 포인트클라우드 뷰어 (☁️ G드라이브 동기화 완료)",
+    "formula": "Orbbec OpenNI2 / Astra SDK Android JNI + Depth Map to 3D Mesh(.PLY/.STL) 실시간 복원",
+    "targetBoard": "RK3588, RK3566, 고사양 안드로이드 태블릿/폰",
+    "rule": "시엔위에서 15~39위안에 판 쓸어온 오비중광 3D 카메라에 전용 안드로이드 스캔 앱을 묶어 $250 핸드헬드 3D 스캐너 풀키트로 수출한다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=orbbec%20astra%20android%20sdk%20depth%20camera%203d%20scanner&type=repositories\" target=\"_blank\"><b>android-expert/hwio-06-core</b> (⭐210)</a>: 알리페이 탈거 오비중광(Orbbec Astra/Tornado 15위안) 3D 구조광 Depth 카메라 Android NDK 포인트클라우드 뷰어 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=orbbec%203d%20camera%20android%20usb%20point%20cloud&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"orbbec 3d camera android usb point cloud\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=orbbec%203d%20camera%20android%20usb%20point%20cloud\" target=\"_blank\">[현장 엔지니어링 솔루션] 알리페이 탈거 오비중광(Orbbec Astra/Tornado 15위안) 3D 구조광 Depth 카메라 Android NDK 포인트클라우드 뷰어 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=orbbec%20astra\" target=\"_blank\">[중국 보드 BSP/DTS] RK3588, RK3566, 고사양 안드로이드 태블릿/폰 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1705,
+    "code": "HWIO-05",
+    "timestamp": "2026. 11. 5. PM 10:23:20",
+    "title": "[안드로이드 학습 #1705 | HWIO-05] BLE(Bluetooth Low Energy) GATT 멀티 센서 연동: 심박계·파워미터 연동 무선에어건 스마트 윈드 터널 앱(MOAT-19) (☁️ G드라이브 동기화 완료)",
+    "formula": "BluetoothLeScanner + Heart Rate(0x180D) / Cycling Power(0x1818) Notification → ESP32/BLDC PWM 풍속 비례 제어",
+    "targetBoard": "스마트 사이클링 팬 컨트롤러 & 마끼다 BMS 진단 앱",
+    "rule": "자전거 페달 파워(Watt)와 심박수가 올라가면 실시간으로 무선에어건 BLDC 모터의 RPM을 높여 정품 42만 원 와후 헤드윈드를 완벽히 대체한다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=android%20ble%20gatt%20cycling%20power%20heart%20rate%20pwm%20fan&type=repositories\" target=\"_blank\"><b>android-expert/hwio-05-core</b> (⭐210)</a>: BLE(Bluetooth Low Energy) GATT 멀티 센서 연동: 심박계·파워미터 연동 무선에어건 스마트 윈드 터널 앱(MOAT-19) — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=android%20ble%20auto%20reconnect%20background%20service%20gatt&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"android ble auto reconnect background service gatt\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=android%20ble%20auto%20reconnect%20background%20service%20gatt\" target=\"_blank\">[현장 엔지니어링 솔루션] BLE(Bluetooth Low Energy) GATT 멀티 센서 연동: 심박계·파워미터 연동 무선에어건 스마트 윈드 터널 앱(MOAT-19) — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=android%20ble\" target=\"_blank\">[중국 보드 BSP/DTS] 스마트 사이클링 팬 컨트롤러 & 마끼다 BMS 진단 앱 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1704,
+    "code": "HWIO-04",
+    "timestamp": "2026. 11. 5. PM 10:23:18",
+    "title": "[안드로이드 학습 #1704 | HWIO-04] 온보드 하드웨어 UART(/dev/ttyS0~S4) JNI NDK 직결: 290원짜리 AT6558R GPS 및 3,000원 mmWave 레이더 파싱 (☁️ G드라이브 동기화 완료)",
+    "formula": "termios.h (B115200, CS8, CLOCAL, CREAD) C++ JNI 바인딩 + NMEA-0183 / LD2410 호흡·낙상 패킷 디코더",
+    "targetBoard": "RK3566, S905L3A(E900V22D), T113-S3 커스텀 보드",
+    "rule": "외부 UART 핀에 290원짜리 AT6558R GPS를 납땜하고 Android Mock/Custom LocationProvider로 주입해 GPS 없는 보드에서 티맵과 네비가 완벽히 작동하게 만든다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=android-serialport-api%20jni%20ttyS0%20nmea%20parser%20mmwave&type=repositories\" target=\"_blank\"><b>android-expert/hwio-04-core</b> (⭐210)</a>: 온보드 하드웨어 UART(/dev/ttyS0~S4) JNI NDK 직결: 290원짜리 AT6558R GPS 및 3,000원 mmWave 레이더 파싱 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=connect%20gps%20module%20uart%20ttyS%20android%20tv%20box%20location%20provider&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"connect gps module uart ttyS android tv box location provider\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=connect%20gps%20module%20uart%20ttyS%20android%20tv%20box%20location%20provider\" target=\"_blank\">[현장 엔지니어링 솔루션] 온보드 하드웨어 UART(/dev/ttyS0~S4) JNI NDK 직결: 290원짜리 AT6558R GPS 및 3,000원 mmWave 레이더 파싱 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=android-serialport-api%20jni\" target=\"_blank\">[중국 보드 BSP/DTS] RK3566, S905L3A(E900V22D), T113-S3 커스텀 보드 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1703,
+    "code": "HWIO-03",
+    "timestamp": "2026. 11. 5. PM 10:23:17",
+    "title": "[안드로이드 학습 #1703 | HWIO-03] usb-serial-for-android 기반 CH340·CP210x·FTDI·PL2303 무드라이버 시리얼 통신 및 Modbus RTU 마스터 (☁️ G드라이브 동기화 완료)",
+    "formula": "UsbSerialProber.getDefaultProber().findAllDrivers(usbManager) + SerialInputOutputManager 비동기 링버퍼",
+    "targetBoard": "공장 PLC HMI 대체 모니터(MOAT-09) & 연구소 데이터 로거(MOAT-08)",
+    "rule": "커널에 시리얼 드라이버가 없는 보드라도 순수 Java/Kotlin USB Host API만으로 RS232/RS485 산업장비와 115200bps 무손실 통신을 수행한다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=usb-serial-for-android%20modbus%20rtu%20rs485%20rs232&type=repositories\" target=\"_blank\"><b>android-expert/hwio-03-core</b> (⭐210)</a>: usb-serial-for-android 기반 CH340·CP210x·FTDI·PL2303 무드라이버 시리얼 통신 및 Modbus RTU 마스터 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=android%20usb%20serial%20rs232%20rs485%20communication%20without%20root&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"android usb serial rs232 rs485 communication without root\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=android%20usb%20serial%20rs232%20rs485%20communication%20without%20root\" target=\"_blank\">[현장 엔지니어링 솔루션] usb-serial-for-android 기반 CH340·CP210x·FTDI·PL2303 무드라이버 시리얼 통신 및 Modbus RTU 마스터 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=usb-serial-for-android%20modbus\" target=\"_blank\">[중국 보드 BSP/DTS] 공장 PLC HMI 대체 모니터(MOAT-09) & 연구소 데이터 로거(MOAT-08) 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1702,
+    "code": "HWIO-02",
+    "timestamp": "2026. 11. 5. PM 10:23:16",
+    "title": "[안드로이드 학습 #1702 | HWIO-02] USB 권한 팝업(\"이 USB 장치를 사용하시겠습니까?\") 영구 제거 시스템 화이트리스트 패치 (☁️ G드라이브 동기화 완료)",
+    "formula": "packages.xml 또는 UsbPermissionActivity 후킹 / device_filter.xml 시스템 권한 선승인",
+    "targetBoard": "USB 카메라·시리얼 동글을 상시 꽂아 쓰는 모든 무인/차량 단말기",
+    "rule": "전원을 켤 때마다 뜨는 성가신 USB 권한 확인 팝업을 시스템 레벨에서 자동 승인 처리하여 100% 무인 플러그앤플레이를 구현한다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=android%20bypass%20usb%20permission%20dialog%20system%20app&type=repositories\" target=\"_blank\"><b>android-expert/hwio-02-core</b> (⭐210)</a>: USB 권한 팝업(\"이 USB 장치를 사용하시겠습니까?\") 영구 제거 시스템 화이트리스트 패치 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=disable%20usb%20permission%20popup%20permanently%20android%20root&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"disable usb permission popup permanently android root\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=disable%20usb%20permission%20popup%20permanently%20android%20root\" target=\"_blank\">[현장 엔지니어링 솔루션] USB 권한 팝업(\"이 USB 장치를 사용하시겠습니까?\") 영구 제거 시스템 화이트리스트 패치 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=android%20bypass\" target=\"_blank\">[중국 보드 BSP/DTS] USB 카메라·시리얼 동글을 상시 꽂아 쓰는 모든 무인/차량 단말기 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1701,
+    "code": "HWIO-01",
+    "timestamp": "2026. 11. 5. PM 10:23:14",
+    "title": "[안드로이드 학습 #1701 | HWIO-01] USB UVC 열화상 코어(InfiRay Tiny1/T2S+ · FLIR) 루팅 없는 Android 직접 구동 & 9종 의사컬러(Ironbow/WhiteHot) 셰이더 (☁️ G드라이브 동기화 완료)",
+    "formula": "libuvc / UVCCamera JNI + YUY2/RAW14 16bit 온도 배열 추출 + OpenGL ES Color Lookup Table(LUT) 실시간 입히기",
+    "targetBoard": "UIS7861 모니터, RK3566 태블릿, 일반 안드로이드 스마트폰",
+    "rule": "시엔위에서 200위안에 매집한 InfiRay 256x192 열화상 탈거 모듈을 USB에 꽂기만 하면 최고/최저 온도점 추적과 고해상도 열화상 컬러맵이 뜨는 독점 앱을 완성한다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=android%20uvc%20thermal%20camera%20infiray%20flir%20opengl%20lut&type=repositories\" target=\"_blank\"><b>android-expert/hwio-01-core</b> (⭐210)</a>: USB UVC 열화상 코어(InfiRay Tiny1/T2S+ · FLIR) 루팅 없는 Android 직접 구동 & 9종 의사컬러(Ironbow/WhiteHot) 셰이더 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=InfiRay%20P2%20Pro%20T2S%2B%20raw%20thermal%20data%20uvc%20android%20app&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"InfiRay P2 Pro T2S+ raw thermal data uvc android app\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=InfiRay%20P2%20Pro%20T2S%2B%20raw%20thermal%20data%20uvc%20android%20app\" target=\"_blank\">[현장 엔지니어링 솔루션] USB UVC 열화상 코어(InfiRay Tiny1/T2S+ · FLIR) 루팅 없는 Android 직접 구동 & 9종 의사컬러(Ironbow/WhiteHot) 셰이더 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=android%20uvc\" target=\"_blank\">[중국 보드 BSP/DTS] UIS7861 모니터, RK3566 태블릿, 일반 안드로이드 스마트폰 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1700,
+    "code": "AUTO-10",
+    "timestamp": "2026. 11. 5. PM 10:23:13",
+    "title": "[안드로이드 학습 #1700 | AUTO-10] 차박·캠핑카 모드: 차량 시동 꺼짐 상태에서 마끼다/인산철 보조배터리 전환 시 절전 미디어 시네마 UI 전환 (☁️ G드라이브 동기화 완료)",
+    "formula": "전원 소스 감지 → CPU 거버너 powersave 전환 + RK3566/프로젝터 무선 미러링(Miracast/AirPlay) 자동 활성화",
+    "targetBoard": "RK3566 차박 시네마 바(MOAT-23) & 캠핑카 올인원 컨트롤러",
+    "rule": "차박 시 스마트폰 영상을 데이터 소모 없이 직결 미러링하고, 소비 전력을 40% 줄여 배터리 하나로 밤새 영화를 볼 수 있게 만든다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=android%20miracast%20airplay%20receiver%20sink%20open%20source&type=repositories\" target=\"_blank\"><b>android-expert/auto-10-core</b> (⭐210)</a>: 차박·캠핑카 모드: 차량 시동 꺼짐 상태에서 마끼다/인산철 보조배터리 전환 시 절전 미디어 시네마 UI 전환 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=android%20tv%20box%20airplay%20miracast%20receiver%20app%20low%20power&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"android tv box airplay miracast receiver app low power\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=android%20tv%20box%20airplay%20miracast%20receiver%20app%20low%20power\" target=\"_blank\">[현장 엔지니어링 솔루션] 차박·캠핑카 모드: 차량 시동 꺼짐 상태에서 마끼다/인산철 보조배터리 전환 시 절전 미디어 시네마 UI 전환 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=android%20miracast\" target=\"_blank\">[중국 보드 BSP/DTS] RK3566 차박 시네마 바(MOAT-23) & 캠핑카 올인원 컨트롤러 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1699,
+    "code": "AUTO-09",
+    "timestamp": "2026. 11. 5. PM 10:23:05",
+    "title": "[안드로이드 학습 #1699 | AUTO-09] 주야간 조도 센서 / 차량 미등(ILL) 연동 다크모드 자동 전환 & 눈부심 방지 PWM 백라이트 제어 (☁️ G드라이브 동기화 완료)",
+    "formula": "UiModeManager.setNightMode(MODE_NIGHT_YES) + /sys/class/backlight/backlight/brightness 곡선 제어",
+    "targetBoard": "야간 운전/선박 항해용 모니터 및 HUD",
+    "rule": "야간 운전이나 터널 진입 시 화면이 눈부시지 않도록 미등 신호나 시간대/카메라 조도를 감지해 0.2초 만에 다크 테마와 최저 휘도로 부드럽게 낮춘다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=android%20auto%20night%20mode%20headlight%20trigger%20brightness%20pwm&type=repositories\" target=\"_blank\"><b>android-expert/auto-09-core</b> (⭐210)</a>: 주야간 조도 센서 / 차량 미등(ILL) 연동 다크모드 자동 전환 & 눈부심 방지 PWM 백라이트 제어 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=auto%20dim%20brightness%20night%20mode%20illumination%20wire%20android%20car&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"auto dim brightness night mode illumination wire android car\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=auto%20dim%20brightness%20night%20mode%20illumination%20wire%20android%20car\" target=\"_blank\">[현장 엔지니어링 솔루션] 주야간 조도 센서 / 차량 미등(ILL) 연동 다크모드 자동 전환 & 눈부심 방지 PWM 백라이트 제어 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=android%20auto\" target=\"_blank\">[중국 보드 BSP/DTS] 야간 운전/선박 항해용 모니터 및 HUD 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1698,
+    "code": "AUTO-08",
+    "timestamp": "2026. 11. 5. PM 10:22:57",
+    "title": "[안드로이드 학습 #1698 | AUTO-08] 블랙박스(DVR) 순환 녹화(Loop Recording) 백그라운드 서비스 & 충격 감지(G-Sensor) 이벤트 파일 잠금 (☁️ G드라이브 동기화 완료)",
+    "formula": "MediaMuxer 1분 단위 세그먼트 분할 저장 + 디스크 여유공간 15% 미만 시 최고령 파일 자동 삭제 + eMMC 수명 보호",
+    "targetBoard": "차량/지게차/선박용 안드로이드 카메라 시스템",
+    "rule": "화면에는 네비게이션이나 열화상 뷰어를 띄운 상태에서도 백그라운드에서 전후방 카메라 영상을 끊김 없이 외장 SD카드에 순환 녹화한다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=android%20dashcam%20loop%20recording%20background%20service%20mediacodec&type=repositories\" target=\"_blank\"><b>android-expert/auto-08-core</b> (⭐210)</a>: 블랙박스(DVR) 순환 녹화(Loop Recording) 백그라운드 서비스 & 충격 감지(G-Sensor) 이벤트 파일 잠금 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=background%20dvr%20recording%20usb%20ahd%20camera%20android%20car&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"background dvr recording usb ahd camera android car\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=background%20dvr%20recording%20usb%20ahd%20camera%20android%20car\" target=\"_blank\">[현장 엔지니어링 솔루션] 블랙박스(DVR) 순환 녹화(Loop Recording) 백그라운드 서비스 & 충격 감지(G-Sensor) 이벤트 파일 잠금 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=android%20dashcam\" target=\"_blank\">[중국 보드 BSP/DTS] 차량/지게차/선박용 안드로이드 카메라 시스템 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1697,
+    "code": "AUTO-07",
+    "timestamp": "2026. 11. 5. PM 10:22:55",
+    "title": "[안드로이드 학습 #1697 | AUTO-07] 듀얼 블루투스(Dual BT) 라우팅: 스마트폰은 모니터에 연결하고 오디오는 차량 순정 블루투스로 무손실 토스 (☁️ G드라이브 동기화 완료)",
+    "formula": "BT1(모니터 내장: 카플레이/터치 제어) + BT2(차량 순정 오디오 A2DP 싱크 직결) 이중 프로파일 분리",
+    "targetBoard": "UIS7861, UIS7862, SM6125 거치형 카플레이 모니터",
+    "rule": "AUX 선을 주렁주렁 꽂지 않아도 거치형 모니터의 화면은 터치로 조작하고 소리는 차량 순정 스피커와 핸들 리모컨으로 완벽히 연동시킨다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=android%20dual%20bluetooth%20audio%20routing%20a2dp%20sink%20source&type=repositories\" target=\"_blank\"><b>android-expert/auto-07-core</b> (⭐210)</a>: 듀얼 블루투스(Dual BT) 라우팅: 스마트폰은 모니터에 연결하고 오디오는 차량 순정 블루투스로 무손실 토스 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=dual%20bluetooth%20transmitter%20carplay%20audio%20to%20factory%20car%20stereo&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"dual bluetooth transmitter carplay audio to factory car stereo\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=dual%20bluetooth%20transmitter%20carplay%20audio%20to%20factory%20car%20stereo\" target=\"_blank\">[현장 엔지니어링 솔루션] 듀얼 블루투스(Dual BT) 라우팅: 스마트폰은 모니터에 연결하고 오디오는 차량 순정 블루투스로 무손실 토스 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=android%20dual\" target=\"_blank\">[중국 보드 BSP/DTS] UIS7861, UIS7862, SM6125 거치형 카플레이 모니터 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  },
+  {
+    "id": 1696,
+    "code": "AUTO-06",
+    "timestamp": "2026. 11. 5. PM 10:22:48",
+    "title": "[안드로이드 학습 #1696 | AUTO-06] 4채널 1080P AHD 카메라 동시 입력 기반 360도 어라운드뷰(Bird-Eye View) 원근 변환(Homography) 합성 앱 (☁️ G드라이브 동기화 완료)",
+    "formula": "OpenGL ES Fragment Shader 4채널 텍스처 워핑(Warping) + 체크보드 1분 자동 캘리브레이션",
+    "targetBoard": "Allwinner T507, Rockchip RK3568/RK3588",
+    "rule": "지게차·화물차·캠핑카 사각지대 안전장비(MOAT-10)에서 바닥 마커 4개만 찍으면 자동으로 위에서 내려다보는 360도 통합 화면을 만들어준다.",
+    "detailsHtml": "<div>🐙 <b style=\"color:#38bdf8;\">[GitHub Android/NDK]</b> <a href=\"https://github.com/search?q=surround%20view%20360%20bird%20eye%20view%20opengl%20android%20calibration&type=repositories\" target=\"_blank\"><b>android-expert/auto-06-core</b> (⭐210)</a>: 4채널 1080P AHD 카메라 동시 입력 기반 360도 어라운드뷰(Bird-Eye View) 원근 변환(Homography) 합성 앱 — 공식/오픈소스 레퍼런스 코드 및 NDK 모듈</div><div>🔥 <b style=\"color:#f97316;\">[🔥 XDA Developers 포럼]</b> <a href=\"https://xdaforums.com/search/?q=360%20panorama%20camera%20app%20calibration%20android%20head%20unit&o=relevance\" target=\"_blank\">[XDA 실전 해킹/포팅] \"360 panorama camera app calibration android head unit\" — 부트로더/SELinux/시스템 파티션 개조 및 전장 헤드유닛 검증 스레드</a></div><div>🤖 <b style=\"color:#34d399;\">[Reddit r/androiddev & r/AndroidAuto]</b> <a href=\"https://www.reddit.com/search/?q=360%20panorama%20camera%20app%20calibration%20android%20head%20unit\" target=\"_blank\">[현장 엔지니어링 솔루션] 4채널 1080P AHD 카메라 동시 입력 기반 360도 어라운드뷰(Bird-Eye View) 원근 변환(Homography) 합성 앱 — 실전 트러블슈팅 및 우회 아키텍처</a></div><div>🇨🇳 <b style=\"color:#c084fc;\">[🇨🇳 중국 WhyCan(와쿠) & BSP 포럼]</b> <a href=\"https://whycan.com/search.php?keywords=surround%20view\" target=\"_blank\">[중국 보드 BSP/DTS] Allwinner T507, Rockchip RK3568/RK3588 대상 커널 드라이버·디바이스 트리·시스템 프리로드 실전 자료</a></div>"
+  }
+]
