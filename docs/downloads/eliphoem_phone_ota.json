@@ -1,1 +1,8 @@
-﻿{"ok":true,"version":"v5.0","build":50,"brand":"ELIPHOEM","title":"자동 핫스팟","connMode":"AA_5G","autoOff":true,"apkUrl":"https://raw.githubusercontent.com/zespy2614-jpg/korea-spart-24h-cloud/main/docs/downloads/OneUI_AutoHotspot_Phone.apk"}
+{
+  "version": "5.2",
+  "build": 52,
+  "title": "ELIPHOEM 자동 핫스팟 v5.2 (삼성 One UI 심플 정통 디자인)",
+  "apk_url": "https://raw.githubusercontent.com/pjs85111-hue/antigravity-cloud-control/main/docs/downloads/OneUI_AutoHotspot_Phone.apk",
+  "backup_url": "http://192.168.43.1:8580/OneUI_AutoHotspot_Phone.apk",
+  "notes": "조잡한 아이콘 및 탭바 제거, 삼성 One UI 순정 스타일 단일 카드 + 안드로이드 오토 연결하기 버튼 적용"
+}
