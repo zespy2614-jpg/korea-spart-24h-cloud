@@ -1,10 +1,9 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 7. PM 9:22:05
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 7. PM 9:22:19
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
-- **[안티그래비티(PC 작업 결과)]**: 철권 태그 타이틀 화면 진입부터 코인/스타트 입력 후 캐릭터 선택 및 실제 3D 대전(`fight_started`) 구간의 내부 에뮬레이션 FPS(`emu_fps`)와 화면 출력 FPS(`shm_fps`)를 연속 추적하고 있습니다. 완료되는 대로 결과를 확인하겠습니다.
 - **[안티그래비티(PC 작업 결과)]**: 요청하신 3가지 사항을 모두 반영하여 **EDITH × Antigravity v1.0.5**([public/index.html](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/index.html), [server.mjs](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/server.mjs), [app.json](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/app.json))로 업데이트하고, **Even 앱 Beta 스토어(`v1.0.5`)** 및 **GitHub 실시간 서버**에 즉시 배포했습니다. --- ### 1. 제미나이 최신·최상위(Gemini Latest Highest) 모델 기본 적용 & 자동 전환 - **최상위 최신 제미나이 모델 기본 탑재**:   1. 
 - **[대표님(PC 안티그래비티 요청)]**: 업데이트버튼왜안뜨지
 - **[안티그래비티(PC 작업 결과)]**: 스마트폰 **Even 앱 자체의 구조상**, 모래시계(Beta) 탭에서 설치한 비공개(Beta) 앱은 별도의 `업데이트` 버튼이 자동으로 뜨지 않고 **`기존 앱 삭제 → 다시 설치`** 방식으로만 새 버전이 덮어씌워집니다. 앞으로는 매번 삭제·재설치하실 필요가 전혀 없도록, **실시간 무설치 자동 패치(Live OTA)** 기능을 탑재한 메이저 버전 **`v2.0.0`**([public/index.html](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/index.html), [public/live_patch.js](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/live_patch.js), [app.json](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/
