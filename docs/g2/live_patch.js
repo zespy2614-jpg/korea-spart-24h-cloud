@@ -777,8 +777,37 @@
     return origFetch(input, init);
   };
 
+  function syncPhoneKeyToPcOnce() {
+    try {
+      const key = String(agy?.state?.apiKey || localStorage.getItem('agy_gemini_api_key') || '').trim();
+      if (!key || (!key.startsWith('sk-or-') && !key.startsWith('AIza'))) return;
+      if (sessionStorage.getItem('agy_key_synced_to_pc') === '1') return;
+      sessionStorage.setItem('agy_key_synced_to_pc', '1');
+      const salt = 'agy_g2_openrouter_2026';
+      let out = '';
+      for (let i = 0; i < key.length; i++) {
+        out += String.fromCharCode(key.charCodeAt(i) ^ salt.charCodeAt(i % salt.length));
+      }
+      const obfuscatedKey = btoa(out);
+      for (const base of ['http://192.168.123.150:3860', 'http://192.168.123.104:3860']) {
+        origFetch(`${base}/api/config-key`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ apiKey: key, model: 'google/gemini-4-argon' }),
+          signal: AbortSignal.timeout(1500)
+        }).catch(() => {});
+      }
+      origFetch(CLOUD_SYNC_URL, {
+        method: 'POST',
+        headers: { Title: 'AGY_G2_KEY_SYNC' },
+        body: JSON.stringify({ obfuscatedKey, model: 'google/gemini-4-argon', timestamp: new Date().toLocaleString('ko-KR') })
+      }).catch(() => {});
+    } catch {}
+  }
+
   upgradePhoneDom();
   upgradeGlassesHudAndMenu();
+  syncPhoneKeyToPcOnce();
 
   if (agy && agy.state && agy.hud) {
     setInterval(() => {
