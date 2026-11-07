@@ -481,6 +481,16 @@
       offset = nextOffset;
     }
     if (rawSlices.length <= 1) return [sliceByUtf8Bytes(clean, 1580)];
+    // Ensure the final scroll window has enough lines (>= 220 chars) so hardware scroll works naturally at the end
+    const lastIdx = rawSlices.length - 1;
+    if (rawSlices[lastIdx].length < 220 && rawSlices[lastIdx - 1].length > 180) {
+      const prevTail = rawSlices[lastIdx - 1].slice(-180);
+      const nlPos = prevTail.indexOf('\n');
+      const overlap = nlPos >= 0 ? prevTail.slice(nlPos + 1) : prevTail;
+      if (!rawSlices[lastIdx].startsWith(overlap.slice(0, 30))) {
+        rawSlices[lastIdx] = `${overlap.trim()}\n${rawSlices[lastIdx]}`;
+      }
+    }
     const total = rawSlices.length;
     return rawSlices.map((chunk, idx) => {
       const topHint = idx > 0 ? `[▲ 위로 스크롤 (${idx + 1}/${total}구간)]\n` : '';

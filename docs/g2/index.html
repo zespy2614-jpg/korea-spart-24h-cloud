@@ -1537,16 +1537,16 @@
           if (update[slot] !== undefined) {
             if (slot === 'body') {
               const incoming = String(update.body || ' ');
-              window.__EDITH_FULL_BODY__ = incoming;
-              const isCleanText = !incoming.startsWith('[▲ 위로 스크롤:') && !incoming.includes('[▼ 계속 아래로 스크롤');
-              if (isCleanText) {
+              const isAlreadyWindowed =
+                incoming.includes('[▲ 위로 스크롤') ||
+                incoming.includes('[▼ 계속') ||
+                incoming.includes('[■ 답변 끝') ||
+                incoming.includes('[■ 전체 답변 끝');
+              if (!isAlreadyWindowed) {
+                window.__EDITH_FULL_BODY__ = incoming;
                 window.__EDITH_SCROLL_WINDOWS__ = buildScrollWindows(incoming);
                 if (typeof window.__EDITH_SCROLL_INDEX__ !== 'number' || window.__EDITH_SCROLL_INDEX__ >= window.__EDITH_SCROLL_WINDOWS__.length) {
                   window.__EDITH_SCROLL_INDEX__ = 0;
-                }
-                // While streaming, follow latest window if user hasn't scrolled manually
-                if (state?.mode === 'answering') {
-                  window.__EDITH_SCROLL_INDEX__ = Math.max(0, window.__EDITH_SCROLL_WINDOWS__.length - 1);
                 }
                 this.wanted.body = window.__EDITH_SCROLL_WINDOWS__[window.__EDITH_SCROLL_INDEX__] || incoming;
               } else {
@@ -3585,8 +3585,17 @@
     /* ── Even G2 Hardware Event Handling (Long-Press Only — Zero False Tap Triggers) ── */
     function eventTypeOf(event) {
       const env = event.sysEvent ?? event.textEvent ?? event.listEvent;
-      if (!env || env.eventType === undefined || env.eventType === null) return null;
-      return env.eventType;
+      if (!env) return null;
+      if (env.eventType !== undefined && env.eventType !== null) return env.eventType;
+      // Protobuf3 omits default enum 0 (OsEventTypeList.CLICK_EVENT = 0) on textEvent / listEvent / sysEvent!
+      if (
+        event.textEvent ||
+        event.listEvent ||
+        (event.sysEvent && !event.sysEvent.imuData && event.sysEvent.systemExitReasonCode === undefined)
+      ) {
+        return OsEventTypeList.CLICK_EVENT;
+      }
+      return null;
     }
 
     function ensureLastConversationLoaded() {
