@@ -1,14 +1,22 @@
 {
-  "updatedAt": "2026. 11. 8. AM 12:06:32",
-  "pinnedReminder": "그리고 글자가 좀 잘리게 나오는 것 같은데 왼쪽으로",
+  "updatedAt": "2026. 11. 8. AM 12:30:13",
+  "pinnedReminder": "오케이 경영학 내가 배워야 할 것 좀 길게 얘기해 줘 봐 잘 되는지 한번 확인해 보게",
   "items": [
+    {
+      "id": "mem_1794065413103_ulj7",
+      "category": "PC원격작업",
+      "fact": "오케이 경영학 내가 배워야 할 것 좀 길게 얘기해 줘 봐 잘 되는지 한번 확인해 보게",
+      "sourceQuestion": "오케이 경영학 내가 배워야 할 것 좀 길게 얘기해 줘 봐 잘 되는지 한번 확인해 보게",
+      "createdAt": "2026. 11. 8. AM 12:30:13",
+      "pinned": true
+    },
     {
       "id": "mem_1794063992806_tarr",
       "category": "PC원격작업",
       "fact": "그리고 글자가 좀 잘리게 나오는 것 같은데 왼쪽으로",
       "sourceQuestion": "그리고 글자가 좀 잘리게 나오는 것 같은데 왼쪽으로",
       "createdAt": "2026. 11. 8. AM 12:06:32",
-      "pinned": true
+      "pinned": false
     },
     {
       "id": "mem_1794061877636_lavz",

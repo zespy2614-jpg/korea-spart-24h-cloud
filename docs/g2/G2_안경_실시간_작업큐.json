@@ -1,9 +1,17 @@
 {
-  "updatedAt": "2026. 11. 8. AM 12:06:49",
+  "updatedAt": "2026. 11. 8. AM 12:30:13",
   "bridgeStatus": "active",
   "autoInjectIdeWindow": true,
   "autoRunLocalAgent": true,
   "tasks": [
+    {
+      "id": "task_1794065413098",
+      "timestamp": "2026. 11. 8. AM 12:30:13",
+      "command": "오케이 경영학 내가 배워야 할 것 좀 길게 얘기해 줘 봐 잘 되는지 한번 확인해 보게",
+      "action": "auto_task",
+      "status": "running",
+      "resultSummary": "PC 로컬 데몬 및 안티그래비티 브릿지 실행 중..."
+    },
     {
       "id": "task_1794063992803",
       "timestamp": "2026. 11. 8. AM 12:06:32",
