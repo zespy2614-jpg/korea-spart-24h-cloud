@@ -2138,7 +2138,7 @@
       }
       setPhoneState('idle');
       if (note) {
-        const body = `${note}\n\n▶ 길게 눌러 말하거나, 탭하고 말하세요.\n◆ 탭한 다음 길게 누르면 메뉴.\n◆ 두 번 탭하면 시계 대기 / 종료.`;
+        const body = `${note}\n\n▶ 길게 눌러 말씀하세요 (한 번 탭 오작동 방지됨).\n◆ 탭한 다음 길게 누르면 메뉴.\n◆ 두 번 탭하면 시계 대기 / 종료.`;
         state.statusKind = 'online';
         hud.set({ title: titleLine, status: formatStatusLine(), body: clip(body, 1990) });
       } else if (state.last) {
@@ -2160,7 +2160,6 @@
         state.statusKind = 'online';
         hud.set({ title: titleLine, status: formatStatusLine(), body: clip(body, 1990) });
       }
-      ensureWakeWordStandby();
     }
 
     function enterClockStandby() {
