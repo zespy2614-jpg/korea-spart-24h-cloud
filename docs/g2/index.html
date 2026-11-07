@@ -963,21 +963,18 @@
       <summary>설정</summary>
 
       <div class="field">
-        <span class="field-label">내 AI (Google Gemini Latest 최상위 기본 적용)</span>
+        <span class="field-label">내 AI (고성능 High 추론 모델 기본 적용 — 거짓말·할루시네이션 방지)</span>
         <select id="modelSelect" aria-label="AI 모델 선택">
-          <option value="google/gemini-4-argon">Google Gemini 4 Argon: 최신 최상위 제미나이 4 플래그십 (기본)</option>
-          <option value="google/gemini-omni-1.2-flash">Google Gemini Omni 1.2 Flash: 가장 최근 출시 최신 옴니 1.2</option>
-          <option value="google/gemini-3.8-flash">Google Gemini 3.8 Flash: EDITH 최신 초고속 음성/대화 플래그십</option>
-          <option value="google/gemini-3.1-pro-preview">Google Gemini 3.1 Pro: 최신 심층 추론 Pro 모델</option>
-          <option value="google/gemini-2.5-pro">Google Gemini 2.5 Pro: 대용량 두뇌, 깊은 사고</option>
-          <option value="google/gemini-2.5-flash">Google Gemini 2.5 Flash: 초고속 음성 직결</option>
-          <option value="anthropic/claude-sonnet-4">Anthropic Claude Sonnet 4: 초고성능 올라운더</option>
-          <option value="anthropic/claude-opus-4">Anthropic Claude Opus 4: 최고 지능, 깊은 추론</option>
-          <option value="x-ai/grok-3">xAI Grok 3: 실시간 비즈니스/소싱 추론</option>
-          <option value="openai/gpt-4o">OpenAI GPT-4o: 플래그십 범용 모델</option>
-          <option value="deepseek/deepseek-chat-v3-0324">DeepSeek V3: 빠르고 저렴함</option>
+          <option value="google/gemini-4-argon">Google Gemini 4 Argon (High Reasoning): 최상위 제미나이 4 심층추론 플래그십 (기본)</option>
+          <option value="google/gemini-3.1-pro-preview">Google Gemini 3.1 Pro (High Reasoning): 최신 프론티어 심층 추론 Pro 모델</option>
+          <option value="anthropic/claude-opus-5.5">Anthropic Claude Opus 5.5 (High Reasoning): 최고 지능·무결점 추론 플래그십</option>
+          <option value="anthropic/claude-sonnet-5.5">Anthropic Claude Sonnet 5.5 (High Reasoning): 초고성능 심층 분석 모델</option>
+          <option value="openai/gpt-5.6-luna-pro">OpenAI GPT-5.6 Luna Pro (High Reasoning): 최신 최상위 Pro 추론 모델</option>
+          <option value="google/gemini-2.5-pro">Google Gemini 2.5 Pro (High Reasoning): 대용량 두뇌, 깊은 사고</option>
+          <option value="x-ai/grok-4.7">xAI Grok 4.7 (High Reasoning): 실시간 비즈니스/소싱 심층 추론</option>
+          <option value="google/gemini-3.8-flash">Google Gemini 3.8 Flash: 고지능 멀티모달 음성/대화 모델</option>
         </select>
-        <span class="help">최신 최상위 제미나이(Gemini 4 Argon / Omni 1.2 / 3.8 Flash / 3.1 Pro)가 기본 적용되어 있으며 자동 폴백을 지원합니다.</span>
+        <span class="help">빠른 단답 대신 사실 검증과 깊은 사고(High Reasoning Effort)를 수행하는 최상위 고성능 모델이 기본 적용되어 있습니다.</span>
       </div>
 
       <div class="field">
@@ -992,16 +989,16 @@
       <div class="field">
         <span class="field-label">안경 설정</span>
         <label class="check">
-          <input id="prefFollowUp" type="checkbox" checked />
-          <span>답변 후에도 잠시 계속 들어서 바로 이어 말할 수 있습니다</span>
+          <input id="prefFollowUp" type="checkbox" />
+          <span>답변 후 자동 연속 듣기 (오작동 방지를 위해 기본 꺼짐 권장)</span>
         </label>
         <label class="check">
           <input id="prefDoubleTapClock" type="checkbox" checked />
           <span>두 번 탭 시 앱 종료 대신 '시계 대기 화면'으로 먼저 전환 (시계 대기에서 한 번 더 두 번 탭 시 종료)</span>
         </label>
         <label class="check">
-          <input id="prefWakeWord" type="checkbox" checked />
-          <span>"하이 제미나이" 또는 "에디스" 음성 호출어 상시 대기</span>
+          <input id="prefWakeWord" type="checkbox" />
+          <span>"하이 제미나이" 음성 호출어 대기 (오작동 방지를 위해 기본 꺼짐 권장)</span>
         </label>
         <label class="check">
           <input id="prefDiscreet" type="checkbox" />
@@ -1017,7 +1014,7 @@
 
       <div class="field">
         <span class="field-label">정보</span>
-        <span class="help">버전: <span class="mono">EDITH 2.0 × Antigravity v2.0.0 (Live OTA + Gemini Latest)</span></span>
+        <span class="help">버전: <span class="mono">EDITH 2.0 × Antigravity v3.1.0 (High Reasoning + 정밀 음성인식 + 롱프레스 전용)</span></span>
         <span class="help">동기화 저장소: <span class="mono">zespy2614-jpg/korea-spart-24h-cloud</span></span>
       </div>
     </details>
