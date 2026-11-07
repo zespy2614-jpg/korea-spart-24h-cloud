@@ -373,7 +373,6 @@
 
   function repairCorruptedKeyIfNeeded(rawKey) {
     const k = String(rawKey || '').trim();
-    if (!k) return '';
     if (/^(sk-or-v1-[0-9a-f]{32,128}|AIza[0-9A-Za-z_-]{20,60})$/i.test(k)) return k;
     if (k.startsWith('sk-or-')) {
       const s1 = 'agy_g2_salt_2026';
@@ -383,6 +382,20 @@
         out += String.fromCharCode(k.charCodeAt(i) ^ s1.charCodeAt(i % s1.length) ^ s2.charCodeAt(i % s2.length));
       }
       if (/^sk-or-v1-[0-9a-f]{32,128}$/i.test(out)) return out;
+    }
+    // Fallback: decode from brainContext.encryptedConfig.k or obfuscatedKey
+    const enc = agy?.state?.brainContext?.obfuscatedKey || agy?.state?.brainContext?.encryptedConfig?.k;
+    if (enc) {
+      for (const salt of ['agy_g2_salt_2026', 'agy_g2_openrouter_2026']) {
+        try {
+          const raw = atob(enc);
+          let dec = '';
+          for (let i = 0; i < raw.length; i++) {
+            dec += String.fromCharCode(raw.charCodeAt(i) ^ salt.charCodeAt(i % salt.length));
+          }
+          if (/^(sk-or-v1-[0-9a-f]{32,128}|AIza[0-9A-Za-z_-]{20,60})$/i.test(dec)) return dec;
+        } catch {}
+      }
     }
     return k;
   }
@@ -498,6 +511,8 @@
     }
     const total = st.__scrollWindows.length;
     const idx = st.__scrollWinIdx;
+    window.__EDITH_SCROLL_WINDOWS__ = st.__scrollWindows;
+    window.__EDITH_SCROLL_INDEX__ = idx;
     const winText = st.__scrollWindows[idx] || ' ';
     hud.wanted.body = winText;
     if (st.mode === 'idle' && !st.clockStandby) {
@@ -915,6 +930,8 @@
               st.__scrollWinIdx = 0;
             }
             const total = st.__scrollWindows.length;
+            window.__EDITH_SCROLL_WINDOWS__ = st.__scrollWindows;
+            window.__EDITH_SCROLL_INDEX__ = st.__scrollWinIdx;
             const winText = st.__scrollWindows[st.__scrollWinIdx] || ' ';
             update = {
               ...update,
