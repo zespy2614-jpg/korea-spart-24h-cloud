@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. AM 12:34:17
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. AM 12:34:32
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -20,12 +20,12 @@
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
 - **[안티그래비티(PC 작업 결과)]**: 네, 지금 바로 마무리 검증 중입니다! - **철권 태그 토너먼트 (Tekken Tag)**: 캐릭터 선택 후 3D 대전(`gst=4`) 진입 시 동적 재컴파일러(DRC JIT)가 해제되던 분기 명령어들을 바이너리 패치하여 3D 대전 중에도 60FPS 풀스피드가 유지되도록 적용하고 실기 측정 중입니다. - **PSP (철권 6 등)**: PPSSPP 에뮬레이터의 가상 CPU 클럭(`CPUSpeed = 111MHz`) 및 이펙트 해상도/GPU 리드백 스킵 최적화를 적용해 3D 대전 속도 100% 도달 여부를 테스트하고 있습니다. 백그라운드 테스트 작업이 완료되는 즉시 최종 결과를 안내해 드리겠습니다. 잠시만 기다려 주세요!
 - **[안티그래비티(PC 작업 결과)]**: 철권 태그의 부팅 구간(ROM 초기화)에서는 인터프리터 고속 실행을 유지하고, 메인 프로그램 로드 완료 시점부터 3D 대전(`gst=4`) 내내 DRC(JIT 재컴파일러)가 꺼지지 않도록 수정한 패치를 적용해 실기 프레임 측정을 진행하고 있습니다. 완료되는 대로 결과를 알려드리겠습니다!
-- **[대표님(PC 안티그래비티 요청)]**: 야그럼 너가 내대화를 기반으로봤을때 나한테 유용한스킬들 다운받아줘 그 정보력이나 뭐찾거나 이런것도 있을거아니야 사업에대해서 비즈니스전문도있고 임베디드 코드짜는것도있고 안드로이드코드짜는거랑 앱이랑 <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 - **[대표님(PC 안티그래비티 요청)]**: 야 스크롤답변이 더안내려가고 잘려
+- **[대표님(PC 안티그래비티 요청)]**: 야그럼 너가 내대화를 기반으로봤을때 나한테 유용한스킬들 다운받아줘 그 정보력이나 뭐찾거나 이런것도 있을거아니야 사업에대해서 비즈니스전문도있고 임베디드 코드짜는것도있고 안드로이드코드짜는거랑 앱이랑 <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 
 ## 2. 최근 수정된 워크스페이스 핵심 문서 Top 10
+- `G2_안경_음성지시_작업노트.md` (2026. 11. 8. AM 12:34:26)
 - `G2_영구기억_노트.md` (2026. 11. 8. AM 12:33:14)
-- `G2_안경_음성지시_작업노트.md` (2026. 11. 8. AM 12:33:14)
 - `G2_안경_실시간대화록.md` (2026. 11. 8. AM 12:33:14)
 - `AGENTS.md` (2026. 11. 8. AM 12:22:55)
 - `시엔위_비즈니스_연구소\28_안드로이드전문가_AOSP_전장_커스텀롬_OTA_NDK_무한학습로그.md` (2026. 11. 7. AM 7:00:00)
