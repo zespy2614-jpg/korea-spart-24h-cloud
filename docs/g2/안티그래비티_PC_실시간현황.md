@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. AM 8:48:03
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. AM 8:48:19
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -21,10 +21,10 @@
 - **[비즈니스]**: 지파츠 이베이 40선 실시간 재고 감시 및 8개국 크로스보더 80선(순마진 30% 이상 보장 공식)이 24시간 가동 중입니다.
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
+- **[대표님(PC 안티그래비티 요청)]**: 내꺼 네이버메일 kanjji 이거들어가서 avask에서 메일온거 나 아바스크한번도 사용한적없다 돈만 많이냈었다이거 미납금하고 위약금못내겠다라고담당자 찾아서 메일보내줄래 보내기전에 요약문 보여주고 <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 - **[안티그래비티(PC 작업 결과)]**: 안경에서 추가로 지시하신 두 가지 사항을 모두 감지하여 **`v3.2.4`**로 즉시 수정 및 배포 중입니다: 1. **"응 그 가운데 위에 짝대기 하나 있거든 그거 없애죠"**:    - 상단 컨테이너 테두리(`borderWidth: 0`) 제거와 더불어, Even G2 OS가 상단 정중앙에 표시하던 네이티브 메뉴 핸들 바(`menuObject: undefined`)까지 완전히 비활성화하여 상단 중앙의 가로 짝대기 선이 더 이상 나타나지 않도록 조치했습니다. 2. **"그리고 이거 그 음성 전송하는 거 손가락 떼면 자동으로 전송되게 해 줘"**:    - 안경 터치패드를 길게 눌러 말씀하시다가 **손가락을 떼는 순간(`LONG_PRESS_RELEASE_EVENT = 10`) 대기 시간 없이 즉시 녹음이 종료되며 AI로 자동 전송**되도록 
 - **[안티그래비티(PC 작업 결과)]**: **`v3.2.4`** 패키징 및 EvenHub Beta 승격(`com.antigravity.g2brain -> 3.2.4`), GitHub Pages OTA 실시간 동기화가 모두 완료되었습니다. --- ### 반영 완료된 핵심 내역 (`v3.2.4`) 1. **안경 상단 중앙 가로 짝대기(`가운데 위에 짝대기 하나`) 완전 제거**:    - 상단 컨테이너 테두리(`borderWidth: 0`) 및 막대 기호(`■■■■`, `|`) 제거에 더해, Even G2 펌웨어가 상단 중앙에 띄우던 기본 메뉴 핸들 바(`menuObject: undefined`)까지 비활성화하여 상단 정중앙에 어떤 선이나 짝대기도 표시되지 않도록 수정했습니다([`live_patch.js`](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/publ
 - **[대표님(PC 안티그래비티 요청)]**: 시계모드에서도 거운데짝대기 아직도 있고 두번터치해서 시계모드로 돌아갈때 무슨 깜박거리면서 잔상이바뀌어 시계쪽에 수정해줘 좀 프레임단위로 너가 화면보면서 좀 고쳐줘
-- **[대표님(PC 안티그래비티 요청)]**: 내꺼 네이버메일 kanjji 이거들어가서 avask에서 메일온거 나 아바스크한번도 사용한적없다 돈만 많이냈었다이거 미납금하고 위약금못내겠다라고담당자 찾아서 메일보내줄래 보내기전에 요약문 보여주고 <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 - **[안티그래비티(PC 작업 결과)]**: 전체 18개 게임 에뮬레이터 시스템(`arcade`, `mame`, `fbn`, `neogeo`, `snes`, `nes`, `gba`, `megadrive`, `mastersystem`, `pcengine`, `msx2`, `n64`, `psx`, `psp`, `dreamcast`, `naomi`, `atomiswave`, `nds`)의 코어 및 런처 스크립트를 전수 스캔 중입니다. 완료되는 대로 에뮬레이터별로 게임을 하나씩 실제 구동하고 종료하며 검증하겠습니다.
 - **[안티그래비티(PC 작업 결과)]**: 1차 에뮬레이터 10종(`nes`, `snes`, `gba`, `megadrive`, `mastersystem`, `pcengine`, `msx2`, `fbn`, `neogeo`, `mame`) 실제 구동 및 종료 테스트를 진행 중이며, 이어서 2차 에뮬레이터 10종(`arcade`, `twcup98`, `psx`, `tektagt`, `psp`, `n64`, `dreamcast`, `naomi`, `atomiswave`, `nds`) 테스트 스크립트도 준비를 마쳤습니다. 1차 완료 알림이 오면 바로 2차 테스트로 이어가겠습니다.
 - **[안티그래비티(PC 작업 결과)]**: 1차 에뮬레이터 10종(패미컴, 슈퍼패미컴, 게임보이어드밴스, 메가드라이브, 마스터시스템, PC엔진, MSX2, 파이널번, 네오지오, 마메) 실제 게임 진입·렌더링·사운드·종료 테스트가 진행 중입니다. 완료되는 즉시 결과를 확인하고 2차 10종 테스트를 실행하겠습니다.
