@@ -1,14 +1,22 @@
 {
-  "updatedAt": "2026. 11. 8. AM 12:33:14",
-  "pinnedReminder": "야 뭐야 뭐 얘기하다가 더 안 내려가고 잘리는데",
+  "updatedAt": "2026. 11. 8. AM 8:27:36",
+  "pinnedReminder": "야 이거 안경 화면 뭐 가운데 짝대기가 있는데 뭐야? 응 오빠 걸까?",
   "items": [
+    {
+      "id": "mem_1794094056758_gozi",
+      "category": "PC원격작업",
+      "fact": "야 이거 안경 화면 뭐 가운데 짝대기가 있는데 뭐야? 응 오빠 걸까?",
+      "sourceQuestion": "야 이거 안경 화면 뭐 가운데 짝대기가 있는데 뭐야? 응 오빠 걸까?",
+      "createdAt": "2026. 11. 8. AM 8:27:36",
+      "pinned": true
+    },
     {
       "id": "mem_1794065594180_hize",
       "category": "PC원격작업",
       "fact": "야 뭐야 뭐 얘기하다가 더 안 내려가고 잘리는데",
       "sourceQuestion": "야 뭐야 뭐 얘기하다가 더 안 내려가고 잘리는데",
       "createdAt": "2026. 11. 8. AM 12:33:14",
-      "pinned": true
+      "pinned": false
     },
     {
       "id": "mem_1794065413103_ulj7",
