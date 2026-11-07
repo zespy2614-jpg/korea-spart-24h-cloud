@@ -1,40 +1,363 @@
-// __EDITH_OTA__ Live Over-The-Air Patch v3.0.0 — Long-Term Memory Vault + Smart RAG + Gparts Scouter + 6-Item Menu + Ultra-Fast Translation
+// __EDITH_OTA__ Live Over-The-Air Patch v3.0.0 — Full DOM & Glasses Menu Upgrade (No Reinstall Required)
 (function () {
   if (window.__EDITH_OTA_V30_APPLIED__) return;
   window.__EDITH_OTA_V30_APPLIED__ = true;
-  console.log('[EDITH OTA] v3.0.0 Memory Vault & Smart RAG & 6-Item Menu Engine Activated');
+  console.log('[EDITH OTA] v3.0.0 Full Live Upgrade Activated');
 
   const agy = window.__EDITH_AGY__;
   const origFetch = window.fetch.bind(window);
   const translateCache = new Map();
   const CLOUD_SYNC_URL = 'https://ntfy.sh/agy_g2_brain_sync_e3562553';
 
-  // 1. Remove Subtitles Chip if present in older cached HTML & ensure new chips
-  const oldSubChip = document.getElementById('subtitlesChip');
-  if (oldSubChip) {
-    oldSubChip.remove();
-  }
+  // Detect whether the host HTML is v2.0.0 (legacy closure IDs) or v3.0.0+
+  const isLegacyV2Host = !Boolean(agy && agy.buildMenuItems);
 
-  // 2. Enforce exact 6-item Glasses Menu requested by Representative:
-  // [새 채팅, 시계 대기, 상대 번역, 두뇌 동기화, 밝기, 닫기]
-  function getTargetMenuItems(st) {
-    return [
-      { id: 1, name: '새 채팅' },
-      { id: 2, name: st?.clockStandby ? 'HUD 켜기' : '시계 대기' },
-      { id: 3, name: st?.roomMode === 'translate' ? '번역 끄기' : '상대 번역' },
-      { id: 4, name: '두뇌 동기화' },
-      { id: 5, name: st?.prefs?.discreet ? '밝기: 밝게' : '밝기: 어둡게' },
-      { id: 6, name: '닫기' }
-    ];
-  }
-
-  if (agy && agy.hud && agy.state) {
+  // 1. Load & Persist Long-Term Memory Vault
+  function getVault() {
     try {
-      agy.hud.setMenu(getTargetMenuItems(agy.state));
+      const stVault = agy?.state?.longTermMemories;
+      if (Array.isArray(stVault) && stVault.length > 0) return stVault;
+      const local = JSON.parse(localStorage.getItem('agy_g2_long_term_memories') || '[]');
+      if (Array.isArray(local) && local.length > 0) return local;
+    } catch {}
+    const defaults = [
+      { id: 'mem_car_blue', category: '차량/주차', text: '대표님의 차량은 파란색 자동차입니다.', pinned: true, updatedAt: '2026. 11. 7.' },
+      { id: 'mem_biz_core', category: '핵심비즈니스', text: 'Gparts(지파츠) 40선 수입차 부품 매칭 및 8개국 80선 글로벌 소싱 프로젝트 운영 중', pinned: true, updatedAt: '2026. 11. 7.' }
+    ];
+    localStorage.setItem('agy_g2_long_term_memories', JSON.stringify(defaults));
+    return defaults;
+  }
+
+  function saveVault(list) {
+    localStorage.setItem('agy_g2_long_term_memories', JSON.stringify(list));
+    if (agy?.state) agy.state.longTermMemories = list;
+  }
+
+  async function syncMemoryAction(payload) {
+    for (const base of ['http://192.168.123.150:3860', 'http://192.168.123.104:3860']) {
+      try {
+        await origFetch(`${base}/api/memory`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+          signal: AbortSignal.timeout(2000)
+        });
+        break;
+      } catch {}
+    }
+    try {
+      await origFetch(CLOUD_SYNC_URL, {
+        method: 'POST',
+        headers: { Title: 'AGY_G2_MEMORY_SYNC', Priority: 'default' },
+        body: JSON.stringify({ type: 'AGY_G2_MEMORY_SYNC', ...payload, timestamp: new Date().toLocaleString('ko-KR') })
+      });
     } catch {}
   }
 
-  // Helper: Fast instant translation via local PC Google GTX proxy or zero-reasoning Gemini Omni 1.2 Flash
+  async function sendRemotePcNote(noteText) {
+    const clean = String(noteText || '').trim();
+    if (!clean) return;
+    for (const base of ['http://192.168.123.150:3860', 'http://192.168.123.104:3860']) {
+      try {
+        await origFetch(`${base}/api/pc-action`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ command: clean, category: '안경원격지시' }),
+          signal: AbortSignal.timeout(2000)
+        });
+        break;
+      } catch {}
+    }
+    try {
+      await origFetch(CLOUD_SYNC_URL, {
+        method: 'POST',
+        headers: { Title: 'AGY_G2_PC_COMMAND', Priority: 'high' },
+        body: JSON.stringify({ type: 'AGY_G2_PC_COMMAND', command: clean, timestamp: new Date().toLocaleString('ko-KR') })
+      });
+    } catch {}
+  }
+
+  // 2. Upgrade DOM on v2.0.0 Host (Replace '실시간 자막' with '기억 금고' + Inject #memoryDrawer + v3.0.0 Badge)
+  function upgradePhoneDom() {
+    // Update version string in settings
+    document.querySelectorAll('.help .mono').forEach((el) => {
+      if (el.textContent && el.textContent.includes('v2.0.0')) {
+        el.textContent = 'EDITH 2.0 × Antigravity v3.0.0 (6-Menu + Memory Vault OTA)';
+      }
+    });
+
+    // Replace #subtitlesChip with #memoryVaultChip if #memoryVaultChip doesn't exist
+    const subChip = document.getElementById('subtitlesChip');
+    let memChip = document.getElementById('memoryVaultChip');
+    if (subChip && !memChip) {
+      memChip = document.createElement('button');
+      memChip.type = 'button';
+      memChip.className = 'chip';
+      memChip.id = 'memoryVaultChip';
+      memChip.setAttribute('aria-pressed', 'false');
+      memChip.textContent = '기억 금고';
+      subChip.replaceWith(memChip);
+    } else if (subChip && memChip) {
+      subChip.style.display = 'none';
+    }
+
+    // Add Gparts 40선 quick chip if missing
+    const modesContainer = document.querySelector('.modes');
+    if (modesContainer && !modesContainer.querySelector('[data-ask*="지파츠"]')) {
+      const gpChip = document.createElement('button');
+      gpChip.type = 'button';
+      gpChip.className = 'chip';
+      gpChip.setAttribute('data-ask', '지파츠(Gparts) 크롤러 40선과 8개국 소싱 핵심 현황을 브리핑해 줘.');
+      gpChip.textContent = 'Gparts·80선 요약';
+      gpChip.addEventListener('click', () => {
+        if (agy?.askEdith) {
+          if (agy.state) agy.state.trigger = 'phone';
+          void agy.askEdith({ text: gpChip.getAttribute('data-ask') });
+        }
+      });
+      modesContainer.appendChild(gpChip);
+    }
+
+    // Inject #memoryDrawer if missing (for v2.0.0 installed package)
+    let drawer = document.getElementById('memoryDrawer');
+    if (!drawer) {
+      const style = document.createElement('style');
+      style.textContent = `
+        .memory-drawer {
+          display: none;
+          flex-direction: column;
+          gap: 10px;
+          padding: 14px;
+          border-radius: 16px;
+          background: var(--surface);
+          box-shadow: 0 0 0 1px rgba(245, 197, 66, 0.28);
+          margin-bottom: 6px;
+        }
+        .memory-drawer.open { display: flex; }
+        .memory-drawer-head { display: flex; align-items: center; justify-content: space-between; }
+        .memory-drawer-title { font-size: 13px; font-weight: 700; color: var(--accent); letter-spacing: 0.02em; }
+        .memory-add-row { display: flex; gap: 6px; }
+        .memory-add-row select {
+          padding: 8px 10px; border-radius: 10px; border: 1px solid var(--line);
+          background: var(--input); color: var(--fg); font-size: 12.5px; outline: none;
+        }
+        .memory-add-row input {
+          flex: 1; min-width: 0; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--line);
+          background: var(--input); color: var(--fg); font-size: 13px; outline: none;
+        }
+        .memory-list { display: flex; flex-direction: column; gap: 6px; max-height: 210px; overflow-y: auto; }
+        .memory-item {
+          display: flex; align-items: flex-start; justify-content: space-between; gap: 8px;
+          padding: 8px 10px; border-radius: 10px; background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.06); font-size: 12.5px; line-height: 1.45;
+        }
+        .memory-item[data-pinned="true"] { border-color: rgba(245, 197, 66, 0.4); background: rgba(245, 197, 66, 0.07); }
+        .memory-badge {
+          display: inline-block; padding: 1px 6px; border-radius: 6px; background: rgba(245, 197, 66, 0.18);
+          color: var(--accent); font-size: 11px; font-weight: 600; margin-right: 6px;
+        }
+        .memory-actions { display: flex; gap: 4px; flex-shrink: 0; }
+        .memory-btn {
+          border: 0; background: rgba(255, 255, 255, 0.06); color: var(--dim);
+          border-radius: 6px; padding: 3px 7px; font-size: 11px; cursor: pointer;
+        }
+        .memory-btn.active { color: var(--accent); background: rgba(245, 197, 66, 0.18); }
+      `;
+      document.head.appendChild(style);
+
+      drawer = document.createElement('section');
+      drawer.id = 'memoryDrawer';
+      drawer.className = 'memory-drawer';
+      drawer.innerHTML = `
+        <div class="memory-drawer-head">
+          <span class="memory-drawer-title">📌 영구 기억 금고 (차량·주차·할일·소싱 핵심기억)</span>
+          <button id="sendPcNoteBtn" type="button" class="button quiet sm">PC로 메모 전송</button>
+        </div>
+        <form id="memoryAddForm" class="memory-add-row">
+          <select id="memoryCategorySelect">
+            <option value="차량/주차">차량/주차</option>
+            <option value="할일/일정">할일/일정</option>
+            <option value="부품/소싱">부품/소싱</option>
+            <option value="중요기억">중요기억</option>
+          </select>
+          <input id="memoryTextInput" type="text" placeholder="기억할 내용 입력 (예: 파란색 차 B2 E4 주차)" />
+          <button type="submit" class="button sm" style="background:var(--accent);color:#111;border:0;font-weight:700;">저장</button>
+        </form>
+        <div id="memoryListContainer" class="memory-list"></div>
+      `;
+      const syncBanner = document.querySelector('.sync-banner');
+      if (syncBanner && syncBanner.parentNode) {
+        syncBanner.parentNode.insertBefore(drawer, syncBanner.nextSibling);
+      }
+
+      const renderVaultUi = () => {
+        const listEl = document.getElementById('memoryListContainer');
+        if (!listEl) return;
+        const vault = getVault();
+        listEl.replaceChildren();
+        vault.forEach((m) => {
+          const row = document.createElement('div');
+          row.className = 'memory-item';
+          row.dataset.pinned = m.pinned ? 'true' : 'false';
+          const left = document.createElement('div');
+          const badge = document.createElement('span');
+          badge.className = 'memory-badge';
+          badge.textContent = m.category || '기억';
+          const txt = document.createElement('span');
+          txt.textContent = m.text;
+          left.append(badge, txt);
+
+          const actions = document.createElement('div');
+          actions.className = 'memory-actions';
+          const pinBtn = document.createElement('button');
+          pinBtn.type = 'button';
+          pinBtn.className = `memory-btn ${m.pinned ? 'active' : ''}`;
+          pinBtn.textContent = m.pinned ? '📌 고정됨' : '고정';
+          pinBtn.addEventListener('click', () => {
+            m.pinned = !m.pinned;
+            saveVault(vault);
+            renderVaultUi();
+            void syncMemoryAction({ action: 'add', category: m.category, text: m.text, pinned: m.pinned });
+          });
+
+          const delBtn = document.createElement('button');
+          delBtn.type = 'button';
+          delBtn.className = 'memory-btn';
+          delBtn.textContent = '삭제';
+          delBtn.addEventListener('click', () => {
+            const next = vault.filter((x) => x.id !== m.id);
+            saveVault(next);
+            renderVaultUi();
+            void syncMemoryAction({ action: 'delete', id: m.id });
+          });
+
+          actions.append(pinBtn, delBtn);
+          row.append(left, actions);
+          listEl.appendChild(row);
+        });
+      };
+
+      renderVaultUi();
+
+      if (memChip) {
+        memChip.addEventListener('click', () => {
+          const open = drawer.classList.toggle('open');
+          memChip.setAttribute('aria-pressed', open ? 'true' : 'false');
+          if (open) renderVaultUi();
+        });
+      }
+
+      const addForm = document.getElementById('memoryAddForm');
+      if (addForm) {
+        addForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const catEl = document.getElementById('memoryCategorySelect');
+          const txtEl = document.getElementById('memoryTextInput');
+          const text = String(txtEl?.value || '').trim();
+          if (!text) return;
+          const category = catEl?.value || '중요기억';
+          const vault = getVault();
+          const item = { id: `mem_${Date.now()}`, category, text, pinned: true, updatedAt: new Date().toLocaleString('ko-KR') };
+          vault.unshift(item);
+          saveVault(vault);
+          txtEl.value = '';
+          renderVaultUi();
+          void syncMemoryAction({ action: 'add', category, text, pinned: true });
+        });
+      }
+
+      const pcBtn = document.getElementById('sendPcNoteBtn');
+      if (pcBtn) {
+        pcBtn.addEventListener('click', () => {
+          const txtEl = document.getElementById('memoryTextInput');
+          constcomposeEl = document.getElementById('composeInput');
+          const note = String(txtEl?.value || composeEl?.value || '').trim();
+          if (!note) {
+            if (txtEl) txtEl.focus();
+            return;
+          }
+          void sendRemotePcNote(note);
+          if (txtEl) txtEl.value = '';
+        });
+      }
+    }
+
+    // Show v3.0.0 live status in sync banner
+    const syncText = document.getElementById('syncStatusText');
+    if (syncText && !syncText.innerHTML.includes('v3.0')) {
+      syncText.innerHTML = '<b>PC 안티그래비티 ↔ GitHub (v3.0 기억금고·6메뉴 적용됨)</b>';
+    }
+  }
+
+  // 3. Enforce 6-Item Menu & HUD Auto-Paging on Glasses
+  function upgradeGlassesHudAndMenu() {
+    if (!agy || !agy.hud || !agy.state) return;
+    const st = agy.state;
+    const hud = agy.hud;
+
+    // Build exact 6-item menu requested by user:
+    // 새 채팅, 시계 대기, 상대 번역, 두뇌 동기화, 밝기, 닫기
+    // Note: On legacy v2.0.0 host, internal onMenuItemClick(id) maps:
+    // 1=newChat, 2=clockStandby, 4=translate, 7=syncBrain, 5=discreet, 99=close
+    // On v3.0.0 host, internal onMenuItemClick(id) maps:
+    // 1=newChat, 2=clockStandby, 3=translate, 4=syncBrain, 5=discreet, 6=close
+    const getClean6MenuItems = () => {
+      if (isLegacyV2Host) {
+        return [
+          { id: 1, name: '새 채팅' },
+          { id: 2, name: st.clockStandby ? 'HUD 켜기' : '시계 대기' },
+          { id: 4, name: st.roomMode === 'translate' ? '번역 끄기' : '상대 번역' },
+          { id: 7, name: '두뇌 동기화' },
+          { id: 5, name: st.prefs?.discreet ? '밝기: 밝게' : '밝기: 어둡게' },
+          { id: 99, name: '닫기' }
+        ];
+      }
+      return [
+        { id: 1, name: '새 채팅' },
+        { id: 2, name: st.clockStandby ? 'HUD 켜기' : '시계 대기' },
+        { id: 3, name: st.roomMode === 'translate' ? '번역 끄기' : '상대 번역' },
+        { id: 4, name: '두뇌 동기화' },
+        { id: 5, name: st.prefs?.discreet ? '밝기: 밝게' : '밝기: 어둡게' },
+        { id: 6, name: '닫기' }
+      ];
+    };
+
+    // Permanently intercept hud.setMenu so v2.0.0's internal goIdle() can NEVER restore '자막 모드'
+    const origSetMenu = hud.setMenu.bind(hud);
+    hud.setMenu = function () {
+      const clean = getClean6MenuItems();
+      return origSetMenu(clean);
+    };
+
+    // Apply immediately
+    hud.setMenu(getClean6MenuItems());
+
+    // Add HUD Auto-Paging & Pinned Memory Reminder on Greeting for v2.0.0 host
+    if (isLegacyV2Host && !hud.__v30SetHooked) {
+      hud.__v30SetHooked = true;
+      const origSet = hud.set.bind(hud);
+      let pagingTimer = null;
+
+      hud.set = function (update) {
+        if (update && typeof update.body === 'string') {
+          // If greeting screen, append pinned memory reminder
+          if (update.body.includes('반갑습니다, 대표님') && !update.body.includes('📌')) {
+            const vault = getVault();
+            const pinned = vault.find((m) => m.pinned) || vault[0];
+            if (pinned?.text) {
+              update = {
+                ...update,
+                body: `반갑습니다, 대표님.\n📌 ${pinned.text.slice(0, 38)}\n\n길게 누르거나 탭해서 말씀하세요.`
+              };
+            }
+          }
+        }
+        return origSet(update);
+      };
+    }
+  }
+
+  // 4. Ultra-Fast Simultaneous Translation & Smart Memory RAG Injection on OpenRouter Fetch
   async function ultraFastTranslateText(rawText) {
     const clean = String(rawText || '').trim();
     if (!clean) return '';
@@ -93,75 +416,60 @@
     return clean;
   }
 
-  // Helper: Build enriched Memory Vault + Smart RAG + Gparts Scouter context for any outgoing AI request
-  function buildOtaMemoryAddendum(userQuestion = '') {
-    const st = agy?.state;
-    const ctx = st?.brainContext;
-    if (!ctx && !st?.memories) return '';
-
-    const qLower = String(userQuestion || '').toLowerCase();
-    const qTokens = qLower.split(/[\s,?.!]+/).filter((t) => t.length >= 2);
-
-    const memories = st?.memories || ctx?.longTermMemories || [
-      { category: '차량/주차', fact: '대표님의 차량은 파란색 자동차입니다.', pinned: true }
-    ];
-    const memLines = memories
-      .slice(0, 30)
-      .map((m) => `- [${m.category || '기억'}]${m.pinned ? '(고정)' : ''}: ${m.fact}`)
-      .join('\n');
-
-    let extra = `\n\n[필수 참조 1순위: 대표님의 영구 장기기억 금고]\n${memLines}`;
-
-    if (ctx) {
-      const searchPool = ctx.conversationSearchIndex || [];
-      const matchedTurns = searchPool
-        .filter((item) => {
-          if (!qTokens.length) return false;
-          const hay = `${item.q || ''} ${item.a || ''}`.toLowerCase();
-          return qTokens.some((tk) => hay.includes(tk));
-        })
-        .slice(-6)
-        .map((item) => `- [${item.t}] 질문: ${item.q} -> 답변: ${item.a}`)
-        .join('\n');
-
-      const gpartsPool = ctx.gpartsQuickIndex || [];
-      const sourcingPool = ctx.sourcingQuickIndex || [];
-      const isSourcingQuery = /(지파츠|이베이|품번|재고|품절|시엔위|소싱|마진|부품|크롤링|가격|시세)/.test(qLower);
-
-      let matchedGparts = gpartsPool.filter((g) => {
-        const hay = `${g.partNo} ${g.title} ${g.korTitle}`.toLowerCase();
-        return qTokens.some((tk) => hay.includes(tk));
-      });
-      if (!matchedGparts.length && isSourcingQuery) matchedGparts = gpartsPool.slice(0, 8);
-      const gpartsText = matchedGparts
-        .slice(0, 8)
-        .map((g) => `- 품번 ${g.partNo} (${g.korTitle || g.title}): 재고 ${g.stock}개 | 국내매입 ${g.krwCost.toLocaleString()}원 | 이베이 $${g.usdPrice}`)
-        .join('\n');
-
-      let matchedSourcing = sourcingPool.filter((s) => {
-        const hay = `${s.id} ${s.group} ${s.title} ${s.partNo}`.toLowerCase();
-        return qTokens.some((tk) => hay.includes(tk));
-      });
-      if (!matchedSourcing.length && isSourcingQuery) matchedSourcing = sourcingPool.slice(0, 6);
-      const sourcingText = matchedSourcing
-        .slice(0, 6)
-        .map((s) => `- [${s.id}] ${s.title} (품번 ${s.partNo}): 총원가 ${s.totalCostKrw.toLocaleString()}원 -> 시세 $${s.marketUsd} (순마진 ${s.netMarginPct}%)`)
-        .join('\n');
-
-      if (matchedTurns) extra += `\n\n[질문 관련 과거 대화 기억]\n${matchedTurns}`;
-      if (gpartsText) extra += `\n\n[지파츠 40선 실시간 재고 스카우터]\n${gpartsText}`;
-      if (sourcingText) extra += `\n\n[8개국 크로스보더 80선 마진 스카우터]\n${sourcingText}`;
-    }
-    return extra;
-  }
-
-  // Intercept OpenRouter fetch calls for zero-reasoning audio/translation & Memory Vault injection
   window.fetch = async function (input, init) {
     try {
       const url = typeof input === 'string' ? input : input?.url || '';
       if (url.includes('openrouter.ai/api/v1/chat/completions') && init?.body && typeof init.body === 'string') {
         const bodyObj = JSON.parse(init.body);
         const isShortTask = !bodyObj.stream && typeof bodyObj.max_tokens === 'number' && bodyObj.max_tokens <= 260;
+
+        // Inject Long-Term Memory Vault & Smart Past Conversation RAG into streaming chat requests
+        if (bodyObj.stream && Array.isArray(bodyObj.messages)) {
+          const sysMsg = bodyObj.messages.find((m) => m.role === 'system');
+          const lastUserMsg = [...bodyObj.messages].reverse().find((m) => m.role === 'user');
+          const userQ = typeof lastUserMsg?.content === 'string' ? lastUserMsg.content : '';
+
+          // Auto-extract memory or remote PC command if user asks in voice/chat
+          if (/(기억해|외워둬|메모해|주차|내\s*차|파란색\s*자동차)/.test(userQ)) {
+            const vault = getVault();
+            const cat = /(차|주차)/.test(userQ) ? '차량/주차' : '중요기억';
+            if (!vault.some((m) => m.text === userQ)) {
+              vault.unshift({ id: `mem_${Date.now()}`, category: cat, text: userQ, pinned: true, updatedAt: new Date().toLocaleString('ko-KR') });
+              saveVault(vault);
+              void syncMemoryAction({ action: 'add', category: cat, text: userQ, pinned: true });
+            }
+          }
+          if (/(PC에\s*메모|컴퓨터에\s*메모|작업\s*지시|안티그래비티에\s*전달)/.test(userQ)) {
+            void sendRemotePcNote(userQ);
+          }
+
+          if (sysMsg && !sysMsg.content.includes('[영구 장기기억 금고')) {
+            const vault = getVault();
+            let extra = '\n\n[영구 장기기억 금고 (최우선 진실 — 질문 시 즉시 인용)]\n';
+            vault.slice(0, 15).forEach((m) => {
+              extra += `- [${m.category || '기억'}] ${m.text}\n`;
+            });
+            const bc = agy?.state?.brainContext;
+            if (bc) {
+              const allConvs = Array.isArray(bc.conversationSearchIndex)
+                ? bc.conversationSearchIndex
+                : Array.isArray(bc.recentConversations)
+                  ? bc.recentConversations
+                  : [];
+              if (allConvs.length > 0) {
+                extra += '\n[안경 과거 누적 대화 기억]\n';
+                allConvs.slice(-10).forEach((c) => {
+                  extra += `- [${c.time || ''}] 대표님: "${c.q}" → 답변: "${String(c.a || '').slice(0, 140)}"\n`;
+                });
+              }
+              if (bc.gpartsAndSourcing?.gpartsTopSummary) {
+                extra += `\n[Gparts 40선 & 80선 스카우터]\n${bc.gpartsAndSourcing.gpartsTopSummary.slice(0, 500)}\n`;
+              }
+            }
+            sysMsg.content += extra;
+            init = { ...init, body: JSON.stringify(bodyObj) };
+          }
+        }
 
         if (isShortTask) {
           const msgContent = bodyObj?.messages?.[0]?.content;
@@ -201,22 +509,16 @@
             bodyObj.max_tokens = 100;
             init = { ...init, body: JSON.stringify(bodyObj) };
           }
-        } else if (bodyObj.stream && Array.isArray(bodyObj.messages)) {
-          // Ensure Long-Term Memory Vault & Smart RAG are injected even if running older cached HTML
-          const sysMsg = bodyObj.messages.find((m) => m.role === 'system');
-          const lastUserMsg = [...bodyObj.messages].reverse().find((m) => m.role === 'user');
-          const userQ = typeof lastUserMsg?.content === 'string' ? lastUserMsg.content : '';
-          if (sysMsg && typeof sysMsg.content === 'string' && !sysMsg.content.includes('영구 장기기억 금고')) {
-            sysMsg.content += buildOtaMemoryAddendum(userQ);
-            init = { ...init, body: JSON.stringify(bodyObj) };
-          }
         }
       }
     } catch {}
     return origFetch(input, init);
   };
 
-  // Real-time watcher: speed up translation recorder & hook interim translation
+  // Run upgrades immediately and keep watching
+  upgradePhoneDom();
+  upgradeGlassesHudAndMenu();
+
   if (agy && agy.state && agy.hud) {
     let lastInterimText = '';
     let interimTranslating = false;
@@ -224,6 +526,17 @@
 
     setInterval(() => {
       const st = agy.state;
+      // Never allow 'subtitles' mode
+      if (st.roomMode === 'subtitles') {
+        if (agy.stopRoomMode) agy.stopRoomMode();
+        else st.roomMode = null;
+      }
+
+      // Ensure menu always stays 6 items (without subtitles)
+      if (Array.isArray(agy.hud.menu) && agy.hud.menu.some((m) => m.name === '자막 모드' || m.name === 'AI 전환')) {
+        upgradeGlassesHudAndMenu();
+      }
+
       if (st.roomMode && st.recorder) {
         st.recorder.maxDurationMs = 1550;
         st.recorder.silenceToStopMs = 280;
@@ -267,6 +580,6 @@
           } catch {}
         };
       }
-    }, 150);
+    }, 200);
   }
 })();
