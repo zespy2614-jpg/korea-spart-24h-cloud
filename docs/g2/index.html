@@ -533,7 +533,96 @@
 
     .chats-tools {
       display: flex;
+      flex-wrap: wrap;
       gap: 8px;
+    }
+
+    /* Long-Term Memory Vault List (.memory-list) */
+    .memory-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-height: 240px;
+      overflow-y: auto;
+      padding-right: 2px;
+    }
+
+    .memory-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 9px 12px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      box-shadow: 0 0 0 1px var(--line);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .memory-item[data-pinned='true'] {
+      background: rgba(245, 197, 66, 0.11);
+      box-shadow: 0 0 0 1px rgba(245, 197, 66, 0.45);
+    }
+
+    .memory-item-left {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .memory-badge {
+      display: inline-block;
+      align-self: flex-start;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(254, 249, 145, 0.15);
+      color: var(--accent);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .memory-fact {
+      color: var(--text);
+      font-weight: 500;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    .memory-actions {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+
+    .memory-form {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .memory-form select {
+      padding: 7px 10px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--input);
+      font-size: 12px;
+      outline: none;
+    }
+
+    .memory-form input {
+      flex: 1;
+      min-width: 150px;
+      padding: 7px 12px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--input);
+      font-size: 13px;
+      outline: none;
     }
 
     /* Conversation Log (.log) */
