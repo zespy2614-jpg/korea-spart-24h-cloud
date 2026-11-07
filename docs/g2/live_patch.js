@@ -405,37 +405,138 @@
   }
   ensureValidApiKeyOnDevice();
 
+  // UTF-8 byte-safe slicer (Even G2 BLE firmware counts UTF-8 bytes: 1 Korean char = 3 bytes;
+  // pageObjects limit is ~920 UTF-8 bytes, textContainerUpgrade limit is ~1680 UTF-8 bytes)
+  function sliceByUtf8Bytes(str, maxBytes = 1620) {
+    const s = String(str || '');
+    if (!s) return ' ';
+    let bytes = 0;
+    let lastSafeIdx = 0;
+    let lastBreakIdx = 0;
+    for (let i = 0; i < s.length; i++) {
+      const code = s.charCodeAt(i);
+      const b = code <= 0x7f ? 1 : code <= 0x7ff ? 2 : code >= 0xd800 && code <= 0xdfff ? 2 : 3;
+      if (bytes + b > maxBytes) {
+        const cut = lastBreakIdx > lastSafeIdx * 0.72 ? lastBreakIdx : lastSafeIdx;
+        return s.slice(0, Math.max(1, cut)).trimEnd() || ' ';
+      }
+      bytes += b;
+      lastSafeIdx = i + 1;
+      if (s[i] === '\n' || s[i] === ' ') {
+        lastBreakIdx = i + 1;
+      }
+    }
+    return s;
+  }
+
+  // Split long answers (up to 12,000 chars) into overlapping hardware-scroll windows (<= 480 chars / <= 1,450 UTF-8 bytes each)
+  // Within each window, Even G2 scrolls line-by-line natively (isEventCapture=1).
+  // Reaching the bottom fires SCROLL_BOTTOM_EVENT (2) -> seamlessly loads the next window!
+  function buildScrollWindows(fullText) {
+    const clean = String(fullText || '').replace(/\r/g, '').trim();
+    if (!clean) return [' '];
+    if (clean.length <= 490 && sliceByUtf8Bytes(clean, 1500).length === clean.length) {
+      return [clean];
+    }
+    const WIN_CHARS = 460;
+    const STEP_CHARS = 380;
+    const rawSlices = [];
+    let offset = 0;
+    while (offset < clean.length && rawSlices.length < 30) {
+      if (offset + WIN_CHARS >= clean.length) {
+        rawSlices.push(clean.slice(offset).trim());
+        break;
+      }
+      let end = offset + WIN_CHARS;
+      const nl = clean.lastIndexOf('\n', end);
+      const sp = clean.lastIndexOf(' ', end);
+      if (nl > offset + 220) end = nl;
+      else if (sp > offset + 260) end = sp;
+      const chunk = clean.slice(offset, end).trim();
+      if (chunk) rawSlices.push(chunk);
+      let nextOffset = offset + STEP_CHARS;
+      if (end > offset + 220) {
+        // Keep ~70 chars (~2 lines) overlap from the end of this chunk for seamless reading continuity
+        const overlapStart = Math.max(offset + 120, end - 75);
+        const nlBefore = clean.indexOf('\n', overlapStart);
+        const spBefore = clean.indexOf(' ', overlapStart);
+        if (nlBefore !== -1 && nlBefore < end) nextOffset = nlBefore + 1;
+        else if (spBefore !== -1 && spBefore < end) nextOffset = spBefore + 1;
+        else nextOffset = end;
+      }
+      if (nextOffset <= offset) nextOffset = end;
+      offset = nextOffset;
+    }
+    if (rawSlices.length <= 1) return [sliceByUtf8Bytes(clean, 1580)];
+    const total = rawSlices.length;
+    return rawSlices.map((chunk, idx) => {
+      const topHint = idx > 0 ? `[▲ 위로 스크롤 (${idx + 1}/${total}구간)]\n` : '';
+      const botHint = idx < total - 1 ? `\n\n[▼ 계속 스크롤하면 이어집니다 (${idx + 1}/${total}구간)]` : `\n\n[■ 답변 끝 (${total}/${total}구간)]`;
+      return sliceByUtf8Bytes(topHint + chunk + botHint, 1620);
+    });
+  }
+
   function formatFullScrollableChat(youText, replyText) {
     const cleanYou = String(youText || '').replace(/\r/g, '').trim();
     const cleanReply = String(replyText || '').replace(/\r/g, '').trim();
     const qHeader = cleanYou ? `» ${cleanYou.slice(0, 90)}\n\n` : '';
     const full = qHeader + (cleanReply || '저장된 이전 대화가 없습니다.');
-    return full.slice(0, 1990);
+    return full.slice(0, 12000);
   }
 
-  function showPreviousChatOnHud(st, hud) {
+  function applyScrollWindowToHud(st, hud, fullText, resetIdx = true, rebuildNowFlag = false) {
+    const cleanFull = String(fullText || '').slice(0, 12000);
+    const prevFull = st.__fullScrollText || '';
+    st.__fullScrollText = cleanFull;
+    st.__scrollWindows = buildScrollWindows(cleanFull);
+    if (resetIdx || typeof st.__scrollWinIdx !== 'number' || st.__scrollWinIdx >= st.__scrollWindows.length || st.__scrollWinIdx < 0) {
+      if (resetIdx || ! cleanFull.startsWith(prevFull.slice(0, 120))) {
+        st.__scrollWinIdx = 0;
+      } else {
+        st.__scrollWinIdx = Math.min(st.__scrollWinIdx, st.__scrollWindows.length - 1);
+      }
+    }
+    const total = st.__scrollWindows.length;
+    const idx = st.__scrollWinIdx;
+    const winText = st.__scrollWindows[idx] || ' ';
+    hud.wanted.body = winText;
+    if (st.mode === 'idle' && !st.clockStandby) {
+      hud.wanted.status = total > 1
+        ? `▼ 스크롤 ${idx + 1}/${total}  ■■■■ 100%`
+        : (cleanFull.length > 180 ? '▼ 더 보기  ■■■■ 100%' : '● 온라인  ■■■■ 100%');
+    }
+    hud.shown = { title: '', status: '', body: '' };
+    hud.flushQueued = false;
+    if (typeof hud.updateMirror === 'function') hud.updateMirror();
+    if (rebuildNowFlag && typeof hud.rebuild === 'function') {
+      void hud.rebuild();
+    } else if (typeof hud.scheduleFlush === 'function') {
+      hud.scheduleFlush();
+    }
+  }
+
+  function showPreviousChatOnHud(st, hud, forceRebuild = false) {
     const hasPrev = ensureLastConversationOnState(st);
     const titleLine = `◆ E.D.I.T.H${st.clockStr ? `  ${st.clockStr}` : ''}`;
+    hud.wanted.title = titleLine;
     if (!hasPrev || !st.last || !st.last.reply) {
-      hud.wanted.title = titleLine;
+      st.__fullScrollText = '';
+      st.__scrollWindows = ['저장된 이전 대화가 없습니다.\n\n▶ 길게 눌러 말씀하세요.'];
+      st.__scrollWinIdx = 0;
       hud.wanted.status = '● 온라인  ■■■■ 100%';
-      hud.wanted.body = '저장된 이전 대화가 없습니다.\n\n▶ 길게 눌러 말씀하세요.';
+      hud.wanted.body = st.__scrollWindows[0];
       hud.shown = { title: '', status: '', body: '' };
+      hud.flushQueued = false;
       if (typeof hud.updateMirror === 'function') hud.updateMirror();
-      if (typeof hud.scheduleFlush === 'function') hud.scheduleFlush();
+      if (forceRebuild && typeof hud.rebuild === 'function') void hud.rebuild();
+      else if (typeof hud.scheduleFlush === 'function') hud.scheduleFlush();
       return;
     }
     const fullBody = formatFullScrollableChat(st.last.you, st.last.reply);
-    const statusLabel = fullBody.length > 180 ? '▼ 더 보기  ■■■■ 100%' : '● 온라인  ■■■■ 100%';
-    hud.wanted.title = titleLine;
-    hud.wanted.status = statusLabel;
-    hud.wanted.body = fullBody;
-    hud.shown = { title: '', status: '', body: '' };
-    if (typeof hud.updateMirror === 'function') hud.updateMirror();
-    if (typeof hud.scheduleFlush === 'function') hud.scheduleFlush();
+    applyScrollWindowToHud(st, hud, fullBody, true, forceRebuild);
   }
 
-  // 4. Enforce 6-Item Menu & Block Single-Tap False Triggers on Glasses (Wakes Clock Standby -> Shows Previous Chat)
+  // 4. Enforce 6-Item Menu, Safe Optical Margins (x=20), UTF-8 Safe Scroll Windows & Hardware Event Interception
   function upgradeGlassesHudAndMenu() {
     if (!agy || !agy.hud || !agy.state) return;
     const st = agy.state;
@@ -444,14 +545,140 @@
     ensureValidApiKeyOnDevice();
     ensureLastConversationOnState(st);
 
-    // Fix markPageBuilt race condition so waking from clockStandby ALWAYS flushes full scrollable text via textContainerUpgrade
+    // Ensure slotText('body') always returns UTF-8 byte-safe text (<= 1650 UTF-8 bytes) so textContainerUpgrade NEVER fails!
+    if (!hud.__v32SlotTextHooked && typeof hud.slotText === 'function') {
+      hud.__v32SlotTextHooked = true;
+      hud.slotText = function (slot) {
+        if (this.clockStandby && (slot === 'title' || slot === 'body')) {
+          return ' ';
+        }
+        const raw = this.wanted[slot] || ' ';
+        return sliceByUtf8Bytes(raw, slot === 'body' ? 1650 : 240);
+      };
+    }
+
+    // Fix markPageBuilt race condition: reset both shown AND flushQueued so textContainerUpgrade ALWAYS runs after rebuildNow()!
     if (!hud.__v32MarkBuiltHooked) {
       hud.__v32MarkBuiltHooked = true;
       hud.markPageBuilt = function () {
         this.shown = { title: '', status: '', body: '' };
+        this.flushQueued = false;
         if (typeof this.scheduleFlush === 'function') {
           this.scheduleFlush();
         }
+      };
+    }
+
+    // Intercept EvenHub hardware events at window.dispatchEvent BEFORE legacy v2.0.0 onEvenHubEvent can mis-handle them!
+    // Handles:
+    //  - SCROLL_BOTTOM_EVENT (2): seamlessly loads next 460-char scroll window & resets hardware scrollbar!
+    //  - SCROLL_TOP_EVENT (1): seamlessly loads previous scroll window!
+    //  - CLICK_EVENT (0): wakes Clock Standby -> shows previous chat (or advances scroll window in idle), NEVER starts tap-recording!
+    //  - LONG_PRESS_RELEASE_EVENT (5): keeps mic open hands-free when user lifts finger after long-press!
+    //  - DOUBLE_CLICK_EVENT (3): blocks residual double-tap bounce within 1.8s after canceling recording!
+    if (!window.__v32EvenEventDispatchHooked && typeof window.dispatchEvent === 'function') {
+      window.__v32EvenEventDispatchHooked = true;
+      const origDispatchEvent = window.dispatchEvent.bind(window);
+      window.dispatchEvent = function (ev) {
+        try {
+          if (ev && ev.type === 'evenHubEvent' && ev.detail) {
+            const detail = ev.detail;
+            const env = detail.sysEvent ?? detail.textEvent ?? detail.listEvent;
+            const evType = env && env.eventType !== undefined && env.eventType !== null ? Number(env.eventType) : null;
+            const now = Date.now();
+
+            // 1) SCROLL_BOTTOM_EVENT (2) -> Advance to next scroll window!
+            if (evType === 2) {
+              if (st.mode !== 'listening' && !st.clockStandby && Array.isArray(st.__scrollWindows) && st.__scrollWindows.length > 1) {
+                if (now - (st.__lastScrollEdgeAt || 0) >= 420 && st.__scrollWinIdx < st.__scrollWindows.length - 1) {
+                  st.__lastScrollEdgeAt = now;
+                  st.__scrollWinIdx++;
+                  const total = st.__scrollWindows.length;
+                  hud.wanted.body = st.__scrollWindows[st.__scrollWinIdx];
+                  if (st.mode === 'idle') {
+                    hud.wanted.status = `▼ 스크롤 ${st.__scrollWinIdx + 1}/${total}  ■■■■ 100%`;
+                  }
+                  hud.shown = { title: '', status: '', body: '' };
+                  hud.flushQueued = false;
+                  if (typeof hud.updateMirror === 'function') hud.updateMirror();
+                  if (typeof hud.rebuild === 'function') void hud.rebuild();
+                }
+              }
+              return true;
+            }
+
+            // 2) SCROLL_TOP_EVENT (1) -> Move back to previous scroll window!
+            if (evType === 1) {
+              if (st.mode !== 'listening' && !st.clockStandby && Array.isArray(st.__scrollWindows) && st.__scrollWindows.length > 1) {
+                if (now - (st.__lastScrollEdgeAt || 0) >= 420 && st.__scrollWinIdx > 0) {
+                  st.__lastScrollEdgeAt = now;
+                  st.__scrollWinIdx--;
+                  const total = st.__scrollWindows.length;
+                  hud.wanted.body = st.__scrollWindows[st.__scrollWinIdx];
+                  if (st.mode === 'idle') {
+                    hud.wanted.status = `▼ 스크롤 ${st.__scrollWinIdx + 1}/${total}  ■■■■ 100%`;
+                  }
+                  hud.shown = { title: '', status: '', body: '' };
+                  hud.flushQueued = false;
+                  if (typeof hud.updateMirror === 'function') hud.updateMirror();
+                  if (typeof hud.rebuild === 'function') void hud.rebuild();
+                }
+              }
+              return true;
+            }
+
+            // 3) CLICK_EVENT (0) -> When NOT recording, wake Clock Standby or advance scroll window, NEVER start tap recording!
+            if (evType === 0 && st.mode !== 'listening') {
+              if (now - (st.holdReleasedAt || 0) < 700 || now - (st.__lastTapHandledAt || 0) < 320) {
+                return true;
+              }
+              st.__lastTapHandledAt = now;
+              if (st.clockStandby || hud.clockStandby) {
+                st.clockStandby = false;
+                hud.clockStandby = false;
+                showPreviousChatOnHud(st, hud, true);
+                return true;
+              }
+              if (st.mode === 'idle') {
+                if (Array.isArray(st.__scrollWindows) && st.__scrollWindows.length > 1) {
+                  st.__scrollWinIdx = (st.__scrollWinIdx + 1) % st.__scrollWindows.length;
+                  const total = st.__scrollWindows.length;
+                  hud.wanted.body = st.__scrollWindows[st.__scrollWinIdx];
+                  hud.wanted.status = `▼ 스크롤 ${st.__scrollWinIdx + 1}/${total}  ■■■■ 100%`;
+                  hud.shown = { title: '', status: '', body: '' };
+                  hud.flushQueued = false;
+                  if (typeof hud.updateMirror === 'function') hud.updateMirror();
+                  if (typeof hud.rebuild === 'function') void hud.rebuild();
+                } else {
+                  showPreviousChatOnHud(st, hud, false);
+                }
+                return true;
+              }
+              return true;
+            }
+
+            // 4) LONG_PRESS_RELEASE_EVENT (5) -> Keep hands-free recording open when lifting finger after long-press!
+            if (evType === 5) {
+              st.holdReleasedAt = now;
+              if (st.mode === 'listening') {
+                const heldMs = now - (st.holdStartedAt || 0);
+                if (heldMs < 2000 || (st.recorder?.speechMs ?? 0) < 450) {
+                  return true;
+                }
+              }
+            }
+
+            // 5) DOUBLE_CLICK_EVENT (3) -> Record cancel timestamp & swallow residual bounce within 1.8s!
+            if (evType === 3) {
+              if (st.mode === 'listening' || st.mode === 'thinking' || st.mode === 'answering') {
+                st.__lastCancelMs = now;
+              } else if (now - (st.__lastCancelMs || 0) < 1800) {
+                return true;
+              }
+            }
+          }
+        } catch {}
+        return origDispatchEvent(ev);
       };
     }
 
@@ -460,7 +687,7 @@
       hud.__v32StandbyHooked = true;
       const origSetClockStandby = hud.setClockStandby.bind(hud);
       hud.setClockStandby = function (standby) {
-        if (standby && (st.mode === 'thinking' || st.mode === 'answering' || Date.now() - (st.__lastCancelMs || 0) < 1500)) {
+        if (standby && (st.mode === 'thinking' || st.mode === 'answering' || Date.now() - (st.__lastCancelMs || 0) < 1800)) {
           st.clockStandby = false;
           this.clockStandby = false;
           return Promise.resolve(false);
@@ -519,7 +746,7 @@
       };
     }
 
-    // Restore original G2 HUD layout (y=0, y=46, height=242) with full native scrolling (isEventCapture=1)
+    // Safe Optical Waveguide Geometry: xPosition=20, width=536, paddingLength=16 (36px left/right glyph margin -> zero left-edge clipping!)
     window.__AGY_HUD_Y_OFFSET__ = 0;
     localStorage.setItem('agy_g2_hud_y_offset', '0');
     if (!hud.__v31PageObjectsHooked && typeof hud.pageObjects === 'function') {
@@ -531,28 +758,28 @@
           for (const obj of objs) {
             const name = obj?.containerName;
             if (name === 'title') {
-              obj.xPosition = 8;
+              obj.xPosition = 20;
               obj.yPosition = 0;
-              obj.width = 272;
+              obj.width = 260;
               obj.height = 44;
-              obj.paddingLength = 8;
-              obj.content = String(obj.content || ' ').slice(0, 120);
+              obj.paddingLength = 10;
+              obj.content = sliceByUtf8Bytes(obj.content || ' ', 180);
             } else if (name === 'status') {
               obj.xPosition = this.clockStandby ? 336 : 296;
               obj.yPosition = 0;
-              obj.width = this.clockStandby ? 232 : 272;
+              obj.width = this.clockStandby ? 220 : 260;
               obj.height = 44;
-              obj.paddingLength = this.clockStandby ? 6 : 8;
-              obj.content = String(obj.content || ' ').slice(0, 120);
+              obj.paddingLength = this.clockStandby ? 6 : 10;
+              obj.content = sliceByUtf8Bytes(obj.content || ' ', 180);
             } else if (name === 'body') {
-              obj.xPosition = 0;
+              obj.xPosition = 20;
               obj.yPosition = 46;
-              obj.width = 576;
+              obj.width = 536;
               obj.height = 242;
-              obj.paddingLength = 14;
+              obj.paddingLength = 16;
               obj.isEventCapture = 1;
-              // Initial container packet uses 300-char preview; markPageBuilt() immediately flushes full 1990-char text via textContainerUpgrade!
-              obj.content = String(obj.content || ' ').slice(0, 300);
+              // Initial container packet uses 900 UTF-8 bytes (~300 Korean chars); markPageBuilt() immediately upgrades to 1650 UTF-8 bytes!
+              obj.content = sliceByUtf8Bytes(obj.content || ' ', 900);
             }
           }
         }
@@ -569,13 +796,17 @@
     // 1) Immediately block any single-tap ('tap') recording attempt on v2.0.0 host & show full scrollable previous chat!
     // 2) Disable phone WebSpeech during glasses recording so distant phone mic never overrides G2 glasses mic!
     // 3) Show full scrollable previous chat when canceling recording (double-tap)
+    // 4) Automatically window long answers (up to 12,000 chars) into UTF-8 safe scroll windows!
     if (!hud.__v31SetHooked) {
       hud.__v31SetHooked = true;
       const origSet = hud.set.bind(hud);
 
       hud.set = function (update) {
-        // BLOCK SINGLE-TAP ('tap') LISTENING IMMEDIATELY & SHOW PREVIOUS CONVERSATION (FULL SCROLLABLE)!
-        if (st.mode === 'listening' && st.trigger === 'tap') {
+        // BLOCK SINGLE-TAP ('tap') LISTENING IMMEDIATELY & SHOW PREVIOUS CONVERSATION!
+        if (
+          (st.mode === 'listening' && st.trigger === 'tap') ||
+          (st.mode !== 'listening' && update && (String(update.status || '').startsWith('● 녹음') || String(update.body || '').includes('듣고 있어요')))
+        ) {
           st.mode = 'idle';
           st.trigger = 'idle';
           st.clockStandby = false;
@@ -596,14 +827,7 @@
             st.micOpen = false;
             try { hud.bridge.audioControl(false); } catch {}
           }
-          showPreviousChatOnHud(st, hud);
-          setTimeout(() => {
-            if (st.mode !== 'listening' && st.micOpen && hud.bridge) {
-              st.micOpen = false;
-              try { hud.bridge.audioControl(false); } catch {}
-            }
-            showPreviousChatOnHud(st, hud);
-          }, 160);
+          showPreviousChatOnHud(st, hud, false);
           return;
         }
 
@@ -645,14 +869,8 @@
             st.__lastCancelMs = Date.now();
             const hasPrev = ensureLastConversationOnState(st);
             if (hasPrev && st.last && st.last.reply) {
-              const fullBody = formatFullScrollableChat(st.last.you, st.last.reply);
-              update = {
-                ...update,
-                status: fullBody.length > 180 ? '▼ 더 보기  ■■■■ 100%' : update.status,
-                body: fullBody
-              };
-              hud.shown = { title: '', status: '', body: '' };
-              return origSet(update);
+              showPreviousChatOnHud(st, hud, false);
+              return;
             }
           }
           if (update.body.includes('탭하고 말하세요') || update.body.includes('탭해서 핸즈프리로')) {
@@ -672,6 +890,40 @@
                 ...update,
                 body: update.body.replace('모든 시스템 온라인.', `모든 시스템 온라인.\n[기억] ${factTxt.slice(0, 42)}`)
               };
+            }
+          }
+
+          // Recover unclipped full answer (up to 12,000 chars) if v2.0.0 host clipped body at 1990 chars!
+          let fullCandidate = update.body;
+          if (st.mode === 'idle' && st.last && st.last.reply && update.body.startsWith('» ') && st.last.reply.length > 400) {
+            fullCandidate = formatFullScrollableChat(st.last.you, st.last.reply);
+          } else if (st.mode === 'answering' && update.body.length >= 450) {
+            const edithBodies = document.querySelectorAll('#chatLog .entry.edith .body');
+            const latestDomEl = edithBodies.length ? edithBodies[edithBodies.length - 1] : null;
+            const domTxt = latestDomEl ? String(latestDomEl.textContent || '').trim() : '';
+            if (domTxt.length > 400) {
+              const qMatch = update.body.match(/^(» [^\n]+\n\n)/);
+              fullCandidate = (qMatch ? qMatch[1] : '') + domTxt;
+            }
+          }
+
+          if (!st.clockStandby && fullCandidate.trim().length > 0) {
+            const isSamePrefix = st.__fullScrollText && fullCandidate.startsWith(st.__fullScrollText.slice(0, 120));
+            st.__fullScrollText = fullCandidate.slice(0, 12000);
+            st.__scrollWindows = buildScrollWindows(st.__fullScrollText);
+            if (!isSamePrefix || typeof st.__scrollWinIdx !== 'number' || st.__scrollWinIdx >= st.__scrollWindows.length) {
+              st.__scrollWinIdx = 0;
+            }
+            const total = st.__scrollWindows.length;
+            const winText = st.__scrollWindows[st.__scrollWinIdx] || ' ';
+            update = {
+              ...update,
+              body: winText
+            };
+            if (total > 1 && st.mode === 'idle') {
+              update.status = `▼ 스크롤 ${st.__scrollWinIdx + 1}/${total}  ■■■■ 100%`;
+            } else if (total > 1 && st.mode === 'answering') {
+              update.status = `● 답변 중 (${st.__scrollWinIdx + 1}/${total}구간)`;
             }
           }
         }
@@ -713,8 +965,7 @@
             'X-Title': 'EDITH Antigravity G2'
           },
           body: JSON.stringify({
-            model: 'google/gemini-3.8-flash',
-            reasoning: { effort: 'none', exclude: true },
+            model: 'google/gemini-2.5-flash',
             messages: [
               {
                 role: 'user',
@@ -722,7 +973,7 @@
               }
             ],
             temperature: 0,
-            max_tokens: 90
+            max_tokens: 120
           }),
           signal: AbortSignal.timeout(2200)
         });
