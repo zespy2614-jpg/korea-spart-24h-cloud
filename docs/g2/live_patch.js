@@ -78,12 +78,13 @@
   async function sendRemotePcNote(noteText) {
     const clean = String(noteText || '').trim();
     if (!clean) return;
+    const isPureQuestion = /(작업하고\s*있어\?|실행하고\s*있어\?|됐어\?|완료됐어\?|기억나\?|뭐야\?)$/.test(clean);
     const payload = {
       action: 'auto_task',
       command: clean,
       text: clean,
       rawQuestion: clean,
-      autoInjectIde: /(안티그래비티|작업|실행|세팅|수정|패치|만들어|고쳐|추가|바꿔|시켜)/.test(clean),
+      autoInjectIde: !isPureQuestion && /(안티그래비티|작업|실행|세팅|수정|패치|만들어|고쳐|추가|바꿔|시켜|없애|해제|지워|넣어|빼|늘려|줄여|보여줘|전환|적용|반영)/.test(clean),
       category: '안경원격지시',
       timestamp: new Date().toLocaleString('ko-KR')
     };
@@ -522,6 +523,26 @@
         }
 
         if (update && typeof update.body === 'string') {
+          // When user double-taps to cancel voice recording (or cancels active request), show PREVIOUS CONVERSATION instead of "취소했습니다."!
+          if (update.body.includes('취소했습니다.')) {
+            const hasPrev = ensureLastConversationOnState(st);
+            if (hasPrev && st.last && st.last.reply) {
+              const prevQ = st.last.you ? `» ${String(st.last.you).slice(0, 75)}\n` : '';
+              const prevBody = `${prevQ}${st.last.reply}`.slice(0, 1990);
+              update = {
+                ...update,
+                body: prevBody
+              };
+              if (agy.goIdle && !hud.__inCancelGoIdle) {
+                hud.__inCancelGoIdle = true;
+                setTimeout(() => {
+                  try { agy.goIdle(); } catch {}
+                  hud.__inCancelGoIdle = false;
+                }, 15);
+              }
+              return origSet(update);
+            }
+          }
           if (update.body.includes('탭하고 말하세요') || update.body.includes('탭해서 핸즈프리로')) {
             update = {
               ...update,
@@ -628,7 +649,7 @@
           }
           bodyObj.reasoning = { effort: 'high', exclude: true };
           bodyObj.temperature = 0.2;
-          bodyObj.max_tokens = 4096;
+          bodyObj.max_tokens = 8192;
 
           const sysMsg = bodyObj.messages.find((m) => m.role === 'system');
           const lastUserMsg = [...bodyObj.messages].reverse().find((m) => m.role === 'user');
@@ -657,28 +678,32 @@
             localStorage.setItem('agy_g2_hud_y_offset', '48');
             if (agy?.hud?.rebuild) void agy.hud.rebuild();
             void sendRemotePcNote(userQ);
-          } else if (/(화면|글씨|창|위치|높이).*(위로|올려|맨\s*위|원래대로)/.test(userQ)) {
+          } else if (/(화면|글씨|창|위치|높이).*(위로|올려|맨\s*위|원래대로|아까처럼)/.test(userQ)) {
             window.__AGY_HUD_Y_OFFSET__ = 0;
             localStorage.setItem('agy_g2_hud_y_offset', '0');
             if (agy?.hud?.rebuild) void agy.hud.rebuild();
             void sendRemotePcNote(userQ);
           } else if (
-            (/(안티그래비티|컴퓨터|PC|피씨|워크스페이스|작업\s*노트|바탕화면|화면|기능|메뉴|버튼|코드|패치)/.test(userQ) &&
-              /(작업|실행|세팅|수정|패치|만들어|고쳐|추가|바꿔|작성|정리|분석|크롤링|동기화|푸시|빌드|배포|저장|기록|메모|시켜|해\s*줘|해\s*놔|해\s*둬|해\s*줄래|할\s*수\s*있|방법\s*없을까|내려|올려|옮겨)/.test(userQ)) ||
-            /^(안티그래비티|에디스)?[야아,\s]*(작업\s*지시|원격\s*작업|PC\s*작업|안티그래비티\s*작업|이거\s*작업해|이거\s*세팅해|이거\s*고쳐|이거\s*수정해)/i.test(userQ)
+            !/(작업하고\s*있어\?|실행하고\s*있어\?|기억나\?|뭐야\?)$/.test(userQ) &&
+            ((/(안티그래비티|컴퓨터|PC|피씨|워크스페이스|작업\s*노트|바탕화면|화면|기능|메뉴|버튼|코드|패치|답변|길이|글자\s*수|짧게|길게|이전\s*대화|취소)/.test(userQ) &&
+              /(작업|실행|세팅|수정|패치|만들어|고쳐|추가|바꿔|작성|정리|분석|크롤링|동기화|푸시|빌드|배포|저장|기록|메모|시켜|없애|해제|지워|늘려|줄여|보여\s*줘|해\s*줘|해\s*놔|해\s*둬|해\s*줄래|할\s*수\s*있|방법\s*없을까|내려|올려|옮겨)/.test(userQ)) ||
+              /^(안티그래비티|에디스)?[야아,\s]*(작업\s*지시|원격\s*작업|PC\s*작업|안티그래비티\s*작업|이거\s*작업해|이거\s*세팅해|이거\s*고쳐|이거\s*수정해|그\s*짧게\s*하는\s*거)/i.test(userQ))
           ) {
             void sendRemotePcNote(userQ);
           }
 
           if (sysMsg) {
-            const antiLieRules =
-              `[최우선 절대 수칙 — 거짓말·할루시네이션 엄격 금지 & PC 자동 실행 브릿지 안내]\n` +
-              `1. 빠른 답변을 위해 사실을 지어내거나 추측하지 마세요. 고성능 High 추론 모델로서 제공된 기억 금고와 두뇌 컨텍스트를 깊이 검증하여 100% 사실만 답하세요.\n` +
-              `2. 현재 안경 HUD 화면의 Y축 표시 위치는 대표님 지시에 따라 최하단(yOffset=92, y=92~288px, 시계대기 y=240px)으로 내려가 적용되어 있으며, 음성으로 "화면 최대로 내려줘", "화면 중간으로 해줘", "화면 위로 올려줘"라고 말씀하시면 즉시 실시간 조절됩니다.\n` +
-              `3. 대표님이 안경에서 작업·세팅·수정·메모를 지시하시면, PC가 켜져 있을 때 PC 작업노트(G2_안경_음성지시_작업노트.md)와 작업큐(G2_안경_실시간_작업큐.json)에 즉시 기록되고 PC 자율 실행 데몬 및 안티그래비티 자동 실행 브릿지가 즉시 가동됩니다.\n` +
-              `4. 답변 길이는 너무 짧은 단답을 피하고 핵심 결론과 구체적 맥락을 포함하여 3~4단락(약 300~500자) 분량의 알차고 적당한 길이로 작성하세요.\n\n`;
+            // Strip any short/concise answer restrictions from v2.0.0 base system prompt
+            sysMsg.content = sysMsg.content
+              .replace(/간결하게|짧게|2~4문장|1~3문장|300~500자|핵심만\s*요약/g, '생략이나 요약 없이 자세하고 풍부하게');
 
-            if (!sysMsg.content.includes('거짓말·할루시네이션 엄격 금지')) {
+            const antiLieRules =
+              `[최우선 절대 수칙 — 거짓말·할루시네이션 엄격 금지 & 답변 길이 제한 완전 해제]\n` +
+              `1. 빠른 답변을 위해 사실을 지어내거나 추측하지 마세요. 고성능 High 추론 모델로서 제공된 기억 금고와 두뇌 컨텍스트를 깊이 검증하여 100% 사실만 답하세요.\n` +
+              `2. 대표님이 안경에서 작업·세팅·수정·메모를 지시하시면, PC가 켜져 있을 때 PC 작업노트(G2_안경_음성지시_작업노트.md)와 작업큐(G2_안경_실시간_작업큐.json)에 즉시 기록되고 PC 자율 실행 데몬 및 안티그래비티 자동 실행 브릿지가 즉시 가동됩니다.\n` +
+              `3. [답변 길이 제한 완전 해제] 대표님의 지시("야, 그 짧게 하는 거 그냥 없애 줘")에 따라 답변 길이나 글자 수, 단락 수를 인위적으로 줄이거나 요약하지 마세요. 질문하신 내용의 모든 핵심 맥락과 세부 정보까지 빠짐없이 깊이 있고 풍부하게 전체 내용으로 답변하세요.\n\n`;
+
+            if (!sysMsg.content.includes('답변 길이 제한 완전 해제')) {
               sysMsg.content = antiLieRules + sysMsg.content;
             }
 
