@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. AM 12:27:11",
+  "updatedAt": "2026. 11. 8. AM 12:27:26",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -90,7 +90,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. AM 12:27:11\n1. 영구 장기기억 금고: 10건 (고정: 그리고 글자가 좀 잘리게 나오는 것 같은데 왼쪽으로)\n2. PC 안티그래비티 실시간 작업: 최근 8단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 42건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. AM 12:27:26\n1. 영구 장기기억 금고: 10건 (고정: 그리고 글자가 좀 잘리게 나오는 것 같은데 왼쪽으로)\n2. PC 안티그래비티 실시간 작업: 최근 7단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 42건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -505,10 +505,6 @@
   ],
   "livePcAntigravity": [
     {
-      "updatedAt": "2026-11-07T15:17:35Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] 말씀하신 두 가지 문제의 정확한 원인을 찾아 **페이지 분할 기능을 완전히 제거하고(전체 스크롤 방식 복구)**, **OpenRouter 음성 인식 오류**까지 즉시 수정하여 **v3.2.1**로 배포를 진행 중입니다.\n\n---\n\n### 1. 페이지 기능 완전 제거 & 안경 전체 화면 스크롤 복구\n- **원인 (글자가 다 안 써지고 왼쪽으로 잘려 보였던 이유)**:\n  - 이전 패치에서 긴 답변을 페이지(`▼ 1/N 페이지`)로 나누는 [`splitPrevChatIntoPages`](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/live_patch.js#L409-L415) 및 [`splitIntoGlassesPages`](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/index."
-    },
-    {
       "updatedAt": "2026-11-07T15:17:54Z",
       "snippet": "[안티그래비티(PC 작업 결과)] GitHub Pages 실시간 OTA 패치([`live_patch.js`](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/live_patch.js), [`index.html`](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/index.html)) 및 EvenHub Beta 채널(`v3.2.1`) 동기화까지 모두 완료되었습니다(`00:17:38`).\n\n스마트폰 Even 앱에서 화면을 한 번 새로고침(또는 앱 재진입)하시면:\n1. **페이지 분할 없이** 답변 전문이 안경 가로 화면 전체에 꽉 차서 출력되며, **안경 터치패드 스크롤**로 위아래로 자유롭게 내리며 보실 수 있습니다.\n2. **OpenRouter 음성 인식 오류** 없이 정상 복구된 API 키와 다중 오디오 모델 폴백"
     },
@@ -590,11 +586,6 @@
     }
   ],
   "livePcAntigravitySession": [
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-07T15:17:35Z",
-      "summary": "말씀하신 두 가지 문제의 정확한 원인을 찾아 **페이지 분할 기능을 완전히 제거하고(전체 스크롤 방식 복구)**, **OpenRouter 음성 인식 오류**까지 즉시 수정하여 **v3.2.1**로 배포를 진행 중입니다.\n\n---\n\n### 1. 페이지 기능 완전 제거 & 안경 전체 화면 스크롤 복구\n- **원인 (글자가 다 안 써지고 왼쪽으로 잘려 보였던 이유)**:\n  - 이전 패치에서 긴 답변을 페이지(`▼ 1/N 페이지`)로 나누는 [`splitPrevChatIntoPages`](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/live_patch.js#L409-L415) 및 [`splitIntoGlassesPages`](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/index."
-    },
     {
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-07T15:17:54Z",
