@@ -2795,24 +2795,294 @@
       } catch {}
     }
 
-    /* ── Transcribe & Stream Answer via OpenRouter / Gemini Latest + Antigravity Brain ── */
-    function buildSystemPrompt() {
-      const ctx = state.brainContext;
-      let brainSummary = '';
-      if (ctx) {
-        const projects = (ctx.projects || []).slice(0, 12).map((p) => `- ${p.name}: ${p.summary || ''}`).join('\n');
-        const liveIde = (ctx.livePcAntigravity || []).slice(0, 4).map((s) => `- [${s.updatedAt}] ${s.snippet || ''}`).join('\n');
-        const recentDocs = (ctx.recentDocs || []).slice(0, 5).map((d) => `- ${d.name}: ${(d.preview || '').slice(0, 160)}`).join('\n');
-        brainSummary =
-          `\n\n[실시간 동기화된 대표님의 PC 안티그래비티(e:\\안티그래비티) 및 GitHub 두뇌 컨텍스트]\n` +
-          (projects ? `주요 프로젝트:\n${projects}\n` : '') +
-          (liveIde ? `최근 PC 안티그래비티 작업:\n${liveIde}\n` : '') +
-          (recentDocs ? `최근 문서:\n${recentDocs}\n` : '');
+    /* ── Long-Term Memory Vault & Remote PC Action Helpers ── */
+    function renderMemoryVault() {
+      if (!memoryVaultList || !pinnedMemorySummary) return;
+      const pinnedItem = state.memories.find((m) => m.pinned) || state.memories[0];
+      if (pinnedItem) {
+        state.pinnedReminder = pinnedItem.fact;
+        localStorage.setItem('agy_g2_pinned_reminder', state.pinnedReminder);
       }
+      pinnedMemorySummary.textContent = state.pinnedReminder
+        ? `고정: ${state.pinnedReminder}`
+        : `영구 기억 ${state.memories.length}건 저장됨`;
+
+      memoryVaultList.replaceChildren();
+      for (const item of state.memories) {
+        const row = document.createElement('div');
+        row.className = 'memory-item';
+        row.dataset.pinned = item.pinned ? 'true' : 'false';
+
+        const left = document.createElement('div');
+        left.className = 'memory-item-left';
+        const badge = document.createElement('span');
+        badge.className = 'memory-badge';
+        badge.textContent = `${item.category || '기억'}${item.pinned ? ' · HUD 고정' : ''}`;
+        const fact = document.createElement('div');
+        fact.className = 'memory-fact';
+        fact.textContent = item.fact;
+        left.append(badge, fact);
+
+        const actions = document.createElement('div');
+        actions.className = 'memory-actions';
+
+        const pinBtn = document.createElement('button');
+        pinBtn.type = 'button';
+        pinBtn.className = 'button quiet sm';
+        pinBtn.textContent = item.pinned ? '고정됨' : '고정';
+        pinBtn.addEventListener('click', () => {
+          state.memories.forEach((m) => { m.pinned = (m.id === item.id); });
+          state.pinnedReminder = item.fact;
+          localStorage.setItem('agy_g2_long_term_memories', JSON.stringify(state.memories));
+          localStorage.setItem('agy_g2_pinned_reminder', state.pinnedReminder);
+          renderMemoryVault();
+          void syncMemoryItemToCloud({ ...item, pinned: true });
+          if (state.mode === 'idle' && !state.last) goIdle();
+        });
+
+        const delBtn = document.createElement('button');
+        delBtn.type = 'button';
+        delBtn.className = 'button quiet sm';
+        delBtn.textContent = '삭제';
+        delBtn.addEventListener('click', () => {
+          state.memories = state.memories.filter((m) => m.id !== item.id);
+          localStorage.setItem('agy_g2_long_term_memories', JSON.stringify(state.memories));
+          renderMemoryVault();
+          void syncMemoryItemToCloud({ action: 'delete', id: item.id });
+        });
+
+        actions.append(pinBtn, delBtn);
+        row.append(left, actions);
+        memoryVaultList.append(row);
+      }
+    }
+
+    async function syncMemoryItemToCloud(payload) {
+      try {
+        await fetch(CLOUD_SYNC_URL, {
+          method: 'POST',
+          headers: { 'Title': 'AGY_G2_MEMORY_SYNC', 'Tags': 'memory,brain' },
+          body: JSON.stringify(payload)
+        });
+      } catch {}
+      for (const base of ['http://192.168.123.150:3860', 'http://192.168.123.104:3860', '']) {
+        try {
+          const r = await fetch(`${base}/api/memory`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+            signal: AbortSignal.timeout(1800)
+          });
+          if (r.ok) break;
+        } catch {}
+      }
+    }
+
+    async function sendRemotePcNote(text, answer = '') {
+      const clean = String(text || '').trim();
+      if (!clean) return;
+      const payload = {
+        action: 'save_note',
+        text: clean,
+        rawQuestion: clean,
+        answer,
+        timestamp: new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })
+      };
+      try {
+        await fetch(CLOUD_SYNC_URL, {
+          method: 'POST',
+          headers: { 'Title': 'AGY_G2_PC_COMMAND', 'Tags': 'pc,note' },
+          body: JSON.stringify(payload)
+        });
+      } catch {}
+      for (const base of ['http://192.168.123.150:3860', 'http://192.168.123.104:3860', '']) {
+        try {
+          const r = await fetch(`${base}/api/pc-action`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+            signal: AbortSignal.timeout(1800)
+          });
+          if (r.ok) break;
+        } catch {}
+      }
+      upsertLocalMemory({ category: 'PC원격메모', fact: clean, pinned: true });
+      addLogNote(`PC 바탕화면 및 작업노트(G2_안경_음성지시_작업노트.md)에 메모를 전송했습니다: "${clean}"`);
+    }
+
+    function upsertLocalMemory({ id, category, fact, pinned = false }) {
+      const cleanFact = String(fact || '').trim();
+      if (!cleanFact || cleanFact.length < 2) return;
+      const nowStr = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
+      const norm = cleanFact.replace(/\s+/g, '');
+      const existIdx = state.memories.findIndex(
+        (m) => (id && m.id === id) || m.fact.replace(/\s+/g, '') === norm
+      );
+      if (pinned) {
+        state.memories.forEach((m) => { m.pinned = false; });
+        state.pinnedReminder = cleanFact;
+        localStorage.setItem('agy_g2_pinned_reminder', cleanFact);
+      }
+      let item;
+      if (existIdx >= 0) {
+        item = {
+          ...state.memories[existIdx],
+          category: category || state.memories[existIdx].category || '개인기억',
+          fact: cleanFact,
+          pinned: pinned ? true : state.memories[existIdx].pinned
+        };
+        state.memories[existIdx] = item;
+      } else {
+        item = {
+          id: id || `mem_${Date.now()}`,
+          category: category || '개인기억',
+          fact: cleanFact,
+          createdAt: nowStr,
+          pinned: Boolean(pinned)
+        };
+        state.memories.unshift(item);
+      }
+      localStorage.setItem('agy_g2_long_term_memories', JSON.stringify(state.memories));
+      renderMemoryVault();
+      void syncMemoryItemToCloud(item);
+    }
+
+    function autoExtractMemoryOnDevice(question, answer) {
+      const q = String(question || '').trim();
+      if (!q || q.length < 3) return;
+      const isPureQuestion = /(\?|뭐야|뭔지|어디야|어디에|알려줘|기억나|뭐였지|얼마야|몇\s*개|있어\?)$/.test(q) &&
+        !/(기억해|외워|메모해|적어|저장해|기록해)/.test(q);
+      if (isPureQuestion) return;
+
+      if (/(PC에|컴퓨터에|바탕화면에|작업\s*노트에).*(메모|저장|기록|적어|만들어)/.test(q)) {
+        const noteText = q
+          .replace(/^(에디스|제미나이|안티그래비티)[야아,\s]*/i, '')
+          .replace(/(내\s*)?(PC에|컴퓨터에|바탕화면에|작업\s*노트에)\s*/g, '')
+          .replace(/(메모해\s*줘|메모해\s*놔|저장해\s*줘|저장해\s*놔|기록해\s*줘|적어\s*놔|만들어\s*놔)/g, '')
+          .trim();
+        void sendRemotePcNote(noteText || q, answer);
+        return;
+      }
+
+      let category = null;
+      let shouldPin = false;
+      let extracted = '';
+
+      if (/(주차|기둥|지하\s*\d|B\d|차량|자동차|내\s*차|제\s*차|번호판)/.test(q)) {
+        category = '차량/주차';
+        shouldPin = true;
+        extracted = q
+          .replace(/^(에디스|제미나이|안티그래비티)[야아,\s]*/i, '')
+          .replace(/(기억해\s*줘|기억해\s*둬|외워\s*둬|메모해\s*줘)/g, '')
+          .trim();
+      } else if (/(기억해|외워\s*둬|외워\s*줘|잊지\s*마|메모해|적어\s*놔|적어\s*둬|기록해)/.test(q)) {
+        category = '핵심메모';
+        shouldPin = true;
+        extracted = q
+          .replace(/^(에디스|제미나이|안티그래비티)[야아,\s]*/i, '')
+          .replace(/(꼭\s*)?(기억해\s*줘|기억해\s*둬|기억해|외워\s*둬|외워\s*줘|잊지\s*마|메모해\s*줘|메모해\s*놔|적어\s*놔|적어\s*둬|기록해\s*줘)/g, '')
+          .trim();
+      } else if (/(내일|모레|오늘\s*저녁|이따가|할\s*일|해야\s*해|보내야|사야\s*해|미팅|약속)/.test(q)) {
+        category = '할일/일정';
+        shouldPin = true;
+        extracted = q.replace(/^(에디스|제미나이|안티그래비티)[야아,\s]*/i, '').trim();
+      } else if (/(품번|파트넘버|시엔위|지파츠|이베이|소싱)/.test(q) && /(이거|킵|기억|저장|주력|마진)/.test(q)) {
+        category = '품번/소싱';
+        extracted = q.replace(/^(에디스|제미나이|안티그래비티)[야아,\s]*/i, '').trim();
+      }
+
+      if (category && extracted && extracted.length >= 3) {
+        upsertLocalMemory({ category, fact: extracted, pinned: shouldPin });
+      }
+    }
+
+    /* ── Transcribe & Stream Answer via OpenRouter / Gemini Latest + Antigravity Brain (RAG) ── */
+    function buildSystemPrompt(currentQuestion = '') {
+      const ctx = state.brainContext;
+      const qLower = String(currentQuestion || '').toLowerCase();
+      const qTokens = qLower.split(/[\s,?.!]+/).filter((t) => t.length >= 2);
+
+      // 1. 영구 장기기억 금고 (새 채팅을 해도 절대 잊지 않는 1순위 기억)
+      const memLines = state.memories
+        .slice(0, 30)
+        .map((m) => `- [${m.category || '기억'}]${m.pinned ? '(고정)' : ''}: ${m.fact}`)
+        .join('\n');
+
+      let brainSummary = `\n\n[1순위: 대표님의 영구 장기기억 금고 (절대 잊지 말고 답변에 최우선 반영할 것)]\n${memLines || '- 등록된 기억 없음'}`;
+
+      if (ctx) {
+        // 2. 질문 키워드와 관련된 과거 대화 기억 검색 (Smart Memory Recall)
+        const searchPool = ctx.conversationSearchIndex || [];
+        const matchedPastTurns = searchPool
+          .filter((item) => {
+            if (!qTokens.length) return false;
+            const hay = `${item.q || ''} ${item.a || ''}`.toLowerCase();
+            return qTokens.some((tk) => hay.includes(tk));
+          })
+          .slice(-6)
+          .map((item) => `- [${item.t}] 질문: ${item.q} -> 답변: ${item.a}`)
+          .join('\n');
+
+        // 3. 지파츠 40선 실시간 재고 & 8개국 80선 소싱 마진 스카우터 검색
+        const gpartsPool = ctx.gpartsQuickIndex || [];
+        const sourcingPool = ctx.sourcingQuickIndex || [];
+        const isSourcingQuery = /(지파츠|이베이|품번|재고|품절|시엔위|소싱|마진|부품|크롤링|가격|시세|자동차|모듈)/.test(qLower);
+
+        let matchedGparts = gpartsPool.filter((g) => {
+          const hay = `${g.partNo} ${g.title} ${g.korTitle}`.toLowerCase();
+          return qTokens.some((tk) => hay.includes(tk));
+        });
+        if (!matchedGparts.length && isSourcingQuery) {
+          matchedGparts = gpartsPool.slice(0, 8);
+        }
+        const gpartsText = matchedGparts
+          .slice(0, 8)
+          .map((g) => `- 품번 ${g.partNo} (${g.korTitle || g.title}): 재고 ${g.stock}개(예비 ${g.backups}개) | 국내매입 ${g.krwCost.toLocaleString()}원 | 이베이 $${g.usdPrice}`)
+          .join('\n');
+
+        let matchedSourcing = sourcingPool.filter((s) => {
+          const hay = `${s.id} ${s.group} ${s.title} ${s.partNo}`.toLowerCase();
+          return qTokens.some((tk) => hay.includes(tk));
+        });
+        if (!matchedSourcing.length && isSourcingQuery) {
+          matchedSourcing = sourcingPool.slice(0, 6);
+        }
+        const sourcingText = matchedSourcing
+          .slice(0, 6)
+          .map((s) => `- [${s.id}] ${s.title} (품번 ${s.partNo}): 총원가 ${s.totalCostKrw.toLocaleString()}원 -> 시세 $${s.marketUsd} (순수익 +${s.netProfitKrw.toLocaleString()}원 / 순마진 ${s.netMarginPct}%)`)
+          .join('\n');
+
+        // 4. PC 안티그래비티 실시간 작업 및 핵심 프로젝트 (키 이름 완벽 호환)
+        const rawProjects = ctx.coreProjects || ctx.projects || [];
+        const projects = rawProjects.slice(0, 10).map((p) => `- ${p.name}: ${p.summary || ''}`).join('\n');
+
+        const rawIde = ctx.livePcAntigravitySession || ctx.livePcAntigravity || [];
+        const liveIde = rawIde
+          .slice(-5)
+          .map((s) => `- [${s.role || s.updatedAt || 'PC작업'}] ${(s.summary || s.snippet || '').replace(/\n+/g, ' ')}`)
+          .join('\n');
+
+        const rawDocs = ctx.recentWorkspaceDocs || ctx.recentDocs || [];
+        const recentDocs = rawDocs
+          .slice(0, 5)
+          .map((d) => `- ${d.relPath || d.name} (${d.updatedAt || ''}): ${(d.excerpt || d.preview || '').slice(0, 140).replace(/\n+/g, ' ')}`)
+          .join('\n');
+
+        brainSummary +=
+          `\n\n[2순위: 실시간 동기화된 PC 안티그래비티(e:\\안티그래비티) 및 GitHub 두뇌 컨텍스트]\n` +
+          (matchedPastTurns ? `질문 관련 과거 안경 대화 기억:\n${matchedPastTurns}\n` : '') +
+          (gpartsText ? `지파츠(Gparts) × 이베이 40선 실시간 재고 스카우터:\n${gpartsText}\n` : '') +
+          (sourcingText ? `8개국 크로스보더 소싱 80선 마진 스카우터:\n${sourcingText}\n` : '') +
+          (projects ? `주요 프로젝트:\n${projects}\n` : '') +
+          (liveIde ? `최근 PC 안티그래비티 실시간 작업:\n${liveIde}\n` : '') +
+          (recentDocs ? `최근 수정된 워크스페이스 문서:\n${recentDocs}\n` : '');
+      }
+
       const custom = state.customInstructions ? `\n추가 사용자 지시: ${state.customInstructions}` : '';
       return (
-        `당신은 Even Realities G2 스마트 안경에 탑재된 대표님의 전용 AI 비서 E.D.I.T.H(안티그래비티 마스터 두뇌)입니다.\n` +
-        `답변은 스마트 안경 HUD 화면(576x288)에서 즉시 읽기 편하도록 핵심부터 간결하고 명확한 한국어로 답하세요. 마크다운 기호(**, #, \`\`\`)나 이모지는 쓰지 말고 깔끔한 평문으로 작성하세요.` +
+        `당신은 Even Realities G2 스마트 안경에 탑재된 박정수 대표님의 전담 AI 파트너 E.D.I.T.H(안티그래비티 마스터 두뇌)입니다.\n` +
+        `답변은 스마트 안경 HUD 화면(576x288)에서 즉시 읽기 편하도록 핵심부터 간결하고 명확한 한국어로 답하세요. 마크다운 기호(**, #, \`\`\`)나 이모지는 쓰지 말고 깔끔한 평문으로 작성하세요.\n` +
+        `대표님이 차량, 주차 위치, 할 일, 약속, 품번, 과거 대화 등을 물어보시면 아래 [영구 장기기억 금고]와 [두뇌 컨텍스트]를 바탕으로 정확히 답변하세요.` +
         custom +
         brainSummary
       );
@@ -2892,6 +3162,7 @@
 
     async function askEdith(payload) {
       window.clearTimeout(state.followUpTimer);
+      stopHudAutoPaging();
       if (state.clockStandby) {
         state.clockStandby = false;
         void hud.setClockStandby(false);
@@ -2955,8 +3226,8 @@
 
         // Step 2: Stream answer from OpenRouter or Gemini Latest (with automatic highest-model fallback)
         const key = state.apiKey.trim();
-        const sysPrompt = buildSystemPrompt();
-        const recentTurns = state.history.slice(-10).map((m) => ({
+        const sysPrompt = buildSystemPrompt(userQuestion);
+        const recentTurns = state.history.slice(-12).map((m) => ({
           role: m.role === 'assistant' ? 'assistant' : 'user',
           content: m.content
         }));
@@ -3103,6 +3374,7 @@
         if (state.history.length > 80) state.history = state.history.slice(-80);
         localStorage.setItem('agy_g2_messages', JSON.stringify(state.history));
 
+        autoExtractMemoryOnDevice(userQuestion, cleanAnswer);
         stopTicker();
         goIdle();
         scheduleFollowUp();
@@ -3171,8 +3443,9 @@
       if (loaded) {
         state.brainContext = loaded;
         // Auto-apply synced OpenRouter key if phone has none yet
-        if (!state.apiKey.trim() && loaded.encryptedConfig?.k) {
-          const decoded = xorDeobfuscateKey(loaded.encryptedConfig.k);
+        const encKey = loaded.obfuscatedKey || loaded.encryptedConfig?.k;
+        if (!state.apiKey.trim() && encKey) {
+          const decoded = xorDeobfuscateKey(encKey);
           if (decoded && (decoded.startsWith('sk-or-') || decoded.startsWith('AIza'))) {
             state.apiKey = decoded;
             localStorage.setItem('agy_gemini_api_key', decoded);
@@ -3181,11 +3454,36 @@
             if (state.mode === 'setup') goIdle();
           }
         }
-        const projCount = (loaded.projects || []).length;
-        const ideCount = (loaded.livePcAntigravity || []).length;
+
+        // Sync Long-Term Memories from GitHub/PC Brain
+        if (Array.isArray(loaded.longTermMemories) && loaded.longTermMemories.length > 0) {
+          const mergedMap = new Map();
+          for (const m of [...loaded.longTermMemories, ...state.memories]) {
+            if (!m || !m.fact) continue;
+            const key = m.fact.replace(/\s+/g, '');
+            if (!mergedMap.has(key)) mergedMap.set(key, m);
+          }
+          state.memories = Array.from(mergedMap.values()).slice(0, 120);
+          localStorage.setItem('agy_g2_long_term_memories', JSON.stringify(state.memories));
+        }
+        if (loaded.pinnedReminder) {
+          state.pinnedReminder = loaded.pinnedReminder;
+          localStorage.setItem('agy_g2_pinned_reminder', state.pinnedReminder);
+        }
+        renderMemoryVault();
+
+        // Restore recent conversations from GitHub if local phone chat log is empty
+        if (state.history.length === 0 && Array.isArray(loaded.recentConversations) && loaded.recentConversations.length > 0) {
+          state.history = loaded.recentConversations.slice(-40);
+          localStorage.setItem('agy_g2_messages', JSON.stringify(state.history));
+          renderInitialHistory();
+        }
+
+        const projCount = (loaded.coreProjects || loaded.projects || []).length;
+        const memCount = state.memories.length;
         syncDot.style.background = '#3dff9a';
-        syncStatusText.innerHTML = `<b>PC 안티그래비티 ↔ GitHub 연동됨</b> (프로젝트 ${projCount}개 · 실시간 세션 ${ideCount}개)`;
-        if (!silent) addLogNote('GitHub 및 PC 안티그래비티 최신 두뇌 데이터를 동기화했습니다.');
+        syncStatusText.innerHTML = `<b>PC ↔ GitHub 두뇌 연동됨</b> (영구기억 ${memCount}건 · 프로젝트 ${projCount}개)`;
+        if (!silent) addLogNote('GitHub 및 PC 안티그래비티 최신 두뇌·영구기억 데이터를 동기화했습니다.');
       }
     }
 
@@ -3333,32 +3631,26 @@
         state.last = null;
         localStorage.setItem('agy_g2_messages', '[]');
         chatLog.replaceChildren();
-        addLogNote('새 채팅을 시작했습니다.');
+        addLogNote('새 채팅을 시작했습니다. (영구 기억 금고는 그대로 유지됩니다)');
         goIdle('새 채팅을 시작했습니다.');
       } else if (id === MENU_IDS.clockStandby) {
         if (state.clockStandby) goIdle();
         else enterClockStandby();
-      } else if (id === MENU_IDS.subtitles) {
-        void toggleRoomMode('subtitles');
       } else if (id === MENU_IDS.translate) {
         void toggleRoomMode('translate');
+        hud.setMenu(buildMenuItems());
+      } else if (id === MENU_IDS.syncBrain) {
+        void syncBrainAndKey(false).then(() => goIdle('PC 안티그래비티 및 GitHub 실시간 두뇌를 동기화했습니다.'));
       } else if (id === MENU_IDS.discreet) {
         state.prefs.discreet = !state.prefs.discreet;
         prefDiscreet.checked = state.prefs.discreet;
         localStorage.setItem('edith_pref_discreet', state.prefs.discreet ? '1' : '0');
         hud.setMenu(buildMenuItems());
         void hud.setDim(state.prefs.discreet);
-        goIdle(state.prefs.discreet ? '조용 모드를 켰습니다.' : '다시 밝게 했습니다.');
-      } else if (id === MENU_IDS.switchAi) {
-        const idx = MODEL_LIST.findIndex((m) => m.id === state.model);
-        const next = MODEL_LIST[(idx + 1) % MODEL_LIST.length];
-        state.model = next.id;
-        modelSelect.value = next.id;
-        localStorage.setItem('agy_gemini_model', next.id);
-        addLogNote(`이제 EDITH가 ${next.label} 모델을 사용합니다.`);
-        goIdle(`${next.label} 사용 중`);
-      } else if (id === MENU_IDS.syncBrain) {
-        void syncBrainAndKey(false).then(() => goIdle('PC 안티그래비티 및 GitHub 실시간 두뇌를 동기화했습니다.'));
+        goIdle(state.prefs.discreet ? '안경 화면 밝기를 어둡게 낮췄습니다.' : '안경 화면을 다시 밝게 켰습니다.');
+      } else if (id === MENU_IDS.closeMenu) {
+        state.menuOpen = false;
+        void hud.rebuild();
       }
     }
 
@@ -3383,8 +3675,35 @@
       else enterClockStandby();
     });
 
-    subtitlesChip.addEventListener('click', () => void toggleRoomMode('subtitles'));
-    translateChip.addEventListener('click', () => void toggleRoomMode('translate'));
+    translateChip.addEventListener('click', () => {
+      void toggleRoomMode('translate');
+      hud.setMenu(buildMenuItems());
+    });
+
+    if (addMemoryForm) {
+      addMemoryForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const text = addMemoryInput.value.trim();
+        if (!text) return;
+        const category = addMemoryCategory.value || '핵심메모';
+        addMemoryInput.value = '';
+        upsertLocalMemory({ category, fact: text, pinned: true });
+        addLogNote(`영구 기억 금고에 [${category}] "${text}" 항목을 저장 및 HUD 고정했습니다.`);
+        if (state.mode === 'idle' && !state.last) goIdle();
+      });
+    }
+
+    if (sendPcNoteBtn) {
+      sendPcNoteBtn.addEventListener('click', () => {
+        const text = addMemoryInput.value.trim();
+        if (!text) {
+          addLogNote('먼저 입력창에 PC로 보낼 메모 내용을 입력해 주세요.');
+          return;
+        }
+        addMemoryInput.value = '';
+        void sendRemotePcNote(text);
+      });
+    }
 
     document.querySelectorAll('.chip[data-ask]').forEach((btn) => {
       btn.addEventListener('click', () => {
