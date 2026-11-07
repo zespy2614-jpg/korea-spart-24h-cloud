@@ -115,13 +115,13 @@
       }
     });
 
-    // Update controls guide text so user sees single-tap is disabled
+    // Update controls guide text so user sees single-tap is disabled and wakes clock standby to show previous chat
     const ctrlList = document.querySelector('.controls');
     if (ctrlList) {
       ctrlList.innerHTML = `
-        <li>안경다리나 링을 <b>길게 누르고</b> 말하기 (한 번 탭 오작동 완전 차단됨)</li>
-        <li><b>탭한 다음 길게 누르면</b> 안경 메뉴 열기</li>
-        <li><b>두 번 탭</b>해서 시계 대기 모드 전환 또는 종료</li>
+        <li>안경다리나 링을 <b>길게 누르고</b> 말하기 (단순 한 번 탭 음성 오작동 차단됨)</li>
+        <li>시계 대기 모드에서 <b>한 번 탭</b>하면 이전 대화 다시 보기 (페이지 넘김)</li>
+        <li><b>탭한 다음 길게 누르면</b> 안경 메뉴 열기 · <b>두 번 탭</b>하면 시계 대기 / 종료</li>
       `;
     }
 
@@ -328,11 +328,47 @@
     }
   }
 
-  // 4. Enforce 6-Item Menu & Block Single-Tap False Triggers on Glasses
+  function ensureLastConversationOnState(st) {
+    if (!st) return false;
+    if (st.last && st.last.reply) return true;
+    const pool =
+      Array.isArray(st.history) && st.history.length > 0
+        ? st.history
+        : Array.isArray(st.brainContext?.recentConversations)
+          ? st.brainContext.recentConversations
+          : [];
+    if (pool.length > 0) {
+      const lastUser = [...pool].reverse().find((m) => m.role === 'user');
+      const lastAssistant = [...pool].reverse().find((m) => m.role === 'assistant');
+      if (lastAssistant && lastAssistant.content) {
+        st.last = {
+          you: String(lastUser?.content || '').slice(0, 80),
+          reply: String(lastAssistant.content)
+        };
+        return true;
+      }
+    }
+    const searchPool = st.brainContext?.conversationSearchIndex;
+    if (Array.isArray(searchPool) && searchPool.length > 0) {
+      const lastTurn = searchPool[searchPool.length - 1];
+      if (lastTurn && (lastTurn.a || lastTurn.q)) {
+        st.last = {
+          you: String(lastTurn.q || '').slice(0, 80),
+          reply: String(lastTurn.a || '')
+        };
+        return true;
+      }
+    }
+    return false;
+  }
+
+  // 4. Enforce 6-Item Menu & Block Single-Tap False Triggers on Glasses (Wakes Clock Standby -> Shows Previous Chat)
   function upgradeGlassesHudAndMenu() {
     if (!agy || !agy.hud || !agy.state) return;
     const st = agy.state;
     const hud = agy.hud;
+
+    ensureLastConversationOnState(st);
 
     // Force disable followUp and wakeWord on state
     if (st.prefs) {
@@ -383,7 +419,7 @@
       const origSet = hud.set.bind(hud);
 
       hud.set = function (update) {
-        // BLOCK SINGLE-TAP ('tap') LISTENING IMMEDIATELY!
+        // BLOCK SINGLE-TAP ('tap') LISTENING IMMEDIATELY & SHOW PREVIOUS CONVERSATION!
         if (st.mode === 'listening' && st.trigger === 'tap') {
           try { st.recorder?.stop(); } catch {}
           st.recorder = null;
@@ -397,7 +433,18 @@
             st.micOpen = false;
             try { hud.bridge.audioControl(false); } catch {}
           }
-          if (agy.goIdle) setTimeout(() => agy.goIdle(), 0);
+          const hasPrev = ensureLastConversationOnState(st);
+          if (agy.goIdle) {
+            setTimeout(() => {
+              agy.goIdle(hasPrev ? undefined : '저장된 이전 대화가 없습니다.');
+            }, 0);
+          }
+          setTimeout(() => {
+            if (st.mode !== 'listening' && st.micOpen && hud.bridge) {
+              st.micOpen = false;
+              try { hud.bridge.audioControl(false); } catch {}
+            }
+          }, 120);
           return;
         }
 
@@ -662,7 +709,8 @@
           st.webSpeechRec = null;
         }
         st.webSpeechTranscript = '';
-        if (agy.goIdle) agy.goIdle();
+        const hasPrev = ensureLastConversationOnState(st);
+        if (agy.goIdle) agy.goIdle(hasPrev ? undefined : '저장된 이전 대화가 없습니다.');
       }
 
       // While recording from glasses ('hold'), prevent phone WebSpeech from overriding glasses WAV
