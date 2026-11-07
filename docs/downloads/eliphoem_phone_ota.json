@@ -1,1 +1,10 @@
-{"ok":true,"version":"v5.4","build":54,"brand":"ELIPHOEM","title":"자동 핫스팟","connMode":"AA_5G","autoOff":true,"apkUrl":"https://raw.githubusercontent.com/zespy2614-jpg/korea-spart-24h-cloud/main/docs/downloads/OneUI_AutoHotspot_Phone.apk"}
+{
+  "ok": true,
+  "version": "v5.5",
+  "build": 55,
+  "brand": "ELIPHOEM",
+  "title": "자동 핫스팟",
+  "connMode": "AA_5G",
+  "autoOff": true,
+  "apkUrl": "https://raw.githubusercontent.com/zespy2614-jpg/korea-spart-24h-cloud/main/docs/downloads/OneUI_AutoHotspot_Phone.apk"
+}
