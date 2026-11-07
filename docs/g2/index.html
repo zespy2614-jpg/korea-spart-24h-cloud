@@ -1503,7 +1503,7 @@
         if (this.startupSpent) void this.rebuild();
       }
 
-      pageObjects() {
+      pageObjects(snapshot) {
         return ['title', 'status', 'body'].map((slot) => {
           const box = BOXES[slot];
           const textColor = this.clockStandby
@@ -1512,6 +1512,7 @@
               ? DIM_BRIGHTNESS[slot]
               : box.brightness;
           const isStandbyStatus = this.clockStandby && slot === 'status';
+          const contentText = snapshot ? snapshot[slot] : this.slotText(slot).slice(0, 320);
           return new TextContainerProperty({
             xPosition: isStandbyStatus ? 336 : box.x,
             yPosition: box.y,
@@ -1525,7 +1526,7 @@
             containerName: box.name,
             isEventCapture: box.capture,
             textColor,
-            content: this.slotText(slot).slice(0, 1000)
+            content: contentText
           });
         });
       }
@@ -1542,17 +1543,22 @@
         return this.enqueue(async () => {
           if (this.startupSpent) return this.rebuildNow();
           this.startupSpent = true;
+          const snapshot = {
+            title: this.slotText('title').slice(0, 320),
+            status: this.slotText('status').slice(0, 320),
+            body: this.slotText('body').slice(0, 320)
+          };
           const result = await this.bridge.createStartUpPageContainer(
             new CreateStartUpPageContainer({
               containerTotalNum: 3,
-              textObject: this.pageObjects(),
+              textObject: this.pageObjects(snapshot),
               menuObject: this.menuObject()
             })
           );
           if (result !== StartUpPageCreateResult.success) {
             return this.rebuildNow();
           }
-          this.markPageBuilt();
+          this.markPageBuilt(snapshot);
           return true;
         });
       }
@@ -1564,20 +1570,25 @@
 
       async rebuildNow() {
         if (!this.bridge) return false;
+        const snapshot = {
+          title: this.slotText('title').slice(0, 320),
+          status: this.slotText('status').slice(0, 320),
+          body: this.slotText('body').slice(0, 320)
+        };
         const ok = await this.bridge.rebuildPageContainer(
           new RebuildPageContainer({
             containerTotalNum: 3,
-            textObject: this.pageObjects(),
+            textObject: this.pageObjects(snapshot),
             menuObject: this.menuObject()
           })
         );
-        if (ok) this.markPageBuilt();
+        if (ok) this.markPageBuilt(snapshot);
         return Boolean(ok);
       }
 
-      markPageBuilt() {
+      markPageBuilt(snapshot) {
         for (const slot of ['title', 'status', 'body']) {
-          this.shown[slot] = this.slotText(slot).slice(0, 1000);
+          this.shown[slot] = snapshot ? snapshot[slot] : '';
         }
         this.scheduleFlush();
       }
@@ -2109,10 +2120,11 @@
     /* ── Home / Idle / Clock Standby Transitions ── */
     function goIdle(note) {
       stopHudAutoPaging();
-      if (state.clockStandby) {
+      const wasStandby = state.clockStandby;
+      if (wasStandby) {
         state.clockStandby = false;
-        void hud.setClockStandby(false);
-        hud.setMenu(buildMenuItems());
+        hud.clockStandby = false;
+        hud.menu = buildMenuItems();
       }
       const titleLine = `◆ E.D.I.T.H${state.clockStr ? `  ${state.clockStr}` : ''}`;
       if (!state.apiKey.trim()) {
@@ -2123,9 +2135,13 @@
           status: formatStatusLine(),
           body: `${note ? note + '\n\n' : ''}설정이 필요합니다.\n\n휴대폰의 Even 앱에서 설정을 열고\nOpenRouter 또는 Gemini 키를 확인하세요.\n\n◆ 두 번 탭하면 시계 대기 / 종료.`
         });
+        if (wasStandby) void hud.rebuild();
         return;
       }
       setPhoneState('idle');
+      if (!note && !state.last) {
+        ensureLastConversationLoaded();
+      }
       if (note) {
         const body = `${note}\n\n▶ 길게 눌러 말씀하세요 (한 번 탭 오작동 방지됨).\n◆ 탭한 다음 길게 누르면 메뉴.\n◆ 두 번 탭하면 시계 대기 / 종료.`;
         state.statusKind = 'online';
@@ -2149,6 +2165,9 @@
         state.statusKind = 'online';
         hud.set({ title: titleLine, status: formatStatusLine(), body: clip(body, 1990) });
       }
+      if (wasStandby) {
+        void hud.rebuild();
+      }
     }
 
     function enterClockStandby() {
@@ -2158,14 +2177,15 @@
       closeMic();
       state.roomMode = null;
       state.clockStandby = true;
+      hud.clockStandby = true;
+      hud.menu = buildMenuItems();
       setPhoneState('idle');
-      hud.setMenu(buildMenuItems());
       hud.set({
         title: ' ',
         status: formatStatusLine(),
         body: ' '
       });
-      void hud.setClockStandby(true);
+      void hud.rebuild();
       ensureWakeWordStandby();
     }
 
