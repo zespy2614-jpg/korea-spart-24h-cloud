@@ -2049,7 +2049,6 @@
       translateChip.setAttribute('aria-pressed', state.roomMode === 'translate' ? 'true' : 'false');
     }
 
-    /* ── HUD Auto-Paging for Long Answers (안경 화면 자동 페이지 넘김) ── */
     function stopHudAutoPaging() {
       if (state.hudPageTimer) {
         window.clearInterval(state.hudPageTimer);
@@ -2059,65 +2058,7 @@
       state.hudPageIndex = 0;
     }
 
-    function splitIntoGlassesPages(youText, replyText) {
-      const cleanReply = forGlasses(replyText);
-      const qHeader = youText ? `» ${clip(forGlasses(youText), 48)}\n` : '';
-      const fullFirst = qHeader + cleanReply;
-      if (estimateLines(fullFirst, BODY_CHARS_PER_LINE) <= BODY_LINES) {
-        return [fullFirst];
-      }
-
-      // Split into lines of ~BODY_CHARS_PER_LINE visual width
-      const wrappedLines = [];
-      for (const rawLine of cleanReply.split('\n')) {
-        if (!rawLine.trim()) {
-          if (wrappedLines.length && wrappedLines[wrappedLines.length - 1] !== '') {
-            wrappedLines.push('');
-          }
-          continue;
-        }
-        let buf = '';
-        let width = 0;
-        for (const ch of rawLine) {
-          const w = WIDE_RE.test(ch) ? 2 : 1;
-          if (width + w > BODY_CHARS_PER_LINE - 2) {
-            wrappedLines.push(buf.trimEnd());
-            buf = ch;
-            width = w;
-          } else {
-            buf += ch;
-            width += w;
-          }
-        }
-        if (buf.trim()) wrappedLines.push(buf.trimEnd());
-      }
-
-      const pages = [];
-      const linesPerPage = qHeader ? 5 : 6;
-      for (let i = 0; i < wrappedLines.length; i += linesPerPage) {
-        const chunk = wrappedLines.slice(i, i + linesPerPage).join('\n').trim();
-        if (chunk) {
-          pages.push(qHeader + chunk);
-        }
-      }
-      return pages.length ? pages.slice(0, 30) : [fullFirst];
-    }
-
-    function renderCurrentHudPage() {
-      if (!state.hudPages.length || state.mode !== 'idle' || state.clockStandby || state.roomMode) return;
-      const total = state.hudPages.length;
-      const idx = state.hudPageIndex % total;
-      const pageText = state.hudPages[idx];
-      state.statusKind = total > 1 ? 'more' : 'online';
-      const titleLine = `◆ E.D.I.T.H${state.clockStr ? `  ${state.clockStr}` : ''}`;
-      hud.set({
-        title: titleLine,
-        status: formatStatusLine(total > 1 ? `▼ ${idx + 1}/${total} 페이지` : ''),
-        body: clip(pageText, 1990)
-      });
-    }
-
-    /* ── Home / Idle / Clock Standby Transitions ── */
+    /* ── Home / Idle / Clock Standby Transitions (Full Native Scroll Mode — No Artificial Paging) ── */
     function goIdle(note) {
       stopHudAutoPaging();
       const wasStandby = state.clockStandby;
@@ -2142,29 +2083,17 @@
       if (!note && !state.last) {
         ensureLastConversationLoaded();
       }
+      let body;
       if (note) {
-        const body = `${note}\n\n▶ 길게 눌러 말씀하세요 (한 번 탭 오작동 방지됨).\n◆ 탭한 다음 길게 누르면 메뉴.\n◆ 두 번 탭하면 시계 대기 / 종료.`;
-        state.statusKind = 'online';
-        hud.set({ title: titleLine, status: formatStatusLine(), body: clip(body, 1990) });
+        body = `${note}\n\n▶ 길게 눌러 말씀하세요 (한 번 탭 오작동 방지됨).\n◆ 탭한 다음 길게 누르면 메뉴.\n◆ 두 번 탭하면 시계 대기 / 종료.`;
       } else if (state.last) {
-        state.hudPages = splitIntoGlassesPages(state.last.you, state.last.reply);
-        state.hudPageIndex = 0;
-        renderCurrentHudPage();
-        if (state.hudPages.length > 1) {
-          state.hudPageTimer = window.setInterval(() => {
-            if (state.mode !== 'idle' || state.clockStandby || state.roomMode || !state.hudPages.length) {
-              stopHudAutoPaging();
-              return;
-            }
-            state.hudPageIndex = (state.hudPageIndex + 1) % state.hudPages.length;
-            renderCurrentHudPage();
-          }, 3800);
-        }
+        body = state.last.you ? `» ${clip(state.last.you, 90)}\n\n${state.last.reply}` : state.last.reply;
       } else {
-        const body = formatGreeting();
-        state.statusKind = 'online';
-        hud.set({ title: titleLine, status: formatStatusLine(), body: clip(body, 1990) });
+        body = formatGreeting();
       }
+      const overflows = estimateLines(body, BODY_CHARS_PER_LINE) > BODY_LINES;
+      state.statusKind = overflows ? 'more' : 'online';
+      hud.set({ title: titleLine, status: formatStatusLine(), body: clip(body, 1990) });
       if (wasStandby) {
         void hud.rebuild();
       }
