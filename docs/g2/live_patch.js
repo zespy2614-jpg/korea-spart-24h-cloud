@@ -695,16 +695,25 @@
               return true;
             }
 
-            // 4) LONG_PRESS_EVENT (9) & LONG_PRESS_RELEASE_EVENT (10) -> Keep hands-free recording open when lifting finger after long-press!
+            // 4) LONG_PRESS_EVENT (9) & LONG_PRESS_RELEASE_EVENT (10) -> Push-to-Talk: Send immediately when user lifts finger!
             if (evType === 9) {
               st.holdStartedAt = now;
+              st.trigger = 'hold';
             }
             if (evType === 10) {
               st.holdReleasedAt = now;
               if (st.mode === 'listening') {
-                const heldMs = now - (st.holdStartedAt || 0);
-                if (heldMs < 2000 || (st.recorder?.speechMs ?? 0) < 450) {
-                  return true;
+                st.trigger = 'hold';
+                if (st.recorder) {
+                  st.recorder.heardSpeech = true;
+                  st.recorder.speechMs = Math.max(st.recorder.speechMs || 0, st.recorder.durationMs || 600);
+                  st.recorder.sendableMs = Math.max(st.recorder.sendableMs || 0, st.recorder.durationMs || 600);
+                  if (Array.isArray(st.recorder.chunks)) {
+                    for (const c of st.recorder.chunks) {
+                      c.own = true;
+                      c.speech = true;
+                    }
+                  }
                 }
               }
             }
@@ -779,11 +788,15 @@
       window.webkitSpeechRecognition = undefined;
     } catch {}
 
+    // Remove top-center Even OS menu indicator bar ("가운데 위에 짝대기 하나") by disabling menuObject on glasses HUD
+    hud.menu = [];
+    hud.menuObject = function () {
+      return undefined;
+    };
     if (!hud.__v31MenuHooked && typeof hud.setMenu === 'function') {
       hud.__v31MenuHooked = true;
-      const origSetMenu = hud.setMenu.bind(hud);
       hud.setMenu = function () {
-        return origSetMenu(getClean6MenuItems());
+        this.menu = [];
       };
     }
 
@@ -880,11 +893,11 @@
           return;
         }
 
-        // When recording via Long-Press ('hold' or 'longpress'):
-        // 1) Switch st.trigger from 'hold' to 'longpress' so lifting finger after long-press does NOT abort recording!
+        // When recording via Long-Press ('hold'):
+        // 1) Keep st.trigger = 'hold' so lifting finger (LONG_PRESS_RELEASE_EVENT) immediately sends the voice message!
         // 2) Ensure 100% of G2 Glasses 16kHz PCM chunks are preserved (acceptOther=true, no syllable clipping in toWavBase64)!
         if (st.mode === 'listening' && (st.trigger === 'hold' || st.trigger === 'longpress')) {
-          st.trigger = 'longpress';
+          st.trigger = 'hold';
           if (st.webSpeechRec) {
             try { st.webSpeechRec.abort?.() || st.webSpeechRec.stop(); } catch {}
             st.webSpeechRec = null;
@@ -1311,9 +1324,9 @@
         }
       }
 
-      // While recording from glasses ('hold' or 'longpress'), keep mic open hands-free and ensure 100% of G2 PCM chunks are kept
+      // While recording from glasses ('hold'), keep st.trigger = 'hold' so lifting finger immediately sends, and ensure 100% of G2 PCM chunks are kept
       if (st.mode === 'listening' && (st.trigger === 'hold' || st.trigger === 'longpress')) {
-        st.trigger = 'longpress';
+        st.trigger = 'hold';
         if (st.webSpeechRec) {
           try { st.webSpeechRec.abort?.() || st.webSpeechRec.stop(); } catch {}
           st.webSpeechRec = null;
