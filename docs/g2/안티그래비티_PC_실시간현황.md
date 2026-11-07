@@ -1,11 +1,12 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 7. PM 8:07:13
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 7. PM 8:09:58
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
 - **[안티그래비티(PC 작업 결과)]**: OpenRouter 연동 및 **PC 안티그래비티 ↔ GitHub ↔ Even G2 안경 실시간 양방향 동기화(`v1.0.3`)** 빌드를 EvenHub 베타 서버로 업로드하고 있습니다. 완료되는 즉시 안내해 드리겠습니다.
 - **[안티그래비티(PC 작업 결과)]**: **`Antigravity Brain` `v1.0.3` 업데이트(OpenRouter 완벽 연동 + PC ↔ GitHub ↔ 안경 실시간 양방향 동기화)**가 EvenHub 베타 서버와 GitHub 클라우드에 모두 배포 완료되었습니다! ([index.html](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/index.html), [server.mjs](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/server.mjs), [sync_g2_glasses_cloud.mjs](file:///e:/안티그래비티/클라우드_24시간_무중단_관제센터/sync_g2_glasses_cloud.mjs)) --- ### 1. 어떻게 실시간 양방향으로 작동하나요? 1. **PC 안티그래비티 → GitHub 실시간
+- **[대표님(PC 안티그래비티 요청)]**: 너 edith라는 앱하고 똑같이만들어줄 수 있어? 보이는거
 - **[대표님(PC 안티그래비티 요청)]**: 고민인 게 그 아 지금 내가 컴퓨터로 맨날 켜 놓으니까 전기세가 많이 나올 것 같긴 하거든. 컴퓨터에 부담도 가고 그러면은 미니피시를 사용해야 되나? 거의 하는 거라고는 개발할 때 컴퓨터에 USb 연결해서 하거나 WiFi 연결해서 하는 것밖에 없거든요. 개발하는거 <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USE
 - **[안티그래비티(PC 작업 결과)]**: 결론부터 말씀드리면, **순수하게 '전기세 절약' 목적이라면 미니 PC를 새로 사는 것보다 배보다 배꼽이 더 클 확률이 높습니다.** 하지만 **현재 본체 사양이나 사용 패턴**에 따라 미니 PC가 훨씬 좋은 선택이 될 수도 있습니다. 고민하시는 **① 실제 전기세 차이, ② 컴퓨터 수명 부담, ③ 개발용(USB/Wi-Fi 디버깅) 관점**에서 딱 정리해 드릴게요. --- ### 1. 실제 전기세, 얼마나 차이 날까? (24시간 가동 기준) 개발 작업(코드 작성, USB/Wi-Fi 연결 테스트)은 게임처럼 그래픽카드를 풀가동하지 않기 때문에, 켜놓아도 대부분 **대기(Idle) ~ 저부하 상태**로 작동합니다. | 구분 | 평균 소비전력 (대기~가벼운 개발) | 24시간 한 달 사용량 | 월 예상 전기세 (누진 2~3구간) | | :
 - **[안티그래비티(PC 작업 결과)]**: RK3566 CPU 클럭(`1.10GHz` / `1.42GHz` / `1.80GHz`)별 실제 연산 속도 벤치마크를 실행 중입니다. 완료되는 대로 결과를 확인하고 철권 태그 및 PSP(철권 6) 인게임 프레임 검증을 이어서 진행하겠습니다.
