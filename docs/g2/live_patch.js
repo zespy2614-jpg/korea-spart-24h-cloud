@@ -788,6 +788,16 @@
       if (Array.isArray(agy.hud.menu) && agy.hud.menu.some((m) => m.name === '자막 모드' || m.name === 'AI 전환')) {
         upgradeGlassesHudAndMenu();
       }
+
+      // Dynamically rebuild HUD if yOffset changed from PC liveUiConfig
+      const targetYOffset =
+        window.__AGY_HUD_Y_OFFSET__ !== undefined
+          ? window.__AGY_HUD_Y_OFFSET__
+          : st?.brainContext?.liveUiConfig?.hudYOffset ?? 92;
+      if (agy.hud.__lastAppliedYOffset !== undefined && agy.hud.__lastAppliedYOffset !== targetYOffset) {
+        agy.hud.__lastAppliedYOffset = targetYOffset;
+        if (typeof agy.hud.rebuild === 'function') void agy.hud.rebuild();
+      }
     }, 120);
   }
 })();
