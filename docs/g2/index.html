@@ -2308,7 +2308,9 @@
       }
     }
 
-    async function startListening(trigger = 'tap', { keepBody = false } = {}) {
+    async function startListening(trigger = 'hold', { keepBody = false } = {}) {
+      // Block accidental single-tap ('tap') from ever starting voice recording
+      if (trigger === 'tap') return;
       if (state.mode === 'thinking' || state.mode === 'answering') return;
       if (!state.apiKey.trim()) {
         await syncBrainAndKey(true);
@@ -2329,14 +2331,19 @@
         hud.setMenu(buildMenuItems());
       }
 
+      // Allow auto-stop on silence (1.65s) even when started via long-press so both "hold-to-talk" and "long-press-once-then-speak" work cleanly
       const recorder = new EdithRecorder({
-        autoStop: trigger !== 'hold',
+        autoStop: true,
+        silenceToStopMs: 1650,
+        minSpeechRms: 95,
+        speechToArmMs: 140,
         onAutoStop: (reason) => void finishListening(reason)
       });
 
       if (!keepBody) state.followUps = 0;
       state.recorder = recorder;
       state.trigger = trigger;
+      state.holdStartedAt = Date.now();
       state.quietListening = keepBody;
       state.webSpeechTranscript = '';
       setPhoneState('listening');
@@ -2346,19 +2353,18 @@
       startTicker(() => renderListeningTick(), 450);
 
       window.clearTimeout(state.followUpStopTimer);
-      if (keepBody) {
-        state.followUpStopTimer = window.setTimeout(() => {
-          if (state.recorder === recorder && state.quietListening) cancelListening(true);
-        }, 9000);
-      }
 
-      // Parallel browser Web Speech API as instant fallback (especially when testing on phone/browser)
-      startParallelWebSpeech(recorder);
-
+      // Open G2 Glasses hardware microphone FIRST.
+      // CRITICAL: Do NOT run smartphone WebSpeech while G2 glasses mic is open, because the distant phone mic
+      // hears muffled audio and corrupts/overrides the crystal-clear 16kHz PCM audio from the glasses!
       const opened = await openMic();
       if (state.recorder !== recorder) {
         if (opened) closeMic();
         return;
+      }
+      if (!opened) {
+        // Fallback to browser Web Speech API ONLY when no G2 glasses bridge is connected (e.g. PC browser test)
+        startParallelWebSpeech(recorder);
       }
     }
 
@@ -2386,8 +2392,7 @@
           if (combined) {
             state.webSpeechTranscript = combined;
             if (state.quietListening) state.quietListening = false;
-            const how = state.trigger === 'hold' ? '손을 떼면 전송합니다.' : '탭하면 전송, 잠시 멈춰도 전송.';
-            hud.set({ body: `» ${clip(forGlasses(combined), 90)}\n\n듣고 있어요...\n${how}\n두 번 탭하면 취소.` });
+            hud.set({ body: `» ${clip(forGlasses(combined), 90)}\n\n듣고 있어요...\n손을 떼거나 말씀을 마치면 전송합니다.\n두 번 탭하면 취소.` });
           }
         };
         rec.onerror = () => {};
@@ -2418,8 +2423,7 @@
 
     function renderListeningBody() {
       if (state.quietListening) return;
-      const how = state.trigger === 'hold' ? '손을 떼면 전송합니다.' : '탭하면 전송, 잠시 멈춰도 전송.';
-      hud.set({ body: `듣고 있어요...\n\n${how}\n두 번 탭하면 취소.` });
+      hud.set({ body: `듣고 있어요 (안경 정밀 마이크)...\n\n말씀 후 손을 떼거나 잠시 멈추면 전송합니다.\n두 번 탭하면 취소.` });
     }
 
     function cancelListening(quiet = false) {
@@ -2446,7 +2450,13 @@
       const quiet = state.quietListening;
       state.quietListening = false;
 
-      // If Web Speech already caught clear Korean text, use it immediately!
+      // Prefer G2 Glasses 16kHz PCM WAV whenever audio chunks were captured from the glasses!
+      if (recorder.chunks.length > 0 && recorder.sendableMs >= 320 && (recorder.heardSpeech || recorder.peakRms >= 75 || reason === 'manual')) {
+        await askEdith({ wavBase64: recorder.toWavBase64() });
+        return;
+      }
+
+      // Fallback to Web Speech only if no glasses PCM audio was recorded (e.g. PC/phone browser without glasses)
       if (webText.length >= 2) {
         if (webText.includes('시계 대기') || webText.includes('시계 모드') || webText.includes('화면 꺼') || webText.includes('안경 꺼')) {
           enterClockStandby();
@@ -2456,23 +2466,12 @@
         return;
       }
 
-      const nothingSaid = reason === 'no-speech' || recorder.sendableMs < 500 || (!recorder.heardSpeech && reason !== 'manual');
-      if (nothingSaid) {
-        goIdle(quiet ? undefined : '잘 못 들었습니다.');
-        return;
-      }
-
-      await askEdith({ wavBase64: recorder.toWavBase64() });
+      goIdle(quiet ? undefined : '잘 못 들었습니다. 길게 누른 후 다시 말씀해 주세요.');
     }
 
     function scheduleFollowUp() {
+      // Disabled automatic tap follow-up to prevent accidental false triggers after answers
       window.clearTimeout(state.followUpTimer);
-      if (!state.prefs.followUp || state.trigger === 'phone' || state.followUps >= 4 || state.clockStandby) return;
-      state.followUpTimer = window.setTimeout(() => {
-        if (state.mode !== 'idle' || state.recorder || state.roomMode || state.clockStandby) return;
-        state.followUps++;
-        void startListening('tap', { keepBody: true });
-      }, 650);
     }
 
     /* ── Subtitles & Live Translation Mode (EDITH Room Mode + 0.2s Simultaneous Translation Pipeline) ── */
