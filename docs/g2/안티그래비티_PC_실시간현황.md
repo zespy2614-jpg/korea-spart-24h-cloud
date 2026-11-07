@@ -1,12 +1,11 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 7. PM 9:04:07
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 7. PM 9:04:22
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
 - **[안티그래비티(PC 작업 결과)]**: 요청하신 3가지 사항을 모두 반영하여 **EDITH × Antigravity v1.0.5**([public/index.html](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/index.html), [server.mjs](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/server.mjs), [app.json](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/app.json))로 업데이트하고, **Even 앱 Beta 스토어(`v1.0.5`)** 및 **GitHub 실시간 서버**에 즉시 배포했습니다. --- ### 1. 제미나이 최신·최상위(Gemini Latest Highest) 모델 기본 적용 & 자동 전환 - **최상위 최신 제미나이 모델 기본 탑재**:   1. 
 - **[대표님(PC 안티그래비티 요청)]**: 업데이트버튼왜안뜨지
-- **[안티그래비티(PC 작업 결과)]**: 철권 태그 및 PSP 실행 경로(`es_systems.cfg` 및 롬 매핑)를 확인 중입니다. 완료되는 대로 인게임 속도 측정을 진행하겠습니다.
 - **[대표님(PC 안티그래비티 요청)]**: 하고있는거맞아 ?
 - **[안티그래비티(PC 작업 결과)]**: 네, 계속 진행 중입니다. 현재 철권 태그(`Tekken Tag Tournament`)를 실제 구동하여 스타트/캐릭터 선택 후 인게임 3D 대전 진입 시점의 내부 JIT(DRC) 활성화 상태, 프레임스킵, 실제 FPS 수치를 실시간으로 측정하고 있습니다(약 25초 소요). 측정이 끝나는 대로 결과를 확인하고 PSP(철권 6)까지 바로 검증하겠습니다.
 - **[대표님(PC 안티그래비티 요청)]**: 고민인 게 그 아 지금 내가 컴퓨터로 맨날 켜 놓으니까 전기세가 많이 나올 것 같긴 하거든. 컴퓨터에 부담도 가고 그러면은 미니피시를 사용해야 되나? 거의 하는 거라고는 개발할 때 컴퓨터에 USb 연결해서 하거나 WiFi 연결해서 하는 것밖에 없거든요. 개발하는거 <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USE
