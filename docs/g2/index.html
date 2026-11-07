@@ -990,24 +990,33 @@
     document.getElementById('prevPageBtn').addEventListener('click', () => moveHudPage(-1));
     document.getElementById('nextPageBtn').addEventListener('click', () => moveHudPage(1));
 
-    // 안티그래비티 마스터 두뇌 데이터 로드 (로컬 PC 우선 -> 오프라인 시 GitHub 클라우드 자동 폴백)
+    const LOCAL_PC_API_BASE = 'http://192.168.123.150:3860';
+
+    // 안티그래비티 마스터 두뇌 데이터 로드 (로컬 PC 실시간 -> GitHub 24h 클라우드 실시간 -> 패키지 내장 폴백)
     async function loadAntigravityBrain() {
       brainSyncText.textContent = '안티그래비티 두뇌 동기화 중...';
+      const ts = Date.now();
       const urlsToTry = [
-        './brain_context.json?t=' + Date.now(),
-        '/api/brain?t=' + Date.now(),
-        GITHUB_BRAIN_URL + '?t=' + Date.now()
+        `${LOCAL_PC_API_BASE}/api/brain?t=${ts}`,
+        `/api/brain?t=${ts}`,
+        `${GITHUB_BRAIN_URL}?t=${ts}`,
+        `./brain_context.json?t=${ts}`
       ];
 
       for (const url of urlsToTry) {
         try {
-          const res = await fetch(url, { cache: 'no-store' });
+          const controller = new AbortController();
+          const timer = setTimeout(() => controller.abort(), 2200);
+          const res = await fetch(url, { cache: 'no-store', signal: controller.signal });
+          clearTimeout(timer);
           if (res.ok) {
             const data = await res.json();
-            state.brainContext = data;
-            localStorage.setItem('agy_cached_brain', JSON.stringify(data));
-            updateBrainUi(data);
-            return;
+            if (data && data.updatedAt) {
+              state.brainContext = data;
+              localStorage.setItem('agy_cached_brain', JSON.stringify(data));
+              updateBrainUi(data);
+              return;
+            }
           }
         } catch (e) {}
       }
@@ -1132,17 +1141,24 @@
 
       // 1) 로컬 PC 서버가 켜져 있으면 즉시 직접 저장 (/api/log)
       let savedDirect = false;
-      try {
-        const localRes = await fetch('/api/log', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-        if (localRes.ok) {
-          savedDirect = true;
-          cloudQueueText.textContent = 'PC & 구글 드라이브 실시간 저장 완료';
-        }
-      } catch (e) {}
+      for (const logUrl of [`${LOCAL_PC_API_BASE}/api/log`, '/api/log']) {
+        try {
+          const controller = new AbortController();
+          const timer = setTimeout(() => controller.abort(), 1800);
+          const localRes = await fetch(logUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+            signal: controller.signal
+          });
+          clearTimeout(timer);
+          if (localRes.ok) {
+            savedDirect = true;
+            cloudQueueText.textContent = 'PC & 구글 드라이브 실시간 저장 완료';
+            break;
+          }
+        } catch (e) {}
+      }
 
       // 2) PC가 꺼져 있거나 외부망(5G/LTE)일 때도 100% 보존되도록 글로벌 클라우드 큐(ntfy.sh)로 전송
       try {
@@ -1251,20 +1267,27 @@
         }
       } else {
         // B. API 키를 아직 안 넣었을 때: 로컬 PC 브릿지 서버(/api/ask) 시도 후 내장 안티그래비티 두뇌 즉답 엔진 가동
-        try {
-          const pcRes = await fetch('/api/ask', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ question: q, brainContext: state.brainContext })
-          });
-          if (pcRes.ok) {
-            const pcData = await pcRes.json();
-            if (pcData.answer) {
-              finalAnswer = pcData.answer;
-              usedModel = pcData.model || 'AGY-Local-Brain';
+        for (const askUrl of [`${LOCAL_PC_API_BASE}/api/ask`, '/api/ask']) {
+          try {
+            const controller = new AbortController();
+            const timer = setTimeout(() => controller.abort(), 2000);
+            const pcRes = await fetch(askUrl, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ question: q, brainContext: state.brainContext }),
+              signal: controller.signal
+            });
+            clearTimeout(timer);
+            if (pcRes.ok) {
+              const pcData = await pcRes.json();
+              if (pcData.answer) {
+                finalAnswer = pcData.answer;
+                usedModel = pcData.model || 'AGY-Local-Brain';
+                break;
+              }
             }
-          }
-        } catch (e) {}
+          } catch (e) {}
+        }
 
         if (!finalAnswer) {
           finalAnswer = buildOfflineBrainAnswer(q);
