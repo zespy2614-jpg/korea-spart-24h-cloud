@@ -587,39 +587,48 @@
             </div>
             <div>
               <h2 class="card-title">Even G2 렌즈 실시간 화면 (576 × 288 HUD)</h2>
-              <p class="card-subtitle">안경 다리 터치패드를 길게 누르거나 아래 버튼을 눌러 음성으로 대화하세요</p>
+              <p class="card-subtitle">평소엔 시계만 표시 · "하이 제미나이" 또는 안경다리 1회 터치 시 대화 · 2회 터치 시 시계 복귀</p>
             </div>
           </div>
-          <span id="hudPageIndicator" class="pill-badge">1 / 1 페이지</span>
+          <span id="hudPageIndicator" class="pill-badge success">시계 대기 모드</span>
         </div>
 
         <!-- G2 Green Micro-LED Display Mirror -->
         <div class="g2-display-frame">
           <div class="g2-hud-header">
-            <span id="hudHeaderTitle">[AGY BRAIN] READY</span>
-            <span id="hudHeaderMeta">BAT --% | PAGE 1/1</span>
+            <span id="hudHeaderTitle">19:25  |  BAT --%</span>
+            <span id="hudHeaderMeta">CLOCK STANDBY</span>
           </div>
-          <div id="hudBodyContent" class="g2-hud-body">안티그래비티 × Even G2 두뇌가 연결되었습니다.
-안경 다리 터치패드를 길게 누르거나 [음성으로 질문하기]를 눌러 대화를 시작하세요.</div>
+          <div id="hudBodyContent" class="g2-hud-body">[시계 대기 모드 — 안경 렌즈에는 상단 시계만 깨끗하게 표시됩니다]
+"하이 제미나이"라고 부르거나 안경다리를 한 번 터치하면 대화 모드가 켜집니다.
+(안경다리 두 번 터치 시 즉시 꺼지고 시계 화면으로 돌아갑니다)</div>
           <div class="g2-hud-footer">
-            <span>길게 누르기: 음성 질문</span>
-            <span>터치/메뉴: 페이지 이동</span>
+            <span>"하이 제미나이" / 1회 터치: 대화</span>
+            <span>안경다리 2회 터치: 끄기(시계만 표시)</span>
           </div>
         </div>
 
         <!-- 페이지 이동 & 안경 화면 전송 컨트롤 -->
         <div class="hud-controls">
+          <button id="clockStandbyBtn" class="btn-pill btn-secondary btn-sm" type="button">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>시계 모드로 비우기 (2회 터치)</span>
+          </button>
+          <button id="wakeWordToggleBtn" class="btn-pill btn-primary btn-sm" type="button">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
+            <span id="wakeWordToggleText">"하이 제미나이" 상시 대기: 켜짐</span>
+          </button>
           <button id="prevPageBtn" class="btn-pill btn-secondary btn-sm" type="button">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
-            <span>이전 페이지</span>
+            <span>이전</span>
           </button>
           <button id="nextPageBtn" class="btn-pill btn-secondary btn-sm" type="button">
-            <span>다음 페이지</span>
+            <span>다음</span>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
           </button>
           <button id="pushBriefingBtn" class="btn-pill btn-secondary btn-sm" type="button">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            <span>두뇌 브리핑 띄우기</span>
+            <span>두뇌 브리핑</span>
           </button>
         </div>
 
@@ -746,11 +755,23 @@
       apiKey: localStorage.getItem('agy_gemini_api_key') || '',
       model: localStorage.getItem('agy_gemini_model') || 'gemini-2.5-pro',
       brainContext: null,
-      hudPages: ['안티그래비티 × Even G2 두뇌가 연결되었습니다.\n안경 다리 터치패드를 길게 누르거나 [음성으로 질문하기]를 눌러 대화를 시작하세요.'],
+      // HUD 모드: 'CLOCK_STANDBY' (시계만 표시) | 'LISTENING' (대화 듣기) | 'CONVERSATION' (답변 표시) | 'SCREEN_OFF' (완전 끄기)
+      hudMode: 'CLOCK_STANDBY',
+      hudPages: [''],
       currentPageIdx: 0,
-      hudTitle: '[AGY BRAIN] READY',
+      hudTitle: '',
       isListening: false,
+      wakeWordEnabled: true,
       recognition: null,
+      lastTapTime: 0,
+      singleTapTimer: null,
+      // 안경 내장 마이크(PCM) 버퍼 및 음성 감지(VAD) 상태
+      pcmChunks: [],
+      pcmBytesLen: 0,
+      vadSpeaking: false,
+      vadSpeechStartAt: 0,
+      vadLastVoiceAt: 0,
+      isProcessingAudio: false,
       messages: JSON.parse(localStorage.getItem('agy_g2_messages') || '[]')
     };
 
@@ -766,6 +787,9 @@
     const hudPageIndicator = document.getElementById('hudPageIndicator');
     const voiceAskBtn = document.getElementById('voiceAskBtn');
     const voiceAskBtnText = document.getElementById('voiceAskBtnText');
+    const clockStandbyBtn = document.getElementById('clockStandbyBtn');
+    const wakeWordToggleBtn = document.getElementById('wakeWordToggleBtn');
+    const wakeWordToggleText = document.getElementById('wakeWordToggleText');
     const askForm = document.getElementById('askForm');
     const questionInput = document.getElementById('questionInput');
     const apiKeyInput = document.getElementById('apiKeyInput');
@@ -783,10 +807,27 @@
       document.body.setAttribute('data-theme', cur === 'dark' ? 'light' : 'dark');
     });
 
+    // 현재 한국 시간 시계 문자열 생성 (예: "오후 07:28" 및 "19:28")
+    function getKoreanClockStr() {
+      const now = new Date();
+      return now.toLocaleTimeString('ko-KR', {
+        timeZone: 'Asia/Seoul',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      });
+    }
+
+    function getClockHeaderForGlasses() {
+      const clock = getKoreanClockStr();
+      const bat = state.batteryLevel !== null ? `  |  ${state.batteryLevel}%` : '';
+      return `${clock}${bat}`;
+    }
+
     // 안경 화면용 텍스트 페이지 분할 (576x288 해상도에 맞춰 한 페이지당 약 130자 / 5줄 이내로 깔끔하게 분할)
     function paginateForGlasses(text) {
       const clean = String(text || '').replace(/\*\*/g, '').replace(/`/g, '').trim();
-      if (!clean) return ['내용이 없습니다.'];
+      if (!clean) return [' '];
 
       const lines = clean.split('\n');
       const pages = [];
@@ -801,7 +842,6 @@
           }
           continue;
         }
-        // 긴 줄은 28자 단위로 줄바꿈
         const chunks = [];
         for (let i = 0; i < line.length; i += 28) {
           chunks.push(line.slice(i, i + 28));
@@ -823,8 +863,82 @@
       return pages.length > 0 ? pages : [clean.slice(0, 130)];
     }
 
-    // Even G2 안경 렌즈 및 화면 미러 동시 업데이트
-    async function renderHudToGlasses(title, fullText, resetPage = true) {
+    // 1) 시계 대기 모드(CLOCK_STANDBY): 안경에는 오직 상단 시계만 표시하고 본문은 완전히 비움!
+    async function enterClockStandbyMode() {
+      state.hudMode = 'CLOCK_STANDBY';
+      state.isListening = false;
+      state.pcmChunks = [];
+      state.pcmBytesLen = 0;
+      state.vadSpeaking = false;
+
+      voiceAskBtn.classList.remove('listening');
+      voiceAskBtnText.textContent = '음성으로 질문하기 ("하이 제미나이" 또는 안경다리 1회 터치)';
+
+      const clockHeader = getClockHeaderForGlasses();
+      hudHeaderTitle.textContent = clockHeader;
+      hudHeaderMeta.textContent = state.wakeWordEnabled ? '시계 대기 ("하이 제미나이" 대기 중)' : '시계 대기 모드';
+      hudBodyContent.textContent =
+        `[시계 대기 모드 — 현재 안경 렌즈에는 상단 시계(${clockHeader})만 깨끗하게 표시됩니다]\n` +
+        `• "하이 제미나이"라고 부르거나 안경다리를 한 번 터치하면 대화 모드가 켜집니다.\n` +
+        `• 대화 중 안경다리를 두 번 터치하면 언제든 이 시계 화면으로 돌아옵니다.`;
+      hudPageIndicator.className = 'pill-badge success';
+      hudPageIndicator.textContent = '시계 대기 모드';
+
+      if (state.bridge && state.startupCreated) {
+        try {
+          await state.bridge.textContainerUpgrade({
+            containerID: 1,
+            containerName: 'agy_header',
+            content: clockHeader,
+            textColor: 4
+          });
+          await state.bridge.textContainerUpgrade({
+            containerID: 2,
+            containerName: 'agy_body',
+            content: ' ',
+            textColor: 0
+          });
+        } catch (err) {
+          console.warn('[G2 Clock Standby Error]:', err);
+        }
+      }
+
+      // 상시 호출어("하이 제미나이") 대기 유지
+      ensureWakeWordStandbyActive();
+    }
+
+    // 2) 완전 화면 끄기 모드(SCREEN_OFF): 시계 대기 상태에서 한 번 더 더블터치 시 시계까지 소등
+    async function enterScreenOffMode() {
+      state.hudMode = 'SCREEN_OFF';
+      state.isListening = false;
+
+      hudHeaderTitle.textContent = '화면 꺼짐 (절전)';
+      hudHeaderMeta.textContent = 'SCREEN OFF';
+      hudBodyContent.textContent = '[안경 렌즈 화면이 완전히 꺼졌습니다]\n안경다리를 터치하거나 "하이 제미나이"라고 부르면 다시 켜집니다.';
+      hudPageIndicator.className = 'pill-badge';
+      hudPageIndicator.textContent = '화면 꺼짐';
+
+      if (state.bridge && state.startupCreated) {
+        try {
+          await state.bridge.textContainerUpgrade({
+            containerID: 1,
+            containerName: 'agy_header',
+            content: ' ',
+            textColor: 0
+          });
+          await state.bridge.textContainerUpgrade({
+            containerID: 2,
+            containerName: 'agy_body',
+            content: ' ',
+            textColor: 0
+          });
+        } catch (err) {}
+      }
+    }
+
+    // 3) 대화/답변 모드(LISTENING / CONVERSATION): 안경 렌즈 및 화면 미러 동시 업데이트
+    async function renderHudToGlasses(title, fullText, resetPage = true, modeOverride = 'CONVERSATION') {
+      state.hudMode = modeOverride;
       if (title) state.hudTitle = title;
       if (fullText !== null && fullText !== undefined) {
         state.hudPages = paginateForGlasses(fullText);
@@ -835,15 +949,16 @@
       }
       if (state.currentPageIdx < 0) state.currentPageIdx = 0;
 
-      const pageText = state.hudPages[state.currentPageIdx] || '';
+      const pageText = state.hudPages[state.currentPageIdx] || ' ';
       const pageMeta = `${state.currentPageIdx + 1}/${state.hudPages.length}`;
-      const batStr = state.batteryLevel !== null ? `${state.batteryLevel}%` : '--%';
-      const headerStr = `${state.hudTitle} (${pageMeta})`;
+      const clockStr = getKoreanClockStr();
+      const headerStr = `${clockStr} | ${state.hudTitle} (${pageMeta})`;
 
       // 웹 미러 UI 업데이트
-      hudHeaderTitle.textContent = state.hudTitle;
-      hudHeaderMeta.textContent = `BAT ${batStr} | PAGE ${pageMeta}`;
+      hudHeaderTitle.textContent = `${clockStr} | ${state.hudTitle}`;
+      hudHeaderMeta.textContent = `PAGE ${pageMeta} (두 번 터치: 끄기)`;
       hudBodyContent.textContent = pageText;
+      hudPageIndicator.className = 'pill-badge';
       hudPageIndicator.textContent = `${state.currentPageIdx + 1} / ${state.hudPages.length} 페이지`;
 
       // 실제 Even G2 안경 하드웨어 전송
@@ -863,6 +978,100 @@
           });
         } catch (err) {
           console.warn('[G2 HUD Upgrade Error]:', err);
+        }
+      }
+    }
+
+    // 매 15초마다 시계 대기 모드일 때 안경 상단 시계 자동 갱신
+    setInterval(() => {
+      if (state.hudMode === 'CLOCK_STANDBY') {
+        const clockHeader = getClockHeaderForGlasses();
+        hudHeaderTitle.textContent = clockHeader;
+        if (state.bridge && state.startupCreated) {
+          state.bridge.textContainerUpgrade({
+            containerID: 1,
+            containerName: 'agy_header',
+            content: clockHeader,
+            textColor: 4
+          }).catch(() => {});
+        }
+      }
+    }, 15000);
+
+    // EvenHub 이벤트에서 OS 이벤트 타입(클릭/더블클릭/스크롤/롱프레스) 통합 추출
+    function extractOsEventType(event) {
+      if (!event) return undefined;
+      const raw =
+        event.sysEvent?.eventType ??
+        event.textEvent?.eventType ??
+        event.listEvent?.eventType ??
+        event.jsonData?.eventType ??
+        event.jsonData?.Event_Type ??
+        event.jsonData?.event_type;
+
+      if (raw === undefined || raw === null) {
+        // 만약 textEvent 객체만 오고 eventType이 비어있다면 기본 클릭(0)으로 처리
+        if (event.textEvent) return OsEventTypeList.CLICK_EVENT;
+        return undefined;
+      }
+      if (typeof OsEventTypeList?.fromJson === 'function') {
+        const parsed = OsEventTypeList.fromJson(raw);
+        if (parsed !== undefined) return parsed;
+      }
+      const num = Number(raw);
+      if (Number.isFinite(num)) return num;
+      const s = String(raw).toUpperCase();
+      if (s.includes('DOUBLE')) return OsEventTypeList.DOUBLE_CLICK_EVENT; // 3
+      if (s.includes('LONG_PRESS_RELEASE')) return OsEventTypeList.LONG_PRESS_RELEASE_EVENT; // 10
+      if (s.includes('LONG')) return OsEventTypeList.LONG_PRESS_EVENT; // 9
+      if (s.includes('SCROLL_TOP') || s.includes('UP')) return OsEventTypeList.SCROLL_TOP_EVENT; // 1
+      if (s.includes('SCROLL_BOTTOM') || s.includes('DOWN')) return OsEventTypeList.SCROLL_BOTTOM_EVENT; // 2
+      if (s.includes('CLICK')) return OsEventTypeList.CLICK_EVENT; // 0
+      return undefined;
+    }
+
+    // 안경다리 두 번 터치(더블탭): 대화창을 즉시 끄고 시계 대기 화면으로 복귀!
+    async function handleGlassesDoubleTap() {
+      if (state.singleTapTimer) {
+        clearTimeout(state.singleTapTimer);
+        state.singleTapTimer = null;
+      }
+      if (state.hudMode === 'LISTENING' || state.hudMode === 'CONVERSATION') {
+        await enterClockStandbyMode();
+      } else if (state.hudMode === 'CLOCK_STANDBY') {
+        await enterScreenOffMode();
+      } else {
+        await enterClockStandbyMode();
+      }
+    }
+
+    // 안경다리 한 번 터치(싱글탭):
+    // - 시계 대기 상태에서는 즉시 [제미나이 대화 모드] 호출! (길게 누르면 자체 Even AI가 켜지므로 1회 터치로 호출)
+    // - 대화 듣기 상태에서는 말한 내용을 즉시 전송!
+    // - 답변 표시 상태에서는 다음 페이지로 넘기거나(마지막 페이지면) 추가 질문 듣기 시작!
+    async function handleGlassesSingleTap() {
+      if (state.hudMode === 'SCREEN_OFF') {
+        await enterClockStandbyMode();
+        return;
+      }
+      if (state.hudMode === 'CLOCK_STANDBY') {
+        await startConversationListening();
+        return;
+      }
+      if (state.hudMode === 'LISTENING') {
+        if (state.pcmBytesLen > 6400) {
+          await finalizeGlassesPcmQuestion();
+        } else {
+          await enterClockStandbyMode();
+        }
+        return;
+      }
+      if (state.hudMode === 'CONVERSATION') {
+        if (state.currentPageIdx < state.hudPages.length - 1) {
+          moveHudPage(1);
+        } else {
+          // 마지막 페이지에서 한 번 터치하면 바로 이어서 음성 질문 가능!
+          await startConversationListening();
         }
       }
     }
@@ -901,11 +1110,16 @@
         bridge.onDeviceStatusChanged((status) => {
           if (status && status.batteryLevel !== undefined) {
             state.batteryLevel = status.batteryLevel;
-            renderHudToGlasses(null, null, false);
+            if (state.hudMode === 'CLOCK_STANDBY') {
+              enterClockStandbyMode();
+            } else if (state.hudMode === 'CONVERSATION') {
+              renderHudToGlasses(null, null, false, 'CONVERSATION');
+            }
           }
         });
 
-        // 안경 초기 컨테이너 생성 (576x288 화면 레이아웃)
+        // 안경 초기 컨테이너 생성 (처음부터 환영 문구 없이 깔끔한 시계 대기 모드로 시작!)
+        const initialClock = getClockHeaderForGlasses();
         const createRes = await bridge.createStartUpPageContainer({
           containerTotalNum: 2,
           textObject: [
@@ -917,7 +1131,7 @@
               containerID: 1,
               containerName: 'agy_header',
               zOrderIndex: 1,
-              content: '[AGY BRAIN] 연결됨 (1/1)',
+              content: initialClock,
               textColor: 4,
               isEventCapture: 0
             },
@@ -929,66 +1143,122 @@
               containerID: 2,
               containerName: 'agy_body',
               zOrderIndex: 2,
-              content: state.hudPages[0],
-              textColor: 4,
+              content: ' ',
+              textColor: 0,
               isEventCapture: 1
             }
           ],
           menuObject: {
             menuItems: [
-              { itemID: 1, itemName: '음성 질문하기' },
-              { itemID: 2, itemName: '다음 페이지' },
-              { itemID: 3, itemName: '이전 페이지' },
-              { itemID: 4, itemName: '안티그래비티 브리핑' }
+              { itemID: 1, itemName: '제미나이 대화' },
+              { itemID: 2, itemName: '시계 화면 복귀' },
+              { itemID: 3, itemName: '다음 페이지' },
+              { itemID: 4, itemName: '두뇌 브리핑' }
             ]
           }
         });
 
         if (createRes === StartUpPageCreateResult.success || createRes === 0 || createRes === 'success') {
           state.startupCreated = true;
-          await renderHudToGlasses('[AGY BRAIN] READY', null, false);
+          await enterClockStandbyMode();
         }
 
-        // 안경 다리 터치패드 / R1 링 / 컨텍스트 메뉴 이벤트 리스너
+        // 안경 내장 마이크(BLE PCM) 활성화 (상시 "하이 제미나이" 및 음성 질문 수신용)
+        try {
+          await bridge.audioControl(true, AudioInputSource.Glasses);
+        } catch (e) {}
+
+        // 안경 다리 터치패드 / 마이크 오디오 / 컨텍스트 메뉴 이벤트 리스너
         bridge.onEvenHubEvent((event) => {
-          // 1) 컨텍스트 메뉴 클릭
+          // 1) 안경 마이크 실시간 PCM 오디오 프레임 처리
+          if (event.audioEvent && event.audioEvent.audioPcm) {
+            handleGlassesAudioPcmFrame(event.audioEvent);
+            return;
+          }
+
+          // 2) 컨텍스트 메뉴 클릭
           if (event.menuItemClickEvent) {
             const id = event.menuItemClickEvent.itemID;
-            if (id === 1) toggleVoiceRecognition();
-            else if (id === 2) moveHudPage(1);
-            else if (id === 3) moveHudPage(-1);
+            if (id === 1) startConversationListening();
+            else if (id === 2) enterClockStandbyMode();
+            else if (id === 3) moveHudPage(1);
             else if (id === 4) showBrainBriefingOnGlasses();
             return;
           }
 
-          // 2) 시스템 이벤트 (롱프레스 시 음성 인식 즉시 토글!)
-          if (event.sysEvent) {
-            const evType = event.sysEvent.eventType;
-            if (evType === OsEventTypeList.LONG_PRESS_EVENT || evType === 9) {
-              toggleVoiceRecognition();
-              return;
-            }
+          // 3) 안경다리 터치 / 더블터치 / 스크롤 이벤트 처리
+          const evType = extractOsEventType(event);
+          if (evType === undefined) return;
+
+          // 더블 클릭 이벤트(3) 수신 시 즉시 시계 대기 모드로 끄기
+          if (evType === OsEventTypeList.DOUBLE_CLICK_EVENT || evType === 3) {
+            handleGlassesDoubleTap();
+            return;
           }
 
-          // 3) 일반 터치 이벤트 시 다음 페이지 순환
-          if (event.textEvent) {
-            moveHudPage(1);
+          // 싱글 클릭 이벤트(0) 수신 시: 420ms 이내 연속 2회 터치면 더블탭으로 처리!
+          if (evType === OsEventTypeList.CLICK_EVENT || evType === 0) {
+            const now = Date.now();
+            if (now - state.lastTapTime < 420) {
+              state.lastTapTime = 0;
+              handleGlassesDoubleTap();
+              return;
+            }
+            state.lastTapTime = now;
+            if (state.singleTapTimer) clearTimeout(state.singleTapTimer);
+            state.singleTapTimer = setTimeout(() => {
+              state.singleTapTimer = null;
+              handleGlassesSingleTap();
+            }, 360);
+            return;
+          }
+
+          // 스크롤 이벤트(1, 2): 답변 페이지 이동 또는 대기 모드에서 대화 깨우기
+          if (evType === OsEventTypeList.SCROLL_TOP_EVENT || evType === 1) {
+            if (state.hudMode === 'CONVERSATION') moveHudPage(-1);
+            return;
+          }
+          if (evType === OsEventTypeList.SCROLL_BOTTOM_EVENT || evType === 2) {
+            if (state.hudMode === 'CONVERSATION') moveHudPage(1);
+            return;
+          }
+
+          // 혹시 롱프레스(9)가 앱으로 들어오는 경우에도 대화 모드로 연결
+          if (evType === OsEventTypeList.LONG_PRESS_EVENT || evType === 9) {
+            startConversationListening();
           }
         });
       } catch (err) {
         glassesStatusBadge.className = 'pill-badge warning';
-        glassesStatusText.textContent = '시뮬레이터 & 스마트폰 웹 모드 (Even 앱에서 스캔 시 안경 직결)';
+        glassesStatusText.textContent = '시뮬레이터 & 스마트폰 웹 모드 (Even 앱 실행 시 안경 직결)';
+        enterClockStandbyMode();
       }
     }
 
     function moveHudPage(delta) {
       if (state.hudPages.length <= 1) return;
       state.currentPageIdx = (state.currentPageIdx + delta + state.hudPages.length) % state.hudPages.length;
-      renderHudToGlasses(null, null, false);
+      renderHudToGlasses(null, null, false, 'CONVERSATION');
     }
 
     document.getElementById('prevPageBtn').addEventListener('click', () => moveHudPage(-1));
     document.getElementById('nextPageBtn').addEventListener('click', () => moveHudPage(1));
+    clockStandbyBtn.addEventListener('click', () => enterClockStandbyMode());
+
+    wakeWordToggleBtn.addEventListener('click', () => {
+      state.wakeWordEnabled = !state.wakeWordEnabled;
+      wakeWordToggleBtn.className = state.wakeWordEnabled
+        ? 'btn-pill btn-primary btn-sm'
+        : 'btn-pill btn-secondary btn-sm';
+      wakeWordToggleText.textContent = state.wakeWordEnabled
+        ? '"하이 제미나이" 상시 대기: 켜짐'
+        : '"하이 제미나이" 상시 대기: 꺼짐';
+      if (state.wakeWordEnabled) {
+        ensureWakeWordStandbyActive();
+      } else if (state.recognition && state.hudMode === 'CLOCK_STANDBY') {
+        try { state.recognition.stop(); } catch (e) {}
+      }
+    });
 
     const LOCAL_PC_API_BASE = 'http://192.168.123.150:3860';
 
@@ -1021,7 +1291,6 @@
         } catch (e) {}
       }
 
-      // 캐시된 두뇌 폴백
       const cached = localStorage.getItem('agy_cached_brain');
       if (cached) {
         try {
@@ -1048,7 +1317,6 @@
         `• 핵심 프로젝트 요약: <b>${projectCount}개</b> (시엔위·지파츠·안드로이드·크롤러 DB)<br/>` +
         `• 저장 경로: <code>e:\\안티그래비티\\G2_안경_실시간대화록.md</code> &amp; 구글 드라이브`;
 
-      // 서버에 저장된 이전 대화가 있고 로컬이 비어있다면 병합
       if (Array.isArray(data.recentConversations) && data.recentConversations.length > 0 && state.messages.length === 0) {
         state.messages = data.recentConversations.slice(-30);
         localStorage.setItem('agy_g2_messages', JSON.stringify(state.messages));
@@ -1058,12 +1326,12 @@
 
     function showBrainBriefingOnGlasses() {
       if (!state.brainContext) {
-        renderHudToGlasses('[AGY BRIEFING]', '아직 두뇌 데이터를 불러오지 못했습니다.');
+        renderHudToGlasses('[두뇌 브리핑]', '아직 두뇌 데이터를 불러오지 못했습니다.', true, 'CONVERSATION');
         return;
       }
       const summary = state.brainContext.briefingForGlasses ||
         `[안티그래비티 실시간 브리핑]\n동기화: ${state.brainContext.updatedAt}\n핵심 프로젝트: ${(state.brainContext.coreProjects || []).map(p => p.name).join(', ')}`;
-      renderHudToGlasses('[AGY BRIEFING]', summary, true);
+      renderHudToGlasses('[두뇌 브리핑]', summary, true, 'CONVERSATION');
     }
 
     document.getElementById('pushBriefingBtn').addEventListener('click', showBrainBriefingOnGlasses);
@@ -1081,7 +1349,7 @@
           await state.bridge.setLocalStorage('agy_gemini_api_key', key);
         } catch (e) {}
       }
-      await renderHudToGlasses('[AGY CONFIG]', 'Gemini API 키와 최고 성능 모델 설정이 안경과 앱에 영구 저장되었습니다.');
+      await renderHudToGlasses('[설정 저장됨]', 'Gemini API 키가 영구 저장되었습니다.\n(안경다리 두 번 터치 시 시계 모드로 돌아갑니다)', true, 'CONVERSATION');
     });
 
     modelSelect.addEventListener('change', () => {
@@ -1092,7 +1360,7 @@
     // 대화 기록 렌더링
     function renderChatList() {
       if (state.messages.length === 0) {
-        chatList.innerHTML = `<div class="info-box" style="margin-top:0;">아직 대화 내역이 없습니다. 안경이나 마이크 버튼을 눌러 첫 질문을 해보세요!</div>`;
+        chatList.innerHTML = `<div class="info-box" style="margin-top:0;">아직 대화 내역이 없습니다. "하이 제미나이"라고 부르거나 안경다리를 한 번 터치해 첫 질문을 해보세요!</div>`;
         return;
       }
       chatList.innerHTML = state.messages.slice().reverse().map((m) => `
@@ -1139,7 +1407,6 @@
         model: modelUsed
       };
 
-      // 1) 로컬 PC 서버가 켜져 있으면 즉시 직접 저장 (/api/log)
       let savedDirect = false;
       for (const logUrl of [`${LOCAL_PC_API_BASE}/api/log`, '/api/log']) {
         try {
@@ -1160,7 +1427,6 @@
         } catch (e) {}
       }
 
-      // 2) PC가 꺼져 있거나 외부망(5G/LTE)일 때도 100% 보존되도록 글로벌 클라우드 큐(ntfy.sh)로 전송
       try {
         await fetch(CLOUD_SYNC_URL, {
           method: 'POST',
@@ -1178,18 +1444,7 @@
       }
     }
 
-    // 핵심: 안티그래비티 두뇌 컨텍스트를 결합하여 AI 응답 생성
-    async function askAntigravityBrain(questionText) {
-      const q = String(questionText || '').trim();
-      if (!q) return;
-
-      questionInput.value = '';
-      await renderHudToGlasses('[AGY THINKING...]', `질문: ${q}\n\n안티그래비티 마스터 두뇌에서 답변을 생성하고 있습니다...`, true);
-
-      // 1) 만약 로컬 PC 서버가 켜져 있고 서버 측 AI/두뇌 엔드포인트가 응답 가능한지 먼저 확인하거나, 브라우저에서 직접 Gemini API 호출
-      const apiKey = state.apiKey.trim();
-
-      // 시스템 프롬프트 구성 (e:\안티그래비티의 마스터 두뇌 데이터 탑재)
+    function buildSystemInstruction() {
       const brainJsonStr = state.brainContext
         ? JSON.stringify({
             updatedAt: state.brainContext.updatedAt,
@@ -1204,19 +1459,31 @@
         `${m.role === 'user' ? '대표님' : '안티그래비티'}: ${m.content}`
       ).join('\n');
 
-      const systemInstruction =
-        `너는 대표님의 'Even Realities G2 스마트 안경'에 탑재된 전담 AI 파트너이자, 대표님 컴퓨터(e:\\안티그래비티) 및 구글 드라이브·GitHub와 실시간으로 연동된 '안티그래비티(Antigravity) 마스터 두뇌'야.\n` +
+      return (
+        `너는 대표님의 'Even Realities G2 스마트 안경'에 탑재된 전담 제미나이(Gemini) AI 파트너이자, 대표님 컴퓨터(e:\\안티그래비티) 및 구글 드라이브·GitHub와 실시간으로 연동된 '안티그래비티(Antigravity) 마스터 두뇌'야.\n` +
         `현재 안경 디스플레이(576x288 그린 마이크로 LED)로 읽고 계시므로:\n` +
         `1) 핵심 결론부터 명확하고 간결하게 한국어로 대답해.\n` +
         `2) 불필요한 마크다운 기호(**, ## 등)나 이모지는 쓰지 말고 깔끔한 줄바꿈과 번호(1., 2.)로 정리해.\n` +
         `3) 아래에 제공된 [대표님의 e:\\안티그래비티 실시간 마스터 두뇌 데이터]와 [최근 대화 기록]을 100% 활용해서 대답하고, 대표님이 뭔가를 기억하거나 저장해달라고 하시면 "네, G2_안경_실시간대화록.md와 구글 드라이브에 즉시 기록했습니다!"라고 확인해줘.\n\n` +
         `[대표님의 e:\\안티그래비티 실시간 마스터 두뇌 데이터]\n${brainJsonStr}\n\n` +
-        `[최근 대화 기록]\n${recentHistoryText}`;
+        `[최근 대화 기록]\n${recentHistoryText}`
+      );
+    }
+
+    // 핵심: 안티그래비티 두뇌 컨텍스트를 결합하여 AI 응답 생성
+    async function askAntigravityBrain(questionText) {
+      const q = String(questionText || '').trim();
+      if (!q) return;
+
+      questionInput.value = '';
+      await renderHudToGlasses('[제미나이 생각 중]', `질문: ${q}\n\n안티그래비티 두뇌에서 답변을 생성하고 있습니다...`, true, 'CONVERSATION');
+
+      const apiKey = state.apiKey.trim();
+      const systemInstruction = buildSystemInstruction();
 
       let finalAnswer = '';
       let usedModel = state.model;
 
-      // A. API 키가 있는 경우 Google Gemini API 직접 호출 (PC가 꺼져 있어도 24시간 언제 어디서나 작동!)
       if (apiKey) {
         const candidateModels = [
           state.model,
@@ -1266,7 +1533,6 @@
           finalAnswer = `[API 호출 안내]\n입력하신 API 키로 호출 중 오류가 발생했습니다 (${lastErr}).\n하지만 질문하신 내용은 클라우드와 PC 대화록에 정상 저장되었습니다!`;
         }
       } else {
-        // B. API 키를 아직 안 넣었을 때: 로컬 PC 브릿지 서버(/api/ask) 시도 후 내장 안티그래비티 두뇌 즉답 엔진 가동
         for (const askUrl of [`${LOCAL_PC_API_BASE}/api/ask`, '/api/ask']) {
           try {
             const controller = new AbortController();
@@ -1296,11 +1562,10 @@
       }
 
       // 안경 렌즈에 답변 표시 & 클라우드/구글 드라이브/PC 영구 저장
-      await renderHudToGlasses(`[AGY] ${usedModel}`, finalAnswer, true);
+      await renderHudToGlasses(`[제미나이]`, finalAnswer, true, 'CONVERSATION');
       await persistConversationEntry(q, finalAnswer, usedModel);
     }
 
-    // API 키 입력 전에도 안티그래비티 내장 두뇌 데이터를 즉시 검색해서 답해주는 스마트 내장 응답기
     function buildOfflineBrainAnswer(q) {
       const b = state.brainContext;
       const projects = (b && b.coreProjects) ? b.coreProjects : [];
@@ -1314,90 +1579,431 @@
       } else if (b && b.briefingForGlasses) {
         header += `${b.briefingForGlasses}\n\n`;
       }
-      header += `(팁: 우측 설정에 무료 Gemini API 키를 1회 저장하시면 PC가 꺼져 있을 때도 24시간 자유로운 AI 추론 대화가 가능합니다.)`;
+      header += `(안경다리 두 번 터치 시 시계 모드로 돌아갑니다)`;
       return header;
     }
 
-    // 음성 인식 (안경 마이크 + 스마트폰 Web Speech API 연동)
-    async function toggleVoiceRecognition() {
-      if (state.isListening) {
-        stopVoiceRecognition();
+    // =========================================================================
+    // Even G2 안경 내장 마이크(16kHz 16-bit PCM) + Web Speech API 듀얼 음성 엔진
+    // =========================================================================
+
+    function computePcmRms(uint8) {
+      if (!uint8 || uint8.length < 2) return 0;
+      const samples = Math.floor(uint8.length / 2);
+      let sumSq = 0;
+      for (let i = 0; i < samples * 2; i += 2) {
+        let val = uint8[i] | (uint8[i + 1] << 8);
+        if (val >= 0x8000) val -= 0x10000;
+        const norm = val / 32768;
+        sumSq += norm * norm;
+      }
+      return Math.sqrt(sumSq / samples);
+    }
+
+    function pcmChunksToWavBase64(chunks, sampleRate = 16000) {
+      let totalLen = 0;
+      for (const c of chunks) totalLen += c.length;
+      const wavBuffer = new ArrayBuffer(44 + totalLen);
+      const view = new DataView(wavBuffer);
+
+      function writeStr(offset, str) {
+        for (let i = 0; i < str.length; i++) {
+          view.setUint8(offset + i, str.charCodeAt(i));
+        }
+      }
+
+      writeStr(0, 'RIFF');
+      view.setUint32(4, 36 + totalLen, true);
+      writeStr(8, 'WAVE');
+      writeStr(12, 'fmt ');
+      view.setUint32(16, 16, true);
+      view.setUint16(20, 1, true); // PCM = 1
+      view.setUint16(22, 1, true); // Mono = 1
+      view.setUint32(24, sampleRate, true);
+      view.setUint32(28, sampleRate * 2, true);
+      view.setUint16(32, 2, true);
+      view.setUint16(34, 16, true);
+      writeStr(36, 'data');
+      view.setUint32(40, totalLen, true);
+
+      const outBytes = new Uint8Array(wavBuffer);
+      let offset = 44;
+      for (const c of chunks) {
+        outBytes.set(c, offset);
+        offset += c.length;
+      }
+
+      let binary = '';
+      const chunkSize = 0x8000;
+      for (let i = 0; i < outBytes.length; i += chunkSize) {
+        binary += String.fromCharCode.apply(null, outBytes.subarray(i, i + chunkSize));
+      }
+      return btoa(binary);
+    }
+
+    // 안경 마이크 PCM 실시간 프레임 처리 (대화 모드 녹음 & 시계 대기 모드 "하이 제미나이" 감지)
+    function handleGlassesAudioPcmFrame(audioEvent) {
+      if (state.isProcessingAudio) return;
+      const pcm = audioEvent.audioPcm;
+      if (!pcm || !pcm.length) return;
+
+      const chunk = pcm instanceof Uint8Array ? pcm : new Uint8Array(pcm);
+      const rms = computePcmRms(chunk);
+      const isSelfVoice = (audioEvent.speakerRole === 'self' && rms > 0.014) || rms > 0.024;
+      const now = Date.now();
+
+      // A. [제미나이 대화 모드(LISTENING)]에서 질문 녹음 중일 때
+      if (state.hudMode === 'LISTENING') {
+        state.pcmChunks.push(chunk);
+        state.pcmBytesLen += chunk.length;
+
+        if (isSelfVoice) {
+          if (!state.vadSpeaking) {
+            state.vadSpeaking = true;
+            state.vadSpeechStartAt = now;
+          }
+          state.vadLastVoiceAt = now;
+        }
+
+        // 사용자가 말을 시작한 뒤 1.65초 동안 침묵이 이어지면 질문 완료로 판단하고 즉시 전송!
+        if (state.vadSpeaking && (now - state.vadLastVoiceAt > 1650) && (now - state.vadSpeechStartAt > 500)) {
+          finalizeGlassesPcmQuestion();
+          return;
+        }
+        // 최대 12초 초과 시 자동 전송
+        if (state.pcmBytesLen > 32000 * 12) {
+          finalizeGlassesPcmQuestion();
+        }
         return;
       }
 
+      // B. [시계 대기 모드(CLOCK_STANDBY)]에서 "하이 제미나이" 음성 호출 감지
+      if (state.hudMode === 'CLOCK_STANDBY' && state.wakeWordEnabled && state.apiKey) {
+        if (isSelfVoice) {
+          if (!state.vadSpeaking) {
+            state.vadSpeaking = true;
+            state.vadSpeechStartAt = now;
+            state.pcmChunks = [];
+            state.pcmBytesLen = 0;
+          }
+          state.vadLastVoiceAt = now;
+          state.pcmChunks.push(chunk);
+          state.pcmBytesLen += chunk.length;
+        } else if (state.vadSpeaking) {
+          state.pcmChunks.push(chunk);
+          state.pcmBytesLen += chunk.length;
+
+          const speechDur = state.vadLastVoiceAt - state.vadSpeechStartAt;
+          const silenceDur = now - state.vadLastVoiceAt;
+
+          // 0.45초~5초 분량의 호출어 발화 후 1.2초 침묵 시 "하이 제미나이" 여부 판별
+          if (silenceDur > 1200) {
+            const capturedChunks = state.pcmChunks.slice();
+            const capturedBytes = state.pcmBytesLen;
+            state.vadSpeaking = false;
+            state.pcmChunks = [];
+            state.pcmBytesLen = 0;
+
+            if (speechDur >= 420 && capturedBytes >= 14000 && capturedBytes <= 32000 * 6) {
+              checkStandbyWakeAudioWithGemini(capturedChunks);
+            }
+          }
+        }
+      }
+    }
+
+    // 시계 대기 모드에서 안경 마이크로 들어온 음성이 "하이 제미나이"인지 Gemini Flash로 초고속 판별
+    async function checkStandbyWakeAudioWithGemini(chunks) {
+      if (state.hudMode !== 'CLOCK_STANDBY' || state.isProcessingAudio || !state.apiKey) return;
+      state.isProcessingAudio = true;
+      try {
+        const wavB64 = pcmChunksToWavBase64(chunks, 16000);
+        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${encodeURIComponent(state.apiKey.trim())}`;
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [{
+              role: 'user',
+              parts: [
+                { inlineData: { mimeType: 'audio/wav', data: wavB64 } },
+                {
+                  text:
+                    `이 오디오에서 사용자가 "하이 제미나이", "헤이 제미나이", "제미나이", "안티그래비티" 등 AI 호출어를 말했는지 판별해.\n` +
+                    `1) 만약 호출어만 불렀다면 정확히 WAKE_ONLY 라고만 출력해.\n` +
+                    `2) 만약 호출어와 함께 이어서 질문을 말했다면 QUESTION: 뒤에 질문 텍스트만 한국어로 적어서 출력해.\n` +
+                    `3) 만약 호출어를 부른 게 아니라 단순 소음이나 다른 대화라면 정확히 IGNORE 라고만 출력해.`
+                }
+              ]
+            }],
+            generationConfig: { temperature: 0.1, maxOutputTokens: 120 }
+          })
+        });
+        const json = await res.json();
+        const out = (json?.candidates?.[0]?.content?.parts?.[0]?.text || '').trim();
+        if (out.includes('WAKE_ONLY')) {
+          await startConversationListening();
+        } else if (out.startsWith('QUESTION:')) {
+          const qText = out.replace(/^QUESTION:\s*/i, '').trim();
+          if (qText) {
+            await askAntigravityBrain(qText);
+          } else {
+            await startConversationListening();
+          }
+        }
+      } catch (e) {
+      } finally {
+        state.isProcessingAudio = false;
+      }
+    }
+
+    // 대화 모드(LISTENING)에서 안경 마이크로 녹음된 PCM 음성을 Gemini로 즉시 전송하여 답변 생성
+    async function finalizeGlassesPcmQuestion() {
+      if (state.isProcessingAudio || state.pcmChunks.length === 0) return;
+      const chunks = state.pcmChunks.slice();
+      state.pcmChunks = [];
+      state.pcmBytesLen = 0;
+      state.vadSpeaking = false;
+
+      if (state.recognition) {
+        try { state.recognition.stop(); } catch (e) {}
+      }
+
+      if (!state.apiKey) {
+        await renderHudToGlasses('[API 키 필요]', '안경 마이크 음성 인식을 위해 우측 설정에 Gemini API 키를 1회 저장해 주세요.', true, 'CONVERSATION');
+        return;
+      }
+
+      state.isProcessingAudio = true;
+      await renderHudToGlasses('[제미나이 분석 중]', '안경 마이크로 말씀하신 내용을 분석하고 답변을 생성 중입니다...', true, 'CONVERSATION');
+
+      try {
+        const wavB64 = pcmChunksToWavBase64(chunks, 16000);
+        const systemInstruction = buildSystemInstruction();
+        const mName = state.model || 'gemini-2.5-flash';
+        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${mName}:generateContent?key=${encodeURIComponent(state.apiKey.trim())}`;
+
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            systemInstruction: { parts: [{ text: systemInstruction }] },
+            contents: [{
+              role: 'user',
+              parts: [
+                { inlineData: { mimeType: 'audio/wav', data: wavB64 } },
+                {
+                  text:
+                    `위 음성은 대표님이 Even G2 안경 마이크로 말씀하신 내용이야.\n` +
+                    `만약 음성에서 "안경 꺼줘", "시계 모드", "화면 꺼줘"라고 하셨다면 정확히 [CMD_CLOCK_STANDBY] 라고만 출력해.\n` +
+                    `그 외에는 첫째 줄에 [음성 질문]: (들린 내용 요약) 을 적고, 둘째 줄부터 안티그래비티 두뇌로서 명확하고 간결하게 한국어로 답변해줘.`
+                }
+              ]
+            }],
+            generationConfig: { temperature: 0.4, maxOutputTokens: 1024 }
+          })
+        });
+
+        const json = await res.json();
+        const rawText = (json?.candidates?.[0]?.content?.parts?.[0]?.text || '').trim();
+
+        if (!rawText || rawText.includes('[CMD_CLOCK_STANDBY]')) {
+          await enterClockStandbyMode();
+          return;
+        }
+
+        let questionSummary = '(안경 마이크 음성 질문)';
+        let answerBody = rawText;
+        const match = rawText.match(/^\[음성 질문\]:\s*(.+)\n+([\s\S]*)$/);
+        if (match) {
+          questionSummary = match[1].trim();
+          answerBody = match[2].trim();
+        }
+
+        await renderHudToGlasses('[제미나이]', answerBody, true, 'CONVERSATION');
+        await persistConversationEntry(questionSummary, answerBody, mName);
+      } catch (err) {
+        await renderHudToGlasses('[음성 처리 안내]', `다시 한 번 말씀해 주세요. (두 번 터치 시 시계 복귀)`, true, 'CONVERSATION');
+      } finally {
+        state.isProcessingAudio = false;
+      }
+    }
+
+    // 호출어("하이 제미나이" 등)가 텍스트에 포함되어 있는지 검사하고, 뒤이어 말한 질문이 있으면 추출
+    function parseWakeWordCommand(transcript) {
+      const raw = String(transcript || '').trim();
+      if (!raw) return null;
+      const compact = raw.replace(/\s+/g, '').toLowerCase();
+
+      const wakePatterns = [
+        /^(하이|헤이|오케이|안녕)?\s*(제미나이|재미나이|지미나이|제미나|안티그래비티|안티야|gemini)[야아,\s]*/i,
+        /.*?(하이제미나이|헤이제미나이|하이재미나이|헤이재미나이|제미나이|재미나이|안티그래비티|heygemini|higemini)[야아,\s]*/i
+      ];
+
+      const hasWake =
+        compact.includes('제미나이') ||
+        compact.includes('재미나이') ||
+        compact.includes('지미나이') ||
+        compact.includes('안티그래비티') ||
+        compact.includes('gemini');
+
+      if (!hasWake) return null;
+
+      let remainder = raw;
+      for (const pat of wakePatterns) {
+        if (pat.test(remainder)) {
+          remainder = remainder.replace(pat, '').trim();
+          break;
+        }
+      }
+      return { triggered: true, question: remainder };
+    }
+
+    // 상시 호출어("하이 제미나이") 대기용 Web Speech API 리스너 유지
+    function ensureWakeWordStandbyActive() {
+      if (!state.wakeWordEnabled || state.hudMode !== 'CLOCK_STANDBY') return;
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-      if (!SpeechRecognition) {
-        await renderHudToGlasses('[VOICE INFO]', '현재 웹뷰에서 직접 음성 인식을 지원하지 않아 키보드 입력창의 마이크 버튼을 사용해 주세요.');
-        questionInput.focus();
-        return;
+      if (!SpeechRecognition) return;
+
+      if (state.recognition) {
+        try { state.recognition.stop(); } catch (e) {}
+        state.recognition = null;
       }
 
-      // Even G2 안경 마이크 활성화
+      try {
+        const rec = new SpeechRecognition();
+        rec.lang = 'ko-KR';
+        rec.continuous = true;
+        rec.interimResults = true;
+        rec.maxAlternatives = 1;
+        state.recognition = rec;
+
+        rec.onresult = async (event) => {
+          if (state.hudMode !== 'CLOCK_STANDBY') return;
+          for (let i = event.resultIndex; i < event.results.length; i++) {
+            const text = event.results[i][0].transcript;
+            const parsed = parseWakeWordCommand(text);
+            if (parsed && parsed.triggered) {
+              // 만약 "하이 제미나이 오늘 일정 알려줘"처럼 질문까지 한 번에 말하고 문장이 끝났다면 즉시 답변!
+              if (event.results[i].isFinal && parsed.question && parsed.question.length >= 2) {
+                try { rec.stop(); } catch (e) {}
+                await askAntigravityBrain(parsed.question);
+                return;
+              }
+              // "하이 제미나이"만 불렀다면 즉시 대화 모드로 진입!
+              if (!parsed.question || parsed.question.length < 2) {
+                try { rec.stop(); } catch (e) {}
+                await startConversationListening();
+                return;
+              }
+            }
+          }
+        };
+
+        rec.onend = () => {
+          if (state.hudMode === 'CLOCK_STANDBY' && state.wakeWordEnabled) {
+            setTimeout(() => {
+              if (state.hudMode === 'CLOCK_STANDBY' && state.wakeWordEnabled) {
+                ensureWakeWordStandbyActive();
+              }
+            }, 600);
+          }
+        };
+
+        rec.onerror = () => {};
+        rec.start();
+      } catch (e) {}
+    }
+
+    // [제미나이 대화 모드] 진입 ("하이 제미나이" 호출 시 또는 안경다리 1회 터치 시 실행)
+    async function startConversationListening() {
+      if (state.recognition) {
+        try { state.recognition.stop(); } catch (e) {}
+        state.recognition = null;
+      }
+
+      state.hudMode = 'LISTENING';
+      state.isListening = true;
+      state.pcmChunks = [];
+      state.pcmBytesLen = 0;
+      state.vadSpeaking = false;
+
+      voiceAskBtn.classList.add('listening');
+      voiceAskBtnText.textContent = '제미나이 대화 모드 — 말씀하세요 (안경다리 두 번 터치 시 시계 복귀)';
+
+      await renderHudToGlasses(
+        '[제미나이 대화]',
+        '네, 말씀하세요!\n(말씀이 끝나면 자동 전송 / 두 번 터치: 시계 복귀)',
+        true,
+        'LISTENING'
+      );
+
       if (state.bridge && state.startupCreated) {
         try {
           await state.bridge.audioControl(true, AudioInputSource.Glasses);
         } catch (e) {}
       }
 
-      const recognition = new SpeechRecognition();
-      recognition.lang = 'ko-KR';
-      recognition.interimResults = true;
-      recognition.maxAlternatives = 1;
-      state.recognition = recognition;
-      state.isListening = true;
-
-      voiceAskBtn.classList.add('listening');
-      voiceAskBtnText.textContent = '듣고 있습니다... 말씀이 끝나면 자동 전송됩니다 (취소하려면 터치)';
-      await renderHudToGlasses('[LISTENING...]', '지금 말씀해 주세요...\n(안경 마이크 & 음성 인식 활성)', true);
-
-      let finalTranscript = '';
-
-      recognition.onresult = (event) => {
-        let interim = '';
-        for (let i = event.resultIndex; i < event.results.length; i++) {
-          const transcript = event.results[i][0].transcript;
-          if (event.results[i].isFinal) {
-            finalTranscript += transcript;
-          } else {
-            interim += transcript;
-          }
-        }
-        const preview = (finalTranscript || interim).trim();
-        if (preview) {
-          renderHudToGlasses('[LISTENING...]', `인식 중: ${preview}`, true);
-        }
-      };
-
-      recognition.onerror = async (event) => {
-        stopVoiceRecognition();
-        await renderHudToGlasses('[VOICE READY]', `음성 대기 상태로 돌아왔습니다. (${event.error || '완료'})`);
-      };
-
-      recognition.onend = async () => {
-        const spoken = finalTranscript.trim();
-        stopVoiceRecognition();
-        if (spoken) {
-          await askAntigravityBrain(spoken);
-        }
-      };
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) return;
 
       try {
+        const recognition = new SpeechRecognition();
+        recognition.lang = 'ko-KR';
+        recognition.interimResults = true;
+        recognition.maxAlternatives = 1;
+        state.recognition = recognition;
+
+        let finalTranscript = '';
+
+        recognition.onresult = (event) => {
+          if (state.hudMode !== 'LISTENING') return;
+          let interim = '';
+          for (let i = event.resultIndex; i < event.results.length; i++) {
+            const transcript = event.results[i][0].transcript;
+            if (event.results[i].isFinal) {
+              finalTranscript += transcript;
+            } else {
+              interim += transcript;
+            }
+          }
+          const preview = (finalTranscript || interim).trim();
+          if (preview) {
+            // 웹 음성 인식이 동작 중이면 중복 PCM 전송을 막기 위해 PCM 버퍼 초기화
+            state.pcmChunks = [];
+            state.pcmBytesLen = 0;
+            renderHudToGlasses('[듣는 중...]', `말씀: ${preview}\n(두 번 터치: 시계 모드로 끄기)`, true, 'LISTENING');
+          }
+        };
+
+        recognition.onend = async () => {
+          if (state.hudMode !== 'LISTENING') return;
+          const spoken = finalTranscript.trim();
+          if (spoken) {
+            state.isListening = false;
+            voiceAskBtn.classList.remove('listening');
+            voiceAskBtnText.textContent = '음성으로 질문하기 ("하이 제미나이" 또는 안경다리 1회 터치)';
+            // 만약 "시계 모드" 또는 "꺼줘"라고 말했으면 시계 대기 모드로 복귀
+            if (spoken.includes('시계 모드') || spoken.includes('화면 꺼') || spoken.includes('안경 꺼')) {
+              await enterClockStandbyMode();
+              return;
+            }
+            const parsed = parseWakeWordCommand(spoken);
+            const cleanQ = (parsed && parsed.question) ? parsed.question : spoken;
+            await askAntigravityBrain(cleanQ);
+          }
+        };
+
+        recognition.onerror = () => {};
         recognition.start();
-      } catch (e) {
-        stopVoiceRecognition();
-      }
+      } catch (e) {}
     }
 
-    async function stopVoiceRecognition() {
-      state.isListening = false;
-      voiceAskBtn.classList.remove('listening');
-      voiceAskBtnText.textContent = '음성으로 질문하기 (안경 마이크 / 폰 마이크)';
-      if (state.recognition) {
-        try { state.recognition.stop(); } catch (e) {}
-        state.recognition = null;
-      }
-      if (state.bridge && state.startupCreated) {
-        try { await state.bridge.audioControl(false); } catch (e) {}
+    async function toggleVoiceRecognition() {
+      if (state.hudMode === 'LISTENING') {
+        await enterClockStandbyMode();
+      } else {
+        await startConversationListening();
       }
     }
 
@@ -1439,10 +2045,11 @@
       renderChatList();
     });
 
-    // 초기화 실행
+    // 초기화 실행 (처음부터 시계 대기 모드로 시작)
     renderChatList();
     loadAntigravityBrain();
     initEvenG2Bridge();
+    ensureWakeWordStandbyActive();
   </script>
 </body>
 </html>
