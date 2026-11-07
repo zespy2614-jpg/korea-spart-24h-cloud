@@ -1,8 +1,9 @@
 {
-  "hudYOffset": 48,
-  "standbyClockY": 196,
+  "hudYOffset": 0,
+  "standbyClockY": 0,
+  "borderWidth": 0,
   "answerLengthMode": "unlimited",
   "maxTokens": 8192,
   "doubleTapCancelShowsPrevChat": true,
-  "updatedAt": "2026. 11. 8. AM 8:27:36"
+  "updatedAt": "2026. 11. 8. AM 8:32:00"
 }
