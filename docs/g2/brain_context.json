@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 7. PM 10:00:51",
+  "updatedAt": "2026. 11. 7. PM 10:01:21",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "pinnedReminder": "파란색 자동차 (내 차량)",
@@ -29,7 +29,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 7. PM 10:00:51\n1. 영구 장기기억 금고: 3건 (고정: 파란색 자동차 (내 차량))\n2. PC 안티그래비티 실시간 작업: 최근 6단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 10건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 7. PM 10:01:21\n1. 영구 장기기억 금고: 3건 (고정: 파란색 자동차 (내 차량))\n2. PC 안티그래비티 실시간 작업: 최근 5단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 10건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -420,10 +420,6 @@
   ],
   "livePcAntigravity": [
     {
-      "updatedAt": "2026-11-07T12:54:33Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] 네, 계속 작업 중입니다!\n\n원인을 정확히 찾았습니다. [pcsx_rearmed_s12.so](file:///C:/Users/%EB%B0%95%EC%A0%95%EC%88%98/.gemini/antigravity/brain/0b5f2d55-4917-412d-87c4-11116cabf4d1/scratch/pcsx_rearmed_s12.so) 내부의 `s12_retro_run_inner` 루프를 역어셈블하여 분석한 결과:\n- 타이틀/데모 화면에서는 **DRC(동적 재컴파일러, `psxRec`)** 모드로 동작하여 프레임당 약 `1.5ms`(**50~60 FPS**)로 빠르게 실행됩니다.\n- 하지만 **START 버튼을 눌러 본 게임(캐릭터 선택 및 대전)에 진입하는 순간**, 코어 내부의 DRC 전환 조건(`s12_drc_disabled` / `s"
-    },
-    {
       "updatedAt": "2026-11-07T12:59:57Z",
       "snippet": "[안티그래비티(PC 작업 결과)] 업데이트 버튼 없이도 현재 설치된 앱에서 바로 UI와 6개 메뉴가 반영되도록 OTA 패치(`live_patch.js`)를 동기화하고 있습니다. 완료 즉시 안내해 드리겠습니다."
     },
@@ -497,11 +493,6 @@
     }
   ],
   "livePcAntigravitySession": [
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-07T12:54:33Z",
-      "summary": "네, 계속 작업 중입니다!\n\n원인을 정확히 찾았습니다. [pcsx_rearmed_s12.so](file:///C:/Users/%EB%B0%95%EC%A0%95%EC%88%98/.gemini/antigravity/brain/0b5f2d55-4917-412d-87c4-11116cabf4d1/scratch/pcsx_rearmed_s12.so) 내부의 `s12_retro_run_inner` 루프를 역어셈블하여 분석한 결과:\n- 타이틀/데모 화면에서는 **DRC(동적 재컴파일러, `psxRec`)** 모드로 동작하여 프레임당 약 `1.5ms`(**50~60 FPS**)로 빠르게 실행됩니다.\n- 하지만 **START 버튼을 눌러 본 게임(캐릭터 선택 및 대전)에 진입하는 순간**, 코어 내부의 DRC 전환 조건(`s12_drc_disabled` / `s"
-    },
     {
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-07T12:59:57Z",
