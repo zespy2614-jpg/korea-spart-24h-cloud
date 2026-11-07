@@ -1825,23 +1825,33 @@
       state.clockStr = forGlasses(
         now.toLocaleTimeString('ko-KR', { timeZone: 'Asia/Seoul', hour: 'numeric', minute: '2-digit', hour12: true })
       );
-      hud.set({ title: `◆ E.D.I.T.H${state.clockStr ? `  ${state.clockStr}` : ''}` });
+      if (state.clockStandby) {
+        hud.set({
+          title: ' ',
+          status: formatStatusLine(),
+          body: ' '
+        });
+      } else {
+        hud.set({ title: `◆ E.D.I.T.H${state.clockStr ? `  ${state.clockStr}` : ''}` });
+      }
     }
 
     function formatStatusLine() {
-      let base;
+      const { level, charging } = state.battery;
+      const hasBat = typeof level === 'number' && Number.isFinite(level);
+      const pct = hasBat ? Math.max(0, Math.min(100, Math.round(level))) : 100;
       if (state.clockStandby) {
-        base = '● 시계 대기';
-      } else if (state.statusKind === 'setup') {
+        return `${state.clockStr || '--:--'}  ${charging ? '+' : ''}${pct}%`;
+      }
+      let base;
+      if (state.statusKind === 'setup') {
         base = '■ 설정 필요';
       } else if (state.statusKind === 'more') {
         base = '▼ 더 보기';
       } else {
         base = '● 온라인';
       }
-      const { level, charging } = state.battery;
-      if (typeof level !== 'number' || !Number.isFinite(level)) return base;
-      const pct = Math.max(0, Math.min(100, Math.round(level)));
+      if (!hasBat) return base;
       const cells = Math.round(pct / 25);
       return `${base}  ${'■'.repeat(cells)}${'□'.repeat(4 - cells)} ${charging ? '+' : ''}${pct}%`;
     }
@@ -1858,7 +1868,7 @@
       const pillLabels = {
         boot: '시작 중',
         setup: '설정 필요',
-        idle: state.clockStandby ? '시계 대기' : '온라인',
+        idle: state.clockStandby ? '시계 대기' : state.roomMode === 'translate' ? '실시간 번역 중' : state.roomMode === 'subtitles' ? '실시간 자막 중' : '온라인',
         listening: '듣는 중',
         thinking: '생각 중',
         answering: '답변 중',
@@ -1873,17 +1883,17 @@
         answering: '답변 중',
         error: '말하기'
       };
-      statePill.dataset.state = state.clockStandby && mode === 'idle' ? 'clock' : mode;
+      statePill.dataset.state = state.clockStandby && mode === 'idle' ? 'clock' : state.roomMode ? 'listening' : mode;
       statePillLabel.textContent = pillLabels[mode] || '온라인';
       talkBtn.dataset.state = mode;
       talkBtnLabel.textContent = talkLabels[mode] || '말하기';
       talkBtn.disabled = mode === 'boot' || mode === 'thinking' || mode === 'answering';
-      if (mode !== 'listening') {
+      if (mode !== 'listening' && !state.roomMode) {
         talkBtn.style.setProperty('--level', '0');
         sphereHud.setLevel(0);
       }
       sphereHud.setState(
-        mode === 'listening' ? 'listening' : mode === 'thinking' ? 'thinking' : mode === 'answering' ? 'answering' : mode === 'error' ? 'error' : 'online'
+        mode === 'listening' || state.roomMode ? 'listening' : mode === 'thinking' ? 'thinking' : mode === 'answering' ? 'answering' : mode === 'error' ? 'error' : 'online'
       );
       clockModeChip.setAttribute('aria-pressed', state.clockStandby ? 'true' : 'false');
       subtitlesChip.setAttribute('aria-pressed', state.roomMode === 'subtitles' ? 'true' : 'false');
@@ -1893,14 +1903,16 @@
     /* ── Home / Idle / Clock Standby Transitions ── */
     function goIdle(note) {
       if (state.clockStandby) {
-        void hud.setClockStandby(false);
         state.clockStandby = false;
+        void hud.setClockStandby(false);
         hud.setMenu(buildMenuItems());
       }
+      const titleLine = `◆ E.D.I.T.H${state.clockStr ? `  ${state.clockStr}` : ''}`;
       if (!state.apiKey.trim()) {
         state.statusKind = 'setup';
         setPhoneState('setup');
         hud.set({
+          title: titleLine,
           status: formatStatusLine(),
           body: `${note ? note + '\n\n' : ''}설정이 필요합니다.\n\n휴대폰의 Even 앱에서 설정을 열고\nOpenRouter 또는 Gemini 키를 확인하세요.\n\n◆ 두 번 탭하면 시계 대기 / 종료.`
         });
@@ -1917,18 +1929,20 @@
       }
       const overflows = estimateLines(body, BODY_CHARS_PER_LINE) > BODY_LINES;
       state.statusKind = overflows ? 'more' : 'online';
-      hud.set({ status: formatStatusLine(), body: clip(body, 1990) });
+      hud.set({ title: titleLine, status: formatStatusLine(), body: clip(body, 1990) });
       ensureWakeWordStandby();
     }
 
     function enterClockStandby() {
       stopTicker();
+      stopWebSpeech();
       closeMic();
       state.roomMode = null;
       state.clockStandby = true;
       setPhoneState('idle');
       hud.setMenu(buildMenuItems());
       hud.set({
+        title: ' ',
         status: formatStatusLine(),
         body: ' '
       });
