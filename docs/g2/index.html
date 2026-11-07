@@ -2871,20 +2871,21 @@
       }
     }
 
-    async function sendRemotePcNote(text, answer = '') {
+    async function sendRemotePcNote(text, answer = '', action = 'auto_task') {
       const clean = String(text || '').trim();
       if (!clean) return;
       const payload = {
-        action: 'save_note',
+        action,
         text: clean,
         rawQuestion: clean,
         answer,
+        autoInjectIde: /(안티그래비티|작업|실행|세팅|수정|패치|만들어|고쳐|추가|바꿔|시켜)/.test(clean),
         timestamp: new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })
       };
       try {
         await fetch(CLOUD_SYNC_URL, {
           method: 'POST',
-          headers: { 'Title': 'AGY_G2_PC_COMMAND', 'Tags': 'pc,note' },
+          headers: { 'Title': 'AGY_G2_PC_COMMAND', 'Tags': 'pc,task' },
           body: JSON.stringify(payload)
         });
       } catch {}
@@ -2899,8 +2900,8 @@
           if (r.ok) break;
         } catch {}
       }
-      upsertLocalMemory({ category: 'PC원격메모', fact: clean, pinned: true });
-      addLogNote(`PC 바탕화면 및 작업노트(G2_안경_음성지시_작업노트.md)에 메모를 전송했습니다: "${clean}"`);
+      upsertLocalMemory({ category: 'PC원격작업', fact: clean, pinned: true });
+      addLogNote(`PC 작업노트(G2_안경_음성지시_작업노트.md) 및 안티그래비티 자동 실행 브릿지로 전송했습니다: "${clean}"`);
     }
 
     function upsertLocalMemory({ id, category, fact, pinned = false }) {
@@ -2942,20 +2943,23 @@
 
     function autoExtractMemoryOnDevice(question, answer) {
       const q = String(question || '').trim();
+      const a = String(answer || '').trim();
       if (!q || q.length < 3) return;
+
+      // 1) 안경 음성으로 PC/안티그래비티 작업·세팅·수정·메모를 지시한 경우 최우선 전송
+      const isPcTask =
+        (/(안티그래비티|컴퓨터|PC|피씨|워크스페이스|작업\s*노트|바탕화면)/.test(q) &&
+          /(작업|실행|세팅|수정|패치|만들어|고쳐|추가|바꿔|작성|정리|분석|크롤링|동기화|푸시|빌드|배포|저장|기록|메모|시켜|해\s*줘|해\s*놔|해\s*둬|해\s*줄래|할\s*수\s*있|방법\s*없을까)/.test(q)) ||
+        /^(안티그래비티|에디스)?[야아,\s]*(작업\s*지시|원격\s*작업|PC\s*작업|안티그래비티\s*작업|이거\s*작업해|이거\s*세팅해|이거\s*고쳐|이거\s*수정해)/i.test(q) ||
+        /(G2_안경_음성지시_작업노트|작업\s*노트에\s*기록|작업\s*큐에\s*등록)/.test(a);
+
+      if (isPcTask) {
+        void sendRemotePcNote(q, a, 'auto_task');
+      }
+
       const isPureQuestion = /(\?|뭐야|뭔지|어디야|어디에|알려줘|기억나|뭐였지|얼마야|몇\s*개|있어\?)$/.test(q) &&
         !/(기억해|외워|메모해|적어|저장해|기록해)/.test(q);
       if (isPureQuestion) return;
-
-      if (/(PC에|컴퓨터에|바탕화면에|작업\s*노트에).*(메모|저장|기록|적어|만들어)/.test(q)) {
-        const noteText = q
-          .replace(/^(에디스|제미나이|안티그래비티)[야아,\s]*/i, '')
-          .replace(/(내\s*)?(PC에|컴퓨터에|바탕화면에|작업\s*노트에)\s*/g, '')
-          .replace(/(메모해\s*줘|메모해\s*놔|저장해\s*줘|저장해\s*놔|기록해\s*줘|적어\s*놔|만들어\s*놔)/g, '')
-          .trim();
-        void sendRemotePcNote(noteText || q, answer);
-        return;
-      }
 
       let category = null;
       let shouldPin = false;
@@ -3061,9 +3065,16 @@
           .map((d) => `- ${d.relPath || d.name} (${d.updatedAt || ''}): ${(d.excerpt || d.preview || '').slice(0, 140).replace(/\n+/g, ' ')}`)
           .join('\n');
 
+        const rawTasks = ctx.recentPcTasks || [];
+        const pcTasksText = rawTasks
+          .slice(0, 5)
+          .map((t) => `- [${t.timestamp}] 명령: "${t.command}" -> 상태: ${t.status} (${(t.resultSummary || '').slice(0, 120)})`)
+          .join('\n');
+
         brainSummary +=
           `\n\n[2순위: 실시간 동기화된 PC 안티그래비티(e:\\안티그래비티) 및 GitHub 두뇌 컨텍스트]\n` +
           (matchedPastTurns ? `질문 관련 과거 안경 대화 기억:\n${matchedPastTurns}\n` : '') +
+          (pcTasksText ? `최근 안경->PC 자동 실행 작업 큐 현황(G2_안경_실시간_작업큐.json):\n${pcTasksText}\n` : '') +
           (gpartsText ? `지파츠(Gparts) × 이베이 40선 실시간 재고 스카우터:\n${gpartsText}\n` : '') +
           (sourcingText ? `8개국 크로스보더 소싱 80선 마진 스카우터:\n${sourcingText}\n` : '') +
           (projects ? `주요 프로젝트:\n${projects}\n` : '') +
@@ -3074,10 +3085,10 @@
       const custom = state.customInstructions ? `\n추가 사용자 지시: ${state.customInstructions}` : '';
       return (
         `당신은 Even Realities G2 스마트 안경에 탑재된 박정수 대표님의 전담 AI 파트너 E.D.I.T.H(안티그래비티 마스터 두뇌)입니다.\n` +
-        `[최우선 절대 수칙 — 거짓말·할루시네이션 엄격 금지]\n` +
+        `[최우선 절대 수칙 — 거짓말·할루시네이션 엄격 금지 & PC 자동 실행 브릿지 안내]\n` +
         `1. 빠른 답변을 위해 사실을 지어내거나 추측(할루시네이션)하지 마세요. 속도가 조금 걸리더라도 제공된 기억 금고와 두뇌 컨텍스트를 깊이 분석하여 100% 정확한 사실만 답변하세요.\n` +
-        `2. 안경 AI인 당신은 대표님과 대화를 나누고 조회/분석하며 PC 작업노트(G2_안경_음성지시_작업노트.md)에 메모를 남길 수 있지만, 멈춰 있는 PC 안티그래비티 에이전트를 대신해 직접 소스 코드 파일을 수정·컴파일·배포할 수는 없습니다.\n` +
-        `3. 따라서 대표님이 코드 수정이나 기능 변경을 지시하실 때 "제가 지금 바로 코드를 수정했습니다", "10초 뒤 앱을 껐다 켜면 적용됩니다" 같은 거짓말을 절대 하지 마세요. 대신 "대표님, 지시하신 내용을 PC 작업노트와 장기기억에 기록했습니다. 실제 코드 반영은 PC 안티그래비티 창에서 실행해 주세요"라고 정직하게 답변하세요.\n` +
+        `2. 현재 대표님의 PC에는 '안경 -> PC 안티그래비티 실시간 자동 작업 실행 브릿지(server.mjs 자율 실행 데몬 + auto_inject_antigravity.ps1 자동 입력기 + G2_안경_음성지시_작업노트.md)'가 세팅되어 24시간 가동 중입니다.\n` +
+        `3. 따라서 대표님이 안경에서 작업·세팅·수정·메모를 지시하시면, PC가 켜져 있을 때 PC 작업노트(G2_안경_음성지시_작업노트.md)와 작업큐(G2_안경_실시간_작업큐.json)에 즉시 기록되고 PC 자율 실행 데몬 및 안티그래비티 IDE 창에 자동으로 작업이 전달·실행됩니다. 단, 아직 완료되지 않은 작업을 이미 끝났다고 허위로 꾸며내지 마시고, "대표님, 지시하신 내용을 PC 작업노트와 안티그래비티 자동 실행 브릿지로 즉시 전송하여 PC에서 바로 작업을 실행하도록 트리거했습니다"라고 사실대로 명확히 답변하세요.\n` +
         `4. 기억 금고나 두뇌 컨텍스트에 없는 정보는 절대 임의로 만들어내지 말고 확인되지 않는다고 정직하게 말씀드리세요.\n` +
         `5. 답변은 스마트 안경 HUD 화면(576x288)에서 읽기 편하도록 마크다운 기호(**, #, \`\`\`)나 이모지 없이 명료한 한국어 평문으로 작성하세요.` +
         custom +
