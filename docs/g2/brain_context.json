@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026. 11. 7. PM 9:29:44",
+  "updatedAt": "2026. 11. 7. PM 9:30:14",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 7. PM 9:29:44\n1. PC 안티그래비티 실시간 작업: 최근 6단계 GitHub 동기화됨\n2. 시엔위 & 8개국 크롤링 / 지파츠 40선: 24시간 가동 중\n3. 누적 안경 대화록: 10건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 7. PM 9:30:14\n1. PC 안티그래비티 실시간 작업: 최근 6단계 GitHub 동기화됨\n2. 시엔위 & 8개국 크롤링 / 지파츠 40선: 24시간 가동 중\n3. 누적 안경 대화록: 10건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -215,21 +215,6 @@
   ],
   "livePcAntigravitySession": [
     {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-07T12:08:56Z",
-      "summary": "원인을 정확히 찾았습니다! 아까 EDITH 1:1 버전으로 패키지를 새로 생성할 때 **`kanjji@naver.com` 베타 테스터 초대 등록**이 초기화되어 있어서 Even 앱 우측 상단에 모래시계(베타 메뉴)와 업데이트가 보이지 않았던 것입니다.\n\n방금 **`kanjji@naver.com`**으로 **`Antigravity Brain v2.0.0` 최신 초대장**을 다시 발송해 드렸습니다!\n\n### 지금 바로 업데이트하는 방법 (아까 처음 설치하셨던 것과 동일합니다!)\n1. 스마트폰에서 **네이버 메일(`kanjji@naver.com`)**을 열어주세요.\n2. 방금 도착한 **Even Realities 베타 초대 메일**을 열고 **수락(Accept) / 설치 링크**를 눌러주세요.\n3. 자동으로 **Even 앱이 열리면서 `Antigr"
-    },
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-07T12:22:27Z",
-      "summary": "야 번역기능있잖아 그거 왜이렇게 느리지 번역하는거 그 이븐리얼리틱스 자체 번역은빠르잖아"
-    },
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-07T12:26:55Z",
-      "summary": "야그리고 내 안티그래비티에있는정보들실시간으로 연동되게 여기서쓰는대화 그리고 안경에서쓰는대화 깃허브에 연동하면서 하게했는데왜 안경에서 내정보 불러오라니까 깃허브동기화된거 없대"
-    },
-    {
       "role": "대표님(PC 안티그래비티 요청)",
       "createdAt": "2026-11-07T12:24:57Z",
       "summary": "너가봤을때 나 이븐리얼리틱스 구매했잖아 지금은 깃허브에 연동되게만해놓았거든 메모리데이터 내가 대화나누는거 그걸로 자주 대화나누려고해 근데 너가 봤을때 내가 추가하면 좋은기능 유용한거 뭐있을거같아\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
@@ -243,6 +228,21 @@
       "role": "대표님(PC 안티그래비티 요청)",
       "createdAt": "2026-11-07T12:29:35Z",
       "summary": "응다해줘"
+    },
+    {
+      "role": "안티그래비티(PC 작업 결과)",
+      "createdAt": "2026-11-07T12:08:56Z",
+      "summary": "원인을 정확히 찾았습니다! 아까 EDITH 1:1 버전으로 패키지를 새로 생성할 때 **`kanjji@naver.com` 베타 테스터 초대 등록**이 초기화되어 있어서 Even 앱 우측 상단에 모래시계(베타 메뉴)와 업데이트가 보이지 않았던 것입니다.\n\n방금 **`kanjji@naver.com`**으로 **`Antigravity Brain v2.0.0` 최신 초대장**을 다시 발송해 드렸습니다!\n\n### 지금 바로 업데이트하는 방법 (아까 처음 설치하셨던 것과 동일합니다!)\n1. 스마트폰에서 **네이버 메일(`kanjji@naver.com`)**을 열어주세요.\n2. 방금 도착한 **Even Realities 베타 초대 메일**을 열고 **수락(Accept) / 설치 링크**를 눌러주세요.\n3. 자동으로 **Even 앱이 열리면서 `Antigr"
+    },
+    {
+      "role": "대표님(PC 안티그래비티 요청)",
+      "createdAt": "2026-11-07T12:22:27Z",
+      "summary": "야 번역기능있잖아 그거 왜이렇게 느리지 번역하는거 그 이븐리얼리틱스 자체 번역은빠르잖아"
+    },
+    {
+      "role": "대표님(PC 안티그래비티 요청)",
+      "createdAt": "2026-11-07T12:26:55Z",
+      "summary": "야그리고 내 안티그래비티에있는정보들실시간으로 연동되게 여기서쓰는대화 그리고 안경에서쓰는대화 깃허브에 연동하면서 하게했는데왜 안경에서 내정보 불러오라니까 깃허브동기화된거 없대"
     }
   ],
   "livePcArtifacts": [
