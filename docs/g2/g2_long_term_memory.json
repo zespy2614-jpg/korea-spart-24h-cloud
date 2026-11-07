@@ -1,14 +1,22 @@
 {
-  "updatedAt": "2026. 11. 7. PM 9:44:24",
-  "pinnedReminder": "파란색 자동차 (내 차량)",
+  "updatedAt": "2026. 11. 7. PM 10:46:32",
+  "pinnedReminder": "근데 너 가능한 거야? 지금 대화로 안티그래비티 그거 하는 기능을",
   "items": [
+    {
+      "id": "mem_1794059192401_0h0m",
+      "category": "PC원격작업",
+      "fact": "근데 너 가능한 거야? 지금 대화로 안티그래비티 그거 하는 기능을",
+      "sourceQuestion": "근데 너 가능한 거야? 지금 대화로 안티그래비티 그거 하는 기능을",
+      "createdAt": "2026. 11. 7. PM 10:46:32",
+      "pinned": true
+    },
     {
       "id": "mem_car_blue_01",
       "category": "차량/주차",
       "fact": "대표님의 차량은 파란색 자동차입니다.",
       "sourceQuestion": "저기 있는 파란색 자동차가 제 차예요",
       "createdAt": "2026. 11. 7. 오후 9:21:49",
-      "pinned": true
+      "pinned": false
     },
     {
       "id": "mem_ai_model_02",
