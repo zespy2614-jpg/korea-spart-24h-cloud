@@ -1,28 +1,46 @@
-// __EDITH_OTA__ Live Over-The-Air Patch v3.0.0 — Full DOM & Glasses Menu Upgrade (No Reinstall Required)
+// __EDITH_OTA__ Live Over-The-Air Patch v3.1.0 — High Reasoning + Precision Glasses STT + Long-Press Only (Zero False Tap)
 (function () {
-  if (window.__EDITH_OTA_V30_APPLIED__) return;
-  window.__EDITH_OTA_V30_APPLIED__ = true;
-  console.log('[EDITH OTA] v3.0.0 Full Live Upgrade Activated');
+  if (window.__EDITH_OTA_V31_APPLIED__) return;
+  window.__EDITH_OTA_V31_APPLIED__ = true;
+  console.log('[EDITH OTA] v3.1.0 High Reasoning + Precision Glasses STT + Long-Press Only Activated');
 
   const agy = window.__EDITH_AGY__;
   const origFetch = window.fetch.bind(window);
   const translateCache = new Map();
   const CLOUD_SYNC_URL = 'https://ntfy.sh/agy_g2_brain_sync_e3562553';
 
-  // Detect whether the host HTML is v2.0.0 (legacy closure IDs) or v3.0.0+
   const isLegacyV2Host = !Boolean(agy && agy.buildMenuItems);
 
-  // 1. Load & Persist Long-Term Memory Vault
+  // 1. Transcript Post-Correction & Anti-"00:00" Filter
+  function cleanAndCorrectTranscript(raw) {
+    let s = String(raw || '').replace(/^["'`]+|["'`]+$/g, '').trim();
+    if (!s) return 'EMPTY';
+    if (/^(\d{1,2}:\d{2}(\s*-\s*\d{1,2}:\d{2})?|empty|none|null|\.+|-+|음성\s*없음|무음)$/i.test(s)) {
+      return 'EMPTY';
+    }
+    s = s
+      .replace(/컴피\s*반트\s*비디오|컴퓨턴트\s*비디오|안티\s*그래픽(티|기)?|안티그래픽(티|기)?|안티\s*그래비키/gi, '안티그래비티')
+      .replace(/기사부|기허브|깃\s*허브/gi, '깃허브')
+      .replace(/데미나인|재미나이|제미\s*나이/gi, '제미나이')
+      .replace(/아라곤\s*4|아르고\s*4/gi, '아라곤 4')
+      .replace(/오픈\s*라우더|라우더\s*필터/gi, '오픈라우터')
+      .replace(/너트니언이/gi, '너 지능이')
+      .replace(/컴피규에서/gi, '컴퓨터에서')
+      .replace(/그\s*해와\s*듣는/gi, '대화 듣는');
+    return s.trim() || 'EMPTY';
+  }
+
+  // 2. Long-Term Memory Vault Helpers
   function getVault() {
     try {
-      const stVault = agy?.state?.longTermMemories;
+      const stVault = agy?.state?.memories || agy?.state?.longTermMemories;
       if (Array.isArray(stVault) && stVault.length > 0) return stVault;
       const local = JSON.parse(localStorage.getItem('agy_g2_long_term_memories') || '[]');
       if (Array.isArray(local) && local.length > 0) return local;
     } catch {}
     const defaults = [
-      { id: 'mem_car_blue', category: '차량/주차', text: '대표님의 차량은 파란색 자동차입니다.', pinned: true, updatedAt: '2026. 11. 7.' },
-      { id: 'mem_biz_core', category: '핵심비즈니스', text: 'Gparts(지파츠) 40선 수입차 부품 매칭 및 8개국 80선 글로벌 소싱 프로젝트 운영 중', pinned: true, updatedAt: '2026. 11. 7.' }
+      { id: 'mem_car_blue', category: '차량/주차', text: '대표님의 차량은 파란색 자동차입니다.', fact: '대표님의 차량은 파란색 자동차입니다.', pinned: true, updatedAt: '2026. 11. 7.' },
+      { id: 'mem_biz_core', category: '핵심비즈니스', text: 'Gparts(지파츠) 40선 수입차 부품 매칭 및 8개국 80선 글로벌 소싱 프로젝트 운영 중', fact: 'Gparts(지파츠) 40선 수입차 부품 매칭 및 8개국 80선 글로벌 소싱 프로젝트 운영 중', pinned: true, updatedAt: '2026. 11. 7.' }
     ];
     localStorage.setItem('agy_g2_long_term_memories', JSON.stringify(defaults));
     return defaults;
@@ -30,7 +48,10 @@
 
   function saveVault(list) {
     localStorage.setItem('agy_g2_long_term_memories', JSON.stringify(list));
-    if (agy?.state) agy.state.longTermMemories = list;
+    if (agy?.state) {
+      agy.state.longTermMemories = list;
+      agy.state.memories = list;
+    }
   }
 
   async function syncMemoryAction(payload) {
@@ -62,7 +83,7 @@
         await origFetch(`${base}/api/pc-action`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ command: clean, category: '안경원격지시' }),
+          body: JSON.stringify({ command: clean, text: clean, category: '안경원격지시' }),
           signal: AbortSignal.timeout(2000)
         });
         break;
@@ -72,21 +93,38 @@
       await origFetch(CLOUD_SYNC_URL, {
         method: 'POST',
         headers: { Title: 'AGY_G2_PC_COMMAND', Priority: 'high' },
-        body: JSON.stringify({ type: 'AGY_G2_PC_COMMAND', command: clean, timestamp: new Date().toLocaleString('ko-KR') })
+        body: JSON.stringify({ type: 'AGY_G2_PC_COMMAND', command: clean, text: clean, timestamp: new Date().toLocaleString('ko-KR') })
       });
     } catch {}
   }
 
-  // 2. Upgrade DOM on v2.0.0 Host (Replace '실시간 자막' with '기억 금고' + Inject #memoryDrawer + v3.0.0 Badge)
+  // 3. Upgrade DOM on Phone (v2.0.0 & v3.0.0 compatibility)
   function upgradePhoneDom() {
-    // Update version string in settings
     document.querySelectorAll('.help .mono').forEach((el) => {
-      if (el.textContent && el.textContent.includes('v2.0.0')) {
-        el.textContent = 'EDITH 2.0 × Antigravity v3.0.0 (6-Menu + Memory Vault OTA)';
+      if (el.textContent && (el.textContent.includes('v2.0.0') || el.textContent.includes('v3.0.0'))) {
+        el.textContent = 'EDITH 2.0 × Antigravity v3.1.0 (High Reasoning + 정밀 음성인식 + 롱프레스 전용)';
       }
     });
 
-    // Replace #subtitlesChip with #memoryVaultChip if #memoryVaultChip doesn't exist
+    // Update controls guide text so user sees single-tap is disabled
+    const ctrlList = document.querySelector('.controls');
+    if (ctrlList) {
+      ctrlList.innerHTML = `
+        <li>안경다리나 링을 <b>길게 누르고</b> 말하기 (한 번 탭 오작동 완전 차단됨)</li>
+        <li><b>탭한 다음 길게 누르면</b> 안경 메뉴 열기</li>
+        <li><b>두 번 탭</b>해서 시계 대기 모드 전환 또는 종료</li>
+      `;
+    }
+
+    // Disable followUp & wakeWord checkboxes to prevent false mic triggers
+    const prefFollowUp = document.getElementById('prefFollowUp');
+    const prefWakeWord = document.getElementById('prefWakeWord');
+    if (prefFollowUp) prefFollowUp.checked = false;
+    if (prefWakeWord) prefWakeWord.checked = false;
+    localStorage.setItem('edith_pref_followup', '0');
+    localStorage.setItem('edith_pref_wake', '0');
+
+    // Replace #subtitlesChip with #memoryVaultChip if needed
     const subChip = document.getElementById('subtitlesChip');
     let memChip = document.getElementById('memoryVaultChip');
     if (subChip && !memChip) {
@@ -101,7 +139,6 @@
       subChip.style.display = 'none';
     }
 
-    // Add Gparts 40선 quick chip if missing
     const modesContainer = document.querySelector('.modes');
     if (modesContainer && !modesContainer.querySelector('[data-ask*="지파츠"]')) {
       const gpChip = document.createElement('button');
@@ -118,20 +155,14 @@
       modesContainer.appendChild(gpChip);
     }
 
-    // Inject #memoryDrawer if missing (for v2.0.0 installed package)
     let drawer = document.getElementById('memoryDrawer');
     if (!drawer) {
       const style = document.createElement('style');
       style.textContent = `
         .memory-drawer {
-          display: none;
-          flex-direction: column;
-          gap: 10px;
-          padding: 14px;
-          border-radius: 16px;
-          background: var(--surface);
-          box-shadow: 0 0 0 1px rgba(245, 197, 66, 0.28);
-          margin-bottom: 6px;
+          display: none; flex-direction: column; gap: 10px; padding: 14px;
+          border-radius: 16px; background: var(--surface);
+          box-shadow: 0 0 0 1px rgba(245, 197, 66, 0.28); margin-bottom: 6px;
         }
         .memory-drawer.open { display: flex; }
         .memory-drawer-head { display: flex; align-items: center; justify-content: space-between; }
@@ -204,7 +235,7 @@
           badge.className = 'memory-badge';
           badge.textContent = m.category || '기억';
           const txt = document.createElement('span');
-          txt.textContent = m.text;
+          txt.textContent = m.text || m.fact || '';
           left.append(badge, txt);
 
           const actions = document.createElement('div');
@@ -217,7 +248,7 @@
             m.pinned = !m.pinned;
             saveVault(vault);
             renderVaultUi();
-            void syncMemoryAction({ action: 'add', category: m.category, text: m.text, pinned: m.pinned });
+            void syncMemoryAction({ action: 'add', category: m.category, text: m.text || m.fact, fact: m.text || m.fact, pinned: m.pinned });
           });
 
           const delBtn = document.createElement('button');
@@ -257,12 +288,12 @@
           if (!text) return;
           const category = catEl?.value || '중요기억';
           const vault = getVault();
-          const item = { id: `mem_${Date.now()}`, category, text, pinned: true, updatedAt: new Date().toLocaleString('ko-KR') };
+          const item = { id: `mem_${Date.now()}`, category, text, fact: text, pinned: true, updatedAt: new Date().toLocaleString('ko-KR') };
           vault.unshift(item);
           saveVault(vault);
           txtEl.value = '';
           renderVaultUi();
-          void syncMemoryAction({ action: 'add', category, text, pinned: true });
+          void syncMemoryAction({ action: 'add', category, text, fact: text, pinned: true });
         });
       }
 
@@ -282,25 +313,28 @@
       }
     }
 
-    // Show v3.0.0 live status in sync banner
     const syncText = document.getElementById('syncStatusText');
-    if (syncText && !syncText.innerHTML.includes('v3.0')) {
-      syncText.innerHTML = '<b>PC 안티그래비티 ↔ GitHub (v3.0 기억금고·6메뉴 적용됨)</b>';
+    if (syncText && !syncText.innerHTML.includes('v3.1')) {
+      syncText.innerHTML = '<b>PC ↔ GitHub (v3.1 High추론·정밀음성·롱프레스 적용됨)</b>';
     }
   }
 
-  // 3. Enforce 6-Item Menu & HUD Auto-Paging on Glasses
+  // 4. Enforce 6-Item Menu & Block Single-Tap False Triggers on Glasses
   function upgradeGlassesHudAndMenu() {
     if (!agy || !agy.hud || !agy.state) return;
     const st = agy.state;
     const hud = agy.hud;
 
-    // Build exact 6-item menu requested by user:
-    // 새 채팅, 시계 대기, 상대 번역, 두뇌 동기화, 밝기, 닫기
-    // Note: On legacy v2.0.0 host, internal onMenuItemClick(id) maps:
-    // 1=newChat, 2=clockStandby, 4=translate, 7=syncBrain, 5=discreet, 99=close
-    // On v3.0.0 host, internal onMenuItemClick(id) maps:
-    // 1=newChat, 2=clockStandby, 3=translate, 4=syncBrain, 5=discreet, 6=close
+    // Force disable followUp and wakeWord on state
+    if (st.prefs) {
+      st.prefs.followUp = false;
+      st.prefs.wakeWord = false;
+    }
+    if (st.wakeRec) {
+      try { st.wakeRec.stop(); } catch {}
+      st.wakeRec = null;
+    }
+
     const getClean6MenuItems = () => {
       if (isLegacyV2Host) {
         return [
@@ -322,32 +356,74 @@
       ];
     };
 
-    // Permanently intercept hud.setMenu so v2.0.0's internal goIdle() can NEVER restore '자막 모드'
-    const origSetMenu = hud.setMenu.bind(hud);
-    hud.setMenu = function () {
-      const clean = getClean6MenuItems();
-      return origSetMenu(clean);
-    };
-
-    // Apply immediately
+    if (!hud.__v31MenuHooked) {
+      hud.__v31MenuHooked = true;
+      const origSetMenu = hud.setMenu.bind(hud);
+      hud.setMenu = function () {
+        return origSetMenu(getClean6MenuItems());
+      };
+    }
     hud.setMenu(getClean6MenuItems());
 
-    // Add HUD Auto-Paging & Pinned Memory Reminder on Greeting for v2.0.0 host
-    if (isLegacyV2Host && !hud.__v30SetHooked) {
-      hud.__v30SetHooked = true;
+    // Hook hud.set to:
+    // 1) Immediately block any single-tap ('tap') recording attempt on v2.0.0 host!
+    // 2) Disable phone WebSpeech during glasses recording so distant phone mic never overrides G2 glasses mic!
+    // 3) Show pinned reminder on greeting screen
+    if (!hud.__v31SetHooked) {
+      hud.__v31SetHooked = true;
       const origSet = hud.set.bind(hud);
-      let pagingTimer = null;
 
       hud.set = function (update) {
+        // BLOCK SINGLE-TAP ('tap') LISTENING IMMEDIATELY!
+        if (st.mode === 'listening' && st.trigger === 'tap') {
+          try { st.recorder?.stop(); } catch {}
+          st.recorder = null;
+          if (st.webSpeechRec) {
+            try { st.webSpeechRec.stop(); } catch {}
+            st.webSpeechRec = null;
+          }
+          st.webSpeechTranscript = '';
+          st.quietListening = false;
+          if (hud.bridge && st.micOpen) {
+            st.micOpen = false;
+            try { hud.bridge.audioControl(false); } catch {}
+          }
+          if (agy.goIdle) setTimeout(() => agy.goIdle(), 0);
+          return;
+        }
+
+        // When recording via Long-Press ('hold'), kill phone WebSpeech so ONLY G2 Glasses 16kHz PCM mic is used!
+        if (st.mode === 'listening' && st.trigger === 'hold') {
+          if (st.webSpeechRec) {
+            try { st.webSpeechRec.abort?.() || st.webSpeechRec.stop(); } catch {}
+            st.webSpeechRec = null;
+          }
+          st.webSpeechTranscript = '';
+          if (st.recorder) {
+            st.recorder.autoStopEnabled = true;
+            st.recorder.silenceToStopMs = 1650;
+            st.recorder.minSpeechRms = 90;
+            st.recorder.speechToArmMs = 130;
+          }
+        }
+
         if (update && typeof update.body === 'string') {
-          // If greeting screen, append pinned memory reminder
-          if (update.body.includes('반갑습니다, 대표님') && !update.body.includes('📌')) {
+          if (update.body.includes('탭하고 말하세요') || update.body.includes('탭해서 핸즈프리로')) {
+            update = {
+              ...update,
+              body: update.body
+                .replace('▶ 길게 눌러 말하거나, 탭하고 말하세요.', '▶ 길게 눌러 말씀하세요 (한 번 탭 오작동 차단됨).')
+                .replace('탭하면 전송, 잠시 멈춰도 전송.', '말씀 후 손을 떼거나 잠시 멈추면 전송합니다.')
+            };
+          }
+          if (update.body.includes('좋은 ') && update.body.includes('모든 시스템 온라인') && !update.body.includes('[기억]')) {
             const vault = getVault();
             const pinned = vault.find((m) => m.pinned) || vault[0];
-            if (pinned?.text) {
+            const factTxt = pinned?.text || pinned?.fact;
+            if (factTxt) {
               update = {
                 ...update,
-                body: `반갑습니다, 대표님.\n📌 ${pinned.text.slice(0, 38)}\n\n길게 누르거나 탭해서 말씀하세요.`
+                body: update.body.replace('모든 시스템 온라인.', `모든 시스템 온라인.\n[기억] ${factTxt.slice(0, 42)}`)
               };
             }
           }
@@ -357,7 +433,7 @@
     }
   }
 
-  // 4. Ultra-Fast Simultaneous Translation & Smart Memory RAG Injection on OpenRouter Fetch
+  // 5. Fast Translation Helper (Only used in Room Translate mode)
   async function ultraFastTranslateText(rawText) {
     const clean = String(rawText || '').trim();
     if (!clean) return '';
@@ -390,7 +466,7 @@
             'X-Title': 'EDITH Antigravity G2'
           },
           body: JSON.stringify({
-            model: 'google/gemini-omni-1.2-flash',
+            model: 'google/gemini-3.8-flash',
             reasoning: { effort: 'none', exclude: true },
             messages: [
               {
@@ -416,98 +492,126 @@
     return clean;
   }
 
+  // 6. Intercept OpenRouter Fetch:
+  //    - For Voice Question STT (hasAudio): Use Flagship Gemini 3.8 Flash / Gemini 4 Argon + Korean Domain Dictionary + Post-Correction!
+  //    - For Question Answering (stream: true): Force High Reasoning (effort: 'high') + Strict Anti-Hallucination Rules!
   window.fetch = async function (input, init) {
     try {
       const url = typeof input === 'string' ? input : input?.url || '';
       if (url.includes('openrouter.ai/api/v1/chat/completions') && init?.body && typeof init.body === 'string') {
         const bodyObj = JSON.parse(init.body);
-        const isShortTask = !bodyObj.stream && typeof bodyObj.max_tokens === 'number' && bodyObj.max_tokens <= 260;
+        const isShortTask = !bodyObj.stream && typeof bodyObj.max_tokens === 'number' && bodyObj.max_tokens <= 300;
 
-        // Inject Long-Term Memory Vault & Smart Past Conversation RAG into streaming chat requests
+        // A) Streaming Chat Answer -> Force High-Performance High Reasoning Model & Anti-Hallucination Prompt!
         if (bodyObj.stream && Array.isArray(bodyObj.messages)) {
+          // Upgrade any fast/flash fallback model to flagship High Reasoning model
+          if (
+            !bodyObj.model ||
+            bodyObj.model.includes('flash') ||
+            bodyObj.model.includes('omni')
+          ) {
+            bodyObj.model = 'google/gemini-4-argon';
+          }
+          bodyObj.reasoning = { effort: 'high', exclude: true };
+          bodyObj.temperature = 0.2;
+          bodyObj.max_tokens = 4096;
+
           const sysMsg = bodyObj.messages.find((m) => m.role === 'system');
           const lastUserMsg = [...bodyObj.messages].reverse().find((m) => m.role === 'user');
+          if (lastUserMsg && typeof lastUserMsg.content === 'string') {
+            lastUserMsg.content = cleanAndCorrectTranscript(lastUserMsg.content);
+          }
           const userQ = typeof lastUserMsg?.content === 'string' ? lastUserMsg.content : '';
 
-          // Auto-extract memory or remote PC command if user asks in voice/chat
           if (/(기억해|외워둬|메모해|주차|내\s*차|파란색\s*자동차)/.test(userQ)) {
             const vault = getVault();
             const cat = /(차|주차)/.test(userQ) ? '차량/주차' : '중요기억';
-            if (!vault.some((m) => m.text === userQ)) {
-              vault.unshift({ id: `mem_${Date.now()}`, category: cat, text: userQ, pinned: true, updatedAt: new Date().toLocaleString('ko-KR') });
+            if (!vault.some((m) => (m.text || m.fact) === userQ)) {
+              vault.unshift({ id: `mem_${Date.now()}`, category: cat, text: userQ, fact: userQ, pinned: true, updatedAt: new Date().toLocaleString('ko-KR') });
               saveVault(vault);
-              void syncMemoryAction({ action: 'add', category: cat, text: userQ, pinned: true });
+              void syncMemoryAction({ action: 'add', category: cat, text: userQ, fact: userQ, pinned: true });
             }
           }
-          if (/(PC에\s*메모|컴퓨터에\s*메모|작업\s*지시|안티그래비티에\s*전달)/.test(userQ)) {
+          if (/(PC에\s*메모|컴퓨터에\s*메모|작업\s*지시|안티그래비티에\s*전달|패치해|수정해|바꿔\s*줘)/.test(userQ)) {
             void sendRemotePcNote(userQ);
           }
 
-          if (sysMsg && !sysMsg.content.includes('[영구 장기기억 금고')) {
-            const vault = getVault();
-            let extra = '\n\n[영구 장기기억 금고 (최우선 진실 — 질문 시 즉시 인용)]\n';
-            vault.slice(0, 15).forEach((m) => {
-              extra += `- [${m.category || '기억'}] ${m.text}\n`;
-            });
-            const bc = agy?.state?.brainContext;
-            if (bc) {
-              const allConvs = Array.isArray(bc.conversationSearchIndex)
-                ? bc.conversationSearchIndex
-                : Array.isArray(bc.recentConversations)
-                  ? bc.recentConversations
-                  : [];
-              if (allConvs.length > 0) {
-                extra += '\n[안경 과거 누적 대화 기억]\n';
-                allConvs.slice(-10).forEach((c) => {
-                  extra += `- [${c.time || ''}] 대표님: "${c.q}" → 답변: "${String(c.a || '').slice(0, 140)}"\n`;
-                });
-              }
-              if (bc.gpartsAndSourcing?.gpartsTopSummary) {
-                extra += `\n[Gparts 40선 & 80선 스카우터]\n${bc.gpartsAndSourcing.gpartsTopSummary.slice(0, 500)}\n`;
-              }
+          if (sysMsg) {
+            const antiLieRules =
+              `[최우선 절대 수칙 — 거짓말·할루시네이션 엄격 금지]\n` +
+              `1. 빠른 답변을 위해 사실을 지어내거나 추측하지 마세요. 고성능 High 추론 모델로서 제공된 기억 금고와 두뇌 컨텍스트를 깊이 검증하여 100% 사실만 답하세요.\n` +
+              `2. 안경 AI인 당신은 직접 PC의 소스 코드 파일을 수정·컴파일·재배포할 권한이 없습니다. 따라서 대표님이 기능 변경이나 패치를 요청하실 때 "제가 지금 바로 코드를 수정했습니다", "10초 뒤 앱을 껐다 켜면 적용됩니다" 같은 거짓말을 절대 하지 마세요.\n` +
+              `3. 코드 수정 요청을 받으면 "대표님, 요청하신 사항을 PC 작업노트(G2_안경_음성지시_작업노트.md)에 기록해 두었습니다. 실제 코드 반영은 PC 안티그래비티 창에서 실행해 주세요"라고 정직하게만 답하세요.\n\n`;
+
+            if (!sysMsg.content.includes('거짓말·할루시네이션 엄격 금지')) {
+              sysMsg.content = antiLieRules + sysMsg.content;
             }
-            sysMsg.content += extra;
-            init = { ...init, body: JSON.stringify(bodyObj) };
+
+            if (!sysMsg.content.includes('[영구 장기기억 금고')) {
+              const vault = getVault();
+              let extra = '\n\n[영구 장기기억 금고 (최우선 진실 — 질문 시 즉시 인용)]\n';
+              vault.slice(0, 15).forEach((m) => {
+                extra += `- [${m.category || '기억'}] ${m.text || m.fact}\n`;
+              });
+              const bc = agy?.state?.brainContext;
+              if (bc) {
+                const allConvs = Array.isArray(bc.conversationSearchIndex)
+                  ? bc.conversationSearchIndex
+                  : Array.isArray(bc.recentConversations)
+                    ? bc.recentConversations
+                    : [];
+                if (allConvs.length > 0) {
+                  extra += '\n[안경 과거 누적 대화 기억]\n';
+                  allConvs.slice(-10).forEach((c) => {
+                    extra += `- [${c.time || c.t || ''}] 대표님: "${c.q}" → 답변: "${String(c.a || '').slice(0, 140)}"\n`;
+                  });
+                }
+              }
+              sysMsg.content += extra;
+            }
           }
+          init = { ...init, body: JSON.stringify(bodyObj) };
         }
 
+        // B) Audio Transcription (hasAudio) -> Upgrade from Flash-Lite to High-Accuracy Gemini 3.8 Flash / Gemini 4 Argon!
         if (isShortTask) {
           const msgContent = bodyObj?.messages?.[0]?.content;
           const hasAudio = Array.isArray(msgContent) && msgContent.some((c) => c?.type === 'input_audio');
 
           if (hasAudio) {
-            if (bodyObj.model === 'google/gemini-4-argon' || bodyObj.model === 'google/gemini-3.1-pro-preview') {
-              bodyObj.model = 'google/gemini-2.5-flash-lite';
+            // Never use gemini-2.5-flash-lite! Use high-accuracy multimodal audio model
+            if (bodyObj.model === 'google/gemini-2.5-flash-lite' || bodyObj.model === 'google/gemini-3.5-flash-lite') {
+              bodyObj.model = 'google/gemini-3.8-flash';
             }
-            bodyObj.reasoning = { effort: 'none', exclude: true };
+            const textPart = msgContent.find((c) => c?.type === 'text');
+            if (textPart && typeof textPart.text === 'string' && !textPart.text.includes('고유명사/전문용어 교정 사전')) {
+              textPart.text +=
+                `\n[고유명사/전문용어 교정 사전 — 발음이 비슷하면 반드시 아래 정확한 단어로 받아적을 것]\n` +
+                `- 안티그래비티(Antigravity), 제미나이(Gemini), 아라곤 4(Gemini 4 Argon), 깃허브(GitHub), 오픈라우터(OpenRouter), 이븐 리얼리티(Even G2), 에디스(EDITH), 지파츠(Gparts), 시엔위(Xianyu), 이베이(eBay), 크롤링, 소싱, 품번\n` +
+                `[엄격 규칙] 시간 표시(00:00 등), 따옴표, 부연 설명은 절대 출력하지 말고, 말소리가 없으면 오직 EMPTY 라고만 출력하세요.`;
+            }
+            delete bodyObj.reasoning;
             bodyObj.temperature = 0;
-            bodyObj.max_tokens = 120;
+            bodyObj.max_tokens = 250;
             init = { ...init, body: JSON.stringify(bodyObj) };
-          } else if (typeof msgContent === 'string' && msgContent.includes('번역')) {
-            const srcLine = msgContent.split(':\n').slice(1).join(':\n').trim();
-            if (srcLine) {
-              for (const base of ['http://192.168.123.150:3860', 'http://192.168.123.104:3860']) {
-                try {
-                  const fastRes = await origFetch(`${base}/api/fast-translate?q=${encodeURIComponent(srcLine)}`, {
-                    signal: AbortSignal.timeout(650)
+
+            const res = await origFetch(input, init);
+            if (res.ok) {
+              const clone = res.clone();
+              try {
+                const data = await clone.json();
+                const rawTranscript = String(data?.choices?.[0]?.message?.content || '').trim();
+                const corrected = cleanAndCorrectTranscript(rawTranscript);
+                if (data?.choices?.[0]?.message) {
+                  data.choices[0].message.content = corrected;
+                  return new Response(JSON.stringify(data), {
+                    status: 200,
+                    headers: { 'Content-Type': 'application/json' }
                   });
-                  if (fastRes.ok) {
-                    const fd = await fastRes.json();
-                    if (fd?.ok && fd.formatted) {
-                      return new Response(
-                        JSON.stringify({ choices: [{ message: { content: fd.formatted } }] }),
-                        { status: 200, headers: { 'Content-Type': 'application/json' } }
-                      );
-                    }
-                  }
-                } catch {}
-              }
+                }
+              } catch {}
             }
-            bodyObj.model = 'google/gemini-omni-1.2-flash';
-            bodyObj.reasoning = { effort: 'none', exclude: true };
-            bodyObj.temperature = 0;
-            bodyObj.max_tokens = 100;
-            init = { ...init, body: JSON.stringify(bodyObj) };
+            return res;
           }
         }
       }
@@ -515,71 +619,52 @@
     return origFetch(input, init);
   };
 
-  // Run upgrades immediately and keep watching
   upgradePhoneDom();
   upgradeGlassesHudAndMenu();
 
   if (agy && agy.state && agy.hud) {
-    let lastInterimText = '';
-    let interimTranslating = false;
-    let patchedWebRec = null;
-
     setInterval(() => {
       const st = agy.state;
-      // Never allow 'subtitles' mode
+
+      // Always block 'subtitles' mode
       if (st.roomMode === 'subtitles') {
         if (agy.stopRoomMode) agy.stopRoomMode();
         else st.roomMode = null;
       }
 
-      // Ensure menu always stays 6 items (without subtitles)
+      // Always block single-tap ('tap') listening and wake-word/follow-up false triggers
+      if (st.prefs) {
+        st.prefs.followUp = false;
+        st.prefs.wakeWord = false;
+      }
+      if (st.wakeRec) {
+        try { st.wakeRec.stop(); } catch {}
+        st.wakeRec = null;
+      }
+      if (st.mode === 'listening' && st.trigger === 'tap') {
+        try { st.recorder?.stop(); } catch {}
+        st.recorder = null;
+        if (st.webSpeechRec) {
+          try { st.webSpeechRec.stop(); } catch {}
+          st.webSpeechRec = null;
+        }
+        st.webSpeechTranscript = '';
+        if (agy.goIdle) agy.goIdle();
+      }
+
+      // While recording from glasses ('hold'), prevent phone WebSpeech from overriding glasses WAV
+      if (st.mode === 'listening' && st.trigger === 'hold') {
+        if (st.webSpeechRec) {
+          try { st.webSpeechRec.abort?.() || st.webSpeechRec.stop(); } catch {}
+          st.webSpeechRec = null;
+        }
+        st.webSpeechTranscript = '';
+      }
+
+      // Ensure 6-item clean menu stays active
       if (Array.isArray(agy.hud.menu) && agy.hud.menu.some((m) => m.name === '자막 모드' || m.name === 'AI 전환')) {
         upgradeGlassesHudAndMenu();
       }
-
-      if (st.roomMode && st.recorder) {
-        st.recorder.maxDurationMs = 1550;
-        st.recorder.silenceToStopMs = 280;
-        st.recorder.minSpeechRms = 95;
-        st.recorder.speechToArmMs = 110;
-      }
-
-      if (st.mode === 'listening' && st.recorder && st.trigger !== 'hold') {
-        st.recorder.silenceToStopMs = 650;
-      }
-
-      if (st.roomMode === 'translate' && st.webSpeechRec && st.webSpeechRec !== patchedWebRec) {
-        patchedWebRec = st.webSpeechRec;
-        const origOnResult = patchedWebRec.onresult;
-        patchedWebRec.onresult = function (ev) {
-          if (origOnResult) origOnResult.call(this, ev);
-          try {
-            let interim = '';
-            for (let i = ev.resultIndex; i < ev.results.length; i++) {
-              if (!ev.results[i].isFinal) {
-                interim += ev.results[i][0].transcript + ' ';
-              }
-            }
-            interim = interim.trim();
-            if (interim && interim.length >= 3 && interim !== lastInterimText && !interimTranslating) {
-              lastInterimText = interim;
-              interimTranslating = true;
-              ultraFastTranslateText(interim)
-                .then((tr) => {
-                  if (st.roomMode === 'translate' && tr) {
-                    const curBody = agy.hud.wanted?.body || '';
-                    const lines = curBody.split('\n').filter((l) => !l.startsWith('› '));
-                    lines.push(`› ${tr}`);
-                    agy.hud.set({ body: lines.slice(-4).join('\n') });
-                  }
-                })
-                .finally(() => {
-                  setTimeout(() => { interimTranslating = false; }, 220);
-                });
-            }
-          } catch {}
-        };
-      }
-    }, 200);
+    }, 120);
   }
 })();
