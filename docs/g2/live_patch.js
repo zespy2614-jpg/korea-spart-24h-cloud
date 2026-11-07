@@ -270,7 +270,7 @@
       if (pcBtn) {
         pcBtn.addEventListener('click', () => {
           const txtEl = document.getElementById('memoryTextInput');
-          constcomposeEl = document.getElementById('composeInput');
+          const composeEl = document.getElementById('composeInput');
           const note = String(txtEl?.value || composeEl?.value || '').trim();
           if (!note) {
             if (txtEl) txtEl.focus();
