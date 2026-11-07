@@ -1,10 +1,9 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 7. PM 9:20:18
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 7. PM 9:20:33
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
-- **[안티그래비티(PC 작업 결과)]**: 업데이트된 `libmali_compat.so`를 배포하고 철권 태그 실시간 프레임(`shm_fps`) 및 인게임 대전 상태를 측정 중입니다. 완료되는 대로 결과를 확인하겠습니다.
 - **[안티그래비티(PC 작업 결과)]**: WSL `aarch64-linux-gnu-gcc`로 컴파일한 `libmali_compat.so`를 배포하고 철권 태그 실시간 프레임(`shm_fps`)과 내부 `s12_stats` 텔레메트리를 측정 중입니다. 완료되는 대로 결과를 확인하겠습니다.
 - **[안티그래비티(PC 작업 결과)]**: 철권 태그 타이틀 화면 진입부터 코인/스타트 입력 후 캐릭터 선택 및 실제 3D 대전(`fight_started`) 구간의 내부 에뮬레이션 FPS(`emu_fps`)와 화면 출력 FPS(`shm_fps`)를 연속 추적하고 있습니다. 완료되는 대로 결과를 확인하겠습니다.
 - **[안티그래비티(PC 작업 결과)]**: 요청하신 3가지 사항을 모두 반영하여 **EDITH × Antigravity v1.0.5**([public/index.html](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/index.html), [server.mjs](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/server.mjs), [app.json](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/app.json))로 업데이트하고, **Even 앱 Beta 스토어(`v1.0.5`)** 및 **GitHub 실시간 서버**에 즉시 배포했습니다. --- ### 1. 제미나이 최신·최상위(Gemini Latest Highest) 모델 기본 적용 & 자동 전환 - **최상위 최신 제미나이 모델 기본 탑재**:   1. 
