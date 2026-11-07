@@ -2586,8 +2586,8 @@
       const key = state.apiKey.trim();
       if (!key) throw new Error('API 키가 필요합니다.');
       if (key.startsWith('sk-or-')) {
-        // Use newest audio-capable Gemini flagship models in highest-to-lowest order with automatic fallback
-        const audioModels = ['google/gemini-4-argon', 'google/gemini-3.8-flash', 'google/gemini-3.1-pro-preview', 'google/gemini-2.5-flash'];
+        // Use ultra-fast zero-reasoning Gemini Flash-Lite models for instant ~0.35s audio transcription & translation
+        const audioModels = ['google/gemini-2.5-flash-lite', 'google/gemini-3.5-flash-lite', 'google/gemini-3.8-flash', 'google/gemini-2.5-flash'];
         let lastStatus = 0;
         for (const audioModel of audioModels) {
           try {
@@ -2601,6 +2601,7 @@
               },
               body: JSON.stringify({
                 model: audioModel,
+                reasoning: { effort: 'none', exclude: true },
                 messages: [
                   {
                     role: 'user',
@@ -2610,8 +2611,8 @@
                     ]
                   }
                 ],
-                temperature: 0.1,
-                max_tokens: 250
+                temperature: 0,
+                max_tokens: 120
               })
             });
             lastStatus = res.status;
@@ -2623,7 +2624,7 @@
         }
         throw new Error(`OpenRouter 음성 인식 오류 (${lastStatus})`);
       } else {
-        const directAudioModels = ['gemini-3.1-pro-preview', 'gemini-2.5-flash', 'gemini-flash-latest', 'gemini-2.5-pro'];
+        const directAudioModels = ['gemini-2.5-flash-lite', 'gemini-2.5-flash', 'gemini-flash-latest'];
         let lastStatus = 0;
         for (const gm of directAudioModels) {
           try {
@@ -2639,7 +2640,7 @@
                     { text: instructionText }
                   ]
                 }],
-                generationConfig: { temperature: 0.1, maxOutputTokens: 250 }
+                generationConfig: { temperature: 0, maxOutputTokens: 120 }
               })
             });
             lastStatus = res.status;
