@@ -1427,9 +1427,9 @@
      * 3. Exact EDITH 3-Box Framed G2 Glasses HUD (Left/Right Optical Margin + Seamless Infinite Scroll Windows)
      * ========================================================================= */
     const BOXES = {
-      title:  { id: 1, name: 'title',  x: 20,  y: 0,  width: 260, height: 44,  border: 1, padding: 10, brightness: 3, capture: 0 },
-      status: { id: 2, name: 'status', x: 296, y: 0,  width: 260, height: 44,  border: 1, padding: 10, brightness: 4, capture: 0 },
-      body:   { id: 3, name: 'body',   x: 20,  y: 46, width: 536, height: 242, border: 1, padding: 16, brightness: 4, capture: 1 }
+      title:  { id: 1, name: 'title',  x: 20,  y: 0,  width: 260, height: 44,  border: 0, padding: 10, brightness: 3, capture: 0 },
+      status: { id: 2, name: 'status', x: 296, y: 0,  width: 260, height: 44,  border: 0, padding: 10, brightness: 4, capture: 0 },
+      body:   { id: 3, name: 'body',   x: 20,  y: 46, width: 536, height: 242, border: 0, padding: 16, brightness: 4, capture: 1 }
     };
     const DIM_BRIGHTNESS = { title: 1, status: 1, body: 1 };
     const CLOCK_STANDBY_BRIGHTNESS = { title: 0, status: 3, body: 0 };
@@ -2079,8 +2079,7 @@
         base = '● 온라인';
       }
       if (!hasBat) return base;
-      const cells = Math.round(pct / 25);
-      return `${base}  ${'■'.repeat(cells)}${'□'.repeat(4 - cells)} ${charging ? '+' : ''}${pct}%`;
+      return `${base}  ${charging ? '+' : ''}${pct}%`;
     }
 
     function formatGreeting() {
