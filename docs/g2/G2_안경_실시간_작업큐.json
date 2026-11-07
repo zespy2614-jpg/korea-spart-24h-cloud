@@ -1,9 +1,17 @@
 {
-  "updatedAt": "2026. 11. 7. PM 11:31:17",
+  "updatedAt": "2026. 11. 8. AM 12:06:32",
   "bridgeStatus": "active",
   "autoInjectIdeWindow": true,
   "autoRunLocalAgent": true,
   "tasks": [
+    {
+      "id": "task_1794063992803",
+      "timestamp": "2026. 11. 8. AM 12:06:32",
+      "command": "그리고 글자가 좀 잘리게 나오는 것 같은데 왼쪽으로",
+      "action": "auto_task",
+      "status": "running",
+      "resultSummary": "PC 로컬 데몬 및 안티그래비티 브릿지 실행 중..."
+    },
     {
       "id": "task_1794061877632",
       "timestamp": "2026. 11. 7. PM 11:31:17",

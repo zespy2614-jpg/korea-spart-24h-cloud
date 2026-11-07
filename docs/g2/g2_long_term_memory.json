@@ -1,14 +1,22 @@
 {
-  "updatedAt": "2026. 11. 7. PM 11:31:17",
-  "pinnedReminder": "지금 그러면은 컴퓨터 안티그래비티가 작업하고 있어?",
+  "updatedAt": "2026. 11. 8. AM 12:06:32",
+  "pinnedReminder": "그리고 글자가 좀 잘리게 나오는 것 같은데 왼쪽으로",
   "items": [
+    {
+      "id": "mem_1794063992806_tarr",
+      "category": "PC원격작업",
+      "fact": "그리고 글자가 좀 잘리게 나오는 것 같은데 왼쪽으로",
+      "sourceQuestion": "그리고 글자가 좀 잘리게 나오는 것 같은데 왼쪽으로",
+      "createdAt": "2026. 11. 8. AM 12:06:32",
+      "pinned": true
+    },
     {
       "id": "mem_1794061877636_lavz",
       "category": "PC원격작업",
       "fact": "지금 그러면은 컴퓨터 안티그래비티가 작업하고 있어?",
       "sourceQuestion": "지금 그러면은 컴퓨터 안티그래비티가 작업하고 있어?",
       "createdAt": "2026. 11. 7. PM 11:31:17",
-      "pinned": true
+      "pinned": false
     },
     {
       "id": "mem_1794061630033_d22d",
