@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. AM 12:22:26",
+  "updatedAt": "2026. 11. 8. AM 12:22:56",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -90,7 +90,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. AM 12:22:26\n1. 영구 장기기억 금고: 10건 (고정: 그리고 글자가 좀 잘리게 나오는 것 같은데 왼쪽으로)\n2. PC 안티그래비티 실시간 작업: 최근 5단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 42건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. AM 12:22:56\n1. 영구 장기기억 금고: 10건 (고정: 그리고 글자가 좀 잘리게 나오는 것 같은데 왼쪽으로)\n2. PC 안티그래비티 실시간 작업: 최근 5단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 42건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -148,6 +148,10 @@
     }
   ],
   "workspaceFiles": [
+    {
+      "name": "AGENTS.md",
+      "type": "file"
+    },
     {
       "name": "ai_edge_box_demo",
       "type": "folder"
@@ -329,6 +333,10 @@
     {
       "name": "PC 안티그래비티 ↔ GitHub ↔ Even G2 안경 실시간 양방향 동기화",
       "summary": "PC 안티그래비티 대화·문서와 안경 대화록(G2_안경_실시간대화록.md) 및 영구기억(G2_영구기억_노트.md)이 GitHub(korea-spart-24h-cloud)와 실시간 양방향 연동 중"
+    },
+    {
+      "name": "e:\\안티그래비티\\AGENTS.md",
+      "summary": "워크스페이스 핵심 문서"
     },
     {
       "name": "e:\\안티그래비티\\ai_edge_box_demo",
@@ -519,6 +527,11 @@
   ],
   "recentDocs": [
     {
+      "name": "AGENTS.md",
+      "updatedAt": "2026. 11. 8. AM 12:22:55",
+      "preview": "# [Workspace Engineering & Zero-Regression Rules]\n\n1. **최우선 엔지니어링 스킬 자동 적용**:\n   - 모든 코딩·디버깅·패치 작업 시 `.agents/skills/` 및 `~/.gemini/config/skills/`에 설치된 **`zero-regression-engineering`**, **`systematic-debugging`**, **`verification-before-completion`**, **`test-driven-development`**, **`react-best-practices`** 스킬의 절차를 엄격히 준수한다.\n2. **회귀 오류(Regression) 절대 방지**:\n   - 특정 기능을 수정할 때 기존의 정상 기능(Even G2 안경 하드웨어 스크롤, BLE 패킷 규격, OpenRouter API 인증 키/솔트 호환성, 버튼 제스처 등)이 절대 깨지지 않도록 최소한의 외과적 수정(Surgical Fix)만 수행하고, 수정 전후 전체 영향도를 전수 점검한다.\n3. **실증 테스트 후 배포**:\n   - 모든 코드는 `node --check` 문법 검사와 실제 런타임/API 호출 테스트를 통과한 후에만 패키징(`.ehpk`) 및 GitHub Pages 동기화를 수행한다.\n"
+    },
+    {
       "name": "G2_안경_실시간대화록.md",
       "updatedAt": "2026. 11. 8. AM 12:16:32",
       "preview": "# 👓 안티그래비티 × Even G2 스마트 안경 실시간 누적 대화록\n\n> **최종 업데이트**: 2026. 11. 8. AM 12:16:32\n> **연동 경로**: 로컬 PC (`e:\\안티그래비티\\G2_안경_실시간대화록.md`) ↔ 구글 드라이브 (`G:\\내 드라이브\\안티그래비티_제미나이_두뇌`) ↔ GitHub 클라우드 (`docs/g2/G2_안경_실시간대화록.md`)\n\n---\n\n## [2026. 11. 7. PM 6:17:02] 질문: 안티그래비티 × Even G2 시스템 개통 확인\n- **사용 모델**: `Antigravity-System`\n- **안티그래비티 답변**:\n\n대표님의 컴퓨터(e:\\안티그래비티), 구글 드라이브, GitHub 클라우드, 그리고 Even G2 안경이 실시간 양방향으로 연결되었습니다.\n\n---\n\n## [2026. 11. 7. 오후 8:45:36] 질문: 너 지금 라우더 그걸로 적용\n- **사용 모델**: `google/gemini-2.5-flash`\n- **안티그래비티 답변**:\n\n라우더 필터를 적용 중입니다.\n\n---\n\n## [2026. 11. 7. 오후 8:45:57] 질문: 아니 그 저거 있잖아. 그 이름 뭐냐? 아까 샀던 거 AI 라우터 있잖아. 그 오픈 라우터 그거 된 거냐고.\n- **사용 모델**: `google/gemini-2.5-flash`\n- **안티그래비티 답변**:\n\n네 AI 오픈 라우터 필터 적용을 완료했습니다.\n\n---\n\n## [2026. 11. 7. 오후 8:46:38] 질문: 야 근데 그\n- **사용 모델**: `google/gemini-2.5-flash`\n- **안티그래비티 답변**:\n\n예, 대표님.\n말씀하시던 '그' 내용에 대해 현재 안티그래비티와 GitHub 두뇌를 실시간으로 동기화하여 분석하고 있습니다.\n좀 더 구체적"
@@ -562,11 +575,6 @@
       "name": "EmuELEC_보안패치_및_하드웨어_노트.md",
       "updatedAt": "2026. 11. 6. PM 8:59:35",
       "preview": "# EmuELEC 외장하드 보안 패치 설계 및 RK3566 빔프로젝터 하드웨어/원가 노트\n\n작성일: 2026-11-06\n\n---\n\n## 1. EmuELEC 외장하드 (`kernel.img` / `init`) 보안 취약점 및 패치 설계\n\n### 1.1 현재 구조 및 발견된 취약점 3가지\n1. **기판 고유번호 바인딩 방식 (`generate_serial_key`)**:\n   - 부팅 시 `/proc/cpuinfo`의 `Serial` (Amlogic S905L3A CPU 내부 eFuse OTP에 레이저 각인된 32자리 128-bit 고유 번호, 예: `280c7000011b1700000b373231545050`)을 읽어 `HMAC-SHA256(\"EmuELEC\")`으로 `SERIAL_KEY`(16바이트 AES 키)를 생성.\n   - 최초 1회 부팅 시 디스크 2048 섹터의 `\"key0\"` + 32바이트 마스터 키를 `SERIAL_KEY`로 AES-128-CBC 암호화(`key1`)하여 덮어씌움으로써 해당 기판에 귀속시킴.\n2. **치명적 취약점 ① — `init` 스크립트 61번째 줄에 마스터 암호키(`KEY0`) 평문 노출**:\n   - `kernel.img` 램디스크 내 `/init` 파일이 `UPX` + `shc`(RC4)로만 감싸져 있어 복호화 시 원본 스크립트가 그대로 노출됨.\n   - 복호화된 `init` 61번째 줄에 `KEY0=\"f1cbda0826ea6085a346fabf0982d22b44c204815685db2f66228f6196ad85fc\"`가 평문으로 하드코딩되어 있어, 본체 시리얼 없이도 누구든 `SYSTEM` 및 `storage_a` LUKS 파티션을 즉시 열 수 있음.\n3. **치명적 취약점 ② — `.reset_key` 빈 파일 체크 문제 (`reset_decr"
-    },
-    {
-      "name": "안티그래비티_제미나이_마스터두뇌_통합바이블.md",
-      "updatedAt": "2026. 11. 6. PM 7:30:20",
-      "preview": "================================================================================\n🧠 [안티그래비티 × 제미나이] 통합 마스터 두뇌 지식베이스 (ANTIGRAVITY MASTER BRAIN DB)\n================================================================================\n- 문서 ID: ANTIGRAVITY-GEMINI-MASTER-BRAIN\n- 최종 실시간 학습/동기화 시각: 2026. 11. 6. PM 7:30:20\n- 로컬 작업 본진: e:\\안티그래비티 (모든 파일 변경 및 크롤링 데이터 30초 주기 자동 업로드 중)\n- 구글 드라이브 두뇌 경로: G:\\내 드라이브\\안티그래비티_제미나이_두뇌\n- 구글 드라이브 데이터레이크: G:\\내 드라이브\\안티그래비티_글로벌소싱_DB\n================================================================================\n\n## 📌 [PART 0] 제미나이(Gemini) AI 전용 시스템 지침 (System Context & Memory)\n\n당신은 박정수 대표님의 전담 AI 비즈니스·엔지니어링 파트너인 **'안티그래비티(Antigravity) 통합 두뇌'**입니다.\n대표님이 제미나이(Gemini 웹, 데스크톱 앱, 모바일 앱, Gems, NotebookLM)에서 대화할 때, 로컬 PC의 Antigravity 환경에서 실시간으로 크롤링하고 구축한 아래의 모든 프로젝트 데이터와 5대 철칙을 100% 숙지한 상태에서 답변해야 합니다.\n\n### [구글 드라이브에 실시간 자동 업로드되는 3대 핵심 두뇌 파일]\n1. **`안티그래비티_제미나이_마스터두뇌_통합바이블.p"
     }
   ],
   "livePcAntigravitySession": [
@@ -598,6 +606,11 @@
   ],
   "livePcArtifacts": [],
   "recentWorkspaceDocs": [
+    {
+      "relPath": "AGENTS.md",
+      "updatedAt": "2026. 11. 8. AM 12:22:55",
+      "excerpt": "# [Workspace Engineering & Zero-Regression Rules]\n\n1. **최우선 엔지니어링 스킬 자동 적용**:\n   - 모든 코딩·디버깅·패치 작업 시 `.agents/skills/` 및 `~/.gemini/config/skills/`에 설치된 **`zero-regression-engineering`**, **`systematic-debugging`**, **`verification-before-completion`**, **`test-driven-development`**, **`react-best-practices`** 스킬의 절차를 엄격히 준수한다.\n2. **회귀 오류(Regression) 절대 방지**:\n   - 특정 기능을 수정할 때 기존의 정상 기능(Even G2 안경 하드웨어 스크롤, BLE 패킷 규격, OpenRouter API 인증 키/솔트 호환성, 버튼 제스처 등)이 절대 깨지지 않도록 최소한의 외과적 수정(Surgical Fix)만 수행하고, 수정 전후 전체 영향도를 전수 점검한다.\n3. **실증 테스트 후 배포**:\n   - 모든 코드는 `node --check` 문법 검사와 실제 런타임/API 호출 테스트를 통과한 후에만 패키징(`.ehpk`) 및 GitHub Pages 동기화를 수행한다.\n"
+    },
     {
       "relPath": "G2_안경_실시간대화록.md",
       "updatedAt": "2026. 11. 8. AM 12:16:32",
@@ -642,11 +655,6 @@
       "relPath": "EmuELEC_보안패치_및_하드웨어_노트.md",
       "updatedAt": "2026. 11. 6. PM 8:59:35",
       "excerpt": "# EmuELEC 외장하드 보안 패치 설계 및 RK3566 빔프로젝터 하드웨어/원가 노트\n\n작성일: 2026-11-06\n\n---\n\n## 1. EmuELEC 외장하드 (`kernel.img` / `init`) 보안 취약점 및 패치 설계\n\n### 1.1 현재 구조 및 발견된 취약점 3가지\n1. **기판 고유번호 바인딩 방식 (`generate_serial_key`)**:\n   - 부팅 시 `/proc/cpuinfo`의 `Serial` (Amlogic S905L3A CPU 내부 eFuse OTP에 레이저 각인된 32자리 128-bit 고유 번호, 예: `280c7000011b1700000b373231545050`)을 읽어 `HMAC-SHA256(\"EmuELEC\")`으로 `SERIAL_KEY`(16바이트 AES 키)를 생성.\n   - 최초 1회 부팅 시 디스크 2048 섹터의 `\"key0\"` + 32바이트 마스터 키를 `SERIAL_KEY`로 AES-128-CBC 암호화(`key1`)하여 덮어씌움으로써 해당 기판에 귀속시킴.\n2. **치명적 취약점 ① — `init` 스크립트 61번째 줄에 마스터 암호키(`KEY0`) 평문 노출**:\n   - `kernel.img` 램디스크 내 `/init` 파일이 `UPX` + `shc`(RC4)로만 감싸져 있어 복호화 시 원본 스크립트가 그대로 노출됨.\n   - 복호화된 `init` 61번째 줄에 `KEY0=\"f1cbda0826ea6085a346fabf0982d22b44c204815685db2f66228f6196ad85fc\"`가 평문으로 하드코딩되어 있어, 본체 시리얼 없이도 누구든 `SYSTEM` 및 `storage_a` LUKS 파티션을 즉시 열 수 있음.\n3. **치명적 취약점 ② — `.reset_key` 빈 파일 체크 문제 (`reset_decr"
-    },
-    {
-      "relPath": "안티그래비티_제미나이_마스터두뇌_통합바이블.md",
-      "updatedAt": "2026. 11. 6. PM 7:30:20",
-      "excerpt": "================================================================================\n🧠 [안티그래비티 × 제미나이] 통합 마스터 두뇌 지식베이스 (ANTIGRAVITY MASTER BRAIN DB)\n================================================================================\n- 문서 ID: ANTIGRAVITY-GEMINI-MASTER-BRAIN\n- 최종 실시간 학습/동기화 시각: 2026. 11. 6. PM 7:30:20\n- 로컬 작업 본진: e:\\안티그래비티 (모든 파일 변경 및 크롤링 데이터 30초 주기 자동 업로드 중)\n- 구글 드라이브 두뇌 경로: G:\\내 드라이브\\안티그래비티_제미나이_두뇌\n- 구글 드라이브 데이터레이크: G:\\내 드라이브\\안티그래비티_글로벌소싱_DB\n================================================================================\n\n## 📌 [PART 0] 제미나이(Gemini) AI 전용 시스템 지침 (System Context & Memory)\n\n당신은 박정수 대표님의 전담 AI 비즈니스·엔지니어링 파트너인 **'안티그래비티(Antigravity) 통합 두뇌'**입니다.\n대표님이 제미나이(Gemini 웹, 데스크톱 앱, 모바일 앱, Gems, NotebookLM)에서 대화할 때, 로컬 PC의 Antigravity 환경에서 실시간으로 크롤링하고 구축한 아래의 모든 프로젝트 데이터와 5대 철칙을 100% 숙지한 상태에서 답변해야 합니다.\n\n### [구글 드라이브에 실시간 자동 업로드되는 3대 핵심 두뇌 파일]\n1. **`안티그래비티_제미나이_마스터두뇌_통합바이블.p"
     }
   ],
   "gpartsQuickIndex": [
