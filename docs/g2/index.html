@@ -3576,11 +3576,8 @@
             const hasPrev = ensureLastConversationLoaded();
             goIdle(hasPrev ? undefined : '저장된 이전 대화가 없습니다.');
           } else if (state.mode === 'idle' && !state.clockStandby) {
-            // 3) 일반 대기 화면에서 한 번 탭하면 긴 답변의 다음 페이지로 넘기거나, 인사말 화면이면 이전 대화 표시
-            if (state.hudPages.length > 1) {
-              state.hudPageIndex = (state.hudPageIndex + 1) % state.hudPages.length;
-              renderCurrentHudPage();
-            } else if (state.hudPages.length === 0 && ensureLastConversationLoaded()) {
+            // 3) 일반 대기 화면에서 한 번 탭하면 이전 대화 전체를 스크롤 가능하게 표시
+            if (ensureLastConversationLoaded()) {
               goIdle();
             }
           }
