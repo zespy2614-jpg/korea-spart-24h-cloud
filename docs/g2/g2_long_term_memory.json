@@ -1,14 +1,22 @@
 {
-  "updatedAt": "2026. 11. 7. PM 10:48:51",
-  "pinnedReminder": "야 이제 그거 업데이트 안티그래비티에서 했다고 하는데 이제 PC 움직일 수 있어?",
+  "updatedAt": "2026. 11. 7. PM 10:55:37",
+  "pinnedReminder": "야 자꾸 이상한 헛소리해 왜 PC에서 실행해 달라니까",
   "items": [
+    {
+      "id": "mem_1794059737961_lny9",
+      "category": "PC원격작업",
+      "fact": "야 자꾸 이상한 헛소리해 왜 PC에서 실행해 달라니까",
+      "sourceQuestion": "야 자꾸 이상한 헛소리해 왜 PC에서 실행해 달라니까",
+      "createdAt": "2026. 11. 7. PM 10:55:37",
+      "pinned": true
+    },
     {
       "id": "mem_1794059331597_09yd",
       "category": "PC원격작업",
       "fact": "야 이제 그거 업데이트 안티그래비티에서 했다고 하는데 이제 PC 움직일 수 있어?",
       "sourceQuestion": "야 이제 그거 업데이트 안티그래비티에서 했다고 하는데 이제 PC 움직일 수 있어?",
       "createdAt": "2026. 11. 7. PM 10:48:51",
-      "pinned": true
+      "pinned": false
     },
     {
       "id": "mem_1794059247037_gdd4",
