@@ -1,15 +1,15 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 7. PM 9:25:20
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 7. PM 9:25:49
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
+- **[대표님(PC 안티그래비티 요청)]**: 너가봤을때 나 이븐리얼리틱스 구매했잖아 지금은 깃허브에 연동되게만해놓았거든 메모리데이터 내가 대화나누는거 그걸로 자주 대화나누려고해 근데 너가 봤을때 내가 추가하면 좋은기능 유용한거 뭐있을거같아 <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 - **[안티그래비티(PC 작업 결과)]**: 스마트폰 **Even 앱 자체의 구조상**, 모래시계(Beta) 탭에서 설치한 비공개(Beta) 앱은 별도의 `업데이트` 버튼이 자동으로 뜨지 않고 **`기존 앱 삭제 → 다시 설치`** 방식으로만 새 버전이 덮어씌워집니다. 앞으로는 매번 삭제·재설치하실 필요가 전혀 없도록, **실시간 무설치 자동 패치(Live OTA)** 기능을 탑재한 메이저 버전 **`v2.0.0`**([public/index.html](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/index.html), [public/live_patch.js](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/live_patch.js), [app.json](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/
 - **[안티그래비티(PC 작업 결과)]**: 구버전(`1.0.0` ~ `1.0.5`) 삭제까지 모두 완료되어 현재 Even 서버에는 **`v2.0.0` 단일 최신 버전**만 남아 있습니다. 이제 스마트폰 **Even 앱**에서 기존 `Antigravity Brain`을 **삭제 후 모래시계(Beta) 탭에서 다시 설치**하시면: 1. **Google Gemini 4 Argon (Latest 최상위 모델)** 기본 적용 2. **시계 대기 모드** 시 안경 **오른쪽 위에 시계 + 배터리 잔량만 표시** 3. **실시간 자막 & 양방향 번역 모드** 고감도 연속 작동 4. 향후 재설치 없이 자동 업데이트되는 **Live OTA** 까지 모두 즉시 적용됩니다!
 - **[대표님(PC 안티그래비티 요청)]**: 우측상단모레시계가없어
 - **[안티그래비티(PC 작업 결과)]**: 원인을 정확히 찾았습니다! 아까 EDITH 1:1 버전으로 패키지를 새로 생성할 때 **`kanjji@naver.com` 베타 테스터 초대 등록**이 초기화되어 있어서 Even 앱 우측 상단에 모래시계(베타 메뉴)와 업데이트가 보이지 않았던 것입니다. 방금 **`kanjji@naver.com`**으로 **`Antigravity Brain v2.0.0` 최신 초대장**을 다시 발송해 드렸습니다! ### 지금 바로 업데이트하는 방법 (아까 처음 설치하셨던 것과 동일합니다!) 1. 스마트폰에서 **네이버 메일(`kanjji@naver.com`)**을 열어주세요. 2. 방금 도착한 **Even Realities 베타 초대 메일**을 열고 **수락(Accept) / 설치 링크**를 눌러주세요. 3. 자동으로 **Even 앱이 열리면서 `Antigr
 - **[대표님(PC 안티그래비티 요청)]**: 야 번역기능있잖아 그거 왜이렇게 느리지 번역하는거 그 이븐리얼리틱스 자체 번역은빠르잖아
-- **[대표님(PC 안티그래비티 요청)]**: 너가봤을때 나 이븐리얼리틱스 구매했잖아 지금은 깃허브에 연동되게만해놓았거든 메모리데이터 내가 대화나누는거 그걸로 자주 대화나누려고해 근데 너가 봤을때 내가 추가하면 좋은기능 유용한거 뭐있을거같아 <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 
 ## 2. 최근 수정된 워크스페이스 핵심 문서 Top 10
 - `G2_안경_실시간대화록.md` (2026. 11. 7. PM 9:21:58)
