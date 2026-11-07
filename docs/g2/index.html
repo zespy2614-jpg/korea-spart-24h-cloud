@@ -3427,7 +3427,8 @@
       state.activeController.abort();
       state.activeController = null;
       stopTicker();
-      goIdle('취소했습니다.');
+      const hasPrev = ensureLastConversationLoaded();
+      goIdle(hasPrev ? undefined : '저장된 이전 대화가 없습니다.');
     }
 
     /* ── Bidirectional Sync: GitHub <-> PC Antigravity <-> Glasses ── */
