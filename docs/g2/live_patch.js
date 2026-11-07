@@ -27,6 +27,14 @@
       .replace(/너트니언이/gi, '너 지능이')
       .replace(/컴피규에서/gi, '컴퓨터에서')
       .replace(/그\s*해와\s*듣는/gi, '대화 듣는');
+    // Prevent v2.0.0's `if (userQuestion.includes('시계 모드')) enterClockStandby()` bug from triggering when user asks a question about clock mode!
+    if (s.length > 10) {
+      s = s
+        .replace(/시계\s*모드/g, '시계화면모드')
+        .replace(/시계\s*대기/g, '시계대기화면')
+        .replace(/화면\s*꺼/g, '화면끄기')
+        .replace(/안경\s*꺼/g, '안경끄기');
+    }
     return s.trim() || 'EMPTY';
   }
 
@@ -363,6 +371,67 @@
     return false;
   }
 
+  function splitPrevChatIntoPages(youText, replyText) {
+    const cleanReply = String(replyText || '').replace(/\r/g, '').trim();
+    const qHeader = youText ? `» ${String(youText).trim().slice(0, 44)}\n` : '';
+    const wrapped = [];
+    for (const rawLine of cleanReply.split('\n')) {
+      const line = rawLine.trim();
+      if (!line) continue;
+      let buf = '';
+      let w = 0;
+      for (const ch of line) {
+        const cw = /[가-힣ㄱ-ㅎㅏ-ㅣ\u3000-\u9fff\uff00-\uffef]/.test(ch) ? 2 : 1;
+        if (w + cw > 34) {
+          wrapped.push(buf.trimEnd());
+          buf = ch;
+          w = cw;
+        } else {
+          buf += ch;
+          w += cw;
+        }
+      }
+      if (buf.trim()) wrapped.push(buf.trimEnd());
+    }
+    const pages = [];
+    const linesPerPage = qHeader ? 5 : 6;
+    for (let i = 0; i < wrapped.length; i += linesPerPage) {
+      const chunk = wrapped.slice(i, i + linesPerPage).join('\n').trim();
+      if (chunk) pages.push(qHeader + chunk);
+    }
+    return pages.length > 0 ? pages.slice(0, 30) : [qHeader + (cleanReply || '저장된 이전 대화가 없습니다.')];
+  }
+
+  function showPreviousChatOnHud(st, hud, advancePage = false) {
+    const hasPrev = ensureLastConversationOnState(st);
+    const titleLine = `◆ E.D.I.T.H${st.clockStr ? `  ${st.clockStr}` : ''}`;
+    if (!hasPrev || !st.last || !st.last.reply) {
+      hud.wanted.title = titleLine;
+      hud.wanted.status = '● 온라인  ■■■■ 100%';
+      hud.wanted.body = '저장된 이전 대화가 없습니다.\n\n▶ 길게 눌러 말씀하세요.';
+      hud.shown = { title: '', status: '', body: '' };
+      if (typeof hud.updateMirror === 'function') hud.updateMirror();
+      if (typeof hud.scheduleFlush === 'function') hud.scheduleFlush();
+      return;
+    }
+    const pages = splitPrevChatIntoPages(st.last.you, st.last.reply);
+    st.__patchPages = pages;
+    if (advancePage && typeof st.__patchPageIdx === 'number') {
+      st.__patchPageIdx = (st.__patchPageIdx + 1) % pages.length;
+    } else {
+      st.__patchPageIdx = 0;
+    }
+    const idx = st.__patchPageIdx;
+    const total = pages.length;
+    const statusLabel = total > 1 ? `▼ ${idx + 1}/${total} 페이지  ■■■■ 100%` : '● 온라인  ■■■■ 100%';
+    hud.wanted.title = titleLine;
+    hud.wanted.status = statusLabel;
+    hud.wanted.body = pages[idx];
+    hud.shown = { title: '', status: '', body: '' };
+    if (typeof hud.updateMirror === 'function') hud.updateMirror();
+    if (typeof hud.scheduleFlush === 'function') hud.scheduleFlush();
+  }
+
   // 4. Enforce 6-Item Menu & Block Single-Tap False Triggers on Glasses (Wakes Clock Standby -> Shows Previous Chat)
   function upgradeGlassesHudAndMenu() {
     if (!agy || !agy.hud || !agy.state) return;
@@ -370,6 +439,31 @@
     const hud = agy.hud;
 
     ensureLastConversationOnState(st);
+
+    // Fix markPageBuilt race condition so waking from clockStandby ALWAYS flushes the text to the glasses (never black screen!)
+    if (!hud.__v32MarkBuiltHooked) {
+      hud.__v32MarkBuiltHooked = true;
+      hud.markPageBuilt = function () {
+        this.shown = { title: '', status: '', body: '' };
+        if (typeof this.scheduleFlush === 'function') {
+          this.scheduleFlush();
+        }
+      };
+    }
+
+    // Block accidental clockStandby entry during thinking/answering or right after canceling recording
+    if (!hud.__v32StandbyHooked && typeof hud.setClockStandby === 'function') {
+      hud.__v32StandbyHooked = true;
+      const origSetClockStandby = hud.setClockStandby.bind(hud);
+      hud.setClockStandby = function (standby) {
+        if (standby && (st.mode === 'thinking' || st.mode === 'answering' || Date.now() - (st.__lastCancelMs || 0) < 1500)) {
+          st.clockStandby = false;
+          this.clockStandby = false;
+          return Promise.resolve(false);
+        }
+        return origSetClockStandby(standby);
+      };
+    }
 
     // Force disable followUp and wakeWord on state
     if (st.prefs) {
@@ -431,14 +525,17 @@
               obj.yPosition = 0;
               obj.height = 44;
               obj.paddingLength = 8;
+              obj.content = String(obj.content || ' ').slice(0, 120);
             } else if (name === 'status') {
               obj.yPosition = 0;
               obj.height = 44;
               obj.paddingLength = this.clockStandby ? 6 : 8;
+              obj.content = String(obj.content || ' ').slice(0, 120);
             } else if (name === 'body') {
               obj.yPosition = 46;
               obj.height = 242;
               obj.paddingLength = 14;
+              obj.content = String(obj.content || ' ').slice(0, 260);
             }
           }
         }
@@ -460,10 +557,19 @@
       const origSet = hud.set.bind(hud);
 
       hud.set = function (update) {
-        // BLOCK SINGLE-TAP ('tap') LISTENING IMMEDIATELY & SHOW PREVIOUS CONVERSATION!
+        // BLOCK SINGLE-TAP ('tap') LISTENING IMMEDIATELY & SHOW PREVIOUS CONVERSATION (OR FLIP PAGE)!
         if (st.mode === 'listening' && st.trigger === 'tap') {
+          const wasWakingFromStandby = !hud.shown.body || hud.shown.body === ' ';
+          st.mode = 'idle';
+          st.trigger = 'idle';
+          st.clockStandby = false;
+          hud.clockStandby = false;
           try { st.recorder?.stop(); } catch {}
           st.recorder = null;
+          if (st.ticker) {
+            try { clearInterval(st.ticker); } catch {}
+            st.ticker = null;
+          }
           if (st.webSpeechRec) {
             try { st.webSpeechRec.stop(); } catch {}
             st.webSpeechRec = null;
@@ -474,18 +580,14 @@
             st.micOpen = false;
             try { hud.bridge.audioControl(false); } catch {}
           }
-          const hasPrev = ensureLastConversationOnState(st);
-          if (agy.goIdle) {
-            setTimeout(() => {
-              agy.goIdle(hasPrev ? undefined : '저장된 이전 대화가 없습니다.');
-            }, 0);
-          }
+          showPreviousChatOnHud(st, hud, !wasWakingFromStandby);
           setTimeout(() => {
             if (st.mode !== 'listening' && st.micOpen && hud.bridge) {
               st.micOpen = false;
               try { hud.bridge.audioControl(false); } catch {}
             }
-          }, 120);
+            showPreviousChatOnHud(st, hud, false);
+          }, 160);
           return;
         }
 
@@ -525,22 +627,33 @@
         if (update && typeof update.body === 'string') {
           // When user double-taps to cancel voice recording (or cancels active request), show PREVIOUS CONVERSATION instead of "취소했습니다."!
           if (update.body.includes('취소했습니다.')) {
+            st.__lastCancelMs = Date.now();
             const hasPrev = ensureLastConversationOnState(st);
             if (hasPrev && st.last && st.last.reply) {
-              const prevQ = st.last.you ? `» ${String(st.last.you).slice(0, 75)}\n` : '';
-              const prevBody = `${prevQ}${st.last.reply}`.slice(0, 1990);
+              const pages = splitPrevChatIntoPages(st.last.you, st.last.reply);
+              st.__patchPages = pages;
+              st.__patchPageIdx = 0;
               update = {
                 ...update,
-                body: prevBody
+                status: pages.length > 1 ? `▼ 1/${pages.length} 페이지  ■■■■ 100%` : update.status,
+                body: pages[0]
               };
-              if (agy.goIdle && !hud.__inCancelGoIdle) {
-                hud.__inCancelGoIdle = true;
-                setTimeout(() => {
-                  try { agy.goIdle(); } catch {}
-                  hud.__inCancelGoIdle = false;
-                }, 15);
-              }
+              hud.shown = { title: '', status: '', body: '' };
               return origSet(update);
+            }
+          }
+          // Also paginate any long idle answer on v2.0.0 so a 900-char answer never overflows the 242px G2 HUD or breaks BLE!
+          if (st.mode === 'idle' && !st.clockStandby && update.body.startsWith('» ') && update.body.length > 260) {
+            const hasPrev = ensureLastConversationOnState(st);
+            if (hasPrev && st.last && st.last.reply) {
+              const pages = splitPrevChatIntoPages(st.last.you, st.last.reply);
+              st.__patchPages = pages;
+              st.__patchPageIdx = 0;
+              update = {
+                ...update,
+                status: pages.length > 1 ? `▼ 1/${pages.length} 페이지  ■■■■ 100%` : update.status,
+                body: pages[0]
+              };
             }
           }
           if (update.body.includes('탭하고 말하세요') || update.body.includes('탭해서 핸즈프리로')) {
