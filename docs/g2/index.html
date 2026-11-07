@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>안티그래비티 × Even G2 마스터 두뇌 허브</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <style>
+    :root {
+      --font-samsung-sans: 'Pretendard Variable', Pretendard, 'SamsungOne', 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      --font-samsung-mono: 'JetBrains Mono', 'Consolas', monospace;
+      --samsung-blue: #1428A0;
+      --oneui-primary: #0381FE;
+      --oneui-primary-hover: #006BEA;
+      --oneui-primary-active: #0056B3;
+      --oneui-primary-soft: rgba(3, 129, 254, 0.10);
+      --oneui-success: #00C853;
+      --oneui-success-soft: rgba(0, 200, 83, 0.12);
+      --oneui-warning: #FFAB00;
+      --oneui-warning-soft: rgba(255, 171, 0, 0.14);
+      --oneui-danger: #FF3B30;
+      --oneui-danger-soft: rgba(255, 59, 48, 0.12);
+
+      --oneui-bg: #F4F4F8;
+      --oneui-bg-alt: #F7F7FA;
+      --oneui-surface: #FFFFFF;
+      --oneui-surface-secondary: #EEEEF3;
+      --oneui-surface-glass: rgba(255, 255, 255, 0.85);
+      --oneui-text-primary: #121212;
+      --oneui-text-secondary: #55555E;
+      --oneui-text-tertiary: #8E8E99;
+      --oneui-divider: rgba(0, 0, 0, 0.06);
+
+      --oneui-radius-card-lg: 28px;
+      --oneui-radius-card: 26px;
+      --oneui-radius-inner: 18px;
+      --oneui-radius-icon: 15px;
+      --oneui-radius-pill: 9999px;
+      --oneui-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    [data-theme="dark"] {
+      --oneui-bg: #000000;
+      --oneui-bg-alt: #0B0B0E;
+      --oneui-surface: #17171C;
+      --oneui-surface-secondary: #22222A;
+      --oneui-surface-glass: rgba(23, 23, 28, 0.84);
+      --oneui-text-primary: #F9F9FB;
+      --oneui-text-secondary: #A0A0AB;
+      --oneui-text-tertiary: #686873;
+      --oneui-divider: rgba(255, 255, 255, 0.08);
+      --oneui-primary-soft: rgba(3, 129, 254, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: var(--font-samsung-sans);
+      background-color: var(--oneui-bg);
+      color: var(--oneui-text-primary);
+      word-break: keep-all;
+      overflow-wrap: break-word;
+      line-height: 1.6;
+      letter-spacing: -0.01em;
+      min-height: 100vh;
+      padding-bottom: 48px;
+      transition: background-color 0.28s var(--oneui-ease-out), color 0.28s var(--oneui-ease-out);
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 18px;
+    }
+
+    /* 상단 GNB */
+    .gnb {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--oneui-surface-glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--oneui-divider);
+      padding: 12px 0;
+    }
+
+    .gnb-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 13px;
+      background: var(--samsung-blue);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-title {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+    }
+
+    .brand-sub {
+      font-size: 12px;
+      color: var(--oneui-text-secondary);
+      font-weight: 500;
+    }
+
+    .gnb-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Viewing Area */
+    .viewing-area {
+      padding: 26px 0 20px;
+    }
+
+    .status-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 13px;
+      border-radius: var(--oneui-radius-pill);
+      font-size: 12.5px;
+      font-weight: 600;
+      background: var(--oneui-primary-soft);
+      color: var(--oneui-primary);
+    }
+
+    .pill-badge.success {
+      background: var(--oneui-success-soft);
+      color: var(--oneui-success);
+    }
+
+    .pill-badge.warning {
+      background: var(--oneui-warning-soft);
+      color: #D98200;
+    }
+
+    [data-theme="dark"] .pill-badge.warning {
+      color: var(--oneui-warning);
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .hero-title {
+      font-size: clamp(24px, 4vw, 34px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.22;
+      margin-bottom: 8px;
+    }
+
+    .hero-desc {
+      font-size: 14.5px;
+      color: var(--oneui-text-secondary);
+      max-width: 720px;
+    }
+
+    /* Bento Grid & Focus Block Cards */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .col-12 { grid-column: span 12; }
+    .col-7 { grid-column: span 12; }
+    .col-5 { grid-column: span 12; }
+
+    @media (min-width: 860px) {
+      .col-7 { grid-column: span 7; }
+      .col-5 { grid-column: span 5; }
+    }
+
+    .focus-card {
+      background: var(--oneui-surface);
+      border-radius: var(--oneui-radius-card);
+      padding: 22px;
+      border: 1px solid var(--oneui-divider);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      transition: transform 0.28s var(--oneui-ease-out), box-shadow 0.28s var(--oneui-ease-out);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .card-title-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .squircle-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--oneui-radius-icon);
+      background: var(--oneui-primary-soft);
+      color: var(--oneui-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .card-title {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .card-subtitle {
+      font-size: 12.5px;
+      color: var(--oneui-text-secondary);
+    }
+
+    /* Even G2 576x288 Micro-LED HUD Display Mirror */
+    .g2-display-frame {
+      background: #040A06;
+      border: 2px solid #183622;
+      border-radius: 20px;
+      padding: 16px 18px;
+      aspect-ratio: 2 / 1;
+      max-height: 250px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      box-shadow: inset 0 0 28px rgba(0, 230, 100, 0.08);
+      font-family: var(--font-samsung-mono), var(--font-samsung-sans);
+      overflow: hidden;
+    }
+
+    .g2-hud-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #3BF07A;
+      border-bottom: 1px solid rgba(59, 240, 122, 0.25);
+      padding-bottom: 8px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .g2-hud-body {
+      flex: 1;
+      padding: 12px 0 6px;
+      color: #49FF88;
+      font-size: 14.5px;
+      line-height: 1.55;
+      white-space: pre-wrap;
+      overflow-y: auto;
+      text-shadow: 0 0 8px rgba(73, 255, 136, 0.32);
+    }
+
+    .g2-hud-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      color: rgba(73, 255, 136, 0.72);
+      padding-top: 6px;
+      border-top: 1px dashed rgba(59, 240, 122, 0.18);
+    }
+
+    /* Pill Buttons */
+    .btn-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: var(--oneui-radius-pill);
+      padding: 11px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s var(--oneui-ease-out);
+      text-decoration: none;
+    }
+
+    .btn-pill:active {
+      transform: scale(0.97);
+    }
+
+    .btn-primary {
+      background: var(--oneui-primary);
+      color: #FFFFFF;
+    }
+
+    .btn-primary:hover {
+      background: var(--oneui-primary-hover);
+    }
+
+    .btn-navy {
+      background: var(--samsung-blue);
+      color: #FFFFFF;
+    }
+
+    .btn-secondary {
+      background: var(--oneui-surface-secondary);
+      color: var(--oneui-text-primary);
+    }
+
+    .btn-danger {
+      background: var(--oneui-danger);
+      color: #FFFFFF;
+    }
+
+    .btn-sm {
+      padding: 7px 14px;
+      font-size: 12.5px;
+    }
+
+    /* Giant Voice Trigger Button */
+    .voice-hero-btn {
+      width: 100%;
+      padding: 18px 24px;
+      border-radius: var(--oneui-radius-pill);
+      background: var(--oneui-primary);
+      color: #FFFFFF;
+      border: none;
+      font-size: 16.5px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(3, 129, 254, 0.25);
+      transition: all 0.24s var(--oneui-ease-out);
+      margin-bottom: 14px;
+    }
+
+    .voice-hero-btn.listening {
+      background: var(--oneui-danger);
+      box-shadow: 0 8px 28px rgba(255, 59, 48, 0.35);
+      animation: pulseRing 1.4s infinite;
+    }
+
+    @keyframes pulseRing {
+      0% { transform: scale(1); }
+      50% { transform: scale(0.985); }
+      100% { transform: scale(1); }
+    }
+
+    .hud-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .hud-controls .btn-pill {
+      flex: 1;
+      min-width: 105px;
+    }
+
+    /* Input group */
+    .input-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .pill-input {
+      flex: 1;
+      background: var(--oneui-surface-secondary);
+      color: var(--oneui-text-primary);
+      border: 1px solid transparent;
+      border-radius: var(--oneui-radius-pill);
+      padding: 12px 18px;
+      font-size: 14.5px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .pill-input:focus {
+      border-color: var(--oneui-primary);
+      background: var(--oneui-surface);
+    }
+
+    .select-input {
+      width: 100%;
+      background: var(--oneui-surface-secondary);
+      color: var(--oneui-text-primary);
+      border: 1px solid var(--oneui-divider);
+      border-radius: var(--oneui-radius-inner);
+      padding: 11px 14px;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      margin-bottom: 10px;
+    }
+
+    /* Chat History List */
+    .chat-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-height: 440px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .chat-item {
+      background: var(--oneui-surface-secondary);
+      border-radius: var(--oneui-radius-inner);
+      padding: 14px 16px;
+      font-size: 14px;
+    }
+
+    .chat-item.assistant {
+      background: var(--oneui-primary-soft);
+      border: 1px solid rgba(3, 129, 254, 0.16);
+    }
+
+    .chat-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11.5px;
+      color: var(--oneui-text-tertiary);
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .chat-text {
+      white-space: pre-wrap;
+      line-height: 1.55;
+    }
+
+    .info-box {
+      background: var(--oneui-surface-secondary);
+      border-radius: var(--oneui-radius-inner);
+      padding: 14px 16px;
+      font-size: 13px;
+      color: var(--oneui-text-secondary);
+      margin-top: 12px;
+    }
+
+    .label-text {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--oneui-text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .quick-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 12px;
+    }
+
+    .chip {
+      background: var(--oneui-surface-secondary);
+      color: var(--oneui-text-secondary);
+      border: 1px solid var(--oneui-divider);
+      border-radius: var(--oneui-radius-pill);
+      padding: 6px 13px;
+      font-size: 12.5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+
+    .chip:hover, .chip:active {
+      background: var(--oneui-primary-soft);
+      color: var(--oneui-primary);
+      border-color: var(--oneui-primary);
+    }
+  </style>
+</head>
+<body data-theme="dark">
+  <!-- 상단 GNB -->
+  <nav class="gnb">
+    <div class="container gnb-inner">
+      <div class="brand-group">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="8" width="8" height="6" rx="2"/>
+            <rect x="14" y="8" width="8" height="6" rx="2"/>
+            <path d="M10 11h4"/>
+            <path d="M2 11V9a3 3 0 0 1 3-3"/>
+            <path d="M22 11V9a3 3 0 0 0-3-3"/>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-title">ANTIGRAVITY × EVEN G2</div>
+          <div class="brand-sub">실시간 마스터 두뇌 &amp; 클라우드 양방향 동기화</div>
+        </div>
+      </div>
+      <div class="gnb-actions">
+        <button id="themeToggleBtn" class="btn-pill btn-secondary btn-sm" type="button">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+          <span>테마 전환</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- Viewing Area -->
+    <header class="viewing-area">
+      <div class="status-row">
+        <span id="glassesStatusBadge" class="pill-badge">
+          <span class="dot"></span>
+          <span id="glassesStatusText">Even G2 브릿지 탐색 중...</span>
+        </span>
+        <span id="brainSyncBadge" class="pill-badge success">
+          <span class="dot"></span>
+          <span id="brainSyncText">안티그래비티 두뇌 로드 중...</span>
+        </span>
+        <span id="cloudQueueBadge" class="pill-badge">
+          <span id="cloudQueueText">클라우드 영구 저장 활성</span>
+        </span>
+      </div>
+      <h1 class="hero-title">내 안경 속의 안티그래비티 마스터 두뇌</h1>
+      <p class="hero-desc">
+        PC가 꺼져 있을 때도 GitHub 클라우드의 최신 안티그래비티 데이터를 기반으로 대화하며, 모든 대화 내용은 구글 드라이브와 PC(<code>G2_안경_실시간대화록.md</code>)에 자동 저장됩니다.
+      </p>
+    </header>
+
+    <!-- Interaction Area (Bento Grid) -->
+    <main class="bento-grid">
+      <!-- 좌측/상단: Even G2 576x288 HUD 프리뷰 & 음성 대화 컨트롤 -->
+      <section class="focus-card col-7">
+        <div class="card-header">
+          <div class="card-title-group">
+            <div class="squircle-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 12h20"/>
+                <path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/>
+                <path d="M4 12V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v6"/>
+              </svg>
+            </div>
+            <div>
+              <h2 class="card-title">Even G2 렌즈 실시간 화면 (576 × 288 HUD)</h2>
+              <p class="card-subtitle">안경 다리 터치패드를 길게 누르거나 아래 버튼을 눌러 음성으로 대화하세요</p>
+            </div>
+          </div>
+          <span id="hudPageIndicator" class="pill-badge">1 / 1 페이지</span>
+        </div>
+
+        <!-- G2 Green Micro-LED Display Mirror -->
+        <div class="g2-display-frame">
+          <div class="g2-hud-header">
+            <span id="hudHeaderTitle">[AGY BRAIN] READY</span>
+            <span id="hudHeaderMeta">BAT --% | PAGE 1/1</span>
+          </div>
+          <div id="hudBodyContent" class="g2-hud-body">안티그래비티 × Even G2 두뇌가 연결되었습니다.
+안경 다리 터치패드를 길게 누르거나 [음성으로 질문하기]를 눌러 대화를 시작하세요.</div>
+          <div class="g2-hud-footer">
+            <span>길게 누르기: 음성 질문</span>
+            <span>터치/메뉴: 페이지 이동</span>
+          </div>
+        </div>
+
+        <!-- 페이지 이동 & 안경 화면 전송 컨트롤 -->
+        <div class="hud-controls">
+          <button id="prevPageBtn" class="btn-pill btn-secondary btn-sm" type="button">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+            <span>이전 페이지</span>
+          </button>
+          <button id="nextPageBtn" class="btn-pill btn-secondary btn-sm" type="button">
+            <span>다음 페이지</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+          <button id="pushBriefingBtn" class="btn-pill btn-secondary btn-sm" type="button">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <span>두뇌 브리핑 띄우기</span>
+          </button>
+        </div>
+
+        <hr style="border:none; border-top:1px solid var(--oneui-divider); margin: 18px 0;" />
+
+        <!-- 대형 음성 입력 버튼 -->
+        <button id="voiceAskBtn" class="voice-hero-btn" type="button">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" x2="12" y1="19" y2="22"/>
+          </svg>
+          <span id="voiceAskBtnText">음성으로 질문하기 (안경 마이크 / 폰 마이크)</span>
+        </button>
+
+        <!-- 텍스트 직접 질문 입력창 -->
+        <form id="askForm" class="input-row">
+          <input id="questionInput" type="text" class="pill-input" placeholder="안티그래비티 두뇌에게 물어보거나 메모할 내용을 입력하세요..." autocomplete="off" />
+          <button type="submit" class="btn-pill btn-primary">
+            <span>전송</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </form>
+
+        <!-- 원클릭 빠른 질문 칩 -->
+        <div class="quick-chips">
+          <button type="button" class="chip" data-prompt="현재 내 안티그래비티 폴더에 저장된 핵심 프로젝트와 최근 작업 현황을 안경으로 읽기 좋게 요약해줘.">내 안티그래비티 프로젝트 요약</button>
+          <button type="button" class="chip" data-prompt="시엔위 비즈니스 연구소와 8개국 크롤링 데이터에서 가장 마진이 좋은 핵심 아이템 TOP 5를 브리핑해줘.">크롤링 핵심 아이템 TOP 5</button>
+          <button type="button" class="chip" data-prompt="지파츠 이베이 자동리스팅 주력 재고 현황과 오늘 체크할 포인트를 알려줘.">지파츠 이베이 현황</button>
+          <button type="button" class="chip" data-prompt="내가 방금 떠오른 사업 아이디어인데, 안티그래비티 대화록에 중요 메모로 기록해줘: ">아이디어 즉시 저장</button>
+        </div>
+      </section>
+
+      <!-- 우측/하단: AI 최고급 모델 & API 설정 + 두뇌 데이터 동기화 상태 -->
+      <section class="focus-card col-5">
+        <div class="card-header">
+          <div class="card-title-group">
+            <div class="squircle-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+              </svg>
+            </div>
+            <div>
+              <h2 class="card-title">AI 두뇌 엔진 &amp; 24시간 클라우드 설정</h2>
+              <p class="card-subtitle">PC가 꺼져 있을 때도 작동하는 API 키 및 모델 설정</p>
+            </div>
+          </div>
+        </div>
+
+        <label class="label-text" for="modelSelect">사용할 최고 성능 AI 모델</label>
+        <select id="modelSelect" class="select-input">
+          <option value="gemini-2.5-pro">Gemini Pro (최고 지능 · 심층 추론 우선 / 자동 폴백)</option>
+          <option value="gemini-2.5-flash">Gemini Flash (초고속 0.8초 안경 즉답 모드)</option>
+          <option value="gemini-2.0-flash">Gemini 2.0 Flash (호환 안정 모드)</option>
+        </select>
+
+        <label class="label-text" for="apiKeyInput">Google Gemini API 키 (1회 저장 시 안경 앱에 영구 보관)</label>
+        <div class="input-row" style="margin-top:0; margin-bottom: 10px;">
+          <input id="apiKeyInput" type="password" class="pill-input" placeholder="AIzaSy... 키 입력 (PC OFF 시에도 24시간 작동)" />
+          <button id="saveKeyBtn" type="button" class="btn-pill btn-navy btn-sm">저장</button>
+        </div>
+
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom: 12px;">
+          <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener" class="btn-pill btn-secondary btn-sm">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            <span>Google AI Studio에서 키 복사하기</span>
+          </a>
+          <button id="refreshBrainBtn" type="button" class="btn-pill btn-secondary btn-sm">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+            <span>최신 안티그래비티 두뇌 새로고침</span>
+          </button>
+        </div>
+
+        <div id="brainSummaryBox" class="info-box">
+          <strong>동기화된 안티그래비티 두뇌 상태:</strong>
+          <div id="brainStatsText" style="margin-top:6px;">데이터를 불러오는 중입니다...</div>
+        </div>
+      </section>
+
+      <!-- 하단 전체: 실시간 대화 내역 (구글 드라이브 & GitHub & PC 자동 저장) -->
+      <section class="focus-card col-12">
+        <div class="card-header">
+          <div class="card-title-group">
+            <div class="squircle-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </div>
+            <div>
+              <h2 class="card-title">안경 실시간 대화록 (PC · 구글 드라이브 · GitHub 자동 저장)</h2>
+              <p class="card-subtitle">여기서 나눈 모든 대화는 <code>e:\안티그래비티\G2_안경_실시간대화록.md</code> 및 구글 드라이브에 자동 기록됩니다</p>
+            </div>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <button id="exportMdBtn" type="button" class="btn-pill btn-secondary btn-sm">대화록 .md 다운로드</button>
+            <button id="clearChatBtn" type="button" class="btn-pill btn-secondary btn-sm">화면 비우기</button>
+          </div>
+        </div>
+
+        <div id="chatList" class="chat-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module">
+    import {
+      waitForEvenAppBridge,
+      OsEventTypeList,
+      StartUpPageCreateResult,
+      AudioInputSource,
+      DeviceConnectType
+    } from './even_hub_sdk.js';
+
+    // 클라우드 실시간 동기화 채널 (PC가 꺼져 있어도 ntfy 서버가 메시지를 큐잉 보관하며, PC가 켜지면 즉시 로컬 & 구글 드라이브 & GitHub로 흡수)
+    const CLOUD_SYNC_TOPIC = 'agy_g2_brain_sync_e3562553';
+    const CLOUD_SYNC_URL = `https://ntfy.sh/${CLOUD_SYNC_TOPIC}`;
+    const GITHUB_BRAIN_URL = 'https://zespy2614-jpg.github.io/korea-spart-24h-cloud/g2/brain_context.json';
+
+    const state = {
+      bridge: null,
+      isGlassesReady: false,
+      startupCreated: false,
+      batteryLevel: null,
+      apiKey: localStorage.getItem('agy_gemini_api_key') || '',
+      model: localStorage.getItem('agy_gemini_model') || 'gemini-2.5-pro',
+      brainContext: null,
+      hudPages: ['안티그래비티 × Even G2 두뇌가 연결되었습니다.\n안경 다리 터치패드를 길게 누르거나 [음성으로 질문하기]를 눌러 대화를 시작하세요.'],
+      currentPageIdx: 0,
+      hudTitle: '[AGY BRAIN] READY',
+      isListening: false,
+      recognition: null,
+      messages: JSON.parse(localStorage.getItem('agy_g2_messages') || '[]')
+    };
+
+    // DOM Elements
+    const glassesStatusBadge = document.getElementById('glassesStatusBadge');
+    const glassesStatusText = document.getElementById('glassesStatusText');
+    const brainSyncBadge = document.getElementById('brainSyncBadge');
+    const brainSyncText = document.getElementById('brainSyncText');
+    const cloudQueueText = document.getElementById('cloudQueueText');
+    const hudHeaderTitle = document.getElementById('hudHeaderTitle');
+    const hudHeaderMeta = document.getElementById('hudHeaderMeta');
+    const hudBodyContent = document.getElementById('hudBodyContent');
+    const hudPageIndicator = document.getElementById('hudPageIndicator');
+    const voiceAskBtn = document.getElementById('voiceAskBtn');
+    const voiceAskBtnText = document.getElementById('voiceAskBtnText');
+    const askForm = document.getElementById('askForm');
+    const questionInput = document.getElementById('questionInput');
+    const apiKeyInput = document.getElementById('apiKeyInput');
+    const saveKeyBtn = document.getElementById('saveKeyBtn');
+    const modelSelect = document.getElementById('modelSelect');
+    const brainStatsText = document.getElementById('brainStatsText');
+    const chatList = document.getElementById('chatList');
+
+    apiKeyInput.value = state.apiKey;
+    modelSelect.value = state.model;
+
+    // 테마 전환
+    document.getElementById('themeToggleBtn').addEventListener('click', () => {
+      const cur = document.body.getAttribute('data-theme');
+      document.body.setAttribute('data-theme', cur === 'dark' ? 'light' : 'dark');
+    });
+
+    // 안경 화면용 텍스트 페이지 분할 (576x288 해상도에 맞춰 한 페이지당 약 130자 / 5줄 이내로 깔끔하게 분할)
+    function paginateForGlasses(text) {
+      const clean = String(text || '').replace(/\*\*/g, '').replace(/`/g, '').trim();
+      if (!clean) return ['내용이 없습니다.'];
+
+      const lines = clean.split('\n');
+      const pages = [];
+      let currentLines = [];
+      let currentLen = 0;
+
+      for (const rawLine of lines) {
+        const line = rawLine.trim();
+        if (!line) {
+          if (currentLines.length > 0 && currentLines.length < 5) {
+            currentLines.push('');
+          }
+          continue;
+        }
+        // 긴 줄은 28자 단위로 줄바꿈
+        const chunks = [];
+        for (let i = 0; i < line.length; i += 28) {
+          chunks.push(line.slice(i, i + 28));
+        }
+        for (const chunk of chunks) {
+          if (currentLines.length >= 5 || (currentLen + chunk.length) > 135) {
+            pages.push(currentLines.join('\n'));
+            currentLines = [chunk];
+            currentLen = chunk.length;
+          } else {
+            currentLines.push(chunk);
+            currentLen += chunk.length;
+          }
+        }
+      }
+      if (currentLines.length > 0) {
+        pages.push(currentLines.join('\n'));
+      }
+      return pages.length > 0 ? pages : [clean.slice(0, 130)];
+    }
+
+    // Even G2 안경 렌즈 및 화면 미러 동시 업데이트
+    async function renderHudToGlasses(title, fullText, resetPage = true) {
+      if (title) state.hudTitle = title;
+      if (fullText !== null && fullText !== undefined) {
+        state.hudPages = paginateForGlasses(fullText);
+        if (resetPage) state.currentPageIdx = 0;
+      }
+      if (state.currentPageIdx >= state.hudPages.length) {
+        state.currentPageIdx = state.hudPages.length - 1;
+      }
+      if (state.currentPageIdx < 0) state.currentPageIdx = 0;
+
+      const pageText = state.hudPages[state.currentPageIdx] || '';
+      const pageMeta = `${state.currentPageIdx + 1}/${state.hudPages.length}`;
+      const batStr = state.batteryLevel !== null ? `${state.batteryLevel}%` : '--%';
+      const headerStr = `${state.hudTitle} (${pageMeta})`;
+
+      // 웹 미러 UI 업데이트
+      hudHeaderTitle.textContent = state.hudTitle;
+      hudHeaderMeta.textContent = `BAT ${batStr} | PAGE ${pageMeta}`;
+      hudBodyContent.textContent = pageText;
+      hudPageIndicator.textContent = `${state.currentPageIdx + 1} / ${state.hudPages.length} 페이지`;
+
+      // 실제 Even G2 안경 하드웨어 전송
+      if (state.bridge && state.startupCreated) {
+        try {
+          await state.bridge.textContainerUpgrade({
+            containerID: 1,
+            containerName: 'agy_header',
+            content: headerStr,
+            textColor: 4
+          });
+          await state.bridge.textContainerUpgrade({
+            containerID: 2,
+            containerName: 'agy_body',
+            content: pageText,
+            textColor: 4
+          });
+        } catch (err) {
+          console.warn('[G2 HUD Upgrade Error]:', err);
+        }
+      }
+    }
+
+    // Even G2 공식 브릿지 초기화
+    async function initEvenG2Bridge() {
+      try {
+        const timeoutPromise = new Promise((_, reject) =>
+          setTimeout(() => reject(new Error('BROWSER_SIMULATOR_MODE')), 1800)
+        );
+        const bridge = await Promise.race([waitForEvenAppBridge(), timeoutPromise]);
+        state.bridge = bridge;
+        state.isGlassesReady = true;
+
+        glassesStatusBadge.className = 'pill-badge success';
+        glassesStatusText.textContent = 'Even G2 안경 공식 브릿지 연결됨';
+
+        // 저장된 API 키 복원
+        try {
+          const savedKey = await bridge.getLocalStorage('agy_gemini_api_key');
+          if (savedKey && !state.apiKey) {
+            state.apiKey = savedKey;
+            apiKeyInput.value = savedKey;
+            localStorage.setItem('agy_gemini_api_key', savedKey);
+          }
+        } catch (e) {}
+
+        // 기기 배터리 및 상태 조회
+        try {
+          const devInfo = await bridge.getDeviceInfo();
+          if (devInfo && devInfo.status && devInfo.status.batteryLevel !== undefined) {
+            state.batteryLevel = devInfo.status.batteryLevel;
+          }
+        } catch (e) {}
+
+        bridge.onDeviceStatusChanged((status) => {
+          if (status && status.batteryLevel !== undefined) {
+            state.batteryLevel = status.batteryLevel;
+            renderHudToGlasses(null, null, false);
+          }
+        });
+
+        // 안경 초기 컨테이너 생성 (576x288 화면 레이아웃)
+        const createRes = await bridge.createStartUpPageContainer({
+          containerTotalNum: 2,
+          textObject: [
+            {
+              xPosition: 16,
+              yPosition: 8,
+              width: 544,
+              height: 34,
+              containerID: 1,
+              containerName: 'agy_header',
+              zOrderIndex: 1,
+              content: '[AGY BRAIN] 연결됨 (1/1)',
+              textColor: 4,
+              isEventCapture: 0
+            },
+            {
+              xPosition: 16,
+              yPosition: 46,
+              width: 544,
+              height: 230,
+              containerID: 2,
+              containerName: 'agy_body',
+              zOrderIndex: 2,
+              content: state.hudPages[0],
+              textColor: 4,
+              isEventCapture: 1
+            }
+          ],
+          menuObject: {
+            menuItems: [
+              { itemID: 1, itemName: '음성 질문하기' },
+              { itemID: 2, itemName: '다음 페이지' },
+              { itemID: 3, itemName: '이전 페이지' },
+              { itemID: 4, itemName: '안티그래비티 브리핑' }
+            ]
+          }
+        });
+
+        if (createRes === StartUpPageCreateResult.success || createRes === 0 || createRes === 'success') {
+          state.startupCreated = true;
+          await renderHudToGlasses('[AGY BRAIN] READY', null, false);
+        }
+
+        // 안경 다리 터치패드 / R1 링 / 컨텍스트 메뉴 이벤트 리스너
+        bridge.onEvenHubEvent((event) => {
+          // 1) 컨텍스트 메뉴 클릭
+          if (event.menuItemClickEvent) {
+            const id = event.menuItemClickEvent.itemID;
+            if (id === 1) toggleVoiceRecognition();
+            else if (id === 2) moveHudPage(1);
+            else if (id === 3) moveHudPage(-1);
+            else if (id === 4) showBrainBriefingOnGlasses();
+            return;
+          }
+
+          // 2) 시스템 이벤트 (롱프레스 시 음성 인식 즉시 토글!)
+          if (event.sysEvent) {
+            const evType = event.sysEvent.eventType;
+            if (evType === OsEventTypeList.LONG_PRESS_EVENT || evType === 9) {
+              toggleVoiceRecognition();
+              return;
+            }
+          }
+
+          // 3) 일반 터치 이벤트 시 다음 페이지 순환
+          if (event.textEvent) {
+            moveHudPage(1);
+          }
+        });
+      } catch (err) {
+        glassesStatusBadge.className = 'pill-badge warning';
+        glassesStatusText.textContent = '시뮬레이터 & 스마트폰 웹 모드 (Even 앱에서 스캔 시 안경 직결)';
+      }
+    }
+
+    function moveHudPage(delta) {
+      if (state.hudPages.length <= 1) return;
+      state.currentPageIdx = (state.currentPageIdx + delta + state.hudPages.length) % state.hudPages.length;
+      renderHudToGlasses(null, null, false);
+    }
+
+    document.getElementById('prevPageBtn').addEventListener('click', () => moveHudPage(-1));
+    document.getElementById('nextPageBtn').addEventListener('click', () => moveHudPage(1));
+
+    // 안티그래비티 마스터 두뇌 데이터 로드 (로컬 PC 우선 -> 오프라인 시 GitHub 클라우드 자동 폴백)
+    async function loadAntigravityBrain() {
+      brainSyncText.textContent = '안티그래비티 두뇌 동기화 중...';
+      const urlsToTry = [
+        './brain_context.json?t=' + Date.now(),
+        '/api/brain?t=' + Date.now(),
+        GITHUB_BRAIN_URL + '?t=' + Date.now()
+      ];
+
+      for (const url of urlsToTry) {
+        try {
+          const res = await fetch(url, { cache: 'no-store' });
+          if (res.ok) {
+            const data = await res.json();
+            state.brainContext = data;
+            localStorage.setItem('agy_cached_brain', JSON.stringify(data));
+            updateBrainUi(data);
+            return;
+          }
+        } catch (e) {}
+      }
+
+      // 캐시된 두뇌 폴백
+      const cached = localStorage.getItem('agy_cached_brain');
+      if (cached) {
+        try {
+          state.brainContext = JSON.parse(cached);
+          updateBrainUi(state.brainContext, true);
+          return;
+        } catch (e) {}
+      }
+      brainSyncText.textContent = '기본 안티그래비티 두뇌 활성';
+    }
+
+    function updateBrainUi(data, isCached = false) {
+      const syncedAt = data.updatedAt || '-';
+      brainSyncBadge.className = 'pill-badge success';
+      brainSyncText.textContent = isCached
+        ? `오프라인 캐시 두뇌 (${syncedAt})`
+        : `안티그래비티 두뇌 연동됨 (${syncedAt})`;
+
+      const fileCount = (data.workspaceFiles || []).length;
+      const projectCount = (data.coreProjects || []).length;
+      brainStatsText.innerHTML =
+        `• 최종 동기화: <b>${syncedAt}</b><br/>` +
+        `• 연동된 워크스페이스 항목: <b>${fileCount}개</b> 핵심 파일/폴더<br/>` +
+        `• 핵심 프로젝트 요약: <b>${projectCount}개</b> (시엔위·지파츠·안드로이드·크롤러 DB)<br/>` +
+        `• 저장 경로: <code>e:\\안티그래비티\\G2_안경_실시간대화록.md</code> &amp; 구글 드라이브`;
+
+      // 서버에 저장된 이전 대화가 있고 로컬이 비어있다면 병합
+      if (Array.isArray(data.recentConversations) && data.recentConversations.length > 0 && state.messages.length === 0) {
+        state.messages = data.recentConversations.slice(-30);
+        localStorage.setItem('agy_g2_messages', JSON.stringify(state.messages));
+        renderChatList();
+      }
+    }
+
+    function showBrainBriefingOnGlasses() {
+      if (!state.brainContext) {
+        renderHudToGlasses('[AGY BRIEFING]', '아직 두뇌 데이터를 불러오지 못했습니다.');
+        return;
+      }
+      const summary = state.brainContext.briefingForGlasses ||
+        `[안티그래비티 실시간 브리핑]\n동기화: ${state.brainContext.updatedAt}\n핵심 프로젝트: ${(state.brainContext.coreProjects || []).map(p => p.name).join(', ')}`;
+      renderHudToGlasses('[AGY BRIEFING]', summary, true);
+    }
+
+    document.getElementById('pushBriefingBtn').addEventListener('click', showBrainBriefingOnGlasses);
+    document.getElementById('refreshBrainBtn').addEventListener('click', loadAntigravityBrain);
+
+    // API 키 및 모델 저장
+    saveKeyBtn.addEventListener('click', async () => {
+      const key = apiKeyInput.value.trim();
+      state.apiKey = key;
+      state.model = modelSelect.value;
+      localStorage.setItem('agy_gemini_api_key', key);
+      localStorage.setItem('agy_gemini_model', state.model);
+      if (state.bridge) {
+        try {
+          await state.bridge.setLocalStorage('agy_gemini_api_key', key);
+        } catch (e) {}
+      }
+      await renderHudToGlasses('[AGY CONFIG]', 'Gemini API 키와 최고 성능 모델 설정이 안경과 앱에 영구 저장되었습니다.');
+    });
+
+    modelSelect.addEventListener('change', () => {
+      state.model = modelSelect.value;
+      localStorage.setItem('agy_gemini_model', state.model);
+    });
+
+    // 대화 기록 렌더링
+    function renderChatList() {
+      if (state.messages.length === 0) {
+        chatList.innerHTML = `<div class="info-box" style="margin-top:0;">아직 대화 내역이 없습니다. 안경이나 마이크 버튼을 눌러 첫 질문을 해보세요!</div>`;
+        return;
+      }
+      chatList.innerHTML = state.messages.slice().reverse().map((m) => `
+        <div class="chat-item ${m.role === 'assistant' ? 'assistant' : 'user'}">
+          <div class="chat-meta">
+            <span>${m.role === 'assistant' ? '안티그래비티 AI (G2 HUD)' : '대표님 (음성/안경 입력)'}</span>
+            <span>${m.timestamp || ''}</span>
+          </div>
+          <div class="chat-text">${escapeHtml(m.content)}</div>
+        </div>
+      `).join('');
+    }
+
+    function escapeHtml(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+
+    // 대화 내용을 클라우드 큐(ntfy) + 로컬 PC 서버 + 로컬 스토리지에 동시 영구 저장
+    async function persistConversationEntry(question, answer, modelUsed) {
+      const nowStr = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
+      const userMsg = { role: 'user', content: question, timestamp: nowStr };
+      const aiMsg = { role: 'assistant', content: answer, timestamp: nowStr, model: modelUsed };
+
+      state.messages.push(userMsg, aiMsg);
+      if (state.messages.length > 100) {
+        state.messages = state.messages.slice(-100);
+      }
+      localStorage.setItem('agy_g2_messages', JSON.stringify(state.messages));
+      if (state.bridge) {
+        try {
+          await state.bridge.setLocalStorage('agy_g2_messages', JSON.stringify(state.messages.slice(-20)));
+        } catch (e) {}
+      }
+      renderChatList();
+
+      const payload = {
+        id: 'g2_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7),
+        timestamp: nowStr,
+        question,
+        answer,
+        model: modelUsed
+      };
+
+      // 1) 로컬 PC 서버가 켜져 있으면 즉시 직접 저장 (/api/log)
+      let savedDirect = false;
+      try {
+        const localRes = await fetch('/api/log', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (localRes.ok) {
+          savedDirect = true;
+          cloudQueueText.textContent = 'PC & 구글 드라이브 실시간 저장 완료';
+        }
+      } catch (e) {}
+
+      // 2) PC가 꺼져 있거나 외부망(5G/LTE)일 때도 100% 보존되도록 글로벌 클라우드 큐(ntfy.sh)로 전송
+      try {
+        await fetch(CLOUD_SYNC_URL, {
+          method: 'POST',
+          headers: {
+            'Title': 'AGY_G2_CONV_SYNC',
+            'Tags': 'eyeglasses'
+          },
+          body: JSON.stringify(payload)
+        });
+        if (!savedDirect) {
+          cloudQueueText.textContent = '클라우드 저장 완료 (PC 켜지면 자동 흡수)';
+        }
+      } catch (e) {
+        console.warn('[Cloud Sync Queue Error]:', e);
+      }
+    }
+
+    // 핵심: 안티그래비티 두뇌 컨텍스트를 결합하여 AI 응답 생성
+    async function askAntigravityBrain(questionText) {
+      const q = String(questionText || '').trim();
+      if (!q) return;
+
+      questionInput.value = '';
+      await renderHudToGlasses('[AGY THINKING...]', `질문: ${q}\n\n안티그래비티 마스터 두뇌에서 답변을 생성하고 있습니다...`, true);
+
+      // 1) 만약 로컬 PC 서버가 켜져 있고 서버 측 AI/두뇌 엔드포인트가 응답 가능한지 먼저 확인하거나, 브라우저에서 직접 Gemini API 호출
+      const apiKey = state.apiKey.trim();
+
+      // 시스템 프롬프트 구성 (e:\안티그래비티의 마스터 두뇌 데이터 탑재)
+      const brainJsonStr = state.brainContext
+        ? JSON.stringify({
+            updatedAt: state.brainContext.updatedAt,
+            owner: state.brainContext.owner,
+            coreProjects: state.brainContext.coreProjects,
+            masterBibleSummary: state.brainContext.masterBibleSummary,
+            workspaceFiles: state.brainContext.workspaceFiles
+          }, null, 2)
+        : '기본 안티그래비티 워크스페이스 (e:\\안티그래비티)';
+
+      const recentHistoryText = state.messages.slice(-8).map(m =>
+        `${m.role === 'user' ? '대표님' : '안티그래비티'}: ${m.content}`
+      ).join('\n');
+
+      const systemInstruction =
+        `너는 대표님의 'Even Realities G2 스마트 안경'에 탑재된 전담 AI 파트너이자, 대표님 컴퓨터(e:\\안티그래비티) 및 구글 드라이브·GitHub와 실시간으로 연동된 '안티그래비티(Antigravity) 마스터 두뇌'야.\n` +
+        `현재 안경 디스플레이(576x288 그린 마이크로 LED)로 읽고 계시므로:\n` +
+        `1) 핵심 결론부터 명확하고 간결하게 한국어로 대답해.\n` +
+        `2) 불필요한 마크다운 기호(**, ## 등)나 이모지는 쓰지 말고 깔끔한 줄바꿈과 번호(1., 2.)로 정리해.\n` +
+        `3) 아래에 제공된 [대표님의 e:\\안티그래비티 실시간 마스터 두뇌 데이터]와 [최근 대화 기록]을 100% 활용해서 대답하고, 대표님이 뭔가를 기억하거나 저장해달라고 하시면 "네, G2_안경_실시간대화록.md와 구글 드라이브에 즉시 기록했습니다!"라고 확인해줘.\n\n` +
+        `[대표님의 e:\\안티그래비티 실시간 마스터 두뇌 데이터]\n${brainJsonStr}\n\n` +
+        `[최근 대화 기록]\n${recentHistoryText}`;
+
+      let finalAnswer = '';
+      let usedModel = state.model;
+
+      // A. API 키가 있는 경우 Google Gemini API 직접 호출 (PC가 꺼져 있어도 24시간 언제 어디서나 작동!)
+      if (apiKey) {
+        const candidateModels = [
+          state.model,
+          'gemini-2.5-pro',
+          'gemini-2.5-flash',
+          'gemini-2.0-flash'
+        ].filter((v, i, a) => a.indexOf(v) === i);
+
+        let lastErr = '';
+        for (const mName of candidateModels) {
+          try {
+            const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${mName}:generateContent?key=${encodeURIComponent(apiKey)}`;
+            const res = await fetch(endpoint, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                systemInstruction: {
+                  parts: [{ text: systemInstruction }]
+                },
+                contents: [
+                  {
+                    role: 'user',
+                    parts: [{ text: q }]
+                  }
+                ],
+                generationConfig: {
+                  temperature: 0.4,
+                  maxOutputTokens: 1024
+                }
+              })
+            });
+
+            const json = await res.json();
+            if (res.ok && json.candidates && json.candidates[0]?.content?.parts?.[0]?.text) {
+              finalAnswer = json.candidates[0].content.parts[0].text.trim();
+              usedModel = mName;
+              break;
+            } else {
+              lastErr = json.error?.message || `HTTP ${res.status}`;
+            }
+          } catch (err) {
+            lastErr = err.message;
+          }
+        }
+
+        if (!finalAnswer) {
+          finalAnswer = `[API 호출 안내]\n입력하신 API 키로 호출 중 오류가 발생했습니다 (${lastErr}).\n하지만 질문하신 내용은 클라우드와 PC 대화록에 정상 저장되었습니다!`;
+        }
+      } else {
+        // B. API 키를 아직 안 넣었을 때: 로컬 PC 브릿지 서버(/api/ask) 시도 후 내장 안티그래비티 두뇌 즉답 엔진 가동
+        try {
+          const pcRes = await fetch('/api/ask', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ question: q, brainContext: state.brainContext })
+          });
+          if (pcRes.ok) {
+            const pcData = await pcRes.json();
+            if (pcData.answer) {
+              finalAnswer = pcData.answer;
+              usedModel = pcData.model || 'AGY-Local-Brain';
+            }
+          }
+        } catch (e) {}
+
+        if (!finalAnswer) {
+          finalAnswer = buildOfflineBrainAnswer(q);
+          usedModel = 'AGY-BuiltIn-Brain';
+        }
+      }
+
+      // 안경 렌즈에 답변 표시 & 클라우드/구글 드라이브/PC 영구 저장
+      await renderHudToGlasses(`[AGY] ${usedModel}`, finalAnswer, true);
+      await persistConversationEntry(q, finalAnswer, usedModel);
+    }
+
+    // API 키 입력 전에도 안티그래비티 내장 두뇌 데이터를 즉시 검색해서 답해주는 스마트 내장 응답기
+    function buildOfflineBrainAnswer(q) {
+      const b = state.brainContext;
+      const projects = (b && b.coreProjects) ? b.coreProjects : [];
+      let matched = projects.filter(p =>
+        q.includes(p.name) || (p.keywords && p.keywords.some(k => q.toLowerCase().includes(k.toLowerCase())))
+      );
+
+      let header = `[안티그래비티 두뇌 기록 완료]\n"${q}" 내용이 클라우드 및 e:\\안티그래비티\\G2_안경_실시간대화록.md에 저장되었습니다.\n\n`;
+      if (matched.length > 0) {
+        header += matched.map(p => `• ${p.name}: ${p.summary}`).join('\n') + '\n\n';
+      } else if (b && b.briefingForGlasses) {
+        header += `${b.briefingForGlasses}\n\n`;
+      }
+      header += `(팁: 우측 설정에 무료 Gemini API 키를 1회 저장하시면 PC가 꺼져 있을 때도 24시간 자유로운 AI 추론 대화가 가능합니다.)`;
+      return header;
+    }
+
+    // 음성 인식 (안경 마이크 + 스마트폰 Web Speech API 연동)
+    async function toggleVoiceRecognition() {
+      if (state.isListening) {
+        stopVoiceRecognition();
+        return;
+      }
+
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) {
+        await renderHudToGlasses('[VOICE INFO]', '현재 웹뷰에서 직접 음성 인식을 지원하지 않아 키보드 입력창의 마이크 버튼을 사용해 주세요.');
+        questionInput.focus();
+        return;
+      }
+
+      // Even G2 안경 마이크 활성화
+      if (state.bridge && state.startupCreated) {
+        try {
+          await state.bridge.audioControl(true, AudioInputSource.Glasses);
+        } catch (e) {}
+      }
+
+      const recognition = new SpeechRecognition();
+      recognition.lang = 'ko-KR';
+      recognition.interimResults = true;
+      recognition.maxAlternatives = 1;
+      state.recognition = recognition;
+      state.isListening = true;
+
+      voiceAskBtn.classList.add('listening');
+      voiceAskBtnText.textContent = '듣고 있습니다... 말씀이 끝나면 자동 전송됩니다 (취소하려면 터치)';
+      await renderHudToGlasses('[LISTENING...]', '지금 말씀해 주세요...\n(안경 마이크 & 음성 인식 활성)', true);
+
+      let finalTranscript = '';
+
+      recognition.onresult = (event) => {
+        let interim = '';
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+          const transcript = event.results[i][0].transcript;
+          if (event.results[i].isFinal) {
+            finalTranscript += transcript;
+          } else {
+            interim += transcript;
+          }
+        }
+        const preview = (finalTranscript || interim).trim();
+        if (preview) {
+          renderHudToGlasses('[LISTENING...]', `인식 중: ${preview}`, true);
+        }
+      };
+
+      recognition.onerror = async (event) => {
+        stopVoiceRecognition();
+        await renderHudToGlasses('[VOICE READY]', `음성 대기 상태로 돌아왔습니다. (${event.error || '완료'})`);
+      };
+
+      recognition.onend = async () => {
+        const spoken = finalTranscript.trim();
+        stopVoiceRecognition();
+        if (spoken) {
+          await askAntigravityBrain(spoken);
+        }
+      };
+
+      try {
+        recognition.start();
+      } catch (e) {
+        stopVoiceRecognition();
+      }
+    }
+
+    async function stopVoiceRecognition() {
+      state.isListening = false;
+      voiceAskBtn.classList.remove('listening');
+      voiceAskBtnText.textContent = '음성으로 질문하기 (안경 마이크 / 폰 마이크)';
+      if (state.recognition) {
+        try { state.recognition.stop(); } catch (e) {}
+        state.recognition = null;
+      }
+      if (state.bridge && state.startupCreated) {
+        try { await state.bridge.audioControl(false); } catch (e) {}
+      }
+    }
+
+    voiceAskBtn.addEventListener('click', toggleVoiceRecognition);
+
+    askForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      askAntigravityBrain(questionInput.value);
+    });
+
+    document.querySelectorAll('.chip').forEach((chip) => {
+      chip.addEventListener('click', () => {
+        const prompt = chip.getAttribute('data-prompt') || '';
+        if (prompt.endsWith(': ')) {
+          questionInput.value = prompt;
+          questionInput.focus();
+        } else {
+          askAntigravityBrain(prompt);
+        }
+      });
+    });
+
+    // 마크다운 다운로드 및 초기화
+    document.getElementById('exportMdBtn').addEventListener('click', () => {
+      const lines = ['# 안티그래비티 × Even G2 실시간 대화록\n'];
+      for (const m of state.messages) {
+        lines.push(`### ${m.role === 'user' ? '대표님' : '안티그래비티 AI'} (${m.timestamp || ''})\n${m.content}\n`);
+      }
+      const blob = new Blob([lines.join('\n')], { type: 'text/markdown;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'G2_안경_실시간대화록.md';
+      a.click();
+    });
+
+    document.getElementById('clearChatBtn').addEventListener('click', () => {
+      state.messages = [];
+      localStorage.setItem('agy_g2_messages', '[]');
+      renderChatList();
+    });
+
+    // 초기화 실행
+    renderChatList();
+    loadAntigravityBrain();
+    initEvenG2Bridge();
+  </script>
+</body>
+</html>

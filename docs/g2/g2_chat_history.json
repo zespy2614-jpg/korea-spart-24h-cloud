@@ -1,0 +1,14 @@
+{
+  "processedIds": [
+    "init_welcome"
+  ],
+  "entries": [
+    {
+      "id": "init_welcome",
+      "timestamp": "2026. 11. 7. PM 6:17:02",
+      "question": "안티그래비티 × Even G2 시스템 개통 확인",
+      "answer": "대표님의 컴퓨터(e:\\안티그래비티), 구글 드라이브, GitHub 클라우드, 그리고 Even G2 안경이 실시간 양방향으로 연결되었습니다.",
+      "model": "Antigravity-System"
+    }
+  ]
+}
