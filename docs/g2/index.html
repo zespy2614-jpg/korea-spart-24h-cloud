@@ -3074,19 +3074,51 @@
       const custom = state.customInstructions ? `\n추가 사용자 지시: ${state.customInstructions}` : '';
       return (
         `당신은 Even Realities G2 스마트 안경에 탑재된 박정수 대표님의 전담 AI 파트너 E.D.I.T.H(안티그래비티 마스터 두뇌)입니다.\n` +
-        `답변은 스마트 안경 HUD 화면(576x288)에서 즉시 읽기 편하도록 핵심부터 간결하고 명확한 한국어로 답하세요. 마크다운 기호(**, #, \`\`\`)나 이모지는 쓰지 말고 깔끔한 평문으로 작성하세요.\n` +
-        `대표님이 차량, 주차 위치, 할 일, 약속, 품번, 과거 대화 등을 물어보시면 아래 [영구 장기기억 금고]와 [두뇌 컨텍스트]를 바탕으로 정확히 답변하세요.` +
+        `[최우선 절대 수칙 — 거짓말·할루시네이션 엄격 금지]\n` +
+        `1. 빠른 답변을 위해 사실을 지어내거나 추측(할루시네이션)하지 마세요. 속도가 조금 걸리더라도 제공된 기억 금고와 두뇌 컨텍스트를 깊이 분석하여 100% 정확한 사실만 답변하세요.\n` +
+        `2. 안경 AI인 당신은 대표님과 대화를 나누고 조회/분석하며 PC 작업노트(G2_안경_음성지시_작업노트.md)에 메모를 남길 수 있지만, 멈춰 있는 PC 안티그래비티 에이전트를 대신해 직접 소스 코드 파일을 수정·컴파일·배포할 수는 없습니다.\n` +
+        `3. 따라서 대표님이 코드 수정이나 기능 변경을 지시하실 때 "제가 지금 바로 코드를 수정했습니다", "10초 뒤 앱을 껐다 켜면 적용됩니다" 같은 거짓말을 절대 하지 마세요. 대신 "대표님, 지시하신 내용을 PC 작업노트와 장기기억에 기록했습니다. 실제 코드 반영은 PC 안티그래비티 창에서 실행해 주세요"라고 정직하게 답변하세요.\n` +
+        `4. 기억 금고나 두뇌 컨텍스트에 없는 정보는 절대 임의로 만들어내지 말고 확인되지 않는다고 정직하게 말씀드리세요.\n` +
+        `5. 답변은 스마트 안경 HUD 화면(576x288)에서 읽기 편하도록 마크다운 기호(**, #, \`\`\`)나 이모지 없이 명료한 한국어 평문으로 작성하세요.` +
         custom +
         brainSummary
       );
     }
 
+    function cleanAndCorrectTranscript(raw) {
+      let s = String(raw || '').replace(/^["'`]+|["'`]+$/g, '').trim();
+      if (!s) return 'EMPTY';
+      // Reject timestamp hallucinations from audio models on silent clips (e.g. "00:00", "0:00", "00:01")
+      if (/^(\d{1,2}:\d{2}(\s*-\s*\d{1,2}:\d{2})?|empty|none|null|\.+|-+|음성\s*없음|무음)$/i.test(s)) {
+        return 'EMPTY';
+      }
+      // Correct frequent Korean domain phonetic misrecognitions
+      s = s
+        .replace(/컴피\s*반트\s*비디오|컴퓨턴트\s*비디오|안티\s*그래픽(티|기)?|안티그래픽(티|기)?|안티\s*그래비키/gi, '안티그래비티')
+        .replace(/기사부|기허브|깃\s*허브/gi, '깃허브')
+        .replace(/데미나인|재미나이|제미\s*나이/gi, '제미나이')
+        .replace(/아라곤\s*4|아르고\s*4/gi, '아라곤 4')
+        .replace(/오픈\s*라우더|라우더\s*필터/gi, '오픈라우터')
+        .replace(/너트니언이/gi, '너 지능이')
+        .replace(/컴피규에서/gi, '컴퓨터에서')
+        .replace(/그\s*해와\s*듣는/gi, '대화 듣는');
+      return s.trim() || 'EMPTY';
+    }
+
     async function transcribeOrAudioAsk(wavB64, instructionText) {
       const key = state.apiKey.trim();
       if (!key) throw new Error('API 키가 필요합니다.');
+      const enhancedPrompt =
+        `${instructionText}\n` +
+        `[고유명사/전문용어 교정 사전 — 발음이 비슷하면 반드시 아래 정확한 단어로 받아적을 것]\n` +
+        `- 안티그래비티(Antigravity), 제미나이(Gemini), 아라곤 4(Gemini 4 Argon), 깃허브(GitHub), 오픈라우터(OpenRouter), 이븐 리얼리티(Even G2), 에디스(EDITH), 지파츠(Gparts), 시엔위(Xianyu), 이베이(eBay), 크롤링, 소싱, 품번\n` +
+        `[엄격 규칙]\n` +
+        `- 시간 표시(00:00 등), 따옴표, 부연 설명은 절대 출력하지 마세요.\n` +
+        `- 사람의 말소리가 없거나 잡음뿐이면 오직 EMPTY 라고만 출력하세요.`;
+
       if (key.startsWith('sk-or-')) {
-        // Use ultra-fast zero-reasoning Gemini Flash-Lite models for instant ~0.35s audio transcription & translation
-        const audioModels = ['google/gemini-2.5-flash-lite', 'google/gemini-3.5-flash-lite', 'google/gemini-3.8-flash', 'google/gemini-2.5-flash'];
+        // Use high-accuracy multimodal models (Gemini 3.8 Flash / Gemini 4 Argon / Gemini 2.5 Pro) instead of low-accuracy Flash-Lite!
+        const audioModels = ['google/gemini-3.8-flash', 'google/gemini-4-argon', 'google/gemini-2.5-pro', 'google/gemini-2.5-flash'];
         let lastStatus = 0;
         for (const audioModel of audioModels) {
           try {
@@ -3100,30 +3132,29 @@
               },
               body: JSON.stringify({
                 model: audioModel,
-                reasoning: { effort: 'none', exclude: true },
                 messages: [
                   {
                     role: 'user',
                     content: [
-                      { type: 'text', text: instructionText },
+                      { type: 'text', text: enhancedPrompt },
                       { type: 'input_audio', input_audio: { data: wavB64, format: 'wav' } }
                     ]
                   }
                 ],
                 temperature: 0,
-                max_tokens: 120
+                max_tokens: 250
               })
             });
             lastStatus = res.status;
             if (!res.ok) continue;
             const data = await res.json();
-            const text = String(data?.choices?.[0]?.message?.content || '').trim();
-            if (text) return text;
+            const rawText = String(data?.choices?.[0]?.message?.content || '').trim();
+            if (rawText) return cleanAndCorrectTranscript(rawText);
           } catch {}
         }
         throw new Error(`OpenRouter 음성 인식 오류 (${lastStatus})`);
       } else {
-        const directAudioModels = ['gemini-2.5-flash-lite', 'gemini-2.5-flash', 'gemini-flash-latest'];
+        const directAudioModels = ['gemini-2.5-pro', 'gemini-2.5-flash', 'gemini-flash-latest'];
         let lastStatus = 0;
         for (const gm of directAudioModels) {
           try {
@@ -3136,17 +3167,17 @@
                   role: 'user',
                   parts: [
                     { inlineData: { mimeType: 'audio/wav', data: wavB64 } },
-                    { text: instructionText }
+                    { text: enhancedPrompt }
                   ]
                 }],
-                generationConfig: { temperature: 0, maxOutputTokens: 120 }
+                generationConfig: { temperature: 0, maxOutputTokens: 250 }
               })
             });
             lastStatus = res.status;
             if (!res.ok) continue;
             const data = await res.json();
-            const text = String(data?.candidates?.[0]?.content?.parts?.[0]?.text || '').trim();
-            if (text) return text;
+            const rawText = String(data?.candidates?.[0]?.content?.parts?.[0]?.text || '').trim();
+            if (rawText) return cleanAndCorrectTranscript(rawText);
           } catch {}
         }
         throw new Error(`Gemini 음성 인식 오류 (${lastStatus})`);
@@ -3163,20 +3194,21 @@
       }
       hud.set({ title: `◆ E.D.I.T.H${state.clockStr ? `  ${state.clockStr}` : ''}` });
 
-      let userQuestion = payload.text ? payload.text.trim() : '';
-      const youEntry = addYouEntry(userQuestion || '받아쓰는 중...');
-      const modelShort = MODEL_LIST.find((m) => m.id === state.model)?.label || 'Gemini Latest';
+      let userQuestion = payload.text ? cleanAndCorrectTranscript(payload.text) : '';
+      if (userQuestion === 'EMPTY') userQuestion = '';
+      const youEntry = addYouEntry(userQuestion || '안경 음성 정밀 인식 중...');
+      const modelShort = MODEL_LIST.find((m) => m.id === state.model)?.label || 'Gemini 4 Argon (High)';
       const liveEntry = addEdithLiveEntry(`E.D.I.T.H · ${modelShort}`);
       const controller = new AbortController();
       state.activeController = controller;
 
       setPhoneState('thinking');
       let frame = 0;
-      hud.set({ status: `생각 중 ${THINKING_FRAMES[0]}` });
+      hud.set({ status: `심층 추론 중 ${THINKING_FRAMES[0]}` });
       startTicker(() => {
         frame++;
         if (state.mode === 'thinking') {
-          hud.set({ status: `생각 중 ${THINKING_FRAMES[frame % THINKING_FRAMES.length]}` });
+          hud.set({ status: `심층 추론 중 ${THINKING_FRAMES[frame % THINKING_FRAMES.length]}` });
         }
       }, 400);
 
@@ -3184,7 +3216,7 @@
       const renderBody = () => {
         const qClip = clip(forGlasses(userQuestion), 90);
         const head = qClip ? `» ${qClip}\n\n` : '';
-        const tail = answer ? forGlasses(answer) : qClip ? '처리 중...' : '처리 중...\n\n두 번 탭하면 취소.';
+        const tail = answer ? forGlasses(answer) : qClip ? '고성능 High 모델이 깊이 생각하고 있습니다...' : '음성을 정확히 분석하고 있습니다...\n\n두 번 탭하면 취소.';
         hud.set({ body: clip(head + tail, 1990) });
       };
       renderBody();
@@ -3197,13 +3229,13 @@
         if (!userQuestion && payload.wavBase64) {
           const transcript = await transcribeOrAudioAsk(
             payload.wavBase64,
-            '이 오디오에서 사용자가 말한 한국어 문장만 정확히 받아적어 출력해. 아무런 인사말이나 부연 설명 없이 들린 텍스트만 출력하고, 아무 말도 안 들리면 EMPTY 라고만 출력해.'
+            '이 오디오에서 사용자가 말한 한국어 문장을 문맥에 맞게 가장 정확하게 받아적어 출력하세요.'
           );
           if (!transcript || transcript === 'EMPTY') {
             liveEntry.discard();
             youEntry.update('(음성 없음)');
             stopTicker();
-            goIdle('잘 못 들었습니다.');
+            goIdle('말소리가 작거나 인식되지 않았습니다. 길게 누른 후 말씀해 주세요.');
             return;
           }
           userQuestion = transcript.replace(/^["']|["']$/g, '').trim();
@@ -3217,10 +3249,10 @@
           renderBody();
         }
 
-        // Step 2: Stream answer from OpenRouter or Gemini Latest (with automatic highest-model fallback)
+        // Step 2: Stream answer from OpenRouter Flagship High-Reasoning Model
         const key = state.apiKey.trim();
         const sysPrompt = buildSystemPrompt(userQuestion);
-        const recentTurns = state.history.slice(-12).map((m) => ({
+        const recentTurns = state.history.slice(-14).map((m) => ({
           role: m.role === 'assistant' ? 'assistant' : 'user',
           content: m.content
         }));
@@ -3232,11 +3264,10 @@
             ...new Set([
               state.model.includes('/') ? state.model : 'google/gemini-4-argon',
               'google/gemini-4-argon',
-              'google/gemini-omni-1.2-flash',
-              'google/gemini-3.8-flash',
               'google/gemini-3.1-pro-preview',
-              'google/gemini-2.5-pro',
-              'google/gemini-2.5-flash'
+              'anthropic/claude-opus-5.5',
+              'anthropic/claude-sonnet-5.5',
+              'google/gemini-2.5-pro'
             ])
           ];
           let lastErrText = '';
@@ -3254,13 +3285,15 @@
               },
               body: JSON.stringify({
                 model: candidateModel,
+                reasoning: { effort: 'high', exclude: true },
+                temperature: 0.2,
                 stream: true,
                 messages: [
                   { role: 'system', content: sysPrompt },
                   ...recentTurns,
                   { role: 'user', content: userQuestion }
                 ],
-                max_tokens: 900
+                max_tokens: 4096
               }),
               signal: controller.signal
             });
