@@ -1878,9 +1878,9 @@
       model: localStorage.getItem('agy_gemini_model') || 'google/gemini-4-argon',
       customInstructions: localStorage.getItem('edith_custom_instructions') || '',
       prefs: {
-        followUp: localStorage.getItem('edith_pref_followup') !== '0',
+        followUp: localStorage.getItem('edith_pref_followup') === '1',
         doubleTapClock: localStorage.getItem('edith_pref_dblclock') !== '0',
-        wakeWord: localStorage.getItem('edith_pref_wake') !== '0',
+        wakeWord: localStorage.getItem('edith_pref_wake') === '1',
         discreet: localStorage.getItem('edith_pref_discreet') === '1'
       },
       brainContext: null,
@@ -2010,7 +2010,7 @@
       const greet = hour >= 5 && hour < 12 ? '좋은 아침입니다' : hour >= 12 && hour < 18 ? '좋은 오후입니다' : '좋은 저녁입니다';
       const namePart = state.firstName ? `, ${state.firstName}` : '';
       const pinnedLine = state.pinnedReminder ? `\n[기억] ${clip(forGlasses(state.pinnedReminder), 46)}` : '';
-      return `${greet}${namePart}. 모든 시스템 온라인.${pinnedLine}\n\n▶ 길게 눌러 말하거나, 탭하고 말하세요.\n◆ 탭한 다음 길게 누르면 메뉴.\n◆ 두 번 탭하면 시계 대기 / 종료.`;
+      return `${greet}${namePart}. 모든 시스템 온라인.${pinnedLine}\n\n▶ 길게 눌러 말씀하세요 (한 번 탭 오작동 방지됨).\n◆ 탭한 다음 길게 누르면 메뉴.\n◆ 두 번 탭하면 시계 대기 / 종료.`;
     }
 
     function setPhoneState(mode) {
