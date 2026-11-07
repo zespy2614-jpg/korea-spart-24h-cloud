@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026. 11. 7. PM 9:34:30",
+  "updatedAt": "2026. 11. 7. PM 9:35:00",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 7. PM 9:34:30\n1. PC 안티그래비티 실시간 작업: 최근 7단계 GitHub 동기화됨\n2. 시엔위 & 8개국 크롤링 / 지파츠 40선: 24시간 가동 중\n3. 누적 안경 대화록: 10건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 7. PM 9:35:00\n1. PC 안티그래비티 실시간 작업: 최근 6단계 GitHub 동기화됨\n2. 시엔위 & 8개국 크롤링 / 지파츠 40선: 24시간 가동 중\n3. 누적 안경 대화록: 10건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -214,11 +214,6 @@
     }
   ],
   "livePcAntigravitySession": [
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-07T12:24:57Z",
-      "summary": "너가봤을때 나 이븐리얼리틱스 구매했잖아 지금은 깃허브에 연동되게만해놓았거든 메모리데이터 내가 대화나누는거 그걸로 자주 대화나누려고해 근데 너가 봤을때 내가 추가하면 좋은기능 유용한거 뭐있을거같아\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
-    },
     {
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-07T12:25:52Z",

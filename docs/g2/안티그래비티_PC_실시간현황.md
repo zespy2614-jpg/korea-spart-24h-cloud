@@ -1,10 +1,9 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 7. PM 9:34:30
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 7. PM 9:35:00
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
-- **[대표님(PC 안티그래비티 요청)]**: 너가봤을때 나 이븐리얼리틱스 구매했잖아 지금은 깃허브에 연동되게만해놓았거든 메모리데이터 내가 대화나누는거 그걸로 자주 대화나누려고해 근데 너가 봤을때 내가 추가하면 좋은기능 유용한거 뭐있을거같아 <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 - **[안티그래비티(PC 작업 결과)]**: 대표님의 현재 [`EvenG2_안티그래비티_AI허브`](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/server.mjs) 코드와 방금 안경으로 나누신 대화록([`G2_안경_실시간대화록.md`](file:///e:/안티그래비티/G2_안경_실시간대화록.md))을 직접 뜯어보니, **앞으로 메모리 데이터 기반으로 자주 대화하실 때 추가하면 체감 효과가 가장 큰 핵심 기능 5가지**와 **지금 당장 고쳐야 할 숨은 메모리 연동 버그 1가지**가 보입니다. --- ### 🚨 0순위 (즉시 수정 권장): 현재 GitHub 메모리 데이터 '키 이름 불일치' 패치 방금 코드를 대조해 보니 **GitHub 동기화는 정상 작동하지만, 정작 안경 AI가 데이터를 읽을 때 변수명이 서로 달라서 메모리를 제대로 못 읽고 있는 구간**을 발
 - **[대표님(PC 안티그래비티 요청)]**: 응다해줘
 - **[대표님(PC 안티그래비티 요청)]**: 그리고 그 자막기능은없애줘 메뉴에 새채팅 시계대기 상대번역 두뇌동기화 밝기 닫기만있으면되 거기에 너가말한기능추가해주고
