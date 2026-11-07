@@ -1364,7 +1364,7 @@
      * 2. Text & Line Helpers for Even G2 Display (ported from edith-g2/src/text.ts)
      * ========================================================================= */
     const BODY_CHARS_PER_LINE = 52;
-    const BODY_LINES = 7;
+    const BODY_LINES = 5;
     const WIDE_RE = /[ᄀ-ᇿ⺀-꓏가-힯豈-﫿︰-﹏＀-｠￠-￦]/;
 
     function stripMarkdown(input) {
@@ -1424,12 +1424,12 @@
     }
 
     /* =========================================================================
-     * 3. Exact EDITH 3-Box Framed G2 Glasses HUD (ported from edith-g2/src/hud.ts)
+     * 3. Exact EDITH 3-Box Framed G2 Glasses HUD (최하단 시야 배치: yOffset=92, y=92~288)
      * ========================================================================= */
     const BOXES = {
-      title:  { id: 1, name: 'title',  x: 8,   y: 0,  width: 272, height: 44,  border: 1, padding: 8,  brightness: 3, capture: 0 },
-      status: { id: 2, name: 'status', x: 296, y: 0,  width: 272, height: 44,  border: 1, padding: 8,  brightness: 4, capture: 0 },
-      body:   { id: 3, name: 'body',   x: 0,   y: 46, width: 576, height: 242, border: 1, padding: 14, brightness: 4, capture: 1 }
+      title:  { id: 1, name: 'title',  x: 8,   y: 92,  width: 272, height: 38,  border: 1, padding: 6,  brightness: 3, capture: 0 },
+      status: { id: 2, name: 'status', x: 296, y: 92,  width: 272, height: 38,  border: 1, padding: 6,  brightness: 4, capture: 0 },
+      body:   { id: 3, name: 'body',   x: 0,   y: 132, width: 576, height: 156, border: 1, padding: 10, brightness: 4, capture: 1 }
     };
     const DIM_BRIGHTNESS = { title: 1, status: 1, body: 1 };
     const CLOCK_STANDBY_BRIGHTNESS = { title: 0, status: 3, body: 0 };
@@ -1512,11 +1512,22 @@
               ? DIM_BRIGHTNESS[slot]
               : box.brightness;
           const isStandbyStatus = this.clockStandby && slot === 'status';
+          const yOffset = Number(state?.brainContext?.liveUiConfig?.hudYOffset ?? 92);
+          const dynamicY = isStandbyStatus
+            ? Math.min(242, 148 + yOffset)
+            : slot === 'body'
+              ? yOffset + 40
+              : yOffset;
+          const dynamicH = isStandbyStatus
+            ? 44
+            : slot === 'body'
+              ? Math.max(120, 288 - (yOffset + 40))
+              : 38;
           return new TextContainerProperty({
             xPosition: isStandbyStatus ? 336 : box.x,
-            yPosition: box.y,
+            yPosition: dynamicY,
             width: isStandbyStatus ? 232 : box.width,
-            height: box.height,
+            height: dynamicH,
             borderWidth: this.clockStandby ? 0 : box.border,
             borderColor: 6,
             borderRadius: 8,
