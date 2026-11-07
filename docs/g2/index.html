@@ -1618,13 +1618,13 @@
     const SAMPLE_RATE = 16000;
     const BYTES_PER_MS = (SAMPLE_RATE * 2) / 1000;
     const MAX_REC_MS = 30000;
-    const MIN_SPEECH_RMS = 210;
-    const ROOM_MIN_SPEECH_RMS = 115;
-    const QUIET_ROOM_RMS = 140;
-    const SPEECH_TO_ARM_MS = 220;
-    const SILENCE_TO_STOP_MS = 950;
-    const NO_SPEECH_GIVE_UP_MS = 8000;
-    const PADDING_MS = 350;
+    const MIN_SPEECH_RMS = 95;
+    const ROOM_MIN_SPEECH_RMS = 90;
+    const QUIET_ROOM_RMS = 100;
+    const SPEECH_TO_ARM_MS = 140;
+    const SILENCE_TO_STOP_MS = 1450;
+    const NO_SPEECH_GIVE_UP_MS = 8500;
+    const PADDING_MS = 650;
     const LEVEL_BARS = '▁▂▃▄▅▆▇█';
     const THINKING_FRAMES = ['●○○', '○●○', '○○●', '○●○'];
 
@@ -1644,8 +1644,8 @@
       const samples = pcm.byteLength >> 1;
       let peak = 0;
       for (let i = 0; i < samples; i++) peak = Math.max(peak, Math.abs(view.getInt16(i * 2, true)));
-      if (peak === 0 || peak >= 6000) return;
-      const gain = Math.min(10, 26000 / peak);
+      if (peak === 0 || peak >= 14000) return;
+      const gain = Math.min(12, 28000 / peak);
       for (let i = 0; i < samples; i++) {
         const s = Math.round(view.getInt16(i * 2, true) * gain);
         view.setInt16(i * 2, Math.max(-32768, Math.min(32767, s)), true);
