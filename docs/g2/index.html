@@ -906,7 +906,7 @@
 
       <div class="field">
         <span class="field-label">정보</span>
-        <span class="help">버전: <span class="mono">EDITH 2.0 × Antigravity v1.0.5 (Gemini Latest Edition)</span></span>
+        <span class="help">버전: <span class="mono">EDITH 2.0 × Antigravity v2.0.0 (Live OTA + Gemini Latest)</span></span>
         <span class="help">동기화 저장소: <span class="mono">zespy2614-jpg/korea-spart-24h-cloud</span></span>
       </div>
     </details>
@@ -3157,6 +3157,21 @@
       addLogNote(`이제 EDITH가 ${label} 모델을 사용합니다.`);
     });
 
+    async function pushKeyToPcServer(k) {
+      if (!k) return;
+      for (const base of ['http://192.168.123.150:3860', 'http://192.168.123.104:3860', '']) {
+        try {
+          await fetch(`${base}/api/config-key`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ apiKey: k, model: state.model }),
+            signal: AbortSignal.timeout(2000)
+          });
+          break;
+        } catch {}
+      }
+    }
+
     saveKeyBtn.addEventListener('click', async () => {
       const k = apiKeyInput.value.trim();
       if (!k) return;
@@ -3167,14 +3182,7 @@
       if (hud.bridge) {
         try { await hud.bridge.setLocalStorage('agy_gemini_api_key', k); } catch {}
       }
-      // Also sync to local PC server if reachable
-      try {
-        await fetch('/api/config-key', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ apiKey: k, model: state.model })
-        });
-      } catch {}
+      void pushKeyToPcServer(k);
       goIdle();
     });
 
