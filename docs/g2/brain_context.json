@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026. 11. 7. PM 9:27:31",
+  "updatedAt": "2026. 11. 7. PM 9:27:45",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 7. PM 9:27:31\n1. PC 안티그래비티 실시간 작업: 최근 8단계 GitHub 동기화됨\n2. 시엔위 & 8개국 크롤링 / 지파츠 40선: 24시간 가동 중\n3. 누적 안경 대화록: 10건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 7. PM 9:27:45\n1. PC 안티그래비티 실시간 작업: 최근 7단계 GitHub 동기화됨\n2. 시엔위 & 8개국 크롤링 / 지파츠 40선: 24시간 가동 중\n3. 누적 안경 대화록: 10건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -214,11 +214,6 @@
     }
   ],
   "livePcAntigravitySession": [
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-07T12:05:05Z",
-      "summary": "스마트폰 **Even 앱 자체의 구조상**, 모래시계(Beta) 탭에서 설치한 비공개(Beta) 앱은 별도의 `업데이트` 버튼이 자동으로 뜨지 않고 **`기존 앱 삭제 → 다시 설치`** 방식으로만 새 버전이 덮어씌워집니다.\n\n앞으로는 매번 삭제·재설치하실 필요가 전혀 없도록, **실시간 무설치 자동 패치(Live OTA)** 기능을 탑재한 메이저 버전 **`v2.0.0`**([public/index.html](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/index.html), [public/live_patch.js](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/live_patch.js), [app.json](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/"
-    },
     {
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-07T12:05:19Z",
