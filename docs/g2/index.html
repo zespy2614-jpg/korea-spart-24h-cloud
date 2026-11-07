@@ -1,2269 +1,2842 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>안티그래비티 × Even G2 마스터 두뇌 허브</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark" />
+  <title>E.D.I.T.H — Antigravity × Even G2</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <style>
+    /* EDITH Original Black & Gold Companion + G2 HUD Mirror */
     :root {
-      --font-samsung-sans: 'Pretendard Variable', Pretendard, 'SamsungOne', 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-      --font-samsung-mono: 'JetBrains Mono', 'Consolas', monospace;
-      --samsung-blue: #1428A0;
-      --oneui-primary: #0381FE;
-      --oneui-primary-hover: #006BEA;
-      --oneui-primary-active: #0056B3;
-      --oneui-primary-soft: rgba(3, 129, 254, 0.10);
-      --oneui-success: #00C853;
-      --oneui-success-soft: rgba(0, 200, 83, 0.12);
-      --oneui-warning: #FFAB00;
-      --oneui-warning-soft: rgba(255, 171, 0, 0.14);
-      --oneui-danger: #FF3B30;
-      --oneui-danger-soft: rgba(255, 59, 48, 0.12);
-
-      --oneui-bg: #F4F4F8;
-      --oneui-bg-alt: #F7F7FA;
-      --oneui-surface: #FFFFFF;
-      --oneui-surface-secondary: #EEEEF3;
-      --oneui-surface-glass: rgba(255, 255, 255, 0.85);
-      --oneui-text-primary: #121212;
-      --oneui-text-secondary: #55555E;
-      --oneui-text-tertiary: #8E8E99;
-      --oneui-divider: rgba(0, 0, 0, 0.06);
-
-      --oneui-radius-card-lg: 28px;
-      --oneui-radius-card: 26px;
-      --oneui-radius-inner: 18px;
-      --oneui-radius-icon: 15px;
-      --oneui-radius-pill: 9999px;
-      --oneui-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    [data-theme="dark"] {
-      --oneui-bg: #000000;
-      --oneui-bg-alt: #0B0B0E;
-      --oneui-surface: #17171C;
-      --oneui-surface-secondary: #22222A;
-      --oneui-surface-glass: rgba(23, 23, 28, 0.84);
-      --oneui-text-primary: #F9F9FB;
-      --oneui-text-secondary: #A0A0AB;
-      --oneui-text-tertiary: #686873;
-      --oneui-divider: rgba(255, 255, 255, 0.08);
-      --oneui-primary-soft: rgba(3, 129, 254, 0.18);
+      color-scheme: dark;
+      --bg: #111111;
+      --surface: #1a1a1a;
+      --surface-elevated: #222222;
+      --text: #ffffff;
+      --dim: #8a8a8a;
+      --input: rgba(255, 255, 255, 0.08);
+      --line: rgba(255, 255, 255, 0.09);
+      --accent: #fef991;
+      --pri: #f5c542;
+      --on-accent: #232323;
+      --green: #3dff9a;
+      --g2-green: #2cff6d;
+      --danger: #ff7a70;
+      --font: 'Pretendard Variable', Pretendard, 'FK Grotesk Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
+      --mono: ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
     }
 
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
       -webkit-tap-highlight-color: transparent;
     }
 
-    body {
-      font-family: var(--font-samsung-sans);
-      background-color: var(--oneui-bg);
-      color: var(--oneui-text-primary);
+    [hidden] {
+      display: none !important;
+    }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.5 var(--font);
+      letter-spacing: -0.01em;
       word-break: keep-all;
       overflow-wrap: break-word;
-      line-height: 1.6;
-      letter-spacing: -0.01em;
-      min-height: 100vh;
-      padding-bottom: 48px;
-      transition: background-color 0.28s var(--oneui-ease-out), color 0.28s var(--oneui-ease-out);
+      -webkit-text-size-adjust: 100%;
+      touch-action: manipulation;
+      overscroll-behavior: none;
     }
 
-    .container {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 18px;
+    button, input, select, textarea {
+      font: inherit;
+      color: inherit;
+      letter-spacing: inherit;
     }
 
-    /* 상단 GNB */
-    .gnb {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: var(--oneui-surface-glass);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--oneui-divider);
-      padding: 12px 0;
-    }
-
-    .gnb-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .brand-group {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .brand-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 13px;
-      background: var(--samsung-blue);
-      color: #FFFFFF;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .brand-title {
-      font-size: 16px;
-      font-weight: 700;
-      letter-spacing: -0.025em;
-    }
-
-    .brand-sub {
-      font-size: 12px;
-      color: var(--oneui-text-secondary);
-      font-weight: 500;
-    }
-
-    .gnb-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    /* Viewing Area */
-    .viewing-area {
-      padding: 26px 0 20px;
-    }
-
-    .status-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-
-    .pill-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 13px;
-      border-radius: var(--oneui-radius-pill);
-      font-size: 12.5px;
-      font-weight: 600;
-      background: var(--oneui-primary-soft);
-      color: var(--oneui-primary);
-    }
-
-    .pill-badge.success {
-      background: var(--oneui-success-soft);
-      color: var(--oneui-success);
-    }
-
-    .pill-badge.warning {
-      background: var(--oneui-warning-soft);
-      color: #D98200;
-    }
-
-    [data-theme="dark"] .pill-badge.warning {
-      color: var(--oneui-warning);
-    }
-
-    .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: currentColor;
-    }
-
-    .hero-title {
-      font-size: clamp(24px, 4vw, 34px);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.22;
-      margin-bottom: 8px;
-    }
-
-    .hero-desc {
-      font-size: 14.5px;
-      color: var(--oneui-text-secondary);
-      max-width: 720px;
-    }
-
-    /* Bento Grid & Focus Block Cards */
-    .bento-grid {
-      display: grid;
-      grid-template-columns: repeat(12, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 16px;
-    }
-
-    .col-12 { grid-column: span 12; }
-    .col-7 { grid-column: span 12; }
-    .col-5 { grid-column: span 12; }
-
-    @media (min-width: 860px) {
-      .col-7 { grid-column: span 7; }
-      .col-5 { grid-column: span 5; }
-    }
-
-    .focus-card {
-      background: var(--oneui-surface);
-      border-radius: var(--oneui-radius-card);
-      padding: 22px;
-      border: 1px solid var(--oneui-divider);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-      transition: transform 0.28s var(--oneui-ease-out), box-shadow 0.28s var(--oneui-ease-out);
-    }
-
-    .card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-
-    .card-title-group {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .squircle-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: var(--oneui-radius-icon);
-      background: var(--oneui-primary-soft);
-      color: var(--oneui-primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .card-title {
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-
-    .card-subtitle {
-      font-size: 12.5px;
-      color: var(--oneui-text-secondary);
-    }
-
-    /* Even G2 576x288 Micro-LED HUD Display Mirror */
-    .g2-display-frame {
-      background: #040A06;
-      border: 2px solid #183622;
-      border-radius: 20px;
-      padding: 16px 18px;
-      aspect-ratio: 2 / 1;
-      max-height: 250px;
-      width: 100%;
+    .shell {
       display: flex;
       flex-direction: column;
+      gap: 20px;
+      max-width: 560px;
+      margin: 0 auto;
+      padding: max(18px, env(safe-area-inset-top)) 18px max(24px, env(safe-area-inset-bottom));
+    }
+
+    /* Header (E.D.I.T.H Top Bar) */
+    .top {
+      display: flex;
+      align-items: center;
       justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .wordmark {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      text-shadow: 0 0 18px rgba(245, 197, 66, 0.28);
+    }
+
+    .tagline {
+      font-size: 12.5px;
+      color: var(--dim);
+      margin-top: 2px;
+    }
+
+    .top-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 13px;
+      border-radius: 999px;
+      background: var(--surface);
+      box-shadow: 0 0 0 1px var(--line);
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .pill .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--dim);
+    }
+
+    .pill[data-state='idle'] .dot {
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+    }
+
+    .pill[data-state='clock'] .dot {
+      background: var(--pri);
+    }
+
+    .pill[data-state='listening'] .dot,
+    .pill[data-state='thinking'] .dot,
+    .pill[data-state='answering'] .dot {
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+      animation: blink 1s ease-in-out infinite;
+    }
+
+    .pill[data-state='error'] .dot,
+    .pill[data-state='setup'] .dot {
+      background: var(--danger);
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Exact Even G2 576x288 3-Box Framed HUD Live Mirror (1-home.png & 2-answer.png 1:1) */
+    .g2-hud-mirror {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 10px;
+      border-radius: 16px;
+      background: #050805;
+      box-shadow: 0 0 0 1px rgba(44, 255, 109, 0.22), inset 0 0 28px rgba(44, 255, 109, 0.04);
+      font-family: var(--mono);
+      color: var(--g2-green);
+      user-select: none;
+    }
+
+    .g2-hud-top-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .g2-box {
+      border: 1.5px solid var(--g2-green);
+      border-radius: 7px;
+      padding: 6px 10px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      line-height: 1.35;
+      text-shadow: 0 0 6px rgba(44, 255, 109, 0.35);
       position: relative;
-      box-shadow: inset 0 0 28px rgba(0, 230, 100, 0.08);
-      font-family: var(--font-samsung-mono), var(--font-samsung-sans);
       overflow: hidden;
     }
 
-    .g2-hud-header {
+    .g2-box-title,
+    .g2-box-status {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 12px;
-      color: #3BF07A;
-      border-bottom: 1px solid rgba(59, 240, 122, 0.25);
-      padding-bottom: 8px;
-      font-weight: 600;
-      letter-spacing: 0.01em;
+      white-space: nowrap;
+      min-height: 34px;
     }
 
-    .g2-hud-body {
-      flex: 1;
-      padding: 12px 0 6px;
-      color: #49FF88;
-      font-size: 14.5px;
-      line-height: 1.55;
+    .g2-box-title::after,
+    .g2-box-status::after {
+      content: '';
+      width: 3px;
+      height: 18px;
+      border-radius: 2px;
+      background: var(--g2-green);
+      opacity: 0.85;
+      flex-shrink: 0;
+      margin-left: 6px;
+    }
+
+    .g2-box-body {
+      min-height: 128px;
+      max-height: 168px;
+      padding: 11px 13px;
       white-space: pre-wrap;
+      font-size: 13.5px;
+      line-height: 1.52;
       overflow-y: auto;
-      text-shadow: 0 0 8px rgba(73, 255, 136, 0.32);
     }
 
-    .g2-hud-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 11px;
-      color: rgba(73, 255, 136, 0.72);
-      padding-top: 6px;
-      border-top: 1px dashed rgba(59, 240, 122, 0.18);
+    .g2-hud-mirror[data-dim='true'] {
+      opacity: 0.48;
     }
 
-    /* Pill Buttons */
-    .btn-pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      border-radius: var(--oneui-radius-pill);
-      padding: 11px 20px;
-      font-size: 14px;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      font-family: inherit;
-      transition: all 0.2s var(--oneui-ease-out);
-      text-decoration: none;
-    }
-
-    .btn-pill:active {
-      transform: scale(0.97);
-    }
-
-    .btn-primary {
-      background: var(--oneui-primary);
-      color: #FFFFFF;
-    }
-
-    .btn-primary:hover {
-      background: var(--oneui-primary-hover);
-    }
-
-    .btn-navy {
-      background: var(--samsung-blue);
-      color: #FFFFFF;
-    }
-
-    .btn-secondary {
-      background: var(--oneui-surface-secondary);
-      color: var(--oneui-text-primary);
-    }
-
-    .btn-danger {
-      background: var(--oneui-danger);
-      color: #FFFFFF;
-    }
-
-    .btn-sm {
-      padding: 7px 14px;
-      font-size: 12.5px;
-    }
-
-    /* Giant Voice Trigger Button */
-    .voice-hero-btn {
-      width: 100%;
-      padding: 18px 24px;
-      border-radius: var(--oneui-radius-pill);
-      background: var(--oneui-primary);
-      color: #FFFFFF;
-      border: none;
-      font-size: 16.5px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      cursor: pointer;
-      box-shadow: 0 8px 24px rgba(3, 129, 254, 0.25);
-      transition: all 0.24s var(--oneui-ease-out);
-      margin-bottom: 14px;
-    }
-
-    .voice-hero-btn.listening {
-      background: var(--oneui-danger);
-      box-shadow: 0 8px 28px rgba(255, 59, 48, 0.35);
-      animation: pulseRing 1.4s infinite;
-    }
-
-    @keyframes pulseRing {
-      0% { transform: scale(1); }
-      50% { transform: scale(0.985); }
-      100% { transform: scale(1); }
-    }
-
-    .hud-controls {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 12px;
-    }
-
-    .hud-controls .btn-pill {
-      flex: 1;
-      min-width: 105px;
-    }
-
-    /* Input group */
-    .input-row {
-      display: flex;
-      gap: 8px;
-      margin-top: 10px;
-    }
-
-    .pill-input {
-      flex: 1;
-      background: var(--oneui-surface-secondary);
-      color: var(--oneui-text-primary);
-      border: 1px solid transparent;
-      border-radius: var(--oneui-radius-pill);
-      padding: 12px 18px;
-      font-size: 14.5px;
-      font-family: inherit;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    .pill-input:focus {
-      border-color: var(--oneui-primary);
-      background: var(--oneui-surface);
-    }
-
-    .select-input {
-      width: 100%;
-      background: var(--oneui-surface-secondary);
-      color: var(--oneui-text-primary);
-      border: 1px solid var(--oneui-divider);
-      border-radius: var(--oneui-radius-inner);
-      padding: 11px 14px;
-      font-size: 14px;
-      font-family: inherit;
-      outline: none;
-      margin-bottom: 10px;
-    }
-
-    /* Chat History List */
-    .chat-list {
+    /* EDITH 3D Gold Network Sphere + Talk Stage */
+    .stage {
+      position: relative;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      max-height: 440px;
-      overflow-y: auto;
-      padding-right: 4px;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 12px 16px;
+      border-radius: 20px;
+      background: radial-gradient(circle at 50% 38%, rgba(245, 197, 66, 0.09), rgba(26, 26, 26, 0.92) 72%);
+      box-shadow: 0 0 0 1px var(--line);
     }
 
-    .chat-item {
-      background: var(--oneui-surface-secondary);
-      border-radius: var(--oneui-radius-inner);
-      padding: 14px 16px;
-      font-size: 14px;
+    .hud-corner {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-color: rgba(245, 197, 66, 0.45);
+      border-style: solid;
+      pointer-events: none;
     }
+    .hud-corner.tl { top: 10px; left: 10px; border-width: 2px 0 0 2px; }
+    .hud-corner.tr { top: 10px; right: 10px; border-width: 2px 2px 0 0; }
+    .hud-corner.bl { bottom: 10px; left: 10px; border-width: 0 0 2px 2px; }
+    .hud-corner.br { bottom: 10px; right: 10px; border-width: 0 2px 2px 0; }
 
-    .chat-item.assistant {
-      background: var(--oneui-primary-soft);
-      border: 1px solid rgba(3, 129, 254, 0.16);
-    }
-
-    .chat-meta {
+    .sphere-wrap {
+      position: relative;
+      width: 220px;
+      height: 220px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      font-size: 11.5px;
-      color: var(--oneui-text-tertiary);
-      margin-bottom: 4px;
-      font-weight: 600;
+      justify-content: center;
     }
 
-    .chat-text {
-      white-space: pre-wrap;
-      line-height: 1.55;
+    #edithSphere {
+      width: 220px;
+      height: 220px;
+      cursor: grab;
+      touch-action: none;
     }
 
-    .info-box {
-      background: var(--oneui-surface-secondary);
-      border-radius: var(--oneui-radius-inner);
-      padding: 14px 16px;
-      font-size: 13px;
-      color: var(--oneui-text-secondary);
-      margin-top: 12px;
+    #edithSphere.grabbing {
+      cursor: grabbing;
     }
 
-    .label-text {
-      display: block;
+    #edithWave {
+      width: 220px;
+      height: 32px;
+      margin-top: -10px;
+    }
+
+    /* EDITH Talk Button */
+    .talk-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .talk {
+      --level: 0;
+      position: relative;
+      width: 118px;
+      height: 118px;
+      border: 1px solid rgba(254, 249, 145, 0.25);
+      border-radius: 50%;
+      background: var(--surface-elevated);
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--accent);
+      cursor: pointer;
+      transition: transform 120ms ease, background-color 160ms ease, color 160ms ease;
+    }
+
+    .talk:active:not(:disabled) {
+      transform: scale(0.95);
+    }
+
+    .talk:disabled {
+      cursor: default;
+      color: var(--dim);
+    }
+
+    .talk-label {
+      position: relative;
+      z-index: 2;
+    }
+
+    .talk-glow {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .talk[data-state='listening'] {
+      background: var(--accent);
+      color: var(--on-accent);
+    }
+
+    .talk[data-state='listening'] .talk-glow {
+      box-shadow: 0 0 0 calc(6px + var(--level) * 24px) rgba(254, 249, 145, 0.35);
+      transition: box-shadow 100ms linear;
+    }
+
+    .talk[data-state='thinking'],
+    .talk[data-state='answering'] {
+      color: var(--accent);
+    }
+
+    .talk[data-state='thinking'] .talk-glow,
+    .talk[data-state='answering'] .talk-glow {
+      inset: -4px;
+      border: 3px solid transparent;
+      border-top-color: var(--accent);
+      animation: spin 900ms linear infinite;
+    }
+
+    .controls {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-align: center;
       font-size: 12.5px;
-      font-weight: 600;
-      color: var(--oneui-text-secondary);
-      margin-bottom: 6px;
+      color: var(--dim);
+      line-height: 1.65;
     }
 
-    .quick-chips {
+    .controls b {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* Specialist / Mode Quick Chips (EDITH style) */
+    .modes {
       display: flex;
       flex-wrap: wrap;
-      gap: 7px;
-      margin-top: 12px;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
     }
 
     .chip {
-      background: var(--oneui-surface-secondary);
-      color: var(--oneui-text-secondary);
-      border: 1px solid var(--oneui-divider);
-      border-radius: var(--oneui-radius-pill);
-      padding: 6px 13px;
+      padding: 7px 13px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--input);
+      color: var(--text);
       font-size: 12.5px;
       font-weight: 500;
       cursor: pointer;
-      transition: all 0.18s;
+      transition: background 0.15s, color 0.15s;
     }
 
-    .chip:hover, .chip:active {
-      background: var(--oneui-primary-soft);
-      color: var(--oneui-primary);
-      border-color: var(--oneui-primary);
+    .chip:hover,
+    .chip[aria-pressed='true'] {
+      background: var(--accent);
+      color: var(--on-accent);
+      font-weight: 600;
+    }
+
+    /* Antigravity Real-Time Sync Bar */
+    .sync-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: var(--surface);
+      box-shadow: 0 0 0 1px var(--line);
+      font-size: 12.5px;
+    }
+
+    .sync-banner-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .sync-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+      flex-shrink: 0;
+    }
+
+    .sync-text {
+      color: var(--dim);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .sync-text b {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* Buttons */
+    .button {
+      padding: 9px 15px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--on-accent);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .button.quiet {
+      background: var(--input);
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .button.sm {
+      padding: 6px 11px;
+      font-size: 11.5px;
+    }
+
+    .button:disabled {
+      opacity: 0.55;
+      cursor: default;
+    }
+
+    /* Saved Chats Drawer (.chats) */
+    .chats {
+      border-radius: 14px;
+      background: var(--surface);
+      box-shadow: 0 0 0 1px var(--line);
+    }
+
+    .chats summary {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      padding: 12px 14px;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .chats summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .chats summary::after {
+      content: '▾';
+      color: var(--dim);
+    }
+
+    .chats[open] summary::after {
+      content: '▴';
+    }
+
+    .chats-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .chats-current {
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .chats-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 0 14px 14px;
+    }
+
+    .chats-tools {
+      display: flex;
+      gap: 8px;
+    }
+
+    /* Conversation Log (.log) */
+    .log {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-height: 80px;
+    }
+
+    .log:empty::before {
+      content: attr(data-empty);
+      color: var(--dim);
+      font-size: 13px;
+      text-align: center;
+      padding: 18px 0;
+    }
+
+    .entry {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .entry .who {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 4px;
+    }
+
+    .entry.edith .who {
+      color: var(--accent);
+    }
+
+    .entry .body {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-size: 15px;
+      line-height: 1.58;
+    }
+
+    .entry.you {
+      align-self: flex-end;
+      max-width: 85%;
+      padding: 10px 14px;
+      border-radius: 16px 16px 4px 16px;
+      background: var(--surface);
+      box-shadow: 0 0 0 1px var(--line);
+    }
+
+    .entry.edith {
+      align-self: flex-start;
+      max-width: 94%;
+      padding: 4px 2px;
+    }
+
+    .meta {
+      margin-top: 6px;
+      font-size: 11.5px;
+      color: var(--dim);
+    }
+
+    .note {
+      align-self: center;
+      max-width: 92%;
+      font-size: 12.5px;
+      color: var(--dim);
+      text-align: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .note.error {
+      color: var(--danger);
+    }
+
+    /* Composer (.compose) */
+    .compose {
+      position: sticky;
+      bottom: 0;
+      z-index: 10;
+      margin: -8px -18px 0;
+      padding: 10px 18px max(12px, env(safe-area-inset-bottom));
+      background: var(--bg);
+    }
+
+    .compose::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 100%;
+      height: 20px;
+      background: linear-gradient(to top, var(--bg), transparent);
+      pointer-events: none;
+    }
+
+    .compose-field {
+      display: flex;
+      gap: 8px;
+      padding: 5px;
+      border-radius: 999px;
+      background: var(--surface);
+      box-shadow: 0 0 0 1px var(--line);
+    }
+
+    .compose-input {
+      flex: 1;
+      min-width: 0;
+      padding: 10px 14px;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .compose-input::placeholder {
+      color: var(--dim);
+    }
+
+    .compose-send {
+      padding: 10px 18px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--on-accent);
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    /* Settings (.settings) */
+    .settings {
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+    }
+
+    .settings summary {
+      cursor: pointer;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--dim);
+      list-style-position: inside;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 16px;
+    }
+
+    .field-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .help {
+      font-size: 12.5px;
+      color: var(--dim);
+      line-height: 1.45;
+    }
+
+    .mono {
+      font-family: var(--mono);
+      font-size: 13px;
+    }
+
+    .field input[type='text'],
+    .field input[type='password'],
+    .field select {
+      padding: 10px 12px;
+      border: 0;
+      border-radius: 10px;
+      background: var(--input);
+      outline: none;
+      width: 100%;
+    }
+
+    .key-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .check {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13.5px;
+      cursor: pointer;
+      margin-top: 4px;
+    }
+
+    .check input {
+      flex: none;
+      width: 18px;
+      height: 18px;
+      margin: 2px 0 0;
+      accent-color: var(--accent);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
     }
   </style>
 </head>
-<body data-theme="dark">
-  <!-- 상단 GNB -->
-  <nav class="gnb">
-    <div class="container gnb-inner">
-      <div class="brand-group">
-        <div class="brand-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="8" width="8" height="6" rx="2"/>
-            <rect x="14" y="8" width="8" height="6" rx="2"/>
-            <path d="M10 11h4"/>
-            <path d="M2 11V9a3 3 0 0 1 3-3"/>
-            <path d="M22 11V9a3 3 0 0 0-3-3"/>
-          </svg>
-        </div>
-        <div>
-          <div class="brand-title">ANTIGRAVITY × EVEN G2</div>
-          <div class="brand-sub">실시간 마스터 두뇌 &amp; 클라우드 양방향 동기화</div>
+<body>
+  <main class="shell">
+    <!-- Top Header -->
+    <header class="top">
+      <div class="brand">
+        <div class="wordmark">E.D.I.T.H</div>
+        <div class="tagline">G2를 위한 음성 비서 · 안티그래비티 에디션</div>
+      </div>
+      <div class="top-right">
+        <div id="statePill" class="pill" data-state="boot">
+          <span class="dot"></span>
+          <span id="statePillLabel">시작 중</span>
         </div>
       </div>
-      <div class="gnb-actions">
-        <button id="themeToggleBtn" class="btn-pill btn-secondary btn-sm" type="button">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="5"/>
-            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-          </svg>
-          <span>테마 전환</span>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <div class="container">
-    <!-- Viewing Area -->
-    <header class="viewing-area">
-      <div class="status-row">
-        <span id="glassesStatusBadge" class="pill-badge">
-          <span class="dot"></span>
-          <span id="glassesStatusText">Even G2 브릿지 탐색 중...</span>
-        </span>
-        <span id="brainSyncBadge" class="pill-badge success">
-          <span class="dot"></span>
-          <span id="brainSyncText">안티그래비티 두뇌 로드 중...</span>
-        </span>
-        <span id="cloudQueueBadge" class="pill-badge">
-          <span id="cloudQueueText">클라우드 영구 저장 활성</span>
-        </span>
-      </div>
-      <h1 class="hero-title">내 안경 속의 안티그래비티 마스터 두뇌</h1>
-      <p class="hero-desc">
-        PC가 꺼져 있을 때도 GitHub 클라우드의 최신 안티그래비티 데이터를 기반으로 대화하며, 모든 대화 내용은 구글 드라이브와 PC(<code>G2_안경_실시간대화록.md</code>)에 자동 저장됩니다.
-      </p>
     </header>
 
-    <!-- Interaction Area (Bento Grid) -->
-    <main class="bento-grid">
-      <!-- 좌측/상단: Even G2 576x288 HUD 프리뷰 & 음성 대화 컨트롤 -->
-      <section class="focus-card col-7">
-        <div class="card-header">
-          <div class="card-title-group">
-            <div class="squircle-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M2 12h20"/>
-                <path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/>
-                <path d="M4 12V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v6"/>
-              </svg>
-            </div>
-            <div>
-              <h2 class="card-title">Even G2 렌즈 실시간 화면 (576 × 288 HUD)</h2>
-              <p class="card-subtitle">평소엔 시계만 표시 · "하이 제미나이" 또는 안경다리 1회 터치 시 대화 · 2회 터치 시 시계 복귀</p>
-            </div>
-          </div>
-          <span id="hudPageIndicator" class="pill-badge success">시계 대기 모드</span>
-        </div>
+    <!-- Exact Even G2 576x288 3-Box Framed HUD Live Mirror -->
+    <section id="g2HudMirror" class="g2-hud-mirror" aria-label="안경 화면 미리보기">
+      <div class="g2-hud-top-row">
+        <div id="hudTitleBox" class="g2-box g2-box-title">◆ E.D.I.T.H  --:--</div>
+        <div id="hudStatusBox" class="g2-box g2-box-status">● 온라인  ■■■■ 100%</div>
+      </div>
+      <div id="hudBodyBox" class="g2-box g2-box-body">초기화 중...</div>
+    </section>
 
-        <!-- G2 Green Micro-LED Display Mirror -->
-        <div class="g2-display-frame">
-          <div class="g2-hud-header">
-            <span id="hudHeaderTitle">19:25  |  BAT --%</span>
-            <span id="hudHeaderMeta">CLOCK STANDBY</span>
-          </div>
-          <div id="hudBodyContent" class="g2-hud-body">[시계 대기 모드 — 안경 렌즈에는 상단 시계만 깨끗하게 표시됩니다]
-"하이 제미나이"라고 부르거나 안경다리를 한 번 터치하면 대화 모드가 켜집니다.
-(안경다리 두 번 터치 시 즉시 꺼지고 시계 화면으로 돌아갑니다)</div>
-          <div class="g2-hud-footer">
-            <span>"하이 제미나이" / 1회 터치: 대화</span>
-            <span>안경다리 2회 터치: 끄기(시계만 표시)</span>
-          </div>
-        </div>
+    <!-- EDITH Interactive 3D Gold Network Sphere + Talk Button Stage -->
+    <section class="stage">
+      <span class="hud-corner tl"></span>
+      <span class="hud-corner tr"></span>
+      <span class="hud-corner bl"></span>
+      <span class="hud-corner br"></span>
 
-        <!-- 페이지 이동 & 안경 화면 전송 컨트롤 -->
-        <div class="hud-controls">
-          <button id="clockStandbyBtn" class="btn-pill btn-secondary btn-sm" type="button">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span>시계 모드로 비우기 (2회 터치)</span>
-          </button>
-          <button id="wakeWordToggleBtn" class="btn-pill btn-primary btn-sm" type="button">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
-            <span id="wakeWordToggleText">"하이 제미나이" 상시 대기: 켜짐</span>
-          </button>
-          <button id="prevPageBtn" class="btn-pill btn-secondary btn-sm" type="button">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
-            <span>이전</span>
-          </button>
-          <button id="nextPageBtn" class="btn-pill btn-secondary btn-sm" type="button">
-            <span>다음</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
-          </button>
-          <button id="pushBriefingBtn" class="btn-pill btn-secondary btn-sm" type="button">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            <span>두뇌 브리핑</span>
-          </button>
-        </div>
+      <div class="sphere-wrap">
+        <canvas id="edithSphere" width="440" height="440" title="드래그하여 회전 · 탭하여 핑"></canvas>
+      </div>
+      <canvas id="edithWave" width="400" height="56"></canvas>
 
-        <hr style="border:none; border-top:1px solid var(--oneui-divider); margin: 18px 0;" />
-
-        <!-- 대형 음성 입력 버튼 -->
-        <button id="voiceAskBtn" class="voice-hero-btn" type="button">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
-            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-            <line x1="12" x2="12" y1="19" y2="22"/>
-          </svg>
-          <span id="voiceAskBtnText">음성으로 질문하기 (안경 마이크 / 폰 마이크)</span>
+      <div class="talk-row">
+        <button id="talkBtn" class="talk" type="button" data-state="idle" aria-label="EDITH에게 말하기">
+          <span class="talk-glow" aria-hidden="true"></span>
+          <span id="talkBtnLabel" class="talk-label">말하기</span>
         </button>
+      </div>
 
-        <!-- 텍스트 직접 질문 입력창 -->
-        <form id="askForm" class="input-row">
-          <input id="questionInput" type="text" class="pill-input" placeholder="안티그래비티 두뇌에게 물어보거나 메모할 내용을 입력하세요..." autocomplete="off" />
-          <button type="submit" class="btn-pill btn-primary">
-            <span>전송</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-          </button>
-        </form>
+      <ul class="controls">
+        <li>안경다리나 링을 <b>길게 누르고</b> 말하기</li>
+        <li><b>탭</b>해서 핸즈프리로 말하기(잠시 멈추면 자동 전송)</li>
+        <li><b>탭한 다음 길게 누르면</b> 안경 메뉴 열기</li>
+        <li><b>두 번 탭</b>해서 시계 대기 모드 전환 또는 종료</li>
+      </ul>
 
-        <!-- 원클릭 빠른 질문 칩 -->
-        <div class="quick-chips">
-          <button type="button" class="chip" data-prompt="현재 내 안티그래비티 폴더에 저장된 핵심 프로젝트와 최근 작업 현황을 안경으로 읽기 좋게 요약해줘.">내 안티그래비티 프로젝트 요약</button>
-          <button type="button" class="chip" data-prompt="시엔위 비즈니스 연구소와 8개국 크롤링 데이터에서 가장 마진이 좋은 핵심 아이템 TOP 5를 브리핑해줘.">크롤링 핵심 아이템 TOP 5</button>
-          <button type="button" class="chip" data-prompt="지파츠 이베이 자동리스팅 주력 재고 현황과 오늘 체크할 포인트를 알려줘.">지파츠 이베이 현황</button>
-          <button type="button" class="chip" data-prompt="내가 방금 떠오른 사업 아이디어인데, 안티그래비티 대화록에 중요 메모로 기록해줘: ">아이디어 즉시 저장</button>
+      <!-- Quick Action & Mode Chips -->
+      <div class="modes">
+        <button type="button" class="chip" id="clockModeChip">시계 대기 모드</button>
+        <button type="button" class="chip" id="subtitlesChip">실시간 자막</button>
+        <button type="button" class="chip" id="translateChip">상대방 말 번역</button>
+        <button type="button" class="chip" data-ask="오늘의 브리핑 해 줘. 내 안티그래비티 프로젝트와 최근 작업 현황을 요약해 줘.">오늘의 브리핑</button>
+        <button type="button" class="chip" data-ask="시엔위 비즈니스 연구소와 8개국 크롤링 데이터 핵심 아이템 현황을 요약해 줘.">크롤링 핵심 요약</button>
+      </div>
+    </section>
+
+    <!-- Antigravity PC <-> GitHub Real-Time Sync Status Bar -->
+    <div class="sync-banner">
+      <div class="sync-banner-left">
+        <span id="syncDot" class="sync-dot"></span>
+        <span id="syncStatusText" class="sync-text"><b>PC 안티그래비티 ↔ GitHub</b> 실시간 동기화 확인 중...</span>
+      </div>
+      <button id="syncNowBtn" type="button" class="button quiet sm">동기화</button>
+    </div>
+
+    <!-- Saved Chats / Quick Prompts -->
+    <details id="chatsDrawer" class="chats">
+      <summary>
+        <span class="chats-label">채팅</span>
+        <span id="currentChatTitle" class="chats-current">안티그래비티 실시간 대화</span>
+      </summary>
+      <div class="chats-panel">
+        <div class="chats-tools">
+          <button id="newChatBtn" class="button sm" type="button">새 채팅</button>
+          <button id="exportMdBtn" class="button quiet sm" type="button">대화록 .md 저장</button>
+          <button id="clearChatBtn" class="button quiet sm" type="button">이 채팅 비우기</button>
         </div>
-      </section>
+        <p class="help">모든 대화는 안경, 휴대폰, PC(<code>e:\안티그래비티\G2_안경_실시간대화록.md</code>), 구글 드라이브, GitHub에 실시간으로 기록됩니다.</p>
+      </div>
+    </details>
 
-      <!-- 우측/하단: AI 최고급 모델 & API 설정 + 두뇌 데이터 동기화 상태 -->
-      <section class="focus-card col-5">
-        <div class="card-header">
-          <div class="card-title-group">
-            <div class="squircle-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-              </svg>
-            </div>
-            <div>
-              <h2 class="card-title">OpenRouter 최고급 두뇌 &amp; GitHub 실시간 연동</h2>
-              <p class="card-subtitle">PC 안티그래비티 작업이 GitHub로 실시간 업로드되며 안경과 양방향 동기화됩니다</p>
-            </div>
-          </div>
-        </div>
+    <!-- Conversation Log -->
+    <section id="chatLog" class="log" aria-live="polite" data-empty="EDITH와의 대화가 여기에 표시됩니다."></section>
 
-        <label class="label-text" for="modelSelect">사용할 최고 성능 AI 모델 (OpenRouter &amp; Gemini 완벽 호환)</label>
-        <select id="modelSelect" class="select-input">
-          <option value="anthropic/claude-sonnet-4">Claude Sonnet 4 (OpenRouter 추천 · 초고성능 올라운더)</option>
-          <option value="anthropic/claude-opus-4">Claude Opus 4 (OpenRouter 최고 지능 · 최상위 심층 추론)</option>
-          <option value="x-ai/grok-3">Grok 3 / 4 (OpenRouter · 비즈니스/소싱/크롤링 특화 추론)</option>
-          <option value="google/gemini-2.5-pro">Gemini 2.5 Pro (OpenRouter · 대용량 두뇌 + 안경 음성 직결)</option>
-          <option value="google/gemini-2.5-flash">Gemini 2.5 Flash (OpenRouter · 0.8초 안경 초고속 즉답)</option>
-          <option value="openai/gpt-4o">GPT-4o (OpenRouter · 범용 플래그십 모델)</option>
-          <option value="gemini-2.5-pro">Google AI Studio 직접 호출 (AIza... 키 전용)</option>
+    <!-- Sticky Bottom Composer -->
+    <form id="composeForm" class="compose" autocomplete="off">
+      <div class="compose-field">
+        <input id="composeInput" class="compose-input" type="text" enterkeyhint="send" placeholder="EDITH에게 입력" aria-label="EDITH에게 입력" />
+        <button id="composeSend" class="compose-send" type="submit">보내기</button>
+      </div>
+    </form>
+
+    <!-- Settings Panel (EDITH style) -->
+    <details id="settingsPanel" class="settings">
+      <summary>설정</summary>
+
+      <div class="field">
+        <span class="field-label">내 AI (OpenRouter &amp; Gemini)</span>
+        <select id="modelSelect" aria-label="AI 모델 선택">
+          <option value="google/gemini-2.5-flash">Google Gemini 2.5 Flash: 가장 빠름, 음성 직결 (추천)</option>
+          <option value="anthropic/claude-sonnet-4">Anthropic Claude Sonnet 4: 초고성능 올라운더 (추천)</option>
+          <option value="anthropic/claude-opus-4">Anthropic Claude Opus 4: 최고 지능, 깊은 추론</option>
+          <option value="google/gemini-2.5-pro">Google Gemini 2.5 Pro: 대용량 두뇌, 깊은 사고</option>
+          <option value="x-ai/grok-3">xAI Grok 3: 실시간 비즈니스/소싱 추론</option>
+          <option value="openai/gpt-4o">OpenAI GPT-4o: 플래그십 범용 모델</option>
+          <option value="deepseek/deepseek-chat-v3-0324">DeepSeek V3: 빠르고 저렴함</option>
         </select>
+        <span class="help">OpenRouter 키 하나로 Gemini, Claude, GPT, Grok을 모두 사용하며, 안경 마이크 음성도 자동 인식합니다.</span>
+      </div>
 
-        <label class="label-text" for="apiKeyInput">OpenRouter API 키 (<code>sk-or-v1-...</code>) 또는 Gemini 키 (1회 저장 시 PC·안경 자동 동기화)</label>
-        <div class="input-row" style="margin-top:0; margin-bottom: 10px;">
-          <input id="apiKeyInput" type="password" class="pill-input" placeholder="sk-or-v1-... (오픈라우터 키) 또는 AIzaSy... 입력" />
-          <button id="saveKeyBtn" type="button" class="btn-pill btn-navy btn-sm">저장 및 안경 동기화</button>
+      <div class="field">
+        <span class="field-label">API 키 (OpenRouter <code>sk-or-v1-...</code> 또는 Gemini <code>AIza...</code>)</span>
+        <div class="key-row">
+          <input id="apiKeyInput" class="mono" dir="ltr" type="password" autocomplete="off" spellcheck="false" placeholder="sk-or-v1-... 또는 AIzaSy... 붙여 넣기" />
+          <button id="saveKeyBtn" class="button" type="button">저장</button>
         </div>
+        <span id="keyStatusHelp" class="help">키는 이 휴대폰과 PC 안티그래비티 서버에 안전하게 동기화됩니다.</span>
+      </div>
 
-        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom: 12px;">
-          <a href="https://openrouter.ai/keys" target="_blank" rel="noopener" class="btn-pill btn-secondary btn-sm">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            <span>OpenRouter 키 발급/복사</span>
-          </a>
-          <button id="refreshBrainBtn" type="button" class="btn-pill btn-secondary btn-sm">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
-            <span>GitHub 실시간 두뇌 지금 읽어오기</span>
-          </button>
-        </div>
+      <div class="field">
+        <span class="field-label">안경 설정</span>
+        <label class="check">
+          <input id="prefFollowUp" type="checkbox" checked />
+          <span>답변 후에도 잠시 계속 들어서 바로 이어 말할 수 있습니다</span>
+        </label>
+        <label class="check">
+          <input id="prefDoubleTapClock" type="checkbox" checked />
+          <span>두 번 탭 시 앱 종료 대신 '시계 대기 화면'으로 먼저 전환 (시계 대기에서 한 번 더 두 번 탭 시 종료)</span>
+        </label>
+        <label class="check">
+          <input id="prefWakeWord" type="checkbox" checked />
+          <span>"하이 제미나이" 또는 "에디스" 음성 호출어 상시 대기</span>
+        </label>
+        <label class="check">
+          <input id="prefDiscreet" type="checkbox" />
+          <span>조용 모드: 안경 화면을 어둡게 (회의나 어두운 곳에서)</span>
+        </label>
+      </div>
 
-        <div id="brainSummaryBox" class="info-box">
-          <strong>실시간 GitHub ↔ PC 안티그래비티 ↔ 안경 동기화 상태:</strong>
-          <div id="brainStatsText" style="margin-top:6px;">GitHub 및 PC 실시간 두뇌 데이터를 불러오는 중입니다...</div>
-        </div>
-      </section>
+      <div class="field">
+        <span class="field-label">나만의 지시 (맞춤 프롬프트)</span>
+        <input id="customInstructionsInput" type="text" placeholder="예: 대표님이라고 불러 줘. 핵심만 간결하게 답해 줘." />
+        <span class="help">EDITH는 모든 답변에서 이 지시와 실시간 PC 안티그래비티 문맥을 함께 따릅니다.</span>
+      </div>
 
-      <!-- 하단 전체: 실시간 대화 내역 (구글 드라이브 & GitHub & PC 자동 저장) -->
-      <section class="focus-card col-12">
-        <div class="card-header">
-          <div class="card-title-group">
-            <div class="squircle-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-              </svg>
-            </div>
-            <div>
-              <h2 class="card-title">안경 실시간 대화록 (PC · 구글 드라이브 · GitHub 자동 저장)</h2>
-              <p class="card-subtitle">여기서 나눈 모든 대화는 <code>e:\안티그래비티\G2_안경_실시간대화록.md</code> 및 구글 드라이브에 자동 기록됩니다</p>
-            </div>
-          </div>
-          <div style="display:flex; gap:8px;">
-            <button id="exportMdBtn" type="button" class="btn-pill btn-secondary btn-sm">대화록 .md 다운로드</button>
-            <button id="clearChatBtn" type="button" class="btn-pill btn-secondary btn-sm">화면 비우기</button>
-          </div>
-        </div>
-
-        <div id="chatList" class="chat-list"></div>
-      </section>
-    </main>
-  </div>
+      <div class="field">
+        <span class="field-label">정보</span>
+        <span class="help">버전: <span class="mono">EDITH 2.0 × Antigravity v1.0.4</span></span>
+        <span class="help">동기화 저장소: <span class="mono">zespy2614-jpg/korea-spart-24h-cloud</span></span>
+      </div>
+    </details>
+  </main>
 
   <script type="module">
     import {
-      waitForEvenAppBridge,
-      OsEventTypeList,
-      StartUpPageCreateResult,
       AudioInputSource,
-      DeviceConnectType
+      AudioSpeakerRole,
+      CreateStartUpPageContainer,
+      ListContainerProperty,
+      ListItemContainerProperty,
+      MenuContainerProperty,
+      MenuItemProperty,
+      OsEventTypeList,
+      RebuildPageContainer,
+      StartUpPageCreateResult,
+      TextContainerProperty,
+      TextContainerUpgrade,
+      waitForEvenAppBridge
     } from './even_hub_sdk.js';
 
-    // 클라우드 실시간 동기화 채널 (PC가 꺼져 있어도 ntfy 서버가 메시지를 큐잉 보관하며, PC가 켜지면 즉시 로컬 & 구글 드라이브 & GitHub로 흡수)
-    const CLOUD_SYNC_TOPIC = 'agy_g2_brain_sync_e3562553';
-    const CLOUD_SYNC_URL = `https://ntfy.sh/${CLOUD_SYNC_TOPIC}`;
-    const GITHUB_BRAIN_URL = 'https://zespy2614-jpg.github.io/korea-spart-24h-cloud/g2/brain_context.json';
-
-    const state = {
-      bridge: null,
-      isGlassesReady: false,
-      startupCreated: false,
-      batteryLevel: null,
-      apiKey: localStorage.getItem('agy_gemini_api_key') || '',
-      model: localStorage.getItem('agy_gemini_model') || 'anthropic/claude-sonnet-4',
-      brainContext: null,
-      // HUD 모드: 'CLOCK_STANDBY' (시계만 표시) | 'LISTENING' (대화 듣기) | 'CONVERSATION' (답변 표시) | 'SCREEN_OFF' (완전 끄기)
-      hudMode: 'CLOCK_STANDBY',
-      hudPages: [''],
-      currentPageIdx: 0,
-      hudTitle: '',
-      isListening: false,
-      wakeWordEnabled: true,
-      recognition: null,
-      lastTapTime: 0,
-      singleTapTimer: null,
-      // 안경 내장 마이크(PCM) 버퍼 및 음성 감지(VAD) 상태
-      pcmChunks: [],
-      pcmBytesLen: 0,
-      vadSpeaking: false,
-      vadSpeechStartAt: 0,
-      vadLastVoiceAt: 0,
-      isProcessingAudio: false,
-      messages: JSON.parse(localStorage.getItem('agy_g2_messages') || '[]')
-    };
-
-    // DOM Elements
-    const glassesStatusBadge = document.getElementById('glassesStatusBadge');
-    const glassesStatusText = document.getElementById('glassesStatusText');
-    const brainSyncBadge = document.getElementById('brainSyncBadge');
-    const brainSyncText = document.getElementById('brainSyncText');
-    const cloudQueueText = document.getElementById('cloudQueueText');
-    const hudHeaderTitle = document.getElementById('hudHeaderTitle');
-    const hudHeaderMeta = document.getElementById('hudHeaderMeta');
-    const hudBodyContent = document.getElementById('hudBodyContent');
-    const hudPageIndicator = document.getElementById('hudPageIndicator');
-    const voiceAskBtn = document.getElementById('voiceAskBtn');
-    const voiceAskBtnText = document.getElementById('voiceAskBtnText');
-    const clockStandbyBtn = document.getElementById('clockStandbyBtn');
-    const wakeWordToggleBtn = document.getElementById('wakeWordToggleBtn');
-    const wakeWordToggleText = document.getElementById('wakeWordToggleText');
-    const askForm = document.getElementById('askForm');
-    const questionInput = document.getElementById('questionInput');
-    const apiKeyInput = document.getElementById('apiKeyInput');
-    const saveKeyBtn = document.getElementById('saveKeyBtn');
-    const modelSelect = document.getElementById('modelSelect');
-    const brainStatsText = document.getElementById('brainStatsText');
-    const chatList = document.getElementById('chatList');
-
-    apiKeyInput.value = state.apiKey;
-    modelSelect.value = state.model;
-
-    // 테마 전환
-    document.getElementById('themeToggleBtn').addEventListener('click', () => {
-      const cur = document.body.getAttribute('data-theme');
-      document.body.setAttribute('data-theme', cur === 'dark' ? 'light' : 'dark');
-    });
-
-    // 현재 한국 시간 시계 문자열 생성 (예: "오후 07:28" 및 "19:28")
-    function getKoreanClockStr() {
-      const now = new Date();
-      return now.toLocaleTimeString('ko-KR', {
-        timeZone: 'Asia/Seoul',
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: true
-      });
-    }
-
-    function getClockHeaderForGlasses() {
-      const clock = getKoreanClockStr();
-      const bat = state.batteryLevel !== null ? `  |  ${state.batteryLevel}%` : '';
-      return `${clock}${bat}`;
-    }
-
-    // 안경 화면용 텍스트 페이지 분할 (576x288 해상도에 맞춰 한 페이지당 약 130자 / 5줄 이내로 깔끔하게 분할)
-    function paginateForGlasses(text) {
-      const clean = String(text || '').replace(/\*\*/g, '').replace(/`/g, '').trim();
-      if (!clean) return [' '];
-
-      const lines = clean.split('\n');
-      const pages = [];
-      let currentLines = [];
-      let currentLen = 0;
-
-      for (const rawLine of lines) {
-        const line = rawLine.trim();
-        if (!line) {
-          if (currentLines.length > 0 && currentLines.length < 5) {
-            currentLines.push('');
-          }
-          continue;
-        }
-        const chunks = [];
-        for (let i = 0; i < line.length; i += 28) {
-          chunks.push(line.slice(i, i + 28));
-        }
-        for (const chunk of chunks) {
-          if (currentLines.length >= 5 || (currentLen + chunk.length) > 135) {
-            pages.push(currentLines.join('\n'));
-            currentLines = [chunk];
-            currentLen = chunk.length;
-          } else {
-            currentLines.push(chunk);
-            currentLen += chunk.length;
-          }
-        }
-      }
-      if (currentLines.length > 0) {
-        pages.push(currentLines.join('\n'));
-      }
-      return pages.length > 0 ? pages : [clean.slice(0, 130)];
-    }
-
-    // 1) 시계 대기 모드(CLOCK_STANDBY): 안경에는 오직 상단 시계만 표시하고 본문은 완전히 비움!
-    async function enterClockStandbyMode() {
-      state.hudMode = 'CLOCK_STANDBY';
-      state.isListening = false;
-      state.pcmChunks = [];
-      state.pcmBytesLen = 0;
-      state.vadSpeaking = false;
-
-      voiceAskBtn.classList.remove('listening');
-      voiceAskBtnText.textContent = '음성으로 질문하기 ("하이 제미나이" 또는 안경다리 1회 터치)';
-
-      const clockHeader = getClockHeaderForGlasses();
-      hudHeaderTitle.textContent = clockHeader;
-      hudHeaderMeta.textContent = state.wakeWordEnabled ? '시계 대기 ("하이 제미나이" 대기 중)' : '시계 대기 모드';
-      hudBodyContent.textContent =
-        `[시계 대기 모드 — 현재 안경 렌즈에는 상단 시계(${clockHeader})만 깨끗하게 표시됩니다]\n` +
-        `• "하이 제미나이"라고 부르거나 안경다리를 한 번 터치하면 대화 모드가 켜집니다.\n` +
-        `• 대화 중 안경다리를 두 번 터치하면 언제든 이 시계 화면으로 돌아옵니다.`;
-      hudPageIndicator.className = 'pill-badge success';
-      hudPageIndicator.textContent = '시계 대기 모드';
-
-      if (state.bridge && state.startupCreated) {
-        try {
-          await state.bridge.textContainerUpgrade({
-            containerID: 1,
-            containerName: 'agy_header',
-            content: clockHeader,
-            textColor: 4
-          });
-          await state.bridge.textContainerUpgrade({
-            containerID: 2,
-            containerName: 'agy_body',
-            content: ' ',
-            textColor: 0
-          });
-        } catch (err) {
-          console.warn('[G2 Clock Standby Error]:', err);
-        }
-      }
-
-      // 상시 호출어("하이 제미나이") 대기 유지
-      ensureWakeWordStandbyActive();
-    }
-
-    // 2) 완전 화면 끄기 모드(SCREEN_OFF): 시계 대기 상태에서 한 번 더 더블터치 시 시계까지 소등
-    async function enterScreenOffMode() {
-      state.hudMode = 'SCREEN_OFF';
-      state.isListening = false;
-
-      hudHeaderTitle.textContent = '화면 꺼짐 (절전)';
-      hudHeaderMeta.textContent = 'SCREEN OFF';
-      hudBodyContent.textContent = '[안경 렌즈 화면이 완전히 꺼졌습니다]\n안경다리를 터치하거나 "하이 제미나이"라고 부르면 다시 켜집니다.';
-      hudPageIndicator.className = 'pill-badge';
-      hudPageIndicator.textContent = '화면 꺼짐';
-
-      if (state.bridge && state.startupCreated) {
-        try {
-          await state.bridge.textContainerUpgrade({
-            containerID: 1,
-            containerName: 'agy_header',
-            content: ' ',
-            textColor: 0
-          });
-          await state.bridge.textContainerUpgrade({
-            containerID: 2,
-            containerName: 'agy_body',
-            content: ' ',
-            textColor: 0
-          });
-        } catch (err) {}
-      }
-    }
-
-    // 3) 대화/답변 모드(LISTENING / CONVERSATION): 안경 렌즈 및 화면 미러 동시 업데이트
-    async function renderHudToGlasses(title, fullText, resetPage = true, modeOverride = 'CONVERSATION') {
-      state.hudMode = modeOverride;
-      if (title) state.hudTitle = title;
-      if (fullText !== null && fullText !== undefined) {
-        state.hudPages = paginateForGlasses(fullText);
-        if (resetPage) state.currentPageIdx = 0;
-      }
-      if (state.currentPageIdx >= state.hudPages.length) {
-        state.currentPageIdx = state.hudPages.length - 1;
-      }
-      if (state.currentPageIdx < 0) state.currentPageIdx = 0;
-
-      const pageText = state.hudPages[state.currentPageIdx] || ' ';
-      const pageMeta = `${state.currentPageIdx + 1}/${state.hudPages.length}`;
-      const clockStr = getKoreanClockStr();
-      const headerStr = `${clockStr} | ${state.hudTitle} (${pageMeta})`;
-
-      // 웹 미러 UI 업데이트
-      hudHeaderTitle.textContent = `${clockStr} | ${state.hudTitle}`;
-      hudHeaderMeta.textContent = `PAGE ${pageMeta} (두 번 터치: 끄기)`;
-      hudBodyContent.textContent = pageText;
-      hudPageIndicator.className = 'pill-badge';
-      hudPageIndicator.textContent = `${state.currentPageIdx + 1} / ${state.hudPages.length} 페이지`;
-
-      // 실제 Even G2 안경 하드웨어 전송
-      if (state.bridge && state.startupCreated) {
-        try {
-          await state.bridge.textContainerUpgrade({
-            containerID: 1,
-            containerName: 'agy_header',
-            content: headerStr,
-            textColor: 4
-          });
-          await state.bridge.textContainerUpgrade({
-            containerID: 2,
-            containerName: 'agy_body',
-            content: pageText,
-            textColor: 4
-          });
-        } catch (err) {
-          console.warn('[G2 HUD Upgrade Error]:', err);
-        }
-      }
-    }
-
-    // 매 15초마다 시계 대기 모드일 때 안경 상단 시계 자동 갱신
-    setInterval(() => {
-      if (state.hudMode === 'CLOCK_STANDBY') {
-        const clockHeader = getClockHeaderForGlasses();
-        hudHeaderTitle.textContent = clockHeader;
-        if (state.bridge && state.startupCreated) {
-          state.bridge.textContainerUpgrade({
-            containerID: 1,
-            containerName: 'agy_header',
-            content: clockHeader,
-            textColor: 4
-          }).catch(() => {});
-        }
-      }
-    }, 15000);
-
-    // EvenHub 이벤트에서 OS 이벤트 타입(클릭/더블클릭/스크롤/롱프레스) 통합 추출
-    function extractOsEventType(event) {
-      if (!event) return undefined;
-      const raw =
-        event.sysEvent?.eventType ??
-        event.textEvent?.eventType ??
-        event.listEvent?.eventType ??
-        event.jsonData?.eventType ??
-        event.jsonData?.Event_Type ??
-        event.jsonData?.event_type;
-
-      if (raw === undefined || raw === null) {
-        // 만약 textEvent 객체만 오고 eventType이 비어있다면 기본 클릭(0)으로 처리
-        if (event.textEvent) return OsEventTypeList.CLICK_EVENT;
-        return undefined;
-      }
-      if (typeof OsEventTypeList?.fromJson === 'function') {
-        const parsed = OsEventTypeList.fromJson(raw);
-        if (parsed !== undefined) return parsed;
-      }
-      const num = Number(raw);
-      if (Number.isFinite(num)) return num;
-      const s = String(raw).toUpperCase();
-      if (s.includes('DOUBLE')) return OsEventTypeList.DOUBLE_CLICK_EVENT; // 3
-      if (s.includes('LONG_PRESS_RELEASE')) return OsEventTypeList.LONG_PRESS_RELEASE_EVENT; // 10
-      if (s.includes('LONG')) return OsEventTypeList.LONG_PRESS_EVENT; // 9
-      if (s.includes('SCROLL_TOP') || s.includes('UP')) return OsEventTypeList.SCROLL_TOP_EVENT; // 1
-      if (s.includes('SCROLL_BOTTOM') || s.includes('DOWN')) return OsEventTypeList.SCROLL_BOTTOM_EVENT; // 2
-      if (s.includes('CLICK')) return OsEventTypeList.CLICK_EVENT; // 0
-      return undefined;
-    }
-
-    // 안경다리 두 번 터치(더블탭): 대화창을 즉시 끄고 시계 대기 화면으로 복귀!
-    async function handleGlassesDoubleTap() {
-      if (state.singleTapTimer) {
-        clearTimeout(state.singleTapTimer);
-        state.singleTapTimer = null;
-      }
-      if (state.hudMode === 'LISTENING' || state.hudMode === 'CONVERSATION') {
-        await enterClockStandbyMode();
-      } else if (state.hudMode === 'CLOCK_STANDBY') {
-        await enterScreenOffMode();
-      } else {
-        await enterClockStandbyMode();
-      }
-    }
-
-    // 안경다리 한 번 터치(싱글탭):
-    // - 시계 대기 상태에서는 즉시 [제미나이 대화 모드] 호출! (길게 누르면 자체 Even AI가 켜지므로 1회 터치로 호출)
-    // - 대화 듣기 상태에서는 말한 내용을 즉시 전송!
-    // - 답변 표시 상태에서는 다음 페이지로 넘기거나(마지막 페이지면) 추가 질문 듣기 시작!
-    async function handleGlassesSingleTap() {
-      if (state.hudMode === 'SCREEN_OFF') {
-        await enterClockStandbyMode();
-        return;
-      }
-      if (state.hudMode === 'CLOCK_STANDBY') {
-        await startConversationListening();
-        return;
-      }
-      if (state.hudMode === 'LISTENING') {
-        if (state.pcmBytesLen > 6400) {
-          await finalizeGlassesPcmQuestion();
-        } else {
-          await enterClockStandbyMode();
-        }
-        return;
-      }
-      if (state.hudMode === 'CONVERSATION') {
-        if (state.currentPageIdx < state.hudPages.length - 1) {
-          moveHudPage(1);
-        } else {
-          // 마지막 페이지에서 한 번 터치하면 바로 이어서 음성 질문 가능!
-          await startConversationListening();
-        }
-      }
-    }
-
-    // Even G2 공식 브릿지 초기화
-    async function initEvenG2Bridge() {
-      try {
-        const timeoutPromise = new Promise((_, reject) =>
-          setTimeout(() => reject(new Error('BROWSER_SIMULATOR_MODE')), 1800)
-        );
-        const bridge = await Promise.race([waitForEvenAppBridge(), timeoutPromise]);
-        state.bridge = bridge;
-        state.isGlassesReady = true;
-
-        glassesStatusBadge.className = 'pill-badge success';
-        glassesStatusText.textContent = 'Even G2 안경 공식 브릿지 연결됨';
-
-        // 저장된 API 키 복원
-        try {
-          const savedKey = await bridge.getLocalStorage('agy_gemini_api_key');
-          if (savedKey && !state.apiKey) {
-            state.apiKey = savedKey;
-            apiKeyInput.value = savedKey;
-            localStorage.setItem('agy_gemini_api_key', savedKey);
-          }
-        } catch (e) {}
-
-        // 기기 배터리 및 상태 조회
-        try {
-          const devInfo = await bridge.getDeviceInfo();
-          if (devInfo && devInfo.status && devInfo.status.batteryLevel !== undefined) {
-            state.batteryLevel = devInfo.status.batteryLevel;
-          }
-        } catch (e) {}
-
-        bridge.onDeviceStatusChanged((status) => {
-          if (status && status.batteryLevel !== undefined) {
-            state.batteryLevel = status.batteryLevel;
-            if (state.hudMode === 'CLOCK_STANDBY') {
-              enterClockStandbyMode();
-            } else if (state.hudMode === 'CONVERSATION') {
-              renderHudToGlasses(null, null, false, 'CONVERSATION');
-            }
-          }
-        });
-
-        // 안경 초기 컨테이너 생성 (처음부터 환영 문구 없이 깔끔한 시계 대기 모드로 시작!)
-        const initialClock = getClockHeaderForGlasses();
-        const createRes = await bridge.createStartUpPageContainer({
-          containerTotalNum: 2,
-          textObject: [
-            {
-              xPosition: 16,
-              yPosition: 8,
-              width: 544,
-              height: 34,
-              containerID: 1,
-              containerName: 'agy_header',
-              zOrderIndex: 1,
-              content: initialClock,
-              textColor: 4,
-              isEventCapture: 0
-            },
-            {
-              xPosition: 16,
-              yPosition: 46,
-              width: 544,
-              height: 230,
-              containerID: 2,
-              containerName: 'agy_body',
-              zOrderIndex: 2,
-              content: ' ',
-              textColor: 0,
-              isEventCapture: 1
-            }
-          ],
-          menuObject: {
-            menuItems: [
-              { itemID: 1, itemName: '제미나이 대화' },
-              { itemID: 2, itemName: '시계 화면 복귀' },
-              { itemID: 3, itemName: '다음 페이지' },
-              { itemID: 4, itemName: '두뇌 브리핑' }
-            ]
-          }
-        });
-
-        if (createRes === StartUpPageCreateResult.success || createRes === 0 || createRes === 'success') {
-          state.startupCreated = true;
-          await enterClockStandbyMode();
-        }
-
-        // 안경 내장 마이크(BLE PCM) 활성화 (상시 "하이 제미나이" 및 음성 질문 수신용)
-        try {
-          await bridge.audioControl(true, AudioInputSource.Glasses);
-        } catch (e) {}
-
-        // 안경 다리 터치패드 / 마이크 오디오 / 컨텍스트 메뉴 이벤트 리스너
-        bridge.onEvenHubEvent((event) => {
-          // 1) 안경 마이크 실시간 PCM 오디오 프레임 처리
-          if (event.audioEvent && event.audioEvent.audioPcm) {
-            handleGlassesAudioPcmFrame(event.audioEvent);
-            return;
-          }
-
-          // 2) 컨텍스트 메뉴 클릭
-          if (event.menuItemClickEvent) {
-            const id = event.menuItemClickEvent.itemID;
-            if (id === 1) startConversationListening();
-            else if (id === 2) enterClockStandbyMode();
-            else if (id === 3) moveHudPage(1);
-            else if (id === 4) showBrainBriefingOnGlasses();
-            return;
-          }
-
-          // 3) 안경다리 터치 / 더블터치 / 스크롤 이벤트 처리
-          const evType = extractOsEventType(event);
-          if (evType === undefined) return;
-
-          // 더블 클릭 이벤트(3) 수신 시 즉시 시계 대기 모드로 끄기
-          if (evType === OsEventTypeList.DOUBLE_CLICK_EVENT || evType === 3) {
-            handleGlassesDoubleTap();
-            return;
-          }
-
-          // 싱글 클릭 이벤트(0) 수신 시: 420ms 이내 연속 2회 터치면 더블탭으로 처리!
-          if (evType === OsEventTypeList.CLICK_EVENT || evType === 0) {
-            const now = Date.now();
-            if (now - state.lastTapTime < 420) {
-              state.lastTapTime = 0;
-              handleGlassesDoubleTap();
-              return;
-            }
-            state.lastTapTime = now;
-            if (state.singleTapTimer) clearTimeout(state.singleTapTimer);
-            state.singleTapTimer = setTimeout(() => {
-              state.singleTapTimer = null;
-              handleGlassesSingleTap();
-            }, 360);
-            return;
-          }
-
-          // 스크롤 이벤트(1, 2): 답변 페이지 이동 또는 대기 모드에서 대화 깨우기
-          if (evType === OsEventTypeList.SCROLL_TOP_EVENT || evType === 1) {
-            if (state.hudMode === 'CONVERSATION') moveHudPage(-1);
-            return;
-          }
-          if (evType === OsEventTypeList.SCROLL_BOTTOM_EVENT || evType === 2) {
-            if (state.hudMode === 'CONVERSATION') moveHudPage(1);
-            return;
-          }
-
-          // 혹시 롱프레스(9)가 앱으로 들어오는 경우에도 대화 모드로 연결
-          if (evType === OsEventTypeList.LONG_PRESS_EVENT || evType === 9) {
-            startConversationListening();
-          }
-        });
-      } catch (err) {
-        glassesStatusBadge.className = 'pill-badge warning';
-        glassesStatusText.textContent = '시뮬레이터 & 스마트폰 웹 모드 (Even 앱 실행 시 안경 직결)';
-        enterClockStandbyMode();
-      }
-    }
-
-    function moveHudPage(delta) {
-      if (state.hudPages.length <= 1) return;
-      state.currentPageIdx = (state.currentPageIdx + delta + state.hudPages.length) % state.hudPages.length;
-      renderHudToGlasses(null, null, false, 'CONVERSATION');
-    }
-
-    document.getElementById('prevPageBtn').addEventListener('click', () => moveHudPage(-1));
-    document.getElementById('nextPageBtn').addEventListener('click', () => moveHudPage(1));
-    clockStandbyBtn.addEventListener('click', () => enterClockStandbyMode());
-
-    wakeWordToggleBtn.addEventListener('click', () => {
-      state.wakeWordEnabled = !state.wakeWordEnabled;
-      wakeWordToggleBtn.className = state.wakeWordEnabled
-        ? 'btn-pill btn-primary btn-sm'
-        : 'btn-pill btn-secondary btn-sm';
-      wakeWordToggleText.textContent = state.wakeWordEnabled
-        ? '"하이 제미나이" 상시 대기: 켜짐'
-        : '"하이 제미나이" 상시 대기: 꺼짐';
-      if (state.wakeWordEnabled) {
-        ensureWakeWordStandbyActive();
-      } else if (state.recognition && state.hudMode === 'CLOCK_STANDBY') {
-        try { state.recognition.stop(); } catch (e) {}
-      }
-    });
-
-    const LOCAL_PC_API_BASE = 'http://192.168.123.150:3860';
-    const GITHUB_RAW_BRAIN_URL = 'https://raw.githubusercontent.com/zespy2614-jpg/korea-spart-24h-cloud/main/docs/g2/brain_context.json';
-    const GITHUB_API_BRAIN_URL = 'https://api.github.com/repos/zespy2614-jpg/korea-spart-24h-cloud/contents/docs/g2/brain_context.json';
-
-    // OpenRouter / Gemini 키 암호화 동기화 헬퍼 (GitHub Secret 노출 없이 PC ↔ 안경 앱 간 키 자동 전달)
-    function xorObfuscateKey(rawKey, salt = 'agy_g2_salt_2026') {
-      if (!rawKey) return '';
-      const enc = new TextEncoder();
-      const kBytes = enc.encode(rawKey);
-      const sBytes = enc.encode(salt);
-      const out = new Uint8Array(kBytes.length);
-      for (let i = 0; i < kBytes.length; i++) {
-        out[i] = kBytes[i] ^ sBytes[i % sBytes.length];
-      }
-      let bin = '';
-      for (let i = 0; i < out.length; i++) bin += String.fromCharCode(out[i]);
-      return btoa(bin);
-    }
-
-    function xorDeobfuscateKey(b64, salt = 'agy_g2_salt_2026') {
-      if (!b64) return '';
-      try {
-        const bin = atob(b64);
-        const sBytes = new TextEncoder().encode(salt);
-        const out = new Uint8Array(bin.length);
-        for (let i = 0; i < bin.length; i++) {
-          out[i] = bin.charCodeAt(i) ^ sBytes[i % sBytes.length];
-        }
-        return new TextDecoder().decode(out);
-      } catch (e) {
-        return '';
-      }
-    }
-
-    async function applySyncedApiKeyIfNeeded(obfuscatedKey, preferredModel) {
-      if (!obfuscatedKey) return;
-      const decoded = xorDeobfuscateKey(obfuscatedKey);
-      if (decoded && (decoded.startsWith('sk-or-') || decoded.startsWith('AIza')) && decoded !== state.apiKey) {
-        state.apiKey = decoded;
-        apiKeyInput.value = decoded;
-        localStorage.setItem('agy_gemini_api_key', decoded);
-        if (preferredModel) {
-          state.model = preferredModel;
-          modelSelect.value = preferredModel;
-          localStorage.setItem('agy_gemini_model', preferredModel);
-        }
-        if (state.bridge) {
-          try { await state.bridge.setLocalStorage('agy_gemini_api_key', decoded); } catch (e) {}
-        }
-      }
-    }
-
-    // ntfy 채널에서 PC가 보낸 OpenRouter API 키 동기화 패킷 확인
-    async function pollCloudKeySync() {
-      if (state.apiKey) return;
-      try {
-        const res = await fetch(`${CLOUD_SYNC_URL}/json?poll=1&since=all`, { cache: 'no-store' });
-        if (!res.ok) return;
-        const text = await res.text();
-        const lines = text.split('\n').filter(Boolean).reverse();
-        for (const line of lines) {
-          try {
-            const evt = JSON.parse(line);
-            if (evt.title === 'AGY_G2_KEY_SYNC' && evt.message) {
-              const kp = JSON.parse(evt.message);
-              if (kp && kp.obfuscatedKey) {
-                await applySyncedApiKeyIfNeeded(kp.obfuscatedKey, kp.model);
-                break;
-              }
-            }
-          } catch (e) {}
-        }
-      } catch (e) {}
-    }
-
-    // 안티그래비티 마스터 두뇌 데이터 실시간 로드 (로컬 PC 실시간 -> GitHub Raw 실시간 -> GitHub API 실시간 -> GitHub Pages)
-    async function loadAntigravityBrain(silent = false) {
-      if (!silent) {
-        brainSyncText.textContent = 'GitHub · PC 실시간 두뇌 동기화 중...';
-      }
-      const ts = Date.now();
-      const sources = [
-        { url: `${LOCAL_PC_API_BASE}/api/brain?t=${ts}`, headers: {} },
-        { url: `/api/brain?t=${ts}`, headers: {} },
-        { url: `${GITHUB_RAW_BRAIN_URL}?t=${ts}`, headers: {} },
-        { url: `${GITHUB_API_BRAIN_URL}?t=${ts}`, headers: { 'Accept': 'application/vnd.github.v3.raw' } },
-        { url: `${GITHUB_BRAIN_URL}?t=${ts}`, headers: {} },
-        { url: `./brain_context.json?t=${ts}`, headers: {} }
-      ];
-
-      for (const src of sources) {
-        try {
-          const controller = new AbortController();
-          const timer = setTimeout(() => controller.abort(), 1900);
-          const res = await fetch(src.url, {
-            cache: 'no-store',
-            headers: src.headers,
-            signal: controller.signal
-          });
-          clearTimeout(timer);
-          if (res.ok) {
-            const data = await res.json();
-            if (data && data.updatedAt) {
-              state.brainContext = data;
-              localStorage.setItem('agy_cached_brain', JSON.stringify(data));
-              if (data.obfuscatedKey) {
-                await applySyncedApiKeyIfNeeded(data.obfuscatedKey, data.preferredModel);
-              }
-              updateBrainUi(data, false);
-              return data;
-            }
-          }
-        } catch (e) {}
-      }
-
-      const cached = localStorage.getItem('agy_cached_brain');
-      if (cached) {
-        try {
-          state.brainContext = JSON.parse(cached);
-          updateBrainUi(state.brainContext, true);
-          return state.brainContext;
-        } catch (e) {}
-      }
-      brainSyncText.textContent = '기본 안티그래비티 두뇌 활성';
-      return null;
-    }
-
-    function updateBrainUi(data, isCached = false) {
-      const syncedAt = data.updatedAt || '-';
-      brainSyncBadge.className = 'pill-badge success';
-      brainSyncText.textContent = isCached
-        ? `오프라인 캐시 두뇌 (${syncedAt})`
-        : `GitHub · PC 실시간 두뇌 연동 (${syncedAt})`;
-
-      const fileCount = (data.workspaceFiles || []).length;
-      const ideStepCount = (data.livePcAntigravitySession || []).length;
-      const docCount = (data.recentWorkspaceDocs || []).length;
-      brainStatsText.innerHTML =
-        `• 최종 GitHub 실시간 동기화: <b>${syncedAt}</b><br/>` +
-        `• PC 안티그래비티 실시간 대화/작업: <b>최근 ${ideStepCount}단계</b> 실시간 반영됨<br/>` +
-        `• 워크스페이스 최근 수정 문서: <b>${docCount}개</b> 핵심 파일 (총 ${fileCount}개 폴더/파일)<br/>` +
-        `• 양방향 업로드 경로: <code>GitHub (docs/g2/G2_안경_실시간대화록.md)</code> &amp; <code>e:\\안티그래비티</code>`;
-
-      if (Array.isArray(data.recentConversations) && data.recentConversations.length > 0 && state.messages.length === 0) {
-        state.messages = data.recentConversations.slice(-30);
-        localStorage.setItem('agy_g2_messages', JSON.stringify(state.messages));
-        renderChatList();
-      }
-    }
-
-    async function showBrainBriefingOnGlasses() {
-      await loadAntigravityBrain(true);
-      if (!state.brainContext) {
-        renderHudToGlasses('[두뇌 브리핑]', '아직 두뇌 데이터를 불러오지 못했습니다.', true, 'CONVERSATION');
-        return;
-      }
-      const summary = state.brainContext.briefingForGlasses ||
-        `[안티그래비티 실시간 브리핑]\n동기화: ${state.brainContext.updatedAt}\n핵심 프로젝트: ${(state.brainContext.coreProjects || []).map(p => p.name).join(', ')}`;
-      renderHudToGlasses('[두뇌 브리핑]', summary, true, 'CONVERSATION');
-    }
-
-    document.getElementById('pushBriefingBtn').addEventListener('click', showBrainBriefingOnGlasses);
-    document.getElementById('refreshBrainBtn').addEventListener('click', async () => {
-      try {
-        await fetch('/api/force-github-sync', { method: 'POST' }).catch(() => {});
-      } catch (e) {}
-      await loadAntigravityBrain(false);
-    });
-
-    // 20초마다 백그라운드에서 GitHub의 최신 PC 안티그래비티 정보를 자동으로 읽어들이기
-    setInterval(() => {
-      loadAntigravityBrain(true);
-      pollCloudKeySync();
-    }, 20000);
-
-    // OpenRouter / Gemini API 키 및 최고 성능 모델 저장 (PC와 안경 양방향 자동 동기화)
-    saveKeyBtn.addEventListener('click', async () => {
-      const key = apiKeyInput.value.trim();
-      state.apiKey = key;
-      state.model = modelSelect.value;
-      localStorage.setItem('agy_gemini_api_key', key);
-      localStorage.setItem('agy_gemini_model', state.model);
-      if (state.bridge) {
-        try {
-          await state.bridge.setLocalStorage('agy_gemini_api_key', key);
-        } catch (e) {}
-      }
-
-      // PC 서버 및 ntfy 암호화 채널로도 동기화하여 폰/안경에서 다시 치지 않아도 자동 적용!
-      for (const cfgUrl of [`${LOCAL_PC_API_BASE}/api/config-key`, '/api/config-key']) {
-        try {
-          await fetch(cfgUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ apiKey: key, model: state.model })
-          });
-          break;
-        } catch (e) {}
-      }
-
-      if (key) {
-        try {
-          await fetch(CLOUD_SYNC_URL, {
-            method: 'POST',
-            headers: { 'Title': 'AGY_G2_KEY_SYNC' },
-            body: JSON.stringify({
-              obfuscatedKey: xorObfuscateKey(key),
-              model: state.model,
-              timestamp: new Date().toLocaleString('ko-KR')
-            })
-          });
-        } catch (e) {}
-      }
-
-      const keyTypeStr = key.startsWith('sk-or-') ? 'OpenRouter' : 'Gemini';
-      await renderHudToGlasses('[설정 저장됨]', `${keyTypeStr} API 키와 모델(${state.model})이 PC와 안경에 동기화되었습니다.\n(두 번 터치 시 시계 복귀)`, true, 'CONVERSATION');
-    });
-
-    modelSelect.addEventListener('change', () => {
-      state.model = modelSelect.value;
-      localStorage.setItem('agy_gemini_model', state.model);
-    });
-
-    // 대화 기록 렌더링
-    function renderChatList() {
-      if (state.messages.length === 0) {
-        chatList.innerHTML = `<div class="info-box" style="margin-top:0;">아직 대화 내역이 없습니다. "하이 제미나이"라고 부르거나 안경다리를 한 번 터치해 첫 질문을 해보세요!</div>`;
-        return;
-      }
-      chatList.innerHTML = state.messages.slice().reverse().map((m) => `
-        <div class="chat-item ${m.role === 'assistant' ? 'assistant' : 'user'}">
-          <div class="chat-meta">
-            <span>${m.role === 'assistant' ? '안티그래비티 AI (G2 HUD)' : '대표님 (음성/안경 입력)'}</span>
-            <span>${m.timestamp || ''}</span>
-          </div>
-          <div class="chat-text">${escapeHtml(m.content)}</div>
-        </div>
-      `).join('');
-    }
-
-    function escapeHtml(str) {
-      return String(str || '')
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;');
-    }
-
-    // 대화 내용을 클라우드 큐(ntfy -> GitHub Actions & PC 서버가 즉시 GitHub에 커밋) + 로컬 PC 서버에 동시 영구 저장
-    async function persistConversationEntry(question, answer, modelUsed) {
-      const nowStr = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
-      const userMsg = { role: 'user', content: question, timestamp: nowStr };
-      const aiMsg = { role: 'assistant', content: answer, timestamp: nowStr, model: modelUsed };
-
-      state.messages.push(userMsg, aiMsg);
-      if (state.messages.length > 100) {
-        state.messages = state.messages.slice(-100);
-      }
-      localStorage.setItem('agy_g2_messages', JSON.stringify(state.messages));
-      if (state.bridge) {
-        try {
-          await state.bridge.setLocalStorage('agy_g2_messages', JSON.stringify(state.messages.slice(-20)));
-        } catch (e) {}
-      }
-      renderChatList();
-
-      const payload = {
-        id: 'g2_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7),
-        timestamp: nowStr,
-        question,
-        answer,
-        model: modelUsed
+    /* =========================================================================
+     * 1. EDITH 3D Gold Network Sphere & Waveform Canvas (ported from edith-g2/src/web/hud.ts)
+     * ========================================================================= */
+    const PRI = [245, 197, 66];       // #f5c542
+    const BRIGHT = [254, 249, 145];   // #fef991
+    const GREEN = [61, 255, 154];     // #3dff9a
+    const MUTED = [255, 51, 102];     // #ff3366
+    const ACC = [255, 140, 26];       // #ff8c1a
+
+    const rgba = ([r, g, b], a) => `rgba(${r},${g},${b},${Math.max(0, Math.min(1, a)).toFixed(3)})`;
+    const hex = ([r, g, b]) => `rgb(${r},${g},${b})`;
+    const mix = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t];
+
+    function seeded(seed) {
+      let s = seed >>> 0;
+      return () => {
+        s = (s + 0x6d2b79f5) >>> 0;
+        let t = s;
+        t = Math.imul(t ^ (t >>> 15), t | 1);
+        t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
       };
+    }
 
-      let savedDirect = false;
-      for (const logUrl of [`${LOCAL_PC_API_BASE}/api/log`, '/api/log']) {
-        try {
-          const controller = new AbortController();
-          const timer = setTimeout(() => controller.abort(), 1800);
-          const localRes = await fetch(logUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload),
-            signal: controller.signal
-          });
-          clearTimeout(timer);
-          if (localRes.ok) {
-            savedDirect = true;
-            cloudQueueText.textContent = 'GitHub & PC & 구글드라이브 실시간 업로드 완료';
-            break;
-          }
-        } catch (e) {}
+    class EdithSphereHud {
+      constructor(radarCanvas, waveCanvas) {
+        this.radar = radarCanvas;
+        this.ctx = radarCanvas.getContext('2d');
+        this.wctx = waveCanvas.getContext('2d');
+        this.state = 'online';
+        this.micLevel = 0;
+        this.level = 0;
+        this.scale = 1;
+        this.scaleV = 0;
+        this.energy = 0;
+        this.yaw = 0.6;
+        this.pitch = -0.22;
+        this.vyaw = 0.18;
+        this.vpitch = 0;
+        this.t = 0;
+        this.wt = 0;
+        this.last = 0;
+        this.px = radarCanvas.width / 600;
+        this.drag = null;
+        this. pings = [];
+        this.particles = [];
+        this.dirs = [];
+        this.rad = [];
+        this.phase = [];
+        this.size = [];
+        this.edges = [];
+        this.chords = [];
+        this.buildGeometry();
+        this.sprite = this.createGlowSprite();
+        this.bindPointer();
+        requestAnimationFrame((t) => this.draw(t));
       }
 
-      try {
-        await fetch(CLOUD_SYNC_URL, {
-          method: 'POST',
-          headers: {
-            'Title': 'AGY_G2_CONV_SYNC',
-            'Tags': 'eyeglasses'
-          },
-          body: JSON.stringify(payload)
+      setState(state) {
+        this.state = state;
+        if (state !== 'listening') this.micLevel = 0;
+      }
+
+      setLevel(level) {
+        this.micLevel = level;
+      }
+
+      kick(strength = 0.6) {
+        const s = Math.max(0, Math.min(1.5, strength));
+        this.scaleV += 0.9 * s;
+        this.energy = Math.min(1, this.energy + 0.25 * s);
+      }
+
+      buildGeometry() {
+        const rnd = seeded(55);
+        const uni = (a, b) => a + (b - a) * rnd();
+        const gauss = () => Math.sqrt(-2 * Math.log(rnd() || 1e-9)) * Math.cos(2 * Math.PI * rnd());
+        const golden = Math.PI * (3 - Math.sqrt(5));
+        const N_SHELL = 190;
+        const N_CORE = 40;
+        for (let i = 0; i < N_SHELL; i++) {
+          let y = 1 - (2 * (i + 0.5)) / N_SHELL;
+          const r = Math.sqrt(Math.max(0, 1 - y * y));
+          let x = Math.cos(golden * i) * r + uni(-0.07, 0.07);
+          let z = Math.sin(golden * i) * r + uni(-0.07, 0.07);
+          y += uni(-0.07, 0.07);
+          const l = Math.hypot(x, y, z) || 1;
+          this.dirs.push([x / l, y / l, z / l]);
+          this.rad.push(uni(0.9, 1.05));
+        }
+        for (let i = 0; i < N_CORE; i++) {
+          const x = gauss(), y = gauss(), z = gauss();
+          const l = Math.hypot(x, y, z) || 1;
+          this.dirs.push([x / l, y / l, z / l]);
+          this.rad.push(uni(0.32, 0.8));
+        }
+        for (let i = 0; i < this.dirs.length; i++) {
+          this.phase.push(uni(0, Math.PI * 2));
+          this.size.push(uni(0.7, 1.35));
+        }
+        const base = this.dirs.map(([x, y, z], i) => [x * this.rad[i], y * this.rad[i], z * this.rad[i]]);
+        const d2 = (a, b) => (base[a][0] - base[b][0]) ** 2 + (base[a][1] - base[b][1]) ** 2 + (base[a][2] - base[b][2]) ** 2;
+        const seen = new Set();
+        const add = (a, b, list) => {
+          const key = a < b ? `${a}-${b}` : `${b}-${a}`;
+          if (seen.has(key)) return;
+          seen.add(key);
+          list.push(a < b ? [a, b] : [b, a]);
+        };
+        const nearest = (i, pool, k) =>
+          Array.from({ length: pool }, (_, j) => j)
+            .filter((j) => j !== i)
+            .map((j) => [d2(i, j), j])
+            .sort((a, b) => a[0] - b[0])
+            .slice(0, k);
+        for (let i = 0; i < N_SHELL; i++) {
+          for (const [dd, j] of nearest(i, N_SHELL, 4)) if (dd < 0.19) add(i, j, this.edges);
+        }
+        for (let i = N_SHELL; i < this.dirs.length; i++) {
+          for (const [, j] of nearest(i, this.dirs.length, 3)) add(i, j, this.edges);
+        }
+        while (this.chords.length < 14) {
+          const a = Math.floor(rnd() * N_SHELL);
+          const b = Math.floor(rnd() * N_SHELL);
+          if (a !== b && d2(a, b) > 1.6) add(a, b, this.chords);
+        }
+      }
+
+      createGlowSprite() {
+        const c = document.createElement('canvas');
+        c.width = c.height = 64;
+        const g = c.getContext('2d');
+        const rg = g.createRadialGradient(32, 32, 0, 32, 32, 32);
+        rg.addColorStop(0, 'rgba(255,250,210,1)');
+        rg.addColorStop(0.18, 'rgba(254,236,140,0.82)');
+        rg.addColorStop(0.45, 'rgba(245,197,66,0.27)');
+        rg.addColorStop(1, 'rgba(245,197,66,0)');
+        g.fillStyle = rg;
+        g.fillRect(0, 0, 64, 64);
+        return c;
+      }
+
+      bindPointer() {
+        const c = this.radar;
+        const toSpace = (e) => {
+          const box = c.getBoundingClientRect();
+          return { x: ((e.clientX - box.left) / (box.width || 1)) * 600, y: ((e.clientY - box.top) / (box.height || 1)) * 600 };
+        };
+        c.addEventListener('pointerdown', (e) => {
+          const p = toSpace(e);
+          this.drag = { ...p, moved: false, id: e.pointerId };
+          try { c.setPointerCapture(e.pointerId); } catch {}
+          c.classList.add('grabbing');
         });
-        if (!savedDirect) {
-          cloudQueueText.textContent = 'GitHub 클라우드 실시간 업로드 완료';
+        c.addEventListener('pointermove', (e) => {
+          if (!this.drag || this.drag.id !== e.pointerId) return;
+          const p = toSpace(e);
+          const dx = p.x - this.drag.x;
+          const dy = p.y - this.drag.y;
+          if (Math.abs(dx) + Math.abs(dy) > 4) this.drag.moved = true;
+          this.vyaw = dx * 0.35;
+          this.vpitch = dy * 0.35;
+          this.yaw += dx * 0.008;
+          this.pitch = Math.max(-1.2, Math.min(1.2, this.pitch + dy * 0.008));
+          this.drag.x = p.x;
+          this.drag.y = p.y;
+        });
+        const end = (e) => {
+          if (!this.drag || this.drag.id !== e.pointerId) return;
+          if (!this.drag.moved && e.type === 'pointerup') {
+            this.pings.push(0);
+            this.kick(0.9);
+          }
+          this.drag = null;
+          c.classList.remove('grabbing');
+        };
+        c.addEventListener('pointerup', end);
+        c.addEventListener('pointercancel', end);
+      }
+
+      colours() {
+        const s = this.state;
+        if (s === 'error') return { line: MUTED, node: [255, 136, 153] };
+        if (s === 'listening') return { line: mix(PRI, GREEN, 0.45), node: mix(BRIGHT, GREEN, 0.35) };
+        if (s === 'thinking') return { line: mix(PRI, ACC, 0.45), node: BRIGHT };
+        return { line: PRI, node: BRIGHT };
+      }
+
+      draw(now) {
+        const dt = this.last ? Math.min(0.05, (now - this.last) / 1000) : 1 / 60;
+        this.last = now;
+        this.t += dt;
+
+        const s = this.state;
+        let target = 0;
+        if (s === 'listening') target = this.micLevel;
+        else if (s === 'answering') target = 0.35 + 0.3 * Math.abs(Math.sin(this.t * 18));
+        this.level += (target - this.level) * (target > this.level ? 0.45 : 0.12);
+        this.energy *= Math.pow(0.94, dt * 60);
+
+        const rest = 1 + 0.2 * this.level + 0.018 * Math.sin(this.t * 1.7);
+        this.scaleV += (170 * (rest - this.scale) - 7.5 * this.scaleV) * dt;
+        this.scale = Math.max(0.7, Math.min(1.42, this.scale + this.scaleV * dt));
+        const spin = { thinking: 1.05, answering: 0.55, listening: 0.32 }[s] ?? 0.2;
+        if (!this.drag) {
+          this.vyaw += (spin - this.vyaw) * Math.min(1, dt * 1.8);
+          this.vpitch *= 1 - Math.min(1, dt * 3);
+          this.yaw += this.vyaw * dt;
+          this.pitch += (-0.22 - this.pitch) * Math.min(1, dt * 0.8) + this.vpitch * dt * 0.2;
         }
-      } catch (e) {
-        console.warn('[Cloud Sync Queue Error]:', e);
+        this.pings = this.pings.map((a) => a + dt).filter((a) => a < 1.6);
+
+        const ctx = this.ctx;
+        const { line, node } = this.colours();
+        const lvl = this.level;
+        const CX = 300, CY = 300, RADIUS = 172;
+        const R = RADIUS * this.scale;
+        ctx.setTransform(this.px, 0, 0, this.px, 0, 0);
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.globalAlpha = 1;
+        ctx.clearRect(0, 0, 600, 600);
+
+        const halo = ctx.createRadialGradient(CX, CY, 0, CX, CY, R * 1.72);
+        halo.addColorStop(0, rgba(line, (46 + 90 * lvl + 60 * this.energy) / 255));
+        halo.addColorStop(0.45, rgba(line, (18 + 30 * lvl) / 255));
+        halo.addColorStop(1, rgba(line, 0));
+        ctx.fillStyle = halo;
+        ctx.beginPath();
+        ctx.arc(CX, CY, R * 1.72, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.save();
+        ctx.translate(CX, CY);
+        ctx.rotate((-18 * Math.PI) / 180);
+        ctx.setLineDash([6, 5]);
+        ctx.lineDashOffset = -this.t * 14;
+        ctx.strokeStyle = rgba(PRI, (70 + 80 * lvl) / 255);
+        ctx.lineWidth = 1.2;
+        ctx.beginPath();
+        ctx.ellipse(0, 0, R * 1.42, R * 0.42, 0, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.restore();
+
+        const cy = Math.cos(this.yaw), sy = Math.sin(this.yaw);
+        const cp = Math.cos(this.pitch), sp = Math.sin(this.pitch);
+        const amp = 0.012 + 0.075 * lvl + 0.05 * this.energy + (s === 'thinking' ? 0.02 : 0);
+        const scan = s === 'thinking' ? Math.sin(this.t * 1.6) : null;
+        const n = this.dirs.length;
+        const X = new Float32Array(n), Y = new Float32Array(n), D = new Float32Array(n), G = new Float32Array(n);
+
+        for (let i = 0; i < n; i++) {
+          const [dx, dy, dz] = this.dirs[i];
+          let r = this.rad[i] * (1 + amp * (Math.sin(dx * 5 + this.t * 3.1 + this.phase[i]) * 0.6 + Math.sin(dy * 6 - this.t * 4.3) * 0.4));
+          for (const age of this.pings) {
+            const front = age * 2.2 - (1 - dy);
+            if (front > 0 && front < 0.6) r += 0.14 * (1 - age / 1.6) * Math.sin((front / 0.6) * Math.PI);
+          }
+          let x = dx * r, y = dy * r, z = dz * r;
+          const x1 = x * cy + z * sy;
+          z = -x * sy + z * cy;
+          x = x1;
+          const y1 = y * cp - z * sp;
+          z = y * sp + z * cp;
+          y = y1;
+          const persp = 2.8 / (2.8 - z);
+          X[i] = CX + x * R * persp;
+          Y[i] = CY - y * R * persp;
+          D[i] = Math.max(0, Math.min(1, (z / 1.05 + 1) / 2));
+          G[i] = scan !== null ? Math.max(0, 1 - Math.abs(dy - scan) * 4) * 0.8 : 0;
+        }
+
+        ctx.globalCompositeOperation = 'lighter';
+        const buckets = [[], [], [], [], [], []];
+        for (const [a, b] of this.edges) {
+          const v = (D[a] + D[b]) / 2 + Math.max(G[a], G[b]) * 0.6;
+          buckets[Math.min(5, Math.floor(v * 5.99))].push([a, b]);
+        }
+        const boost = 0.75 + 0.5 * lvl + 0.4 * this.energy;
+        buckets.forEach((pairs, k) => {
+          if (!pairs.length) return;
+          ctx.strokeStyle = rgba(line, ((18 + 30 * k) * boost) / 255);
+          ctx.lineWidth = 0.8 + 0.18 * k;
+          ctx.beginPath();
+          for (const [a, b] of pairs) {
+            ctx.moveTo(X[a], Y[a]);
+            ctx.lineTo(X[b], Y[b]);
+          }
+          ctx.stroke();
+        });
+
+        for (let i = 0; i < n; i++) {
+          const tw = 0.75 + 0.25 * Math.sin(this.t * 2.3 + this.phase[i] * 3);
+          const sz = (3 + 7 * D[i]) * this.size[i] * (1 + 0.6 * G[i] + 0.35 * lvl);
+          ctx.globalAlpha = Math.max(0.05, Math.min(1, (0.18 + 0.82 * D[i]) * tw + G[i] * 0.6));
+          ctx.drawImage(this.sprite, X[i] - sz, Y[i] - sz, sz * 2, sz * 2);
+        }
+        ctx.globalAlpha = 1;
+        ctx.globalCompositeOperation = 'source-over';
+
+        // Draw waveform
+        const w = this.wctx;
+        w.clearRect(0, 0, 400, 56);
+        const wAmp = s === 'listening' ? 4 + Math.min(1, this.micLevel * 1.6) * 20 : s === 'answering' ? 8 + 16 * Math.max(this.level, this.energy) : 3;
+        w.strokeStyle = s === 'listening' || s === 'answering' ? hex(GREEN) : s === 'thinking' ? hex(ACC) : hex(PRI);
+        w.lineWidth = 1.5;
+        w.beginPath();
+        for (let x = 0; x < 400; x++) {
+          const y = 28 + Math.sin(x * 0.07 + this.wt) * wAmp * 0.5 + Math.sin(x * 0.19 + this.wt * 1.3) * wAmp * 0.4;
+          if (x === 0) w.moveTo(x, y);
+          else w.lineTo(x, y);
+        }
+        w.stroke();
+        this.wt += 0.18 * (dt * 60);
+
+        requestAnimationFrame((t) => this.draw(t));
       }
     }
 
-    function buildSystemInstruction() {
-      const brainJsonStr = state.brainContext
-        ? JSON.stringify({
-            updatedAt: state.brainContext.updatedAt,
-            owner: state.brainContext.owner,
-            coreProjects: state.brainContext.coreProjects,
-            livePcAntigravitySession: state.brainContext.livePcAntigravitySession || [],
-            livePcArtifacts: state.brainContext.livePcArtifacts || [],
-            recentWorkspaceDocs: state.brainContext.recentWorkspaceDocs || [],
-            masterBibleSummary: state.brainContext.masterBibleSummary,
-            workspaceFiles: state.brainContext.workspaceFiles
-          }, null, 2)
-        : '기본 안티그래비티 워크스페이스 (e:\\안티그래비티)';
+    const sphereHud = new EdithSphereHud(
+      document.getElementById('edithSphere'),
+      document.getElementById('edithWave')
+    );
 
-      const recentHistoryText = state.messages.slice(-8).map(m =>
-        `${m.role === 'user' ? '대표님' : '안티그래비티'}: ${m.content}`
-      ).join('\n');
+    /* =========================================================================
+     * 2. Text & Line Helpers for Even G2 Display (ported from edith-g2/src/text.ts)
+     * ========================================================================= */
+    const BODY_CHARS_PER_LINE = 52;
+    const BODY_LINES = 7;
+    const WIDE_RE = /[ᄀ-ᇿ⺀-꓏가-힯豈-﫿︰-﹏＀-｠￠-￦]/;
 
-      return (
-        `너는 대표님의 'Even Realities G2 스마트 안경'에 탑재된 전담 AI 파트너이자, 대표님 컴퓨터(e:\\안티그래비티) 및 GitHub·구글 드라이브와 실시간으로 연동된 '안티그래비티(Antigravity) 마스터 두뇌'야.\n` +
-        `현재 안경 디스플레이(576x288 그린 마이크로 LED)로 읽고 계시므로:\n` +
-        `1) 핵심 결론부터 명확하고 간결하게 한국어로 대답해.\n` +
-        `2) 불필요한 마크다운 기호(**, ## 등)나 이모지는 쓰지 말고 깔끔한 줄바꿈과 번호(1., 2.)로 정리해.\n` +
-        `3) 아래에 제공된 [GitHub에 실시간 업로드된 대표님의 PC 안티그래비티 작업 내역 및 마스터 두뇌 데이터]와 [최근 대화 기록]을 100% 활용해서 대답하고, 대표님이 뭔가를 기억하거나 저장해달라고 하시면 "네, GitHub(docs/g2/G2_안경_실시간대화록.md)와 PC 및 구글 드라이브에 즉시 업로드했습니다!"라고 확인해줘.\n\n` +
-        `[GitHub 실시간 동기화된 대표님의 PC 안티그래비티 작업 & 마스터 두뇌 데이터]\n${brainJsonStr}\n\n` +
-        `[최근 안경 대화 기록]\n${recentHistoryText}`
-      );
+    function stripMarkdown(input) {
+      return String(input || '')
+        .replace(/\r\n?/g, '\n')
+        .replace(/```[a-z]*\n?([\s\S]*?)```/gi, '$1')
+        .replace(/`([^`]+)`/g, '$1')
+        .replace(/!\[([^\]]*)\]\([^)]*\)/g, '$1')
+        .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+        .replace(/\*\*([^*]+)\*\*/g, '$1')
+        .replace(/__([^_]+)__/g, '$1')
+        .replace(/^[ \t]{0,3}#{1,6}[ \t]+/gm, '')
+        .replace(/^[ \t]{0,3}>[ \t]?/gm, '')
+        .replace(/^[ \t]*[*+][ \t]+/gm, '- ')
+        .replace(/\n{3,}/g, '\n\n')
+        .trim();
     }
 
-    // 핵심: 질문 직전 GitHub에서 최신 PC 안티그래비티 정보를 읽어온 뒤 OpenRouter / Gemini로 답변 생성
-    async function askAntigravityBrain(questionText) {
-      const q = String(questionText || '').trim();
-      if (!q) return;
+    function forGlasses(input) {
+      return stripMarkdown(input)
+        .replace(/[‘’‚‛′]/g, "'")
+        .replace(/[“”„‟″]/g, '"')
+        .replace(/…/g, '...')
+        .replace(/[•‣⁃◦]/g, '-')
+        .replace(/[\u{1F000}-\u{1FAFF}\u{2700}-\u{27BF}]/gu, '')
+        .replace(/[ \t]{2,}/g, ' ')
+        .replace(/ *\n */g, '\n')
+        .replace(/\n{3,}/g, '\n\n')
+        .trim();
+    }
 
-      questionInput.value = '';
-      await renderHudToGlasses('[두뇌 동기화 & 생각 중]', `질문: ${q}\n\nGitHub의 최신 안티그래비티 정보를 읽어와 답변을 생성 중입니다...`, true, 'CONVERSATION');
+    function clip(s, max) {
+      const str = String(s || '');
+      if (str.length <= max) return str;
+      const cut = str.slice(0, max - 3);
+      const space = cut.lastIndexOf(' ');
+      return (space > max * 0.6 ? cut.slice(0, space) : cut).trimEnd() + '...';
+    }
 
-      // 질문 직전에 GitHub / 로컬 PC의 최신 안티그래비티 데이터를 실시간으로 먼저 읽어옴!
-      await loadAntigravityBrain(true);
-
-      const apiKey = state.apiKey.trim();
-      const systemInstruction = buildSystemInstruction();
-
-      let finalAnswer = '';
-      let usedModel = state.model;
-
-      // 1) OpenRouter API 키 (sk-or-...) 사용 시
-      if (apiKey && apiKey.startsWith('sk-or-')) {
-        const orModels = [
-          state.model.includes('/') ? state.model : 'anthropic/claude-sonnet-4',
-          'anthropic/claude-sonnet-4',
-          'google/gemini-2.5-pro',
-          'google/gemini-2.5-flash',
-          'openai/gpt-4o-mini'
-        ].filter((v, i, a) => a.indexOf(v) === i);
-
-        let lastErr = '';
-        for (const mName of orModels) {
-          try {
-            const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-              method: 'POST',
-              headers: {
-                'Authorization': `Bearer ${apiKey}`,
-                'Content-Type': 'application/json',
-                'HTTP-Referer': 'https://zespy2614-jpg.github.io/korea-spart-24h-cloud/g2/',
-                'X-Title': 'Antigravity x Even G2 Brain'
-              },
-              body: JSON.stringify({
-                model: mName,
-                messages: [
-                  { role: 'system', content: systemInstruction },
-                  { role: 'user', content: q }
-                ],
-                temperature: 0.4,
-                max_tokens: 1024
-              })
-            });
-
-            const json = await res.json();
-            const content = json?.choices?.[0]?.message?.content;
-            if (res.ok && content) {
-              finalAnswer = String(content).trim();
-              usedModel = mName;
-              break;
-            } else {
-              lastErr = json?.error?.message || `HTTP ${res.status}`;
-            }
-          } catch (err) {
-            lastErr = err.message;
+    function estimateLines(s, charsPerLine = BODY_CHARS_PER_LINE) {
+      let lines = 0;
+      for (const paragraph of String(s || '').split('\n')) {
+        let width = 0;
+        let count = 1;
+        for (const ch of paragraph) {
+          const w = WIDE_RE.test(ch) ? 2 : 1;
+          if (width + w > charsPerLine) {
+            count++;
+            width = w;
+          } else {
+            width += w;
           }
         }
-
-        if (!finalAnswer) {
-          finalAnswer = `[OpenRouter 호출 안내]\n오류가 발생했습니다 (${lastErr}).\n하지만 질문하신 내용은 GitHub와 PC 대화록에 정상 업로드되었습니다!`;
-        }
+        lines += count;
       }
-      // 2) Google Gemini API 키 (AIza...) 사용 시
-      else if (apiKey) {
-        const candidateModels = [
-          state.model.includes('/') ? 'gemini-2.5-pro' : state.model,
-          'gemini-2.5-pro',
-          'gemini-2.5-flash',
-          'gemini-2.0-flash'
-        ].filter((v, i, a) => a.indexOf(v) === i);
+      return lines;
+    }
 
-        let lastErr = '';
-        for (const mName of candidateModels) {
-          try {
-            const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${mName}:generateContent?key=${encodeURIComponent(apiKey)}`;
-            const res = await fetch(endpoint, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                systemInstruction: {
-                  parts: [{ text: systemInstruction }]
-                },
-                contents: [
-                  {
-                    role: 'user',
-                    parts: [{ text: q }]
-                  }
-                ],
-                generationConfig: {
-                  temperature: 0.4,
-                  maxOutputTokens: 1024
-                }
-              })
-            });
+    /* =========================================================================
+     * 3. Exact EDITH 3-Box Framed G2 Glasses HUD (ported from edith-g2/src/hud.ts)
+     * ========================================================================= */
+    const BOXES = {
+      title:  { id: 1, name: 'title',  x: 8,   y: 0,  width: 272, height: 44,  border: 1, padding: 8,  brightness: 3, capture: 0 },
+      status: { id: 2, name: 'status', x: 296, y: 0,  width: 272, height: 44,  border: 1, padding: 8,  brightness: 4, capture: 0 },
+      body:   { id: 3, name: 'body',   x: 0,   y: 46, width: 576, height: 242, border: 1, padding: 14, brightness: 4, capture: 1 }
+    };
+    const DIM_BRIGHTNESS = { title: 1, status: 1, body: 1 };
+    const CLOCK_STANDBY_BRIGHTNESS = { title: 2, status: 2, body: 0 };
 
-            const json = await res.json();
-            if (res.ok && json.candidates && json.candidates[0]?.content?.parts?.[0]?.text) {
-              finalAnswer = json.candidates[0].content.parts[0].text.trim();
-              usedModel = mName;
-              break;
-            } else {
-              lastErr = json.error?.message || `HTTP ${res.status}`;
-            }
-          } catch (err) {
-            lastErr = err.message;
+    const hudTitleBoxEl = document.getElementById('hudTitleBox');
+    const hudStatusBoxEl = document.getElementById('hudStatusBox');
+    const hudBodyBoxEl = document.getElementById('hudBodyBox');
+    const g2HudMirrorEl = document.getElementById('g2HudMirror');
+
+    class GlassesHud {
+      constructor(initialContent, menuItems = []) {
+        this.bridge = null;
+        this.wanted = { ...initialContent };
+        this.shown = { title: '', status: '', body: '' };
+        this.menu = menuItems;
+        this.queue = Promise.resolve();
+        this.flushQueued = false;
+        this.startupSpent = false;
+        this.dim = false;
+        this.clockStandby = false;
+        this.updateMirror();
+      }
+
+      attachBridge(bridge) {
+        this.bridge = bridge;
+      }
+
+      updateMirror() {
+        hudTitleBoxEl.textContent = this.wanted.title || ' ';
+        hudStatusBoxEl.textContent = this.wanted.status || ' ';
+        hudBodyBoxEl.textContent = this.clockStandby
+          ? '[시계 대기 모드 — 안경 렌즈 본문은 깨끗하게 비워지고 상단 시계만 표시됩니다]\n▶ 탭하거나 길게 누르거나 "하이 제미나이"라고 부르면 대화 시작'
+          : (this.wanted.body || ' ');
+        g2HudMirrorEl.dataset.dim = (this.dim || this.clockStandby) ? 'true' : 'false';
+      }
+
+      set(update) {
+        for (const slot of ['title', 'status', 'body']) {
+          if (update[slot] !== undefined) {
+            this.wanted[slot] = update[slot] || ' ';
           }
         }
-
-        if (!finalAnswer) {
-          finalAnswer = `[API 호출 안내]\n입력하신 API 키로 호출 중 오류가 발생했습니다 (${lastErr}).\n하지만 질문하신 내용은 GitHub와 PC 대화록에 정상 저장되었습니다!`;
-        }
-      }
-      // 3) 앱에 아직 키가 없을 때: 로컬 PC 서버(/api/ask) 경유 호출 또는 내장 두뇌 응답
-      else {
-        for (const askUrl of [`${LOCAL_PC_API_BASE}/api/ask`, '/api/ask']) {
-          try {
-            const controller = new AbortController();
-            const timer = setTimeout(() => controller.abort(), 6000);
-            const pcRes = await fetch(askUrl, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ question: q, systemInstruction }),
-              signal: controller.signal
-            });
-            clearTimeout(timer);
-            if (pcRes.ok) {
-              const pcData = await pcRes.json();
-              if (pcData.answer) {
-                finalAnswer = pcData.answer;
-                usedModel = pcData.model || 'AGY-Local-Brain';
-                break;
-              }
-            }
-          } catch (e) {}
-        }
-
-        if (!finalAnswer) {
-          finalAnswer = buildOfflineBrainAnswer(q);
-          usedModel = 'AGY-BuiltIn-Brain';
-        }
+        this.updateMirror();
+        this.scheduleFlush();
       }
 
-      // 안경 렌즈에 답변 표시 & GitHub/구글 드라이브/PC 영구 업로드
-      await renderHudToGlasses(`[제미나이]`, finalAnswer, true, 'CONVERSATION');
-      await persistConversationEntry(q, finalAnswer, usedModel);
+      setDim(dim) {
+        if (this.dim === dim) return Promise.resolve(true);
+        this.dim = dim;
+        this.updateMirror();
+        return this.startupSpent ? this.rebuild() : Promise.resolve(true);
+      }
+
+      setClockStandby(standby) {
+        if (this.clockStandby === standby) return Promise.resolve(true);
+        this.clockStandby = standby;
+        this.updateMirror();
+        return this.startupSpent ? this.rebuild() : Promise.resolve(true);
+      }
+
+      setMenu(items) {
+        this.menu = items;
+        if (this.startupSpent) void this.rebuild();
+      }
+
+      pageObjects() {
+        return ['title', 'status', 'body'].map((slot) => {
+          const box = BOXES[slot];
+          const textColor = this.clockStandby
+            ? CLOCK_STANDBY_BRIGHTNESS[slot]
+            : this.dim
+              ? DIM_BRIGHTNESS[slot]
+              : box.brightness;
+          return new TextContainerProperty({
+            xPosition: box.x,
+            yPosition: box.y,
+            width: box.width,
+            height: box.height,
+            borderWidth: this.clockStandby && slot === 'body' ? 0 : box.border,
+            borderColor: 6,
+            borderRadius: 8,
+            paddingLength: box.padding,
+            containerID: box.id,
+            containerName: box.name,
+            isEventCapture: box.capture,
+            textColor,
+            content: (this.clockStandby && slot === 'body' ? ' ' : this.wanted[slot]).slice(0, 1000)
+          });
+        });
+      }
+
+      menuObject() {
+        if (!this.menu.length) return undefined;
+        return new MenuContainerProperty({
+          menuItems: this.menu.map((item) => new MenuItemProperty({ itemID: item.id, itemName: item.name }))
+        });
+      }
+
+      start() {
+        if (!this.bridge) return Promise.resolve(false);
+        return this.enqueue(async () => {
+          if (this.startupSpent) return this.rebuildNow();
+          this.startupSpent = true;
+          const result = await this.bridge.createStartUpPageContainer(
+            new CreateStartUpPageContainer({
+              containerTotalNum: 3,
+              textObject: this.pageObjects(),
+              menuObject: this.menuObject()
+            })
+          );
+          if (result !== StartUpPageCreateResult.success) {
+            return this.rebuildNow();
+          }
+          this.markPageBuilt();
+          return true;
+        });
+      }
+
+      rebuild() {
+        if (!this.bridge) return Promise.resolve(false);
+        return this.enqueue(() => this.rebuildNow());
+      }
+
+      async rebuildNow() {
+        if (!this.bridge) return false;
+        const ok = await this.bridge.rebuildPageContainer(
+          new RebuildPageContainer({
+            containerTotalNum: 3,
+            textObject: this.pageObjects(),
+            menuObject: this.menuObject()
+          })
+        );
+        if (ok) this.markPageBuilt();
+        return Boolean(ok);
+      }
+
+      markPageBuilt() {
+        for (const slot of ['title', 'status', 'body']) {
+          this.shown[slot] = (this.clockStandby && slot === 'body' ? ' ' : this.wanted[slot]).slice(0, 1000);
+        }
+        this.scheduleFlush();
+      }
+
+      scheduleFlush() {
+        if (this.flushQueued || !this.startupSpent || !this.bridge) return;
+        this.flushQueued = true;
+        void this.enqueue(async () => {
+          await new Promise((r) => setTimeout(r, 60));
+          this.flushQueued = false;
+          for (const slot of ['title', 'status', 'body']) {
+            const raw = this.clockStandby && slot === 'body' ? ' ' : this.wanted[slot];
+            const text = raw.slice(0, 2000);
+            if (text === this.shown[slot]) continue;
+            const box = BOXES[slot];
+            const ok = await this.bridge.textContainerUpgrade(
+              new TextContainerUpgrade({
+                containerID: box.id,
+                containerName: box.name,
+                content: text
+              })
+            );
+            if (ok) this.shown[slot] = text;
+          }
+        });
+      }
+
+      enqueue(task) {
+        const run = this.queue.then(task, task);
+        this.queue = run.catch((err) => console.warn('[hud]', err));
+        return run;
+      }
     }
 
-    function buildOfflineBrainAnswer(q) {
-      const b = state.brainContext;
-      const projects = (b && b.coreProjects) ? b.coreProjects : [];
-      let matched = projects.filter(p =>
-        q.includes(p.name) || (p.keywords && p.keywords.some(k => q.toLowerCase().includes(k.toLowerCase())))
-      );
+    /* =========================================================================
+     * 4. EDITH G2 PCM Recorder + VAD + WAV Encoder (ported from edith-g2/src/recorder.ts)
+     * ========================================================================= */
+    const SAMPLE_RATE = 16000;
+    const BYTES_PER_MS = (SAMPLE_RATE * 2) / 1000;
+    const MAX_REC_MS = 30000;
+    const MIN_SPEECH_RMS = 650;
+    const QUIET_ROOM_RMS = 300;
+    const SPEECH_TO_ARM_MS = 280;
+    const SILENCE_TO_STOP_MS = 1050;
+    const NO_SPEECH_GIVE_UP_MS = 8000;
+    const PADDING_MS = 350;
+    const LEVEL_BARS = '▁▂▃▄▅▆▇█';
+    const THINKING_FRAMES = ['●○○', '○●○', '○○●', '○●○'];
 
-      let header = `[안티그래비티 두뇌 기록 완료]\n"${q}" 내용이 GitHub(docs/g2/G2_안경_실시간대화록.md) 및 PC에 업로드되었습니다.\n\n`;
-      if (matched.length > 0) {
-        header += matched.map(p => `• ${p.name}: ${p.summary}`).join('\n') + '\n\n';
-      } else if (b && b.briefingForGlasses) {
-        header += `${b.briefingForGlasses}\n\n`;
+    function rmsOf(chunk) {
+      const view = new DataView(chunk.buffer, chunk.byteOffset, chunk.byteLength);
+      const samples = chunk.byteLength >> 1;
+      let sum = 0;
+      for (let i = 0; i < samples; i++) {
+        const s = view.getInt16(i * 2, true);
+        sum += s * s;
       }
-      header += `(우측 설정에 OpenRouter 키 sk-or-v1-... 를 1회 저장하시면 최고 성능 AI 대화가 작동합니다)`;
-      return header;
+      return samples ? Math.sqrt(sum / samples) : 0;
     }
 
-    // =========================================================================
-    // Even G2 안경 내장 마이크(16kHz 16-bit PCM) + Web Speech API 듀얼 음성 엔진
-    // =========================================================================
-
-    function computePcmRms(uint8) {
-      if (!uint8 || uint8.length < 2) return 0;
-      const samples = Math.floor(uint8.length / 2);
-      let sumSq = 0;
-      for (let i = 0; i < samples * 2; i += 2) {
-        let val = uint8[i] | (uint8[i + 1] << 8);
-        if (val >= 0x8000) val -= 0x10000;
-        const norm = val / 32768;
-        sumSq += norm * norm;
+    function normalisePcm(pcm) {
+      const view = new DataView(pcm.buffer, pcm.byteOffset, pcm.byteLength);
+      const samples = pcm.byteLength >> 1;
+      let peak = 0;
+      for (let i = 0; i < samples; i++) peak = Math.max(peak, Math.abs(view.getInt16(i * 2, true)));
+      if (peak === 0 || peak >= 6000) return;
+      const gain = Math.min(8, 26000 / peak);
+      for (let i = 0; i < samples; i++) {
+        const s = Math.round(view.getInt16(i * 2, true) * gain);
+        view.setInt16(i * 2, Math.max(-32768, Math.min(32767, s)), true);
       }
-      return Math.sqrt(sumSq / samples);
     }
 
-    function pcmChunksToWavBase64(chunks, sampleRate = 16000) {
-      let totalLen = 0;
-      for (const c of chunks) totalLen += c.length;
-      const wavBuffer = new ArrayBuffer(44 + totalLen);
-      const view = new DataView(wavBuffer);
-
-      function writeStr(offset, str) {
-        for (let i = 0; i < str.length; i++) {
-          view.setUint8(offset + i, str.charCodeAt(i));
-        }
-      }
-
-      writeStr(0, 'RIFF');
-      view.setUint32(4, 36 + totalLen, true);
-      writeStr(8, 'WAVE');
-      writeStr(12, 'fmt ');
+    function encodeWavBase64(chunks, totalBytes) {
+      const dataBytes = totalBytes - (totalBytes % 2);
+      const out = new Uint8Array(44 + dataBytes);
+      const view = new DataView(out.buffer);
+      const ascii = (offset, text) => {
+        for (let i = 0; i < text.length; i++) out[offset + i] = text.charCodeAt(i);
+      };
+      ascii(0, 'RIFF');
+      view.setUint32(4, 36 + dataBytes, true);
+      ascii(8, 'WAVE');
+      ascii(12, 'fmt ');
       view.setUint32(16, 16, true);
-      view.setUint16(20, 1, true); // PCM = 1
-      view.setUint16(22, 1, true); // Mono = 1
-      view.setUint32(24, sampleRate, true);
-      view.setUint32(28, sampleRate * 2, true);
+      view.setUint16(20, 1, true);
+      view.setUint16(22, 1, true);
+      view.setUint32(24, SAMPLE_RATE, true);
+      view.setUint32(28, SAMPLE_RATE * 2, true);
       view.setUint16(32, 2, true);
       view.setUint16(34, 16, true);
-      writeStr(36, 'data');
-      view.setUint32(40, totalLen, true);
+      ascii(36, 'data');
+      view.setUint32(40, dataBytes, true);
 
-      const outBytes = new Uint8Array(wavBuffer);
       let offset = 44;
-      for (const c of chunks) {
-        outBytes.set(c, offset);
-        offset += c.length;
+      for (const chunk of chunks) {
+        const n = Math.min(chunk.byteLength, 44 + dataBytes - offset);
+        out.set(chunk.subarray(0, n), offset);
+        offset += n;
       }
-
+      normalisePcm(out.subarray(44));
       let binary = '';
-      const chunkSize = 0x8000;
-      for (let i = 0; i < outBytes.length; i += chunkSize) {
-        binary += String.fromCharCode.apply(null, outBytes.subarray(i, i + chunkSize));
+      for (let i = 0; i < out.length; i += 0x2000) {
+        binary += String.fromCharCode(...out.subarray(i, i + 0x2000));
       }
       return btoa(binary);
     }
 
-    // OpenRouter 또는 Gemini로 WAV 오디오 멀티모달 요청을 보내는 통합 헬퍼
-    async function callMultimodalAudioAi(wavB64, promptText, systemInstruction = '', maxTokens = 800) {
-      const apiKey = state.apiKey.trim();
-      if (!apiKey) return '';
+    class EdithRecorder {
+      constructor({ autoStop, onAutoStop, acceptOther = false }) {
+        this.autoStopEnabled = autoStop;
+        this.onAutoStop = onAutoStop;
+        this.acceptOther = acceptOther;
+        this.chunks = [];
+        this.bytes = 0;
+        this.floor = QUIET_ROOM_RMS;
+        this.peakRms = 0;
+        this.speechMs = 0;
+        this.silenceMs = 0;
+        this.stopped = false;
+        this.levels = [];
+      }
 
-      if (apiKey.startsWith('sk-or-')) {
-        const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${apiKey}`,
-            'Content-Type': 'application/json',
-            'HTTP-Referer': 'https://zespy2614-jpg.github.io/korea-spart-24h-cloud/g2/',
-            'X-Title': 'Antigravity x Even G2 Brain'
-          },
-          body: JSON.stringify({
-            model: 'google/gemini-2.5-flash',
-            messages: [
-              ...(systemInstruction ? [{ role: 'system', content: systemInstruction }] : []),
-              {
-                role: 'user',
-                content: [
-                  { type: 'text', text: promptText },
-                  { type: 'input_audio', input_audio: { data: wavB64, format: 'wav' } }
-                ]
-              }
-            ],
-            temperature: 0.2,
-            max_tokens: maxTokens
-          })
-        });
-        const json = await res.json();
-        return String(json?.choices?.[0]?.message?.content || '').trim();
-      } else {
-        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`;
-        const res = await fetch(endpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            ...(systemInstruction ? { systemInstruction: { parts: [{ text: systemInstruction }] } } : {}),
-            contents: [{
-              role: 'user',
-              parts: [
-                { inlineData: { mimeType: 'audio/wav', data: wavB64 } },
-                { text: promptText }
-              ]
-            }],
-            generationConfig: { temperature: 0.2, maxOutputTokens: maxTokens }
-          })
-        });
-        const json = await res.json();
-        return String(json?.candidates?.[0]?.content?.parts?.[0]?.text || '').trim();
+      get durationMs() {
+        return this.bytes / BYTES_PER_MS;
+      }
+
+      get heardSpeech() {
+        return this.speechMs >= SPEECH_TO_ARM_MS;
+      }
+
+      get sendableMs() {
+        return this.chunks.reduce((b, c) => b + (c.own ? c.audio.byteLength : 0), 0) / BYTES_PER_MS;
+      }
+
+      push(raw, role) {
+        if (this.stopped) return;
+        const chunk = raw instanceof Uint8Array ? raw.slice() : Uint8Array.from(raw);
+        if (!chunk.byteLength) return;
+
+        const own = this.acceptOther ? true : role !== AudioSpeakerRole.Other;
+        const entry = { audio: chunk, own, speech: false };
+        this.chunks.push(entry);
+        this.bytes += chunk.byteLength;
+
+        const rms = rmsOf(chunk);
+        this.peakRms = Math.max(this.peakRms, rms);
+        this.levels.push(Math.min(1, Math.sqrt(rms / 6000)));
+        if (this.levels.length > 24) this.levels.shift();
+
+        if (rms < this.floor) this.floor = this.floor * 0.7 + rms * 0.3;
+        else this.floor += (rms - this.floor) * 0.01;
+
+        const loud = rms > Math.max(this.floor * 2.4, MIN_SPEECH_RMS);
+        const speech =
+          role === AudioSpeakerRole.Self
+            ? rms > Math.max(this.floor * 1.45, MIN_SPEECH_RMS / 2)
+            : (!this.acceptOther && role === AudioSpeakerRole.Other)
+              ? false
+              : loud;
+
+        const ms = chunk.byteLength / BYTES_PER_MS;
+        entry.speech = speech;
+        if (speech) {
+          this.speechMs += ms;
+          this.silenceMs = 0;
+        } else {
+          this.silenceMs += ms;
+        }
+
+        if (this.durationMs >= MAX_REC_MS) return this.triggerAutoStop('max');
+        if (!this.autoStopEnabled) return;
+        if (this.heardSpeech && this.silenceMs >= SILENCE_TO_STOP_MS) return this.triggerAutoStop('silence');
+        if (!this.heardSpeech && this.peakRms < MIN_SPEECH_RMS && this.durationMs >= NO_SPEECH_GIVE_UP_MS) {
+          return this.triggerAutoStop('no-speech');
+        }
+      }
+
+      stop() {
+        this.stopped = true;
+      }
+
+      triggerAutoStop(reason) {
+        if (this.stopped) return;
+        this.stopped = true;
+        this.onAutoStop(reason);
+      }
+
+      toWavBase64() {
+        const own = this.chunks.filter((c) => c.own);
+        const first = own.findIndex((c) => c.speech);
+        const revIdx = [...own].reverse().findIndex((c) => c.speech);
+        const last = own.length - 1 - revIdx;
+        let start = 0;
+        let end = own.length;
+        if (first >= 0 && revIdx >= 0) {
+          start = first;
+          for (let ms = 0; start > 0 && ms < PADDING_MS; ) ms += own[--start].audio.byteLength / BYTES_PER_MS;
+          end = last + 1;
+          for (let ms = 0; end < own.length && ms < PADDING_MS; ) ms += own[end++].audio.byteLength / BYTES_PER_MS;
+        }
+        const audio = own.slice(start, end).map((c) => c.audio);
+        const total = audio.reduce((sum, a) => sum + a.byteLength, 0);
+        return encodeWavBase64(audio, total);
       }
     }
 
-    // 안경 마이크 PCM 실시간 프레임 처리 (대화 모드 녹음 & 시계 대기 모드 "하이 제미나이" 감지)
-    function handleGlassesAudioPcmFrame(audioEvent) {
-      if (state.isProcessingAudio) return;
-      const pcm = audioEvent.audioPcm;
-      if (!pcm || !pcm.length) return;
+    /* =========================================================================
+     * 5. Main EDITH × Antigravity Controller
+     * ========================================================================= */
+    const CLOUD_SYNC_TOPIC = 'agy_g2_brain_sync_e3562553';
+    const CLOUD_SYNC_URL = `https://ntfy.sh/${CLOUD_SYNC_TOPIC}`;
+    const GITHUB_BRAIN_URL = 'https://zespy2614-jpg.github.io/korea-spart-24h-cloud/g2/brain_context.json';
+    const GITHUB_RAW_BRAIN_URL = 'https://raw.githubusercontent.com/zespy2614-jpg/korea-spart-24h-cloud/main/docs/g2/brain_context.json';
 
-      const chunk = pcm instanceof Uint8Array ? pcm : new Uint8Array(pcm);
-      const rms = computePcmRms(chunk);
-      const isSelfVoice = (audioEvent.speakerRole === 'self' && rms > 0.014) || rms > 0.024;
-      const now = Date.now();
+    const MENU_IDS = {
+      newChat: 1,
+      clockStandby: 2,
+      subtitles: 3,
+      translate: 4,
+      discreet: 5,
+      switchAi: 6,
+      syncBrain: 7
+    };
 
-      // A. [제미나이 대화 모드(LISTENING)]에서 질문 녹음 중일 때
-      if (state.hudMode === 'LISTENING') {
-        state.pcmChunks.push(chunk);
-        state.pcmBytesLen += chunk.length;
+    const MODEL_LIST = [
+      { id: 'google/gemini-2.5-flash', label: 'Gemini 2.5 Flash' },
+      { id: 'anthropic/claude-sonnet-4', label: 'Claude Sonnet 4' },
+      { id: 'anthropic/claude-opus-4', label: 'Claude Opus 4' },
+      { id: 'google/gemini-2.5-pro', label: 'Gemini 2.5 Pro' },
+      { id: 'x-ai/grok-3', label: 'Grok 3' },
+      { id: 'openai/gpt-4o', label: 'GPT-4o' },
+      { id: 'deepseek/deepseek-chat-v3-0324', label: 'DeepSeek V3' }
+    ];
 
-        if (isSelfVoice) {
-          if (!state.vadSpeaking) {
-            state.vadSpeaking = true;
-            state.vadSpeechStartAt = now;
-          }
-          state.vadLastVoiceAt = now;
-        }
+    const state = {
+      mode: 'idle', // 'boot' | 'setup' | 'idle' | 'listening' | 'thinking' | 'answering' | 'error'
+      clockStandby: false,
+      roomMode: null, // null | 'subtitles' | 'translate'
+      firstName: '대표님',
+      battery: { level: 100, charging: false },
+      statusKind: 'online', // 'online' | 'more' | 'setup'
+      clockStr: '',
+      apiKey: localStorage.getItem('agy_gemini_api_key') || '',
+      model: localStorage.getItem('agy_gemini_model') || 'google/gemini-2.5-flash',
+      customInstructions: localStorage.getItem('edith_custom_instructions') || '',
+      prefs: {
+        followUp: localStorage.getItem('edith_pref_followup') !== '0',
+        doubleTapClock: localStorage.getItem('edith_pref_dblclock') !== '0',
+        wakeWord: localStorage.getItem('edith_pref_wake') !== '0',
+        discreet: localStorage.getItem('edith_pref_discreet') === '1'
+      },
+      brainContext: null,
+      history: JSON.parse(localStorage.getItem('agy_g2_messages') || '[]'),
+      last: null, // { you, reply }
+      recorder: null,
+      trigger: 'tap',
+      quietListening: false,
+      followUps: 0,
+      followUpTimer: null,
+      followUpStopTimer: null,
+      micOpen: false,
+      ticker: null,
+      activeController: null,
+      webSpeechRec: null,
+      webSpeechTranscript: '',
+      wakeRec: null,
+      lastEventAt: new Map(),
+      holdReleasedAt: 0,
+      lastInputAt: 0,
+      exitDialogOpen: false,
+      menuOpen: false
+    };
 
-        // 사용자가 말을 시작한 뒤 1.65초 동안 침묵이 이어지면 질문 완료로 판단하고 즉시 전송!
-        if (state.vadSpeaking && (now - state.vadLastVoiceAt > 1650) && (now - state.vadSpeechStartAt > 500)) {
-          finalizeGlassesPcmQuestion();
-          return;
-        }
-        // 최대 12초 초과 시 자동 전송
-        if (state.pcmBytesLen > 32000 * 12) {
-          finalizeGlassesPcmQuestion();
-        }
-        return;
-      }
+    // DOM References
+    const statePill = document.getElementById('statePill');
+    const statePillLabel = document.getElementById('statePillLabel');
+    const talkBtn = document.getElementById('talkBtn');
+    const talkBtnLabel = document.getElementById('talkBtnLabel');
+    const syncDot = document.getElementById('syncDot');
+    const syncStatusText = document.getElementById('syncStatusText');
+    const syncNowBtn = document.getElementById('syncNowBtn');
+    const chatLog = document.getElementById('chatLog');
+    const composeForm = document.getElementById('composeForm');
+    const composeInput = document.getElementById('composeInput');
+    const modelSelect = document.getElementById('modelSelect');
+    const apiKeyInput = document.getElementById('apiKeyInput');
+    const saveKeyBtn = document.getElementById('saveKeyBtn');
+    const keyStatusHelp = document.getElementById('keyStatusHelp');
+    const prefFollowUp = document.getElementById('prefFollowUp');
+    const prefDoubleTapClock = document.getElementById('prefDoubleTapClock');
+    const prefWakeWord = document.getElementById('prefWakeWord');
+    const prefDiscreet = document.getElementById('prefDiscreet');
+    const customInstructionsInput = document.getElementById('customInstructionsInput');
+    const clockModeChip = document.getElementById('clockModeChip');
+    const subtitlesChip = document.getElementById('subtitlesChip');
+    const translateChip = document.getElementById('translateChip');
 
-      // B. [시계 대기 모드(CLOCK_STANDBY)]에서 "하이 제미나이" 음성 호출 감지
-      if (state.hudMode === 'CLOCK_STANDBY' && state.wakeWordEnabled && state.apiKey) {
-        if (isSelfVoice) {
-          if (!state.vadSpeaking) {
-            state.vadSpeaking = true;
-            state.vadSpeechStartAt = now;
-            state.pcmChunks = [];
-            state.pcmBytesLen = 0;
-          }
-          state.vadLastVoiceAt = now;
-          state.pcmChunks.push(chunk);
-          state.pcmBytesLen += chunk.length;
-        } else if (state.vadSpeaking) {
-          state.pcmChunks.push(chunk);
-          state.pcmBytesLen += chunk.length;
-
-          const speechDur = state.vadLastVoiceAt - state.vadSpeechStartAt;
-          const silenceDur = now - state.vadLastVoiceAt;
-
-          // 0.45초~5초 분량의 호출어 발화 후 1.2초 침묵 시 "하이 제미나이" 여부 판별
-          if (silenceDur > 1200) {
-            const capturedChunks = state.pcmChunks.slice();
-            const capturedBytes = state.pcmBytesLen;
-            state.vadSpeaking = false;
-            state.pcmChunks = [];
-            state.pcmBytesLen = 0;
-
-            if (speechDur >= 420 && capturedBytes >= 14000 && capturedBytes <= 32000 * 6) {
-              checkStandbyWakeAudioWithGemini(capturedChunks);
-            }
-          }
-        }
-      }
+    // Sync initial UI inputs
+    if ([...modelSelect.options].some((o) => o.value === state.model)) {
+      modelSelect.value = state.model;
     }
+    apiKeyInput.value = state.apiKey;
+    customInstructionsInput.value = state.customInstructions;
+    prefFollowUp.checked = state.prefs.followUp;
+    prefDoubleTapClock.checked = state.prefs.doubleTapClock;
+    prefWakeWord.checked = state.prefs.wakeWord;
+    prefDiscreet.checked = state.prefs.discreet;
 
-    // 시계 대기 모드에서 안경 마이크로 들어온 음성이 "하이 제미나이"인지 초고속 판별
-    async function checkStandbyWakeAudioWithGemini(chunks) {
-      if (state.hudMode !== 'CLOCK_STANDBY' || state.isProcessingAudio || !state.apiKey) return;
-      state.isProcessingAudio = true;
-      try {
-        const wavB64 = pcmChunksToWavBase64(chunks, 16000);
-        const out = await callMultimodalAudioAi(
-          wavB64,
-          `이 오디오에서 사용자가 "하이 제미나이", "헤이 제미나이", "제미나이", "안티그래비티" 등 AI 호출어를 말했는지 판별해.\n` +
-          `1) 만약 호출어만 불렀다면 정확히 WAKE_ONLY 라고만 출력해.\n` +
-          `2) 만약 호출어와 함께 이어서 질문을 말했다면 QUESTION: 뒤에 질문 텍스트만 한국어로 적어서 출력해.\n` +
-          `3) 만약 호출어를 부른 게 아니라 단순 소음이나 다른 대화라면 정확히 IGNORE 라고만 출력해.`,
-          '',
-          120
-        );
-        if (out.includes('WAKE_ONLY')) {
-          await startConversationListening();
-        } else if (out.startsWith('QUESTION:')) {
-          const qText = out.replace(/^QUESTION:\s*/i, '').trim();
-          if (qText) {
-            await askAntigravityBrain(qText);
-          } else {
-            await startConversationListening();
-          }
-        }
-      } catch (e) {
-      } finally {
-        state.isProcessingAudio = false;
-      }
-    }
-
-    // 대화 모드(LISTENING)에서 안경 마이크로 녹음된 PCM 음성을 전사 후 OpenRouter 최고 성능 모델로 답변 생성
-    async function finalizeGlassesPcmQuestion() {
-      if (state.isProcessingAudio || state.pcmChunks.length === 0) return;
-      const chunks = state.pcmChunks.slice();
-      state.pcmChunks = [];
-      state.pcmBytesLen = 0;
-      state.vadSpeaking = false;
-
-      if (state.recognition) {
-        try { state.recognition.stop(); } catch (e) {}
-      }
-
-      if (!state.apiKey) {
-        await renderHudToGlasses('[API 키 필요]', '우측 설정에 OpenRouter 키(sk-or-v1-...)를 1회 저장해 주세요.', true, 'CONVERSATION');
-        return;
-      }
-
-      state.isProcessingAudio = true;
-      await renderHudToGlasses('[제미나이 분석 중]', '안경 마이크로 말씀하신 내용을 분석하고 답변을 생성 중입니다...', true, 'CONVERSATION');
-
-      try {
-        await loadAntigravityBrain(true);
-        const wavB64 = pcmChunksToWavBase64(chunks, 16000);
-
-        // 만약 사용자가 Claude Opus 4 / Sonnet 4 / Grok 등 비오디오 전용 최고급 모델을 선택한 경우:
-        // 1단계로 음성을 한국어 텍스트로 정확히 전사한 뒤 -> 2단계로 선택하신 최고급 모델(askAntigravityBrain)에 전달!
-        if (state.apiKey.startsWith('sk-or-') && !state.model.startsWith('google/')) {
-          const transcribed = await callMultimodalAudioAi(
-            wavB64,
-            `이 음성에서 사용자가 말한 내용을 한국어 텍스트로만 정확히 받아적어줘. 부연 설명 없이 들린 문장만 출력해.`,
-            '',
-            200
-          );
-          state.isProcessingAudio = false;
-          if (transcribed) {
-            if (transcribed.includes('시계 모드') || transcribed.includes('안경 꺼') || transcribed.includes('화면 꺼')) {
-              await enterClockStandbyMode();
-              return;
-            }
-            await askAntigravityBrain(transcribed);
-            return;
-          }
-        }
-
-        const systemInstruction = buildSystemInstruction();
-        const rawText = await callMultimodalAudioAi(
-          wavB64,
-          `위 음성은 대표님이 Even G2 안경 마이크로 말씀하신 내용이야.\n` +
-          `만약 음성에서 "안경 꺼줘", "시계 모드", "화면 꺼줘"라고 하셨다면 정확히 [CMD_CLOCK_STANDBY] 라고만 출력해.\n` +
-          `그 외에는 첫째 줄에 [음성 질문]: (들린 내용 요약) 을 적고, 둘째 줄부터 안티그래비티 두뇌로서 명확하고 간결하게 한국어로 답변해줘.`,
-          systemInstruction,
-          1024
-        );
-
-        if (!rawText || rawText.includes('[CMD_CLOCK_STANDBY]')) {
-          await enterClockStandbyMode();
-          return;
-        }
-
-        let questionSummary = '(안경 마이크 음성 질문)';
-        let answerBody = rawText;
-        const match = rawText.match(/^\[음성 질문\]:\s*(.+)\n+([\s\S]*)$/);
-        if (match) {
-          questionSummary = match[1].trim();
-          answerBody = match[2].trim();
-        }
-
-        await renderHudToGlasses('[제미나이]', answerBody, true, 'CONVERSATION');
-        await persistConversationEntry(questionSummary, answerBody, state.model);
-      } catch (err) {
-        await renderHudToGlasses('[음성 처리 안내]', `다시 한 번 말씀해 주세요. (두 번 터치 시 시계 복귀)`, true, 'CONVERSATION');
-      } finally {
-        state.isProcessingAudio = false;
-      }
-    }
-
-    // 호출어("하이 제미나이" 등)가 텍스트에 포함되어 있는지 검사하고, 뒤이어 말한 질문이 있으면 추출
-    function parseWakeWordCommand(transcript) {
-      const raw = String(transcript || '').trim();
-      if (!raw) return null;
-      const compact = raw.replace(/\s+/g, '').toLowerCase();
-
-      const wakePatterns = [
-        /^(하이|헤이|오케이|안녕)?\s*(제미나이|재미나이|지미나이|제미나|안티그래비티|안티야|gemini)[야아,\s]*/i,
-        /.*?(하이제미나이|헤이제미나이|하이재미나이|헤이재미나이|제미나이|재미나이|안티그래비티|heygemini|higemini)[야아,\s]*/i
+    function buildMenuItems() {
+      return [
+        { id: MENU_IDS.newChat, name: '새 채팅' },
+        { id: MENU_IDS.clockStandby, name: state.clockStandby ? 'HUD 켜기' : '시계 대기' },
+        { id: MENU_IDS.subtitles, name: '자막 모드' },
+        { id: MENU_IDS.translate, name: '상대 번역' },
+        { id: MENU_IDS.discreet, name: state.prefs.discreet ? '다시 밝게' : '조용 모드' },
+        { id: MENU_IDS.switchAi, name: 'AI 전환' },
+        { id: MENU_IDS.syncBrain, name: '두뇌 동기화' }
       ];
-
-      const hasWake =
-        compact.includes('제미나이') ||
-        compact.includes('재미나이') ||
-        compact.includes('지미나이') ||
-        compact.includes('안티그래비티') ||
-        compact.includes('gemini');
-
-      if (!hasWake) return null;
-
-      let remainder = raw;
-      for (const pat of wakePatterns) {
-        if (pat.test(remainder)) {
-          remainder = remainder.replace(pat, '').trim();
-          break;
-        }
-      }
-      return { triggered: true, question: remainder };
     }
 
-    // 상시 호출어("하이 제미나이") 대기용 Web Speech API 리스너 유지
-    function ensureWakeWordStandbyActive() {
-      if (!state.wakeWordEnabled || state.hudMode !== 'CLOCK_STANDBY') return;
+    const hud = new GlassesHud(
+      { title: '◆ E.D.I.T.H', status: '● 시작 중', body: '초기화 중...' },
+      buildMenuItems()
+    );
+
+    /* ── Clock & Status Formatting (EDITH 1:1) ── */
+    function updateClock() {
+      const now = new Date();
+      state.clockStr = forGlasses(
+        now.toLocaleTimeString('ko-KR', { timeZone: 'Asia/Seoul', hour: 'numeric', minute: '2-digit', hour12: true })
+      );
+      hud.set({ title: `◆ E.D.I.T.H${state.clockStr ? `  ${state.clockStr}` : ''}` });
+    }
+
+    function formatStatusLine() {
+      let base;
+      if (state.clockStandby) {
+        base = '● 시계 대기';
+      } else if (state.statusKind === 'setup') {
+        base = '■ 설정 필요';
+      } else if (state.statusKind === 'more') {
+        base = '▼ 더 보기';
+      } else {
+        base = '● 온라인';
+      }
+      const { level, charging } = state.battery;
+      if (typeof level !== 'number' || !Number.isFinite(level)) return base;
+      const pct = Math.max(0, Math.min(100, Math.round(level)));
+      const cells = Math.round(pct / 25);
+      return `${base}  ${'■'.repeat(cells)}${'□'.repeat(4 - cells)} ${charging ? '+' : ''}${pct}%`;
+    }
+
+    function formatGreeting() {
+      const hour = new Date().getHours();
+      const greet = hour >= 5 && hour < 12 ? '좋은 아침입니다' : hour >= 12 && hour < 18 ? '좋은 오후입니다' : '좋은 저녁입니다';
+      const namePart = state.firstName ? `, ${state.firstName}` : '';
+      return `${greet}${namePart}.\n모든 시스템 온라인.\n\n▶ 길게 눌러 말하거나, 탭하고 말하세요.\n◆ 탭한 다음 길게 누르면 메뉴.\n◆ 두 번 탭하면 시계 대기 / 종료.`;
+    }
+
+    function setPhoneState(mode) {
+      state.mode = mode;
+      const pillLabels = {
+        boot: '시작 중',
+        setup: '설정 필요',
+        idle: state.clockStandby ? '시계 대기' : '온라인',
+        listening: '듣는 중',
+        thinking: '생각 중',
+        answering: '답변 중',
+        error: '확인 필요'
+      };
+      const talkLabels = {
+        boot: '시작 중',
+        setup: '말하기',
+        idle: '말하기',
+        listening: '보내기',
+        thinking: '생각 중',
+        answering: '답변 중',
+        error: '말하기'
+      };
+      statePill.dataset.state = state.clockStandby && mode === 'idle' ? 'clock' : mode;
+      statePillLabel.textContent = pillLabels[mode] || '온라인';
+      talkBtn.dataset.state = mode;
+      talkBtnLabel.textContent = talkLabels[mode] || '말하기';
+      talkBtn.disabled = mode === 'boot' || mode === 'thinking' || mode === 'answering';
+      if (mode !== 'listening') {
+        talkBtn.style.setProperty('--level', '0');
+        sphereHud.setLevel(0);
+      }
+      sphereHud.setState(
+        mode === 'listening' ? 'listening' : mode === 'thinking' ? 'thinking' : mode === 'answering' ? 'answering' : mode === 'error' ? 'error' : 'online'
+      );
+      clockModeChip.setAttribute('aria-pressed', state.clockStandby ? 'true' : 'false');
+      subtitlesChip.setAttribute('aria-pressed', state.roomMode === 'subtitles' ? 'true' : 'false');
+      translateChip.setAttribute('aria-pressed', state.roomMode === 'translate' ? 'true' : 'false');
+    }
+
+    /* ── Home / Idle / Clock Standby Transitions ── */
+    function goIdle(note) {
+      if (state.clockStandby) {
+        void hud.setClockStandby(false);
+        state.clockStandby = false;
+        hud.setMenu(buildMenuItems());
+      }
+      if (!state.apiKey.trim()) {
+        state.statusKind = 'setup';
+        setPhoneState('setup');
+        hud.set({
+          status: formatStatusLine(),
+          body: `${note ? note + '\n\n' : ''}설정이 필요합니다.\n\n휴대폰의 Even 앱에서 설정을 열고\nOpenRouter 또는 Gemini 키를 확인하세요.\n\n◆ 두 번 탭하면 시계 대기 / 종료.`
+        });
+        return;
+      }
+      setPhoneState('idle');
+      let body;
+      if (note) {
+        body = `${note}\n\n▶ 길게 눌러 말하거나, 탭하고 말하세요.\n◆ 탭한 다음 길게 누르면 메뉴.\n◆ 두 번 탭하면 시계 대기 / 종료.`;
+      } else if (state.last) {
+        body = state.last.you ? `» ${clip(state.last.you, 90)}\n\n${state.last.reply}` : state.last.reply;
+      } else {
+        body = formatGreeting();
+      }
+      const overflows = estimateLines(body, BODY_CHARS_PER_LINE) > BODY_LINES;
+      state.statusKind = overflows ? 'more' : 'online';
+      hud.set({ status: formatStatusLine(), body: clip(body, 1990) });
+      ensureWakeWordStandby();
+    }
+
+    function enterClockStandby() {
+      stopTicker();
+      closeMic();
+      state.roomMode = null;
+      state.clockStandby = true;
+      setPhoneState('idle');
+      hud.setMenu(buildMenuItems());
+      hud.set({
+        status: formatStatusLine(),
+        body: ' '
+      });
+      void hud.setClockStandby(true);
+      ensureWakeWordStandby();
+    }
+
+    /* ── Phone Log Helpers ── */
+    function addLogNote(text, isError = false) {
+      const div = document.createElement('div');
+      div.className = `note${isError ? ' error' : ''}`;
+      div.textContent = text;
+      chatLog.append(div);
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+
+    function addYouEntry(initialText) {
+      const wrap = document.createElement('div');
+      wrap.className = 'entry you';
+      const who = document.createElement('div');
+      who.className = 'who';
+      who.textContent = '나';
+      const body = document.createElement('div');
+      body.className = 'body';
+      body.textContent = initialText;
+      wrap.append(who, body);
+      chatLog.append(wrap);
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+      return {
+        update(newText) {
+          body.textContent = newText;
+        }
+      };
+    }
+
+    function addEdithLiveEntry(modelLabel = 'E.D.I.T.H') {
+      const wrap = document.createElement('div');
+      wrap.className = 'entry edith';
+      const who = document.createElement('div');
+      who.className = 'who';
+      who.textContent = modelLabel;
+      const body = document.createElement('div');
+      body.className = 'body';
+      body.textContent = '...';
+      const meta = document.createElement('div');
+      meta.className = 'meta';
+      meta.hidden = true;
+      wrap.append(who, body, meta);
+      chatLog.append(wrap);
+      let raw = '';
+      return {
+        append(delta) {
+          raw += delta;
+          body.textContent = stripMarkdown(raw) || '...';
+          sphereHud.kick(0.32);
+        },
+        finish(finalText, infoText) {
+          raw = finalText;
+          body.textContent = stripMarkdown(finalText);
+          if (infoText) {
+            meta.textContent = infoText;
+            meta.hidden = false;
+          }
+          window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        },
+        discard() {
+          wrap.remove();
+        }
+      };
+    }
+
+    function renderInitialHistory() {
+      chatLog.replaceChildren();
+      const recent = state.history.slice(-30);
+      for (const m of recent) {
+        if (m.role === 'user') {
+          addYouEntry(m.content);
+        } else {
+          const live = addEdithLiveEntry('E.D.I.T.H');
+          live.finish(m.content, m.timestamp ? `${m.timestamp} · GitHub 동기화됨` : '');
+        }
+      }
+      const lastUser = [...recent].reverse().find((m) => m.role === 'user');
+      const lastAssistant = [...recent].reverse().find((m) => m.role === 'assistant');
+      if (lastAssistant) {
+        state.last = {
+          you: forGlasses(lastUser?.content || ''),
+          reply: forGlasses(lastAssistant.content)
+        };
+      }
+    }
+
+    /* ── Microphone & Listening (EDITH 1:1) ── */
+    async function openMic() {
+      if (!hud.bridge) return false;
+      try {
+        if (await hud.bridge.audioControl(true, AudioInputSource.Glasses)) {
+          state.micOpen = true;
+          return true;
+        }
+        if (await hud.bridge.audioControl(true, AudioInputSource.Phone)) {
+          state.micOpen = true;
+          return true;
+        }
+      } catch (err) {
+        console.warn('[edith] audioControl error:', err);
+      }
+      return false;
+    }
+
+    function closeMic() {
+      if (!state.micOpen || !hud.bridge) return;
+      state.micOpen = false;
+      hud.bridge.audioControl(false).catch(() => {});
+    }
+
+    function startTicker(fn, ms) {
+      stopTicker();
+      state.ticker = window.setInterval(fn, ms);
+    }
+
+    function stopTicker() {
+      if (state.ticker) {
+        window.clearInterval(state.ticker);
+        state.ticker = null;
+      }
+    }
+
+    function stopWebSpeech() {
+      if (state.webSpeechRec) {
+        try { state.webSpeechRec.stop(); } catch {}
+        state.webSpeechRec = null;
+      }
+    }
+
+    async function startListening(trigger = 'tap', { keepBody = false } = {}) {
+      if (state.mode === 'thinking' || state.mode === 'answering') return;
+      if (!state.apiKey.trim()) {
+        await syncBrainAndKey(true);
+        if (!state.apiKey.trim()) {
+          goIdle();
+          return;
+        }
+      }
+
+      if (state.wakeRec) {
+        try { state.wakeRec.stop(); } catch {}
+        state.wakeRec = null;
+      }
+
+      if (state.clockStandby) {
+        state.clockStandby = false;
+        void hud.setClockStandby(false);
+        hud.setMenu(buildMenuItems());
+      }
+
+      const recorder = new EdithRecorder({
+        autoStop: trigger !== 'hold',
+        onAutoStop: (reason) => void finishListening(reason)
+      });
+
+      if (!keepBody) state.followUps = 0;
+      state.recorder = recorder;
+      state.trigger = trigger;
+      state.quietListening = keepBody;
+      state.webSpeechTranscript = '';
+      setPhoneState('listening');
+
+      hud.set({ status: '● 녹음 0:00' });
+      renderListeningBody();
+      startTicker(() => renderListeningTick(), 450);
+
+      window.clearTimeout(state.followUpStopTimer);
+      if (keepBody) {
+        state.followUpStopTimer = window.setTimeout(() => {
+          if (state.recorder === recorder && state.quietListening) cancelListening(true);
+        }, 9000);
+      }
+
+      // Parallel browser Web Speech API as instant fallback (especially when testing on phone/browser)
+      startParallelWebSpeech(recorder);
+
+      const opened = await openMic();
+      if (state.recorder !== recorder) {
+        if (opened) closeMic();
+        return;
+      }
+    }
+
+    function startParallelWebSpeech(recorder) {
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
       if (!SpeechRecognition) return;
+      stopWebSpeech();
+      try {
+        const rec = new SpeechRecognition();
+        rec.lang = 'ko-KR';
+        rec.interimResults = true;
+        rec.maxAlternatives = 1;
+        state.webSpeechRec = rec;
 
-      if (state.recognition) {
-        try { state.recognition.stop(); } catch (e) {}
-        state.recognition = null;
+        rec.onresult = (event) => {
+          if (state.recorder !== recorder) return;
+          let interim = '';
+          let finalStr = '';
+          for (let i = event.resultIndex; i < event.results.length; i++) {
+            const t = event.results[i][0].transcript;
+            if (event.results[i].isFinal) finalStr += t;
+            else interim += t;
+          }
+          const combined = (finalStr || interim).trim();
+          if (combined) {
+            state.webSpeechTranscript = combined;
+            if (state.quietListening) state.quietListening = false;
+            const how = state.trigger === 'hold' ? '손을 떼면 전송합니다.' : '탭하면 전송, 잠시 멈춰도 전송.';
+            hud.set({ body: `» ${clip(forGlasses(combined), 90)}\n\n듣고 있어요...\n${how}\n두 번 탭하면 취소.` });
+          }
+        };
+        rec.onerror = () => {};
+        rec.start();
+      } catch {}
+    }
+
+    function renderListeningTick() {
+      const recorder = state.recorder;
+      if (state.mode !== 'listening' || !recorder) return;
+      const seconds = Math.floor(recorder.durationMs / 1000);
+      const levels = recorder.levels;
+      const meter = levels
+        .slice(-8)
+        .map((lvl) => LEVEL_BARS[Math.min(LEVEL_BARS.length - 1, Math.floor(lvl * LEVEL_BARS.length))])
+        .join('');
+      const clock = `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`;
+      hud.set({ status: `● 녹음 ${clock}${meter ? `  ${meter}` : ''}` });
+      const latestLevel = levels[levels.length - 1] ?? 0.15;
+      talkBtn.style.setProperty('--level', latestLevel.toFixed(2));
+      sphereHud.setLevel(latestLevel);
+
+      if (state.quietListening && recorder.heardSpeech) {
+        state.quietListening = false;
+        renderListeningBody();
+      }
+    }
+
+    function renderListeningBody() {
+      if (state.quietListening) return;
+      const how = state.trigger === 'hold' ? '손을 떼면 전송합니다.' : '탭하면 전송, 잠시 멈춰도 전송.';
+      hud.set({ body: `듣고 있어요...\n\n${how}\n두 번 탭하면 취소.` });
+    }
+
+    function cancelListening(quiet = false) {
+      state.recorder?.stop();
+      state.recorder = null;
+      stopWebSpeech();
+      stopTicker();
+      window.clearTimeout(state.followUpStopTimer);
+      closeMic();
+      state.quietListening = false;
+      goIdle(quiet ? undefined : '취소했습니다.');
+    }
+
+    async function finishListening(reason) {
+      const recorder = state.recorder;
+      if (state.mode !== 'listening' || !recorder) return;
+      state.recorder = null;
+      recorder.stop();
+      const webText = state.webSpeechTranscript.trim();
+      stopWebSpeech();
+      stopTicker();
+      window.clearTimeout(state.followUpStopTimer);
+      closeMic();
+      const quiet = state.quietListening;
+      state.quietListening = false;
+
+      // If Web Speech already caught clear Korean text, use it immediately!
+      if (webText.length >= 2) {
+        if (webText.includes('시계 대기') || webText.includes('시계 모드') || webText.includes('화면 꺼') || webText.includes('안경 꺼')) {
+          enterClockStandby();
+          return;
+        }
+        await askEdith({ text: webText });
+        return;
       }
 
+      const nothingSaid = reason === 'no-speech' || recorder.sendableMs < 500 || (!recorder.heardSpeech && reason !== 'manual');
+      if (nothingSaid) {
+        goIdle(quiet ? undefined : '잘 못 들었습니다.');
+        return;
+      }
+
+      await askEdith({ wavBase64: recorder.toWavBase64() });
+    }
+
+    function scheduleFollowUp() {
+      window.clearTimeout(state.followUpTimer);
+      if (!state.prefs.followUp || state.trigger === 'phone' || state.followUps >= 4 || state.clockStandby) return;
+      state.followUpTimer = window.setTimeout(() => {
+        if (state.mode !== 'idle' || state.recorder || state.roomMode || state.clockStandby) return;
+        state.followUps++;
+        void startListening('tap', { keepBody: true });
+      }, 650);
+    }
+
+    /* ── Subtitles & Live Translation Mode (EDITH Room Mode) ── */
+    async function toggleRoomMode(kind) {
+      if (state.roomMode === kind) {
+        stopRoomMode();
+        return;
+      }
+      state.roomMode = kind;
+      state.clockStandby = false;
+      void hud.setClockStandby(false);
+      setPhoneState('idle');
+      const isTranslate = kind === 'translate';
+      hud.set({
+        status: `● ${isTranslate ? '번역 중' : '자막'} 0:00`,
+        body: `상대방의 말을 듣고 있습니다...\n(${isTranslate ? '실시간 한국어 번역' : '실시간 자막 표시'})\n\n◆ 두 번 탭하면 중지.`
+      });
+      addLogNote(isTranslate ? '상대 번역 모드를 켰습니다.' : '실시간 자막 모드를 켰습니다.');
+
+      const startMs = Date.now();
+      const lines = [];
+      await openMic();
+
+      const pumpNextSegment = () => {
+        if (state.roomMode !== kind) return;
+        const segRec = new EdithRecorder({
+          autoStop: true,
+          acceptOther: true,
+          onAutoStop: async (reason) => {
+            if (state.roomMode !== kind) return;
+            if (reason !== 'no-speech' && segRec.heardSpeech) {
+              try {
+                const wav = segRec.toWavBase64();
+                const prompt = isTranslate
+                  ? '이 음성을 듣고 한국어로 자연스럽게 번역한 문장만 출력해. 부연 설명 없이 번역문만 출력해.'
+                  : '이 음성을 듣고 들리는 그대로 정확하게 받아적은 문장만 출력해.';
+                const text = await transcribeOrAudioAsk(wav, prompt);
+                if (text && state.roomMode === kind) {
+                  lines.push(forGlasses(text));
+                  while (lines.length > 4) lines.shift();
+                  const sec = Math.floor((Date.now() - startMs) / 1000);
+                  const clk = `${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, '0')}`;
+                  hud.set({
+                    status: `● ${isTranslate ? '번역 중' : '자막'} ${clk}`,
+                    body: lines.join('\n')
+                  });
+                }
+              } catch {}
+            }
+            if (state.roomMode === kind) pumpNextSegment();
+          }
+        });
+        state.recorder = segRec;
+      };
+      pumpNextSegment();
+    }
+
+    function stopRoomMode() {
+      if (!state.roomMode) return;
+      state.roomMode = null;
+      state.recorder?.stop();
+      state.recorder = null;
+      closeMic();
+      goIdle('자막을 껐습니다.');
+    }
+
+    /* ── Wake Word Standby ("하이 제미나이" / "에디스") ── */
+    function ensureWakeWordStandby() {
+      if (!state.prefs.wakeWord || (state.mode !== 'idle' && state.mode !== 'setup') || state.recorder || state.roomMode) return;
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition || state.wakeRec) return;
       try {
         const rec = new SpeechRecognition();
         rec.lang = 'ko-KR';
         rec.continuous = true;
         rec.interimResults = true;
-        rec.maxAlternatives = 1;
-        state.recognition = rec;
-
-        rec.onresult = async (event) => {
-          if (state.hudMode !== 'CLOCK_STANDBY') return;
+        state.wakeRec = rec;
+        rec.onresult = (event) => {
+          if (state.mode !== 'idle' || state.recorder) return;
           for (let i = event.resultIndex; i < event.results.length; i++) {
-            const text = event.results[i][0].transcript;
-            const parsed = parseWakeWordCommand(text);
-            if (parsed && parsed.triggered) {
-              // 만약 "하이 제미나이 오늘 일정 알려줘"처럼 질문까지 한 번에 말하고 문장이 끝났다면 즉시 답변!
-              if (event.results[i].isFinal && parsed.question && parsed.question.length >= 2) {
-                try { rec.stop(); } catch (e) {}
-                await askAntigravityBrain(parsed.question);
-                return;
+            const raw = event.results[i][0].transcript.trim();
+            const compact = raw.replace(/\s+/g, '').toLowerCase();
+            if (
+              compact.includes('제미나이') ||
+              compact.includes('재미나이') ||
+              compact.includes('에디스') ||
+              compact.includes('이디스') ||
+              compact.includes('edith') ||
+              compact.includes('안티그래비티')
+            ) {
+              try { rec.stop(); } catch {}
+              state.wakeRec = null;
+              const cleaned = raw
+                .replace(/^(하이|헤이|오케이|안녕)?\s*(제미나이|재미나이|에디스|이디스|edith|안티그래비티)[야아,\s]*/i, '')
+                .trim();
+              if (event.results[i].isFinal && cleaned.length >= 2) {
+                void askEdith({ text: cleaned });
+              } else {
+                void startListening('tap');
               }
-              // "하이 제미나이"만 불렀다면 즉시 대화 모드로 진입!
-              if (!parsed.question || parsed.question.length < 2) {
-                try { rec.stop(); } catch (e) {}
-                await startConversationListening();
-                return;
-              }
-            }
-          }
-        };
-
-        rec.onend = () => {
-          if (state.hudMode === 'CLOCK_STANDBY' && state.wakeWordEnabled) {
-            setTimeout(() => {
-              if (state.hudMode === 'CLOCK_STANDBY' && state.wakeWordEnabled) {
-                ensureWakeWordStandbyActive();
-              }
-            }, 600);
-          }
-        };
-
-        rec.onerror = () => {};
-        rec.start();
-      } catch (e) {}
-    }
-
-    // [제미나이 대화 모드] 진입 ("하이 제미나이" 호출 시 또는 안경다리 1회 터치 시 실행)
-    async function startConversationListening() {
-      if (state.recognition) {
-        try { state.recognition.stop(); } catch (e) {}
-        state.recognition = null;
-      }
-
-      state.hudMode = 'LISTENING';
-      state.isListening = true;
-      state.pcmChunks = [];
-      state.pcmBytesLen = 0;
-      state.vadSpeaking = false;
-
-      voiceAskBtn.classList.add('listening');
-      voiceAskBtnText.textContent = '제미나이 대화 모드 — 말씀하세요 (안경다리 두 번 터치 시 시계 복귀)';
-
-      await renderHudToGlasses(
-        '[제미나이 대화]',
-        '네, 말씀하세요!\n(말씀이 끝나면 자동 전송 / 두 번 터치: 시계 복귀)',
-        true,
-        'LISTENING'
-      );
-
-      if (state.bridge && state.startupCreated) {
-        try {
-          await state.bridge.audioControl(true, AudioInputSource.Glasses);
-        } catch (e) {}
-      }
-
-      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-      if (!SpeechRecognition) return;
-
-      try {
-        const recognition = new SpeechRecognition();
-        recognition.lang = 'ko-KR';
-        recognition.interimResults = true;
-        recognition.maxAlternatives = 1;
-        state.recognition = recognition;
-
-        let finalTranscript = '';
-
-        recognition.onresult = (event) => {
-          if (state.hudMode !== 'LISTENING') return;
-          let interim = '';
-          for (let i = event.resultIndex; i < event.results.length; i++) {
-            const transcript = event.results[i][0].transcript;
-            if (event.results[i].isFinal) {
-              finalTranscript += transcript;
-            } else {
-              interim += transcript;
-            }
-          }
-          const preview = (finalTranscript || interim).trim();
-          if (preview) {
-            // 웹 음성 인식이 동작 중이면 중복 PCM 전송을 막기 위해 PCM 버퍼 초기화
-            state.pcmChunks = [];
-            state.pcmBytesLen = 0;
-            renderHudToGlasses('[듣는 중...]', `말씀: ${preview}\n(두 번 터치: 시계 모드로 끄기)`, true, 'LISTENING');
-          }
-        };
-
-        recognition.onend = async () => {
-          if (state.hudMode !== 'LISTENING') return;
-          const spoken = finalTranscript.trim();
-          if (spoken) {
-            state.isListening = false;
-            voiceAskBtn.classList.remove('listening');
-            voiceAskBtnText.textContent = '음성으로 질문하기 ("하이 제미나이" 또는 안경다리 1회 터치)';
-            // 만약 "시계 모드" 또는 "꺼줘"라고 말했으면 시계 대기 모드로 복귀
-            if (spoken.includes('시계 모드') || spoken.includes('화면 꺼') || spoken.includes('안경 꺼')) {
-              await enterClockStandbyMode();
               return;
             }
-            const parsed = parseWakeWordCommand(spoken);
-            const cleanQ = (parsed && parsed.question) ? parsed.question : spoken;
-            await askAntigravityBrain(cleanQ);
           }
         };
-
-        recognition.onerror = () => {};
-        recognition.start();
-      } catch (e) {}
+        rec.onend = () => {
+          state.wakeRec = null;
+          setTimeout(() => ensureWakeWordStandby(), 800);
+        };
+        rec.onerror = () => {
+          state.wakeRec = null;
+        };
+        rec.start();
+      } catch {}
     }
 
-    async function toggleVoiceRecognition() {
-      if (state.hudMode === 'LISTENING') {
-        await enterClockStandbyMode();
+    /* ── Transcribe & Stream Answer via OpenRouter / Gemini + Antigravity Brain ── */
+    function buildSystemPrompt() {
+      const ctx = state.brainContext;
+      let brainSummary = '';
+      if (ctx) {
+        const projects = (ctx.projects || []).slice(0, 12).map((p) => `- ${p.name}: ${p.summary || ''}`).join('\n');
+        const liveIde = (ctx.livePcAntigravity || []).slice(0, 4).map((s) => `- [${s.updatedAt}] ${s.snippet || ''}`).join('\n');
+        const recentDocs = (ctx.recentDocs || []).slice(0, 5).map((d) => `- ${d.name}: ${(d.preview || '').slice(0, 160)}`).join('\n');
+        brainSummary =
+          `\n\n[실시간 동기화된 대표님의 PC 안티그래비티(e:\\안티그래비티) 및 GitHub 두뇌 컨텍스트]\n` +
+          (projects ? `주요 프로젝트:\n${projects}\n` : '') +
+          (liveIde ? `최근 PC 안티그래비티 작업:\n${liveIde}\n` : '') +
+          (recentDocs ? `최근 문서:\n${recentDocs}\n` : '');
+      }
+      const custom = state.customInstructions ? `\n추가 사용자 지시: ${state.customInstructions}` : '';
+      return (
+        `당신은 Even Realities G2 스마트 안경에 탑재된 대표님의 전용 AI 비서 E.D.I.T.H(안티그래비티 마스터 두뇌)입니다.\n` +
+        `답변은 스마트 안경 HUD 화면(576x288)에서 즉시 읽기 편하도록 핵심부터 간결하고 명확한 한국어로 답하세요. 마크다운 기호(**, #, \`\`\`)나 이모지는 쓰지 말고 깔끔한 평문으로 작성하세요.` +
+        custom +
+        brainSummary
+      );
+    }
+
+    async function transcribeOrAudioAsk(wavB64, instructionText) {
+      const key = state.apiKey.trim();
+      if (!key) throw new Error('API 키가 필요합니다.');
+      if (key.startsWith('sk-or-')) {
+        const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${key}`,
+            'Content-Type': 'application/json',
+            'HTTP-Referer': 'https://zespy2614-jpg.github.io/korea-spart-24h-cloud/g2/',
+            'X-Title': 'EDITH Antigravity G2'
+          },
+          body: JSON.stringify({
+            model: 'google/gemini-2.5-flash',
+            messages: [
+              {
+                role: 'user',
+                content: [
+                  { type: 'text', text: instructionText },
+                  { type: 'input_audio', input_audio: { data: wavB64, format: 'wav' } }
+                ]
+              }
+            ],
+            temperature: 0.1,
+            max_tokens: 250
+          })
+        });
+        if (!res.ok) throw new Error(`OpenRouter 음성 인식 오류 (${res.status})`);
+        const data = await res.json();
+        return String(data?.choices?.[0]?.message?.content || '').trim();
       } else {
-        await startConversationListening();
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${encodeURIComponent(key)}`;
+        const res = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [{
+              role: 'user',
+              parts: [
+                { inlineData: { mimeType: 'audio/wav', data: wavB64 } },
+                { text: instructionText }
+              ]
+            }],
+            generationConfig: { temperature: 0.1, maxOutputTokens: 250 }
+          })
+        });
+        if (!res.ok) throw new Error(`Gemini 음성 인식 오류 (${res.status})`);
+        const data = await res.json();
+        return String(data?.candidates?.[0]?.content?.parts?.[0]?.text || '').trim();
       }
     }
 
-    voiceAskBtn.addEventListener('click', toggleVoiceRecognition);
+    async function askEdith(payload) {
+      window.clearTimeout(state.followUpTimer);
+      if (state.clockStandby) {
+        state.clockStandby = false;
+        void hud.setClockStandby(false);
+        hud.setMenu(buildMenuItems());
+      }
 
-    askForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      askAntigravityBrain(questionInput.value);
+      let userQuestion = payload.text ? payload.text.trim() : '';
+      const youEntry = addYouEntry(userQuestion || '받아쓰는 중...');
+      const modelShort = MODEL_LIST.find((m) => m.id === state.model)?.label || 'E.D.I.T.H';
+      const liveEntry = addEdithLiveEntry(`E.D.I.T.H · ${modelShort}`);
+      const controller = new AbortController();
+      state.activeController = controller;
+
+      setPhoneState('thinking');
+      let frame = 0;
+      hud.set({ status: `생각 중 ${THINKING_FRAMES[0]}` });
+      startTicker(() => {
+        frame++;
+        if (state.mode === 'thinking') {
+          hud.set({ status: `생각 중 ${THINKING_FRAMES[frame % THINKING_FRAMES.length]}` });
+        }
+      }, 400);
+
+      let answer = '';
+      const renderBody = () => {
+        const qClip = clip(forGlasses(userQuestion), 90);
+        const head = qClip ? `» ${qClip}\n\n` : '';
+        const tail = answer ? forGlasses(answer) : qClip ? '처리 중...' : '처리 중...\n\n두 번 탭하면 취소.';
+        hud.set({ body: clip(head + tail, 1990) });
+      };
+      renderBody();
+
+      try {
+        // Refresh latest GitHub/PC Antigravity context in background
+        void syncBrainAndKey(true);
+
+        // Step 1: If audio WAV was captured from G2 glasses, transcribe it cleanly first
+        if (!userQuestion && payload.wavBase64) {
+          const transcript = await transcribeOrAudioAsk(
+            payload.wavBase64,
+            '이 오디오에서 사용자가 말한 한국어 문장만 정확히 받아적어 출력해. 아무런 인사말이나 부연 설명 없이 들린 텍스트만 출력하고, 아무 말도 안 들리면 EMPTY 라고만 출력해.'
+          );
+          if (!transcript || transcript === 'EMPTY') {
+            liveEntry.discard();
+            youEntry.update('(음성 없음)');
+            stopTicker();
+            goIdle('잘 못 들었습니다.');
+            return;
+          }
+          userQuestion = transcript.replace(/^["']|["']$/g, '').trim();
+          youEntry.update(userQuestion);
+          if (userQuestion.includes('시계 대기') || userQuestion.includes('시계 모드') || userQuestion.includes('화면 꺼') || userQuestion.includes('안경 꺼')) {
+            liveEntry.discard();
+            stopTicker();
+            enterClockStandby();
+            return;
+          }
+          renderBody();
+        }
+
+        // Step 2: Stream answer from OpenRouter or Gemini
+        const key = state.apiKey.trim();
+        const sysPrompt = buildSystemPrompt();
+        const recentTurns = state.history.slice(-10).map((m) => ({
+          role: m.role === 'assistant' ? 'assistant' : 'user',
+          content: m.content
+        }));
+
+        if (key.startsWith('sk-or-')) {
+          const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${key}`,
+              'Content-Type': 'application/json',
+              'Accept': 'text/event-stream',
+              'HTTP-Referer': 'https://zespy2614-jpg.github.io/korea-spart-24h-cloud/g2/',
+              'X-Title': 'EDITH Antigravity G2'
+            },
+            body: JSON.stringify({
+              model: state.model.includes('/') ? state.model : 'google/gemini-2.5-flash',
+              stream: true,
+              messages: [
+                { role: 'system', content: sysPrompt },
+                ...recentTurns,
+                { role: 'user', content: userQuestion }
+              ],
+              max_tokens: 900
+            }),
+            signal: controller.signal
+          });
+
+          if (!res.ok) {
+            const errTxt = await res.text().catch(() => '');
+            throw new Error(`AI 응답 오류 (${res.status}): ${errTxt.slice(0, 120)}`);
+          }
+
+          const reader = res.body.getReader();
+          const decoder = new TextDecoder();
+          let buffer = '';
+
+          while (true) {
+            const { value, done } = await reader.read();
+            if (done) break;
+            buffer += decoder.decode(value, { stream: true });
+            const lines = buffer.split('\n');
+            buffer = lines.pop() || '';
+            for (const line of lines) {
+              const trimmed = line.trim();
+              if (!trimmed.startsWith('data:')) continue;
+              const dataStr = trimmed.slice(5).trim();
+              if (dataStr === '[DONE]') break;
+              try {
+                const parsed = JSON.parse(dataStr);
+                const delta = parsed?.choices?.[0]?.delta?.content;
+                if (typeof delta === 'string' && delta) {
+                  if (!answer) {
+                    stopTicker();
+                    setPhoneState('answering');
+                    hud.set({ status: '● 답변 중' });
+                  }
+                  answer += delta;
+                  liveEntry.append(delta);
+                  renderBody();
+                }
+              } catch {}
+            }
+          }
+        } else {
+          // Direct Google Gemini API fallback
+          const geminiModel = state.model.startsWith('google/') ? state.model.replace('google/', '') : 'gemini-2.5-flash';
+          const url = `https://generativelanguage.googleapis.com/v1beta/models/${geminiModel}:generateContent?key=${encodeURIComponent(key)}`;
+          const res = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              systemInstruction: { parts: [{ text: sysPrompt }] },
+              contents: [
+                ...recentTurns.map((t) => ({ role: t.role === 'assistant' ? 'model' : 'user', parts: [{ text: t.content }] })),
+                { role: 'user', parts: [{ text: userQuestion }] }
+              ]
+            }),
+            signal: controller.signal
+          });
+          if (!res.ok) throw new Error(`Gemini 응답 오류 (${res.status})`);
+          const data = await res.json();
+          answer = String(data?.candidates?.[0]?.content?.parts?.[0]?.text || '').trim();
+          stopTicker();
+          setPhoneState('answering');
+          hud.set({ status: '● 답변 중' });
+          renderBody();
+        }
+
+        const cleanAnswer = forGlasses(answer) || '답변을 생성하지 못했습니다.';
+        state.last = { you: forGlasses(userQuestion), reply: cleanAnswer };
+        const nowStr = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
+        liveEntry.finish(cleanAnswer, `${nowStr} · ${modelShort} · GitHub/PC 실시간 저장됨`);
+
+        state.history.push(
+          { role: 'user', content: userQuestion, timestamp: nowStr },
+          { role: 'assistant', content: cleanAnswer, timestamp: nowStr, model: state.model }
+        );
+        if (state.history.length > 80) state.history = state.history.slice(-80);
+        localStorage.setItem('agy_g2_messages', JSON.stringify(state.history));
+
+        stopTicker();
+        goIdle();
+        scheduleFollowUp();
+        void persistConversationToCloudAndPc(userQuestion, cleanAnswer, state.model);
+      } catch (err) {
+        if (controller.signal.aborted) return;
+        stopTicker();
+        liveEntry.discard();
+        const msg = err?.message || String(err);
+        addLogNote(`오류: ${msg}`, true);
+        setPhoneState('error');
+        hud.set({
+          status: '■ 오류',
+          body: `문제가 생겼습니다.\n${clip(forGlasses(msg), 120)}\n\n탭해서 다시 시도하세요.`
+        });
+      } finally {
+        if (state.activeController === controller) state.activeController = null;
+      }
+    }
+
+    function cancelActiveRequest() {
+      if (!state.activeController) return;
+      state.activeController.abort();
+      state.activeController = null;
+      stopTicker();
+      goIdle('취소했습니다.');
+    }
+
+    /* ── Bidirectional Sync: GitHub <-> PC Antigravity <-> Glasses ── */
+    function xorDeobfuscateKey(b64, salt = 'agy_g2_openrouter_2026') {
+      try {
+        const raw = atob(b64);
+        let out = '';
+        for (let i = 0; i < raw.length; i++) {
+          out += String.fromCharCode(raw.charCodeAt(i) ^ salt.charCodeAt(i % salt.length));
+        }
+        return out;
+      } catch {
+        return '';
+      }
+    }
+
+    async function syncBrainAndKey(silent = false) {
+      let loaded = null;
+      // 1. Try local PC server if on same network
+      if (location.hostname === 'localhost' || location.hostname.startsWith('192.168.') || location.hostname.startsWith('10.')) {
+        try {
+          const r = await fetch(`/api/brain?t=${Date.now()}`, { signal: AbortSignal.timeout(2200) });
+          if (r.ok) loaded = await r.json();
+        } catch {}
+      }
+      // 2. Try GitHub raw & Pages for real-time 24h cloud brain
+      if (!loaded) {
+        for (const url of [`${GITHUB_RAW_BRAIN_URL}?t=${Date.now()}`, `${GITHUB_BRAIN_URL}?t=${Date.now()}`]) {
+          try {
+            const r = await fetch(url, { cache: 'no-store', signal: AbortSignal.timeout(3500) });
+            if (r.ok) {
+              loaded = await r.json();
+              break;
+            }
+          } catch {}
+        }
+      }
+
+      if (loaded) {
+        state.brainContext = loaded;
+        // Auto-apply synced OpenRouter key if phone has none yet
+        if (!state.apiKey.trim() && loaded.encryptedConfig?.k) {
+          const decoded = xorDeobfuscateKey(loaded.encryptedConfig.k);
+          if (decoded && (decoded.startsWith('sk-or-') || decoded.startsWith('AIza'))) {
+            state.apiKey = decoded;
+            localStorage.setItem('agy_gemini_api_key', decoded);
+            apiKeyInput.value = decoded;
+            keyStatusHelp.textContent = 'PC 안티그래비티에서 OpenRouter 키가 자동 연결되었습니다.';
+            if (state.mode === 'setup') goIdle();
+          }
+        }
+        const projCount = (loaded.projects || []).length;
+        const ideCount = (loaded.livePcAntigravity || []).length;
+        syncDot.style.background = '#3dff9a';
+        syncStatusText.innerHTML = `<b>PC 안티그래비티 ↔ GitHub 연동됨</b> (프로젝트 ${projCount}개 · 실시간 세션 ${ideCount}개)`;
+        if (!silent) addLogNote('GitHub 및 PC 안티그래비티 최신 두뇌 데이터를 동기화했습니다.');
+      }
+    }
+
+    async function persistConversationToCloudAndPc(question, answer, model) {
+      const payload = {
+        id: 'g2_' + Date.now(),
+        timestamp: new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }),
+        question,
+        answer,
+        model
+      };
+      // 1. Push to ntfy cloud queue (picked up within 4 seconds by PC server & GitHub Actions)
+      try {
+        await fetch(CLOUD_SYNC_URL, {
+          method: 'POST',
+          headers: { 'Title': 'Antigravity-G2-Sync', 'Tags': 'glasses,brain' },
+          body: JSON.stringify(payload)
+        });
+      } catch {}
+      // 2. Also post directly if on local PC server
+      if (location.hostname === 'localhost' || location.hostname.startsWith('192.168.')) {
+        try {
+          await fetch('/api/save-log', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+        } catch {}
+      }
+    }
+
+    /* ── Even G2 Hardware Event Handling (EDITH 1:1 Gesture State Machine) ── */
+    function eventTypeOf(event) {
+      const env = event.sysEvent ?? event.textEvent ?? event.listEvent;
+      if (!env) return null;
+      return env.eventType ?? OsEventTypeList.CLICK_EVENT;
+    }
+
+    function onEvenHubEvent(event) {
+      const audio = event.audioEvent;
+      if (audio?.audioPcm) {
+        state.recorder?.push(audio.audioPcm, audio.speakerRole);
+      }
+
+      const menuItem = event.menuItemClickEvent?.itemID;
+      if (menuItem !== undefined) {
+        onMenuItemClick(menuItem);
+        return;
+      }
+
+      const type = eventTypeOf(event);
+      if (type === null) return;
+
+      const now = Date.now();
+      const lifecycle = type >= OsEventTypeList.FOREGROUND_ENTER_EVENT && type <= OsEventTypeList.SYSTEM_EXIT_EVENT;
+      const key = String(type);
+      if (now - (state.lastEventAt.get(key) ?? 0) < (lifecycle ? 600 : 240)) return;
+      state.lastEventAt.set(key, now);
+      if (!lifecycle && type !== OsEventTypeList.IMU_DATA_REPORT) state.lastInputAt = now;
+
+      switch (type) {
+        case OsEventTypeList.CLICK_EVENT:
+          if (now - state.holdReleasedAt < 700) return;
+          if (state.mode === 'listening') {
+            void finishListening('manual');
+          } else if (state.mode === 'idle' || state.mode === 'error' || state.mode === 'setup') {
+            void startListening('tap');
+          }
+          break;
+
+        case OsEventTypeList.DOUBLE_CLICK_EVENT:
+          if (state.roomMode) {
+            stopRoomMode();
+            return;
+          }
+          if (state.mode === 'listening' && !state.quietListening) {
+            cancelListening();
+            return;
+          }
+          if (state.mode === 'listening' && state.quietListening) {
+            cancelListening(true);
+          }
+          if (state.mode === 'thinking' || state.mode === 'answering') {
+            cancelActiveRequest();
+            return;
+          }
+          // If doubleTapClock pref is enabled and not yet in Clock Standby, switch to Clock Standby first!
+          if (state.prefs.doubleTapClock && !state.clockStandby) {
+            enterClockStandby();
+            return;
+          }
+          // Second double-tap while in Clock Standby opens native exit dialog
+          state.exitDialogOpen = true;
+          void hud.bridge?.shutDownPageContainer(1);
+          break;
+
+        case OsEventTypeList.LONG_PRESS_EVENT:
+          if (state.mode === 'idle' || state.mode === 'error' || state.mode === 'setup') {
+            void startListening('hold');
+          }
+          break;
+
+        case OsEventTypeList.LONG_PRESS_RELEASE_EVENT:
+          state.holdReleasedAt = Date.now();
+          if (state.mode === 'listening' && state.trigger === 'hold') {
+            void finishListening('manual');
+          }
+          break;
+
+        case OsEventTypeList.FOREGROUND_ENTER_EVENT:
+          if (state.exitDialogOpen) {
+            void hud.rebuild();
+            return;
+          }
+          if (Date.now() - state.lastInputAt < 2500) {
+            state.menuOpen = true;
+            if (state.mode === 'listening') cancelListening(true);
+            return;
+          }
+          void hud.rebuild();
+          break;
+
+        case OsEventTypeList.FOREGROUND_EXIT_EVENT:
+          if (state.exitDialogOpen) {
+            state.exitDialogOpen = false;
+            void hud.rebuild();
+            return;
+          }
+          if (state.menuOpen) {
+            state.menuOpen = false;
+            return;
+          }
+          if (state.mode === 'listening') cancelListening(true);
+          if (state.roomMode) stopRoomMode();
+          break;
+      }
+    }
+
+    function onMenuItemClick(id) {
+      if (state.mode === 'listening') cancelListening(true);
+      if (state.mode === 'thinking' || state.mode === 'answering') return;
+
+      if (id === MENU_IDS.newChat) {
+        state.history = [];
+        state.last = null;
+        localStorage.setItem('agy_g2_messages', '[]');
+        chatLog.replaceChildren();
+        addLogNote('새 채팅을 시작했습니다.');
+        goIdle('새 채팅을 시작했습니다.');
+      } else if (id === MENU_IDS.clockStandby) {
+        if (state.clockStandby) goIdle();
+        else enterClockStandby();
+      } else if (id === MENU_IDS.subtitles) {
+        void toggleRoomMode('subtitles');
+      } else if (id === MENU_IDS.translate) {
+        void toggleRoomMode('translate');
+      } else if (id === MENU_IDS.discreet) {
+        state.prefs.discreet = !state.prefs.discreet;
+        prefDiscreet.checked = state.prefs.discreet;
+        localStorage.setItem('edith_pref_discreet', state.prefs.discreet ? '1' : '0');
+        hud.setMenu(buildMenuItems());
+        void hud.setDim(state.prefs.discreet);
+        goIdle(state.prefs.discreet ? '조용 모드를 켰습니다.' : '다시 밝게 했습니다.');
+      } else if (id === MENU_IDS.switchAi) {
+        const idx = MODEL_LIST.findIndex((m) => m.id === state.model);
+        const next = MODEL_LIST[(idx + 1) % MODEL_LIST.length];
+        state.model = next.id;
+        modelSelect.value = next.id;
+        localStorage.setItem('agy_gemini_model', next.id);
+        addLogNote(`이제 EDITH가 ${next.label} 모델을 사용합니다.`);
+        goIdle(`${next.label} 사용 중`);
+      } else if (id === MENU_IDS.syncBrain) {
+        void syncBrainAndKey(false).then(() => goIdle('PC 안티그래비티 및 GitHub 실시간 두뇌를 동기화했습니다.'));
+      }
+    }
+
+    /* ── Wire Companion Phone UI Controls ── */
+    talkBtn.addEventListener('click', () => {
+      if (state.mode === 'listening') void finishListening('manual');
+      else void startListening('phone');
     });
 
-    document.querySelectorAll('.chip').forEach((chip) => {
-      chip.addEventListener('click', () => {
-        const prompt = chip.getAttribute('data-prompt') || '';
-        if (prompt.endsWith(': ')) {
-          questionInput.value = prompt;
-          questionInput.focus();
-        } else {
-          askAntigravityBrain(prompt);
-        }
+    composeForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const text = composeInput.value.trim();
+      if (!text) return;
+      composeInput.value = '';
+      if (state.mode === 'listening') cancelListening(true);
+      state.trigger = 'phone';
+      void askEdith({ text });
+    });
+
+    clockModeChip.addEventListener('click', () => {
+      if (state.clockStandby) goIdle();
+      else enterClockStandby();
+    });
+
+    subtitlesChip.addEventListener('click', () => void toggleRoomMode('subtitles'));
+    translateChip.addEventListener('click', () => void toggleRoomMode('translate'));
+
+    document.querySelectorAll('.chip[data-ask]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const q = btn.getAttribute('data-ask');
+        if (!q) return;
+        state.trigger = 'phone';
+        void askEdith({ text: q });
       });
     });
 
-    // 마크다운 다운로드 및 초기화
+    syncNowBtn.addEventListener('click', () => void syncBrainAndKey(false));
+
+    document.getElementById('newChatBtn').addEventListener('click', () => {
+      state.history = [];
+      state.last = null;
+      localStorage.setItem('agy_g2_messages', '[]');
+      chatLog.replaceChildren();
+      addLogNote('새 채팅을 시작했습니다.');
+      goIdle('새 채팅을 시작했습니다.');
+    });
+
+    document.getElementById('clearChatBtn').addEventListener('click', () => {
+      state.history = [];
+      state.last = null;
+      localStorage.setItem('agy_g2_messages', '[]');
+      chatLog.replaceChildren();
+      addLogNote('대화를 비웠습니다.');
+      goIdle();
+    });
+
     document.getElementById('exportMdBtn').addEventListener('click', () => {
-      const lines = ['# 안티그래비티 × Even G2 실시간 대화록\n'];
-      for (const m of state.messages) {
-        lines.push(`### ${m.role === 'user' ? '대표님' : '안티그래비티 AI'} (${m.timestamp || ''})\n${m.content}\n`);
+      const lines = ['# E.D.I.T.H × 안티그래비티 실시간 대화록\n'];
+      for (const m of state.history) {
+        lines.push(`### ${m.role === 'user' ? '대표님' : 'E.D.I.T.H'} (${m.timestamp || ''})\n${m.content}\n`);
       }
       const blob = new Blob([lines.join('\n')], { type: 'text/markdown;charset=utf-8' });
       const a = document.createElement('a');
@@ -2272,18 +2845,113 @@
       a.click();
     });
 
-    document.getElementById('clearChatBtn').addEventListener('click', () => {
-      state.messages = [];
-      localStorage.setItem('agy_g2_messages', '[]');
-      renderChatList();
+    modelSelect.addEventListener('change', () => {
+      state.model = modelSelect.value;
+      localStorage.setItem('agy_gemini_model', state.model);
+      const label = MODEL_LIST.find((m) => m.id === state.model)?.label || state.model;
+      addLogNote(`이제 EDITH가 ${label} 모델을 사용합니다.`);
     });
 
-    // 초기화 실행 (처음부터 시계 대기 모드로 시작)
-    renderChatList();
-    loadAntigravityBrain();
-    pollCloudKeySync();
-    initEvenG2Bridge();
-    ensureWakeWordStandbyActive();
+    saveKeyBtn.addEventListener('click', async () => {
+      const k = apiKeyInput.value.trim();
+      if (!k) return;
+      state.apiKey = k;
+      localStorage.setItem('agy_gemini_api_key', k);
+      keyStatusHelp.textContent = 'API 키가 저장되었습니다. 모든 시스템 온라인.';
+      addLogNote('API 키를 저장했습니다.');
+      if (hud.bridge) {
+        try { await hud.bridge.setLocalStorage('agy_gemini_api_key', k); } catch {}
+      }
+      // Also sync to local PC server if reachable
+      try {
+        await fetch('/api/config-key', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ apiKey: k, model: state.model })
+        });
+      } catch {}
+      goIdle();
+    });
+
+    prefFollowUp.addEventListener('change', () => {
+      state.prefs.followUp = prefFollowUp.checked;
+      localStorage.setItem('edith_pref_followup', state.prefs.followUp ? '1' : '0');
+    });
+
+    prefDoubleTapClock.addEventListener('change', () => {
+      state.prefs.doubleTapClock = prefDoubleTapClock.checked;
+      localStorage.setItem('edith_pref_dblclock', state.prefs.doubleTapClock ? '1' : '0');
+    });
+
+    prefWakeWord.addEventListener('change', () => {
+      state.prefs.wakeWord = prefWakeWord.checked;
+      localStorage.setItem('edith_pref_wake', state.prefs.wakeWord ? '1' : '0');
+      if (state.prefs.wakeWord) ensureWakeWordStandby();
+    });
+
+    prefDiscreet.addEventListener('change', () => {
+      state.prefs.discreet = prefDiscreet.checked;
+      localStorage.setItem('edith_pref_discreet', state.prefs.discreet ? '1' : '0');
+      hud.setMenu(buildMenuItems());
+      void hud.setDim(state.prefs.discreet);
+    });
+
+    customInstructionsInput.addEventListener('change', () => {
+      state.customInstructions = customInstructionsInput.value.trim();
+      localStorage.setItem('edith_custom_instructions', state.customInstructions);
+    });
+
+    /* ── Boot Sequence ── */
+    async function boot() {
+      updateClock();
+      setInterval(updateClock, 15000);
+      renderInitialHistory();
+      await syncBrainAndKey(true);
+      goIdle();
+
+      // Poll GitHub/PC brain every 25 seconds for real-time updates
+      setInterval(() => void syncBrainAndKey(true), 25000);
+
+      try {
+        const bridge = await waitForEvenAppBridge();
+        hud.attachBridge(bridge);
+        bridge.onEvenHubEvent((ev) => onEvenHubEvent(ev));
+        bridge.onDeviceStatusChanged((status) => {
+          if (typeof status?.batteryLevel === 'number') {
+            state.battery = { level: status.batteryLevel, charging: Boolean(status.isCharging) };
+            if (state.mode === 'idle' || state.mode === 'setup') {
+              hud.set({ status: formatStatusLine() });
+            }
+          }
+        });
+
+        try {
+          const savedSdkKey = await bridge.getLocalStorage('agy_gemini_api_key');
+          if (savedSdkKey && !state.apiKey) {
+            state.apiKey = savedSdkKey;
+            apiKeyInput.value = savedSdkKey;
+            localStorage.setItem('agy_gemini_api_key', savedSdkKey);
+          } else if (state.apiKey) {
+            await bridge.setLocalStorage('agy_gemini_api_key', state.apiKey);
+          }
+        } catch {}
+
+        try {
+          const info = await bridge.getDeviceInfo();
+          if (info?.status && typeof info.status.batteryLevel === 'number') {
+            state.battery = { level: info.status.batteryLevel, charging: Boolean(info.status.isCharging) };
+          }
+        } catch {}
+
+        await hud.start();
+        void hud.setDim(state.prefs.discreet);
+        goIdle();
+      } catch (err) {
+        console.warn('[edith] bridge wait error:', err);
+      }
+    }
+
+    boot();
   </script>
 </body>
 </html>
