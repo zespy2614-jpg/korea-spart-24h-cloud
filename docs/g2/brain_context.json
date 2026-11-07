@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 7. PM 11:11:38",
+  "updatedAt": "2026. 11. 7. PM 11:12:08",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "pinnedReminder": "야 자꾸 이상한 헛소리해 왜 PC에서 실행해 달라니까",
@@ -62,7 +62,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 7. PM 11:11:38\n1. 영구 장기기억 금고: 7건 (고정: 야 자꾸 이상한 헛소리해 왜 PC에서 실행해 달라니까)\n2. PC 안티그래비티 실시간 작업: 최근 5단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 37건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 7. PM 11:12:08\n1. 영구 장기기억 금고: 7건 (고정: 야 자꾸 이상한 헛소리해 왜 PC에서 실행해 달라니까)\n2. PC 안티그래비티 실시간 작업: 최근 4단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 37건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -469,10 +469,6 @@
   ],
   "livePcAntigravity": [
     {
-      "updatedAt": "2026-11-07T13:51:11Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] **[index.html](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/index.html)**, **[live_patch.js](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/live_patch.js)**, 그리고 **[antigravity_g2_brain.ehpk](file:///e:/안티그래비티/antigravity_g2_brain.ehpk)** 패키지 및 GitHub 클라우드 OTA까지 모두 반영 완료했습니다.\n\n### 적용된 안경 버튼 동작 요약\n1. **시계 대기 모드(`시계 대기`)에서 한 번 탭 (`CLICK_EVENT`)**:\n   - 마이크가 켜지지 않고, 즉시 시계 대기 모드가 해제되면서 **직전에 나눈 이전 대화(`» 질문 / 답변`)가 안경 화면에 바로 "
-    },
-    {
       "updatedAt": "2026-11-07T14:05:31Z",
       "snippet": "[대표님(PC 안티그래비티 요청)] 내가 안경에서 화면위치 최대로내리라고했는데 왜 안티그래비티실행이안돾지"
     },
@@ -542,11 +538,6 @@
     }
   ],
   "livePcAntigravitySession": [
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-07T13:51:11Z",
-      "summary": "**[index.html](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/index.html)**, **[live_patch.js](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/live_patch.js)**, 그리고 **[antigravity_g2_brain.ehpk](file:///e:/안티그래비티/antigravity_g2_brain.ehpk)** 패키지 및 GitHub 클라우드 OTA까지 모두 반영 완료했습니다.\n\n### 적용된 안경 버튼 동작 요약\n1. **시계 대기 모드(`시계 대기`)에서 한 번 탭 (`CLICK_EVENT`)**:\n   - 마이크가 켜지지 않고, 즉시 시계 대기 모드가 해제되면서 **직전에 나눈 이전 대화(`» 질문 / 답변`)가 안경 화면에 바로 "
-    },
     {
       "role": "대표님(PC 안티그래비티 요청)",
       "createdAt": "2026-11-07T14:05:31Z",
