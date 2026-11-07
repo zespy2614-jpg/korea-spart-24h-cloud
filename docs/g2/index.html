@@ -1813,11 +1813,10 @@
     const MENU_IDS = {
       newChat: 1,
       clockStandby: 2,
-      subtitles: 3,
-      translate: 4,
+      translate: 3,
+      syncBrain: 4,
       discreet: 5,
-      switchAi: 6,
-      syncBrain: 7
+      closeMenu: 6
     };
 
     const MODEL_LIST = [
@@ -1840,10 +1839,42 @@
       localStorage.setItem('agy_model_upgraded_v105', '1');
     }
 
+    const DEFAULT_MEMORIES = [
+      {
+        id: 'mem_car_blue_01',
+        category: '차량/주차',
+        fact: '대표님의 차량은 파란색 자동차입니다.',
+        createdAt: '2026. 11. 7. 오후 9:21:49',
+        pinned: true
+      },
+      {
+        id: 'mem_ai_model_02',
+        category: 'AI/시스템',
+        fact: 'Even G2 안경 기본 AI 모델은 최신 최상위 Google Gemini 4 Argon (OpenRouter 연동)입니다.',
+        createdAt: '2026. 11. 7. 오후 8:47:07',
+        pinned: false
+      },
+      {
+        id: 'mem_biz_rule_03',
+        category: '비즈니스',
+        fact: '지파츠 이베이 40선 재고 감시 및 8개국 크로스보더 80선(순마진 30% 이상 원칙)이 24시간 가동 중입니다.',
+        createdAt: '2026. 11. 7. 오후 6:17:02',
+        pinned: false
+      }
+    ];
+
+    let savedMemories = [];
+    try {
+      savedMemories = JSON.parse(localStorage.getItem('agy_g2_long_term_memories') || '[]');
+    } catch {}
+    if (!Array.isArray(savedMemories) || savedMemories.length === 0) {
+      savedMemories = DEFAULT_MEMORIES;
+    }
+
     const state = {
       mode: 'idle', // 'boot' | 'setup' | 'idle' | 'listening' | 'thinking' | 'answering' | 'error'
       clockStandby: false,
-      roomMode: null, // null | 'subtitles' | 'translate'
+      roomMode: null, // null | 'translate'
       firstName: '대표님',
       battery: { level: 100, charging: false },
       statusKind: 'online', // 'online' | 'more' | 'setup'
@@ -1858,8 +1889,13 @@
         discreet: localStorage.getItem('edith_pref_discreet') === '1'
       },
       brainContext: null,
+      memories: savedMemories,
+      pinnedReminder: localStorage.getItem('agy_g2_pinned_reminder') || '대표님의 차량은 파란색 자동차입니다.',
       history: JSON.parse(localStorage.getItem('agy_g2_messages') || '[]'),
       last: null, // { you, reply }
+      hudPages: [],
+      hudPageIndex: 0,
+      hudPageTimer: null,
       recorder: null,
       trigger: 'tap',
       quietListening: false,
@@ -1900,8 +1936,13 @@
     const prefDiscreet = document.getElementById('prefDiscreet');
     const customInstructionsInput = document.getElementById('customInstructionsInput');
     const clockModeChip = document.getElementById('clockModeChip');
-    const subtitlesChip = document.getElementById('subtitlesChip');
     const translateChip = document.getElementById('translateChip');
+    const pinnedMemorySummary = document.getElementById('pinnedMemorySummary');
+    const memoryVaultList = document.getElementById('memoryVaultList');
+    const addMemoryForm = document.getElementById('addMemoryForm');
+    const addMemoryCategory = document.getElementById('addMemoryCategory');
+    const addMemoryInput = document.getElementById('addMemoryInput');
+    const sendPcNoteBtn = document.getElementById('sendPcNoteBtn');
 
     // Sync initial UI inputs
     if ([...modelSelect.options].some((o) => o.value === state.model)) {
@@ -1918,11 +1959,10 @@
       return [
         { id: MENU_IDS.newChat, name: '새 채팅' },
         { id: MENU_IDS.clockStandby, name: state.clockStandby ? 'HUD 켜기' : '시계 대기' },
-        { id: MENU_IDS.subtitles, name: '자막 모드' },
-        { id: MENU_IDS.translate, name: '상대 번역' },
-        { id: MENU_IDS.discreet, name: state.prefs.discreet ? '다시 밝게' : '조용 모드' },
-        { id: MENU_IDS.switchAi, name: 'AI 전환' },
-        { id: MENU_IDS.syncBrain, name: '두뇌 동기화' }
+        { id: MENU_IDS.translate, name: state.roomMode === 'translate' ? '번역 끄기' : '상대 번역' },
+        { id: MENU_IDS.syncBrain, name: '두뇌 동기화' },
+        { id: MENU_IDS.discreet, name: state.prefs.discreet ? '밝기: 밝게' : '밝기: 어둡게' },
+        { id: MENU_IDS.closeMenu, name: '닫기' }
       ];
     }
 
@@ -1948,7 +1988,7 @@
       }
     }
 
-    function formatStatusLine() {
+    function formatStatusLine(customPageLabel = '') {
       const { level, charging } = state.battery;
       const hasBat = typeof level === 'number' && Number.isFinite(level);
       const pct = hasBat ? Math.max(0, Math.min(100, Math.round(level))) : 100;
@@ -1956,10 +1996,12 @@
         return `${state.clockStr || '--:--'}  ${charging ? '+' : ''}${pct}%`;
       }
       let base;
-      if (state.statusKind === 'setup') {
+      if (customPageLabel) {
+        base = customPageLabel;
+      } else if (state.statusKind === 'setup') {
         base = '■ 설정 필요';
       } else if (state.statusKind === 'more') {
-        base = '▼ 더 보기';
+        base = state.hudPages.length > 1 ? `▼ ${state.hudPageIndex + 1}/${state.hudPages.length} 페이지` : '▼ 더 보기';
       } else {
         base = '● 온라인';
       }
@@ -1972,7 +2014,8 @@
       const hour = new Date().getHours();
       const greet = hour >= 5 && hour < 12 ? '좋은 아침입니다' : hour >= 12 && hour < 18 ? '좋은 오후입니다' : '좋은 저녁입니다';
       const namePart = state.firstName ? `, ${state.firstName}` : '';
-      return `${greet}${namePart}.\n모든 시스템 온라인.\n\n▶ 길게 눌러 말하거나, 탭하고 말하세요.\n◆ 탭한 다음 길게 누르면 메뉴.\n◆ 두 번 탭하면 시계 대기 / 종료.`;
+      const pinnedLine = state.pinnedReminder ? `\n[기억] ${clip(forGlasses(state.pinnedReminder), 46)}` : '';
+      return `${greet}${namePart}. 모든 시스템 온라인.${pinnedLine}\n\n▶ 길게 눌러 말하거나, 탭하고 말하세요.\n◆ 탭한 다음 길게 누르면 메뉴.\n◆ 두 번 탭하면 시계 대기 / 종료.`;
     }
 
     function setPhoneState(mode) {
@@ -1980,7 +2023,7 @@
       const pillLabels = {
         boot: '시작 중',
         setup: '설정 필요',
-        idle: state.clockStandby ? '시계 대기' : state.roomMode === 'translate' ? '실시간 번역 중' : state.roomMode === 'subtitles' ? '실시간 자막 중' : '온라인',
+        idle: state.clockStandby ? '시계 대기' : state.roomMode === 'translate' ? '실시간 번역 중' : '온라인',
         listening: '듣는 중',
         thinking: '생각 중',
         answering: '답변 중',
@@ -2008,12 +2051,80 @@
         mode === 'listening' || state.roomMode ? 'listening' : mode === 'thinking' ? 'thinking' : mode === 'answering' ? 'answering' : mode === 'error' ? 'error' : 'online'
       );
       clockModeChip.setAttribute('aria-pressed', state.clockStandby ? 'true' : 'false');
-      subtitlesChip.setAttribute('aria-pressed', state.roomMode === 'subtitles' ? 'true' : 'false');
       translateChip.setAttribute('aria-pressed', state.roomMode === 'translate' ? 'true' : 'false');
+    }
+
+    /* ── HUD Auto-Paging for Long Answers (안경 화면 자동 페이지 넘김) ── */
+    function stopHudAutoPaging() {
+      if (state.hudPageTimer) {
+        window.clearInterval(state.hudPageTimer);
+        state.hudPageTimer = null;
+      }
+      state.hudPages = [];
+      state.hudPageIndex = 0;
+    }
+
+    function splitIntoGlassesPages(youText, replyText) {
+      const cleanReply = forGlasses(replyText);
+      const qHeader = youText ? `» ${clip(forGlasses(youText), 48)}\n` : '';
+      const fullFirst = qHeader + cleanReply;
+      if (estimateLines(fullFirst, BODY_CHARS_PER_LINE) <= BODY_LINES) {
+        return [fullFirst];
+      }
+
+      // Split into lines of ~BODY_CHARS_PER_LINE visual width
+      const wrappedLines = [];
+      for (const rawLine of cleanReply.split('\n')) {
+        if (!rawLine.trim()) {
+          if (wrappedLines.length && wrappedLines[wrappedLines.length - 1] !== '') {
+            wrappedLines.push('');
+          }
+          continue;
+        }
+        let buf = '';
+        let width = 0;
+        for (const ch of rawLine) {
+          const w = WIDE_RE.test(ch) ? 2 : 1;
+          if (width + w > BODY_CHARS_PER_LINE - 2) {
+            wrappedLines.push(buf.trimEnd());
+            buf = ch;
+            width = w;
+          } else {
+            buf += ch;
+            width += w;
+          }
+        }
+        if (buf.trim()) wrappedLines.push(buf.trimEnd());
+      }
+
+      const pages = [];
+      const linesPerPage = qHeader ? 5 : 6;
+      for (let i = 0; i < wrappedLines.length; i += linesPerPage) {
+        const chunk = wrappedLines.slice(i, i + linesPerPage).join('\n').trim();
+        if (chunk) {
+          pages.push(qHeader + chunk);
+        }
+      }
+      return pages.length ? pages.slice(0, 6) : [fullFirst];
+    }
+
+    function renderCurrentHudPage() {
+      if (!state.hudPages.length || state.mode !== 'idle' || state.clockStandby || state.roomMode) return;
+      const total = state.hudPages.length;
+      const idx = state.hudPageIndex % total;
+      const pageText = state.hudPages[idx];
+      state.statusKind = total > 1 ? 'more' : 'online';
+      const titleLine = `◆ E.D.I.T.H${state.clockStr ? `  ${state.clockStr}` : ''}`;
+      hud.set({
+        title: titleLine,
+        status: formatStatusLine(total > 1 ? `▼ ${idx + 1}/${total} 페이지` : ''),
+        body: clip(pageText, 1990)
+      });
     }
 
     /* ── Home / Idle / Clock Standby Transitions ── */
     function goIdle(note) {
+      stopHudAutoPaging();
       if (state.clockStandby) {
         state.clockStandby = false;
         void hud.setClockStandby(false);
@@ -2031,21 +2142,34 @@
         return;
       }
       setPhoneState('idle');
-      let body;
       if (note) {
-        body = `${note}\n\n▶ 길게 눌러 말하거나, 탭하고 말하세요.\n◆ 탭한 다음 길게 누르면 메뉴.\n◆ 두 번 탭하면 시계 대기 / 종료.`;
+        const body = `${note}\n\n▶ 길게 눌러 말하거나, 탭하고 말하세요.\n◆ 탭한 다음 길게 누르면 메뉴.\n◆ 두 번 탭하면 시계 대기 / 종료.`;
+        state.statusKind = 'online';
+        hud.set({ title: titleLine, status: formatStatusLine(), body: clip(body, 1990) });
       } else if (state.last) {
-        body = state.last.you ? `» ${clip(state.last.you, 90)}\n\n${state.last.reply}` : state.last.reply;
+        state.hudPages = splitIntoGlassesPages(state.last.you, state.last.reply);
+        state.hudPageIndex = 0;
+        renderCurrentHudPage();
+        if (state.hudPages.length > 1) {
+          state.hudPageTimer = window.setInterval(() => {
+            if (state.mode !== 'idle' || state.clockStandby || state.roomMode || !state.hudPages.length) {
+              stopHudAutoPaging();
+              return;
+            }
+            state.hudPageIndex = (state.hudPageIndex + 1) % state.hudPages.length;
+            renderCurrentHudPage();
+          }, 3800);
+        }
       } else {
-        body = formatGreeting();
+        const body = formatGreeting();
+        state.statusKind = 'online';
+        hud.set({ title: titleLine, status: formatStatusLine(), body: clip(body, 1990) });
       }
-      const overflows = estimateLines(body, BODY_CHARS_PER_LINE) > BODY_LINES;
-      state.statusKind = overflows ? 'more' : 'online';
-      hud.set({ title: titleLine, status: formatStatusLine(), body: clip(body, 1990) });
       ensureWakeWordStandby();
     }
 
     function enterClockStandby() {
+      stopHudAutoPaging();
       stopTicker();
       stopWebSpeech();
       closeMic();
