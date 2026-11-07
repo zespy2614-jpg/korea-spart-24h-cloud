@@ -2334,10 +2334,11 @@
         state.wakeRec = null;
       }
 
-      if (state.clockStandby) {
+      const wasStandby = state.clockStandby;
+      if (wasStandby) {
         state.clockStandby = false;
-        void hud.setClockStandby(false);
-        hud.setMenu(buildMenuItems());
+        hud.clockStandby = false;
+        hud.menu = buildMenuItems();
       }
 
       // Allow auto-stop on silence (1.65s) even when started via long-press so both "hold-to-talk" and "long-press-once-then-speak" work cleanly
@@ -2357,8 +2358,12 @@
       state.webSpeechTranscript = '';
       setPhoneState('listening');
 
-      hud.set({ status: '● 녹음 0:00' });
+      hud.set({
+        title: `◆ E.D.I.T.H${state.clockStr ? `  ${state.clockStr}` : ''}`,
+        status: '● 녹음 0:00'
+      });
       renderListeningBody();
+      if (wasStandby) void hud.rebuild();
       startTicker(() => renderListeningTick(), 450);
 
       window.clearTimeout(state.followUpStopTimer);
@@ -2436,6 +2441,7 @@
     }
 
     function cancelListening(quiet = false) {
+      state.lastCancelAt = Date.now();
       state.recorder?.stop();
       state.recorder = null;
       stopWebSpeech();
@@ -2468,7 +2474,7 @@
 
       // Fallback to Web Speech only if no glasses PCM audio was recorded (e.g. PC/phone browser without glasses)
       if (webText.length >= 2) {
-        if (webText.includes('시계 대기') || webText.includes('시계 모드') || webText.includes('화면 꺼') || webText.includes('안경 꺼')) {
+        if (webText.length <= 10 && /^(시계\s*대기|화면\s*꺼\s*줘|안경\s*꺼\s*줘)[.!?]*$/.test(webText)) {
           enterClockStandby();
           return;
         }
@@ -3261,7 +3267,7 @@
           }
           userQuestion = transcript.replace(/^["']|["']$/g, '').trim();
           youEntry.update(userQuestion);
-          if (userQuestion.includes('시계 대기') || userQuestion.includes('시계 모드') || userQuestion.includes('화면 꺼') || userQuestion.includes('안경 꺼')) {
+          if (userQuestion.length <= 10 && /^(시계\s*대기|화면\s*꺼\s*줘|안경\s*꺼\s*줘)[.!?]*$/.test(userQuestion)) {
             liveEntry.discard();
             stopTicker();
             enterClockStandby();
@@ -3443,6 +3449,7 @@
     }
 
     function cancelActiveRequest() {
+      state.lastCancelAt = Date.now();
       if (!state.activeController) return;
       state.activeController.abort();
       state.activeController = null;
@@ -3657,9 +3664,14 @@
           }
           if (state.mode === 'listening' && state.quietListening) {
             cancelListening(true);
+            return;
           }
           if (state.mode === 'thinking' || state.mode === 'answering') {
             cancelActiveRequest();
+            return;
+          }
+          // Ignore residual double-tap within 1.2s after canceling voice recording / active request
+          if (now - (state.lastCancelAt || 0) < 1200) {
             return;
           }
           // If doubleTapClock pref is enabled and not yet in Clock Standby, switch to Clock Standby first!
