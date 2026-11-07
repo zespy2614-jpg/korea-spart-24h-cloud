@@ -3811,7 +3811,20 @@
     });
 
     /* ── Live OTA Cloud Patch Loader (No future reinstall needed) ── */
-    window.__EDITH_AGY__ = { state, hud, sphereHud, askEdith, toggleRoomMode, stopRoomMode, enterClockStandby, goIdle };
+    window.__EDITH_AGY__ = {
+      state,
+      hud,
+      sphereHud,
+      askEdith,
+      toggleRoomMode,
+      stopRoomMode,
+      enterClockStandby,
+      goIdle,
+      upsertLocalMemory,
+      sendRemotePcNote,
+      syncBrainAndKey,
+      buildMenuItems
+    };
     async function loadLiveOtaPatch() {
       const urls = [
         `http://192.168.123.150:3860/live_patch.js?t=${Date.now()}`,
@@ -3835,6 +3848,7 @@
     async function boot() {
       updateClock();
       setInterval(updateClock, 15000);
+      renderMemoryVault();
       renderInitialHistory();
       await syncBrainAndKey(true);
       if (state.apiKey) void pushKeyToPcServer(state.apiKey);
