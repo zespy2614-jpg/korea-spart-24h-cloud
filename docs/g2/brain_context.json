@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. AM 8:43:48",
+  "updatedAt": "2026. 11. 8. AM 8:44:33",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -131,7 +131,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. AM 8:43:48\n1. 영구 장기기억 금고: 15건 (고정: 그리고 이거 그 음성 전송하는 거 손가락 떼면 자동으로 전송되게 해 줘)\n2. PC 안티그래비티 실시간 작업: 최근 13단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 46건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. AM 8:44:33\n1. 영구 장기기억 금고: 15건 (고정: 그리고 이거 그 음성 전송하는 거 손가락 떼면 자동으로 전송되게 해 줘)\n2. PC 안티그래비티 실시간 작업: 최근 10단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 46건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -562,6 +562,10 @@
   ],
   "livePcAntigravity": [
     {
+      "updatedAt": "2026-11-07T23:44:32Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 내꺼 네이버메일 kanjji 이거들어가서 avask에서 메일온거 나 아바스크한번도 사용한적없다 돈만 많이냈었다이거 미납금하고 위약금못내겠다라고담당자 찾아서 메일보내줄래 보내기전에 요약문 보여주고\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
+    },
+    {
       "updatedAt": "2026-11-07T20:58:53Z",
       "snippet": "[안티그래비티(PC 작업 결과)] 전체 18개 게임 에뮬레이터 시스템(`arcade`, `mame`, `fbn`, `neogeo`, `snes`, `nes`, `gba`, `megadrive`, `mastersystem`, `pcengine`, `msx2`, `n64`, `psx`, `psp`, `dreamcast`, `naomi`, `atomiswave`, `nds`)의 코어 및 런처 스크립트를 전수 스캔 중입니다. 완료되는 대로 에뮬레이터별로 게임을 하나씩 실제 구동하고 종료하며 검증하겠습니다."
     },
@@ -596,22 +600,6 @@
     {
       "updatedAt": "2026-11-07T23:41:15Z",
       "snippet": "[안티그래비티(PC 작업 결과)] **`v3.2.4`** 패키징 및 EvenHub Beta 승격(`com.antigravity.g2brain -> 3.2.4`), GitHub Pages OTA 실시간 동기화가 모두 완료되었습니다.\n\n---\n\n### 반영 완료된 핵심 내역 (`v3.2.4`)\n\n1. **안경 상단 중앙 가로 짝대기(`가운데 위에 짝대기 하나`) 완전 제거**:\n   - 상단 컨테이너 테두리(`borderWidth: 0`) 및 막대 기호(`■■■■`, `|`) 제거에 더해, Even G2 펌웨어가 상단 중앙에 띄우던 기본 메뉴 핸들 바(`menuObject: undefined`)까지 비활성화하여 상단 정중앙에 어떤 선이나 짝대기도 표시되지 않도록 수정했습니다([`live_patch.js`](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/publ"
-    },
-    {
-      "updatedAt": "2026-11-07T21:01:12Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] 스마트폰에서 아래 링크를 터치하시면 최신 **ELIPHOEM 자동 핫스팟 (`v5.6`)** 설치 파일(`.apk`)이 즉시 다운로드되어 설치됩니다.\n\n### 1. 스마트폰 직접 다운로드 링크 (클라우드 · LTE/5G/Wi-Fi 모두 가능)\n- **[ELIPHOEM_AutoHotspot_v5.6.apk 다운로드](https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone.apk)**\n  - 주소: `https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone.apk`\n  - 단축 주소: `https://zespy2614-jpg.github.io/ko"
-    },
-    {
-      "updatedAt": "2026-11-07T23:22:40Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 밑에네비게이션바는 위로 드래그했을때나오게해줘 클릭이아니라"
-    },
-    {
-      "updatedAt": "2026-11-07T23:26:49Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] 하단 네비게이션 바가 단순 터치(클릭)나 창 전환 시에는 열리지 않고, **하단 핸들을 위로 드래그(스와이프)했을 때만 열리도록** `KorSystemHelper.apk`를 빌드하여 모니터에 설치 및 실증 테스트 중입니다. 완료되는 즉시 캡처 결과를 보여드리겠습니다."
-    },
-    {
-      "updatedAt": "2026-11-07T23:27:52Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] 하단 네비게이션 바([`NavBarService.java`](file:///C:/Users/%EB%B0%95%EC%A0%95%EC%88%98/.gemini/antigravity/brain/08abf2d4-e54d-43da-a03d-df4b6e390207/scratch/kor_helper/src/com/zqc/kor/wallpaper/NavBarService.java))가 단순 클릭이나 창 전환 시에는 열리지 않고, **화면 하단 핸들 영역을 위로 드래그(스와이프)했을 때만 올라오도록** 수정하여 모니터(`192.168.123.107:5555`)에 즉시 적용했습니다.\n\n실제 기기에서 **① 단순 터치(열리지 않음) → ② 위로 드래그(즉시 열림) → ③ 3.5초 경과 후 자동 닫힘** 3단계 테스트를 마쳤으며, 캡처 결과는 [walkthroug"
     }
   ],
   "recentDocs": [
@@ -668,6 +656,11 @@
   ],
   "livePcAntigravitySession": [
     {
+      "role": "대표님(PC 안티그래비티 요청)",
+      "createdAt": "2026-11-07T23:44:32Z",
+      "summary": "내꺼 네이버메일 kanjji 이거들어가서 avask에서 메일온거 나 아바스크한번도 사용한적없다 돈만 많이냈었다이거 미납금하고 위약금못내겠다라고담당자 찾아서 메일보내줄래 보내기전에 요약문 보여주고\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
+    },
+    {
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-07T20:58:53Z",
       "summary": "전체 18개 게임 에뮬레이터 시스템(`arcade`, `mame`, `fbn`, `neogeo`, `snes`, `nes`, `gba`, `megadrive`, `mastersystem`, `pcengine`, `msx2`, `n64`, `psx`, `psp`, `dreamcast`, `naomi`, `atomiswave`, `nds`)의 코어 및 런처 스크립트를 전수 스캔 중입니다. 완료되는 대로 에뮬레이터별로 게임을 하나씩 실제 구동하고 종료하며 검증하겠습니다."
@@ -711,35 +704,9 @@
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-07T23:41:15Z",
       "summary": "**`v3.2.4`** 패키징 및 EvenHub Beta 승격(`com.antigravity.g2brain -> 3.2.4`), GitHub Pages OTA 실시간 동기화가 모두 완료되었습니다.\n\n---\n\n### 반영 완료된 핵심 내역 (`v3.2.4`)\n\n1. **안경 상단 중앙 가로 짝대기(`가운데 위에 짝대기 하나`) 완전 제거**:\n   - 상단 컨테이너 테두리(`borderWidth: 0`) 및 막대 기호(`■■■■`, `|`) 제거에 더해, Even G2 펌웨어가 상단 중앙에 띄우던 기본 메뉴 핸들 바(`menuObject: undefined`)까지 비활성화하여 상단 정중앙에 어떤 선이나 짝대기도 표시되지 않도록 수정했습니다([`live_patch.js`](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/publ"
-    },
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-07T21:01:12Z",
-      "summary": "스마트폰에서 아래 링크를 터치하시면 최신 **ELIPHOEM 자동 핫스팟 (`v5.6`)** 설치 파일(`.apk`)이 즉시 다운로드되어 설치됩니다.\n\n### 1. 스마트폰 직접 다운로드 링크 (클라우드 · LTE/5G/Wi-Fi 모두 가능)\n- **[ELIPHOEM_AutoHotspot_v5.6.apk 다운로드](https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone.apk)**\n  - 주소: `https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone.apk`\n  - 단축 주소: `https://zespy2614-jpg.github.io/ko"
-    },
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-07T23:22:40Z",
-      "summary": "밑에네비게이션바는 위로 드래그했을때나오게해줘 클릭이아니라"
-    },
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-07T23:26:49Z",
-      "summary": "하단 네비게이션 바가 단순 터치(클릭)나 창 전환 시에는 열리지 않고, **하단 핸들을 위로 드래그(스와이프)했을 때만 열리도록** `KorSystemHelper.apk`를 빌드하여 모니터에 설치 및 실증 테스트 중입니다. 완료되는 즉시 캡처 결과를 보여드리겠습니다."
-    },
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-07T23:27:52Z",
-      "summary": "하단 네비게이션 바([`NavBarService.java`](file:///C:/Users/%EB%B0%95%EC%A0%95%EC%88%98/.gemini/antigravity/brain/08abf2d4-e54d-43da-a03d-df4b6e390207/scratch/kor_helper/src/com/zqc/kor/wallpaper/NavBarService.java))가 단순 클릭이나 창 전환 시에는 열리지 않고, **화면 하단 핸들 영역을 위로 드래그(스와이프)했을 때만 올라오도록** 수정하여 모니터(`192.168.123.107:5555`)에 즉시 적용했습니다.\n\n실제 기기에서 **① 단순 터치(열리지 않음) → ② 위로 드래그(즉시 열림) → ③ 3.5초 경과 후 자동 닫힘** 3단계 테스트를 마쳤으며, 캡처 결과는 [walkthroug"
     }
   ],
-  "livePcArtifacts": [
-    {
-      "file": "walkthrough.md",
-      "updatedAt": "2026. 11. 8. AM 8:27:52",
-      "excerpt": "# 전체 시스템 기능 전수 검수 및 오류 수정 보고서\n\n설치된 글로벌 엔지니어링·UI/UX 스킬(`samsung-design-system`, `android-apk-smali-system-engineer`, `zero-regression-engineering`, `systematic-debugging`, `proactive-hardware-simulator`, `verification-before-completion`)을 기반으로 **런처(`KorLauncher3.apk`), 시스템 헬퍼(`KorSystemHelper.apk`), 차량용 자동 핫스팟(`CarAutoHotspot.apk`), 스마트폰 컴패니언 앱(`OneUI_AutoHotspot_Phone.apk` v5.5)** 전체 코드를 전수 감사하여 발견된 불일치·잠재 버그를 모두 수정하고, 실제 모니터(`192.168.123.107:5555`)에서 모든 화면과 기능을 하나씩 실행하여 검증했습니다.\n\n---\n\n## 1. 전수 코드 감사로 발견 및 수정한 항목\n\n1. **홈 2페이지(앱 서랍) 및 멀티태스킹 창 `오디오 출력` 아이콘 불일치 수정**\n   - **원인**: 홈 1페이지(중앙 카드·하단 독)와 앱 추가 모달에서는 `오디오 출력`(`com.zqc.audioroute`)이 파란색 삼성 One UI 스쿼클 아이콘으로 표시되었으나, 홈 2페이지(`buildAppDrawerItems`)와 멀티태스킹 최근 실행 앱(`NavBarService.rebuildRecentsCards`)에서는 기존 초록색 아이콘이 표시되는 시각적 불일치가 존재했습니다.\n   - **수정**: 홈 2페이지 앱 서랍과 멀티태스킹 최근 앱 카드 모두 파란색 One UI 스쿼클 아이콘을 사용하도록 통일했습니다.\n\n2. **음악 위젯(`노래가 재생되지 않음`) 좌측 흰색 점(SeekBar Thumb) 영구 차단 강화**\n   - **원인**: 미디어 브로드캐스트 수신 시 숨겨진 `music_progress`(`0x7f090247`) 프로그레스바가 갱신되면서 좌측 끝(0%) 흰색 썸(Thumb)이 다시 그려질 수 있었습니다.\n   - **수정**: `initViewsAndListeners`와 `onResume`(`disableDateClockClick`) 양쪽 모두에서 `SeekBar`의 `Thumb`과 `ProgressDrawable`을 완전 투명(`ColorDrawable(Color.T"
-    }
-  ],
+  "livePcArtifacts": [],
   "recentWorkspaceDocs": [
     {
       "relPath": "G2_안경_음성지시_작업노트.md",
