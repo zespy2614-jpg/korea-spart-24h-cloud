@@ -884,9 +884,9 @@
       </div>
 
       <ul class="controls">
-        <li>안경다리나 링을 <b>길게 누르고</b> 말하기 (단순 한 번 탭 오작동 완전 차단됨)</li>
-        <li><b>탭한 다음 길게 누르면</b> 안경 메뉴 열기</li>
-        <li><b>두 번 탭</b>해서 시계 대기 모드 전환 또는 종료</li>
+        <li>안경다리나 링을 <b>길게 누르고</b> 말하기 (단순 한 번 탭 음성 오작동 차단됨)</li>
+        <li>시계 대기 모드에서 <b>한 번 탭</b>하면 이전 대화 다시 보기 (페이지 넘김)</li>
+        <li><b>탭한 다음 길게 누르면</b> 안경 메뉴 열기 · <b>두 번 탭</b>하면 시계 대기 / 종료</li>
       </ul>
 
       <!-- Quick Action & Mode Chips (자막 제거 · 기억/스카우터/번역 특화) -->
@@ -3559,6 +3559,39 @@
       return env.eventType;
     }
 
+    function ensureLastConversationLoaded() {
+      if (state.last && state.last.reply) return true;
+      const pool =
+        Array.isArray(state.history) && state.history.length > 0
+          ? state.history
+          : Array.isArray(state.brainContext?.recentConversations)
+            ? state.brainContext.recentConversations
+            : [];
+      if (pool.length > 0) {
+        const lastUser = [...pool].reverse().find((m) => m.role === 'user');
+        const lastAssistant = [...pool].reverse().find((m) => m.role === 'assistant');
+        if (lastAssistant && lastAssistant.content) {
+          state.last = {
+            you: forGlasses(lastUser?.content || ''),
+            reply: forGlasses(lastAssistant.content)
+          };
+          return true;
+        }
+      }
+      const searchPool = state.brainContext?.conversationSearchIndex;
+      if (Array.isArray(searchPool) && searchPool.length > 0) {
+        const lastTurn = searchPool[searchPool.length - 1];
+        if (lastTurn && (lastTurn.a || lastTurn.q)) {
+          state.last = {
+            you: forGlasses(lastTurn.q || ''),
+            reply: forGlasses(lastTurn.a || '')
+          };
+          return true;
+        }
+      }
+      return false;
+    }
+
     function onEvenHubEvent(event) {
       const audio = event.audioEvent;
       if (audio?.audioPcm) {
@@ -3584,12 +3617,21 @@
       switch (type) {
         case OsEventTypeList.CLICK_EVENT:
           if (now - state.holdReleasedAt < 700) return;
-          // Single tap ONLY finishes an active recording or flips HUD answer pages — NEVER starts listening!
+          // 1) 녹음 중일 때 한 번 탭하면 녹음 완료 및 전송
           if (state.mode === 'listening') {
             void finishListening('manual');
-          } else if (state.mode === 'idle' && state.hudPages.length > 1 && !state.clockStandby) {
-            state.hudPageIndex = (state.hudPageIndex + 1) % state.hudPages.length;
-            renderCurrentHudPage();
+          } else if (state.clockStandby) {
+            // 2) 시계 대기 모드(clockStandby)에서 안경 버튼을 한 번 누르면 시계 모드를 해제하고 즉시 이전 대화를 화면에 표시!
+            const hasPrev = ensureLastConversationLoaded();
+            goIdle(hasPrev ? undefined : '저장된 이전 대화가 없습니다.');
+          } else if (state.mode === 'idle' && !state.clockStandby) {
+            // 3) 일반 대기 화면에서 한 번 탭하면 긴 답변의 다음 페이지로 넘기거나, 인사말 화면이면 이전 대화 표시
+            if (state.hudPages.length > 1) {
+              state.hudPageIndex = (state.hudPageIndex + 1) % state.hudPages.length;
+              renderCurrentHudPage();
+            } else if (state.hudPages.length === 0 && ensureLastConversationLoaded()) {
+              goIdle();
+            }
           }
           break;
 
