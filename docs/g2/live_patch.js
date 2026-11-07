@@ -401,6 +401,12 @@
       ];
     };
 
+    // Completely disable smartphone WebSpeech API so it NEVER hijacks the mobile OS audio session from G2 Glasses BLE mic!
+    try {
+      window.SpeechRecognition = undefined;
+      window.webkitSpeechRecognition = undefined;
+    } catch {}
+
     if (!hud.__v31MenuHooked) {
       hud.__v31MenuHooked = true;
       const origSetMenu = hud.setMenu.bind(hud);
@@ -409,40 +415,29 @@
       };
     }
 
-    // Hook hud.pageObjects to shift the entire G2 HUD down to the lowest position (yOffset = 92, y = 92..288)
+    // Restore original G2 HUD layout (y=0, y=46, height=242)
+    window.__AGY_HUD_Y_OFFSET__ = 0;
+    localStorage.setItem('agy_g2_hud_y_offset', '0');
     if (!hud.__v31PageObjectsHooked && typeof hud.pageObjects === 'function') {
       hud.__v31PageObjectsHooked = true;
       const origPageObjects = hud.pageObjects.bind(hud);
       hud.pageObjects = function () {
         const objs = origPageObjects();
-        const rawOffset =
-          window.__AGY_HUD_Y_OFFSET__ !== undefined
-            ? window.__AGY_HUD_Y_OFFSET__
-            : st?.brainContext?.liveUiConfig?.hudYOffset ?? 92;
-        const yOffset = Math.max(0, Math.min(104, Number(rawOffset) || 92));
-        hud.__lastAppliedYOffset = yOffset;
-
         if (Array.isArray(objs)) {
           for (const obj of objs) {
             const name = obj?.containerName;
             if (name === 'title') {
-              obj.yPosition = yOffset;
-              obj.height = 38;
-              obj.paddingLength = 6;
+              obj.yPosition = 0;
+              obj.height = 44;
+              obj.paddingLength = 8;
             } else if (name === 'status') {
-              if (this.clockStandby) {
-                obj.yPosition = Math.min(242, 148 + yOffset);
-                obj.height = 44;
-              } else {
-                obj.yPosition = yOffset;
-                obj.height = 38;
-                obj.paddingLength = 6;
-              }
+              obj.yPosition = 0;
+              obj.height = 44;
+              obj.paddingLength = this.clockStandby ? 6 : 8;
             } else if (name === 'body') {
-              const bodyY = yOffset + 40;
-              obj.yPosition = bodyY;
-              obj.height = Math.max(120, 288 - bodyY);
-              obj.paddingLength = 10;
+              obj.yPosition = 46;
+              obj.height = 242;
+              obj.paddingLength = 14;
             }
           }
         }
@@ -493,18 +488,36 @@
           return;
         }
 
-        // When recording via Long-Press ('hold'), kill phone WebSpeech so ONLY G2 Glasses 16kHz PCM mic is used!
-        if (st.mode === 'listening' && st.trigger === 'hold') {
+        // When recording via Long-Press ('hold' or 'longpress'):
+        // 1) Switch st.trigger from 'hold' to 'longpress' so lifting finger after long-press does NOT abort recording!
+        // 2) Ensure 100% of G2 Glasses 16kHz PCM chunks are preserved (acceptOther=true, no syllable clipping in toWavBase64)!
+        if (st.mode === 'listening' && (st.trigger === 'hold' || st.trigger === 'longpress')) {
+          st.trigger = 'longpress';
           if (st.webSpeechRec) {
             try { st.webSpeechRec.abort?.() || st.webSpeechRec.stop(); } catch {}
             st.webSpeechRec = null;
           }
           st.webSpeechTranscript = '';
           if (st.recorder) {
+            st.recorder.acceptOther = true;
             st.recorder.autoStopEnabled = true;
-            st.recorder.silenceToStopMs = 1650;
-            st.recorder.minSpeechRms = 90;
-            st.recorder.speechToArmMs = 130;
+            st.recorder.silenceToStopMs = 1550;
+            st.recorder.minSpeechRms = 75;
+            st.recorder.speechToArmMs = 100;
+            if (!st.recorder.__wavHooked && typeof st.recorder.toWavBase64 === 'function') {
+              st.recorder.__wavHooked = true;
+              const origToWav = st.recorder.toWavBase64.bind(st.recorder);
+              st.recorder.toWavBase64 = function () {
+                // Mark all chunks as own=true and speech=true so v2.0.0's toWavBase64 never drops or slices out syllables!
+                if (Array.isArray(this.chunks)) {
+                  for (const c of this.chunks) {
+                    c.own = true;
+                    c.speech = true;
+                  }
+                }
+                return origToWav();
+              };
+            }
           }
         }
 
@@ -695,15 +708,14 @@
           init = { ...init, body: JSON.stringify(bodyObj) };
         }
 
-        // B) Audio Transcription (hasAudio) -> Upgrade from Flash-Lite to High-Accuracy Gemini 3.8 Flash / Gemini 4 Argon!
+        // B) Audio Transcription (hasAudio) -> Use proven high-accuracy Gemini 2.5 Flash native audio model!
         if (isShortTask) {
           const msgContent = bodyObj?.messages?.[0]?.content;
           const hasAudio = Array.isArray(msgContent) && msgContent.some((c) => c?.type === 'input_audio');
 
           if (hasAudio) {
-            // Never use gemini-2.5-flash-lite! Use high-accuracy multimodal audio model
-            if (bodyObj.model === 'google/gemini-2.5-flash-lite' || bodyObj.model === 'google/gemini-3.5-flash-lite') {
-              bodyObj.model = 'google/gemini-3.8-flash';
+            if (bodyObj.model === 'google/gemini-2.5-flash-lite' || bodyObj.model === 'google/gemini-3.5-flash-lite' || bodyObj.model === 'google/gemini-3.8-flash') {
+              bodyObj.model = 'google/gemini-2.5-flash';
             }
             const textPart = msgContent.find((c) => c?.type === 'text');
             if (textPart && typeof textPart.text === 'string' && !textPart.text.includes('고유명사/전문용어 교정 사전')) {
@@ -712,9 +724,8 @@
                 `- 안티그래비티(Antigravity), 제미나이(Gemini), 아라곤 4(Gemini 4 Argon), 깃허브(GitHub), 오픈라우터(OpenRouter), 이븐 리얼리티(Even G2), 에디스(EDITH), 지파츠(Gparts), 시엔위(Xianyu), 이베이(eBay), 크롤링, 소싱, 품번\n` +
                 `[엄격 규칙] 시간 표시(00:00 등), 따옴표, 부연 설명은 절대 출력하지 말고, 말소리가 없으면 오직 EMPTY 라고만 출력하세요.`;
             }
-            delete bodyObj.reasoning;
             bodyObj.temperature = 0;
-            bodyObj.max_tokens = 250;
+            bodyObj.max_tokens = 300;
             init = { ...init, body: JSON.stringify(bodyObj) };
 
             const res = await origFetch(input, init);
@@ -775,28 +786,32 @@
         if (agy.goIdle) agy.goIdle(hasPrev ? undefined : '저장된 이전 대화가 없습니다.');
       }
 
-      // While recording from glasses ('hold'), prevent phone WebSpeech from overriding glasses WAV
-      if (st.mode === 'listening' && st.trigger === 'hold') {
+      // While recording from glasses ('hold' or 'longpress'), keep mic open hands-free and ensure 100% of G2 PCM chunks are kept
+      if (st.mode === 'listening' && (st.trigger === 'hold' || st.trigger === 'longpress')) {
+        st.trigger = 'longpress';
         if (st.webSpeechRec) {
           try { st.webSpeechRec.abort?.() || st.webSpeechRec.stop(); } catch {}
           st.webSpeechRec = null;
         }
         st.webSpeechTranscript = '';
+        if (st.recorder) {
+          st.recorder.acceptOther = true;
+          st.recorder.autoStopEnabled = true;
+          st.recorder.silenceToStopMs = 1550;
+          st.recorder.minSpeechRms = 75;
+          st.recorder.speechToArmMs = 100;
+          if (Array.isArray(st.recorder.chunks)) {
+            for (const c of st.recorder.chunks) {
+              c.own = true;
+              c.speech = true;
+            }
+          }
+        }
       }
 
       // Ensure 6-item clean menu stays active
       if (Array.isArray(agy.hud.menu) && agy.hud.menu.some((m) => m.name === '자막 모드' || m.name === 'AI 전환')) {
         upgradeGlassesHudAndMenu();
-      }
-
-      // Dynamically rebuild HUD if yOffset changed from PC liveUiConfig
-      const targetYOffset =
-        window.__AGY_HUD_Y_OFFSET__ !== undefined
-          ? window.__AGY_HUD_Y_OFFSET__
-          : st?.brainContext?.liveUiConfig?.hudYOffset ?? 92;
-      if (agy.hud.__lastAppliedYOffset !== undefined && agy.hud.__lastAppliedYOffset !== targetYOffset) {
-        agy.hud.__lastAppliedYOffset = targetYOffset;
-        if (typeof agy.hud.rebuild === 'function') void agy.hud.rebuild();
       }
     }, 120);
   }
