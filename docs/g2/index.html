@@ -2171,7 +2171,8 @@
       }
       const overflows = estimateLines(body, BODY_CHARS_PER_LINE) > BODY_LINES;
       state.statusKind = overflows ? 'more' : 'online';
-      hud.set({ title: titleLine, status: formatStatusLine(), body: clip(body, 1990) });
+      window.__EDITH_SCROLL_INDEX__ = 0;
+      hud.set({ title: titleLine, status: formatStatusLine(), body: clip(body, 12000) });
       if (wasStandby) {
         void hud.rebuild();
       }
@@ -2520,8 +2521,8 @@
       const prompt =
         `외국어면 한국어로, 한국어면 영어로 즉시 번역해 "원문 → 번역" 한 줄로만 출력(설명 금지):\n${clean}`;
       if (key.startsWith('sk-or-')) {
-        // Use zero-reasoning ultra-fast Flash models for instant simultaneous translation (no thinking delay!)
-        const models = ['google/gemini-omni-1.2-flash', 'google/gemini-2.5-flash-lite', 'google/gemini-3.8-flash', 'google/gemini-2.5-flash'];
+        // Use ultra-fast Flash models for instant simultaneous translation (no thinking delay!)
+        const models = ['google/gemini-2.5-flash', 'google/gemini-2.5-flash-lite', 'google/gemini-3.8-flash'];
         for (const m of models) {
           try {
             const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
@@ -2534,7 +2535,6 @@
               },
               body: JSON.stringify({
                 model: m,
-                reasoning: { effort: 'none', exclude: true },
                 messages: [{ role: 'user', content: prompt }],
                 temperature: 0,
                 max_tokens: 95
@@ -2969,10 +2969,11 @@
       const a = String(answer || '').trim();
       if (!q || q.length < 3) return;
 
-      // 1) 안경 음성으로 PC/안티그래비티 작업·세팅·수정·메모를 지시한 경우 최우선 전송
+      // 1) 안경 음성으로 PC/안티그래비티 작업·세팅·수정·오류 제보·메모를 지시한 경우 최우선 전송
       const isPcTask =
-        (/(안티그래비티|컴퓨터|PC|피씨|워크스페이스|작업\s*노트|바탕화면)/.test(q) &&
-          /(작업|실행|세팅|수정|패치|만들어|고쳐|추가|바꿔|작성|정리|분석|크롤링|동기화|푸시|빌드|배포|저장|기록|메모|시켜|해\s*줘|해\s*놔|해\s*둬|해\s*줄래|할\s*수\s*있|방법\s*없을까)/.test(q)) ||
+        /(잘리|잘려|안\s*내려|안\s*올라|안\s*돼|안\s*되|오류|에러|버그|고장|이상해|검은색|깜빡|멈춰)/.test(q) ||
+        (/(안티그래비티|컴퓨터|PC|피씨|워크스페이스|작업\s*노트|바탕화면|화면|기능|메뉴|버튼|코드|패치|답변|길이|글자|글씨|짧게|길게|이전\s*대화|취소|스크롤|페이지|시계|번역|음성|녹음|대화창|새\s*대화)/.test(q) &&
+          /(작업|실행|세팅|수정|패치|만들어|고쳐|추가|바꿔|개선|검토|테스트|작성|정리|분석|크롤링|동기화|푸시|빌드|배포|저장|기록|메모|시켜|없애|해제|지워|늘려|줄여|보여\s*줘|해\s*줘|해\s*놔|해\s*둬|해\s*줄래|할\s*수\s*있|방법\s*없을까|내려|올려|옮겨|지시|전달)/.test(q)) ||
         /^(안티그래비티|에디스)?[야아,\s]*(작업\s*지시|원격\s*작업|PC\s*작업|안티그래비티\s*작업|이거\s*작업해|이거\s*세팅해|이거\s*고쳐|이거\s*수정해)/i.test(q) ||
         /(G2_안경_음성지시_작업노트|작업\s*노트에\s*기록|작업\s*큐에\s*등록)/.test(a);
 
@@ -3251,7 +3252,7 @@
         const qClip = clip(forGlasses(userQuestion), 90);
         const head = qClip ? `» ${qClip}\n\n` : '';
         const tail = answer ? forGlasses(answer) : qClip ? '고성능 High 모델이 깊이 생각하고 있습니다...' : '음성을 정확히 분석하고 있습니다...\n\n두 번 탭하면 취소.';
-        hud.set({ body: clip(head + tail, 1990) });
+        hud.set({ body: clip(head + tail, 12000) });
       };
       renderBody();
 
@@ -3644,6 +3645,32 @@
       if (!lifecycle && type !== OsEventTypeList.IMU_DATA_REPORT) state.lastInputAt = now;
 
       switch (type) {
+        case OsEventTypeList.SCROLL_BOTTOM_EVENT:
+          if (!state.clockStandby && Array.isArray(window.__EDITH_SCROLL_WINDOWS__) && window.__EDITH_SCROLL_WINDOWS__.length > 1) {
+            const curIdx = window.__EDITH_SCROLL_INDEX__ || 0;
+            if (curIdx < window.__EDITH_SCROLL_WINDOWS__.length - 1) {
+              window.__EDITH_SCROLL_INDEX__ = curIdx + 1;
+              hud.wanted.body = window.__EDITH_SCROLL_WINDOWS__[window.__EDITH_SCROLL_INDEX__];
+              hud.wanted.status = `● ${window.__EDITH_SCROLL_INDEX__ + 1}/${window.__EDITH_SCROLL_WINDOWS__.length} 구간  ▼스크롤`;
+              hud.updateMirror();
+              void hud.rebuild();
+            }
+          }
+          break;
+
+        case OsEventTypeList.SCROLL_TOP_EVENT:
+          if (!state.clockStandby && Array.isArray(window.__EDITH_SCROLL_WINDOWS__) && window.__EDITH_SCROLL_WINDOWS__.length > 1) {
+            const curIdx = window.__EDITH_SCROLL_INDEX__ || 0;
+            if (curIdx > 0) {
+              window.__EDITH_SCROLL_INDEX__ = curIdx - 1;
+              hud.wanted.body = window.__EDITH_SCROLL_WINDOWS__[window.__EDITH_SCROLL_INDEX__];
+              hud.wanted.status = `● ${window.__EDITH_SCROLL_INDEX__ + 1}/${window.__EDITH_SCROLL_WINDOWS__.length} 구간  ▲스크롤`;
+              hud.updateMirror();
+              void hud.rebuild();
+            }
+          }
+          break;
+
         case OsEventTypeList.CLICK_EVENT:
           if (now - state.holdReleasedAt < 700) return;
           // 1) 녹음 중일 때 한 번 탭하면 녹음 완료 및 전송
@@ -3654,8 +3681,14 @@
             const hasPrev = ensureLastConversationLoaded();
             goIdle(hasPrev ? undefined : '저장된 이전 대화가 없습니다.');
           } else if (state.mode === 'idle' && !state.clockStandby) {
-            // 3) 일반 대기 화면에서 한 번 탭하면 이전 대화 전체를 스크롤 가능하게 표시
-            if (ensureLastConversationLoaded()) {
+            // 3) 긴 답변이 여러 스크롤 구간으로 나뉘어 있을 때 한 번 탭하면 다음 스크롤 구간으로 즉시 이동
+            if (Array.isArray(window.__EDITH_SCROLL_WINDOWS__) && window.__EDITH_SCROLL_WINDOWS__.length > 1) {
+              window.__EDITH_SCROLL_INDEX__ = ((window.__EDITH_SCROLL_INDEX__ || 0) + 1) % window.__EDITH_SCROLL_WINDOWS__.length;
+              hud.wanted.body = window.__EDITH_SCROLL_WINDOWS__[window.__EDITH_SCROLL_INDEX__];
+              hud.wanted.status = `● ${window.__EDITH_SCROLL_INDEX__ + 1}/${window.__EDITH_SCROLL_WINDOWS__.length} 구간  ▼스크롤`;
+              hud.updateMirror();
+              void hud.rebuild();
+            } else if (ensureLastConversationLoaded()) {
               goIdle();
             }
           }
