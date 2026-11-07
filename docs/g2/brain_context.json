@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. AM 8:28:03",
+  "updatedAt": "2026. 11. 8. AM 8:28:13",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -114,7 +114,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. AM 8:28:03\n1. 영구 장기기억 금고: 13건 (고정: 야 이거 안경 화면 뭐 가운데 짝대기가 있는데 뭐야? 응 오빠 걸까?)\n2. PC 안티그래비티 실시간 작업: 최근 9단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 43건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. AM 8:28:13\n1. 영구 장기기억 금고: 13건 (고정: 야 이거 안경 화면 뭐 가운데 짝대기가 있는데 뭐야? 응 오빠 걸까?)\n2. PC 안티그래비티 실시간 작업: 최근 10단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 43건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -545,10 +545,6 @@
   ],
   "livePcAntigravity": [
     {
-      "updatedAt": "2026-11-07T16:12:53Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] 새로 설치한 엔지니어링 스킬들(**`proactive-hardware-simulator`**, **`systematic-debugging`**, **`zero-regression-engineering`**, **`verification-before-completion`**)을 기반으로 **Even G2 하드웨어 디지털 트윈 & 카오스 시뮬레이터([`verify_g2_digital_twin.mjs`](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/verify_g2_digital_twin.mjs))**를 구축해 전체 기능을 전수 테스트하고, 숨어 있던 하드웨어/펌웨어 경계면 버그까지 모두 잡아 **`v3.2.2` 배포(EvenHub Beta + GitHub Pages OTA)** 및 **안경 전용 실시간 관제창·자동 깨움(Re"
-    },
-    {
       "updatedAt": "2026-11-07T21:01:12Z",
       "snippet": "[안티그래비티(PC 작업 결과)] 스마트폰에서 아래 링크를 터치하시면 최신 **ELIPHOEM 자동 핫스팟 (`v5.6`)** 설치 파일(`.apk`)이 즉시 다운로드되어 설치됩니다.\n\n### 1. 스마트폰 직접 다운로드 링크 (클라우드 · LTE/5G/Wi-Fi 모두 가능)\n- **[ELIPHOEM_AutoHotspot_v5.6.apk 다운로드](https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone.apk)**\n  - 주소: `https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone.apk`\n  - 단축 주소: `https://zespy2614-jpg.github.io/ko"
     },
@@ -559,6 +555,14 @@
     {
       "updatedAt": "2026-11-07T23:26:49Z",
       "snippet": "[안티그래비티(PC 작업 결과)] 하단 네비게이션 바가 단순 터치(클릭)나 창 전환 시에는 열리지 않고, **하단 핸들을 위로 드래그(스와이프)했을 때만 열리도록** `KorSystemHelper.apk`를 빌드하여 모니터에 설치 및 실증 테스트 중입니다. 완료되는 즉시 캡처 결과를 보여드리겠습니다."
+    },
+    {
+      "updatedAt": "2026-11-07T23:27:52Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] 하단 네비게이션 바([`NavBarService.java`](file:///C:/Users/%EB%B0%95%EC%A0%95%EC%88%98/.gemini/antigravity/brain/08abf2d4-e54d-43da-a03d-df4b6e390207/scratch/kor_helper/src/com/zqc/kor/wallpaper/NavBarService.java))가 단순 클릭이나 창 전환 시에는 열리지 않고, **화면 하단 핸들 영역을 위로 드래그(스와이프)했을 때만 올라오도록** 수정하여 모니터(`192.168.123.107:5555`)에 즉시 적용했습니다.\n\n실제 기기에서 **① 단순 터치(열리지 않음) → ② 위로 드래그(즉시 열림) → ③ 3.5초 경과 후 자동 닫힘** 3단계 테스트를 마쳤으며, 캡처 결과는 [walkthroug"
+    },
+    {
+      "updatedAt": "2026-11-07T16:12:53Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] 새로 설치한 엔지니어링 스킬들(**`proactive-hardware-simulator`**, **`systematic-debugging`**, **`zero-regression-engineering`**, **`verification-before-completion`**)을 기반으로 **Even G2 하드웨어 디지털 트윈 & 카오스 시뮬레이터([`verify_g2_digital_twin.mjs`](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/verify_g2_digital_twin.mjs))**를 구축해 전체 기능을 전수 테스트하고, 숨어 있던 하드웨어/펌웨어 경계면 버그까지 모두 잡아 **`v3.2.2` 배포(EvenHub Beta + GitHub Pages OTA)** 및 **안경 전용 실시간 관제창·자동 깨움(Re"
     },
     {
       "updatedAt": "2026-11-07T20:58:53Z",
@@ -636,11 +640,6 @@
   "livePcAntigravitySession": [
     {
       "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-07T16:12:53Z",
-      "summary": "새로 설치한 엔지니어링 스킬들(**`proactive-hardware-simulator`**, **`systematic-debugging`**, **`zero-regression-engineering`**, **`verification-before-completion`**)을 기반으로 **Even G2 하드웨어 디지털 트윈 & 카오스 시뮬레이터([`verify_g2_digital_twin.mjs`](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/verify_g2_digital_twin.mjs))**를 구축해 전체 기능을 전수 테스트하고, 숨어 있던 하드웨어/펌웨어 경계면 버그까지 모두 잡아 **`v3.2.2` 배포(EvenHub Beta + GitHub Pages OTA)** 및 **안경 전용 실시간 관제창·자동 깨움(Re"
-    },
-    {
-      "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-07T21:01:12Z",
       "summary": "스마트폰에서 아래 링크를 터치하시면 최신 **ELIPHOEM 자동 핫스팟 (`v5.6`)** 설치 파일(`.apk`)이 즉시 다운로드되어 설치됩니다.\n\n### 1. 스마트폰 직접 다운로드 링크 (클라우드 · LTE/5G/Wi-Fi 모두 가능)\n- **[ELIPHOEM_AutoHotspot_v5.6.apk 다운로드](https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone.apk)**\n  - 주소: `https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone.apk`\n  - 단축 주소: `https://zespy2614-jpg.github.io/ko"
     },
@@ -653,6 +652,16 @@
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-07T23:26:49Z",
       "summary": "하단 네비게이션 바가 단순 터치(클릭)나 창 전환 시에는 열리지 않고, **하단 핸들을 위로 드래그(스와이프)했을 때만 열리도록** `KorSystemHelper.apk`를 빌드하여 모니터에 설치 및 실증 테스트 중입니다. 완료되는 즉시 캡처 결과를 보여드리겠습니다."
+    },
+    {
+      "role": "안티그래비티(PC 작업 결과)",
+      "createdAt": "2026-11-07T23:27:52Z",
+      "summary": "하단 네비게이션 바([`NavBarService.java`](file:///C:/Users/%EB%B0%95%EC%A0%95%EC%88%98/.gemini/antigravity/brain/08abf2d4-e54d-43da-a03d-df4b6e390207/scratch/kor_helper/src/com/zqc/kor/wallpaper/NavBarService.java))가 단순 클릭이나 창 전환 시에는 열리지 않고, **화면 하단 핸들 영역을 위로 드래그(스와이프)했을 때만 올라오도록** 수정하여 모니터(`192.168.123.107:5555`)에 즉시 적용했습니다.\n\n실제 기기에서 **① 단순 터치(열리지 않음) → ② 위로 드래그(즉시 열림) → ③ 3.5초 경과 후 자동 닫힘** 3단계 테스트를 마쳤으며, 캡처 결과는 [walkthroug"
+    },
+    {
+      "role": "안티그래비티(PC 작업 결과)",
+      "createdAt": "2026-11-07T16:12:53Z",
+      "summary": "새로 설치한 엔지니어링 스킬들(**`proactive-hardware-simulator`**, **`systematic-debugging`**, **`zero-regression-engineering`**, **`verification-before-completion`**)을 기반으로 **Even G2 하드웨어 디지털 트윈 & 카오스 시뮬레이터([`verify_g2_digital_twin.mjs`](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/verify_g2_digital_twin.mjs))**를 구축해 전체 기능을 전수 테스트하고, 숨어 있던 하드웨어/펌웨어 경계면 버그까지 모두 잡아 **`v3.2.2` 배포(EvenHub Beta + GitHub Pages OTA)** 및 **안경 전용 실시간 관제창·자동 깨움(Re"
     },
     {
       "role": "안티그래비티(PC 작업 결과)",
