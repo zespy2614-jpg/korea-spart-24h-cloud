@@ -9,6 +9,7 @@ const MARKETING_DAEMON = 'e:\\안티그래비티\\시엔위_비즈니스_연구�
 const UNCHARTED_MOAT_DAEMON = 'e:\\안티그래비티\\시엔위_비즈니스_연구소\\scripts\\uncharted_moat_biz_nonstop_daemon.mjs';
 const EMBEDDED_CHIP_DAEMON = 'e:\\안티그래비티\\시엔위_비즈니스_연구소\\scripts\\embedded_used_chip_expert_daemon.mjs';
 const ANDROID_EXPERT_DAEMON = 'e:\\안티그래비티\\시엔위_비즈니스_연구소\\scripts\\android_expert_nonstop_daemon.mjs';
+const EVEN_G2_HUB_DAEMON = 'e:\\안티그래비티\\EvenG2_안티그래비티_AI허브\\server.mjs';
 
 const CLOUD_DIR = 'e:\\안티그래비티\\클라우드_24시간_무중단_관제센터';
 const RAW_DATA_DIR = 'e:\\안티그래비티\\시엔위_비즈니스_연구소\\raw_data';
@@ -109,15 +110,21 @@ process.on('unhandledRejection', (err) => {
 });
 
 async function checkAndKeepAlive() {
-  const [ok3847, ok3848, ok3849, ok3850, ok3851, ok3852, ok3853] = await Promise.all([
+  const [ok3847, ok3848, ok3849, ok3850, ok3851, ok3852, ok3853, ok3860] = await Promise.all([
     isPortOpen(3847),
     isPortOpen(3848),
     isPortOpen(3849),
     isPortOpen(3850),
     isPortOpen(3851),
     isPortOpen(3852),
-    isPortOpen(3853)
+    isPortOpen(3853),
+    isPortOpen(3860)
   ]);
+
+  // Even G2 스마트 안경 <-> PC 안티그래비티 실시간 자동 작업 브릿지(포트 3860)는 PC가 켜져 있는 동안 24시간 상시 가동!
+  if (!ok3860 && fs.existsSync(EVEN_G2_HUB_DAEMON)) {
+    startDetachedNode(EVEN_G2_HUB_DAEMON);
+  }
 
   const isNight = isNightCrawlerWindow();
 
