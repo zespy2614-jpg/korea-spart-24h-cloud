@@ -1609,10 +1609,8 @@
       }
 
       menuObject() {
-        if (!this.menu.length) return undefined;
-        return new MenuContainerProperty({
-          menuItems: this.menu.map((item) => new MenuItemProperty({ itemID: item.id, itemName: item.name }))
-        });
+        // Return undefined so Even G2 OS does not render the top-center menu indicator bar ("가운데 위에 짝대기")
+        return undefined;
       }
 
       start() {
@@ -3743,13 +3741,19 @@
 
         case OsEventTypeList.LONG_PRESS_RELEASE_EVENT:
           state.holdReleasedAt = Date.now();
-          if (state.mode === 'listening' && state.trigger === 'hold') {
-            const heldMs = Date.now() - (state.holdStartedAt || 0);
-            // Only finish on release if user held the button while speaking for >= 2.0s AND speech was recorded (>= 450ms).
-            // Otherwise (when user long-presses once and lifts finger to speak), keep mic open until auto-stop on silence (1.6s) or single-tap!
-            if (heldMs >= 2000 && (state.recorder?.speechMs ?? 0) >= 450) {
-              void finishListening('manual');
+          if (state.mode === 'listening') {
+            if (state.recorder) {
+              state.recorder.heardSpeech = true;
+              state.recorder.speechMs = Math.max(state.recorder.speechMs || 0, state.recorder.durationMs || 600);
+              state.recorder.sendableMs = Math.max(state.recorder.sendableMs || 0, state.recorder.durationMs || 600);
+              if (Array.isArray(state.recorder.chunks)) {
+                for (const c of state.recorder.chunks) {
+                  c.own = true;
+                  c.speech = true;
+                }
+              }
             }
+            void finishListening('manual');
           }
           break;
 
