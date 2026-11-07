@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 7. PM 11:22:03",
+  "updatedAt": "2026. 11. 7. PM 11:22:18",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "pinnedReminder": "야 자꾸 이상한 헛소리해 왜 PC에서 실행해 달라니까",
@@ -62,7 +62,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 7. PM 11:22:03\n1. 영구 장기기억 금고: 7건 (고정: 야 자꾸 이상한 헛소리해 왜 PC에서 실행해 달라니까)\n2. PC 안티그래비티 실시간 작업: 최근 4단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 37건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 7. PM 11:22:18\n1. 영구 장기기억 금고: 7건 (고정: 야 자꾸 이상한 헛소리해 왜 PC에서 실행해 달라니까)\n2. PC 안티그래비티 실시간 작업: 최근 3단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 37건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -469,10 +469,6 @@
   ],
   "livePcAntigravity": [
     {
-      "updatedAt": "2026-11-07T14:15:00Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 야그냥 화면아까처럼바꿔주고 안경에있는마이크안쓰나 왜이렇게 음성인식이안되지"
-    },
-    {
       "updatedAt": "2026-11-07T12:08:56Z",
       "snippet": "[안티그래비티(PC 작업 결과)] 원인을 정확히 찾았습니다! 아까 EDITH 1:1 버전으로 패키지를 새로 생성할 때 **`kanjji@naver.com` 베타 테스터 초대 등록**이 초기화되어 있어서 Even 앱 우측 상단에 모래시계(베타 메뉴)와 업데이트가 보이지 않았던 것입니다.\n\n방금 **`kanjji@naver.com`**으로 **`Antigravity Brain v2.0.0` 최신 초대장**을 다시 발송해 드렸습니다!\n\n### 지금 바로 업데이트하는 방법 (아까 처음 설치하셨던 것과 동일합니다!)\n1. 스마트폰에서 **네이버 메일(`kanjji@naver.com`)**을 열어주세요.\n2. 방금 도착한 **Even Realities 베타 초대 메일**을 열고 **수락(Accept) / 설치 링크**를 눌러주세요.\n3. 자동으로 **Even 앱이 열리면서 `Antigr"
     },
@@ -538,11 +534,6 @@
     }
   ],
   "livePcAntigravitySession": [
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-07T14:15:00Z",
-      "summary": "야그냥 화면아까처럼바꿔주고 안경에있는마이크안쓰나 왜이렇게 음성인식이안되지"
-    },
     {
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-07T12:08:56Z",
@@ -1970,10 +1961,10 @@
     }
   ],
   "liveUiConfig": {
-    "hudYOffset": 96,
-    "standbyClockY": 242,
+    "hudYOffset": 0,
+    "standbyClockY": 0,
     "answerLengthMode": "balanced",
-    "updatedAt": "2026. 11. 7. 오후 11:12:00"
+    "updatedAt": "2026. 11. 7. 오후 11:22:00"
   },
   "recentPcTasks": [
     {
