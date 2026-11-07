@@ -942,15 +942,30 @@
         st.wakeRec = null;
       }
       if (st.mode === 'listening' && st.trigger === 'tap') {
+        st.mode = 'idle';
+        st.trigger = 'idle';
+        st.clockStandby = false;
+        agy.hud.clockStandby = false;
         try { st.recorder?.stop(); } catch {}
         st.recorder = null;
+        if (st.ticker) {
+          try { clearInterval(st.ticker); } catch {}
+          st.ticker = null;
+        }
         if (st.webSpeechRec) {
           try { st.webSpeechRec.stop(); } catch {}
           st.webSpeechRec = null;
         }
         st.webSpeechTranscript = '';
-        const hasPrev = ensureLastConversationOnState(st);
-        if (agy.goIdle) agy.goIdle(hasPrev ? undefined : '저장된 이전 대화가 없습니다.');
+        showPreviousChatOnHud(st, agy.hud, false);
+      }
+
+      // Self-Healing Anti-Black-Screen Guard: If awake (!clockStandby) in idle mode, body can NEVER stay blank (' ')!
+      if (st.mode === 'idle' && !st.clockStandby && !agy.hud.clockStandby) {
+        const curBody = String(agy.hud.wanted?.body || '').trim();
+        if (!curBody) {
+          showPreviousChatOnHud(st, agy.hud, false);
+        }
       }
 
       // While recording from glasses ('hold' or 'longpress'), keep mic open hands-free and ensure 100% of G2 PCM chunks are kept
