@@ -605,9 +605,10 @@
             // 1) SCROLL_BOTTOM_EVENT (2) -> Advance to next scroll window!
             if (evType === 2) {
               if (st.mode !== 'listening' && !st.clockStandby && Array.isArray(st.__scrollWindows) && st.__scrollWindows.length > 1) {
-                if (now - (st.__lastScrollEdgeAt || 0) >= 420 && st.__scrollWinIdx < st.__scrollWindows.length - 1) {
+                if (now - (st.__lastScrollEdgeAt || 0) >= 220 && st.__scrollWinIdx < st.__scrollWindows.length - 1) {
                   st.__lastScrollEdgeAt = now;
                   st.__scrollWinIdx++;
+                  window.__EDITH_SCROLL_INDEX__ = st.__scrollWinIdx;
                   const total = st.__scrollWindows.length;
                   hud.wanted.body = st.__scrollWindows[st.__scrollWinIdx];
                   if (st.mode === 'idle') {
@@ -625,9 +626,10 @@
             // 2) SCROLL_TOP_EVENT (1) -> Move back to previous scroll window!
             if (evType === 1) {
               if (st.mode !== 'listening' && !st.clockStandby && Array.isArray(st.__scrollWindows) && st.__scrollWindows.length > 1) {
-                if (now - (st.__lastScrollEdgeAt || 0) >= 420 && st.__scrollWinIdx > 0) {
+                if (now - (st.__lastScrollEdgeAt || 0) >= 220 && st.__scrollWinIdx > 0) {
                   st.__lastScrollEdgeAt = now;
                   st.__scrollWinIdx--;
+                  window.__EDITH_SCROLL_INDEX__ = st.__scrollWinIdx;
                   const total = st.__scrollWindows.length;
                   hud.wanted.body = st.__scrollWindows[st.__scrollWinIdx];
                   if (st.mode === 'idle') {
@@ -657,6 +659,7 @@
               if (st.mode === 'idle') {
                 if (Array.isArray(st.__scrollWindows) && st.__scrollWindows.length > 1) {
                   st.__scrollWinIdx = (st.__scrollWinIdx + 1) % st.__scrollWindows.length;
+                  window.__EDITH_SCROLL_INDEX__ = st.__scrollWinIdx;
                   const total = st.__scrollWindows.length;
                   hud.wanted.body = st.__scrollWindows[st.__scrollWinIdx];
                   hud.wanted.status = `▼ 스크롤 ${st.__scrollWinIdx + 1}/${total}  ■■■■ 100%`;
