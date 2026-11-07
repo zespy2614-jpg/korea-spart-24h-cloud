@@ -1,6 +1,7 @@
 {
   "processedIds": [
-    "init_welcome"
+    "init_welcome",
+    "g2_1794051936126"
   ],
   "entries": [
     {
@@ -9,6 +10,13 @@
       "question": "안티그래비티 × Even G2 시스템 개통 확인",
       "answer": "대표님의 컴퓨터(e:\\안티그래비티), 구글 드라이브, GitHub 클라우드, 그리고 Even G2 안경이 실시간 양방향으로 연결되었습니다.",
       "model": "Antigravity-System"
+    },
+    {
+      "id": "g2_1794051936126",
+      "timestamp": "2026. 11. 7. 오후 8:45:36",
+      "question": "너 지금 라우더 그걸로 적용",
+      "answer": "라우더 필터를 적용 중입니다.",
+      "model": "google/gemini-2.5-flash"
     }
   ]
 }
