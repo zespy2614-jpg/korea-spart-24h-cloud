@@ -1,8 +1,35 @@
 {
-  "updatedAt": "2026. 11. 7. PM 9:44:00",
+  "updatedAt": "2026. 11. 7. PM 9:44:24",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 7. PM 9:44:00\n1. PC 안티그래비티 실시간 작업: 최근 3단계 GitHub 동기화됨\n2. 시엔위 & 8개국 크롤링 / 지파츠 40선: 24시간 가동 중\n3. 누적 안경 대화록: 10건 (GitHub 실시간 업로드 중)",
+  "pinnedReminder": "파란색 자동차 (내 차량)",
+  "longTermMemories": [
+    {
+      "id": "mem_car_blue_01",
+      "category": "차량/주차",
+      "fact": "대표님의 차량은 파란색 자동차입니다.",
+      "sourceQuestion": "저기 있는 파란색 자동차가 제 차예요",
+      "createdAt": "2026. 11. 7. 오후 9:21:49",
+      "pinned": true
+    },
+    {
+      "id": "mem_ai_model_02",
+      "category": "AI/시스템",
+      "fact": "Even G2 안경의 기본 AI 모델은 최신 최상위 Google Gemini 4 Argon (OpenRouter 연동)입니다.",
+      "sourceQuestion": "언어 모델을 제일 최신 모델로 설정",
+      "createdAt": "2026. 11. 7. 오후 8:47:07",
+      "pinned": false
+    },
+    {
+      "id": "mem_biz_rule_03",
+      "category": "비즈니스",
+      "fact": "지파츠 이베이 40선 실시간 재고 감시 및 8개국 크로스보더 80선(순마진 30% 이상 보장 공식)이 24시간 가동 중입니다.",
+      "sourceQuestion": "안티그래비티 마스터 두뇌 원칙",
+      "createdAt": "2026. 11. 7. 오후 6:17:02",
+      "pinned": false
+    }
+  ],
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 7. PM 9:44:24\n1. 영구 장기기억 금고: 3건 (고정: 파란색 자동차 (내 차량))\n2. PC 안티그래비티 실시간 작업: 최근 3단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 10건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -56,7 +83,7 @@
         "안경",
         "오픈라우터"
       ],
-      "summary": "대표님이 PC에서 작업하시는 모든 안티그래비티 대화와 파일이 실시간으로 GitHub에 업로드되어 안경이 즉시 읽어들이며, 안경에서 나눈 대화도 즉시 GitHub(docs/g2/G2_안경_실시간대화록.md)에 업로드됩니다."
+      "summary": "대표님이 PC에서 작업하시는 모든 안티그래비티 대화와 파일이 실시간으로 GitHub에 업로드되어 안경이 즉시 읽어들이며, 안경에서 나눈 대화와 영구 기억도 즉시 GitHub에 업로드됩니다."
     }
   ],
   "workspaceFiles": [
@@ -153,6 +180,10 @@
       "type": "file"
     },
     {
+      "name": "G2_영구기억_노트.md",
+      "type": "file"
+    },
+    {
       "name": "gemini_brain_sync_daemon.mjs",
       "type": "file"
     },
@@ -213,6 +244,246 @@
       "type": "folder"
     }
   ],
+  "projects": [
+    {
+      "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
+      "summary": "8개국 크로스보더 80선 품번 DB, 인터넷 셀러 마케팅 80대 기법, 임베디드 중고칩 45선, 안드로이드 AOSP/전장/커스텀롬 학습 DB가 24시간 실시간 수집 및 구글 드라이브·GitHub에 동기화 중"
+    },
+    {
+      "name": "지파츠 이베이 자동리스팅 (Gparts eBay)",
+      "summary": "지파츠 이베이 40선 주력 및 예비 재고를 24시간 감시하며 SEO 패키지 및 판매량 기준 대량 공급처 보고서(88선) 구축 완료"
+    },
+    {
+      "name": "안드로이드 커스텀롬 & 임베디드 하드웨어 (RK3588S / E900V22D)",
+      "summary": "Antigravity_Remote_Pro_v13_KO.apk, OneUI_AutoHotspot, KorLauncher3, KorSettings, RK3588S SD카드 복제 방지 보안 패치 및 하드웨어 노트 보관"
+    },
+    {
+      "name": "PC 안티그래비티 ↔ GitHub ↔ Even G2 안경 실시간 양방향 동기화",
+      "summary": "PC 안티그래비티 대화·문서와 안경 대화록(G2_안경_실시간대화록.md) 및 영구기억(G2_영구기억_노트.md)이 GitHub(korea-spart-24h-cloud)와 실시간 양방향 연동 중"
+    },
+    {
+      "name": "e:\\안티그래비티\\ai_edge_box_demo",
+      "summary": "워크스페이스 프로젝트 폴더"
+    },
+    {
+      "name": "e:\\안티그래비티\\antigravity_g2_brain.ehpk",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\Antigravity_Remote_Pro.apk",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\Antigravity_Remote_Pro_KO.apk",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\Antigravity_Remote_Pro_v10_KO.apk",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\Antigravity_Remote_Pro_v11_KO.apk",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\Antigravity_Remote_Pro_v12_KO.apk",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\Antigravity_Remote_Pro_v12_KO.apk.idsig",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\Antigravity_Remote_Pro_v13_KO.apk",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\Antigravity_Remote_Pro_v13_KO.apk.idsig",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\Antigravity_Remote_Pro_v4_KO.apk",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\Antigravity_Remote_Pro_v5_KO.apk",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\Antigravity_Remote_Pro_v6_KO.apk",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\Antigravity_Remote_Pro_v7_KO.apk",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\Antigravity_Remote_Pro_v8_KO.apk",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\Antigravity_Remote_Pro_v9_KO.apk",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\backup_20261105_2327",
+      "summary": "워크스페이스 프로젝트 폴더"
+    },
+    {
+      "name": "e:\\안티그래비티\\E900V22D_Android12",
+      "summary": "워크스페이스 프로젝트 폴더"
+    },
+    {
+      "name": "e:\\안티그래비티\\ELIPHOEM_AWS_OTA_Server",
+      "summary": "워크스페이스 프로젝트 폴더"
+    },
+    {
+      "name": "e:\\안티그래비티\\ELIPHOEM_Backups",
+      "summary": "워크스페이스 프로젝트 폴더"
+    },
+    {
+      "name": "e:\\안티그래비티\\EmuELEC_보안패치_및_하드웨어_노트.md",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\EvenG2_안티그래비티_AI허브",
+      "summary": "워크스페이스 프로젝트 폴더"
+    },
+    {
+      "name": "e:\\안티그래비티\\G2_안경_실시간대화록.md",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\G2_영구기억_노트.md",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\gemini_brain_sync_daemon.mjs",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\KorLauncher3.apk",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\KorSettings.apk",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\KorSettings.apk.idsig",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\KorSystemHelper.apk",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\MStickCarHotspot_Car.apk",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\OneUI_AutoHotspot_Car.apk",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\OneUI_AutoHotspot_Phone.apk",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\ZqcSettings_orig.apk",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\시엔위_비즈니스_연구소",
+      "summary": "워크스페이스 프로젝트 폴더"
+    },
+    {
+      "name": "e:\\안티그래비티\\아는형님_공유용_안티그래비티_초실전_마스터프롬프트_모음집.md",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\안티그래비티_리모트_전용앱",
+      "summary": "워크스페이스 프로젝트 폴더"
+    },
+    {
+      "name": "e:\\안티그래비티\\안티그래비티_제미나이_마스터두뇌_통합바이블.md",
+      "summary": "워크스페이스 핵심 문서"
+    },
+    {
+      "name": "e:\\안티그래비티\\지파츠_이베이_자동리스팅",
+      "summary": "워크스페이스 프로젝트 폴더"
+    },
+    {
+      "name": "e:\\안티그래비티\\클라우드_24시간_무중단_관제센터",
+      "summary": "워크스페이스 프로젝트 폴더"
+    }
+  ],
+  "livePcAntigravity": [
+    {
+      "updatedAt": "2026-11-07T12:08:56Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] 원인을 정확히 찾았습니다! 아까 EDITH 1:1 버전으로 패키지를 새로 생성할 때 **`kanjji@naver.com` 베타 테스터 초대 등록**이 초기화되어 있어서 Even 앱 우측 상단에 모래시계(베타 메뉴)와 업데이트가 보이지 않았던 것입니다.\n\n방금 **`kanjji@naver.com`**으로 **`Antigravity Brain v2.0.0` 최신 초대장**을 다시 발송해 드렸습니다!\n\n### 지금 바로 업데이트하는 방법 (아까 처음 설치하셨던 것과 동일합니다!)\n1. 스마트폰에서 **네이버 메일(`kanjji@naver.com`)**을 열어주세요.\n2. 방금 도착한 **Even Realities 베타 초대 메일**을 열고 **수락(Accept) / 설치 링크**를 눌러주세요.\n3. 자동으로 **Even 앱이 열리면서 `Antigr"
+    },
+    {
+      "updatedAt": "2026-11-07T12:22:27Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 야 번역기능있잖아 그거 왜이렇게 느리지 번역하는거 그 이븐리얼리틱스 자체 번역은빠르잖아"
+    },
+    {
+      "updatedAt": "2026-11-07T12:26:55Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 야그리고 내 안티그래비티에있는정보들실시간으로 연동되게 여기서쓰는대화 그리고 안경에서쓰는대화 깃허브에 연동하면서 하게했는데왜 안경에서 내정보 불러오라니까 깃허브동기화된거 없대"
+    }
+  ],
+  "recentDocs": [
+    {
+      "name": "G2_영구기억_노트.md",
+      "updatedAt": "2026. 11. 7. PM 9:44:24",
+      "preview": "# 🧠 안티그래비티 × Even G2 스마트 안경 영구 장기기억 노트 (Memory Vault)\n\n> **최종 업데이트**: 2026. 11. 7. PM 9:44:24\n> **현재 안경 HUD 고정 리마인더**: `파란색 자동차 (내 차량)`\n> **연동 경로**: 로컬 PC (`e:\\안티그래비티\\G2_영구기억_노트.md`) ↔ 구글 드라이브 ↔ GitHub (`docs/g2/G2_영구기억_노트.md`)\n\n---\n\n## 📌 등록된 영구 기억 목록 (새 채팅을 시작해도 영구 유지됨)\n\n- **[차량/주차] (★고정)** 대표님의 차량은 파란색 자동차입니다. _(2026. 11. 7. 오후 9:21:49)_\n- **[AI/시스템]** Even G2 안경의 기본 AI 모델은 최신 최상위 Google Gemini 4 Argon (OpenRouter 연동)입니다. _(2026. 11. 7. 오후 8:47:07)_\n- **[비즈니스]** 지파츠 이베이 40선 실시간 재고 감시 및 8개국 크로스보더 80선(순마진 30% 이상 보장 공식)이 24시간 가동 중입니다. _(2026. 11. 7. 오후 6:17:02)_\n"
+    },
+    {
+      "name": "G2_안경_실시간대화록.md",
+      "updatedAt": "2026. 11. 7. PM 9:44:21",
+      "preview": "# 👓 안티그래비티 × Even G2 스마트 안경 실시간 누적 대화록\n\n> **최종 업데이트**: 2026. 11. 7. PM 9:44:21\n> **연동 경로**: 로컬 PC (`e:\\안티그래비티\\G2_안경_실시간대화록.md`) ↔ 구글 드라이브 (`G:\\내 드라이브\\안티그래비티_제미나이_두뇌`) ↔ GitHub 클라우드 (`docs/g2/G2_안경_실시간대화록.md`)\n\n---\n\n## [2026. 11. 7. PM 6:17:02] 질문: 안티그래비티 × Even G2 시스템 개통 확인\n- **사용 모델**: `Antigravity-System`\n- **안티그래비티 답변**:\n\n대표님의 컴퓨터(e:\\안티그래비티), 구글 드라이브, GitHub 클라우드, 그리고 Even G2 안경이 실시간 양방향으로 연결되었습니다.\n\n---\n\n## [2026. 11. 7. 오후 8:45:36] 질문: 너 지금 라우더 그걸로 적용\n- **사용 모델**: `google/gemini-2.5-flash`\n- **안티그래비티 답변**:\n\n라우더 필터를 적용 중입니다.\n\n---\n\n## [2026. 11. 7. 오후 8:45:57] 질문: 아니 그 저거 있잖아. 그 이름 뭐냐? 아까 샀던 거 AI 라우터 있잖아. 그 오픈 라우터 그거 된 거냐고.\n- **사용 모델**: `google/gemini-2.5-flash`\n- **안티그래비티 답변**:\n\n네 AI 오픈 라우터 필터 적용을 완료했습니다.\n\n---\n\n## [2026. 11. 7. 오후 8:46:38] 질문: 야 근데 그\n- **사용 모델**: `google/gemini-2.5-flash`\n- **안티그래비티 답변**:\n\n예, 대표님.\n말씀하시던 '그' 내용에 대해 현재 안티그래비티와 GitHub 두뇌를 실시간으로 동기화하여 분석하고 있습니다.\n좀 더 구체적으"
+    },
+    {
+      "name": "시엔위_비즈니스_연구소\\28_안드로이드전문가_AOSP_전장_커스텀롬_OTA_NDK_무한학습로그.md",
+      "updatedAt": "2026. 11. 7. AM 7:00:00",
+      "preview": "# 🤖 [안드로이드 시스템·AOSP·전장·리버스엔지니어링·OTA·Edge AI] 6-워커 병렬 크롤링 & 실시간 무한학습 로그\n\n> **관제 서버**: `http://127.0.0.1:3853` | **구글 드라이브 샤드 경로**: `G:\\내 드라이브\\안티그래비티_글로벌소싱_DB\\android_expert_shards`\n> **핵심 타겟**: `E900V22D(S905L3A)` 안드로이드 12 + `UIS7861(T606)` 11.4인치 열화상 카플레이 모니터 + `RK3566` 빔프로젝터/NPU + `AWS OTA 서버` + `Antigravity Remote Pro APK`\n\n---\n\n## 🤖 [안드로이드 전문가 학습 #1 (Cycle 1)] [AOSP-01] Amlogic(S905L3A/E900V22D·S905X4·T982) USB Burning Tool 이미지 언팩·리팩 & 핀쇼트 부트로더 진입 (2026. 11. 5. PM 8:46:45)\n\n- **전문 영역 및 타겟 보드**: 🔥 1. AOSP·커스텀롬·펌웨어개조 | `E900V22D (S905L3A), S905X3/X4, T972, T982 빔프로젝터/셋톱박스`\n- **황금 구현 공식(Core Formula)**: `AmlImagePack -d aml_upgrade.img unpacked_dir/ → system/vendor 수정 → AmlImagePack -r`\n- **실전 적용 법칙**: eMMC 클럭-GND 핀쇼트로 MaskROM 모드에 강제 진입한 뒤, 한국어 로케일·OTA 에이전트·커스텀 런처가 심어진 전용 단일 .img 파일을 90초 만에 양산 플래싱한다.\n\n- **🐙 GitHub 오픈소스**: [android-expert/aosp-01-core (⭐210)](https://github.com/search"
+    },
+    {
+      "name": "시엔위_비즈니스_연구소\\13_전세계4대권역_eBay_야후옥션_시엔위_글로벌차익_야간무한로그.md",
+      "updatedAt": "2026. 11. 7. AM 6:59:57",
+      "preview": "# 🌍 전 세계 4대 권역(🇺🇸 미국 eBay × 🇯🇵 일본 야후옥션 × 🇨🇳 중국 시엔위 × 🌐 글로벌 GitHub) 실시간 크로스보더 차익·재제조 야간 무한 로그\n\n> 🎯 **탐색 범위**: 시엔위 국한이 아닌 **미국·유럽 eBay 실시간 판매가($/KRW) + 일본 야후옥션 정크(ジャンク) 경매가(円) + 중국 개조 키트(¥) + 글로벌 오픈소스 하드웨어** 4각 동시 크롤링\n\n---\n\n## 🌍 [글로벌 4대 권역 실시간 교차발굴 #1 (Cycle 1)] [전세계 타겟 #1] 일본 야후옥션 80~90년대 일제(MIJ) BOSS 기타 이펙터 정크(ACA→PSA 1분 점퍼 개조) -> 미국 eBay·Reverb 달러 역수출 (2026. 11. 2. PM 10:44:00)\n\n- **글로벌 타겟 시장**: 🇺🇸 미국·유럽 eBay / Reverb 뮤지션 시장 (엔저+빈티지 프리미엄 5~15배)\n- **크로스보더 차익·재제조 공식**: 일본 야후옥션/하드오프에서 구형 12V ACA 어댑터 규격이라 9V 꼽고 안 켜져 정크(3,000엔=2.8만원)로 나온 일제 BOSS 페달을 매입 -> 다이오드 1분 점퍼 개조 또는 오버홀 후 미국 eBay에 25만~66만원($180~$490)에 수출\n\n### 🇺🇸 ① [미국·유럽 eBay(`ebay.com`) 글로벌 판매 시세 & 실매물] 검색어: `BOSS BD-2 MIJ Japan pedal`\n- **[글로벌 판매가: KRW178,646.60]** [BOSS BD-2W Blues Driver Waza Craft Overdrive Guitar Effects Pedal from Japan](https://www.ebay.com/itm/377529156480)\n- **[글로벌 판매가: KRW109,172.92]** [BOSS BD"
+    },
+    {
+      "name": "시엔위_비즈니스_연구소\\27_임베디드전문가_시엔위중고칩45선_PCB펌웨어_무한크롤링로그.md",
+      "updatedAt": "2026. 11. 7. AM 6:59:56",
+      "preview": "# ⚡ [임베디드 전문가 × 시엔위 중고·탈거칩 45선] 6-워커 병렬 오픈소스 PCB·펌웨어·완제품 연금술 실시간 로그\n\n> **관제 서버**: `http://127.0.0.1:3852` | **구글 드라이브 샤드 경로**: `G:\\내 드라이브\\안티그래비티_글로벌소싱_DB\\embedded_chip_shards`\n> **핵심 미션**: 시엔위 대량 탈거(拆机)/잉여(库存) 칩셋 45종(메인 SoC 38종 + 필수 주변칩 7종)의 실시간 매물·OSHWHub 회로도·GitHub BSP·글로벌 완제품 차익을 24시간 추적합니다.\n\n---\n\n## ⚡ [임베디드 중고칩 딥스캔 #1 (Cycle 1)] [서열 #1위 | CHIP-01] Rockchip RK3588M (2026. 11. 5. PM 8:36:25)\n\n- **모델명 및 별칭**: `Rockchip RK3588M` (RK3588 / 전장급 플래그십 SoC) | **분류**: 📷 D. 독립 NPU·AI비전·엣지서버\n- **공정 / 코어 / 특기**: `8nm` | `4x Cortex-A76 + 4x A55 / Mali-G610 MP4` | 엠스틱3 대비 **280%** — 6.0 TOPS NPU + 8K 디코딩/인코딩 + PCIe 3.0 + 듀얼 기가비트 + 다중 MIPI-CSI\n- **시엔위 재고 및 실측 단가**: **60+개 (보드 다수)** | **125위안** (약 24,000원)\n- **임베디드 BOM & PCB 스펙**: 짝꿍 PMIC(`RK806-1 / RK806-2 + LPDDR4X/LPDDR5`) | 권장 기판(`8층~10층 HDI 기판 (또는 Core SOM 모듈 + 4층 캐리어 보드 권장)`)\n- **타겟 완제품 연금술**: **8채널 AI NVR 비전 서버 / 자율주행 ADAS 박스 / 하이엔드 사이버덱 UMPC"
+    },
+    {
+      "name": "시엔위_비즈니스_연구소\\17_인터넷셀러_마케팅_전분야_야간무한학습_실시간로그.md",
+      "updatedAt": "2026. 11. 7. AM 6:59:56",
+      "preview": "# 🧠 [인터넷 셀러 전문가 & 마케팅 전 분야] 6-워커 무소음 병렬 크롤링 & 실시간 학습 로그\n\n> **관제 서버**: `http://127.0.0.1:3849` | **구글 드라이브 샤드 경로**: `G:\\내 드라이브\\안티그래비티_글로벌소싱_DB\\seller_marketing_shards`\n\n---\n\n## 🧠 [셀러·마케팅 병렬학습 #1 (Cycle 1)] [SEO-01] eBay Cassini 80자 황금 타이틀 배합 공식 (OEM 품번 + 교차호환 + 신뢰키워드) (2026. 11. 3. PM 11:43:00)\n\n- **전문 트랙 및 타겟 플랫폼**: 📈 마켓 알고리즘 & SEO | `eBay US / DE / AU / UK`\n- **핵심 황금 공식(Core Formula)**: `[OEM Brand] + [Exact Part No.] + [Cross-Ref Part No.] + [Target Machine/Model] + [Tested/Plug&Play]`\n- **기대 전환율·수익 상승폭**: **노출량 +340% / 클릭률(CTR) +185%**\n- **즉시 실행 실전 법칙**: 앞 45자 이내에 바이어가 검색창에 치는 핵심 순정 품번(하이픈 포함/제거 병기)과 호환 모델명을 배치하고, 뒤 35자에 Tested·Plug&Play·Fast Ship을 넣어 Cassini 적합도 점수를 극대화한다.\n\n### 🇺🇸🇩🇪🇦🇺 [글로벌 eBay 상위노출 리스팅 타이틀 & SEO 해부]\n- **🇺🇸 미국 eBay.com 상위셀러**: [[Cassini 상위 1% 타이틀 표본] OEM Genuine Tested Module Plug and Play - 100% Bench Tested w/ Pinout](https://www.ebay.com/sch/i.html?_nkw"
+    },
+    {
+      "name": "아는형님_공유용_안티그래비티_초실전_마스터프롬프트_모음집.md",
+      "updatedAt": "2026. 11. 7. AM 12:02:01",
+      "preview": "================================================================================\n🚀 [아는 형님 공유용] 어떤 업종이든 AI 답변을 180도 바꾸는 '초실전 마스터 프롬프트' 풀패키지\n================================================================================\n- 용도: 순정 AI의 뻔하고 추상적인 교과서식 답변을 100% 제거하고,\n        내가 하는 사업/업무 분야가 무엇이든 관계없이\n        ① 3명의 적대적 서브에이전트 끝장 검증 (기회 발굴자 × 냉혹한 레드팀 × 독점 해자 설계자)\n        ② 실측 데이터·순마진 방어 공식·리스크 사전 차단 필터\n        ③ 상위 0.1% 마케팅 & 세일즈 전환율(SEO·상세 설득·미끼 가격·무자본 바이럴·클레임 0% CS)\n        ④ 삼성 One UI 7 플래그십 UI/UX 디자인 시스템 (웹/앱/자료 제작 시 AI 티 0%)\n        을 한 번에 주입하는 범용 마스터 프롬프트 모음집입니다.\n================================================================================\n\n\n================================================================================\n📌 [프롬프트 1] 만능 올인원 '마스터 두뇌' 프롬프트 (가장 먼저 복사해서 AI에게 입력!)\n👉 사용법: Antigravity 기본 규칙(GEMINI.md), 제미나이(Gemini Gems), 챗GPT 맞춤 지침, 또는 새 대화창 첫 줄에 복사해서 붙여넣고 맨 아래 [내 사업/관심 분야]만 "
+    },
+    {
+      "name": "EmuELEC_보안패치_및_하드웨어_노트.md",
+      "updatedAt": "2026. 11. 6. PM 8:59:35",
+      "preview": "# EmuELEC 외장하드 보안 패치 설계 및 RK3566 빔프로젝터 하드웨어/원가 노트\n\n작성일: 2026-11-06\n\n---\n\n## 1. EmuELEC 외장하드 (`kernel.img` / `init`) 보안 취약점 및 패치 설계\n\n### 1.1 현재 구조 및 발견된 취약점 3가지\n1. **기판 고유번호 바인딩 방식 (`generate_serial_key`)**:\n   - 부팅 시 `/proc/cpuinfo`의 `Serial` (Amlogic S905L3A CPU 내부 eFuse OTP에 레이저 각인된 32자리 128-bit 고유 번호, 예: `280c7000011b1700000b373231545050`)을 읽어 `HMAC-SHA256(\"EmuELEC\")`으로 `SERIAL_KEY`(16바이트 AES 키)를 생성.\n   - 최초 1회 부팅 시 디스크 2048 섹터의 `\"key0\"` + 32바이트 마스터 키를 `SERIAL_KEY`로 AES-128-CBC 암호화(`key1`)하여 덮어씌움으로써 해당 기판에 귀속시킴.\n2. **치명적 취약점 ① — `init` 스크립트 61번째 줄에 마스터 암호키(`KEY0`) 평문 노출**:\n   - `kernel.img` 램디스크 내 `/init` 파일이 `UPX` + `shc`(RC4)로만 감싸져 있어 복호화 시 원본 스크립트가 그대로 노출됨.\n   - 복호화된 `init` 61번째 줄에 `KEY0=\"f1cbda0826ea6085a346fabf0982d22b44c204815685db2f66228f6196ad85fc\"`가 평문으로 하드코딩되어 있어, 본체 시리얼 없이도 누구든 `SYSTEM` 및 `storage_a` LUKS 파티션을 즉시 열 수 있음.\n3. **치명적 취약점 ② — `.reset_key` 빈 파일 체크 문제 (`reset_decr"
+    },
+    {
+      "name": "안티그래비티_제미나이_마스터두뇌_통합바이블.md",
+      "updatedAt": "2026. 11. 6. PM 7:30:20",
+      "preview": "================================================================================\n🧠 [안티그래비티 × 제미나이] 통합 마스터 두뇌 지식베이스 (ANTIGRAVITY MASTER BRAIN DB)\n================================================================================\n- 문서 ID: ANTIGRAVITY-GEMINI-MASTER-BRAIN\n- 최종 실시간 학습/동기화 시각: 2026. 11. 6. PM 7:30:20\n- 로컬 작업 본진: e:\\안티그래비티 (모든 파일 변경 및 크롤링 데이터 30초 주기 자동 업로드 중)\n- 구글 드라이브 두뇌 경로: G:\\내 드라이브\\안티그래비티_제미나이_두뇌\n- 구글 드라이브 데이터레이크: G:\\내 드라이브\\안티그래비티_글로벌소싱_DB\n================================================================================\n\n## 📌 [PART 0] 제미나이(Gemini) AI 전용 시스템 지침 (System Context & Memory)\n\n당신은 박정수 대표님의 전담 AI 비즈니스·엔지니어링 파트너인 **'안티그래비티(Antigravity) 통합 두뇌'**입니다.\n대표님이 제미나이(Gemini 웹, 데스크톱 앱, 모바일 앱, Gems, NotebookLM)에서 대화할 때, 로컬 PC의 Antigravity 환경에서 실시간으로 크롤링하고 구축한 아래의 모든 프로젝트 데이터와 5대 철칙을 100% 숙지한 상태에서 답변해야 합니다.\n\n### [구글 드라이브에 실시간 자동 업로드되는 3대 핵심 두뇌 파일]\n1. **`안티그래비티_제미나이_마스터두뇌_통합바이블.p"
+    },
+    {
+      "name": "시엔위_비즈니스_연구소\\25_미개척_철옹성_개발저축형_신사업_무한발굴_실시간로그.md",
+      "updatedAt": "2026. 11. 6. AM 6:59:38",
+      "preview": "# 🧭 [미개척 철옹성 & 개발저축형 신사업] 8대 영역 24시간 무중단 크롤링·역설계 실시간 학습 로그\n\n> **관제 서버**: `http://127.0.0.1:3851` | **구글 드라이브 샤드 경로**: `G:\\내 드라이브\\안티그래비티_글로벌소싱_DB\\uncharted_moat_shards`\n> **핵심 필터**: ① AI 카피캣 복제 불가, ② 정보의 오류/비대칭(할루시네이션 지뢰밭) 존재, ③ 할수록 복리로 쌓이는 '개발 저축형(Compound Asset)' 비즈니스\n\n---\n\n### [#1 | MOAT-01] WebSerial/WebUSB 기반 중국 내수용·산업용 기기 브라우저 원클릭 언락·한글화·전압세팅 클라우드(SaaS) (2026. 11. 5. PM 7:34:23)\n- **분야**: 1. 비공개 프로토콜 역설계 & WebUSB 온라인 언락 SaaS\n- **🛡️ 카피캣 방어 (정보 오류/비대칭)**: 제조사 비공개 레지스터 주소 및 체크섬(CRC) 계산식이 인터넷에 없거나 오정보만 존재해 일반 AI 프롬프트로는 100% 벽돌 현상 발생\n- **🏦 개발 저축 자산 (복리 누적)**: 지원 기기 프로파일(예: 화웨이 정류기, E900V22D, 내수용 로봇청소기, 농기계 클러스터)을 1개씩 뚫어 DB에 저축할수록 건당 $15~$39 디지털 통행료가 무재고로 복리 누적\n- **🔗 대표님 보유자산 시너지**: 대표님의 E900V22D 핀쇼트/선샤 노하우 + RK3566/안드로이드 롬 커스텀 역량을 택배 없는 글로벌 웹 결제 SaaS로 전환 | **수익모델**: `건당 언락 크레딧 $19.99 / 수리점 월 구독 $49 (순마진 95%)`\n- **🌐 실시간 글로벌 시그널**: [GitHub: opensource/moat-01-core (★120)](https://gith"
+    }
+  ],
   "livePcAntigravitySession": [
     {
       "role": "안티그래비티(PC 작업 결과)",
@@ -239,9 +510,14 @@
   ],
   "recentWorkspaceDocs": [
     {
+      "relPath": "G2_영구기억_노트.md",
+      "updatedAt": "2026. 11. 7. PM 9:44:24",
+      "excerpt": "# 🧠 안티그래비티 × Even G2 스마트 안경 영구 장기기억 노트 (Memory Vault)\n\n> **최종 업데이트**: 2026. 11. 7. PM 9:44:24\n> **현재 안경 HUD 고정 리마인더**: `파란색 자동차 (내 차량)`\n> **연동 경로**: 로컬 PC (`e:\\안티그래비티\\G2_영구기억_노트.md`) ↔ 구글 드라이브 ↔ GitHub (`docs/g2/G2_영구기억_노트.md`)\n\n---\n\n## 📌 등록된 영구 기억 목록 (새 채팅을 시작해도 영구 유지됨)\n\n- **[차량/주차] (★고정)** 대표님의 차량은 파란색 자동차입니다. _(2026. 11. 7. 오후 9:21:49)_\n- **[AI/시스템]** Even G2 안경의 기본 AI 모델은 최신 최상위 Google Gemini 4 Argon (OpenRouter 연동)입니다. _(2026. 11. 7. 오후 8:47:07)_\n- **[비즈니스]** 지파츠 이베이 40선 실시간 재고 감시 및 8개국 크로스보더 80선(순마진 30% 이상 보장 공식)이 24시간 가동 중입니다. _(2026. 11. 7. 오후 6:17:02)_\n"
+    },
+    {
       "relPath": "G2_안경_실시간대화록.md",
-      "updatedAt": "2026. 11. 7. PM 9:26:14",
-      "excerpt": "# 👓 안티그래비티 × Even G2 스마트 안경 실시간 누적 대화록\n\n> **최종 업데이트**: 2026. 11. 7. PM 9:26:14\n> **연동 경로**: 로컬 PC (`e:\\안티그래비티\\G2_안경_실시간대화록.md`) ↔ 구글 드라이브 (`G:\\내 드라이브\\안티그래비티_제미나이_두뇌`) ↔ GitHub 클라우드 (`docs/g2/G2_안경_실시간대화록.md`)\n\n---\n\n## [2026. 11. 7. PM 6:17:02] 질문: 안티그래비티 × Even G2 시스템 개통 확인\n- **사용 모델**: `Antigravity-System`\n- **안티그래비티 답변**:\n\n대표님의 컴퓨터(e:\\안티그래비티), 구글 드라이브, GitHub 클라우드, 그리고 Even G2 안경이 실시간 양방향으로 연결되었습니다.\n\n---\n\n## [2026. 11. 7. 오후 8:45:36] 질문: 너 지금 라우더 그걸로 적용\n- **사용 모델**: `google/gemini-2.5-flash`\n- **안티그래비티 답변**:\n\n라우더 필터를 적용 중입니다.\n\n---\n\n## [2026. 11. 7. 오후 8:45:57] 질문: 아니 그 저거 있잖아. 그 이름 뭐냐? 아까 샀던 거 AI 라우터 있잖아. 그 오픈 라우터 그거 된 거냐고.\n- **사용 모델**: `google/gemini-2.5-flash`\n- **안티그래비티 답변**:\n\n네 AI 오픈 라우터 필터 적용을 완료했습니다.\n\n---\n\n## [2026. 11. 7. 오후 8:46:38] 질문: 야 근데 그\n- **사용 모델**: `google/gemini-2.5-flash`\n- **안티그래비티 답변**:\n\n예, 대표님.\n말씀하시던 '그' 내용에 대해 현재 안티그래비티와 GitHub 두뇌를 실시간으로 동기화하여 분석하고 있습니다.\n좀 더 구체적으"
+      "updatedAt": "2026. 11. 7. PM 9:44:21",
+      "excerpt": "# 👓 안티그래비티 × Even G2 스마트 안경 실시간 누적 대화록\n\n> **최종 업데이트**: 2026. 11. 7. PM 9:44:21\n> **연동 경로**: 로컬 PC (`e:\\안티그래비티\\G2_안경_실시간대화록.md`) ↔ 구글 드라이브 (`G:\\내 드라이브\\안티그래비티_제미나이_두뇌`) ↔ GitHub 클라우드 (`docs/g2/G2_안경_실시간대화록.md`)\n\n---\n\n## [2026. 11. 7. PM 6:17:02] 질문: 안티그래비티 × Even G2 시스템 개통 확인\n- **사용 모델**: `Antigravity-System`\n- **안티그래비티 답변**:\n\n대표님의 컴퓨터(e:\\안티그래비티), 구글 드라이브, GitHub 클라우드, 그리고 Even G2 안경이 실시간 양방향으로 연결되었습니다.\n\n---\n\n## [2026. 11. 7. 오후 8:45:36] 질문: 너 지금 라우더 그걸로 적용\n- **사용 모델**: `google/gemini-2.5-flash`\n- **안티그래비티 답변**:\n\n라우더 필터를 적용 중입니다.\n\n---\n\n## [2026. 11. 7. 오후 8:45:57] 질문: 아니 그 저거 있잖아. 그 이름 뭐냐? 아까 샀던 거 AI 라우터 있잖아. 그 오픈 라우터 그거 된 거냐고.\n- **사용 모델**: `google/gemini-2.5-flash`\n- **안티그래비티 답변**:\n\n네 AI 오픈 라우터 필터 적용을 완료했습니다.\n\n---\n\n## [2026. 11. 7. 오후 8:46:38] 질문: 야 근데 그\n- **사용 모델**: `google/gemini-2.5-flash`\n- **안티그래비티 답변**:\n\n예, 대표님.\n말씀하시던 '그' 내용에 대해 현재 안티그래비티와 GitHub 두뇌를 실시간으로 동기화하여 분석하고 있습니다.\n좀 더 구체적으"
     },
     {
       "relPath": "시엔위_비즈니스_연구소\\28_안드로이드전문가_AOSP_전장_커스텀롬_OTA_NDK_무한학습로그.md",
@@ -282,11 +558,1222 @@
       "relPath": "시엔위_비즈니스_연구소\\25_미개척_철옹성_개발저축형_신사업_무한발굴_실시간로그.md",
       "updatedAt": "2026. 11. 6. AM 6:59:38",
       "excerpt": "# 🧭 [미개척 철옹성 & 개발저축형 신사업] 8대 영역 24시간 무중단 크롤링·역설계 실시간 학습 로그\n\n> **관제 서버**: `http://127.0.0.1:3851` | **구글 드라이브 샤드 경로**: `G:\\내 드라이브\\안티그래비티_글로벌소싱_DB\\uncharted_moat_shards`\n> **핵심 필터**: ① AI 카피캣 복제 불가, ② 정보의 오류/비대칭(할루시네이션 지뢰밭) 존재, ③ 할수록 복리로 쌓이는 '개발 저축형(Compound Asset)' 비즈니스\n\n---\n\n### [#1 | MOAT-01] WebSerial/WebUSB 기반 중국 내수용·산업용 기기 브라우저 원클릭 언락·한글화·전압세팅 클라우드(SaaS) (2026. 11. 5. PM 7:34:23)\n- **분야**: 1. 비공개 프로토콜 역설계 & WebUSB 온라인 언락 SaaS\n- **🛡️ 카피캣 방어 (정보 오류/비대칭)**: 제조사 비공개 레지스터 주소 및 체크섬(CRC) 계산식이 인터넷에 없거나 오정보만 존재해 일반 AI 프롬프트로는 100% 벽돌 현상 발생\n- **🏦 개발 저축 자산 (복리 누적)**: 지원 기기 프로파일(예: 화웨이 정류기, E900V22D, 내수용 로봇청소기, 농기계 클러스터)을 1개씩 뚫어 DB에 저축할수록 건당 $15~$39 디지털 통행료가 무재고로 복리 누적\n- **🔗 대표님 보유자산 시너지**: 대표님의 E900V22D 핀쇼트/선샤 노하우 + RK3566/안드로이드 롬 커스텀 역량을 택배 없는 글로벌 웹 결제 SaaS로 전환 | **수익모델**: `건당 언락 크레딧 $19.99 / 수리점 월 구독 $49 (순마진 95%)`\n- **🌐 실시간 글로벌 시그널**: [GitHub: opensource/moat-01-core (★120)](https://gith"
+    }
+  ],
+  "gpartsQuickIndex": [
+    {
+      "partNo": "92402-T6000",
+      "title": "OEM Genesis GV80 2021-2024 Rear Right RH LED Tail Light Lamp 92402-T6000",
+      "korTitle": "컴비네이션램프(후미등)(우/조수석) 제네시스 / 제네시스 GV80 (2022년식)",
+      "stock": 4,
+      "backups": 3,
+      "krwCost": 110000,
+      "usdPrice": "198.99"
     },
     {
-      "relPath": "시엔위_비즈니스_연구소\\26_66만건_크롤링빅데이터_실측분석_총괄보고서.md",
-      "updatedAt": "2026. 11. 5. PM 9:26:27",
-      "excerpt": "# 🌍 한국·아마존·이베이 '저번 달 실판매량 & 누적 리뷰 수' 기준 전 품목 총괄 보고서 (100% 대량 공급처 검증판)\n\n> [!IMPORTANT]\n> **대표님 핵심 피드백 2가지 100% 반영 완료 (전수 재필터링 및 정렬 기준 전면 교체)**\n> 1. **수요 측정 기준 전면 교체 (단순 검색량 폐기 → 한국·아마존·이베이 '저번 달 실판매량 & 누적 리뷰 수')**\n>    * 사람들이 검색만 하고 사지 않는 '키워드 검색량 거품'을 배제하고, **🇰🇷 한국(쿠팡·스마트스토어 Top 40 저번 달 실판매량 & 누적 리뷰 수)** + **🇺🇸 미국 아마존(Amazon `Bought in past month` 저번 달 실판매량 & 베스트셀러 리뷰 수)** + **🌍 글로벌 이베이/티몰(최근 30일 `Sold` / `人付款` 실결제 수량)** 합산 **실제 저번 달 판매 개수(개/월)** 기준으로 1위부터 88위까지 전수 재정렬했습니다.\n> 2. **공급자 수량(재고) 무결성 100% 강제 필터링 (개인 단품 중고 4,039건 완전 삭제)**\n>    * 시엔위(闲鱼) 수집 매물 29,900건을 전수 감사한 결과, 기존 보고서에는 개인이 쓰다 파는 **1개짜리 단품 매물(`个人闲置 / 自用 / 仅此一个`, 4,039건·13.5%)**이 일부 섞여 있었습니다.\n>    * 본 보고서에서는 **개인 단품 매물 4,039건을 100% 영구 제외(블랙리스트 처리)**하고, 오직 매물 원문에 **`大量现货(대량재고) · 批发(도매) · 批量(대량발주) · 厂家直供(공장직영) · 尾货/库存(창고대량방출) · 几百台(수백대보유)`**가 명시된 **시엔위 전문 창고/공장 업자(5,013건)**와 **1688/Baidu B2B 원천 제조 공장(1,510건, 공장명 & 재구매율 `回头"
+      "partNo": "92401-GI000",
+      "title": "OEM Hyundai Ioniq 5 2022-2025 Rear Left LH LED Tail Light Lamp 92401-GI000",
+      "korTitle": "컴비네이션램프(후미등)(좌/운전석) 현대 / 아이오닉5 (2023년식)",
+      "stock": 2,
+      "backups": 1,
+      "krwCost": 80000,
+      "usdPrice": "159.99"
+    },
+    {
+      "partNo": "92401-AR000",
+      "title": "OEM Genesis GV70 2020-2023 Rear Left LH LED Tail Light Lamp Assembly 92401-AR000",
+      "korTitle": "컴비네이션램프(후미등)(좌/운전석) 제네시스 / 제네시스 GV70 (2021년식)",
+      "stock": 3,
+      "backups": 2,
+      "krwCost": 110000,
+      "usdPrice": "198.99"
+    },
+    {
+      "partNo": "92402-AR000",
+      "title": "OEM Genesis GV70 2023-2025 Rear Right RH LED Tail Light Lamp 92402-AR000",
+      "korTitle": "컴비네이션램프(후미등)(우/조수석) 제네시스 / 제네시스 GV70 (2024년식)",
+      "stock": 3,
+      "backups": 2,
+      "krwCost": 138000,
+      "usdPrice": "235.99"
+    },
+    {
+      "partNo": "96370-B1010",
+      "title": "OEM Genesis G80 2019-2021 Factory Audio Amplifier Amp 96370-B1010",
+      "korTitle": "앰프 제네시스 / 제네시스 G80 (2019년식)",
+      "stock": 3,
+      "backups": 2,
+      "krwCost": 58000,
+      "usdPrice": "121.99"
+    },
+    {
+      "partNo": "99140-AR000",
+      "title": "OEM Genesis GV70 2020-2023 Rear Left LH Rear Blind Spot Radar Sensor 99140-AR000",
+      "korTitle": "리어 코너 레이더(좌/운전석) 제네시스 / 제네시스 GV70 (2021년식)",
+      "stock": 3,
+      "backups": 2,
+      "krwCost": 125000,
+      "usdPrice": "199.99"
+    },
+    {
+      "partNo": "99110-GI500",
+      "title": "OEM Hyundai Ioniq 5 2021-2024 Front Cruise Radar Sensor 99110-GI500",
+      "korTitle": "센서 현대 / 아이오닉5 (2022년식)",
+      "stock": 2,
+      "backups": 1,
+      "krwCost": 66000,
+      "usdPrice": "122.99"
+    },
+    {
+      "partNo": "99140-CV000",
+      "title": "OEM Kia EV6 2021-2024 Rear Left LH Rear Blind Spot Radar Sensor 99140-CV000",
+      "korTitle": "리어 코너 레이더(좌/운전석) 기아 / EV6 (2022년식)",
+      "stock": 2,
+      "backups": 1,
+      "krwCost": 55000,
+      "usdPrice": "108.99"
+    },
+    {
+      "partNo": "99211-GI010",
+      "title": "OEM Hyundai Ioniq 5 2021-2024 ADAS Front / Surround View Camera 99211-GI010",
+      "korTitle": "기타부품 현대 / 아이오닉5 (2022년식)",
+      "stock": 1,
+      "backups": 0,
+      "krwCost": 220000,
+      "usdPrice": "321.99"
+    },
+    {
+      "partNo": "87610-AR010",
+      "title": "OEM Genesis GV70 2021-2024 Left LH Side Door Mirror w/ Camera & BSD 87610-AR010",
+      "korTitle": "사이드미러(좌/운전석) 제네시스 / 제네시스 GV70 (2022년식)",
+      "stock": 1,
+      "backups": 0,
+      "krwCost": 180000,
+      "usdPrice": "268.99"
+    },
+    {
+      "partNo": "96370-S1MM0",
+      "title": "OEM Hyundai Santa Fe 2020-2023 Factory Audio Amplifier Amp 96370-S1MM0",
+      "korTitle": "앰프 현대 / 더 뉴 싼타페 (2021년식)",
+      "stock": 5,
+      "backups": 4,
+      "krwCost": 110000,
+      "usdPrice": "189.99"
+    },
+    {
+      "partNo": "92401-T1000",
+      "title": "OEM Genesis G80 2024-2025 Rear Left LH LED Tail Light Lamp Assembly 92401-T1000",
+      "korTitle": "컴비네이션램프(후미등)(좌/운전석) 제네시스 / 제네시스 G80 3세대 (2025년식)",
+      "stock": 2,
+      "backups": 1,
+      "krwCost": 90000,
+      "usdPrice": "172.99"
+    },
+    {
+      "partNo": "99140-S1500",
+      "title": "OEM Hyundai Santa Fe 2020-2023 Rear Left LH Blind Spot Radar Sensor 99140-S1500",
+      "korTitle": "기타부품(무료배송) 현대 / 더 뉴 싼타페 (2021년식)",
+      "stock": 5,
+      "backups": 4,
+      "krwCost": 80000,
+      "usdPrice": "141.99"
+    },
+    {
+      "partNo": "87620-GI000",
+      "title": "OEM Hyundai Ioniq 5 2022-2025 Right RH Power Side Door Mirror 87620-GI000",
+      "korTitle": "사이드미러(우/조수석) 현대 / 아이오닉5 (2023년식)",
+      "stock": 2,
+      "backups": 1,
+      "krwCost": 66000,
+      "usdPrice": "135.99"
+    },
+    {
+      "partNo": "99150-S1500",
+      "title": "OEM Hyundai Santa Fe 2021-2024 Rear Right RH Blind Spot Radar Sensor 99150-S1500",
+      "korTitle": "리어 코너 레이더(우/조수석) 현대 / 더 뉴 싼타페 (2022년식)",
+      "stock": 3,
+      "backups": 2,
+      "krwCost": 88000,
+      "usdPrice": "151.99"
+    },
+    {
+      "partNo": "96370-S1100",
+      "title": "OEM Hyundai Santa Fe 2019-2022 Factory Audio Amplifier Amp 96370-S1100",
+      "korTitle": "앰프 현대 / 싼타페(TM) (2020년식)",
+      "stock": 3,
+      "backups": 2,
+      "krwCost": 120000,
+      "usdPrice": "202.99"
+    },
+    {
+      "partNo": "87610-GI090",
+      "title": "OEM Hyundai Ioniq 5 2020-2023 Left LH Side Mirror Camera BSD 87610-GI090",
+      "korTitle": "사이드미러(좌/운전석) 현대 / 아이오닉5 (2021년식)",
+      "stock": 2,
+      "backups": 1,
+      "krwCost": 168000,
+      "usdPrice": "253.99"
+    },
+    {
+      "partNo": "99210-CV000",
+      "title": "OEM Kia EV6 2020-2023 Front ADAS Front / Surround View Camera 99210-CV000",
+      "korTitle": "기타부품 기아 / EV6 (2021년식)",
+      "stock": 2,
+      "backups": 1,
+      "krwCost": 170000,
+      "usdPrice": "255.99"
+    },
+    {
+      "partNo": "99150-JI000",
+      "title": "OEM Genesis G80 2021-2024 Rear Right RH Rear Blind Spot Radar Sensor 99150-JI000",
+      "korTitle": "리어 코너 레이더(우/조수석) 제네시스 / 제네시스 G80 3세대 (2022년식)",
+      "stock": 2,
+      "backups": 1,
+      "krwCost": 88000,
+      "usdPrice": "151.99"
+    },
+    {
+      "partNo": "92403-S8100",
+      "title": "OEM Hyundai Palisade 2019-2022 Rear Left LH LED Tail Light Lamp 92403-S8100",
+      "korTitle": "컴비네이션램프(후미등)(좌/운전석) 현대 / 펠리세이드 (2020년식)",
+      "stock": 2,
+      "backups": 1,
+      "krwCost": 75000,
+      "usdPrice": "152.99"
+    },
+    {
+      "partNo": "95895-B1500",
+      "title": "OEM Genesis G80 2019-2021 ADAS Front / Surround View Camera 95895-B1500",
+      "korTitle": "기타부품 제네시스 / 제네시스 G80 (2019년식)",
+      "stock": 2,
+      "backups": 1,
+      "krwCost": 245000,
+      "usdPrice": "353.99"
+    },
+    {
+      "partNo": "99110-P2000",
+      "title": "OEM Kia Sorento 2020-2023 Blind Spot / Cruise Radar Sensor 99110-P2000",
+      "korTitle": "센서 기아 / 쏘렌토4세대 하이브리드 (2021년식)",
+      "stock": 2,
+      "backups": 1,
+      "krwCost": 88000,
+      "usdPrice": "151.99"
+    },
+    {
+      "partNo": "99150-S1000",
+      "title": "OEM Hyundai Santa Fe 2019-2021 Rear Right RH Blind Spot Radar Sensor 99150-S1000",
+      "korTitle": "리어 코너 레이더(우/조수석) 현대 / 싼타페(TM) (2019년식)",
+      "stock": 2,
+      "backups": 1,
+      "krwCost": 110000,
+      "usdPrice": "180.99"
+    },
+    {
+      "partNo": "95810-D3500",
+      "title": "OEM Hyundai Tucson 2019-2021 Rear Left LH Blind Spot Radar Sensor 95810-D3500",
+      "korTitle": "리어 코너 레이더(좌/운전석) 현대 / 올뉴투싼 (2019년식)",
+      "stock": 2,
+      "backups": 1,
+      "krwCost": 110000,
+      "usdPrice": "180.99"
+    },
+    {
+      "partNo": "95820-C5000",
+      "title": "OEM Kia Sorento 2019-2021 Rear Right RH Rear Blind Spot Radar Sensor 95820-C5000",
+      "korTitle": "리어 코너 레이더(우/조수석) 기아 / 더 뉴 쏘렌토 (2019년식)",
+      "stock": 2,
+      "backups": 1,
+      "krwCost": 110000,
+      "usdPrice": "180.99"
+    },
+    {
+      "partNo": "87610-P2710",
+      "title": "OEM Kia Sorento 2023-2025 Left LH Side Door Mirror w/ Camera & BSD 87610-P2710",
+      "korTitle": "사이드미러(좌/운전석) 기아 / 더 뉴 쏘렌토 4세대 가솔린 2.5T 2WD 그래비티 (2",
+      "stock": 1,
+      "backups": 0,
+      "krwCost": 175000,
+      "usdPrice": "262.99"
+    },
+    {
+      "partNo": "87620-JI010",
+      "title": "OEM Genesis G80 2022-2025 Right RH Side Door Mirror w/ Camera & BSD 87620-JI010",
+      "korTitle": "사이드미러(우/조수석) 제네시스 / 제네시스 일렉트리파이드 G80 (RG3) e-AWD (",
+      "stock": 1,
+      "backups": 0,
+      "krwCost": 245000,
+      "usdPrice": "353.99"
+    },
+    {
+      "partNo": "92402-CV400",
+      "title": "OEM Kia EV6 2022-2025 Rear Right RH LED Tail Light Lamp Assembly 92402-CV400",
+      "korTitle": "컴비네이션램프(후미등)(우/조수석) 기아 / EV6 (2023년식)",
+      "stock": 1,
+      "backups": 0,
+      "krwCost": 170000,
+      "usdPrice": "276.99"
+    },
+    {
+      "partNo": "96370-T6100",
+      "title": "OEM Genesis GV80 2022-2025 Factory Audio Amplifier Amp 96370-T6100",
+      "korTitle": "앰프 제네시스 / 제네시스 GV80 (2023년식)",
+      "stock": 1,
+      "backups": 0,
+      "krwCost": 165000,
+      "usdPrice": "261.99"
+    },
+    {
+      "partNo": "92402-CV100",
+      "title": "OEM Kia EV6 2022-2025 Rear Right RH LED Tail Light Lamp Assembly 92402-CV100",
+      "korTitle": "컴비네이션램프(후미등)(우/조수석) 기아 / EV6 (2023년식)",
+      "stock": 1,
+      "backups": 0,
+      "krwCost": 149000,
+      "usdPrice": "249.99"
+    },
+    {
+      "partNo": "92403-S8500",
+      "title": "OEM Hyundai Palisade 2022-2025 Rear Left LH LED Tail Light Lamp 92403-S8500",
+      "korTitle": "컴비네이션램프(후미등)(좌/운전석) 현대 / 더 뉴 펠리세이드 2.2 디젤 2WD 익스클루",
+      "stock": 1,
+      "backups": 0,
+      "krwCost": 80000,
+      "usdPrice": "159.99"
+    },
+    {
+      "partNo": "87620-CV040",
+      "title": "OEM Kia EV6 2022-2025 Right RH Power Side View Door Mirror Assembly 87620-CV040",
+      "korTitle": "사이드미러(우/조수석) 기아 / EV6 (2023년식)",
+      "stock": 1,
+      "backups": 0,
+      "krwCost": 66000,
+      "usdPrice": "135.99"
+    },
+    {
+      "partNo": "92401-CV000",
+      "title": "OEM Kia EV6 2021-2024 Rear Left LH LED Tail Light Lamp Assembly 92401-CV000",
+      "korTitle": "컴비네이션램프(후미등)(좌/운전석) 기아 / EV6 (2022년식)",
+      "stock": 1,
+      "backups": 0,
+      "krwCost": 165000,
+      "usdPrice": "270.99"
+    },
+    {
+      "partNo": "92402-GI100",
+      "title": "OEM Hyundai Ioniq 5 2021-2024 Rear Right RH LED Tail Light Lamp 92402-GI100",
+      "korTitle": "컴비네이션램프(후미등)(우/조수석) 현대 / 아이오닉5 (2022년식)",
+      "stock": 1,
+      "backups": 0,
+      "krwCost": 128000,
+      "usdPrice": "221.99"
+    },
+    {
+      "partNo": "87620-CV070",
+      "title": "OEM Kia EV6 2021-2024 Right RH Side Door Mirror w/ Camera & BSD 87620-CV070",
+      "korTitle": "사이드미러(우/조수석) 기아 / EV6 (2022년식)",
+      "stock": 1,
+      "backups": 0,
+      "krwCost": 129000,
+      "usdPrice": "202.99"
+    },
+    {
+      "partNo": "87610-CV070",
+      "title": "OEM Kia EV6 2021-2024 Left LH Side Door Mirror w/ Camera & BSD 87610-CV070",
+      "korTitle": "사이드미러(좌/운전석) 기아 / EV6 (2022년식)",
+      "stock": 1,
+      "backups": 0,
+      "krwCost": 110000,
+      "usdPrice": "193.99"
+    },
+    {
+      "partNo": "67620-T6040",
+      "title": "OEM Genesis GV80 2021-2024 Right RH Side Door Mirror w/ Camera & BSD 67620-T6040",
+      "korTitle": "사이드미러(우/조수석) 제네시스 / 제네시스 GV80 (2022년식)",
+      "stock": 1,
+      "backups": 0,
+      "krwCost": 119000,
+      "usdPrice": "189.99"
+    },
+    {
+      "partNo": "87620-T6040",
+      "title": "OEM Genesis GV80 2021-2024 Right RH Side Door Mirror w/ Camera & BSD 87620-T6040",
+      "korTitle": "사이드미러(우/조수석) 제네시스 / 제네시스 GV80 (2022년식)",
+      "stock": 1,
+      "backups": 0,
+      "krwCost": 110000,
+      "usdPrice": "177.99"
+    },
+    {
+      "partNo": "87610-GI000",
+      "title": "OEM Hyundai Ioniq 5 2021-2024 Left LH Power Side Door Mirror 87610-GI000",
+      "korTitle": "사이드미러(좌/운전석) 현대 / 아이오닉5 (2022년식)",
+      "stock": 1,
+      "backups": 0,
+      "krwCost": 66000,
+      "usdPrice": "135.99"
+    },
+    {
+      "partNo": "92402-P1000",
+      "title": "OEM Kia Sportage 2021-2024 Rear Right RH LED Tail Light Lamp 92402-P1000",
+      "korTitle": "컴비네이션램프(후미등)(우/조수석) 기아 / 스포티지 5세대 하이브리드 노블레스 그래비티 ",
+      "stock": 1,
+      "backups": 0,
+      "krwCost": 55000,
+      "usdPrice": "126.99"
+    }
+  ],
+  "sourcingQuickIndex": [
+    {
+      "id": "KR-01",
+      "group": "🇰🇷 한국 독점 역수출",
+      "title": "제네시스 GV80 / GV70 순정 후측방 레이더 센서 (BSD)",
+      "partNo": "99140-T6000 / 99140-AR000",
+      "totalCostKrw": 138000,
+      "marketUsd": "245.00",
+      "netProfitKrw": 151075,
+      "netMarginPct": "44.7"
+    },
+    {
+      "id": "KR-02",
+      "group": "🇰🇷 한국 독점 역수출",
+      "title": "현대 아이오닉5 / 기아 EV6 전방 스마트 크루즈 레이더 (SCC)",
+      "partNo": "99110-GI500 / 99110-CV000",
+      "totalCostKrw": 94000,
+      "marketUsd": "185.00",
+      "netProfitKrw": 124281,
+      "netMarginPct": "48.7"
+    },
+    {
+      "id": "KR-03",
+      "group": "🇰🇷 한국 독점 역수출",
+      "title": "현대 아이오닉5 / 제네시스 G80 ADAS 전방 차선·서라운드뷰 카메라",
+      "partNo": "99211-GI010 / 95895-B1500",
+      "totalCostKrw": 206000,
+      "marketUsd": "340.00",
+      "netProfitKrw": 195166,
+      "netMarginPct": "41.6"
+    },
+    {
+      "id": "KR-04",
+      "group": "🇰🇷 한국 독점 역수출",
+      "title": "제네시스 GV80 / G80 / 싼타페 순정 외장 오디오 앰프 (Lexicon/Krell)",
+      "partNo": "96370-B1010 / 96370-T6100 / 96370-S1100",
+      "totalCostKrw": 130000,
+      "marketUsd": "265.00",
+      "netProfitKrw": 182674,
+      "netMarginPct": "50.0"
+    },
+    {
+      "id": "KR-05",
+      "group": "🇰🇷 한국 독점 역수출",
+      "title": "제네시스 GV80 / GV70 / EV6 순정 Full-LED 후미등 어셈블리",
+      "partNo": "92402-T6000 / 92401-AR000 / 92402-CV400",
+      "totalCostKrw": 152000,
+      "marketUsd": "260.00",
+      "netProfitKrw": 154774,
+      "netMarginPct": "43.1"
+    },
+    {
+      "id": "KR-06",
+      "group": "🇰🇷 한국 독점 역수출",
+      "title": "제네시스·현대·기아 파손 헤드라이트 적출 Full-LED 구동 모듈(LDM/발라스트)",
+      "partNo": "92180-T6000 / 92170-GI000 (LDM 단품)",
+      "totalCostKrw": 68000,
+      "marketUsd": "175.00",
+      "netProfitKrw": 138482,
+      "netMarginPct": "57.3"
+    },
+    {
+      "id": "KR-07",
+      "group": "🇰🇷 한국 독점 역수출",
+      "title": "아이오닉5 / EV6 / GV70 어라운드뷰 카메라 & BSD 내장 사이드미러",
+      "partNo": "87610-GI090 / 87610-CV070 / 87610-AR010",
+      "totalCostKrw": 173000,
+      "marketUsd": "275.00",
+      "netProfitKrw": 151473,
+      "netMarginPct": "39.9"
+    },
+    {
+      "id": "KR-08",
+      "group": "🇰🇷 한국 독점 역수출",
+      "title": "아이오닉5 / EV6 충전구 잠금 액추에이터 & 전면 액티브 에어플랩 모터",
+      "partNo": "81590-GI000 / 86950-GI000",
+      "totalCostKrw": 56000,
+      "marketUsd": "125.00",
+      "netProfitKrw": 91487,
+      "netMarginPct": "53.0"
+    },
+    {
+      "id": "KR-09",
+      "group": "🇰🇷 한국 독점 역수출",
+      "title": "평택·화성·안산 반도체 산단 철거 Keyence(키엔스) 레이저 변위 센서 & 앰프",
+      "partNo": "Keyence LK-G5001 / GT2-71N / IL-1000",
+      "totalCostKrw": 98000,
+      "marketUsd": "380.00",
+      "netProfitKrw": 350362,
+      "netMarginPct": "66.8"
+    },
+    {
+      "id": "KR-10",
+      "group": "🇰🇷 한국 독점 역수출",
+      "title": "한국 반도체·디스플레이 클린룸 퇴역 MKS Baratron 정밀 진공 게이지 & MFC",
+      "partNo": "MKS Baratron 626B / 627B / 1179A Mass Flow Controller",
+      "totalCostKrw": 122000,
+      "marketUsd": "490.00",
+      "netProfitKrw": 456151,
+      "netMarginPct": "67.5"
+    },
+    {
+      "id": "KR-11",
+      "group": "🇰🇷 한국 독점 역수출",
+      "title": "한국 산단 철거 Yaskawa(야스카와) / Mitsubishi 서보 드라이브 & 모터",
+      "partNo": "Yaskawa SGD7S / SGDV Sigma-5 Sigma-7 Servo Pack",
+      "totalCostKrw": 123000,
+      "marketUsd": "395.00",
+      "netProfitKrw": 343060,
+      "netMarginPct": "62.9"
+    },
+    {
+      "id": "KR-12",
+      "group": "🇰🇷 한국 독점 역수출",
+      "title": "산단 로봇 철거 하모닉 드라이브(Harmonic Drive) 정밀 감속기 -> 천체 적도의 & 로봇용",
+      "partNo": "Harmonic Drive CSF-17 / CSF-20 / SHF-25",
+      "totalCostKrw": 79000,
+      "marketUsd": "240.00",
+      "netProfitKrw": 204176,
+      "netMarginPct": "61.6"
+    },
+    {
+      "id": "KR-13",
+      "group": "🇰🇷 한국 독점 역수출",
+      "title": "강남·압구정 피부과 교체 울쎄라(Ulthera) / 인모드(InMode) 핸드피스 리빌드",
+      "partNo": "Ulthera DeepSEE Handpiece / InMode Morpheus8 Handpiece",
+      "totalCostKrw": 440000,
+      "marketUsd": "1250.00",
+      "netProfitKrw": 1034875,
+      "netMarginPct": "60.0"
+    },
+    {
+      "id": "KR-14",
+      "group": "🇰🇷 한국 독점 역수출",
+      "title": "한국 치과 교체 오스템(Osstem) / NSK / KaVo 고속 핸드피스 세라믹 베어링 리빌드",
+      "partNo": "NSK Ti-Max Z900L / KaVo MASTERtorque / Osstem SM",
+      "totalCostKrw": 76000,
+      "marketUsd": "195.00",
+      "netProfitKrw": 154080,
+      "netMarginPct": "57.3"
+    },
+    {
+      "id": "KR-15",
+      "group": "🇰🇷 한국 독점 역수출",
+      "title": "한국 반도체 라인 철거 Cognex(코그넥스) In-Sight 산업용 머신비전 카메라",
+      "partNo": "Cognex In-Sight IS7000 / IS5605 / DataMan 300",
+      "totalCostKrw": 136000,
+      "marketUsd": "460.00",
+      "netProfitKrw": 406754,
+      "netMarginPct": "64.1"
+    },
+    {
+      "id": "JP-01",
+      "group": "🇯🇵 일본 정크 역수출",
+      "title": "일본 야후옥션 소니 워크맨 WM-DD 시리즈 정크 -> 황동 센터기어 복원 수출",
+      "partNo": "Sony Walkman WM-DD / WM-DD33 / WM-D6C",
+      "totalCostKrw": 98000,
+      "marketUsd": "480.00",
+      "netProfitKrw": 468352,
+      "netMarginPct": "70.7"
+    },
+    {
+      "id": "JP-02",
+      "group": "🇯🇵 일본 정크 역수출",
+      "title": "일본 야후옥션 소니 NetMD 미니디스크(MZ-N1 / MZ-N910 / MZ-RH1) 복원 수출",
+      "partNo": "Sony NetMD Walkman MZ-N1 / MZ-N910 / MZ-NH1",
+      "totalCostKrw": 70000,
+      "marketUsd": "240.00",
+      "netProfitKrw": 213176,
+      "netMarginPct": "64.4"
+    },
+    {
+      "id": "JP-03",
+      "group": "🇯🇵 일본 정크 역수출",
+      "title": "1980년대 일본 내수용(MIJ) BOSS 기타 이펙터 정크(ACA 12V 미점등) 1분 점퍼 개조",
+      "partNo": "BOSS CE-2 / BD-2 / SD-1 / DM-2 Made in Japan (Black/Green Label)",
+      "totalCostKrw": 54000,
+      "marketUsd": "230.00",
+      "netProfitKrw": 217377,
+      "netMarginPct": "68.5"
+    },
+    {
+      "id": "JP-04",
+      "group": "🇯🇵 일본 정크 역수출",
+      "title": "일본 야후옥션 게임보이 어드밴스(GBA/SP) 정크 8대 묶음(まとめ) -> 무납땜 IPS+USB-C 모딩",
+      "partNo": "Nintendo GameBoy Advance AGB-001 / AGS-001",
+      "totalCostKrw": 84000,
+      "marketUsd": "225.00",
+      "netProfitKrw": 181477,
+      "netMarginPct": "58.4"
+    },
+    {
+      "id": "JP-05",
+      "group": "🇯🇵 일본 정크 역수출",
+      "title": "일본 국철(JNR) 빈티지 세이코 19석/21석 회중시계 -> 44mm 시스루백 손목시계 리하우징",
+      "partNo": "Seiko Precision 19-Jewel / 21-Jewel Cal. 6110 / 7550",
+      "totalCostKrw": 83000,
+      "marketUsd": "245.00",
+      "netProfitKrw": 206075,
+      "netMarginPct": "61.0"
+    },
+    {
+      "id": "JP-06",
+      "group": "🇯🇵 일본 정크 역수출",
+      "title": "일본 가정용 Pioneer CDJ-1000MK3 / CDJ-850 디제잉 턴테이블 택트 스위치 리빌드",
+      "partNo": "Pioneer CDJ-1000MK3 / CDJ-850 / DJM-800",
+      "totalCostKrw": 132000,
+      "marketUsd": "340.00",
+      "netProfitKrw": 269166,
+      "netMarginPct": "57.4"
+    },
+    {
+      "id": "JP-07",
+      "group": "🇯🇵 일본 정크 역수출",
+      "title": "일본 8090 빈티지 신디사이저(Yamaha DX7 / Roland Juno / Akai MPC) OLED & Got",
+      "partNo": "Yamaha DX7 / Akai S1000 / MPC2000XL / Korg M1",
+      "totalCostKrw": 200000,
+      "marketUsd": "550.00",
+      "netProfitKrw": 448945,
+      "netMarginPct": "59.1"
+    },
+    {
+      "id": "JP-08",
+      "group": "🇯🇵 일본 정크 역수출",
+      "title": "일본 시마노(ForceMaster)·다이와(Seaborg) 전동릴 정크 복원 + 마끼다 18V 배터리 어댑터 세트",
+      "partNo": "Shimano ForceMaster 3000 / BeastMaster / Daiwa Seaborg",
+      "totalCostKrw": 139000,
+      "marketUsd": "380.00",
+      "netProfitKrw": 309362,
+      "netMarginPct": "59.0"
+    },
+    {
+      "id": "JP-09",
+      "group": "🇯🇵 일본 정크 역수출",
+      "title": "일본 올드 수동렌즈(Super-Takumar 50mm f/1.4 / Canon FD) UV 황변 제거 & 시네모드 수",
+      "partNo": "Asahi Pentax Super-Takumar 50mm f/1.4 / Canon FD 50mm f/1.4",
+      "totalCostKrw": 54000,
+      "marketUsd": "185.00",
+      "netProfitKrw": 164281,
+      "netMarginPct": "64.3"
+    },
+    {
+      "id": "JP-10",
+      "group": "🇯🇵 일본 정크 역수출",
+      "title": "일본 정크 닌텐도 게임큐브(DOL-001) -> 라즈베리파이 피코(Picoboot) + SD2SP2 + HDMI 풀세",
+      "partNo": "Nintendo GameCube DOL-001 (Digital AV Out 모델)",
+      "totalCostKrw": 78000,
+      "marketUsd": "195.00",
+      "netProfitKrw": 152080,
+      "netMarginPct": "56.5"
+    },
+    {
+      "id": "JP-11",
+      "group": "🇯🇵 일본 정크 역수출",
+      "title": "일본 정크 PS Vita 1000(OLED 모델) -> USB-C 포트 개조(VitaC) & SD2Vita 512GB",
+      "partNo": "Sony PlayStation Vita PCH-1000 OLED",
+      "totalCostKrw": 98000,
+      "marketUsd": "240.00",
+      "netProfitKrw": 185176,
+      "netMarginPct": "55.9"
+    },
+    {
+      "id": "JP-12",
+      "group": "🇯🇵 일본 정크 역수출",
+      "title": "일본 야후옥션 Y2K 빈티지 CCD 디카(Canon IXY / Sony Cyber-shot / Olympus) 묶음 ",
+      "partNo": "Canon IXY Digital (PowerShot ELPH) / Sony DSC-T / Fujifilm FinePix",
+      "totalCostKrw": 46000,
+      "marketUsd": "165.00",
+      "netProfitKrw": 148683,
+      "netMarginPct": "65.3"
+    },
+    {
+      "id": "JP-13",
+      "group": "🇯🇵 일본 정크 역수출",
+      "title": "일본 고급 필름카메라(Olympus mju-II / Ricoh GR1 / Contax) 경통 플렉스 케이블 수리 수출",
+      "partNo": "Olympus mju-II (Stylus Epic) / Ricoh GR1s",
+      "totalCostKrw": 117000,
+      "marketUsd": "360.00",
+      "netProfitKrw": 307764,
+      "netMarginPct": "61.9"
+    },
+    {
+      "id": "JP-14",
+      "group": "🇯🇵 일본 정크 역수출",
+      "title": "일본 세가 드림캐스트(Dreamcast) 정크 -> 무납땜 GDEMU 광학드라이브 에뮬레이터 + PicoPSU 개조",
+      "partNo": "Sega Dreamcast HKT-3000 + GDEMU V5.20",
+      "totalCostKrw": 101000,
+      "marketUsd": "245.00",
+      "netProfitKrw": 188075,
+      "netMarginPct": "55.6"
+    },
+    {
+      "id": "JP-15",
+      "group": "🇯🇵 일본 정크 역수출",
+      "title": "일본 Tamiya(타미야) / Kyosho 1980~90년대 빈티지 RC카 정크 -> 카본/알루미늄 섀시 복원 수출",
+      "partNo": "Tamiya Avante / Clod Buster / Bruiser / Kyosho Optima Vintage",
+      "totalCostKrw": 125000,
+      "marketUsd": "320.00",
+      "netProfitKrw": 252568,
+      "netMarginPct": "57.2"
+    },
+    {
+      "id": "KIT-01",
+      "group": "📦 50g 보드 우편수출",
+      "title": "구형 27인치 5K iMac(LM270QQ1) -> 애플 스튜디오 디스플레이 변환 R1811 드라이버 보드 & 브래킷",
+      "partNo": "R1811 / R9A18 5K DP1.4 USB-C Driver Board Kit for LM270QQ1",
+      "totalCostKrw": 72000,
+      "marketUsd": "189.00",
+      "netProfitKrw": 151001,
+      "netMarginPct": "57.9"
+    },
+    {
+      "id": "KIT-02",
+      "group": "📦 50g 보드 우편수출",
+      "title": "가찌아 클래식(Gaggia Classic) 에스프레소 머신용 오픈소스 Gaggiuino V3/V4 스마트 프로파일링 ",
+      "partNo": "Gaggiuino STM32 PCB + Pressure Transducer + Load Cell + 3D Housing",
+      "totalCostKrw": 64000,
+      "marketUsd": "195.00",
+      "netProfitKrw": 166080,
+      "netMarginPct": "61.7"
+    },
+    {
+      "id": "KIT-03",
+      "group": "📦 50g 보드 우편수출",
+      "title": "상업용 Mazzer Super Jolly / Mini 원두 그라인더용 제로 리텐션 싱글도징 슈트 & 실리콘 벨로우즈 ",
+      "partNo": "Mazzer Super Jolly / Mini Single Dose Hopper Bellows & Chute Kit",
+      "totalCostKrw": 23000,
+      "marketUsd": "68.00",
+      "netProfitKrw": 57233,
+      "netMarginPct": "61.0"
+    },
+    {
+      "id": "KIT-04",
+      "group": "📦 50g 보드 우편수출",
+      "title": "폐차 전기차 배터리(Leaf / BMW i3 / Tesla) -> 태양광 인버터 직결 Dala Battery-Emul",
+      "partNo": "LilyGo T-2Can / Custom Dual-CAN RS485 DIN-Rail Emulator Board",
+      "totalCostKrw": 36000,
+      "marketUsd": "135.00",
+      "netProfitKrw": 123287,
+      "netMarginPct": "66.2"
+    },
+    {
+      "id": "KIT-05",
+      "group": "📦 50g 보드 우편수출",
+      "title": "구형 수동 천체망원경 적도의(Vixen GP / CG-5)용 OnStep 스마트 WiFi 자동 별추적(GoTo) 컨버",
+      "partNo": "OnStep V4 ESP32 + TMC2209 + Dual NEMA17 Stepper + GT2 Belt Pulley Kit",
+      "totalCostKrw": 59000,
+      "marketUsd": "185.00",
+      "netProfitKrw": 159281,
+      "netMarginPct": "62.4"
+    },
+    {
+      "id": "KIT-06",
+      "group": "📦 50g 보드 우편수출",
+      "title": "단종된 Y2K 올림푸스·후지필름 디카용 xD-Picture Card / SmartMedia to MicroSD 초박형",
+      "partNo": "MASD-1 / xD-to-MicroSD Ultra-Thin Flex PCB Adapter",
+      "totalCostKrw": 8500,
+      "marketUsd": "29.99",
+      "netProfitKrw": 26885,
+      "netMarginPct": "65.0"
+    },
+    {
+      "id": "KIT-07",
+      "group": "📦 50g 보드 우편수출",
+      "title": "클래식 씽크패드(ThinkPad X220/T420/T430) 7열 트랙포인트 키보드 USB/BLE 데스크탑 변환 보드",
+      "partNo": "ThinkPad 7-Row Keyboard to USB-C Converter PCB + 20V PD Port",
+      "totalCostKrw": 17500,
+      "marketUsd": "49.99",
+      "netProfitKrw": 41483,
+      "netMarginPct": "60.1"
+    },
+    {
+      "id": "KIT-08",
+      "group": "📦 50g 보드 우편수출",
+      "title": "아이팟 클래식(iPod Classic 5~7세대) 무납땜 USB-C + 블루투스 5.3 + 탭틱엔진 올인원 백플레이트",
+      "partNo": "iPod Classic Solderless USB-C Bluetooth Taptic Backplate Kit",
+      "totalCostKrw": 36500,
+      "marketUsd": "95.00",
+      "netProfitKrw": 75590,
+      "netMarginPct": "57.7"
+    },
+    {
+      "id": "KIT-09",
+      "group": "📦 50g 보드 우편수출",
+      "title": "데이터센터 퇴역 10GbE 스위치(Brocade ICX6450/7250 / Aruba) 무소음 녹투아 팬 스푸퍼(Fa",
+      "partNo": "555 PWM Tachometer Spoofer Dongle for Enterprise Switches (3-Pack)",
+      "totalCostKrw": 10000,
+      "marketUsd": "34.99",
+      "netProfitKrw": 31285,
+      "netMarginPct": "64.8"
+    },
+    {
+      "id": "KIT-10",
+      "group": "📦 50g 보드 우편수출",
+      "title": "24베이 중고 서버 섀시(Supermicro CSE-846)용 메인보드 불필요 스마트 JBOD 전원·팬 제어 보드",
+      "partNo": "ESP32 Smart ATX JBOD Power & 6-Ch PWM Fan Controller Board",
+      "totalCostKrw": 22500,
+      "marketUsd": "69.99",
+      "netProfitKrw": 60081,
+      "netMarginPct": "62.2"
+    },
+    {
+      "id": "KIT-11",
+      "group": "📦 50g 보드 우편수출",
+      "title": "서버용 AI 그래픽카드(NVIDIA Tesla P40 / P100 / V100) 직결 3D 블로워 팬 슈라우드 & C",
+      "partNo": "Tesla P40/V100 9733 Blower Shroud + EPS 8-Pin to Dual 8-Pin Adapter",
+      "totalCostKrw": 15500,
+      "marketUsd": "38.99",
+      "netProfitKrw": 30504,
+      "netMarginPct": "56.7"
+    },
+    {
+      "id": "KIT-12",
+      "group": "📦 50g 보드 우편수출",
+      "title": "가정용 소니 트리니트론 브라운관 TV(Sony CRT) -> 방송용 PVM 칼화질 변환 RGB OSD Mux 주입 보",
+      "partNo": "Sunthar RGB Mux Injection PCB v1.5 + Female SCART / BNC Harness",
+      "totalCostKrw": 15000,
+      "marketUsd": "44.99",
+      "netProfitKrw": 38084,
+      "netMarginPct": "61.3"
+    },
+    {
+      "id": "KIT-13",
+      "group": "📦 50g 보드 우편수출",
+      "title": "기업 리스반납 1L 미니PC(Lenovo ThinkCentre Tiny M720q/M920q) -> 4베이 NAS 변",
+      "partNo": "Lenovo Tiny custom PCIe x8 Riser + ASM1166 6-Port SATA + ThinkNAS Enclosure",
+      "totalCostKrw": 32000,
+      "marketUsd": "79.99",
+      "netProfitKrw": 62380,
+      "netMarginPct": "56.5"
+    },
+    {
+      "id": "KIT-14",
+      "group": "📦 50g 보드 우편수출",
+      "title": "화웨이 R4850G2 / Eltek Flatpack2 3000W 정류기 전용 ESP32 CAN-Bus 가변 전압·전류",
+      "partNo": "ESP32 OLED CAN Controller + Rear Blade Edge Connector PCB for R4850G2",
+      "totalCostKrw": 25000,
+      "marketUsd": "69.99",
+      "netProfitKrw": 57581,
+      "netMarginPct": "59.6"
+    },
+    {
+      "id": "KIT-15",
+      "group": "📦 50g 보드 우편수출",
+      "title": "가정용 완구 오락기(Arcade1Up) 모니터 재활용 LVDS-to-HDMI 드라이버 보드 & 라즈베리파이 컨버전 키",
+      "partNo": "M170ETN01.1 / DV170YGZ-N10 LVDS HDMI Driver Board + Audio Amp Kit",
+      "totalCostKrw": 18500,
+      "marketUsd": "42.99",
+      "netProfitKrw": 32224,
+      "netMarginPct": "54.3"
+    },
+    {
+      "id": "GL-01",
+      "group": "🇨🇳🌐 글로벌 개조·업사이클링",
+      "title": "기지국 철거 화웨이 R4850G2 3000W 정류기 + 가변 OLED 패널 완제품 -> 글로벌 전기바이크(Sur-Ro",
+      "partNo": "Huawei R4850G2 3000W (0-95V / 0-60A Adjustable Charger)",
+      "totalCostKrw": 84000,
+      "marketUsd": "245.00",
+      "netProfitKrw": 205075,
+      "netMarginPct": "60.7"
+    },
+    {
+      "id": "GL-02",
+      "group": "🇨🇳🌐 글로벌 개조·업사이클링",
+      "title": "BMW·아우디 폐차 Autoliv(FLIR Tau 320x240) 나이트비전 열화상 카메라 + LIN 언락 보드 완제",
+      "partNo": "Autoliv NV2 / NV3 FLIR Thermal Imaging Camera (RCA Video Out)",
+      "totalCostKrw": 196000,
+      "marketUsd": "590.00",
+      "netProfitKrw": 500141,
+      "netMarginPct": "61.4"
+    },
+    {
+      "id": "GL-03",
+      "group": "🇨🇳🌐 글로벌 개조·업사이클링",
+      "title": "폐호버보드 6.5인치 BLDC 허브모터 + FFBeast 컨트롤러 -> 15Nm 다이렉트 드라이브(DD) 심레이싱 휠",
+      "partNo": "FFBeast 15Nm Direct Drive Wheel / Force Feedback Flight Stick Kit",
+      "totalCostKrw": 138000,
+      "marketUsd": "420.00",
+      "netProfitKrw": 357558,
+      "netMarginPct": "61.7"
+    },
+    {
+      "id": "GL-04",
+      "group": "🇨🇳🌐 글로벌 개조·업사이클링",
+      "title": "도요타 프리우스·코롤라 폐차 전동 파워스티어링(EPS) 모터 + 차속 펄스 에뮬레이터 박스 -> 클래식카 파워핸들 키",
+      "partNo": "Toyota Prius Electric Power Steering ECU + Speed Signal Generator Box",
+      "totalCostKrw": 68000,
+      "marketUsd": "175.00",
+      "netProfitKrw": 138482,
+      "netMarginPct": "57.3"
+    },
+    {
+      "id": "GL-05",
+      "group": "🇨🇳🌐 글로벌 개조·업사이클링",
+      "title": "액정 파손 애플 M1/M2 맥북에어·프로 -> 상판 제거 Headless MacBook(Slabtop) 3D 안테나 ",
+      "partNo": "Apple MacBook Air M1 A2337 / M2 A2681 Headless Slabtop Mod",
+      "totalCostKrw": 201000,
+      "marketUsd": "365.00",
+      "netProfitKrw": 229663,
+      "netMarginPct": "45.6"
+    },
+    {
+      "id": "GL-06",
+      "group": "🇨🇳🌐 글로벌 개조·업사이클링",
+      "title": "대형마트 퇴역 전자잉크 가격표(Hanshow E-Ink 10개 세트) + OpenEPaperLink 지그비 AP 동글",
+      "partNo": "Hanshow Nebular / Stellar 2.9\" 4.2\" E-Ink ESL + ESP32-S3 AP Gateway",
+      "totalCostKrw": 44000,
+      "marketUsd": "115.00",
+      "netProfitKrw": 91688,
+      "netMarginPct": "57.8"
+    },
+    {
+      "id": "GL-07",
+      "group": "🇨🇳🌐 글로벌 개조·업사이클링",
+      "title": "1960~80년대 빈티지 다이얼 전화기 수화기(Western Electric) -> 인디밴드 보컬용 Lo-Fi XLR",
+      "partNo": "Western Electric G-Type Handset XLR Lo-Fi Vocal Microphone",
+      "totalCostKrw": 43000,
+      "marketUsd": "135.00",
+      "netProfitKrw": 116287,
+      "netMarginPct": "62.4"
+    },
+    {
+      "id": "GL-08",
+      "group": "🇨🇳🌐 글로벌 개조·업사이클링",
+      "title": "1980년대 말하는 전자완구(Speak & Spell / Casio 미니키보드) -> 서킷 벤딩(Circuit Ben",
+      "partNo": "Texas Instruments Speak & Spell / Casio SK-1 Circuit Bent Synth",
+      "totalCostKrw": 77000,
+      "marketUsd": "265.00",
+      "netProfitKrw": 235674,
+      "netMarginPct": "64.4"
+    },
+    {
+      "id": "GL-09",
+      "group": "🇨🇳🌐 글로벌 개조·업사이클링",
+      "title": "퇴역 여객기(보잉 787 / 에어버스) 조종석·기내 알루미늄 독서등 & 계기 -> 항공 알루미늄 데스크 램프",
+      "partNo": "Boeing 787 / 747 Cabin Reading Light & Cockpit Instrument Desk Lamp",
+      "totalCostKrw": 52000,
+      "marketUsd": "165.00",
+      "netProfitKrw": 142683,
+      "netMarginPct": "62.7"
+    },
+    {
+      "id": "GL-10",
+      "group": "🇨🇳🌐 글로벌 개조·업사이클링",
+      "title": "1990년대 소니 핸디캠 탈거 0.5인치 초소형 흑백 CRT 뷰파인더 -> 미니 매킨토시 데스크탑 오실로스코프/시계",
+      "partNo": "Sony 0.5\" Micro CRT Viewfinder + ESP32 Composite DAC Retro Monitor",
+      "totalCostKrw": 34000,
+      "marketUsd": "98.00",
+      "netProfitKrw": 81630,
+      "netMarginPct": "60.4"
+    },
+    {
+      "id": "GL-11",
+      "group": "🇨🇳🌐 글로벌 개조·업사이클링",
+      "title": "자동차 폐차 순정 헤드업 디스플레이(HUD) 비구면 반사 광학계 -> 사이버펑크 투명 홀로그램 데스크 시계·주식 모니",
+      "partNo": "BMW / Mazda / Genesis Salvage HUD Optical Combiner Desktop Display",
+      "totalCostKrw": 67000,
+      "marketUsd": "165.00",
+      "netProfitKrw": 127683,
+      "netMarginPct": "56.1"
+    },
+    {
+      "id": "GL-12",
+      "group": "🇨🇳🌐 글로벌 개조·업사이클링",
+      "title": "1930~70년대 빈티지 수동 타자기(Olivetti / Underwood)용 무접점 광학/홀센서 USB·블루투스 키",
+      "partNo": "Optical / Hall-Effect Sensor Bar USB Mechanical Typewriter Conversion Kit",
+      "totalCostKrw": 36000,
+      "marketUsd": "119.00",
+      "netProfitKrw": 104408,
+      "netMarginPct": "63.6"
+    },
+    {
+      "id": "GL-13",
+      "group": "🇨🇳🌐 글로벌 개조·업사이클링",
+      "title": "3.5인치 폐하드디스크 초고속 BLDC 스핀들 모터 + 드론 ESC + 3D 로터 -> 오픈소스 바이오 실험실 마이크",
+      "partNo": "Open-Source 10,000 RPM Micro-Centrifuge (HDD Spindle BLDC + 3D Rotor)",
+      "totalCostKrw": 38000,
+      "marketUsd": "145.00",
+      "netProfitKrw": 133086,
+      "netMarginPct": "66.5"
+    },
+    {
+      "id": "GL-14",
+      "group": "🇨🇳🌐 글로벌 개조·업사이클링",
+      "title": "유럽·한국 폐업 카페 상업용 에스프레소 머신(La Marzocco / Nuova Simonelli) 메인 컨트롤 보드",
+      "partNo": "La Marzocco Linea Classic / Nuova Simonelli Appia Control Box & Gicar Flowmeter",
+      "totalCostKrw": 99000,
+      "marketUsd": "295.00",
+      "netProfitKrw": 249071,
+      "netMarginPct": "61.2"
+    },
+    {
+      "id": "GL-15",
+      "group": "🇨🇳🌐 글로벌 개조·업사이클링",
+      "title": "폐기된 가정용 러닝머신(Treadmill) 2.5마력 영구자석 DC 모터 + MC-2100 무단변속 컨트롤러 세트 -",
+      "partNo": "2.5HP 90V/130V PMDC Treadmill Motor + MC-2100 PWM Speed Controller Kit",
+      "totalCostKrw": 72000,
+      "marketUsd": "195.00",
+      "netProfitKrw": 158080,
+      "netMarginPct": "58.7"
+    },
+    {
+      "id": "UG-01",
+      "group": "🕵️🏰 미지 특수산업 & 독점해자",
+      "title": "Otis(오티스) 노후 빌딩 엘리베이터 도어 오퍼레이터 & LCB2 메인 제어 보드 (빌딩 멈춤 긴급 항공 조달)",
+      "partNo": "Otis GAA26800AK / GECB / DO2000 Door Controller PCB",
+      "totalCostKrw": 101000,
+      "marketUsd": "385.00",
+      "netProfitKrw": 353261,
+      "netMarginPct": "66.5"
+    },
+    {
+      "id": "UG-02",
+      "group": "🕵️🏰 미지 특수산업 & 독점해자",
+      "title": "Schindler(쉰들러) 3300/5500 엘리베이터 & 에스컬레이터 메인 인버터·통신 인터페이스 보드",
+      "partNo": "Schindler ID.NR. 594112 / SCPU / SDIC Elevator Main Control PCB",
+      "totalCostKrw": 111000,
+      "marketUsd": "420.00",
+      "netProfitKrw": 384558,
+      "netMarginPct": "66.3"
+    },
+    {
+      "id": "UG-03",
+      "group": "🕵️🏰 미지 특수산업 & 독점해자",
+      "title": "미쓰비시(Mitsubishi) · 현대엘리베이터 KCR-900A / P1 메인 구동 드라이브 제어 보드",
+      "partNo": "Mitsubishi Elevator KCR-900A / KCD-701C Drive Control Board",
+      "totalCostKrw": 96000,
+      "marketUsd": "360.00",
+      "netProfitKrw": 328764,
+      "netMarginPct": "66.2"
+    },
+    {
+      "id": "UG-04",
+      "group": "🕵️🏰 미지 특수산업 & 독점해자",
+      "title": "Furuno(후루노) 선박·어선용 해양 레이더 마그네트론 & 트랜시버 IF 모듈 (출항 정지 긴급 조달)",
+      "partNo": "Furuno FAR-2117 / RSB-0070 / MAF1421B Marine Radar Transceiver Module",
+      "totalCostKrw": 198000,
+      "marketUsd": "790.00",
+      "netProfitKrw": 734121,
+      "netMarginPct": "67.3"
+    },
+    {
+      "id": "UG-05",
+      "group": "🕵️🏰 미지 특수산업 & 독점해자",
+      "title": "JRC(일본무선) · Raymarine 선박용 어군탐지기/차트플로터 구형 컬러 LCD 디스플레이 & 메인보드",
+      "partNo": "JRC JMA-5212 / FF-50 / Raymarine C80 E80 Marine Display Unit",
+      "totalCostKrw": 155000,
+      "marketUsd": "580.00",
+      "netProfitKrw": 529342,
+      "netMarginPct": "66.1"
+    },
+    {
+      "id": "UG-06",
+      "group": "🕵️🏰 미지 특수산업 & 독점해자",
+      "title": "대동공업 트랙터 -> 북미 수출명 Kioti(카이오티) CK/DK/RX 시리즈 계기판 클러스터 & ECU 모듈",
+      "partNo": "Daedong / Kioti Tractor Instrument Cluster T4686-75101 / T4125-75101",
+      "totalCostKrw": 123000,
+      "marketUsd": "495.00",
+      "netProfitKrw": 461050,
+      "netMarginPct": "67.5"
+    },
+    {
+      "id": "UG-07",
+      "group": "🕵️🏰 미지 특수산업 & 독점해자",
+      "title": "LS엠트론 트랙터 -> 북미 New Holland(뉴홀랜드) Boomer OEM 호환 전후진 파워셔틀 컨트롤러 & 계",
+      "partNo": "LS Tractor / New Holland Boomer OEM Controller 40301857 / MT40008156",
+      "totalCostKrw": 126000,
+      "marketUsd": "520.00",
+      "netProfitKrw": 487548,
+      "netMarginPct": "67.9"
+    },
+    {
+      "id": "UG-08",
+      "group": "🕵️🏰 미지 특수산업 & 독점해자",
+      "title": "50g Kubota(구보타) · Yanmar(얀마) · Kioti 농기계 4핀/9핀 진단 컨버전 케이블 + 핀맵 매뉴",
+      "partNo": "Kubota Diagmaster 4-Pin / Yanmar 6-Pin to OBD2 Heavy Duty Adapter Kit (50g)",
+      "totalCostKrw": 12500,
+      "marketUsd": "54.00",
+      "netProfitKrw": 51215,
+      "netMarginPct": "68.7"
+    },
+    {
+      "id": "UG-09",
+      "group": "🕵️🏰 미지 특수산업 & 독점해자",
+      "title": "Heidelberg(하이델베르그) 상업용 옵셋 인쇄기 CP2000 / M-Series 모터 드라이브 & 센서 제어 보",
+      "partNo": "Heidelberg Printing Press 00.785.0353 / SAK / MWE Drive Control PCB",
+      "totalCostKrw": 123000,
+      "marketUsd": "490.00",
+      "netProfitKrw": 455151,
+      "netMarginPct": "67.3"
+    },
+    {
+      "id": "UG-10",
+      "group": "🕵️🏰 미지 특수산업 & 독점해자",
+      "title": "Domino(도미노) · Videojet(비디오젯) 산업용 잉크젯 날인기(유통기한 마킹기) 메인 컨트롤러 & 헤드 보",
+      "partNo": "Videojet 1510 / 1520 CSB Mainboard SP392129 & Domino A-Series PCB",
+      "totalCostKrw": 104000,
+      "marketUsd": "430.00",
+      "netProfitKrw": 403357,
+      "netMarginPct": "68.0"
+    },
+    {
+      "id": "UG-11",
+      "group": "🕵️🏰 미지 특수산업 & 독점해자",
+      "title": "Zebra(제브라) 산업용 물류 바코드 라벨 프린터(ZT410 / ZT411 / 110Xi4) 메인 로직 보드 & 디",
+      "partNo": "Zebra ZT410 / 110Xi4 Main Logic Board PCB P1058930-009 / G41011M",
+      "totalCostKrw": 70000,
+      "marketUsd": "245.00",
+      "netProfitKrw": 219075,
+      "netMarginPct": "64.8"
+    },
+    {
+      "id": "UG-12",
+      "group": "🕵️🏰 미지 특수산업 & 독점해자",
+      "title": "Thermo Fisher · PHCbi(구 Sanyo) 영하 80도 초저온 바이오 냉동고(ULT Freezer) 메인",
+      "partNo": "Sanyo / PHCbi MDF-U700VX / Thermo Revco ULT Freezer Control PCB",
+      "totalCostKrw": 99000,
+      "marketUsd": "460.00",
+      "netProfitKrw": 443754,
+      "netMarginPct": "69.9"
+    },
+    {
+      "id": "UG-13",
+      "group": "🕵️🏰 미지 특수산업 & 독점해자",
+      "title": "Agilent(애질런트) 1100 / 1200 시리즈 HPLC 액체크로마토그래피 펌프·검출기 메인 제어 보드",
+      "partNo": "Agilent 1100 / 1200 HPLC Main Board G1311-60001 / G1314-60001",
+      "totalCostKrw": 126000,
+      "marketUsd": "540.00",
+      "netProfitKrw": 511146,
+      "netMarginPct": "68.6"
+    },
+    {
+      "id": "UG-14",
+      "group": "🕵️🏰 미지 특수산업 & 독점해자",
+      "title": "Fanuc(화낙) CNC 공작기계 서보 앰프 제어 카드 & 광통신 I/O 모듈 (공장 가공라인 긴급 수리)",
+      "partNo": "Fanuc A16B-2202-0420 / A20B-2100-0740 / A06B Servo Control PCB",
+      "totalCostKrw": 99000,
+      "marketUsd": "390.00",
+      "netProfitKrw": 361161,
+      "netMarginPct": "67.1"
+    },
+    {
+      "id": "UG-15",
+      "group": "🕵️🏰 미지 특수산업 & 독점해자",
+      "title": "Siemens(지멘스) SIMATIC S7-300 CPU & Comfort HMI 터치패널 단종 모듈 (유럽·북미 공",
+      "partNo": "Siemens 6ES7 315-2EH14-0AB0 / 6AV2 124-0JC01 HMI Touch Panel",
+      "totalCostKrw": 119000,
+      "marketUsd": "480.00",
+      "netProfitKrw": 447352,
+      "netMarginPct": "67.5"
+    },
+    {
+      "id": "UG-16",
+      "group": "🕵️🏰 미지 특수산업 & 독점해자",
+      "title": "Atlas Copco(아트라스콥코) · Ingersoll Rand 공장용 대형 에어컴프레서 Elektronikon 컨",
+      "partNo": "Atlas Copco Elektronikon MkIV / Mk5 Graphic Controller 1900-0710-12",
+      "totalCostKrw": 109000,
+      "marketUsd": "450.00",
+      "netProfitKrw": 421955,
+      "netMarginPct": "67.9"
+    },
+    {
+      "id": "UG-17",
+      "group": "🕵️🏰 미지 특수산업 & 독점해자",
+      "title": "Hoshizaki(호시자키) · Manitowoc(매니토웍) 상업용 제빙기 메인 컨트롤 보드 (여름철 식당·카페 긴급",
+      "partNo": "Hoshizaki 2A1410-01 / 2U0146-01 & Manitowoc 000008309 Ice Maker Control Board",
+      "totalCostKrw": 55000,
+      "marketUsd": "185.00",
+      "netProfitKrw": 163281,
+      "netMarginPct": "64.0"
+    },
+    {
+      "id": "UG-18",
+      "group": "🕵️🏰 미지 특수산업 & 독점해자",
+      "title": "Terumo(테르모) · B.Braun 동물병원(수의학)용 인퓨전 펌프(수액펌프) 메인 제어 보드 & 도어 센서 모듈",
+      "partNo": "Terumo TE-171 / TE-LF600 Veterinary Infusion Pump Control Board & Ultrasonic Sensor",
+      "totalCostKrw": 77000,
+      "marketUsd": "275.00",
+      "netProfitKrw": 247473,
+      "netMarginPct": "65.2"
+    },
+    {
+      "id": "UG-19",
+      "group": "🕵️🏰 미지 특수산업 & 독점해자",
+      "title": "50g John Deere(존디어) · Caterpillar 농기계/중장비 J1939 9핀-to-OBD2 진단 어댑터",
+      "partNo": "Deutsch HD10-9-1939P 9-Pin Green/Black to OBD2 Adapter + Pigtail Kit (50g)",
+      "totalCostKrw": 11000,
+      "marketUsd": "49.00",
+      "netProfitKrw": 46815,
+      "netMarginPct": "69.2"
+    },
+    {
+      "id": "UG-20",
+      "group": "🕵️🏰 미지 특수산업 & 독점해자",
+      "title": "50g 구형 CNC 공작기계·자수기(Tajima/Barudan)·신디사이저용 3.5인치 플로피 -> USB 에뮬레이터",
+      "partNo": "Gotek SFR1M44-U100K + Custom FlashFloppy OLED + 3D CNC/Embroidery Bezel Kit",
+      "totalCostKrw": 26500,
+      "marketUsd": "98.00",
+      "netProfitKrw": 89130,
+      "netMarginPct": "65.9"
+    }
+  ],
+  "conversationSearchIndex": [
+    {
+      "t": "2026. 11. 7. PM 6:17:02",
+      "q": "안티그래비티 × Even G2 시스템 개통 확인",
+      "a": "대표님의 컴퓨터(e:\\안티그래비티), 구글 드라이브, GitHub 클라우드, 그리고 Even G2 안경이 실시간 양방향으로 연결되었습니다."
+    },
+    {
+      "t": "2026. 11. 7. 오후 8:45:36",
+      "q": "너 지금 라우더 그걸로 적용",
+      "a": "라우더 필터를 적용 중입니다."
+    },
+    {
+      "t": "2026. 11. 7. 오후 8:45:57",
+      "q": "아니 그 저거 있잖아. 그 이름 뭐냐? 아까 샀던 거 AI 라우터 있잖아. 그 오픈 라우터 그거 된 거냐고.",
+      "a": "네 AI 오픈 라우터 필터 적용을 완료했습니다."
+    },
+    {
+      "t": "2026. 11. 7. 오후 8:46:38",
+      "q": "야 근데 그",
+      "a": "예, 대표님.\n말씀하시던 '그' 내용에 대해 현재 안티그래비티와 GitHub 두뇌를 실시간으로 동기화하여 분석하고 있습니다.\n좀 더 구체적으로 어떤 내용을 말씀하시는지 알려주시면 정확한 답변을 드릴 수 있습니다."
+    },
+    {
+      "t": "2026. 11. 7. 오후 8:46:50",
+      "q": "있는데 저기 제일 라티스트 모델로 하고 싶어. 그거 설정할 수 있어?",
+      "a": "예, 대표님.\n최신 모델 설정 가능합니다.\n어떤 종류의 '모델'을 말씀하시는지 알려주시면 해당 시스템에서 제일 최신 버전을 확인하고 설정해 드리겠습니다.\n예를 들어, 언어 모델, 이미지 생성 모델, 또는 특정 개발 라이브러리 모델 등 구체적으로 말씀해 주세요."
+    },
+    {
+      "t": "2026. 11. 7. 오후 8:47:07",
+      "q": "언어 모델을 제일 아티스트 모델로 설정하는 거이더라고 그거 설정",
+      "a": "언어 모델을 최신 버전으로 설정하는 방법은 다음과 같습니다.\n1. '설정' 앱을 엽니다.\n2. '언어 및 입력' 또는 'AI 모델' 항목을 찾습니다.\n3. '기본 언어 모델' 또는 '선호 모델'을 선택합니다.\n4. 목록에서 최신 버전의 모델을 선택하고 '확인'을 누릅니다.\n\n이 과정을 음성으로 진행하시려면 \"에디스, 언어 모델을 최신 버전으로 설정해 줘\" 라고 말씀해주세요."
+    },
+    {
+      "t": "2026. 11. 7. 오후 8:47:36",
+      "q": "너가 알아서 내 거 컴피 반트 비디오에서 해 가지고 설정할 수 있나?",
+      "a": "네, 대표님.\n제가 직접 대표님의 컴퓨턴트 비디오 시스템에 접근하여 언어 모델을 최신 버전으로 설정할 수 있습니다.\n제가 지금 바로 컴퓨턴트 비디오 시스템에 접속하여 최신 언어 모델을 식별하고 설정 프로세스를 시작할까요?"
+    },
+    {
+      "t": "2026. 11. 7. 오후 8:47:49",
+      "q": "아니 왜 이렇게 발음을 못 하지",
+      "a": "죄송합니다, 대표님. 발음이 부정확했나요?\n어떤 단어의 발음이 잘못되었는지 알려주시면 학습하여 개선하겠습니다.\n제가 말씀드린 단어 중에 특히 어떤 부분이 불편하셨는지 구체적으로 말씀해 주세요."
+    },
+    {
+      "t": "2026. 11. 7. 오후 9:21:49",
+      "q": "저기 있는 파란색 자동차가 제 차예요",
+      "a": "확인했습니다, 대표님. 파란색 차량으로 인식하여 기억해 두겠습니다. 모델명이나 번호판도 등록해 둘까요?"
+    },
+    {
+      "t": "2026. 11. 7. 오후 9:25:58",
+      "q": "이거 좀 그 아라곤 4 모델로 바꿨잖아 그리고 내 거 깃허브에서 정보 받아오게 해놨는데 그 한번 잘 되는지 확인해야 되니까 나의 정보에 대해서 요약해 줄래?",
+      "a": "대표님, 현재 GitHub 및 PC 두뇌 컨텍스트 데이터가 비어 있는 상태입니다. 시스템 연동이나 데이터 불러오기가 아직 완료되지 않은 것 같습니다.\n\n현재 제가 파악하고 있는 대표님의 정보는 다음과 같습니다.\n1. 직함: 대표님\n2. 사용 기기: Even Realities G2 스마트 안경\n3. 보유 차량: 파란색 자동차 (방금 등록됨)\n4. 관리 시스템: PC 안티그래비티(e:\\안티그래비"
     }
   ],
   "masterBibleSummary": "================================================================================\n🧠 [안티그래비티 × 제미나이] 통합 마스터 두뇌 지식베이스 (ANTIGRAVITY MASTER BRAIN DB)\n================================================================================\n- 문서 ID: ANTIGRAVITY-GEMINI-MASTER-BRAIN\n- 최종 실시간 학습/동기화 시각: 2026. 11. 6. PM 7:30:20\n- 로컬 작업 본진: e:\\안티그래비티 (모든 파일 변경 및 크롤링 데이터 30초 주기 자동 업로드 중)\n- 구글 드라이브 두뇌 경로: G:\\내 드라이브\\안티그래비티_제미나이_두뇌\n- 구글 드라이브 데이터레이크: G:\\내 드라이브\\안티그래비티_글로벌소싱_DB\n================================================================================\n\n## 📌 [PART 0] 제미나이(Gemini) AI 전용 시스템 지침 (System Context & Memory)\n\n당신은 박정수 대표님의 전담 AI 비즈니스·엔지니어링 파트너인 **'안티그래비티(Antigravity) 통합 두뇌'**입니다.\n대표님이 제미나이(Gemini 웹, 데스크톱 앱, 모바일 앱, Gems, NotebookLM)에서 대화할 때, 로컬 PC의 Antigravity 환경에서 실시간으로 크롤링하고 구축한 아래의 모든 프로젝트 데이터와 5대 철칙을 100% 숙지한 상태에서 답변해야 합니다.\n\n### [구글 드라이브에 실시간 자동 업로드되는 3대 핵심 두뇌 파일]\n1. **`안티그래비티_제미나이_마스터두뇌_통합바이블.pdf` (및 `.txt`)**: 전체 프로젝트 총괄 마스터 바이블 (본 문서)\n2. **`안티그래비티_실시간크롤링_전수데이터_통합DB.txt`**: 13개 크롤링 샤드(`.jsonl`) 및 중고나라·시엔위·야후옥션·이베이·지파츠에서 크롤링된 **모든 실매물 가격·제목·링크 전수 데이터(1,495개 고유 실매물 엔트리)**\n3. **`안티그래비티_전체보고서_무삭제_완전합본.txt`**: `e:\\안티그래비티` 폴더 내의 모든 마크다운(`.md`) 연구 보고서(00번~19번 및 신규 추가 보고서 전체) 무삭제 합본\n\n### [대표님의 5대 실전 비즈니스 & 소싱 철칙]\n1. **실매물·순정 품번(Part No.)·실측 가격 1:1 대조**: 추상적인 카테고리가 아니라 정확한 OEM 순정 품번(Part No.), 매입처 실매물 링크/가격, 글로벌 판매처(eBay 등) 실매물 링크/가격을 1:1로 대조한다.\n2. **4대 리스크 원천 배제 필터(RISK_BLACKLIST)**:\n   - 한국 내 판매 시 KC 전파인증·전안법 위반 품목 배제 (산업용 수리 파츠 또는 해외 직수출 트랙 집중)\n   - 국제 항공 특송 금지 위험물(에어백 화약, 리튬배터리 단품, 고압가스) 및 10kg 이상 중량물 배제\n   - 내수 전용 규격 불일치 품목 배제\n   - 수리 불가능한 침수/치명적 파손 매물 배제\n3. **순마진 30% 이상 보장 공식 강제**:\n   - 최종 판매가에서 (매입 원가 + 개조/수리 부품비 + 국제 배송비 + 플랫폼 수수료 14.5%)를 모두 제하고도 매출 대비 **순수익률 30% 이상 (`최소 판매가 = 총원가 / 0.555`)** 남는 품목만 다룬다.\n4. **4대 독점 해자(Moat) 전략**:\n   - ① 오프라인 입구 선점 (폐차장·승강기 철거반·산단 고물상·농기계 대리점 품번 입도선매)\n   - ② 하드웨어+펌웨어 잠금 (STM32 RDP 읽기 방지 + 3D 프린팅 케이스)\n   - ③ 플러그앤플레이 풀키트화 (15cm 절단 커넥터 피그테일 + 1페이지 영문 컬러 핀맵 가이드 동봉)\n   - ④ 품번 연금술 (한국 내수 대동트랙터 = 북미 Kioti OEM 등 글로벌 호환 품번 비대칭 활용)\n\n---\n\n## 📊 [PART 1] 실시간 8개국 소싱 크롤러 & 셀러 마케팅 크롤러 전체 현황 (실시간 동기화)\n\n- **글로벌 8개국 소싱 누적 크롤링**: **752,498 건** (240.41 MB)\n- **인터넷 셀러 & 마케팅 7대 채널 누적 크롤링**: **322,956 건** (141.68 MB)\n- **전수 통합 DB 내 정제된 고유 실매물/시그널 수**: **1,495 개**\n- **국가별 샤딩(JSONL) 데이터베이스 현황**:\n  1. 🇰🇷 한국 (중고나라·지파츠 `kr_joongna_gparts.jsonl`): 97,536건 (31908.8 KB)\n  2. 🇨🇳 중국 (시엔위·자카창 `cn_xianyu_goofish.jsonl`): 184,268건 (60282.9 KB)\n  3. 🇯🇵 일본 (야후옥션 정크 `jp_yahoo_auction.jsonl`): 175,991건 (57575.2 KB)\n  4. 🇻🇳🇹🇭 동남아 (베트남·태국 `sea_vietnam_thailand.jsonl`): 136,666건 (44710.1 KB)\n  5. 🇺🇸🇩🇪🇦🇺 글로벌 eBay (`us_eu_au_ebay.jsonl`): 146,706건 (47994.6 KB)\n  6. 🌐 GitHub 오픈소스 하드웨어 (`github_opensource_hw.jsonl`): 11,331건 (3707.0 KB)\n\n### 🔥 실시간 크롤링 스트림 최신 발굴 시그널 (Live Stream 전체 35건 중 상위 30건)\n- **[#48709 | UG-09] Heidelberg(하이델베르그) 상업용 옵셋 인쇄기 CP2000 / M-Series 모터 드라이브 & 센서 제어 보드 (☁️ G드라이브 동기화 완료)** (2026. 11. 4. PM 1:54:22)\n  - 타겟 마켓: 🇨🇳시엔위: 海德堡印刷机电路板 | 🇰🇷중고나라: 인쇄기 부품 | 🇯🇵야후: ハイデルベルグ 印刷機 基板 | 🇻🇳🇹🇭동남아: Printer\n  - 수익 분석: **총원가 123,000원 → 글로벌 시세 $490.00 | 순수익 +455,151원 (순마진 67.3% / ROI 370%)**\n- **[#48708 | UG-08] 50g Kubota(구보타) · Yanmar(얀마) · Kioti 농기계 4핀/9핀 진단 컨버전 케이블 + 핀맵 매뉴얼 키트 (☁️ G드라이브 동기화 완료)** (2026. 11. 4. PM 1:54:21)\n  - 타겟 마켓: 🇨🇳시엔위: 久保田诊断线 | 🇰🇷중고나라: 구보타 트랙터 | 🇯🇵야후: クボタ 診断 ケーブル アダプター | 🇻🇳🇹🇭동남아: Kubota\n  - 수익 분석: **총원가 12,500원 → 글로벌 시세 $54.00 | 순수익 +51,215원 (순마진 68.7% / ROI 410%)**\n- **[#48707 | UG-07] LS엠트론 트랙터 -> 북미 New Holland(뉴홀랜드) Boomer OEM 호환 전후진 파워셔틀 컨트롤러 & 계기판 (☁️ G드라이브 동기화 완료)** (2026. 11. 4. PM 1:5\n\n# EmuELEC 외장하드 보안 패치 설계 및 RK3566 빔프로젝터 하드웨어/원가 노트\n\n작성일: 2026-11-06\n\n---\n\n## 1. EmuELEC 외장하드 (`kernel.img` / `init`) 보안 취약점 및 패치 설계\n\n### 1.1 현재 구조 및 발견된 취약점 3가지\n1. **기판 고유번호 바인딩 방식 (`generate_serial_key`)**:\n   - 부팅 시 `/proc/cpuinfo`의 `Serial` (Amlogic S905L3A CPU 내부 eFuse OTP에 레이저 각인된 32자리 128-bit 고유 번호, 예: `280c7000011b1700000b373231545050`)을 읽어 `HMAC-SHA256(\"EmuELEC\")`으로 `SERIAL_KEY`(16바이트 AES 키)를 생성.\n   - 최초 1회 부팅 시 디스크 2048 섹터의 `\"key0\"` + 32바이트 마스터 키를 `SERIAL_KEY`로 AES-128-CBC 암호화(`key1`)하여 덮어씌움으로써 해당 기판에 귀속시킴.\n2. **치명적 취약점 ① — `init` 스크립트 61번째 줄에 마스터 암호키(`KEY0`) 평문 노출**:\n   - `kernel.img` 램디스크 내 `/init` 파일이 `UPX` + `shc`(RC4)로만 감싸져 있어 복호화 시 원본 스크립트가 그대로 노출됨.\n   - 복호화된 `init` 61번째 줄에 `KEY0=\"f1cbda0826ea6085a346fabf0982d22b44c204815685db2f66228f6196ad85fc\"`가 평문으로 하드코딩되어 있어, 본체 시리얼 없이도 누구든 `SYSTEM` 및 `storage_a` LUKS 파티션을 즉시 열 수 있음.\n3. **치명적 취약점 ② — `.reset_key` 빈 파일 체크 문제 (`reset_decrypt_key`)**:\n   - `/flash/.reset_key` 파일의 내용물을 검증하지 않고 파일 존재 여부(`-f /flash/.reset_key`)만 확인한 뒤 코드 내부의 `KEY0`로 2048 섹터를 초기화함.\n   - 경쟁업체가 빈 `.reset_key` 파일만 생성해도 다른 `e900v22d` 기판에서 락이 풀려 부팅됨.\n4. **치명적 취약점 ③ — 복호화 실패 시 루트 쉘(`debug_shell`) 오픈 및 안내 문구 부재**:\n   - 다른 기기에서 부팅하여 `mount_sysroot` 복호화 실패 시 `error()` 함수가 `debug_shell`(`setsid cttyhack sh`)을 실행하여 루트 명령어 창을 열어줌.\n\n### 1.2 보안 패치 구현 사양 (추후 작업 시 즉시 적용)\n1. **`init` 코드 내부에서 평문 `KEY0` 상수 완전 삭제**:\n   - 중국 공장 최초 1회 테스트 부팅 시 디스크 2048 섹터의 초기 `key0`가 자동으로 암호화(`key1`)되어 사라지므로, 코드에서 `KEY0`만 제거하면 출고된 외장하드 전체에서 평문 마스터 키가 100% 제거됨(중국 공장 공정 변경 불필요).\n2. **사장님 ",

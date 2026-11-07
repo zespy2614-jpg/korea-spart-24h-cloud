@@ -1,0 +1,30 @@
+{
+  "updatedAt": "2026. 11. 7. PM 9:44:24",
+  "pinnedReminder": "파란색 자동차 (내 차량)",
+  "items": [
+    {
+      "id": "mem_car_blue_01",
+      "category": "차량/주차",
+      "fact": "대표님의 차량은 파란색 자동차입니다.",
+      "sourceQuestion": "저기 있는 파란색 자동차가 제 차예요",
+      "createdAt": "2026. 11. 7. 오후 9:21:49",
+      "pinned": true
+    },
+    {
+      "id": "mem_ai_model_02",
+      "category": "AI/시스템",
+      "fact": "Even G2 안경의 기본 AI 모델은 최신 최상위 Google Gemini 4 Argon (OpenRouter 연동)입니다.",
+      "sourceQuestion": "언어 모델을 제일 최신 모델로 설정",
+      "createdAt": "2026. 11. 7. 오후 8:47:07",
+      "pinned": false
+    },
+    {
+      "id": "mem_biz_rule_03",
+      "category": "비즈니스",
+      "fact": "지파츠 이베이 40선 실시간 재고 감시 및 8개국 크로스보더 80선(순마진 30% 이상 보장 공식)이 24시간 가동 중입니다.",
+      "sourceQuestion": "안티그래비티 마스터 두뇌 원칙",
+      "createdAt": "2026. 11. 7. 오후 6:17:02",
+      "pinned": false
+    }
+  ]
+}
