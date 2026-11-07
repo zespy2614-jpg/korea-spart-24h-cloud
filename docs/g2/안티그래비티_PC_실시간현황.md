@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. AM 8:34:03
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. AM 8:34:18
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -21,6 +21,7 @@
 - **[비즈니스]**: 지파츠 이베이 40선 실시간 재고 감시 및 8개국 크로스보더 80선(순마진 30% 이상 보장 공식)이 24시간 가동 중입니다.
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
+- **[안티그래비티(PC 작업 결과)]**: 방금 안경에서 말씀하신 **"야 이거 안경 화면 뭐 가운데 짝대기가 있는데 뭐야? 없애 볼까?"** 음성 지시가 안티그래비티 실시간 자동 깨움(Reactive Wakeup) 워처를 통해 즉시 감지되었습니다. 원인은 상단 `title`/`status` 컨테이너와 본문 `body` 컨테이너의 박스 테두리 옵션(`borderWidth: 1`) 및 상태줄 막대 기호(`■■■■`, `|`)가 안경 화면 중앙 가로·세로 경계에 선("짝대기") 형태로 그려지던 현상이었습니다. 즉시 [`live_patch.js`](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/live_patch.js)와 [`index.html`](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/index.html)에서 모든
 - **[안티그래비티(PC 작업 결과)]**: 스마트폰에서 아래 링크를 터치하시면 최신 **ELIPHOEM 자동 핫스팟 (`v5.6`)** 설치 파일(`.apk`)이 즉시 다운로드되어 설치됩니다. ### 1. 스마트폰 직접 다운로드 링크 (클라우드 · LTE/5G/Wi-Fi 모두 가능) - **[ELIPHOEM_AutoHotspot_v5.6.apk 다운로드](https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone.apk)**   - 주소: `https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone.apk`   - 단축 주소: `https://zespy2614-jpg.github.io/ko
 - **[대표님(PC 안티그래비티 요청)]**: 밑에네비게이션바는 위로 드래그했을때나오게해줘 클릭이아니라
 - **[안티그래비티(PC 작업 결과)]**: 하단 네비게이션 바가 단순 터치(클릭)나 창 전환 시에는 열리지 않고, **하단 핸들을 위로 드래그(스와이프)했을 때만 열리도록** `KorSystemHelper.apk`를 빌드하여 모니터에 설치 및 실증 테스트 중입니다. 완료되는 즉시 캡처 결과를 보여드리겠습니다.
