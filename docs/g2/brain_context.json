@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026. 11. 7. PM 8:14:43",
+  "updatedAt": "2026. 11. 7. PM 8:15:43",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 7. PM 8:14:43\n1. PC 안티그래비티 실시간 작업: 최근 8단계 GitHub 동기화됨\n2. 시엔위 & 8개국 크롤링 / 지파츠 40선: 24시간 가동 중\n3. 누적 안경 대화록: 1건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 7. PM 8:15:43\n1. PC 안티그래비티 실시간 작업: 최근 6단계 GitHub 동기화됨\n2. 시엔위 & 8개국 크롤링 / 지파츠 40선: 24시간 가동 중\n3. 누적 안경 대화록: 1건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -214,16 +214,6 @@
     }
   ],
   "livePcAntigravitySession": [
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-07T11:06:45Z",
-      "summary": "**`Antigravity Brain` `v1.0.3` 업데이트(OpenRouter 완벽 연동 + PC ↔ GitHub ↔ 안경 실시간 양방향 동기화)**가 EvenHub 베타 서버와 GitHub 클라우드에 모두 배포 완료되었습니다! ([index.html](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/index.html), [server.mjs](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/server.mjs), [sync_g2_glasses_cloud.mjs](file:///e:/안티그래비티/클라우드_24시간_무중단_관제센터/sync_g2_glasses_cloud.mjs))\n\n---\n\n### 1. 어떻게 실시간 양방향으로 작동하나요?\n\n1. **PC 안티그래비티 → GitHub 실시간"
-    },
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-07T11:09:43Z",
-      "summary": "너 edith라는 앱하고 똑같이만들어줄 수 있어? 보이는거"
-    },
     {
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-07T11:10:50Z",
