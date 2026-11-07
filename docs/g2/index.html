@@ -3388,6 +3388,10 @@
     }
 
     /* ── Bidirectional Sync: GitHub <-> PC Antigravity <-> Glasses ── */
+    function isValidKeyFormat(k) {
+      return /^(sk-or-v1-[0-9a-f]{32,128}|AIza[0-9A-Za-z_-]{20,60})$/i.test(String(k || '').trim());
+    }
+
     function xorDeobfuscateKey(b64) {
       for (const salt of ['agy_g2_salt_2026', 'agy_g2_openrouter_2026']) {
         try {
@@ -3396,7 +3400,7 @@
           for (let i = 0; i < raw.length; i++) {
             out += String.fromCharCode(raw.charCodeAt(i) ^ salt.charCodeAt(i % salt.length));
           }
-          if (out.startsWith('sk-or-') || out.startsWith('AIza')) return out;
+          if (isValidKeyFormat(out)) return out;
         } catch {}
       }
       return '';
@@ -3426,11 +3430,11 @@
 
       if (loaded) {
         state.brainContext = loaded;
-        // Auto-apply synced OpenRouter key if phone has none yet
+        // Auto-apply synced OpenRouter key if phone has none yet OR if phone key was corrupted
         const encKey = loaded.obfuscatedKey || loaded.encryptedConfig?.k;
-        if (!state.apiKey.trim() && encKey) {
+        if (!isValidKeyFormat(state.apiKey) && encKey) {
           const decoded = xorDeobfuscateKey(encKey);
-          if (decoded && (decoded.startsWith('sk-or-') || decoded.startsWith('AIza'))) {
+          if (isValidKeyFormat(decoded)) {
             state.apiKey = decoded;
             localStorage.setItem('agy_gemini_api_key', decoded);
             apiKeyInput.value = decoded;
