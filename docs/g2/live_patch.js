@@ -408,7 +408,52 @@
         return origSetMenu(getClean6MenuItems());
       };
     }
+
+    // Hook hud.pageObjects to shift the entire G2 HUD down to the lowest position (yOffset = 92, y = 92..288)
+    if (!hud.__v31PageObjectsHooked && typeof hud.pageObjects === 'function') {
+      hud.__v31PageObjectsHooked = true;
+      const origPageObjects = hud.pageObjects.bind(hud);
+      hud.pageObjects = function () {
+        const objs = origPageObjects();
+        const rawOffset =
+          window.__AGY_HUD_Y_OFFSET__ !== undefined
+            ? window.__AGY_HUD_Y_OFFSET__
+            : st?.brainContext?.liveUiConfig?.hudYOffset ?? 92;
+        const yOffset = Math.max(0, Math.min(104, Number(rawOffset) || 92));
+        hud.__lastAppliedYOffset = yOffset;
+
+        if (Array.isArray(objs)) {
+          for (const obj of objs) {
+            const name = obj?.containerName;
+            if (name === 'title') {
+              obj.yPosition = yOffset;
+              obj.height = 38;
+              obj.paddingLength = 6;
+            } else if (name === 'status') {
+              if (this.clockStandby) {
+                obj.yPosition = Math.min(242, 148 + yOffset);
+                obj.height = 44;
+              } else {
+                obj.yPosition = yOffset;
+                obj.height = 38;
+                obj.paddingLength = 6;
+              }
+            } else if (name === 'body') {
+              const bodyY = yOffset + 40;
+              obj.yPosition = bodyY;
+              obj.height = Math.max(120, 288 - bodyY);
+              obj.paddingLength = 10;
+            }
+          }
+        }
+        return objs;
+      };
+    }
+
     hud.setMenu(getClean6MenuItems());
+    if (typeof hud.rebuild === 'function') {
+      void hud.rebuild();
+    }
 
     // Hook hud.set to:
     // 1) Immediately block any single-tap ('tap') recording attempt on v2.0.0 host!
@@ -588,9 +633,25 @@
               void syncMemoryAction({ action: 'add', category: cat, text: userQ, fact: userQ, pinned: true });
             }
           }
-          if (
-            (/(안티그래비티|컴퓨터|PC|피씨|워크스페이스|작업\s*노트|바탕화면)/.test(userQ) &&
-              /(작업|실행|세팅|수정|패치|만들어|고쳐|추가|바꿔|작성|정리|분석|크롤링|동기화|푸시|빌드|배포|저장|기록|메모|시켜|해\s*줘|해\s*놔|해\s*둬|해\s*줄래|할\s*수\s*있|방법\s*없을까)/.test(userQ)) ||
+          // Instant on-device HUD Y-position control + PC remote task trigger
+          if (/(화면|글씨|창|위치|높이).*(아래로|내려|최대로\s*내려|맨\s*아래|낮춰)/.test(userQ)) {
+            window.__AGY_HUD_Y_OFFSET__ = 96;
+            localStorage.setItem('agy_g2_hud_y_offset', '96');
+            if (agy?.hud?.rebuild) void agy.hud.rebuild();
+            void sendRemotePcNote(userQ);
+          } else if (/(화면|글씨|창|위치|높이).*(중간|가운데)/.test(userQ)) {
+            window.__AGY_HUD_Y_OFFSET__ = 48;
+            localStorage.setItem('agy_g2_hud_y_offset', '48');
+            if (agy?.hud?.rebuild) void agy.hud.rebuild();
+            void sendRemotePcNote(userQ);
+          } else if (/(화면|글씨|창|위치|높이).*(위로|올려|맨\s*위|원래대로)/.test(userQ)) {
+            window.__AGY_HUD_Y_OFFSET__ = 0;
+            localStorage.setItem('agy_g2_hud_y_offset', '0');
+            if (agy?.hud?.rebuild) void agy.hud.rebuild();
+            void sendRemotePcNote(userQ);
+          } else if (
+            (/(안티그래비티|컴퓨터|PC|피씨|워크스페이스|작업\s*노트|바탕화면|화면|기능|메뉴|버튼|코드|패치)/.test(userQ) &&
+              /(작업|실행|세팅|수정|패치|만들어|고쳐|추가|바꿔|작성|정리|분석|크롤링|동기화|푸시|빌드|배포|저장|기록|메모|시켜|해\s*줘|해\s*놔|해\s*둬|해\s*줄래|할\s*수\s*있|방법\s*없을까|내려|올려|옮겨)/.test(userQ)) ||
             /^(안티그래비티|에디스)?[야아,\s]*(작업\s*지시|원격\s*작업|PC\s*작업|안티그래비티\s*작업|이거\s*작업해|이거\s*세팅해|이거\s*고쳐|이거\s*수정해)/i.test(userQ)
           ) {
             void sendRemotePcNote(userQ);
@@ -600,8 +661,9 @@
             const antiLieRules =
               `[최우선 절대 수칙 — 거짓말·할루시네이션 엄격 금지 & PC 자동 실행 브릿지 안내]\n` +
               `1. 빠른 답변을 위해 사실을 지어내거나 추측하지 마세요. 고성능 High 추론 모델로서 제공된 기억 금고와 두뇌 컨텍스트를 깊이 검증하여 100% 사실만 답하세요.\n` +
-              `2. 현재 대표님의 PC에는 '안경 -> PC 안티그래비티 실시간 자동 작업 실행 브릿지(server.mjs 자율 실행 데몬 + auto_inject_antigravity.ps1 자동 입력기 + G2_안경_음성지시_작업노트.md)'가 세팅되어 24시간 가동 중입니다.\n` +
-              `3. 대표님이 안경에서 작업·세팅·수정·메모를 지시하시면, PC가 켜져 있을 때 PC 작업노트(G2_안경_음성지시_작업노트.md)와 작업큐(G2_안경_실시간_작업큐.json)에 즉시 기록되고 PC 자율 실행 데몬 및 안티그래비티 IDE 창에 자동으로 작업이 전달·실행됩니다. 아직 완료되지 않은 작업을 이미 끝났다고 허위로 꾸며내지 마시고, "대표님, 지시하신 내용을 PC 작업노트와 안티그래비티 자동 실행 브릿지로 즉시 전송하여 PC에서 바로 작업을 실행하도록 트리거했습니다"라고 사실대로 명확히 답변하세요.\n\n`;
+              `2. 현재 안경 HUD 화면의 Y축 표시 위치는 대표님 지시에 따라 최하단(yOffset=92, y=92~288px, 시계대기 y=240px)으로 내려가 적용되어 있으며, 음성으로 "화면 최대로 내려줘", "화면 중간으로 해줘", "화면 위로 올려줘"라고 말씀하시면 즉시 실시간 조절됩니다.\n` +
+              `3. 대표님이 안경에서 작업·세팅·수정·메모를 지시하시면, PC가 켜져 있을 때 PC 작업노트(G2_안경_음성지시_작업노트.md)와 작업큐(G2_안경_실시간_작업큐.json)에 즉시 기록되고 PC 자율 실행 데몬 및 안티그래비티 자동 실행 브릿지가 즉시 가동됩니다.\n` +
+              `4. 답변 길이는 너무 짧은 단답을 피하고 핵심 결론과 구체적 맥락을 포함하여 3~4단락(약 300~500자) 분량의 알차고 적당한 길이로 작성하세요.\n\n`;
 
             if (!sysMsg.content.includes('거짓말·할루시네이션 엄격 금지')) {
               sysMsg.content = antiLieRules + sysMsg.content;
