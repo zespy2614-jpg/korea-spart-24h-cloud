@@ -1424,15 +1424,71 @@
     }
 
     /* =========================================================================
-     * 3. Exact EDITH 3-Box Framed G2 Glasses HUD (ported from edith-g2/src/hud.ts)
+     * 3. Exact EDITH 3-Box Framed G2 Glasses HUD (Left/Right Optical Margin + Seamless Infinite Scroll Windows)
      * ========================================================================= */
     const BOXES = {
-      title:  { id: 1, name: 'title',  x: 8,   y: 0,  width: 272, height: 44,  border: 1, padding: 8,  brightness: 3, capture: 0 },
-      status: { id: 2, name: 'status', x: 296, y: 0,  width: 272, height: 44,  border: 1, padding: 8,  brightness: 4, capture: 0 },
-      body:   { id: 3, name: 'body',   x: 0,   y: 46, width: 576, height: 242, border: 1, padding: 14, brightness: 4, capture: 1 }
+      title:  { id: 1, name: 'title',  x: 20,  y: 0,  width: 260, height: 44,  border: 1, padding: 10, brightness: 3, capture: 0 },
+      status: { id: 2, name: 'status', x: 296, y: 0,  width: 260, height: 44,  border: 1, padding: 10, brightness: 4, capture: 0 },
+      body:   { id: 3, name: 'body',   x: 20,  y: 46, width: 536, height: 242, border: 1, padding: 16, brightness: 4, capture: 1 }
     };
     const DIM_BRIGHTNESS = { title: 1, status: 1, body: 1 };
     const CLOCK_STANDBY_BRIGHTNESS = { title: 0, status: 3, body: 0 };
+
+    function sliceByUtf8Bytes(str, maxBytes) {
+      const s = String(str || '');
+      if (!s) return ' ';
+      let bytes = 0;
+      for (let i = 0; i < s.length; i++) {
+        const code = s.codePointAt(i);
+        const charBytes = code <= 0x7f ? 1 : code <= 0x7ff ? 2 : code <= 0xffff ? 3 : 4;
+        if (bytes + charBytes > maxBytes) {
+          return s.slice(0, i) || ' ';
+        }
+        bytes += charBytes;
+        if (code > 0xffff) i++;
+      }
+      return s;
+    }
+
+    function buildScrollWindows(fullText) {
+      const clean = String(fullText || '').trim();
+      if (!clean) return [' '];
+      if (clean.length <= 460 && sliceByUtf8Bytes(clean, 1550).length === clean.length) {
+        return [clean];
+      }
+      const windows = [];
+      let cursor = 0;
+      const len = clean.length;
+      while (cursor < len) {
+        let end = Math.min(len, cursor + 440);
+        if (end < len) {
+          const nlIdx = clean.lastIndexOf('\n', end);
+          const dotIdx = Math.max(
+            clean.lastIndexOf('. ', end),
+            clean.lastIndexOf('다. ', end),
+            clean.lastIndexOf('요. ', end)
+          );
+          const spIdx = clean.lastIndexOf(' ', end);
+          if (nlIdx > cursor + 180) end = nlIdx + 1;
+          else if (dotIdx > cursor + 200) end = dotIdx + 2;
+          else if (spIdx > cursor + 220) end = spIdx + 1;
+        }
+        const chunk = clean.slice(cursor, end).trim();
+        if (chunk) windows.push(chunk);
+        if (end >= len) break;
+        const prevLine = clean.lastIndexOf('\n', end - 2);
+        cursor = prevLine > cursor + 250 && end - prevLine <= 70 ? prevLine + 1 : end;
+      }
+      if (windows.length <= 1) return [sliceByUtf8Bytes(clean, 1620)];
+      return windows.map((w, i) => {
+        const header = i > 0 ? `[▲ 위로 스크롤: 이전 구간 (${i + 1}/${windows.length})]\n` : '';
+        const footer =
+          i < windows.length - 1
+            ? `\n\n[▼ 계속 아래로 스크롤하거나 한 번 탭하면 다음 구간 이어짐 (${i + 1}/${windows.length})]`
+            : `\n\n[■ 전체 답변 끝 (${windows.length}/${windows.length}) — 위로 스크롤하여 이전 구간 보기]`;
+        return sliceByUtf8Bytes(header + w + footer, 1620);
+      });
+    }
 
     const hudTitleBoxEl = document.getElementById('hudTitleBox');
     const hudStatusBoxEl = document.getElementById('hudStatusBox');
@@ -1461,7 +1517,9 @@
         if (this.clockStandby && (slot === 'title' || slot === 'body')) {
           return ' ';
         }
-        return this.wanted[slot] || ' ';
+        const raw = this.wanted[slot] || ' ';
+        if (slot === 'body') return sliceByUtf8Bytes(raw, 1650);
+        return sliceByUtf8Bytes(raw, 300);
       }
 
       updateMirror() {
@@ -1469,7 +1527,7 @@
         hudStatusBoxEl.textContent = this.wanted.status || ' ';
         hudBodyBoxEl.textContent = this.clockStandby
           ? '[대기 모드 — 안경 오른쪽 위에 시계와 배터리 잔량만 표시됩니다]\n▶ 탭 / 길게 누르기 / "하이 제미나이" 호출 시 대화 시작'
-          : (this.wanted.body || ' ');
+          : (window.__EDITH_FULL_BODY__ || this.wanted.body || ' ');
         g2HudMirrorEl.dataset.dim = this.dim ? 'true' : 'false';
         g2HudMirrorEl.dataset.standby = this.clockStandby ? 'true' : 'false';
       }
@@ -1477,7 +1535,26 @@
       set(update) {
         for (const slot of ['title', 'status', 'body']) {
           if (update[slot] !== undefined) {
-            this.wanted[slot] = update[slot] || ' ';
+            if (slot === 'body') {
+              const incoming = String(update.body || ' ');
+              window.__EDITH_FULL_BODY__ = incoming;
+              const isCleanText = !incoming.startsWith('[▲ 위로 스크롤:') && !incoming.includes('[▼ 계속 아래로 스크롤');
+              if (isCleanText) {
+                window.__EDITH_SCROLL_WINDOWS__ = buildScrollWindows(incoming);
+                if (typeof window.__EDITH_SCROLL_INDEX__ !== 'number' || window.__EDITH_SCROLL_INDEX__ >= window.__EDITH_SCROLL_WINDOWS__.length) {
+                  window.__EDITH_SCROLL_INDEX__ = 0;
+                }
+                // While streaming, follow latest window if user hasn't scrolled manually
+                if (state?.mode === 'answering') {
+                  window.__EDITH_SCROLL_INDEX__ = Math.max(0, window.__EDITH_SCROLL_WINDOWS__.length - 1);
+                }
+                this.wanted.body = window.__EDITH_SCROLL_WINDOWS__[window.__EDITH_SCROLL_INDEX__] || incoming;
+              } else {
+                this.wanted.body = incoming;
+              }
+            } else {
+              this.wanted[slot] = update[slot] || ' ';
+            }
           }
         }
         this.updateMirror();
@@ -1512,11 +1589,11 @@
               ? DIM_BRIGHTNESS[slot]
               : box.brightness;
           const isStandbyStatus = this.clockStandby && slot === 'status';
-          const contentText = snapshot ? snapshot[slot] : this.slotText(slot).slice(0, 320);
+          const contentText = snapshot ? snapshot[slot] : sliceByUtf8Bytes(this.slotText(slot), 850);
           return new TextContainerProperty({
             xPosition: isStandbyStatus ? 336 : box.x,
             yPosition: box.y,
-            width: isStandbyStatus ? 232 : box.width,
+            width: isStandbyStatus ? 220 : box.width,
             height: box.height,
             borderWidth: this.clockStandby ? 0 : box.border,
             borderColor: 6,
@@ -1544,9 +1621,9 @@
           if (this.startupSpent) return this.rebuildNow();
           this.startupSpent = true;
           const snapshot = {
-            title: this.slotText('title').slice(0, 320),
-            status: this.slotText('status').slice(0, 320),
-            body: this.slotText('body').slice(0, 320)
+            title: sliceByUtf8Bytes(this.slotText('title'), 300),
+            status: sliceByUtf8Bytes(this.slotText('status'), 300),
+            body: sliceByUtf8Bytes(this.slotText('body'), 850)
           };
           const result = await this.bridge.createStartUpPageContainer(
             new CreateStartUpPageContainer({
@@ -1558,7 +1635,7 @@
           if (result !== StartUpPageCreateResult.success) {
             return this.rebuildNow();
           }
-          this.markPageBuilt(snapshot);
+          this.markPageBuilt();
           return true;
         });
       }
@@ -1571,9 +1648,9 @@
       async rebuildNow() {
         if (!this.bridge) return false;
         const snapshot = {
-          title: this.slotText('title').slice(0, 320),
-          status: this.slotText('status').slice(0, 320),
-          body: this.slotText('body').slice(0, 320)
+          title: sliceByUtf8Bytes(this.slotText('title'), 300),
+          status: sliceByUtf8Bytes(this.slotText('status'), 300),
+          body: sliceByUtf8Bytes(this.slotText('body'), 850)
         };
         const ok = await this.bridge.rebuildPageContainer(
           new RebuildPageContainer({
@@ -1582,7 +1659,7 @@
             menuObject: this.menuObject()
           })
         );
-        if (ok) this.markPageBuilt(snapshot);
+        if (ok) this.markPageBuilt();
         return Boolean(ok);
       }
 
@@ -1590,6 +1667,7 @@
         for (const slot of ['title', 'status', 'body']) {
           this.shown[slot] = '';
         }
+        this.flushQueued = false;
         this.scheduleFlush();
       }
 
@@ -1597,11 +1675,11 @@
         if (this.flushQueued || !this.startupSpent || !this.bridge) return;
         this.flushQueued = true;
         void this.enqueue(async () => {
-          await new Promise((r) => setTimeout(r, 60));
+          await new Promise((r) => setTimeout(r, 45));
           this.flushQueued = false;
           for (const slot of ['title', 'status', 'body']) {
             const raw = this.slotText(slot);
-            const text = raw.slice(0, 2000);
+            const text = slot === 'body' ? sliceByUtf8Bytes(raw, 1650) : sliceByUtf8Bytes(raw, 300);
             if (text === this.shown[slot]) continue;
             const box = BOXES[slot];
             const ok = await this.bridge.textContainerUpgrade(
