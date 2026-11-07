@@ -1,8 +1,8 @@
-// __EDITH_OTA__ Live Over-The-Air Patch v3.1.0 — High Reasoning + Precision Glasses STT + Long-Press Only (Zero False Tap)
+// __EDITH_OTA__ Live Over-The-Air Patch v3.2.2 — Seamless Infinite Scroll Windows + Left/Right Optical Margin + Antigravity Live Wakeup
 (function () {
   if (window.__EDITH_OTA_V31_APPLIED__) return;
   window.__EDITH_OTA_V31_APPLIED__ = true;
-  console.log('[EDITH OTA] v3.1.0 High Reasoning + Precision Glasses STT + Long-Press Only Activated');
+  console.log('[EDITH OTA] v3.2.2 Seamless Infinite Scroll Windows + Optical Margin + Live Antigravity Wakeup Activated');
 
   const agy = window.__EDITH_AGY__;
   const origFetch = window.fetch.bind(window);
@@ -1022,15 +1022,26 @@
 
         // A) Streaming Chat Answer -> Force High-Performance High Reasoning Model & Anti-Hallucination Prompt!
         if (bodyObj.stream && Array.isArray(bodyObj.messages)) {
-          // Upgrade any fast/flash fallback model to flagship High Reasoning model
-          if (
-            !bodyObj.model ||
-            bodyObj.model.includes('flash') ||
-            bodyObj.model.includes('omni')
-          ) {
-            bodyObj.model = 'google/gemini-4-argon';
+          // Rotate high-reasoning models if v2.0.0 fallback loop retries within 8 seconds
+          const nowStream = Date.now();
+          if (nowStream - (window.__EDITH_LAST_STREAM_TS__ || 0) < 8000) {
+            window.__EDITH_STREAM_TRY_IDX__ = ((window.__EDITH_STREAM_TRY_IDX__ || 0) + 1) % 4;
+          } else {
+            window.__EDITH_STREAM_TRY_IDX__ = 0;
           }
-          bodyObj.reasoning = { effort: 'high', exclude: true };
+          window.__EDITH_LAST_STREAM_TS__ = nowStream;
+          const streamModels = [
+            'google/gemini-4-argon',
+            'google/gemini-3.1-pro-preview',
+            'google/gemini-2.5-pro',
+            'google/gemini-2.5-flash'
+          ];
+          bodyObj.model = streamModels[window.__EDITH_STREAM_TRY_IDX__] || 'google/gemini-4-argon';
+          if (bodyObj.model.includes('flash')) {
+            delete bodyObj.reasoning;
+          } else {
+            bodyObj.reasoning = { effort: 'high', exclude: true };
+          }
           bodyObj.temperature = 0.2;
           bodyObj.max_tokens = 8192;
 
@@ -1068,9 +1079,12 @@
             void sendRemotePcNote(userQ);
           } else if (
             !/(작업하고\s*있어\?|실행하고\s*있어\?|기억나\?|뭐야\?)$/.test(userQ) &&
-            ((/(안티그래비티|컴퓨터|PC|피씨|워크스페이스|작업\s*노트|바탕화면|화면|기능|메뉴|버튼|코드|패치|답변|길이|글자\s*수|짧게|길게|이전\s*대화|취소|스크롤|페이지)/.test(userQ) &&
-              /(작업|실행|세팅|수정|패치|만들어|고쳐|추가|바꿔|작성|정리|분석|크롤링|동기화|푸시|빌드|배포|저장|기록|메모|시켜|없애|해제|지워|늘려|줄여|보여\s*줘|해\s*줘|해\s*놔|해\s*둬|해\s*줄래|할\s*수\s*있|방법\s*없을까|내려|올려|옮겨)/.test(userQ)) ||
-              /^(안티그래비티|에디스)?[야아,\s]*(작업\s*지시|원격\s*작업|PC\s*작업|안티그래비티\s*작업|이거\s*작업해|이거\s*세팅해|이거\s*고쳐|이거\s*수정해|그\s*짧게\s*하는\s*거)/i.test(userQ))
+            (
+              /(잘리|잘려|안\s*내려|안\s*올라|안\s*돼|안\s*되|오류|에러|버그|고장|이상해|검은색|깜빡|멈춰)/.test(userQ) ||
+              (/(안티그래비티|컴퓨터|PC|피씨|워크스페이스|작업\s*노트|바탕화면|화면|기능|메뉴|버튼|코드|패치|답변|길이|글자|글씨|짧게|길게|이전\s*대화|취소|스크롤|페이지|시계|번역|음성|녹음|대화창|새\s*대화)/.test(userQ) &&
+                /(작업|실행|세팅|수정|패치|만들어|고쳐|추가|바꿔|개선|검토|테스트|작성|정리|분석|크롤링|동기화|푸시|빌드|배포|저장|기록|메모|시켜|없애|해제|지워|늘려|줄여|보여\s*줘|해\s*줘|해\s*놔|해\s*둬|해\s*줄래|할\s*수\s*있|방법\s*없을까|내려|올려|옮겨|지시|전달)/.test(userQ)) ||
+              /^(안티그래비티|에디스)?[야아,\s]*(작업\s*지시|원격\s*작업|PC\s*작업|안티그래비티\s*작업|이거\s*작업해|이거\s*세팅해|이거\s*고쳐|이거\s*수정해|그\s*짧게\s*하는\s*거)/i.test(userQ)
+            )
           ) {
             void sendRemotePcNote(userQ);
           }
