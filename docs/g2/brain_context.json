@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026. 11. 7. PM 9:04:22",
+  "updatedAt": "2026. 11. 7. PM 9:04:37",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 7. PM 9:04:22\n1. PC 안티그래비티 실시간 작업: 최근 6단계 GitHub 동기화됨\n2. 시엔위 & 8개국 크롤링 / 지파츠 40선: 24시간 가동 중\n3. 누적 안경 대화록: 8건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 7. PM 9:04:37\n1. PC 안티그래비티 실시간 작업: 최근 5단계 GitHub 동기화됨\n2. 시엔위 & 8개국 크롤링 / 지파츠 40선: 24시간 가동 중\n3. 누적 안경 대화록: 8건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -216,6 +216,11 @@
   "livePcAntigravitySession": [
     {
       "role": "안티그래비티(PC 작업 결과)",
+      "createdAt": "2026-11-07T12:03:03Z",
+      "summary": "네, 계속 진행 중입니다. 현재 철권 태그(`Tekken Tag Tournament`)를 실제 구동하여 스타트/캐릭터 선택 후 인게임 3D 대전 진입 시점의 내부 JIT(DRC) 활성화 상태, 프레임스킵, 실제 FPS 수치를 실시간으로 측정하고 있습니다(약 25초 소요). 측정이 끝나는 대로 결과를 확인하고 PSP(철권 6)까지 바로 검증하겠습니다."
+    },
+    {
+      "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-07T11:59:35Z",
       "summary": "요청하신 3가지 사항을 모두 반영하여 **EDITH × Antigravity v1.0.5**([public/index.html](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/index.html), [server.mjs](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/server.mjs), [app.json](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/app.json))로 업데이트하고, **Even 앱 Beta 스토어(`v1.0.5`)** 및 **GitHub 실시간 서버**에 즉시 배포했습니다.\n\n---\n\n### 1. 제미나이 최신·최상위(Gemini Latest Highest) 모델 기본 적용 & 자동 전환\n- **최상위 최신 제미나이 모델 기본 탑재**:\n  1. "
     },
@@ -223,16 +228,6 @@
       "role": "대표님(PC 안티그래비티 요청)",
       "createdAt": "2026-11-07T12:01:31Z",
       "summary": "업데이트버튼왜안뜨지"
-    },
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-07T11:58:33Z",
-      "summary": "하고있는거맞아 ?"
-    },
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-07T12:03:03Z",
-      "summary": "네, 계속 진행 중입니다. 현재 철권 태그(`Tekken Tag Tournament`)를 실제 구동하여 스타트/캐릭터 선택 후 인게임 3D 대전 진입 시점의 내부 JIT(DRC) 활성화 상태, 프레임스킵, 실제 FPS 수치를 실시간으로 측정하고 있습니다(약 25초 소요). 측정이 끝나는 대로 결과를 확인하고 PSP(철권 6)까지 바로 검증하겠습니다."
     },
     {
       "role": "대표님(PC 안티그래비티 요청)",
