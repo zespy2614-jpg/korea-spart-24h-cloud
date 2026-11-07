@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. AM 12:31:49",
+  "updatedAt": "2026. 11. 8. AM 12:32:04",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -98,7 +98,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. AM 12:31:49\n1. 영구 장기기억 금고: 11건 (고정: 오케이 경영학 내가 배워야 할 것 좀 길게 얘기해 줘 봐 잘 되는지 한번 확인해 보게)\n2. PC 안티그래비티 실시간 작업: 최근 5단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 42건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. AM 12:32:04\n1. 영구 장기기억 금고: 11건 (고정: 오케이 경영학 내가 배워야 할 것 좀 길게 얘기해 줘 봐 잘 되는지 한번 확인해 보게)\n2. PC 안티그래비티 실시간 작업: 최근 5단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 42건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -513,16 +513,16 @@
   ],
   "livePcAntigravity": [
     {
+      "updatedAt": "2026-11-07T15:31:06Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 야그럼 너가 내대화를 기반으로봤을때 나한테 유용한스킬들 다운받아줘 그 정보력이나 뭐찾거나 이런것도 있을거아니야 사업에대해서 비즈니스전문도있고 임베디드 코드짜는것도있고 안드로이드코드짜는거랑 앱이랑\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
+    },
+    {
       "updatedAt": "2026-11-07T15:23:07Z",
       "snippet": "[안티그래비티(PC 작업 결과)] 글로벌 설정 폴더(`C:\\Users\\박정수\\.gemini\\config\\skills\\`)와 현재 워크스페이스([`e:\\안티그래비티\\.agents\\skills\\`](file:///e:/안티그래비티/.agents/skills))에 **전 세계 AI 코딩 에이전트 분야에서 가장 검증된 최상위 엔지니어링·디버깅·검증 스킬 13종**을 즉시 다운로드하여 설치하고, **회귀 오류(하나를 고치면 다른 하나가 깨지는 문제) 원천 차단 전역 규칙**까지 적용 완료했습니다.\n\n---\n\n### 1. 다운로드 및 즉시 적용 완료된 코딩·디버깅 핵심 스킬 (13종)\n\n#### ① 무결점 디버깅 & 회귀 오류 차단 (`obra/superpowers` + 커스텀)\n- **[`zero-regression-engineering`](file:///C:/Users/%EB%B0%"
     },
     {
       "updatedAt": "2026-11-07T15:25:16Z",
       "snippet": "[대표님(PC 안티그래비티 요청)] 오케이 이거써서 안경앱검토해줘"
-    },
-    {
-      "updatedAt": "2026-11-07T15:31:06Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 야그럼 너가 내대화를 기반으로봤을때 나한테 유용한스킬들 다운받아줘 그 정보력이나 뭐찾거나 이런것도 있을거아니야 사업에대해서 비즈니스전문도있고 임베디드 코드짜는것도있고 안드로이드코드짜는거랑 앱이랑\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
     },
     {
       "updatedAt": "2026-11-07T15:25:22Z",
@@ -587,6 +587,11 @@
   ],
   "livePcAntigravitySession": [
     {
+      "role": "대표님(PC 안티그래비티 요청)",
+      "createdAt": "2026-11-07T15:31:06Z",
+      "summary": "야그럼 너가 내대화를 기반으로봤을때 나한테 유용한스킬들 다운받아줘 그 정보력이나 뭐찾거나 이런것도 있을거아니야 사업에대해서 비즈니스전문도있고 임베디드 코드짜는것도있고 안드로이드코드짜는거랑 앱이랑\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
+    },
+    {
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-07T15:23:07Z",
       "summary": "글로벌 설정 폴더(`C:\\Users\\박정수\\.gemini\\config\\skills\\`)와 현재 워크스페이스([`e:\\안티그래비티\\.agents\\skills\\`](file:///e:/안티그래비티/.agents/skills))에 **전 세계 AI 코딩 에이전트 분야에서 가장 검증된 최상위 엔지니어링·디버깅·검증 스킬 13종**을 즉시 다운로드하여 설치하고, **회귀 오류(하나를 고치면 다른 하나가 깨지는 문제) 원천 차단 전역 규칙**까지 적용 완료했습니다.\n\n---\n\n### 1. 다운로드 및 즉시 적용 완료된 코딩·디버깅 핵심 스킬 (13종)\n\n#### ① 무결점 디버깅 & 회귀 오류 차단 (`obra/superpowers` + 커스텀)\n- **[`zero-regression-engineering`](file:///C:/Users/%EB%B0%"
@@ -595,11 +600,6 @@
       "role": "대표님(PC 안티그래비티 요청)",
       "createdAt": "2026-11-07T15:25:16Z",
       "summary": "오케이 이거써서 안경앱검토해줘"
-    },
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-07T15:31:06Z",
-      "summary": "야그럼 너가 내대화를 기반으로봤을때 나한테 유용한스킬들 다운받아줘 그 정보력이나 뭐찾거나 이런것도 있을거아니야 사업에대해서 비즈니스전문도있고 임베디드 코드짜는것도있고 안드로이드코드짜는거랑 앱이랑\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
     },
     {
       "role": "안티그래비티(PC 작업 결과)",
