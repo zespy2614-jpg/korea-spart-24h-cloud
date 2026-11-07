@@ -78,12 +78,21 @@
   async function sendRemotePcNote(noteText) {
     const clean = String(noteText || '').trim();
     if (!clean) return;
+    const payload = {
+      action: 'auto_task',
+      command: clean,
+      text: clean,
+      rawQuestion: clean,
+      autoInjectIde: /(안티그래비티|작업|실행|세팅|수정|패치|만들어|고쳐|추가|바꿔|시켜)/.test(clean),
+      category: '안경원격지시',
+      timestamp: new Date().toLocaleString('ko-KR')
+    };
     for (const base of ['http://192.168.123.150:3860', 'http://192.168.123.104:3860']) {
       try {
         await origFetch(`${base}/api/pc-action`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ command: clean, text: clean, category: '안경원격지시' }),
+          body: JSON.stringify(payload),
           signal: AbortSignal.timeout(2000)
         });
         break;
@@ -93,7 +102,7 @@
       await origFetch(CLOUD_SYNC_URL, {
         method: 'POST',
         headers: { Title: 'AGY_G2_PC_COMMAND', Priority: 'high' },
-        body: JSON.stringify({ type: 'AGY_G2_PC_COMMAND', command: clean, text: clean, timestamp: new Date().toLocaleString('ko-KR') })
+        body: JSON.stringify({ type: 'AGY_G2_PC_COMMAND', ...payload })
       });
     } catch {}
   }
@@ -532,16 +541,20 @@
               void syncMemoryAction({ action: 'add', category: cat, text: userQ, fact: userQ, pinned: true });
             }
           }
-          if (/(PC에\s*메모|컴퓨터에\s*메모|작업\s*지시|안티그래비티에\s*전달|패치해|수정해|바꿔\s*줘)/.test(userQ)) {
+          if (
+            (/(안티그래비티|컴퓨터|PC|피씨|워크스페이스|작업\s*노트|바탕화면)/.test(userQ) &&
+              /(작업|실행|세팅|수정|패치|만들어|고쳐|추가|바꿔|작성|정리|분석|크롤링|동기화|푸시|빌드|배포|저장|기록|메모|시켜|해\s*줘|해\s*놔|해\s*둬|해\s*줄래|할\s*수\s*있|방법\s*없을까)/.test(userQ)) ||
+            /^(안티그래비티|에디스)?[야아,\s]*(작업\s*지시|원격\s*작업|PC\s*작업|안티그래비티\s*작업|이거\s*작업해|이거\s*세팅해|이거\s*고쳐|이거\s*수정해)/i.test(userQ)
+          ) {
             void sendRemotePcNote(userQ);
           }
 
           if (sysMsg) {
             const antiLieRules =
-              `[최우선 절대 수칙 — 거짓말·할루시네이션 엄격 금지]\n` +
+              `[최우선 절대 수칙 — 거짓말·할루시네이션 엄격 금지 & PC 자동 실행 브릿지 안내]\n` +
               `1. 빠른 답변을 위해 사실을 지어내거나 추측하지 마세요. 고성능 High 추론 모델로서 제공된 기억 금고와 두뇌 컨텍스트를 깊이 검증하여 100% 사실만 답하세요.\n` +
-              `2. 안경 AI인 당신은 직접 PC의 소스 코드 파일을 수정·컴파일·재배포할 권한이 없습니다. 따라서 대표님이 기능 변경이나 패치를 요청하실 때 "제가 지금 바로 코드를 수정했습니다", "10초 뒤 앱을 껐다 켜면 적용됩니다" 같은 거짓말을 절대 하지 마세요.\n` +
-              `3. 코드 수정 요청을 받으면 "대표님, 요청하신 사항을 PC 작업노트(G2_안경_음성지시_작업노트.md)에 기록해 두었습니다. 실제 코드 반영은 PC 안티그래비티 창에서 실행해 주세요"라고 정직하게만 답하세요.\n\n`;
+              `2. 현재 대표님의 PC에는 '안경 -> PC 안티그래비티 실시간 자동 작업 실행 브릿지(server.mjs 자율 실행 데몬 + auto_inject_antigravity.ps1 자동 입력기 + G2_안경_음성지시_작업노트.md)'가 세팅되어 24시간 가동 중입니다.\n` +
+              `3. 대표님이 안경에서 작업·세팅·수정·메모를 지시하시면, PC가 켜져 있을 때 PC 작업노트(G2_안경_음성지시_작업노트.md)와 작업큐(G2_안경_실시간_작업큐.json)에 즉시 기록되고 PC 자율 실행 데몬 및 안티그래비티 IDE 창에 자동으로 작업이 전달·실행됩니다. 아직 완료되지 않은 작업을 이미 끝났다고 허위로 꾸며내지 마시고, "대표님, 지시하신 내용을 PC 작업노트와 안티그래비티 자동 실행 브릿지로 즉시 전송하여 PC에서 바로 작업을 실행하도록 트리거했습니다"라고 사실대로 명확히 답변하세요.\n\n`;
 
             if (!sysMsg.content.includes('거짓말·할루시네이션 엄격 금지')) {
               sysMsg.content = antiLieRules + sysMsg.content;
