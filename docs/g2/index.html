@@ -890,13 +890,13 @@
         <li><b>두 번 탭</b>해서 시계 대기 모드 전환 또는 종료</li>
       </ul>
 
-      <!-- Quick Action & Mode Chips -->
+      <!-- Quick Action & Mode Chips (자막 제거 · 기억/스카우터/번역 특화) -->
       <div class="modes">
         <button type="button" class="chip" id="clockModeChip">시계 대기 모드</button>
-        <button type="button" class="chip" id="subtitlesChip">실시간 자막</button>
-        <button type="button" class="chip" id="translateChip">상대방 말 번역</button>
+        <button type="button" class="chip" id="translateChip">상대 번역</button>
+        <button type="button" class="chip" data-ask="내 영구 기억 금고에 저장된 내 차량, 주차 위치, 할 일, 핵심 메모들을 요약해서 브리핑해 줘.">기억 금고 브리핑</button>
+        <button type="button" class="chip" data-ask="지파츠 40선 실시간 재고와 8개국 크롤링 데이터 중 핵심 품번과 마진 현황을 3줄로 요약해 줘.">지파츠/소싱 스카우터</button>
         <button type="button" class="chip" data-ask="오늘의 브리핑 해 줘. 내 안티그래비티 프로젝트와 최근 작업 현황을 요약해 줘.">오늘의 브리핑</button>
-        <button type="button" class="chip" data-ask="시엔위 비즈니스 연구소와 8개국 크롤링 데이터 핵심 아이템 현황을 요약해 줘.">크롤링 핵심 요약</button>
       </div>
     </section>
 
@@ -906,8 +906,31 @@
         <span id="syncDot" class="sync-dot"></span>
         <span id="syncStatusText" class="sync-text"><b>PC 안티그래비티 ↔ GitHub</b> 실시간 동기화 확인 중...</span>
       </div>
-      <button id="syncNowBtn" type="button" class="button quiet sm">동기화</button>
+      <button id="syncNowBtn" type="button" class="button quiet sm">두뇌 동기화</button>
     </div>
+
+    <!-- Long-Term Memory Vault & PC Remote Note Drawer -->
+    <details id="memoryDrawer" class="chats" open>
+      <summary>
+        <span class="chats-label">기억 금고</span>
+        <span id="pinnedMemorySummary" class="chats-current">고정: 대표님의 차량은 파란색 자동차입니다.</span>
+      </summary>
+      <div class="chats-panel">
+        <form id="addMemoryForm" class="memory-form" autocomplete="off">
+          <select id="addMemoryCategory" aria-label="기억 분류">
+            <option value="차량/주차">차량/주차</option>
+            <option value="할일/일정">할일/일정</option>
+            <option value="품번/소싱">품번/소싱</option>
+            <option value="핵심메모">핵심메모</option>
+          </select>
+          <input id="addMemoryInput" type="text" placeholder="영구 기억할 내용 또는 PC에 보낼 메모 입력" />
+          <button type="submit" class="button sm">기억 저장</button>
+          <button type="button" id="sendPcNoteBtn" class="button quiet sm" title="집 PC 바탕화면 및 작업노트에 즉시 파일로 기록">PC로 메모 전송</button>
+        </form>
+        <div id="memoryVaultList" class="memory-list"></div>
+        <p class="help">대화 중 "기억해 둬", "내 차는 ~야", "주차 ~에 했어", "내일 ~해야 해"라고 말하면 자동으로 이곳과 GitHub에 영구 저장되며, 새 채팅을 눌러도 절대 지워지지 않습니다.</p>
+      </div>
+    </details>
 
     <!-- Saved Chats / Quick Prompts -->
     <details id="chatsDrawer" class="chats">
