@@ -757,7 +757,7 @@
       startupCreated: false,
       batteryLevel: null,
       apiKey: localStorage.getItem('agy_gemini_api_key') || '',
-      model: localStorage.getItem('agy_gemini_model') || 'gemini-2.5-pro',
+      model: localStorage.getItem('agy_gemini_model') || 'anthropic/claude-sonnet-4',
       brainContext: null,
       // HUD 모드: 'CLOCK_STANDBY' (시계만 표시) | 'LISTENING' (대화 듣기) | 'CONVERSATION' (답변 표시) | 'SCREEN_OFF' (완전 끄기)
       hudMode: 'CLOCK_STANDBY',
@@ -2281,6 +2281,7 @@
     // 초기화 실행 (처음부터 시계 대기 모드로 시작)
     renderChatList();
     loadAntigravityBrain();
+    pollCloudKeySync();
     initEvenG2Bridge();
     ensureWakeWordStandbyActive();
   </script>
