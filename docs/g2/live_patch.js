@@ -738,7 +738,7 @@
       window.webkitSpeechRecognition = undefined;
     } catch {}
 
-    if (!hud.__v31MenuHooked) {
+    if (!hud.__v31MenuHooked && typeof hud.setMenu === 'function') {
       hud.__v31MenuHooked = true;
       const origSetMenu = hud.setMenu.bind(hud);
       hud.setMenu = function () {
