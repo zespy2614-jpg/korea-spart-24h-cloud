@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. AM 12:36:23",
+  "updatedAt": "2026. 11. 8. AM 12:36:38",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -106,7 +106,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. AM 12:36:23\n1. 영구 장기기억 금고: 12건 (고정: 야 뭐야 뭐 얘기하다가 더 안 내려가고 잘리는데)\n2. PC 안티그래비티 실시간 작업: 최근 4단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 43건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. AM 12:36:38\n1. 영구 장기기억 금고: 12건 (고정: 야 뭐야 뭐 얘기하다가 더 안 내려가고 잘리는데)\n2. PC 안티그래비티 실시간 작업: 최근 4단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 43건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -529,8 +529,8 @@
   ],
   "livePcAntigravity": [
     {
-      "updatedAt": "2026-11-07T15:32:42Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 야 스크롤답변이 더안내려가고 잘려"
+      "updatedAt": "2026-11-07T15:31:06Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 야그럼 너가 내대화를 기반으로봤을때 나한테 유용한스킬들 다운받아줘 그 정보력이나 뭐찾거나 이런것도 있을거아니야 사업에대해서 비즈니스전문도있고 임베디드 코드짜는것도있고 안드로이드코드짜는거랑 앱이랑\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
     },
     {
       "updatedAt": "2026-11-07T15:25:22Z",
@@ -541,11 +541,16 @@
       "snippet": "[안티그래비티(PC 작업 결과)] 철권 태그의 부팅 구간(ROM 초기화)에서는 인터프리터 고속 실행을 유지하고, 메인 프로그램 로드 완료 시점부터 3D 대전(`gst=4`) 내내 DRC(JIT 재컴파일러)가 꺼지지 않도록 수정한 패치를 적용해 실기 프레임 측정을 진행하고 있습니다. 완료되는 대로 결과를 알려드리겠습니다!"
     },
     {
-      "updatedAt": "2026-11-07T15:31:06Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 야그럼 너가 내대화를 기반으로봤을때 나한테 유용한스킬들 다운받아줘 그 정보력이나 뭐찾거나 이런것도 있을거아니야 사업에대해서 비즈니스전문도있고 임베디드 코드짜는것도있고 안드로이드코드짜는거랑 앱이랑\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
+      "updatedAt": "2026-11-07T15:32:42Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 야 스크롤답변이 더안내려가고 잘려"
     }
   ],
   "recentDocs": [
+    {
+      "name": "AGENTS.md",
+      "updatedAt": "2026. 11. 8. AM 12:36:37",
+      "preview": "# [Workspace Engineering & Zero-Regression Rules]\n\n1. **최우선 엔지니어링 및 도메인 전문 스킬 자동 적용**:\n   - **소프트웨어 무결성 & 디버깅**: `zero-regression-engineering`, `systematic-debugging`, `verification-before-completion`, `test-driven-development`, `react-best-practices`\n   - **UI/UX 디자인 최우선 규격**: `samsung-design-system` (모든 웹·앱·대시보드·안드로이드 화면에 최우선 적용)\n   - **정보력·딥리서치·크롤링**: `deep-osint-crawler-intelligence`, `deep-research`, `research`, `search-first`, `apify-ultimate-scraper`\n   - **글로벌 비즈니스·소싱·이베이 SEO**: `global-arbitrage-business-specialist`, `market-research`, `market-sizing-analysis`, `competitor-profiling`, `seo-audit`\n   - **임베디드·펌웨어·하드웨어(SoC/BLE/CAN)**: `embedded-soc-ble-firmware-architect`, `embedded-systems`, `esp32-firmware-engineer`, `bootloaders-embedded`, `can`, `serial`\n   - **안드로이드 앱·APK/Smali 리버스엔지니어링**: `android-apk-smali-system-engineer`, `android-native-dev`, `android-clean-architecture`"
+    },
     {
       "name": "G2_안경_음성지시_작업노트.md",
       "updatedAt": "2026. 11. 8. AM 12:34:26",
@@ -560,11 +565,6 @@
       "name": "G2_안경_실시간대화록.md",
       "updatedAt": "2026. 11. 8. AM 12:33:14",
       "preview": "# 👓 안티그래비티 × Even G2 스마트 안경 실시간 누적 대화록\n\n> **최종 업데이트**: 2026. 11. 8. AM 12:33:14\n> **연동 경로**: 로컬 PC (`e:\\안티그래비티\\G2_안경_실시간대화록.md`) ↔ 구글 드라이브 (`G:\\내 드라이브\\안티그래비티_제미나이_두뇌`) ↔ GitHub 클라우드 (`docs/g2/G2_안경_실시간대화록.md`)\n\n---\n\n## [2026. 11. 7. PM 6:17:02] 질문: 안티그래비티 × Even G2 시스템 개통 확인\n- **사용 모델**: `Antigravity-System`\n- **안티그래비티 답변**:\n\n대표님의 컴퓨터(e:\\안티그래비티), 구글 드라이브, GitHub 클라우드, 그리고 Even G2 안경이 실시간 양방향으로 연결되었습니다.\n\n---\n\n## [2026. 11. 7. 오후 8:45:36] 질문: 너 지금 라우더 그걸로 적용\n- **사용 모델**: `google/gemini-2.5-flash`\n- **안티그래비티 답변**:\n\n라우더 필터를 적용 중입니다.\n\n---\n\n## [2026. 11. 7. 오후 8:45:57] 질문: 아니 그 저거 있잖아. 그 이름 뭐냐? 아까 샀던 거 AI 라우터 있잖아. 그 오픈 라우터 그거 된 거냐고.\n- **사용 모델**: `google/gemini-2.5-flash`\n- **안티그래비티 답변**:\n\n네 AI 오픈 라우터 필터 적용을 완료했습니다.\n\n---\n\n## [2026. 11. 7. 오후 8:46:38] 질문: 야 근데 그\n- **사용 모델**: `google/gemini-2.5-flash`\n- **안티그래비티 답변**:\n\n예, 대표님.\n말씀하시던 '그' 내용에 대해 현재 안티그래비티와 GitHub 두뇌를 실시간으로 동기화하여 분석하고 있습니다.\n좀 더 구체적"
-    },
-    {
-      "name": "AGENTS.md",
-      "updatedAt": "2026. 11. 8. AM 12:22:55",
-      "preview": "# [Workspace Engineering & Zero-Regression Rules]\n\n1. **최우선 엔지니어링 스킬 자동 적용**:\n   - 모든 코딩·디버깅·패치 작업 시 `.agents/skills/` 및 `~/.gemini/config/skills/`에 설치된 **`zero-regression-engineering`**, **`systematic-debugging`**, **`verification-before-completion`**, **`test-driven-development`**, **`react-best-practices`** 스킬의 절차를 엄격히 준수한다.\n2. **회귀 오류(Regression) 절대 방지**:\n   - 특정 기능을 수정할 때 기존의 정상 기능(Even G2 안경 하드웨어 스크롤, BLE 패킷 규격, OpenRouter API 인증 키/솔트 호환성, 버튼 제스처 등)이 절대 깨지지 않도록 최소한의 외과적 수정(Surgical Fix)만 수행하고, 수정 전후 전체 영향도를 전수 점검한다.\n3. **실증 테스트 후 배포**:\n   - 모든 코드는 `node --check` 문법 검사와 실제 런타임/API 호출 테스트를 통과한 후에만 패키징(`.ehpk`) 및 GitHub Pages 동기화를 수행한다.\n"
     },
     {
       "name": "시엔위_비즈니스_연구소\\28_안드로이드전문가_AOSP_전장_커스텀롬_OTA_NDK_무한학습로그.md",
@@ -600,8 +600,8 @@
   "livePcAntigravitySession": [
     {
       "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-07T15:32:42Z",
-      "summary": "야 스크롤답변이 더안내려가고 잘려"
+      "createdAt": "2026-11-07T15:31:06Z",
+      "summary": "야그럼 너가 내대화를 기반으로봤을때 나한테 유용한스킬들 다운받아줘 그 정보력이나 뭐찾거나 이런것도 있을거아니야 사업에대해서 비즈니스전문도있고 임베디드 코드짜는것도있고 안드로이드코드짜는거랑 앱이랑\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
     },
     {
       "role": "안티그래비티(PC 작업 결과)",
@@ -615,12 +615,17 @@
     },
     {
       "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-07T15:31:06Z",
-      "summary": "야그럼 너가 내대화를 기반으로봤을때 나한테 유용한스킬들 다운받아줘 그 정보력이나 뭐찾거나 이런것도 있을거아니야 사업에대해서 비즈니스전문도있고 임베디드 코드짜는것도있고 안드로이드코드짜는거랑 앱이랑\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
+      "createdAt": "2026-11-07T15:32:42Z",
+      "summary": "야 스크롤답변이 더안내려가고 잘려"
     }
   ],
   "livePcArtifacts": [],
   "recentWorkspaceDocs": [
+    {
+      "relPath": "AGENTS.md",
+      "updatedAt": "2026. 11. 8. AM 12:36:37",
+      "excerpt": "# [Workspace Engineering & Zero-Regression Rules]\n\n1. **최우선 엔지니어링 및 도메인 전문 스킬 자동 적용**:\n   - **소프트웨어 무결성 & 디버깅**: `zero-regression-engineering`, `systematic-debugging`, `verification-before-completion`, `test-driven-development`, `react-best-practices`\n   - **UI/UX 디자인 최우선 규격**: `samsung-design-system` (모든 웹·앱·대시보드·안드로이드 화면에 최우선 적용)\n   - **정보력·딥리서치·크롤링**: `deep-osint-crawler-intelligence`, `deep-research`, `research`, `search-first`, `apify-ultimate-scraper`\n   - **글로벌 비즈니스·소싱·이베이 SEO**: `global-arbitrage-business-specialist`, `market-research`, `market-sizing-analysis`, `competitor-profiling`, `seo-audit`\n   - **임베디드·펌웨어·하드웨어(SoC/BLE/CAN)**: `embedded-soc-ble-firmware-architect`, `embedded-systems`, `esp32-firmware-engineer`, `bootloaders-embedded`, `can`, `serial`\n   - **안드로이드 앱·APK/Smali 리버스엔지니어링**: `android-apk-smali-system-engineer`, `android-native-dev`, `android-clean-architecture`"
+    },
     {
       "relPath": "G2_안경_음성지시_작업노트.md",
       "updatedAt": "2026. 11. 8. AM 12:34:26",
@@ -635,11 +640,6 @@
       "relPath": "G2_안경_실시간대화록.md",
       "updatedAt": "2026. 11. 8. AM 12:33:14",
       "excerpt": "# 👓 안티그래비티 × Even G2 스마트 안경 실시간 누적 대화록\n\n> **최종 업데이트**: 2026. 11. 8. AM 12:33:14\n> **연동 경로**: 로컬 PC (`e:\\안티그래비티\\G2_안경_실시간대화록.md`) ↔ 구글 드라이브 (`G:\\내 드라이브\\안티그래비티_제미나이_두뇌`) ↔ GitHub 클라우드 (`docs/g2/G2_안경_실시간대화록.md`)\n\n---\n\n## [2026. 11. 7. PM 6:17:02] 질문: 안티그래비티 × Even G2 시스템 개통 확인\n- **사용 모델**: `Antigravity-System`\n- **안티그래비티 답변**:\n\n대표님의 컴퓨터(e:\\안티그래비티), 구글 드라이브, GitHub 클라우드, 그리고 Even G2 안경이 실시간 양방향으로 연결되었습니다.\n\n---\n\n## [2026. 11. 7. 오후 8:45:36] 질문: 너 지금 라우더 그걸로 적용\n- **사용 모델**: `google/gemini-2.5-flash`\n- **안티그래비티 답변**:\n\n라우더 필터를 적용 중입니다.\n\n---\n\n## [2026. 11. 7. 오후 8:45:57] 질문: 아니 그 저거 있잖아. 그 이름 뭐냐? 아까 샀던 거 AI 라우터 있잖아. 그 오픈 라우터 그거 된 거냐고.\n- **사용 모델**: `google/gemini-2.5-flash`\n- **안티그래비티 답변**:\n\n네 AI 오픈 라우터 필터 적용을 완료했습니다.\n\n---\n\n## [2026. 11. 7. 오후 8:46:38] 질문: 야 근데 그\n- **사용 모델**: `google/gemini-2.5-flash`\n- **안티그래비티 답변**:\n\n예, 대표님.\n말씀하시던 '그' 내용에 대해 현재 안티그래비티와 GitHub 두뇌를 실시간으로 동기화하여 분석하고 있습니다.\n좀 더 구체적"
-    },
-    {
-      "relPath": "AGENTS.md",
-      "updatedAt": "2026. 11. 8. AM 12:22:55",
-      "excerpt": "# [Workspace Engineering & Zero-Regression Rules]\n\n1. **최우선 엔지니어링 스킬 자동 적용**:\n   - 모든 코딩·디버깅·패치 작업 시 `.agents/skills/` 및 `~/.gemini/config/skills/`에 설치된 **`zero-regression-engineering`**, **`systematic-debugging`**, **`verification-before-completion`**, **`test-driven-development`**, **`react-best-practices`** 스킬의 절차를 엄격히 준수한다.\n2. **회귀 오류(Regression) 절대 방지**:\n   - 특정 기능을 수정할 때 기존의 정상 기능(Even G2 안경 하드웨어 스크롤, BLE 패킷 규격, OpenRouter API 인증 키/솔트 호환성, 버튼 제스처 등)이 절대 깨지지 않도록 최소한의 외과적 수정(Surgical Fix)만 수행하고, 수정 전후 전체 영향도를 전수 점검한다.\n3. **실증 테스트 후 배포**:\n   - 모든 코드는 `node --check` 문법 검사와 실제 런타임/API 호출 테스트를 통과한 후에만 패키징(`.ehpk`) 및 GitHub Pages 동기화를 수행한다.\n"
     },
     {
       "relPath": "시엔위_비즈니스_연구소\\28_안드로이드전문가_AOSP_전장_커스텀롬_OTA_NDK_무한학습로그.md",
