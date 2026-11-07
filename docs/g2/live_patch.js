@@ -599,7 +599,17 @@
           if (ev && ev.type === 'evenHubEvent' && ev.detail) {
             const detail = ev.detail;
             const env = detail.sysEvent ?? detail.textEvent ?? detail.listEvent;
-            const evType = env && env.eventType !== undefined && env.eventType !== null ? Number(env.eventType) : null;
+            let evType = env && env.eventType !== undefined && env.eventType !== null ? Number(env.eventType) : null;
+            // Protobuf3 omits default enum 0 (OsEventTypeList.CLICK_EVENT = 0) on textEvent / listEvent / sysEvent!
+            if (evType === null && env) {
+              if (
+                detail.textEvent ||
+                detail.listEvent ||
+                (detail.sysEvent && !detail.sysEvent.imuData && detail.sysEvent.systemExitReasonCode === undefined)
+              ) {
+                evType = 0;
+              }
+            }
             const now = Date.now();
 
             // 1) SCROLL_BOTTOM_EVENT (2) -> Advance to next scroll window!
@@ -675,8 +685,11 @@
               return true;
             }
 
-            // 4) LONG_PRESS_RELEASE_EVENT (5) -> Keep hands-free recording open when lifting finger after long-press!
-            if (evType === 5) {
+            // 4) LONG_PRESS_EVENT (9) & LONG_PRESS_RELEASE_EVENT (10) -> Keep hands-free recording open when lifting finger after long-press!
+            if (evType === 9) {
+              st.holdStartedAt = now;
+            }
+            if (evType === 10) {
               st.holdReleasedAt = now;
               if (st.mode === 'listening') {
                 const heldMs = now - (st.holdStartedAt || 0);
