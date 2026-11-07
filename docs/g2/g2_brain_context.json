@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. AM 8:33:33",
+  "updatedAt": "2026. 11. 8. AM 8:34:18",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -131,7 +131,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. AM 8:33:33\n1. 영구 장기기억 금고: 15건 (고정: 그리고 이거 그 음성 전송하는 거 손가락 떼면 자동으로 전송되게 해 줘)\n2. PC 안티그래비티 실시간 작업: 최근 10단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 46건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. AM 8:34:18\n1. 영구 장기기억 금고: 15건 (고정: 그리고 이거 그 음성 전송하는 거 손가락 떼면 자동으로 전송되게 해 줘)\n2. PC 안티그래비티 실시간 작업: 최근 10단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 46건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -562,8 +562,8 @@
   ],
   "livePcAntigravity": [
     {
-      "updatedAt": "2026-11-07T16:12:53Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] 새로 설치한 엔지니어링 스킬들(**`proactive-hardware-simulator`**, **`systematic-debugging`**, **`zero-regression-engineering`**, **`verification-before-completion`**)을 기반으로 **Even G2 하드웨어 디지털 트윈 & 카오스 시뮬레이터([`verify_g2_digital_twin.mjs`](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/verify_g2_digital_twin.mjs))**를 구축해 전체 기능을 전수 테스트하고, 숨어 있던 하드웨어/펌웨어 경계면 버그까지 모두 잡아 **`v3.2.2` 배포(EvenHub Beta + GitHub Pages OTA)** 및 **안경 전용 실시간 관제창·자동 깨움(Re"
+      "updatedAt": "2026-11-07T23:33:38Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] 방금 안경에서 말씀하신 **\"야 이거 안경 화면 뭐 가운데 짝대기가 있는데 뭐야? 없애 볼까?\"** 음성 지시가 안티그래비티 실시간 자동 깨움(Reactive Wakeup) 워처를 통해 즉시 감지되었습니다.\n\n원인은 상단 `title`/`status` 컨테이너와 본문 `body` 컨테이너의 박스 테두리 옵션(`borderWidth: 1`) 및 상태줄 막대 기호(`■■■■`, `|`)가 안경 화면 중앙 가로·세로 경계에 선(\"짝대기\") 형태로 그려지던 현상이었습니다.\n\n즉시 [`live_patch.js`](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/live_patch.js)와 [`index.html`](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/index.html)에서 모든"
     },
     {
       "updatedAt": "2026-11-07T21:01:12Z",
@@ -657,8 +657,8 @@
   "livePcAntigravitySession": [
     {
       "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-07T16:12:53Z",
-      "summary": "새로 설치한 엔지니어링 스킬들(**`proactive-hardware-simulator`**, **`systematic-debugging`**, **`zero-regression-engineering`**, **`verification-before-completion`**)을 기반으로 **Even G2 하드웨어 디지털 트윈 & 카오스 시뮬레이터([`verify_g2_digital_twin.mjs`](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/verify_g2_digital_twin.mjs))**를 구축해 전체 기능을 전수 테스트하고, 숨어 있던 하드웨어/펌웨어 경계면 버그까지 모두 잡아 **`v3.2.2` 배포(EvenHub Beta + GitHub Pages OTA)** 및 **안경 전용 실시간 관제창·자동 깨움(Re"
+      "createdAt": "2026-11-07T23:33:38Z",
+      "summary": "방금 안경에서 말씀하신 **\"야 이거 안경 화면 뭐 가운데 짝대기가 있는데 뭐야? 없애 볼까?\"** 음성 지시가 안티그래비티 실시간 자동 깨움(Reactive Wakeup) 워처를 통해 즉시 감지되었습니다.\n\n원인은 상단 `title`/`status` 컨테이너와 본문 `body` 컨테이너의 박스 테두리 옵션(`borderWidth: 1`) 및 상태줄 막대 기호(`■■■■`, `|`)가 안경 화면 중앙 가로·세로 경계에 선(\"짝대기\") 형태로 그려지던 현상이었습니다.\n\n즉시 [`live_patch.js`](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/live_patch.js)와 [`index.html`](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/index.html)에서 모든"
     },
     {
       "role": "안티그래비티(PC 작업 결과)",
