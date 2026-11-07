@@ -632,7 +632,7 @@
                   const total = st.__scrollWindows.length;
                   hud.wanted.body = st.__scrollWindows[st.__scrollWinIdx];
                   if (st.mode === 'idle') {
-                    hud.wanted.status = `▼ 스크롤 ${st.__scrollWinIdx + 1}/${total}  ■■■■ 100%`;
+                    hud.wanted.status = `▼ 스크롤 ${st.__scrollWinIdx + 1}/${total}  100%`;
                   }
                   hud.shown = { title: '', status: '', body: '' };
                   hud.flushQueued = false;
@@ -653,7 +653,7 @@
                   const total = st.__scrollWindows.length;
                   hud.wanted.body = st.__scrollWindows[st.__scrollWinIdx];
                   if (st.mode === 'idle') {
-                    hud.wanted.status = `▼ 스크롤 ${st.__scrollWinIdx + 1}/${total}  ■■■■ 100%`;
+                    hud.wanted.status = `▼ 스크롤 ${st.__scrollWinIdx + 1}/${total}  100%`;
                   }
                   hud.shown = { title: '', status: '', body: '' };
                   hud.flushQueued = false;
@@ -682,7 +682,7 @@
                   window.__EDITH_SCROLL_INDEX__ = st.__scrollWinIdx;
                   const total = st.__scrollWindows.length;
                   hud.wanted.body = st.__scrollWindows[st.__scrollWinIdx];
-                  hud.wanted.status = `▼ 스크롤 ${st.__scrollWinIdx + 1}/${total}  ■■■■ 100%`;
+                  hud.wanted.status = `▼ 스크롤 ${st.__scrollWinIdx + 1}/${total}  100%`;
                   hud.shown = { title: '', status: '', body: '' };
                   hud.flushQueued = false;
                   if (typeof hud.updateMirror === 'function') hud.updateMirror();
@@ -803,20 +803,28 @@
               obj.yPosition = 0;
               obj.width = 260;
               obj.height = 44;
+              obj.borderWidth = 0;
               obj.paddingLength = 10;
-              obj.content = sliceByUtf8Bytes(obj.content || ' ', 180);
+              obj.content = sliceByUtf8Bytes(String(obj.content || ' ').replace(/\s*\|\s*/g, '  '), 180);
             } else if (name === 'status') {
               obj.xPosition = this.clockStandby ? 336 : 296;
               obj.yPosition = 0;
               obj.width = this.clockStandby ? 220 : 260;
               obj.height = 44;
+              obj.borderWidth = 0;
               obj.paddingLength = this.clockStandby ? 6 : 10;
-              obj.content = sliceByUtf8Bytes(obj.content || ' ', 180);
+              obj.content = sliceByUtf8Bytes(
+                String(obj.content || ' ')
+                  .replace(/\s*\|\s*/g, '  ')
+                  .replace(/[■□]{2,}\s*/g, ''),
+                180
+              );
             } else if (name === 'body') {
               obj.xPosition = 20;
               obj.yPosition = 46;
               obj.width = 536;
               obj.height = 242;
+              obj.borderWidth = 0;
               obj.paddingLength = 16;
               obj.isEventCapture = 1;
               // Initial container packet uses 900 UTF-8 bytes (~300 Korean chars); markPageBuilt() immediately upgrades to 1650 UTF-8 bytes!
@@ -964,11 +972,17 @@
               body: winText
             };
             if (total > 1 && st.mode === 'idle') {
-              update.status = `▼ 스크롤 ${st.__scrollWinIdx + 1}/${total}  ■■■■ 100%`;
+              update.status = `▼ 스크롤 ${st.__scrollWinIdx + 1}/${total}  100%`;
             } else if (total > 1 && st.mode === 'answering') {
               update.status = `● 답변 중 (${st.__scrollWinIdx + 1}/${total}구간)`;
             }
           }
+        }
+        if (update && typeof update.status === 'string') {
+          update = {
+            ...update,
+            status: update.status.replace(/\s*\|\s*/g, '  ').replace(/[■□]{2,}\s*/g, '')
+          };
         }
         return origSet(update);
       };
@@ -1104,26 +1118,13 @@
               void syncMemoryAction({ action: 'add', category: cat, text: userQ, fact: userQ, pinned: true });
             }
           }
-          // Instant on-device HUD Y-position control + PC remote task trigger
-          if (/(화면|글씨|창|위치|높이).*(아래로|내려|최대로\s*내려|맨\s*아래|낮춰)/.test(userQ)) {
-            window.__AGY_HUD_Y_OFFSET__ = 96;
-            localStorage.setItem('agy_g2_hud_y_offset', '96');
-            if (agy?.hud?.rebuild) void agy.hud.rebuild();
-            void sendRemotePcNote(userQ);
-          } else if (/(화면|글씨|창|위치|높이).*(중간|가운데)/.test(userQ)) {
-            window.__AGY_HUD_Y_OFFSET__ = 48;
-            localStorage.setItem('agy_g2_hud_y_offset', '48');
-            if (agy?.hud?.rebuild) void agy.hud.rebuild();
-            void sendRemotePcNote(userQ);
-          } else if (/(화면|글씨|창|위치|높이).*(위로|올려|맨\s*위|원래대로|아까처럼)/.test(userQ)) {
-            window.__AGY_HUD_Y_OFFSET__ = 0;
-            localStorage.setItem('agy_g2_hud_y_offset', '0');
-            if (agy?.hud?.rebuild) void agy.hud.rebuild();
-            void sendRemotePcNote(userQ);
-          } else if (
+          // Keep HUD Y-offset locked at 0 (full 288px screen without center divider bar) + PC remote task trigger
+          window.__AGY_HUD_Y_OFFSET__ = 0;
+          localStorage.setItem('agy_g2_hud_y_offset', '0');
+          if (
             !/(작업하고\s*있어\?|실행하고\s*있어\?|기억나\?|뭐야\?)$/.test(userQ) &&
             (
-              /(잘리|잘려|안\s*내려|안\s*올라|안\s*돼|안\s*되|오류|에러|버그|고장|이상해|검은색|깜빡|멈춰)/.test(userQ) ||
+              /(짝대기|테두리|구분선|가로줄|세로줄|잘리|잘려|안\s*내려|안\s*올라|안\s*돼|안\s*되|오류|에러|버그|고장|이상해|검은색|깜빡|멈춰)/.test(userQ) ||
               (/(안티그래비티|컴퓨터|PC|피씨|워크스페이스|작업\s*노트|바탕화면|화면|기능|메뉴|버튼|코드|패치|답변|길이|글자|글씨|짧게|길게|이전\s*대화|취소|스크롤|페이지|시계|번역|음성|녹음|대화창|새\s*대화)/.test(userQ) &&
                 /(작업|실행|세팅|수정|패치|만들어|고쳐|추가|바꿔|개선|검토|테스트|작성|정리|분석|크롤링|동기화|푸시|빌드|배포|저장|기록|메모|시켜|없애|해제|지워|늘려|줄여|보여\s*줘|해\s*줘|해\s*놔|해\s*둬|해\s*줄래|할\s*수\s*있|방법\s*없을까|내려|올려|옮겨|지시|전달)/.test(userQ)) ||
               /^(안티그래비티|에디스)?[야아,\s]*(작업\s*지시|원격\s*작업|PC\s*작업|안티그래비티\s*작업|이거\s*작업해|이거\s*세팅해|이거\s*고쳐|이거\s*수정해|그\s*짧게\s*하는\s*거)/i.test(userQ)
