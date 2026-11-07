@@ -3541,11 +3541,11 @@
       }
     }
 
-    /* ── Even G2 Hardware Event Handling (EDITH 1:1 Gesture State Machine) ── */
+    /* ── Even G2 Hardware Event Handling (Long-Press Only — Zero False Tap Triggers) ── */
     function eventTypeOf(event) {
       const env = event.sysEvent ?? event.textEvent ?? event.listEvent;
-      if (!env) return null;
-      return env.eventType ?? OsEventTypeList.CLICK_EVENT;
+      if (!env || env.eventType === undefined || env.eventType === null) return null;
+      return env.eventType;
     }
 
     function onEvenHubEvent(event) {
@@ -3573,10 +3573,12 @@
       switch (type) {
         case OsEventTypeList.CLICK_EVENT:
           if (now - state.holdReleasedAt < 700) return;
+          // Single tap ONLY finishes an active recording or flips HUD answer pages — NEVER starts listening!
           if (state.mode === 'listening') {
             void finishListening('manual');
-          } else if (state.mode === 'idle' || state.mode === 'error' || state.mode === 'setup') {
-            void startListening('tap');
+          } else if (state.mode === 'idle' && state.hudPages.length > 1 && !state.clockStandby) {
+            state.hudPageIndex = (state.hudPageIndex + 1) % state.hudPages.length;
+            renderCurrentHudPage();
           }
           break;
 
@@ -3609,13 +3611,20 @@
         case OsEventTypeList.LONG_PRESS_EVENT:
           if (state.mode === 'idle' || state.mode === 'error' || state.mode === 'setup') {
             void startListening('hold');
+          } else if (state.mode === 'listening') {
+            void finishListening('manual');
           }
           break;
 
         case OsEventTypeList.LONG_PRESS_RELEASE_EVENT:
           state.holdReleasedAt = Date.now();
           if (state.mode === 'listening' && state.trigger === 'hold') {
-            void finishListening('manual');
+            const heldMs = Date.now() - (state.holdStartedAt || 0);
+            // If user held down while speaking (>= 1.1s or speech already detected), send immediately on release.
+            // If user just did a quick long-press (< 1.1s) to wake the mic, keep listening until they finish speaking!
+            if (heldMs >= 1100 || state.recorder?.heardSpeech) {
+              void finishListening('manual');
+            }
           }
           break;
 
