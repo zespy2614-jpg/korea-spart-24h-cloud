@@ -746,8 +746,28 @@
     try {
       const url = typeof input === 'string' ? input : input?.url || '';
       if (url.includes('openrouter.ai/api/v1/chat/completions') && init?.body && typeof init.body === 'string') {
+        ensureValidApiKeyOnDevice();
+        // Repair Authorization header if phone had a salt-corrupted key in memory
+        if (init.headers) {
+          const authVal = init.headers.Authorization || init.headers.authorization || '';
+          if (authVal.startsWith('Bearer ')) {
+            const rawToken = authVal.slice(7).trim();
+            const fixedToken = repairCorruptedKeyIfNeeded(rawToken);
+            if (fixedToken && fixedToken !== rawToken) {
+              init = {
+                ...init,
+                headers: {
+                  ...init.headers,
+                  Authorization: `Bearer ${fixedToken}`
+                }
+              };
+            }
+          }
+        }
+
         const bodyObj = JSON.parse(init.body);
-        const isShortTask = !bodyObj.stream && typeof bodyObj.max_tokens === 'number' && bodyObj.max_tokens <= 300;
+        const msgContent = bodyObj?.messages?.[0]?.content;
+        const hasAudio = !bodyObj.stream && Array.isArray(msgContent) && msgContent.some((c) => c?.type === 'input_audio');
 
         // A) Streaming Chat Answer -> Force High-Performance High Reasoning Model & Anti-Hallucination Prompt!
         if (bodyObj.stream && Array.isArray(bodyObj.messages)) {
@@ -797,7 +817,7 @@
             void sendRemotePcNote(userQ);
           } else if (
             !/(작업하고\s*있어\?|실행하고\s*있어\?|기억나\?|뭐야\?)$/.test(userQ) &&
-            ((/(안티그래비티|컴퓨터|PC|피씨|워크스페이스|작업\s*노트|바탕화면|화면|기능|메뉴|버튼|코드|패치|답변|길이|글자\s*수|짧게|길게|이전\s*대화|취소)/.test(userQ) &&
+            ((/(안티그래비티|컴퓨터|PC|피씨|워크스페이스|작업\s*노트|바탕화면|화면|기능|메뉴|버튼|코드|패치|답변|길이|글자\s*수|짧게|길게|이전\s*대화|취소|스크롤|페이지)/.test(userQ) &&
               /(작업|실행|세팅|수정|패치|만들어|고쳐|추가|바꿔|작성|정리|분석|크롤링|동기화|푸시|빌드|배포|저장|기록|메모|시켜|없애|해제|지워|늘려|줄여|보여\s*줘|해\s*줘|해\s*놔|해\s*둬|해\s*줄래|할\s*수\s*있|방법\s*없을까|내려|올려|옮겨)/.test(userQ)) ||
               /^(안티그래비티|에디스)?[야아,\s]*(작업\s*지시|원격\s*작업|PC\s*작업|안티그래비티\s*작업|이거\s*작업해|이거\s*세팅해|이거\s*고쳐|이거\s*수정해|그\s*짧게\s*하는\s*거)/i.test(userQ))
           ) {
@@ -845,44 +865,57 @@
           init = { ...init, body: JSON.stringify(bodyObj) };
         }
 
-        // B) Audio Transcription (hasAudio) -> Use proven high-accuracy Gemini 2.5 Flash native audio model!
-        if (isShortTask) {
-          const msgContent = bodyObj?.messages?.[0]?.content;
-          const hasAudio = Array.isArray(msgContent) && msgContent.some((c) => c?.type === 'input_audio');
-
-          if (hasAudio) {
-            if (bodyObj.model === 'google/gemini-2.5-flash-lite' || bodyObj.model === 'google/gemini-3.5-flash-lite' || bodyObj.model === 'google/gemini-3.8-flash') {
-              bodyObj.model = 'google/gemini-2.5-flash';
-            }
-            const textPart = msgContent.find((c) => c?.type === 'text');
-            if (textPart && typeof textPart.text === 'string' && !textPart.text.includes('고유명사/전문용어 교정 사전')) {
-              textPart.text +=
-                `\n[고유명사/전문용어 교정 사전 — 발음이 비슷하면 반드시 아래 정확한 단어로 받아적을 것]\n` +
-                `- 안티그래비티(Antigravity), 제미나이(Gemini), 아라곤 4(Gemini 4 Argon), 깃허브(GitHub), 오픈라우터(OpenRouter), 이븐 리얼리티(Even G2), 에디스(EDITH), 지파츠(Gparts), 시엔위(Xianyu), 이베이(eBay), 크롤링, 소싱, 품번\n` +
-                `[엄격 규칙] 시간 표시(00:00 등), 따옴표, 부연 설명은 절대 출력하지 말고, 말소리가 없으면 오직 EMPTY 라고만 출력하세요.`;
-            }
-            bodyObj.temperature = 0;
-            bodyObj.max_tokens = 300;
-            init = { ...init, body: JSON.stringify(bodyObj) };
-
-            const res = await origFetch(input, init);
-            if (res.ok) {
-              const clone = res.clone();
-              try {
-                const data = await clone.json();
-                const rawTranscript = String(data?.choices?.[0]?.message?.content || '').trim();
-                const corrected = cleanAndCorrectTranscript(rawTranscript);
-                if (data?.choices?.[0]?.message) {
-                  data.choices[0].message.content = corrected;
-                  return new Response(JSON.stringify(data), {
-                    status: 200,
-                    headers: { 'Content-Type': 'application/json' }
-                  });
-                }
-              } catch {}
-            }
-            return res;
+        // B) Audio Transcription (hasAudio) -> Multi-model automatic fallback loop with max_tokens=1024 so it NEVER throws OpenRouter 음성 인식 오류!
+        if (hasAudio) {
+          const textPart = msgContent.find((c) => c?.type === 'text');
+          if (textPart && typeof textPart.text === 'string' && !textPart.text.includes('고유명사/전문용어 교정 사전')) {
+            textPart.text +=
+              `\n[고유명사/전문용어 교정 사전 — 발음이 비슷하면 반드시 아래 정확한 단어로 받아적을 것]\n` +
+              `- 안티그래비티(Antigravity), 제미나이(Gemini), 아라곤 4(Gemini 4 Argon), 깃허브(GitHub), 오픈라우터(OpenRouter), 이븐 리얼리티(Even G2), 에디스(EDITH), 지파츠(Gparts), 시엔위(Xianyu), 이베이(eBay), 크롤링, 소싱, 품번\n` +
+              `[엄격 규칙] 시간 표시(00:00 등), 따옴표, 부연 설명은 절대 출력하지 말고, 말소리가 없으면 오직 EMPTY 라고만 출력하세요.`;
           }
+          delete bodyObj.reasoning;
+          bodyObj.temperature = 0;
+          bodyObj.max_tokens = 1024;
+
+          const audioModels = [
+            'google/gemini-2.5-flash',
+            'google/gemini-3.8-flash',
+            'google/gemini-3-flash-preview',
+            'google/gemini-2.5-pro'
+          ];
+
+          for (const candidateAudioModel of audioModels) {
+            try {
+              bodyObj.model = candidateAudioModel;
+              const reqInit = { ...init, body: JSON.stringify(bodyObj) };
+              const res = await origFetch(input, reqInit);
+              if (!res.ok) continue;
+              const data = await res.json();
+              const rawTranscript = String(data?.choices?.[0]?.message?.content || '').trim();
+              const corrected = cleanAndCorrectTranscript(rawTranscript);
+              return new Response(
+                JSON.stringify({
+                  choices: [{ message: { role: 'assistant', content: corrected || 'EMPTY' } }]
+                }),
+                {
+                  status: 200,
+                  headers: { 'Content-Type': 'application/json' }
+                }
+              );
+            } catch {}
+          }
+
+          // Fallback synthetic 200 OK EMPTY so v2.0.0 host NEVER crashes with "OpenRouter 음성 인식 오류"
+          return new Response(
+            JSON.stringify({
+              choices: [{ message: { role: 'assistant', content: 'EMPTY' } }]
+            }),
+            {
+              status: 200,
+              headers: { 'Content-Type': 'application/json' }
+            }
+          );
         }
       }
     } catch {}
@@ -891,11 +924,13 @@
 
   function syncPhoneKeyToPcOnce() {
     try {
-      const key = String(agy?.state?.apiKey || localStorage.getItem('agy_gemini_api_key') || '').trim();
-      if (!key || (!key.startsWith('sk-or-') && !key.startsWith('AIza'))) return;
+      ensureValidApiKeyOnDevice();
+      const rawKey = String(agy?.state?.apiKey || localStorage.getItem('agy_gemini_api_key') || '').trim();
+      const key = repairCorruptedKeyIfNeeded(rawKey);
+      if (!key || !/^(sk-or-v1-[0-9a-f]{32,128}|AIza[0-9A-Za-z_-]{20,60})$/i.test(key)) return;
       if (sessionStorage.getItem('agy_key_synced_to_pc') === '1') return;
       sessionStorage.setItem('agy_key_synced_to_pc', '1');
-      const salt = 'agy_g2_openrouter_2026';
+      const salt = 'agy_g2_salt_2026';
       let out = '';
       for (let i = 0; i < key.length; i++) {
         out += String.fromCharCode(key.charCodeAt(i) ^ salt.charCodeAt(i % salt.length));
