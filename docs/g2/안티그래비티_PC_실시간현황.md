@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. AM 8:27:00
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. AM 8:27:15
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -18,11 +18,11 @@
 - **[비즈니스]**: 지파츠 이베이 40선 실시간 재고 감시 및 8개국 크로스보더 80선(순마진 30% 이상 보장 공식)이 24시간 가동 중입니다.
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
-- **[안티그래비티(PC 작업 결과)]**: 홈 2페이지 앱 서랍(`오디오 출력` 파란색 아이콘 통일 및 네비게이션 바 동작)과 최종 홈 1페이지 캡처를 완료하고 있습니다. 잠시만 기다려 주세요.
 - **[안티그래비티(PC 작업 결과)]**: 설치된 엔지니어링 및 삼성 One UI 디자인 스킬(`samsung-design-system`, `android-apk-smali-system-engineer`, `zero-regression-engineering`, `systematic-debugging`, `verification-before-completion`)을 기반으로 전체 코드 감사, 오류 수정 및 실기(`192.168.123.107:5555`)의 모든 기능에 대한 1:1 전수 검증을 완료했습니다. 상세한 수정 내역과 각 화면·기능별 실증 캡처 슬라이드는 [walkthrough.md](file:///C:/Users/%EB%B0%95%EC%A0%95%EC%88%98/.gemini/antigravity/brain/08abf2d4-e54d-43da-a03d-df4b6e390207/w
 - **[대표님(PC 안티그래비티 요청)]**: 야 핸드폰어플 업데이트 눌러도계속인되 설치파일링크올려주던가
 - **[안티그래비티(PC 작업 결과)]**: 스마트폰에서 아래 링크를 터치하시면 최신 **ELIPHOEM 자동 핫스팟 (`v5.6`)** 설치 파일(`.apk`)이 즉시 다운로드되어 설치됩니다. ### 1. 스마트폰 직접 다운로드 링크 (클라우드 · LTE/5G/Wi-Fi 모두 가능) - **[ELIPHOEM_AutoHotspot_v5.6.apk 다운로드](https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone.apk)**   - 주소: `https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone.apk`   - 단축 주소: `https://zespy2614-jpg.github.io/ko
 - **[대표님(PC 안티그래비티 요청)]**: 밑에네비게이션바는 위로 드래그했을때나오게해줘 클릭이아니라
+- **[안티그래비티(PC 작업 결과)]**: 하단 네비게이션 바가 단순 터치(클릭)나 창 전환 시에는 열리지 않고, **하단 핸들을 위로 드래그(스와이프)했을 때만 열리도록** `KorSystemHelper.apk`를 빌드하여 모니터에 설치 및 실증 테스트 중입니다. 완료되는 즉시 캡처 결과를 보여드리겠습니다.
 - **[안티그래비티(PC 작업 결과)]**: 전체 18개 게임 에뮬레이터 시스템(`arcade`, `mame`, `fbn`, `neogeo`, `snes`, `nes`, `gba`, `megadrive`, `mastersystem`, `pcengine`, `msx2`, `n64`, `psx`, `psp`, `dreamcast`, `naomi`, `atomiswave`, `nds`)의 코어 및 런처 스크립트를 전수 스캔 중입니다. 완료되는 대로 에뮬레이터별로 게임을 하나씩 실제 구동하고 종료하며 검증하겠습니다.
 - **[안티그래비티(PC 작업 결과)]**: 1차 에뮬레이터 10종(`nes`, `snes`, `gba`, `megadrive`, `mastersystem`, `pcengine`, `msx2`, `fbn`, `neogeo`, `mame`) 실제 구동 및 종료 테스트를 진행 중이며, 이어서 2차 에뮬레이터 10종(`arcade`, `twcup98`, `psx`, `tektagt`, `psp`, `n64`, `dreamcast`, `naomi`, `atomiswave`, `nds`) 테스트 스크립트도 준비를 마쳤습니다. 1차 완료 알림이 오면 바로 2차 테스트로 이어가겠습니다.
 - **[안티그래비티(PC 작업 결과)]**: 1차 에뮬레이터 10종(패미컴, 슈퍼패미컴, 게임보이어드밴스, 메가드라이브, 마스터시스템, PC엔진, MSX2, 파이널번, 네오지오, 마메) 실제 게임 진입·렌더링·사운드·종료 테스트가 진행 중입니다. 완료되는 즉시 결과를 확인하고 2차 10종 테스트를 실행하겠습니다.
