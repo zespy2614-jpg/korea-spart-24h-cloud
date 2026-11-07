@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Even G2 스마트 안경 전용 실시간 대화 · 지시 관제창 | Antigravity AI Hub</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <style>
+    :root {
+      --oneui-bg: #F4F4F8;
+      --oneui-bg-alt: #F7F7FA;
+      --oneui-surface: #FFFFFF;
+      --oneui-surface-secondary: #EEEEF3;
+      --oneui-surface-glass: rgba(255, 255, 255, 0.86);
+      --oneui-text-primary: #121212;
+      --oneui-text-secondary: #55555E;
+      --oneui-text-tertiary: #8E8E99;
+      --oneui-divider: rgba(0, 0, 0, 0.06);
+      --samsung-blue: #1428A0;
+      --oneui-primary: #0381FE;
+      --oneui-primary-hover: #006BEA;
+      --oneui-primary-active: #0056B3;
+      --oneui-primary-soft: rgba(3, 129, 254, 0.10);
+      --oneui-success: #00C853;
+      --oneui-success-soft: rgba(0, 200, 83, 0.12);
+      --oneui-warning: #FFAB00;
+      --oneui-warning-soft: rgba(255, 171, 0, 0.14);
+      --oneui-radius-card: 26px;
+      --oneui-radius-inner: 18px;
+      --oneui-radius-pill: 9999px;
+      --oneui-shadow: 0 8px 28px rgba(18, 18, 24, 0.05);
+      --font-sans: 'Pretendard Variable', Pretendard, 'SamsungOne', 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Consolas', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--oneui-bg);
+      color: var(--oneui-text-primary);
+      word-break: keep-all;
+      overflow-wrap: break-word;
+      line-height: 1.6;
+      letter-spacing: -0.01em;
+      min-height: 100vh;
+    }
+
+    .top-gnb {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--oneui-surface-glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--oneui-divider);
+      padding: 16px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .squircle-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 15px;
+      background: var(--samsung-blue);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 6px 16px rgba(20, 40, 160, 0.22);
+    }
+
+    .brand-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--oneui-text-primary);
+    }
+
+    .brand-sub {
+      font-size: 0.84rem;
+      color: var(--oneui-text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .live-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--oneui-success);
+      box-shadow: 0 0 0 4px var(--oneui-success-soft);
+      display: inline-block;
+    }
+
+    .gnb-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: var(--oneui-radius-pill);
+      padding: 10px 20px;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+      text-decoration: none;
+    }
+
+    .pill-btn-primary {
+      background: var(--oneui-primary);
+      color: #FFFFFF;
+    }
+
+    .pill-btn-primary:hover {
+      background: var(--oneui-primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .pill-btn-navy {
+      background: var(--samsung-blue);
+      color: #FFFFFF;
+    }
+
+    .pill-btn-secondary {
+      background: var(--oneui-surface-secondary);
+      color: var(--oneui-text-primary);
+    }
+
+    .pill-btn-secondary:hover {
+      background: #E2E2EC;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 28px 24px 64px;
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: 520px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    @media (max-width: 1120px) {
+      .bento-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .focus-card {
+      background: var(--oneui-surface);
+      border-radius: var(--oneui-radius-card);
+      box-shadow: var(--oneui-shadow);
+      padding: 26px;
+      margin-bottom: 24px;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .card-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--oneui-text-primary);
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: var(--oneui-radius-pill);
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .badge-blue {
+      background: var(--oneui-primary-soft);
+      color: var(--oneui-primary);
+    }
+
+    .badge-green {
+      background: var(--oneui-success-soft);
+      color: #008A39;
+    }
+
+    .badge-warn {
+      background: var(--oneui-warning-soft);
+      color: #B27600;
+    }
+
+    /* Even G2 576x288 Optical Waveguide Digital Twin Preview */
+    .hud-waveguide-shell {
+      background: #050806;
+      border-radius: 22px;
+      padding: 18px 22px;
+      border: 2px solid #1C2D22;
+      color: #42FF7B;
+      font-family: var(--font-sans);
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 0 28px rgba(66, 255, 123, 0.08);
+    }
+
+    .hud-margin-guide {
+      font-size: 0.72rem;
+      color: #6FE393;
+      opacity: 0.75;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .hud-top-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .hud-slot-box {
+      border: 1px solid rgba(66, 255, 123, 0.42);
+      border-radius: 10px;
+      padding: 7px 12px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      background: rgba(66, 255, 123, 0.03);
+    }
+
+    .hud-body-box {
+      border: 1px solid rgba(66, 255, 123, 0.52);
+      border-radius: 12px;
+      padding: 14px 16px;
+      min-height: 175px;
+      max-height: 220px;
+      overflow-y: auto;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      white-space: pre-wrap;
+      background: rgba(66, 255, 123, 0.04);
+      color: #42FF7B;
+    }
+
+    .hud-window-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 12px;
+      gap: 8px;
+    }
+
+    .command-form {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .command-input {
+      flex: 1;
+      border-radius: var(--oneui-radius-pill);
+      border: 1px solid var(--oneui-divider);
+      background: var(--oneui-surface-secondary);
+      padding: 12px 20px;
+      font-family: var(--font-sans);
+      font-size: 0.94rem;
+      color: var(--oneui-text-primary);
+      outline: none;
+    }
+
+    .command-input:focus {
+      border-color: var(--oneui-primary);
+      background: #FFFFFF;
+      box-shadow: 0 0 0 3px var(--oneui-primary-soft);
+    }
+
+    .task-list, .conv-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .task-item {
+      background: var(--oneui-bg-alt);
+      border-radius: var(--oneui-radius-inner);
+      padding: 16px 18px;
+      border: 1px solid var(--oneui-divider);
+      transition: transform 0.15s ease;
+    }
+
+    .task-item-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .task-time {
+      font-size: 0.78rem;
+      color: var(--oneui-text-tertiary);
+    }
+
+    .task-cmd {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--oneui-text-primary);
+      margin-bottom: 6px;
+    }
+
+    .task-summary {
+      font-size: 0.84rem;
+      color: var(--oneui-text-secondary);
+      margin-bottom: 10px;
+    }
+
+    .conv-card {
+      background: var(--oneui-bg-alt);
+      border-radius: var(--oneui-radius-inner);
+      padding: 18px 20px;
+      border: 1px solid var(--oneui-divider);
+    }
+
+    .conv-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 0.8rem;
+      color: var(--oneui-text-tertiary);
+    }
+
+    .conv-q {
+      background: rgba(20, 40, 160, 0.07);
+      color: var(--samsung-blue);
+      padding: 10px 14px;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+
+    .conv-a {
+      color: var(--oneui-text-primary);
+      font-size: 0.93rem;
+      white-space: pre-wrap;
+      line-height: 1.65;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--samsung-blue);
+      color: #FFFFFF;
+      padding: 14px 22px;
+      border-radius: var(--oneui-radius-pill);
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 12px 32px rgba(20, 40, 160, 0.28);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: all 0.25s ease;
+      z-index: 100;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <header class="top-gnb">
+    <div class="brand-group">
+      <div class="squircle-icon" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="8" width="8" height="7" rx="2.5"></rect>
+          <rect x="14" y="8" width="8" height="7" rx="2.5"></rect>
+          <path d="M10 11.5h4"></path>
+          <path d="M2 11.5L1 10"></path>
+          <path d="M22 11.5L23 10"></path>
+        </svg>
+      </div>
+      <div>
+        <div class="brand-title">Even G2 스마트 안경 전용 실시간 대화 · 지시 관제창</div>
+        <div class="brand-sub">
+          <span class="live-dot"></span>
+          <span id="liveSyncStatus">안경 ↔ PC 안티그래비티 실시간 Reactive Wakeup 브릿지 가동 중 (1.5초 주기 자동 갱신)</span>
+        </div>
+      </div>
+    </div>
+    <div class="gnb-actions">
+      <button class="pill-btn pill-btn-secondary" id="copyLatestTaskBtn" type="button">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="9" y="9" width="13" height="13" rx="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+        최근 안경 지시 복사
+      </button>
+      <a class="pill-btn pill-btn-navy" href="/" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <line x1="10" y1="14" x2="21" y2="3"></line>
+        </svg>
+        모바일 G2 앱 열기
+      </a>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="bento-grid">
+      <!-- 좌측: 안경 576x288 광학 렌즈 실시간 미러 + 안경 지시 큐 -->
+      <div>
+        <section class="focus-card">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1428A0" stroke-width="2">
+                <rect x="2" y="5" width="20" height="14" rx="3"></rect>
+                <line x1="6" y1="9" x2="6" y2="15"></line>
+                <line x1="18" y1="9" x2="18" y2="15"></line>
+              </svg>
+              <h2 class="card-title">Even G2 광학 렌즈 HUD 실시간 미러 (576×288)</h2>
+            </div>
+            <span class="badge-pill badge-green" id="hudWindowBadge">1 / 1 구간</span>
+          </div>
+
+          <div class="hud-waveguide-shell">
+            <div class="hud-margin-guide">
+              <span>◀ 좌측 광학 여백 x=20px (잘림 원천 차단)</span>
+              <span>폭 536px · 패딩 16px · UTF-8 ≤ 1,620B ▶</span>
+            </div>
+            <div class="hud-top-row">
+              <div class="hud-slot-box" id="mirrorTitle">◆ E.D.I.T.H</div>
+              <div class="hud-slot-box" id="mirrorStatus">● 온라인 · 스크롤 활성</div>
+            </div>
+            <div class="hud-body-box" id="mirrorBody">안경 대화 내역을 불러오는 중입니다...</div>
+            <div class="hud-window-controls">
+              <button class="pill-btn pill-btn-secondary" id="prevWinBtn" type="button" style="padding: 6px 14px; font-size: 0.8rem;">▲ 이전 스크롤 구간 (SCROLL_TOP)</button>
+              <button class="pill-btn pill-btn-primary" id="nextWinBtn" type="button" style="padding: 6px 14px; font-size: 0.8rem;">▼ 다음 스크롤 구간 (SCROLL_BOTTOM)</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="focus-card">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0381FE" stroke-width="2">
+                <polyline points="9 11 12 14 22 4"></polyline>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+              </svg>
+              <h2 class="card-title">안경 → 안티그래비티 실시간 음성 작업 지시 큐</h2>
+            </div>
+            <span class="badge-pill badge-blue" id="taskCountBadge">0건</span>
+          </div>
+
+          <form class="command-form" id="directTaskForm">
+            <input
+              type="text"
+              class="command-input"
+              id="directTaskInput"
+              placeholder="안경 대신 여기서 직접 안티그래비티에 지시/메모를 보낼 수도 있습니다..."
+            />
+            <button class="pill-btn pill-btn-primary" type="submit">즉시 지시 전송</button>
+          </form>
+
+          <div class="task-list" id="taskListContainer">
+            <div class="task-item">작업 큐를 불러오는 중입니다...</div>
+          </div>
+        </section>
+      </div>
+
+      <!-- 우측: 안경 전용 실시간 전체 대화창 -->
+      <div>
+        <section class="focus-card">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1428A0" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+              <h2 class="card-title">안경 전용 실시간 대화 스트림 (전체 원문 · 무삭제)</h2>
+            </div>
+            <span class="badge-pill badge-green" id="convCountBadge">실시간 동기화됨</span>
+          </div>
+
+          <div class="conv-list" id="convListContainer">
+            <div class="conv-card">실시간 안경 대화 기록을 불러오는 중입니다...</div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <div class="toast" id="toastEl">복사되었습니다.</div>
+
+  <script>
+    const API_BASES = ['', 'http://localhost:3860', 'http://192.168.123.150:3860'];
+    let lastTopTaskId = null;
+    let currentWindows = [' '];
+    let currentWinIdx = 0;
+    let lastMirrorSource = '';
+
+    function showToast(msg) {
+      const el = document.getElementById('toastEl');
+      el.textContent = msg;
+      el.classList.add('show');
+      setTimeout(() => el.classList.remove('show'), 2600);
+    }
+
+    function sliceByUtf8Bytes(str, maxBytes) {
+      const s = String(str || '');
+      if (!s) return ' ';
+      let bytes = 0;
+      for (let i = 0; i < s.length; i++) {
+        const code = s.codePointAt(i);
+        const charBytes = code <= 0x7f ? 1 : code <= 0x7ff ? 2 : code <= 0xffff ? 3 : 4;
+        if (bytes + charBytes > maxBytes) return s.slice(0, i) || ' ';
+        bytes += charBytes;
+        if (code > 0xffff) i++;
+      }
+      return s;
+    }
+
+    function buildScrollWindows(fullText) {
+      const clean = String(fullText || '').trim();
+      if (!clean) return [' '];
+      if (clean.length <= 460 && sliceByUtf8Bytes(clean, 1550).length === clean.length) {
+        return [clean];
+      }
+      const windows = [];
+      let cursor = 0;
+      const len = clean.length;
+      while (cursor < len) {
+        let end = Math.min(len, cursor + 440);
+        if (end < len) {
+          const nlIdx = clean.lastIndexOf('\n', end);
+          const dotIdx = Math.max(clean.lastIndexOf('. ', end), clean.lastIndexOf('다. ', end), clean.lastIndexOf('요. ', end));
+          const spIdx = clean.lastIndexOf(' ', end);
+          if (nlIdx > cursor + 180) end = nlIdx + 1;
+          else if (dotIdx > cursor + 200) end = dotIdx + 2;
+          else if (spIdx > cursor + 220) end = spIdx + 1;
+        }
+        const chunk = clean.slice(cursor, end).trim();
+        if (chunk) windows.push(chunk);
+        if (end >= len) break;
+        const prevLine = clean.lastIndexOf('\n', end - 2);
+        cursor = prevLine > cursor + 250 && end - prevLine <= 70 ? prevLine + 1 : end;
+      }
+      if (windows.length <= 1) return [sliceByUtf8Bytes(clean, 1620)];
+      return windows.map((w, i) => {
+        const header = i > 0 ? `[▲ 위로 스크롤: 이전 구간 (${i + 1}/${windows.length})]\n` : '';
+        const footer =
+          i < windows.length - 1
+            ? `\n\n[▼ 계속 아래로 스크롤하거나 한 번 탭하면 다음 구간 이어짐 (${i + 1}/${windows.length})]`
+            : `\n\n[■ 전체 답변 끝 (${windows.length}/${windows.length}) — 위로 스크롤하여 이전 구간 보기]`;
+        return sliceByUtf8Bytes(header + w + footer, 1620);
+      });
+    }
+
+    function renderMirrorWindow() {
+      const bodyEl = document.getElementById('mirrorBody');
+      const badgeEl = document.getElementById('hudWindowBadge');
+      const statusEl = document.getElementById('mirrorStatus');
+      bodyEl.textContent = currentWindows[currentWinIdx] || ' ';
+      badgeEl.textContent = `${currentWinIdx + 1} / ${currentWindows.length} 구간`;
+      statusEl.textContent = currentWindows.length > 1
+        ? `● ${currentWinIdx + 1}/${currentWindows.length} 구간  ▼스크롤`
+        : '● 온라인';
+    }
+
+    document.getElementById('prevWinBtn').addEventListener('click', () => {
+      if (currentWinIdx > 0) {
+        currentWinIdx--;
+        renderMirrorWindow();
+      }
+    });
+
+    document.getElementById('nextWinBtn').addEventListener('click', () => {
+      if (currentWinIdx < currentWindows.length - 1) {
+        currentWinIdx++;
+        renderMirrorWindow();
+      } else {
+        currentWinIdx = 0;
+        renderMirrorWindow();
+      }
+    });
+
+    async function fetchConsoleState() {
+      for (const base of API_BASES) {
+        try {
+          const r = await fetch(`${base}/api/glasses-console-state?t=${Date.now()}`, { signal: AbortSignal.timeout(1800) });
+          if (r.ok) return await r.json();
+        } catch {}
+      }
+      return null;
+    }
+
+    function renderTasks(tasks) {
+      const container = document.getElementById('taskListContainer');
+      document.getElementById('taskCountBadge').textContent = `${tasks.length}건`;
+      if (!tasks.length) {
+        container.innerHTML = `<div class="task-item">아직 접수된 안경 원격 작업 지시가 없습니다.</div>`;
+        return;
+      }
+      if (lastTopTaskId && tasks[0].id !== lastTopTaskId) {
+        showToast(`안경에서 새 작업 지시가 도착했습니다: "${tasks[0].command}"`);
+      }
+      lastTopTaskId = tasks[0].id;
+
+      container.replaceChildren();
+      for (const t of tasks.slice(0, 12)) {
+        const item = document.createElement('div');
+        item.className = 'task-item';
+
+        const header = document.createElement('div');
+        header.className = 'task-item-header';
+
+        const badge = document.createElement('span');
+        badge.className = 'badge-pill ' + (t.status.includes('완료') ? 'badge-green' : 'badge-warn');
+        badge.textContent = t.status || '접수됨';
+
+        const time = document.createElement('span');
+        time.className = 'task-time';
+        time.textContent = t.timestamp || '';
+
+        header.append(badge, time);
+
+        const cmd = document.createElement('div');
+        cmd.className = 'task-cmd';
+        cmd.textContent = `지시: "${t.command}"`;
+
+        const sum = document.createElement('div');
+        sum.className = 'task-summary';
+        sum.textContent = t.resultSummary || '안티그래비티 Reactive Wakeup 워처가 즉시 감지하여 처리합니다.';
+
+        const copyBtn = document.createElement('button');
+        copyBtn.type = 'button';
+        copyBtn.className = 'pill-btn pill-btn-secondary';
+        copyBtn.style.padding = '6px 14px';
+        copyBtn.style.fontSize = '0.8rem';
+        copyBtn.textContent = '안티그래비티 지시문 복사';
+        copyBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText(`[Even G2 안경 실시간 음성 지시] ${t.command}`);
+          showToast('클립보드에 복사되었습니다. 새 대화창에 바로 붙여넣을 수 있습니다.');
+        });
+
+        item.append(header, cmd, sum, copyBtn);
+        container.append(item);
+      }
+    }
+
+    function renderConversations(convs) {
+      const container = document.getElementById('convListContainer');
+      document.getElementById('convCountBadge').textContent = `최근 ${convs.length}턴 실시간 표시`;
+      if (!convs.length) {
+        container.innerHTML = `<div class="conv-card">대화 내역이 없습니다.</div>`;
+        return;
+      }
+
+      const latest = convs[0];
+      const combinedLatest = `» ${(latest.question || '').slice(0, 90)}\n\n${latest.answer || ''}`;
+      if (combinedLatest !== lastMirrorSource) {
+        lastMirrorSource = combinedLatest;
+        currentWindows = buildScrollWindows(combinedLatest);
+        currentWinIdx = 0;
+        renderMirrorWindow();
+      }
+
+      container.replaceChildren();
+      for (const c of convs.slice(0, 25)) {
+        const card = document.createElement('div');
+        card.className = 'conv-card';
+
+        const meta = document.createElement('div');
+        meta.className = 'conv-meta';
+        const timeSpan = document.createElement('span');
+        timeSpan.textContent = `${c.timestamp || ''} · ${c.model || 'Gemini 4 Argon'}`;
+
+        const loadMirrorBtn = document.createElement('button');
+        loadMirrorBtn.type = 'button';
+        loadMirrorBtn.className = 'pill-btn pill-btn-secondary';
+        loadMirrorBtn.style.padding = '4px 12px';
+        loadMirrorBtn.style.fontSize = '0.76rem';
+        loadMirrorBtn.textContent = '안경 HUD 미러로 보기';
+        loadMirrorBtn.addEventListener('click', () => {
+          const text = `» ${(c.question || '').slice(0, 90)}\n\n${c.answer || ''}`;
+          currentWindows = buildScrollWindows(text);
+          currentWinIdx = 0;
+          renderMirrorWindow();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        meta.append(timeSpan, loadMirrorBtn);
+
+        const q = document.createElement('div');
+        q.className = 'conv-q';
+        q.textContent = `나 (안경 음성): ${c.question || ''}`;
+
+        const a = document.createElement('div');
+        a.className = 'conv-a';
+        a.textContent = c.answer || '';
+
+        card.append(meta, q, a);
+        container.append(card);
+      }
+    }
+
+    async function refreshLoop() {
+      const data = await fetchConsoleState();
+      if (data && data.ok) {
+        document.getElementById('liveSyncStatus').textContent =
+          `안경 ↔ PC 안티그래비티 실시간 동기화됨 (마지막 갱신: ${data.updatedAt})`;
+        renderTasks(data.tasks || []);
+        renderConversations(data.conversations || []);
+      }
+    }
+
+    document.getElementById('copyLatestTaskBtn').addEventListener('click', async () => {
+      const data = await fetchConsoleState();
+      const top = data?.tasks?.[0];
+      if (top) {
+        await navigator.clipboard.writeText(`[Even G2 안경 실시간 음성 지시] ${top.command}`);
+        showToast(`최근 안경 지시 복사 완료: "${top.command}"`);
+      } else {
+        showToast('복사할 최근 지시가 없습니다.');
+      }
+    });
+
+    document.getElementById('directTaskForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const input = document.getElementById('directTaskInput');
+      const text = input.value.trim();
+      if (!text) return;
+      input.value = '';
+      for (const base of API_BASES) {
+        try {
+          const r = await fetch(`${base}/api/pc-action`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'auto_task', text, rawQuestion: text, autoInjectIde: true })
+          });
+          if (r.ok) {
+            showToast(`안티그래비티 작업 큐로 즉시 전송했습니다: "${text}"`);
+            await refreshLoop();
+            break;
+          }
+        } catch {}
+      }
+    });
+
+    refreshLoop();
+    setInterval(refreshLoop, 1500);
+  </script>
+</body>
+</html>
