@@ -1586,9 +1586,9 @@
         return Boolean(ok);
       }
 
-      markPageBuilt(snapshot) {
+      markPageBuilt() {
         for (const slot of ['title', 'status', 'body']) {
-          this.shown[slot] = snapshot ? snapshot[slot] : '';
+          this.shown[slot] = '';
         }
         this.scheduleFlush();
       }
