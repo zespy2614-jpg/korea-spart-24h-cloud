@@ -1,11 +1,9 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 7. PM 8:55:52
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 7. PM 8:56:07
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
-- **[안티그래비티(PC 작업 결과)]**: Even 앱의 **EDITH(`edith-g2`)** 오픈소스를 그대로 분석하여, **안경 렌즈에 보이는 3분할 프레임 HUD 화면**과 **스마트폰 컴패니언 앱 화면(블랙 & 골드 3D 네트워크 구체 + 원형 말하기 버튼)**을 **EDITH와 1:1로 똑같이** 구현해 **Beta `v1.0.4`**로 즉시 배포 완료했습니다. --- ### 1. 무엇이 EDITH와 똑같이 바뀌었나요? 1. **안경 렌즈 화면 (576 × 288 3-Box Framed HUD — `1:1` 동일)**    - **좌측 상단 프레임 박스 (`title`)**: `◆ E.D.I.T.H  오후 8:40` (실시간 한국 시각 표시)    - **우측 상단 프레임 박스 (`status`)**:      - 대기 중: `● 온라인  ■■■■ 100%` (안경 실
-- **[대표님(PC 안티그래비티 요청)]**: 그 지금 api key는 입력했는데 모델을 저걸로해줄수있어 ? 제미나이 라티스트모델 제일 마지막최근모델로 높은걸로
 - **[대표님(PC 안티그래비티 요청)]**: 그리고 대기모드일때있잖아 시계랑 배터리 잔량만 표시되게해줘 오른쪽위로
 - **[대표님(PC 안티그래비티 요청)]**: 그리고 실시간 자막이나 번역모드잘안되더라
 - **[대표님(PC 안티그래비티 요청)]**: 고민인 게 그 아 지금 내가 컴퓨터로 맨날 켜 놓으니까 전기세가 많이 나올 것 같긴 하거든. 컴퓨터에 부담도 가고 그러면은 미니피시를 사용해야 되나? 거의 하는 거라고는 개발할 때 컴퓨터에 USb 연결해서 하거나 WiFi 연결해서 하는 것밖에 없거든요. 개발하는거 <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USE
