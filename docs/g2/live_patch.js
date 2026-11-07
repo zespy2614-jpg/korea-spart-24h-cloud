@@ -527,8 +527,8 @@
     hud.wanted.body = winText;
     if (st.mode === 'idle' && !st.clockStandby) {
       hud.wanted.status = total > 1
-        ? `▼ 스크롤 ${idx + 1}/${total}  ■■■■ 100%`
-        : (cleanFull.length > 180 ? '▼ 더 보기  ■■■■ 100%' : '● 온라인  ■■■■ 100%');
+        ? `▼ 스크롤 ${idx + 1}/${total}  100%`
+        : (cleanFull.length > 180 ? '▼ 스크롤 가능  100%' : '● 온라인  100%');
     }
     hud.shown = { title: '', status: '', body: '' };
     hud.flushQueued = false;
@@ -548,7 +548,7 @@
       st.__fullScrollText = '';
       st.__scrollWindows = ['저장된 이전 대화가 없습니다.\n\n▶ 길게 눌러 말씀하세요.'];
       st.__scrollWinIdx = 0;
-      hud.wanted.status = '● 온라인  ■■■■ 100%';
+      hud.wanted.status = '● 온라인  100%';
       hud.wanted.body = st.__scrollWindows[0];
       hud.shown = { title: '', status: '', body: '' };
       hud.flushQueued = false;
