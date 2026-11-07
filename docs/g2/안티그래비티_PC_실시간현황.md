@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. AM 8:40:18
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. AM 8:41:03
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -22,6 +22,7 @@
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
 - **[안티그래비티(PC 작업 결과)]**: 방금 안경에서 말씀하신 **"야 이거 안경 화면 뭐 가운데 짝대기가 있는데 뭐야? 없애 볼까?"** 음성 지시가 안티그래비티 실시간 자동 깨움(Reactive Wakeup) 워처를 통해 즉시 감지되었습니다. 원인은 상단 `title`/`status` 컨테이너와 본문 `body` 컨테이너의 박스 테두리 옵션(`borderWidth: 1`) 및 상태줄 막대 기호(`■■■■`, `|`)가 안경 화면 중앙 가로·세로 경계에 선("짝대기") 형태로 그려지던 현상이었습니다. 즉시 [`live_patch.js`](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/live_patch.js)와 [`index.html`](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/index.html)에서 모든
+- **[안티그래비티(PC 작업 결과)]**: 안경에서 추가로 지시하신 두 가지 사항을 모두 감지하여 **`v3.2.4`**로 즉시 수정 및 배포 중입니다: 1. **"응 그 가운데 위에 짝대기 하나 있거든 그거 없애죠"**:    - 상단 컨테이너 테두리(`borderWidth: 0`) 제거와 더불어, Even G2 OS가 상단 정중앙에 표시하던 네이티브 메뉴 핸들 바(`menuObject: undefined`)까지 완전히 비활성화하여 상단 중앙의 가로 짝대기 선이 더 이상 나타나지 않도록 조치했습니다. 2. **"그리고 이거 그 음성 전송하는 거 손가락 떼면 자동으로 전송되게 해 줘"**:    - 안경 터치패드를 길게 눌러 말씀하시다가 **손가락을 떼는 순간(`LONG_PRESS_RELEASE_EVENT = 10`) 대기 시간 없이 즉시 녹음이 종료되며 AI로 자동 전송**되도록 
 - **[안티그래비티(PC 작업 결과)]**: 스마트폰에서 아래 링크를 터치하시면 최신 **ELIPHOEM 자동 핫스팟 (`v5.6`)** 설치 파일(`.apk`)이 즉시 다운로드되어 설치됩니다. ### 1. 스마트폰 직접 다운로드 링크 (클라우드 · LTE/5G/Wi-Fi 모두 가능) - **[ELIPHOEM_AutoHotspot_v5.6.apk 다운로드](https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone.apk)**   - 주소: `https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone.apk`   - 단축 주소: `https://zespy2614-jpg.github.io/ko
 - **[대표님(PC 안티그래비티 요청)]**: 밑에네비게이션바는 위로 드래그했을때나오게해줘 클릭이아니라
 - **[안티그래비티(PC 작업 결과)]**: 하단 네비게이션 바가 단순 터치(클릭)나 창 전환 시에는 열리지 않고, **하단 핸들을 위로 드래그(스와이프)했을 때만 열리도록** `KorSystemHelper.apk`를 빌드하여 모니터에 설치 및 실증 테스트 중입니다. 완료되는 즉시 캡처 결과를 보여드리겠습니다.
