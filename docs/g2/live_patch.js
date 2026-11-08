@@ -1,10 +1,10 @@
-// __EDITH_OTA__ Live Over-The-Air Patch v3.2.5 — Frame-by-Frame Zero-Flicker Clock Standby + Zero Menu/Border Bar + Hot-Reload Poller
+// __EDITH_OTA__ Live Over-The-Air Patch v3.2.6 — Zero Left/Right Clock Bars (borderColor=0, borderRadius=0, padding=0, height=52) + Atomic Clock Standby + Hot-Reload
 (function () {
-  const OTA_VERSION = 'v3.2.5';
+  const OTA_VERSION = 'v3.2.6';
   if (window.__EDITH_OTA_VERSION__ === OTA_VERSION) return;
   window.__EDITH_OTA_VERSION__ = OTA_VERSION;
   window.__EDITH_OTA_V31_APPLIED__ = true;
-  console.log(`[EDITH OTA] ${OTA_VERSION} Zero-Flicker Atomic Clock Standby + Zero Menu/Border Bar + Live Hot-Reload Activated`);
+  console.log(`[EDITH OTA] ${OTA_VERSION} Zero Left/Right Clock Bars + Atomic Clock Standby + Live Hot-Reload Activated`);
 
   const agy = window.__EDITH_AGY__;
   const origFetch = (window.__EDITH_ORIG_FETCH__ || window.fetch).bind(window);
@@ -582,39 +582,46 @@
         obj.borderColor = 0;
         obj.borderRadius = 0;
         if (name === 'title') {
-          obj.xPosition = 20;
-          obj.yPosition = 0;
+          obj.xPosition = 24;
+          obj.yPosition = 4;
           obj.width = 280;
-          obj.height = 44;
-          obj.paddingLength = 10;
+          obj.height = 52;
+          obj.paddingLength = 0;
           obj.isEventCapture = 0;
           obj.textColor = hud.clockStandby ? 0 : (hud.dim ? 1 : 3);
           obj.content = hud.clockStandby
             ? ' '
-            : sliceByUtf8Bytes(String(obj.content || ' ').replace(/\s*\|\s*/g, '  '), 180);
+            : sliceByUtf8Bytes(
+                String(obj.content || ' ')
+                  .replace(/\r?\n/g, ' ')
+                  .replace(/\s*\|\s*/g, '  '),
+                120
+              );
           built.title = obj.content;
         } else if (name === 'status') {
-          // Fixed coordinates (x=310, width=246, padding=10) & brightness (3) in BOTH normal & clockStandby so clock NEVER jumps or flickers!
-          obj.xPosition = 310;
-          obj.yPosition = 0;
-          obj.width = 246;
-          obj.height = 44;
-          obj.paddingLength = 10;
+          // Fixed coordinates (x=320, y=4, width=232, height=52, padding=0, borderColor=0, borderRadius=0)
+          // Inner height = 52px (more than 2x 26px single-line font height) -> ZERO vertical scrollbar pill & ZERO left/right border bars!
+          obj.xPosition = 320;
+          obj.yPosition = 4;
+          obj.width = 232;
+          obj.height = 52;
+          obj.paddingLength = 0;
           obj.isEventCapture = 0;
           obj.textColor = hud.dim ? 1 : 3;
           obj.content = sliceByUtf8Bytes(
             String(obj.content || ' ')
+              .replace(/\r?\n/g, ' ')
               .replace(/\s*\|\s*/g, '  ')
               .replace(/[■□]{2,}\s*/g, ''),
-            180
+            120
           );
           built.status = obj.content;
         } else if (name === 'body') {
           obj.xPosition = 20;
-          obj.yPosition = 46;
+          obj.yPosition = 58;
           obj.width = 536;
-          obj.height = 242;
-          obj.paddingLength = 16;
+          obj.height = 230;
+          obj.paddingLength = 12;
           obj.isEventCapture = 1;
           obj.textColor = hud.clockStandby ? 0 : (hud.dim ? 1 : 4);
           obj.content = hud.clockStandby ? ' ' : sliceByUtf8Bytes(obj.content || ' ', 900);
@@ -945,20 +952,20 @@
       };
     }
 
-    // Re-register startup page container WITHOUT menuObject in case v2.0.0 host called hud.start() before live_patch.js loaded!
-    if (hud.bridge && !hud.__v325StartupCleared) {
-      hud.__v325StartupCleared = true;
+    // Re-register / rebuild page container WITHOUT menuObject or side bars immediately when OTA patch loads!
+    if (hud.bridge && hud.__v326StartupCleared !== OTA_VERSION) {
+      hud.__v326StartupCleared = OTA_VERSION;
       hud.shown = {
         title: hud.slotText('title'),
         status: hud.slotText('status'),
         body: sliceByUtf8Bytes(hud.slotText('body'), 900)
       };
       hud.flushQueued = false;
-      if (typeof hud.start === 'function') {
+      if (typeof hud.rebuild === 'function' && hud.startupSpent) {
+        void hud.rebuild();
+      } else if (typeof hud.start === 'function') {
         hud.startupSpent = false;
         void hud.start();
-      } else if (typeof hud.rebuild === 'function') {
-        void hud.rebuild();
       }
     }
 
