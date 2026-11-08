@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 9:30:54",
+  "updatedAt": "2026. 11. 8. PM 9:31:24",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -150,7 +150,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 9:30:54\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 8단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 9:31:24\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 8단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -725,14 +725,6 @@
   ],
   "livePcAntigravity": [
     {
-      "updatedAt": "2026-11-08T12:20:56Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 야보니까 너가 전체적으로 그 테스트하는거 마지막에 소비자입장에서 검증하는시스템이 부족해 이거에관해서 실사용처럼 검증하게하려면 스킬이나 학습크롤링이나 프롬프트 뭐가필요해? 필요한요건갖춰서해줘\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
-    },
-    {
-      "updatedAt": "2026-11-08T12:21:12Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 그리고 매번작업마다 필수로 테스트해줘야한다고 실사용자입장에서"
-    },
-    {
       "updatedAt": "2026-11-08T12:09:13Z",
       "snippet": "[대표님(PC 안티그래비티 요청)] 야부팅하니까 디바이스페일드락드걸려있다"
     },
@@ -755,6 +747,14 @@
     {
       "updatedAt": "2026-11-08T12:28:32Z",
       "snippet": "[대표님(PC 안티그래비티 요청)] 그리고 로딩더빠르게도가능해?"
+    },
+    {
+      "updatedAt": "2026-11-08T12:20:56Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 야보니까 너가 전체적으로 그 테스트하는거 마지막에 소비자입장에서 검증하는시스템이 부족해 이거에관해서 실사용처럼 검증하게하려면 스킬이나 학습크롤링이나 프롬프트 뭐가필요해? 필요한요건갖춰서해줘\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
+    },
+    {
+      "updatedAt": "2026-11-08T12:21:12Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 그리고 매번작업마다 필수로 테스트해줘야한다고 실사용자입장에서"
     }
   ],
   "recentDocs": [
@@ -812,16 +812,6 @@
   "livePcAntigravitySession": [
     {
       "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-08T12:20:56Z",
-      "summary": "야보니까 너가 전체적으로 그 테스트하는거 마지막에 소비자입장에서 검증하는시스템이 부족해 이거에관해서 실사용처럼 검증하게하려면 스킬이나 학습크롤링이나 프롬프트 뭐가필요해? 필요한요건갖춰서해줘\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
-    },
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-08T12:21:12Z",
-      "summary": "그리고 매번작업마다 필수로 테스트해줘야한다고 실사용자입장에서"
-    },
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
       "createdAt": "2026-11-08T12:09:13Z",
       "summary": "야부팅하니까 디바이스페일드락드걸려있다"
     },
@@ -849,6 +839,16 @@
       "role": "대표님(PC 안티그래비티 요청)",
       "createdAt": "2026-11-08T12:28:32Z",
       "summary": "그리고 로딩더빠르게도가능해?"
+    },
+    {
+      "role": "대표님(PC 안티그래비티 요청)",
+      "createdAt": "2026-11-08T12:20:56Z",
+      "summary": "야보니까 너가 전체적으로 그 테스트하는거 마지막에 소비자입장에서 검증하는시스템이 부족해 이거에관해서 실사용처럼 검증하게하려면 스킬이나 학습크롤링이나 프롬프트 뭐가필요해? 필요한요건갖춰서해줘\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
+    },
+    {
+      "role": "대표님(PC 안티그래비티 요청)",
+      "createdAt": "2026-11-08T12:21:12Z",
+      "summary": "그리고 매번작업마다 필수로 테스트해줘야한다고 실사용자입장에서"
     }
   ],
   "livePcArtifacts": [],
