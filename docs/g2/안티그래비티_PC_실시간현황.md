@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. AM 9:55:06
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. AM 9:55:36
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -26,6 +26,7 @@
 - **[안티그래비티(PC 작업 결과)]**: 하단 네비게이션 바가 단순 터치(클릭)나 창 전환 시에는 열리지 않고, **하단 핸들을 위로 드래그(스와이프)했을 때만 열리도록** `KorSystemHelper.apk`를 빌드하여 모니터에 설치 및 실증 테스트 중입니다. 완료되는 즉시 캡처 결과를 보여드리겠습니다.
 - **[안티그래비티(PC 작업 결과)]**: 하단 네비게이션 바([`NavBarService.java`](file:///C:/Users/%EB%B0%95%EC%A0%95%EC%88%98/.gemini/antigravity/brain/08abf2d4-e54d-43da-a03d-df4b6e390207/scratch/kor_helper/src/com/zqc/kor/wallpaper/NavBarService.java))가 단순 클릭이나 창 전환 시에는 열리지 않고, **화면 하단 핸들 영역을 위로 드래그(스와이프)했을 때만 올라오도록** 수정하여 모니터(`192.168.123.107:5555`)에 즉시 적용했습니다. 실제 기기에서 **① 단순 터치(열리지 않음) → ② 위로 드래그(즉시 열림) → ③ 3.5초 경과 후 자동 닫힘** 3단계 테스트를 마쳤으며, 캡처 결과는 [walkthroug
 - **[대표님(PC 안티그래비티 요청)]**: 이거 클로드코드한테 재점검시켜보게 파일위치랑 작업내용 프롬프트 작성해줘
+- **[안티그래비티(PC 작업 결과)]**: 클로드 코드(Claude Code)에 그대로 복사해서 붙여넣으실 수 있도록 **파일 경로, 아키텍처, 작업 내역, 회귀 방지(불변 조건) 및 실기 검증 체크리스트**를 모두 포함한 프롬프트를 작성해 드립니다. --- ### 📋 클로드 코드(Claude Code) 전달용 프롬프트 (복사해서 붙여넣기) ```markdown 당신은 안드로이드 시스템 엔지니어링(`android-apk-smali-system-engineer`), 삼성 One UI 디자인 시스템(`samsung-design-system`), 회귀 오류 방지(`zero-regression-engineering`), 실증 검증(`verification-before-completion`) 전문가입니다. 현재 안드로이드 차량용 올인원 모니터(`192.168.123.107:5555`,
 - **[대표님(PC 안티그래비티 요청)]**: 사람들이 코덱스 클로드코드 안티그래비티중 지금 코딩짜는거1위누구래? <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 - **[안티그래비티(PC 작업 결과)]**: 현재 국내외 개발자 커뮤니티(레딧, X, 개발자 포럼 등)의 여론을 종합하면, **"순수하게 코드를 짜고 복잡한 버그를 잡는 코딩 실력(뇌지컬) 1위"**로는 **클로드 코드(Claude Code)**를 꼽는 사람이 가장 많습니다. 하지만 **속도·가성비(코덱스)**나 **통합 환경·멀티 에이전트 활용(안티그래비티)** 면에서는 각자 1위 영역이 뚜렷해서, 현재 개발자들 사이에서는 다음과 같이 평가받고 있습니다. --- ### 🏆 3대 코딩 에이전트 개발자 여론 요약 | 구분 | 🥇 분야별 타이틀 | 개발자 실사용 평가 (장점 / 아쉬운 점) | | :--- | :--- | :--- | | **클로드 코드**<br>(Claude Code) | **순수 코딩 지능·리팩토링 1위** | • **장점:** 거대한 레거시 코드베이스 파악,
 

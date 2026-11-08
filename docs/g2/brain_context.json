@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. AM 9:55:06",
+  "updatedAt": "2026. 11. 8. AM 9:55:36",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -131,7 +131,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. AM 9:55:06\n1. 영구 장기기억 금고: 15건 (고정: 그리고 이거 그 음성 전송하는 거 손가락 떼면 자동으로 전송되게 해 줘)\n2. PC 안티그래비티 실시간 작업: 최근 7단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 46건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. AM 9:55:36\n1. 영구 장기기억 금고: 15건 (고정: 그리고 이거 그 음성 전송하는 거 손가락 떼면 자동으로 전송되게 해 줘)\n2. PC 안티그래비티 실시간 작업: 최근 8단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 46건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -590,6 +590,10 @@
       "snippet": "[대표님(PC 안티그래비티 요청)] 이거 클로드코드한테 재점검시켜보게 파일위치랑 작업내용 프롬프트 작성해줘"
     },
     {
+      "updatedAt": "2026-11-08T00:54:37Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] 클로드 코드(Claude Code)에 그대로 복사해서 붙여넣으실 수 있도록 **파일 경로, 아키텍처, 작업 내역, 회귀 방지(불변 조건) 및 실기 검증 체크리스트**를 모두 포함한 프롬프트를 작성해 드립니다.\n\n---\n\n### 📋 클로드 코드(Claude Code) 전달용 프롬프트 (복사해서 붙여넣기)\n\n```markdown\n당신은 안드로이드 시스템 엔지니어링(`android-apk-smali-system-engineer`), 삼성 One UI 디자인 시스템(`samsung-design-system`), 회귀 오류 방지(`zero-regression-engineering`), 실증 검증(`verification-before-completion`) 전문가입니다.\n\n현재 안드로이드 차량용 올인원 모니터(`192.168.123.107:5555`,"
+    },
+    {
       "updatedAt": "2026-11-08T00:33:24Z",
       "snippet": "[대표님(PC 안티그래비티 요청)] 사람들이 코덱스 클로드코드 안티그래비티중 지금 코딩짜는거1위누구래?\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
     },
@@ -675,6 +679,11 @@
       "role": "대표님(PC 안티그래비티 요청)",
       "createdAt": "2026-11-08T00:54:03Z",
       "summary": "이거 클로드코드한테 재점검시켜보게 파일위치랑 작업내용 프롬프트 작성해줘"
+    },
+    {
+      "role": "안티그래비티(PC 작업 결과)",
+      "createdAt": "2026-11-08T00:54:37Z",
+      "summary": "클로드 코드(Claude Code)에 그대로 복사해서 붙여넣으실 수 있도록 **파일 경로, 아키텍처, 작업 내역, 회귀 방지(불변 조건) 및 실기 검증 체크리스트**를 모두 포함한 프롬프트를 작성해 드립니다.\n\n---\n\n### 📋 클로드 코드(Claude Code) 전달용 프롬프트 (복사해서 붙여넣기)\n\n```markdown\n당신은 안드로이드 시스템 엔지니어링(`android-apk-smali-system-engineer`), 삼성 One UI 디자인 시스템(`samsung-design-system`), 회귀 오류 방지(`zero-regression-engineering`), 실증 검증(`verification-before-completion`) 전문가입니다.\n\n현재 안드로이드 차량용 올인원 모니터(`192.168.123.107:5555`,"
     },
     {
       "role": "대표님(PC 안티그래비티 요청)",
