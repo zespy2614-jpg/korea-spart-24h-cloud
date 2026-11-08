@@ -2148,7 +2148,7 @@
       if (wasStandby) {
         state.clockStandby = false;
         hud.clockStandby = false;
-        hud.menu = buildMenuItems();
+        hud.menu = [];
       }
       const titleLine = `◆ E.D.I.T.H${state.clockStr ? `  ${state.clockStr}` : ''}`;
       if (!state.apiKey.trim()) {
@@ -2159,7 +2159,15 @@
           status: formatStatusLine(),
           body: `${note ? note + '\n\n' : ''}설정이 필요합니다.\n\n휴대폰의 Even 앱에서 설정을 열고\nOpenRouter 또는 Gemini 키를 확인하세요.\n\n◆ 두 번 탭하면 시계 대기 / 종료.`
         });
-        if (wasStandby) void hud.rebuild();
+        if (wasStandby) {
+          hud.shown = {
+            title: sliceByUtf8Bytes(hud.slotText('title'), 300),
+            status: sliceByUtf8Bytes(hud.slotText('status'), 300),
+            body: sliceByUtf8Bytes(hud.slotText('body'), 850)
+          };
+          hud.flushQueued = false;
+          void hud.rebuild();
+        }
         return;
       }
       setPhoneState('idle');
@@ -2179,6 +2187,12 @@
       window.__EDITH_SCROLL_INDEX__ = 0;
       hud.set({ title: titleLine, status: formatStatusLine(), body: clip(body, 12000) });
       if (wasStandby) {
+        hud.shown = {
+          title: sliceByUtf8Bytes(hud.slotText('title'), 300),
+          status: sliceByUtf8Bytes(hud.slotText('status'), 300),
+          body: sliceByUtf8Bytes(hud.slotText('body'), 850)
+        };
+        hud.flushQueued = false;
         void hud.rebuild();
       }
     }
@@ -2191,13 +2205,21 @@
       state.roomMode = null;
       state.clockStandby = true;
       hud.clockStandby = true;
-      hud.menu = buildMenuItems();
+      hud.menu = [];
       setPhoneState('idle');
-      hud.set({
+      const statusText = formatStatusLine();
+      hud.wanted = {
         title: ' ',
-        status: formatStatusLine(),
+        status: statusText,
         body: ' '
-      });
+      };
+      hud.shown = {
+        title: ' ',
+        status: statusText,
+        body: ' '
+      };
+      hud.flushQueued = false;
+      hud.updateMirror();
       void hud.rebuild();
       ensureWakeWordStandby();
     }
@@ -2509,7 +2531,7 @@
       if (!clean) return '';
 
       // 1. Try local PC server 120ms instant neural translation first if reachable
-      for (const base of ['http://192.168.123.150:3860', 'http://192.168.123.104:3860']) {
+      for (const base of ['http://192.168.123.104:3860', 'http://192.168.123.150:3860']) {
         try {
           const r = await fetch(`${base}/api/fast-translate?q=${encodeURIComponent(clean)}`, {
             signal: AbortSignal.timeout(700)
@@ -2886,7 +2908,7 @@
           body: JSON.stringify(payload)
         });
       } catch {}
-      for (const base of ['http://192.168.123.150:3860', 'http://192.168.123.104:3860', '']) {
+      for (const base of ['http://192.168.123.104:3860', 'http://192.168.123.150:3860', '']) {
         try {
           const r = await fetch(`${base}/api/memory`, {
             method: 'POST',
@@ -2917,7 +2939,7 @@
           body: JSON.stringify(payload)
         });
       } catch {}
-      for (const base of ['http://192.168.123.150:3860', 'http://192.168.123.104:3860', '']) {
+      for (const base of ['http://192.168.123.104:3860', 'http://192.168.123.150:3860', '']) {
         try {
           const r = await fetch(`${base}/api/pc-action`, {
             method: 'POST',
@@ -3927,7 +3949,7 @@
 
     async function pushKeyToPcServer(k) {
       if (!k) return;
-      for (const base of ['http://192.168.123.150:3860', 'http://192.168.123.104:3860', '']) {
+      for (const base of ['http://192.168.123.104:3860', 'http://192.168.123.150:3860', '']) {
         try {
           await fetch(`${base}/api/config-key`, {
             method: 'POST',
