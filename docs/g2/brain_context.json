@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 7:56:51",
+  "updatedAt": "2026. 11. 8. PM 7:57:06",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -150,7 +150,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 7:56:51\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 6단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 7:57:06\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 2단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -677,28 +677,12 @@
   ],
   "livePcAntigravity": [
     {
-      "updatedAt": "2026-11-08T10:41:28Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] 프로젝터에 설치되어 화면을 가리던 외부 테스트 앱(`com.j2.atlas.manager`, RAM 380MB 점유)을 완전히 삭제하고, 최종 하네스 검증(`opt2_clean`)을 진행 중입니다. 완료되는 대로 전체 실측 수치와 백업 동기화 결과를 보고드리겠습니다."
+      "updatedAt": "2026-11-08T10:56:20Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] 사장님, 지적해주신 3가지 핵심 사항(**① USB 포트 딱 2개로 구성**, **② 누락되어 있던 물리적 MicroSD(TF) 카드 삽입구 정식 탑재**, **③ `HDMI`를 포함한 모든 필수 포트를 제품 후면부 한 줄에 일자 배치**)을 두 보드(`UIS7861` 및 `RK3566`)의 **회로도(`.kicad_sch`), 기판(`.kicad_pcb`), 안드로이드 커널(`.dts`), 발주 부품표(`BOM.csv`), 그리고 3D 완성본 실사 사진**에 100% 반영하여 **`V1.3 (All-Rear I/O 후면 통합 버전)`**으로 즉시 재설계했습니다.\n\n전체 고해상도 3D 사진과 후면 포트 배치도는 우측 상단 아티팩트 문서인 **[UIS7861_RK3566_후면통합포트_V1.3_설계보고서.md](file:///C:/Users/박정"
     },
     {
-      "updatedAt": "2026-11-08T10:44:40Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] `ppsspp.sh`에서 불필요한 디스크 캐시 초기화(`drop_caches`)로 인한 초기 로딩 지연을 제거하고, 별도 옵션 없이 기본 실행 시에도 PSP 철권 6가 즉시 전투에 진입하여 풀스피드로 동작하는지 최종 실전 벤치마크(`psp_final`)를 측정 중입니다. 완료되는 대로 결과를 보고드리겠습니다."
-    },
-    {
-      "updatedAt": "2026-11-08T10:48:45Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] 가장 무거운 스테이지인 **Mystical Forest(물결·숲 스테이지)** 실제 전투 측정(`psp_final`)에서도 속도 **평균 98.9% (최저 95.3%, 최고 105.1%, 대기 평균 100.2%)**, 최고 온도 **85.0°C**로 확인되었습니다. 마지막 백업 동기화 검증이 곧 완료됩니다."
-    },
-    {
-      "updatedAt": "2026-11-08T10:48:59Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] **철권 태그**, **PSP 철권 6**, 그리고 **나머지 에뮬일렉(EmuELEC) 전체 게임**에 대한 속도 최적화와 실제 전투(초당 4.5회 연타·이동·점프·공격 조작) 측정, 백업 동기화 및 무결성 검증(`PASS=10, FAIL=0`)을 모두 완료했습니다.\n\n---\n\n### 1. 실제 전투(Fight) 속도 측정 결과 요약\n\n| 구분 | 항목 | 최적화 전 (`tttA1` / `pspA1`) | 최종 최적화 후 (`ttt_opt1` / `psp_final`) | 개선 결과 |\n|---|---|---|---|---|\n| **철권 태그 토너먼트**<br>(System 12) | **실제 전투 FPS** | 중앙값 `59.91 fps`<br>하위 10% `58.92 fps` / 최저 `56.94 fps` | **중앙값 `59.93 fps"
-    },
-    {
-      "updatedAt": "2026-11-08T10:51:44Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 그리고 안드로이드 기본 빔프로젝트있잖아 그것도한번봐줘 더 성능가속할수있는거있나"
-    },
-    {
-      "updatedAt": "2026-11-08T10:56:32Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] 안드로이드 기본 빔프로젝터 환경을 전수 점검한 결과, 즉시 가속할 수 있는 **4가지 핵심 병목**을 발견하여 지금 적용 중입니다:\n1. **시네마 런처(`com.eliphoem.cinema.launcher`), 시스템 UI, 설정 및 모든 OTT 앱(쿠팡플레이·티빙·웨이브·왓챠·디즈니+·VLC·브라우저) 네이티브 기계어 사전 컴파일(`status=verify` → `status=speed`)**: 넷플릭스를 제외한 런처와 OTT 앱들이 바이트코드 검증 모드로 돌고 있던 것을 100% ARM 기계어(`-m speed`)로 컴파일 중입니다.\n2. **OTT 영상 시청 시 백그라운드 `EmulationStation` 자동 일시정지(CPU 35.4% 절감)**: 넷플릭스·유튜브·티빙 등 안드로이드 앱 실행 중에는 보이지 않는 `EmulationSt"
+      "updatedAt": "2026-11-08T10:56:50Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] I have generated the requested 3D photorealistic studio hardware photograph of the **Rockchip RK3566 V2.0 Smart Beam Projector Mainboard (Single-Edge I/O Edition)** and reported the result directly to the caller agent via `send_message`."
     }
   ],
   "recentDocs": [
@@ -756,36 +740,22 @@
   "livePcAntigravitySession": [
     {
       "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-08T10:41:28Z",
-      "summary": "프로젝터에 설치되어 화면을 가리던 외부 테스트 앱(`com.j2.atlas.manager`, RAM 380MB 점유)을 완전히 삭제하고, 최종 하네스 검증(`opt2_clean`)을 진행 중입니다. 완료되는 대로 전체 실측 수치와 백업 동기화 결과를 보고드리겠습니다."
+      "createdAt": "2026-11-08T10:56:20Z",
+      "summary": "사장님, 지적해주신 3가지 핵심 사항(**① USB 포트 딱 2개로 구성**, **② 누락되어 있던 물리적 MicroSD(TF) 카드 삽입구 정식 탑재**, **③ `HDMI`를 포함한 모든 필수 포트를 제품 후면부 한 줄에 일자 배치**)을 두 보드(`UIS7861` 및 `RK3566`)의 **회로도(`.kicad_sch`), 기판(`.kicad_pcb`), 안드로이드 커널(`.dts`), 발주 부품표(`BOM.csv`), 그리고 3D 완성본 실사 사진**에 100% 반영하여 **`V1.3 (All-Rear I/O 후면 통합 버전)`**으로 즉시 재설계했습니다.\n\n전체 고해상도 3D 사진과 후면 포트 배치도는 우측 상단 아티팩트 문서인 **[UIS7861_RK3566_후면통합포트_V1.3_설계보고서.md](file:///C:/Users/박정"
     },
     {
       "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-08T10:44:40Z",
-      "summary": "`ppsspp.sh`에서 불필요한 디스크 캐시 초기화(`drop_caches`)로 인한 초기 로딩 지연을 제거하고, 별도 옵션 없이 기본 실행 시에도 PSP 철권 6가 즉시 전투에 진입하여 풀스피드로 동작하는지 최종 실전 벤치마크(`psp_final`)를 측정 중입니다. 완료되는 대로 결과를 보고드리겠습니다."
-    },
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-08T10:48:45Z",
-      "summary": "가장 무거운 스테이지인 **Mystical Forest(물결·숲 스테이지)** 실제 전투 측정(`psp_final`)에서도 속도 **평균 98.9% (최저 95.3%, 최고 105.1%, 대기 평균 100.2%)**, 최고 온도 **85.0°C**로 확인되었습니다. 마지막 백업 동기화 검증이 곧 완료됩니다."
-    },
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-08T10:48:59Z",
-      "summary": "**철권 태그**, **PSP 철권 6**, 그리고 **나머지 에뮬일렉(EmuELEC) 전체 게임**에 대한 속도 최적화와 실제 전투(초당 4.5회 연타·이동·점프·공격 조작) 측정, 백업 동기화 및 무결성 검증(`PASS=10, FAIL=0`)을 모두 완료했습니다.\n\n---\n\n### 1. 실제 전투(Fight) 속도 측정 결과 요약\n\n| 구분 | 항목 | 최적화 전 (`tttA1` / `pspA1`) | 최종 최적화 후 (`ttt_opt1` / `psp_final`) | 개선 결과 |\n|---|---|---|---|---|\n| **철권 태그 토너먼트**<br>(System 12) | **실제 전투 FPS** | 중앙값 `59.91 fps`<br>하위 10% `58.92 fps` / 최저 `56.94 fps` | **중앙값 `59.93 fps"
-    },
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-08T10:51:44Z",
-      "summary": "그리고 안드로이드 기본 빔프로젝트있잖아 그것도한번봐줘 더 성능가속할수있는거있나"
-    },
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-08T10:56:32Z",
-      "summary": "안드로이드 기본 빔프로젝터 환경을 전수 점검한 결과, 즉시 가속할 수 있는 **4가지 핵심 병목**을 발견하여 지금 적용 중입니다:\n1. **시네마 런처(`com.eliphoem.cinema.launcher`), 시스템 UI, 설정 및 모든 OTT 앱(쿠팡플레이·티빙·웨이브·왓챠·디즈니+·VLC·브라우저) 네이티브 기계어 사전 컴파일(`status=verify` → `status=speed`)**: 넷플릭스를 제외한 런처와 OTT 앱들이 바이트코드 검증 모드로 돌고 있던 것을 100% ARM 기계어(`-m speed`)로 컴파일 중입니다.\n2. **OTT 영상 시청 시 백그라운드 `EmulationStation` 자동 일시정지(CPU 35.4% 절감)**: 넷플릭스·유튜브·티빙 등 안드로이드 앱 실행 중에는 보이지 않는 `EmulationSt"
+      "createdAt": "2026-11-08T10:56:50Z",
+      "summary": "I have generated the requested 3D photorealistic studio hardware photograph of the **Rockchip RK3566 V2.0 Smart Beam Projector Mainboard (Single-Edge I/O Edition)** and reported the result directly to the caller agent via `send_message`."
     }
   ],
-  "livePcArtifacts": [],
+  "livePcArtifacts": [
+    {
+      "file": "UIS7861_RK3566_후면통합포트_V1.3_설계보고서.md",
+      "updatedAt": "2026. 11. 8. PM 7:55:48",
+      "excerpt": "# [V1.3 후면 통합 포트 완성본] `UIS7861` & `RK3566` 공용 메인보드 (USB 2포트 · MicroSD 카드 슬롯 · HDMI 후면 일자 배치)\n\n> [!IMPORTANT]\n> **사장님 지시사항 3대 핵심 반영 완료 (`V1.2` → `V1.3 All-Rear I/O` 업그레이드)**\n> 1. **USB 포트 정확히 2개(`1단 독립 나란히 배치`)로 구성**:\n>    - 기존 2층 적층형(3개)이나 측면 분산 배치를 폐기하고, 후면부에 **나란히 분리된 1단 독립 USB Type-A 포트 2개(`USB 1: 파란색 외장하드 전용 USB 3.0 [5.15V/2.8A + -26.5dB 트랩]` + `USB 2: 검은색 주변기기/카플레이용 USB 2.0 [5.0V/1.5A 독립전원]`)**로 설계하여 두꺼운 케이블 2개를 동시에 꽂아도 물리적·전기적 간섭이 0%입니다.\n> 2. **MicroSD (TF) 카드 삽입구(`J_SD`: Push-Push 스프링 자동 잠금 슬롯) 정식 탑재**:\n>    - 기존 도면에서 빠져 있던 물리적 **MicroSD(TF) 카드 슬롯(`J_SD`, LCSC: `C111196`)**을 후면 중앙(USB 2번 포트 바로 옆)에 추가하고, 회로도(`.kicad_sch`), 기판(`.kicad_pcb`), 안드로이드 13 커널(`&sdmmc0` UHS-I `104MB/s` + `GPIO0_A4` 카드 감지 + `ESD5451N` 정전기 보호)까지 100% 연결했습니다.\n> 3. **`HDMI`를 포함한 모든 외부 필수 포트를 제품 후면부(Rear Panel) 한 면에 100% 일자 집중 배치**:\n>    - 측면·전면으로 흩어져 있던 포트들을 모두 **제품 후면부 한 줄**로 모았으며, **`UIS7861` 보드 후면에도 표준 `HDMI 2.0` 출력 포트(`J_HDMI`, `LT8912B` 브릿지 직결)**를 추가하여 뒷좌석 리어 모니터·캠핑카 TV·외부 모니터에 HDMI 케이블 하나로 즉시 연결할 수 있습니다.\n\n---\n\n## 1. [3D 실물 완성본 사진] 후면 일자형 통합 포트 (`USB 2개` · `MicroSD 슬롯` · `HDMI` 완비)\n\n````carousel\n![3D 후면 완성본 1: UIS7861 공용 메인보드 V1.3 (포트 명칭 지시선 포함)](C:/Users/박정수/.gemini/antigravity/brain/0564586d-4896-"
+    }
+  ],
   "recentWorkspaceDocs": [
     {
       "relPath": "CLAUDE.md",
