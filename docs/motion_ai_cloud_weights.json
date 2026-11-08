@@ -1,62 +1,71 @@
 {
   "engine_version": "Cloud-24H-Biomechanical-12D-v2.5",
   "cloud_provider": "GitHub Actions Ubuntu-Latest 24/7 Nonstop Cluster",
-  "epochs_completed": 545,
-  "total_samples_trained": 32800,
-  "web_harvest_clips": 1476,
-  "accuracy_pct": 99.5,
-  "false_positive_rate_pct": 0.57,
+  "epochs_completed": 570,
+  "total_samples_trained": 34400,
+  "web_harvest_clips": 1527,
+  "accuracy_pct": 100.0,
+  "false_positive_rate_pct": 0.0,
   "raw_video_bytes_stored": 0,
   "weights": {
     "strike": [
-      0.44198,
-      -0.30678,
-      -4.39301,
-      0.43886,
-      0.50935,
-      0.08937,
-      -0.07264,
-      -0.14515,
-      -0.46621,
-      -0.24097,
-      -0.23628,
-      -0.03648
+      0.44521,
+      -0.35111,
+      -4.42075,
+      0.46229,
+      0.57367,
+      0.10967,
+      -0.05697,
+      -0.17889,
+      -0.50348,
+      -0.27127,
+      -0.24026,
+      -0.04324
     ],
     "fall": [
-      -0.02267,
-      -0.01042,
-      -0.67686,
-      0.00905,
-      -0.83754,
-      -0.63464,
-      1.36858,
-      -3.8798,
-      0.50164,
-      -0.02865,
-      1.78019,
-      -0.42222
+      -0.05472,
+      -0.03723,
+      -0.77015,
+      -0.01213,
+      -0.84948,
+      -0.64531,
+      1.33715,
+      -3.88932,
+      0.28439,
+      -0.03616,
+      1.77867,
+      -0.42579
     ],
     "suffocation": [
-      -0.57878,
-      -0.57076,
-      0.16139,
-      -0.35307,
-      0.29398,
-      0.28668,
-      0.79897,
+      -0.61485,
+      -0.60271,
+      0.2153,
+      -0.37905,
+      0.34308,
+      0.33332,
+      0.80825,
       -3.25,
-      1.56093,
-      -3.55035,
-      -0.76533,
-      -2.86009
+      1.64602,
+      -3.55095,
+      -0.89422,
+      -2.86601
     ]
   },
   "biases": {
-    "strike": -2.45003,
-    "fall": -2.28455,
-    "suffocation": -1.15692
+    "strike": -2.4857,
+    "fall": -2.40414,
+    "suffocation": -1.10607
   },
   "recent_cloud_cycles": [
+    {
+      "timestamp": "2026-11-08 16:18:47 KST",
+      "source": "RWF-2000 실전 CCTV 폭행 vs 일상 행동 대조 데이터셋",
+      "epochs_added": 25,
+      "clips_distilled": 51,
+      "epoch_now": 570,
+      "accuracy_pct": 100.0,
+      "fpr_pct": 0.0
+    },
     {
       "timestamp": "2026-11-08 18:43:26 KST",
       "source": "한국 AI-Hub 요양원·어린이집·매장 이상행동 CCTV 스켈레톤 스트림",
@@ -67,6 +76,6 @@
       "fpr_pct": 0.57
     }
   ],
-  "last_updated_utc": "2026-11-08T09:43:26Z",
-  "last_updated_kst": "2026-11-08 18:43:26 KST"
+  "last_updated_utc": "2026-11-08T16:18:47Z",
+  "last_updated_kst": "2026-11-08 16:18:47 KST"
 }
