@@ -964,7 +964,7 @@
       <div class="chats-panel">
         <div class="chats-tools">
           <button id="newChatBtn" class="button sm" type="button">새 채팅</button>
-          <button id="exportMdBtn" class="button quiet sm" type="button">대화록 .md 저장</button>
+          <button id="exportMdBtn" class="button quiet sm" type="button">대화 기록 파일로 저장</button>
           <button id="clearChatBtn" class="button quiet sm" type="button">이 채팅 비우기</button>
         </div>
         <p class="help">모든 대화는 안경, 휴대폰, PC(<code>e:\안티그래비티\G2_안경_실시간대화록.md</code>), 구글 드라이브, GitHub에 실시간으로 기록됩니다.</p>
@@ -2892,7 +2892,7 @@
         left.className = 'memory-item-left';
         const badge = document.createElement('span');
         badge.className = 'memory-badge';
-        badge.textContent = `${item.category || '기억'}${item.pinned ? ' · HUD 고정' : ''}`;
+        badge.textContent = `${item.category || '기억'}${item.pinned ? ' · 안경 화면 고정' : ''}`;
         const fact = document.createElement('div');
         fact.className = 'memory-fact';
         fact.textContent = item.fact;
@@ -4098,6 +4098,80 @@
         } catch {}
       }
     }
+
+    /* ── 50대 한국인 실소비자 특화 UX 보호 (0.1초 즉각 반응 + 3연타 광클 방어 + 갤럭시 뒤로가기/새로고침 보호) ── */
+    function showConsumerFeedbackToast(msg) {
+      let el = document.getElementById('consumerFeedbackToast');
+      if (!el) {
+        el = document.createElement('div');
+        el.id = 'consumerFeedbackToast';
+        el.style.cssText =
+          'position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:9999;background:rgba(20,40,160,0.95);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;font-weight:700;box-shadow:0 6px 20px rgba(0,0,0,0.45);pointer-events:none;transition:opacity 0.2s ease;opacity:0;white-space:nowrap;';
+        document.body.appendChild(el);
+      }
+      el.textContent = msg;
+      el.style.opacity = '1';
+      clearTimeout(el.__hideTimer);
+      el.__hideTimer = setTimeout(() => {
+        el.style.opacity = '0';
+      }, 1600);
+    }
+
+    // 1) 입력 중 실수로 새로고침/뒤로가기 해도 작성 중인 글이 절대 날아가지 않도록 자동 임시저장
+    try {
+      const savedCompose = localStorage.getItem('agy_draft_compose');
+      if (savedCompose && composeInput && !composeInput.value) composeInput.value = savedCompose;
+      const savedMemo = localStorage.getItem('agy_draft_memo');
+      if (savedMemo && addMemoryInput && !addMemoryInput.value) addMemoryInput.value = savedMemo;
+      composeInput?.addEventListener('input', () => localStorage.setItem('agy_draft_compose', composeInput.value));
+      addMemoryInput?.addEventListener('input', () => localStorage.setItem('agy_draft_memo', addMemoryInput.value));
+      composeForm?.addEventListener('submit', () => localStorage.removeItem('agy_draft_compose'));
+      addMemoryForm?.addEventListener('submit', () => localStorage.removeItem('agy_draft_memo'));
+    } catch {}
+
+    // 2) 버튼 클릭 시 0.1초 이내 즉각 안내 & 3연타(광클) 중복 실행 차단
+    let __lastActionBtn = null;
+    let __lastActionTs = 0;
+    document.addEventListener(
+      'click',
+      (e) => {
+        const btn = e.target?.closest?.('button.chip, button.button, button.compose-send');
+        if (!btn) return;
+        const now = Date.now();
+        if (__lastActionBtn === btn && now - __lastActionTs < 320) {
+          e.stopImmediatePropagation();
+          e.preventDefault();
+          return;
+        }
+        __lastActionBtn = btn;
+        __lastActionTs = now;
+        const label = (btn.innerText || '').trim();
+        if (label && label !== '말하기') {
+          showConsumerFeedbackToast(`✔ [${label}] 처리 중입니다...`);
+        }
+      },
+      true
+    );
+
+    // 3) 갤럭시 하단 '뒤로가기(<)' 눌렀을 때 앱이 확 꺼지지 않고 열린 설정/채팅 서랍만 닫히도록 보호
+    [settingsPanel, chatsDrawer].forEach((drawer) => {
+      drawer?.addEventListener('toggle', () => {
+        if (drawer.open) {
+          try {
+            history.pushState({ drawerOpen: drawer.id }, '');
+          } catch {}
+        }
+      });
+    });
+    window.addEventListener('popstate', () => {
+      if (settingsPanel?.open) {
+        settingsPanel.open = false;
+        showConsumerFeedbackToast('설정 화면을 닫았습니다');
+      } else if (chatsDrawer?.open) {
+        chatsDrawer.open = false;
+        showConsumerFeedbackToast('채팅 메뉴를 닫았습니다');
+      }
+    });
 
     /* ── Boot Sequence ── */
     async function boot() {

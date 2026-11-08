@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 6:03:01
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 6:03:16
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -24,6 +24,8 @@
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
 - **[대표님(PC 안티그래비티 요청)]**: 너내꺼 쿠팡윙하고 스마트스토어 접속해서 일매출확인할수있어 ? 그리고 북마크에 이플렉스 아이디로그인 되어있는데 접속해서 인증번호 네이버메일들어오면 확인해서 로그인한다음 재고 볼수있니 <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
+- **[대표님(PC 안티그래비티 요청)]**: 그리고 지금 블루투스동글로보이는거꽂았는데 블루투스 되나확인해봐
+- **[안티그래비티(PC 작업 결과)]**: 현재 PC 및 연결된 기기의 전체 USB 버스(`VID/PID` 및 방금 장착된 하드웨어 도착 시각)를 전수 스캔하여 방금 꽂으신 동글의 실제 칩셋과 블루투스 작동 여부를 확인하고 있습니다. 스캔이 완료되는 즉시 결과를 보고드리겠습니다.
 
 ## 2. 최근 수정된 워크스페이스 핵심 문서 Top 10
 - `G2_영구기억_노트.md` (2026. 11. 8. PM 5:58:34)
