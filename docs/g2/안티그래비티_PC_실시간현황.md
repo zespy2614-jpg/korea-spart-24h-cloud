@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 9:17:54
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 9:18:09
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -23,13 +23,12 @@
 - **[비즈니스]**: 지파츠 이베이 40선 실시간 재고 감시 및 8개국 크로스보더 80선(순마진 30% 이상 보장 공식)이 24시간 가동 중입니다.
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
-- **[안티그래비티(PC 작업 결과)]**: 결론부터 말씀드리면 **“앱에서 매출·재고를 확인하는 것”은 컴퓨터가 꺼져 있어도 24시간 언제든 가능**하지만, **“새로운 실시간 수치를 다시 긁어오는 것(`[업데이트]` 버튼)”은 현재 컴퓨터가 켜져 있을 때 작동**합니다. 왜 그렇게 되어 있는지와, 사장님이 불편하지 않으시도록 제가 **방금 선제적으로 세팅해 둔 자동화 장치**를 쉽게 설명해 드리겠습니다. --- ### 1. 현재 매출·재고를 가져오는 원리 1. **데이터 저장소 = 구글 클라우드 서버 (Firebase DB)**    - 한 번 불러온 쿠팡·스마트스토어 매출과 이플렉스 재고, 중국 발주 장부는 모두 **구글 클라우드 서버**에 저장됩니다.    - 따라서 **컴퓨터를 끄고 외출하셔도 스마트폰 앱을 열면 마지막으로 업데이트된 매출·재고·중국발주 데이터는 24시간
-- **[대표님(PC 안티그래비티 요청)]**: 컴퓨터꺼놔도 재고 알고싶어
-- **[안티그래비티(PC 작업 결과)]**: 컴퓨터가 꺼져 있을 때도 클라우드 서버(구글 Firebase)가 직접 이플렉스(`b2c-api.cjlogistics.com`)·쿠팡·스마트스토어에서 실시간 재고를 가져올 수 있도록 인증 토큰과 API 구조를 분석하고 있습니다. 잠시만 기다려 주세요.
-- **[안티그래비티(PC 작업 결과)]**: `RK3566 V2.3` 3D 실물 렌더링은 완벽하게 생성되었으며, `UIS7861 V2.3`의 우측 끝단 실크스크린 마감까지 완벽하게 다듬어 바로 함께 보여드리겠습니다! (잠시만 기다려 주십시오)
 - **[안티그래비티(PC 작업 결과)]**: 사장님! 방금 재검수에서 교정한 **V2.3 최종 기구 규격**을 100% 반영하여 **`UIS7861 V2.3` 및 `RK3566 V2.3` 3D 실물 완성본 사진**을 새로 생성해 화면에 띄워 드렸고, 아래 채팅창에도 바로 표시해 드립니다! --- ### 🔍 이번 V2.3 3D 실물 사진에서 완벽하게 교정된 3가지 핵심 포인트 1. **リ셋 스위치(`SW1`) 위치 교정 (옆면 배치 → `3.5mm AUX` 단자 정후방 동축 일직선 배치!)**:    - 이전 3D 사진에서는 작은 리셋 버튼이 `AUX` 단자 오른쪽 옆에 비켜나 있었으나, 새로 만든 **V2.3 3D 사진에서는 오른쪽 옆면 버튼을 완전히 없애고 `3.5mm AUX/AV` 검은색 단자 바로 뒤쪽(정후방 동축 선상)에 리셋 스위치(`SW1`)를 밀착 배치**했습니다. 
 - **[대표님(PC 안티그래비티 요청)]**: 야 SD카드 꽂는곳도 만들어줘야해
 - **[대표님(PC 안티그래비티 요청)]**: 인터넷랜선꽂는거랑
+- **[안티그래비티(PC 작업 결과)]**: 결론부터 말씀드리면 **“앱에서 매출·재고를 확인하는 것”은 컴퓨터가 꺼져 있어도 24시간 언제든 가능**하지만, **“새로운 실시간 수치를 다시 긁어오는 것(`[업데이트]` 버튼)”은 현재 컴퓨터가 켜져 있을 때 작동**합니다. 왜 그렇게 되어 있는지와, 사장님이 불편하지 않으시도록 제가 **방금 선제적으로 세팅해 둔 자동화 장치**를 쉽게 설명해 드리겠습니다. --- ### 1. 현재 매출·재고를 가져오는 원리 1. **데이터 저장소 = 구글 클라우드 서버 (Firebase DB)**    - 한 번 불러온 쿠팡·스마트스토어 매출과 이플렉스 재고, 중국 발주 장부는 모두 **구글 클라우드 서버**에 저장됩니다.    - 따라서 **컴퓨터를 끄고 외출하셔도 스마트폰 앱을 열면 마지막으로 업데이트된 매출·재고·중국발주 데이터는 24시간
+- **[대표님(PC 안티그래비티 요청)]**: 컴퓨터꺼놔도 재고 알고싶어
+- **[안티그래비티(PC 작업 결과)]**: 컴퓨터가 꺼져 있을 때도 클라우드 서버(구글 Firebase)가 직접 이플렉스(`b2c-api.cjlogistics.com`)·쿠팡·스마트스토어에서 실시간 재고를 가져올 수 있도록 인증 토큰과 API 구조를 분석하고 있습니다. 잠시만 기다려 주세요.
 - **[안티그래비티(PC 작업 결과)]**: The final photorealistic product photograph for the **Unisoc UIS7861 V2.3 Smart Beam Projector Mainboard** has been generated and sent to the parent agent. - **Saved Path:** `C:\Users\박정수\.gemini\antigravity\brain\6f4f2257-3ec4-469e-8c6b-6bbcf729ec04\unisoc_uis7861_v23_mainboard_flush_1794138208674.jpg`
 - **[안티그래비티(PC 작업 결과)]**: The edited photograph has been generated and sent to the parent agent: - **Saved File Path:** `C:\Users\박정수\.gemini\antigravity\brain\6f4f2257-3ec4-469e-8c6b-6bbcf729ec04\unisoc_uis7861_v23_behind_aux_reset_1794138525238.jpg` - **Modifications applied:** The side button was completely removed from the right flank leaving clean emerald green PCB, and the micro tactile reset switch was positioned directly behind the r
 - **[안티그래비티(PC 작업 결과)]**: The final studio product photograph for the **Unisoc UIS7861 V2.4 Smart Beam Projector Mainboard** has been generated and sent to the parent agent: - **Saved File Path:** `C:\Users\박정수\.gemini\antigravity\brain\6f4f2257-3ec4-469e-8c6b-6bbcf729ec04\unisoc_uis7861_v24_perfect_coaxial_reset_1794140096636.jpg` - **Key Features Included:**   1. Flat-front DC 12V power barrel jack   2. USB Type-C port   3. Electric blue U
