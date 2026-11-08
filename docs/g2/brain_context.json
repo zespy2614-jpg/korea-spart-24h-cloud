@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 3:18:42",
+  "updatedAt": "2026. 11. 8. PM 3:18:57",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -149,7 +149,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 3:18:42\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 13단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 3:18:57\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 13단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -596,10 +596,6 @@
   ],
   "livePcAntigravity": [
     {
-      "updatedAt": "2026-11-08T06:18:37Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 현대 차테블릿에 무슨칩들어가 ?무슨 테블릿이 700이라는데 칩이뭐지 42닷에서 얼마에공급하길래\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
-    },
-    {
       "updatedAt": "2026-11-08T06:01:44Z",
       "snippet": "[안티그래비티(PC 작업 결과)] 워크스페이스에 보관된 실제 펌웨어 이미지([`boot.img`](file:///e:/안티그래비티/ELIPHOEM_Backups/RK3566_Firmware_IMG_20261107/boot.img), [`uboot.img`](file:///e:/안티그래비티/ELIPHOEM_Backups/RK3566_Firmware_IMG_20261107/uboot.img), [`trust.img`](file:///e:/안티그래비티/ELIPHOEM_Backups/RK3566_Firmware_IMG_20261107/trust.img))와 현재 운용 중인 쉼(Shim) 소스 코드([`mali_compat.c`](file:///e:/안티그래비티/ELIPHOEM_Backups/backup_20261107_safe_state/mali_compat.c))를 직접 역어셈블("
     },
@@ -614,6 +610,10 @@
     {
       "updatedAt": "2026-11-08T06:16:26Z",
       "snippet": "[대표님(PC 안티그래비티 요청)] 아니야 너를 뭐라고하는게아니라 넌충분히잘했는데 내가 다음개발할때도 똑같은 일이 벌어지지 않게하려고해 내가 어떤프롬프트를 써놓고 너한테 입력하고 스킬이나 이런걸 추가해야하는지 알려주고 프롬프트작성해줘"
+    },
+    {
+      "updatedAt": "2026-11-08T06:18:37Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 현대 차테블릿에 무슨칩들어가 ?무슨 테블릿이 700이라는데 칩이뭐지 42닷에서 얼마에공급하길래\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
     },
     {
       "updatedAt": "2026-11-08T05:40:47Z",
@@ -702,11 +702,6 @@
   ],
   "livePcAntigravitySession": [
     {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-08T06:18:37Z",
-      "summary": "현대 차테블릿에 무슨칩들어가 ?무슨 테블릿이 700이라는데 칩이뭐지 42닷에서 얼마에공급하길래\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
-    },
-    {
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-08T06:01:44Z",
       "summary": "워크스페이스에 보관된 실제 펌웨어 이미지([`boot.img`](file:///e:/안티그래비티/ELIPHOEM_Backups/RK3566_Firmware_IMG_20261107/boot.img), [`uboot.img`](file:///e:/안티그래비티/ELIPHOEM_Backups/RK3566_Firmware_IMG_20261107/uboot.img), [`trust.img`](file:///e:/안티그래비티/ELIPHOEM_Backups/RK3566_Firmware_IMG_20261107/trust.img))와 현재 운용 중인 쉼(Shim) 소스 코드([`mali_compat.c`](file:///e:/안티그래비티/ELIPHOEM_Backups/backup_20261107_safe_state/mali_compat.c))를 직접 역어셈블("
@@ -725,6 +720,11 @@
       "role": "대표님(PC 안티그래비티 요청)",
       "createdAt": "2026-11-08T06:16:26Z",
       "summary": "아니야 너를 뭐라고하는게아니라 넌충분히잘했는데 내가 다음개발할때도 똑같은 일이 벌어지지 않게하려고해 내가 어떤프롬프트를 써놓고 너한테 입력하고 스킬이나 이런걸 추가해야하는지 알려주고 프롬프트작성해줘"
+    },
+    {
+      "role": "대표님(PC 안티그래비티 요청)",
+      "createdAt": "2026-11-08T06:18:37Z",
+      "summary": "현대 차테블릿에 무슨칩들어가 ?무슨 테블릿이 700이라는데 칩이뭐지 42닷에서 얼마에공급하길래\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
     },
     {
       "role": "안티그래비티(PC 작업 결과)",
