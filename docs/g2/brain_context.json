@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 3:37:57",
+  "updatedAt": "2026. 11. 8. PM 3:38:12",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -149,7 +149,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 3:37:57\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 9단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 3:38:12\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 8단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -596,10 +596,6 @@
   ],
   "livePcAntigravity": [
     {
-      "updatedAt": "2026-11-07T21:01:12Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] 스마트폰에서 아래 링크를 터치하시면 최신 **ELIPHOEM 자동 핫스팟 (`v5.6`)** 설치 파일(`.apk`)이 즉시 다운로드되어 설치됩니다.\n\n### 1. 스마트폰 직접 다운로드 링크 (클라우드 · LTE/5G/Wi-Fi 모두 가능)\n- **[ELIPHOEM_AutoHotspot_v5.6.apk 다운로드](https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone.apk)**\n  - 주소: `https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone.apk`\n  - 단축 주소: `https://zespy2614-jpg.github.io/ko"
-    },
-    {
       "updatedAt": "2026-11-07T23:22:40Z",
       "snippet": "[대표님(PC 안티그래비티 요청)] 밑에네비게이션바는 위로 드래그했을때나오게해줘 클릭이아니라"
     },
@@ -685,11 +681,6 @@
     }
   ],
   "livePcAntigravitySession": [
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-07T21:01:12Z",
-      "summary": "스마트폰에서 아래 링크를 터치하시면 최신 **ELIPHOEM 자동 핫스팟 (`v5.6`)** 설치 파일(`.apk`)이 즉시 다운로드되어 설치됩니다.\n\n### 1. 스마트폰 직접 다운로드 링크 (클라우드 · LTE/5G/Wi-Fi 모두 가능)\n- **[ELIPHOEM_AutoHotspot_v5.6.apk 다운로드](https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone.apk)**\n  - 주소: `https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone.apk`\n  - 단축 주소: `https://zespy2614-jpg.github.io/ko"
-    },
     {
       "role": "대표님(PC 안티그래비티 요청)",
       "createdAt": "2026-11-07T23:22:40Z",
