@@ -2661,7 +2661,7 @@
 
         hud.set({
           title: `◆ E.D.I.T.H${state.clockStr ? `  ${state.clockStr}` : ''}`,
-          status: `● ${modeTitle} ${clk}${meter ? `  ${meter}` : ''}`,
+          status: `● ${modeTitle} ${clk}`,
           body: clip(bodyText, 1950)
         });
       };
@@ -3857,7 +3857,34 @@
     }
 
     /* ── Wire Companion Phone UI Controls ── */
+    let phoneHoldDownAt = 0;
+    talkBtn.addEventListener('pointerdown', () => {
+      if (state.mode !== 'listening' && state.mode !== 'thinking' && state.mode !== 'answering') {
+        phoneHoldDownAt = Date.now();
+        void startListening('phone');
+      }
+    });
+    talkBtn.addEventListener('pointerup', () => {
+      if (state.mode === 'listening' && phoneHoldDownAt > 0 && Date.now() - phoneHoldDownAt >= 280) {
+        phoneHoldDownAt = 0;
+        if (state.recorder) {
+          state.recorder.heardSpeech = true;
+          state.recorder.sendableMs = Math.max(state.recorder.durationMs || 600, 600);
+          if (Array.isArray(state.recorder.chunks)) {
+            for (const c of state.recorder.chunks) {
+              c.own = true;
+              c.speech = true;
+            }
+          }
+        }
+        void finishListening('manual');
+      }
+    });
     talkBtn.addEventListener('click', () => {
+      if (phoneHoldDownAt > 0 && Date.now() - phoneHoldDownAt < 280) {
+        phoneHoldDownAt = 0;
+        return;
+      }
       if (state.mode === 'listening') void finishListening('manual');
       else void startListening('phone');
     });
