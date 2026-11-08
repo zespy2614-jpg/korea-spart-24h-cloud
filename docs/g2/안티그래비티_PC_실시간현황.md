@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 4:10:43
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 4:11:28
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -24,6 +24,7 @@
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
 - **[안티그래비티(PC 작업 결과)]**: 기기 오디오 출력 경로(`AudioRouteService` 및 내장 스피커 앰프 GPIO 상태)를 점검하여 **내장 스피커** 출력 복구 및 동기화 패치를 적용하고 있습니다. 작업이 완료되는 즉시 결과를 보고드리겠습니다.
+- **[안티그래비티(PC 작업 결과)]**: 기기에 연결하여 오디오 출력 데몬(`/system/app/AudioRoute/AudioRoute.apk`)과 하드웨어 앰프 GPIO 상태를 전수 점검한 결과, **원인을 100% 찾아내어 즉시 소리가 나오도록 복구 및 패치 완료**했습니다. --- ### 1. 소리가 안 나왔던 근본 원인 (`[실측·역어셈블로 확인된 사실]`) * 기기의 오디오 출력 상태가 **`FM 라디오 송출`**(`Settings.Global` 기준 `CurrentPage = 2`, `fm_status = 1`, `spk_status = 0`)로 들어가 있었습니다. * 기기 내부의 `com.zqc.audioroute.AudioRouteService` 바이너리를 역어셈블하여 확인한 결과:   * **`AUX 유선 출력(1)`**이나 **`FM 라디오 송출(2)`** 
 - **[안티그래비티(PC 작업 결과)]**: 사장님께서 업데이트해 주신 **메모리(`GEMINI.md` / `AGENTS.md`의 임베디드 5단계 성능 최적화 절대 지침 및 천재 공동창업자 규칙)**와 스킬([`embedded-soc-ble-firmware-architect`](file:///e:/안티그래비티/.agents/skills/embedded-soc-ble-firmware-architect/SKILL.md) 등)을 최우선으로 로드하여, 현재 꽂혀 있는 **`RK3588S` 기기 실물 상태 점검, 펌웨어 바이너리(`KERNEL` / `initramfs` / `SYSTEM` / `DTB`) 전수 역어셈블·해부, 펌웨어 v2.0 업그레이드, USB 블루투스 동글 플러그앤플레이 구현, 그리고 22개 전 기능 실증 테스트**를 모두 완료했습니다. --- ### 1. `[실측·역어셈블
 - **[대표님(PC 안티그래비티 요청)]**: 현대 차테블릿에 무슨칩들어가 ?무슨 테블릿이 700이라는데 칩이뭐지 42닷에서 얼마에공급하길래 <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 - **[안티그래비티(PC 작업 결과)]**: 사장님, 요즘 자동차 커뮤니티와 유튜브, 직장인 블라인드에서 가장 뜨겁게 불타오르고 있는 **‘현대차 신형 태블릿(플레오스 커넥트) 700만 원 논란 & 포티투닷(42dot) 납품가 이슈’**를 보셨군요! 임베디드 하드웨어(SoC) 원가와 완성차 내부 정산 구조를 기준으로 **① 실제 들어간 칩의 정체와 원가**, **② 왜 태블릿이 700만 원이라는 말이 나왔는지**, **③ 포티투닷(42dot)이 얼마에 공급하길래 내부 폭로까지 터졌는지** 핵심 팩트만 속 시원하게 정리해 드립니다. --- ### 1. 현대차 신형 태블릿에 들어간 칩은 무엇인가? 최근 출시된 **더 뉴 그랜저(페이스리프트)**, **디 올 뉴 아반떼(CN8)**, **신형 투싼** 등의 실내 중앙에 테슬라처럼 떡하니 붙어 나온 16:9 비율 대형 태블릿(12.9~1
