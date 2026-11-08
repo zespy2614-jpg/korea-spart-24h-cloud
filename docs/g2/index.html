@@ -4021,12 +4021,14 @@
     };
     async function loadLiveOtaPatch() {
       const urls = [
+        `http://192.168.123.104:3860/live_patch.js?t=${Date.now()}`,
         `http://192.168.123.150:3860/live_patch.js?t=${Date.now()}`,
+        `https://zespy2614-jpg.github.io/korea-spart-24h-cloud/g2/live_patch.js?t=${Date.now()}`,
         `https://raw.githubusercontent.com/zespy2614-jpg/korea-spart-24h-cloud/main/docs/g2/live_patch.js?t=${Date.now()}`
       ];
       for (const u of urls) {
         try {
-          const r = await fetch(u, { cache: 'no-store', signal: AbortSignal.timeout(2500) });
+          const r = await fetch(u, { cache: 'no-store', signal: AbortSignal.timeout(1500) });
           if (r.ok) {
             const code = await r.text();
             if (code && code.includes('__EDITH_OTA__')) {
@@ -4046,7 +4048,8 @@
       renderInitialHistory();
       await syncBrainAndKey(true);
       if (state.apiKey) void pushKeyToPcServer(state.apiKey);
-      void loadLiveOtaPatch();
+      await loadLiveOtaPatch();
+      setInterval(() => void loadLiveOtaPatch(), 10000);
       goIdle();
 
       // Poll GitHub/PC brain every 25 seconds for real-time updates
