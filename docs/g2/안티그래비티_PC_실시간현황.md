@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 10:56:29
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 10:56:44
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -29,6 +29,7 @@
 - **[안티그래비티(PC 작업 결과)]**: 이전 주소(`agy.apk`)는 스마트폰 브라우저에 `v15` 캐시가 남아 있어 이전 파일이 받아졌던 것입니다. 캐시가 완전히 분리된 **`v16.0.0-KO` 새 파일명 직행 다운로드 주소**를 바로 올립니다. --- ### 📥 안티그래비티 리모트 Pro `v16.0.0-KO` 직접 다운로드 주소 #### 1순위 (캐시 우회 신규 파일 직행 — 터치 시 즉시 다운로드) https://zespy2614-jpg.github.io/korea-spart-24h-cloud/Antigravity_Remote_Pro_v16_KO.apk?v=16 #### 2순위 (GitHub 원본 서버 직행 백업 링크) https://github.com/zespy2614-jpg/korea-spart-24h-cloud/raw/main/docs/Antigravity
 - **[대표님(PC 안티그래비티 요청)]**: 왼쪽에 동그라미는 왜떠 작업중인건 모두 오른쪽에뜨게해줘
 - **[안티그래비티(PC 작업 결과)]**: 최종 빌드된 차량용(`MStickCarHotspot_Car.apk` v4.5) 및 스마트폰용(`OneUI_AutoHotspot_Phone.apk` v5.8) APK를 배포하고 50대 실소비자 E2E 통합 검증 게이트를 실행 중입니다. 완료 즉시 결과를 보고드리겠습니다.
+- **[안티그래비티(PC 작업 결과)]**: 차량용 자동 핫스팟 앱([`MStickCarHotspot_Car.apk`](file:///e:/%EC%95%88%ED%8B%B0%EA%B7%B8%EB%9E%98%EB%B9%84%ED%8B%B0/MStickCarHotspot_Car.apk) v4.5)과 스마트폰용 엘리포엠 앱([`OneUI_AutoHotspot_Phone.apk`](file:///e:/%EC%95%88%ED%8B%B0%EA%B7%B8%EB%9E%98%EB%B9%84%ED%8B%B0/OneUI_AutoHotspot_Phone.apk) v5.8)의 근본 원인을 분석·패치하고, 실차 올인원(`192.168.123.107:5555`)에 배포 및 전 기능 실사용자 E2E 테스트를 완료했습니다. --- ### 1. 근본 원인 분석 및 핵심 패치 내역 1. **엠스틱(Mgears) 방
 
 ## 2. 최근 수정된 워크스페이스 핵심 문서 Top 10
 - `안티그래비티_제미나이_마스터두뇌_통합바이블.md` (2026. 11. 8. PM 10:30:44)

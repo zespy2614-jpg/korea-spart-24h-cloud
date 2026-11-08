@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 10:56:29",
+  "updatedAt": "2026. 11. 8. PM 10:56:44",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -158,7 +158,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 10:56:29\n1. 영구 장기기억 금고: 18건 (고정: 오늘 날씨랑 일정 알려줘)\n2. PC 안티그래비티 실시간 작업: 최근 5단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 10:56:44\n1. 영구 장기기억 금고: 18건 (고정: 오늘 날씨랑 일정 알려줘)\n2. PC 안티그래비티 실시간 작업: 최근 6단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -759,6 +759,10 @@
     {
       "updatedAt": "2026-11-08T13:55:15Z",
       "snippet": "[안티그래비티(PC 작업 결과)] 최종 빌드된 차량용(`MStickCarHotspot_Car.apk` v4.5) 및 스마트폰용(`OneUI_AutoHotspot_Phone.apk` v5.8) APK를 배포하고 50대 실소비자 E2E 통합 검증 게이트를 실행 중입니다. 완료 즉시 결과를 보고드리겠습니다."
+    },
+    {
+      "updatedAt": "2026-11-08T13:55:59Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] 차량용 자동 핫스팟 앱([`MStickCarHotspot_Car.apk`](file:///e:/%EC%95%88%ED%8B%B0%EA%B7%B8%EB%9E%98%EB%B9%84%ED%8B%B0/MStickCarHotspot_Car.apk) v4.5)과 스마트폰용 엘리포엠 앱([`OneUI_AutoHotspot_Phone.apk`](file:///e:/%EC%95%88%ED%8B%B0%EA%B7%B8%EB%9E%98%EB%B9%84%ED%8B%B0/OneUI_AutoHotspot_Phone.apk) v5.8)의 근본 원인을 분석·패치하고, 실차 올인원(`192.168.123.107:5555`)에 배포 및 전 기능 실사용자 E2E 테스트를 완료했습니다.\n\n---\n\n### 1. 근본 원인 분석 및 핵심 패치 내역\n\n1. **엠스틱(Mgears) 방"
     }
   ],
   "recentDocs": [
@@ -838,6 +842,11 @@
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-08T13:55:15Z",
       "summary": "최종 빌드된 차량용(`MStickCarHotspot_Car.apk` v4.5) 및 스마트폰용(`OneUI_AutoHotspot_Phone.apk` v5.8) APK를 배포하고 50대 실소비자 E2E 통합 검증 게이트를 실행 중입니다. 완료 즉시 결과를 보고드리겠습니다."
+    },
+    {
+      "role": "안티그래비티(PC 작업 결과)",
+      "createdAt": "2026-11-08T13:55:59Z",
+      "summary": "차량용 자동 핫스팟 앱([`MStickCarHotspot_Car.apk`](file:///e:/%EC%95%88%ED%8B%B0%EA%B7%B8%EB%9E%98%EB%B9%84%ED%8B%B0/MStickCarHotspot_Car.apk) v4.5)과 스마트폰용 엘리포엠 앱([`OneUI_AutoHotspot_Phone.apk`](file:///e:/%EC%95%88%ED%8B%B0%EA%B7%B8%EB%9E%98%EB%B9%84%ED%8B%B0/OneUI_AutoHotspot_Phone.apk) v5.8)의 근본 원인을 분석·패치하고, 실차 올인원(`192.168.123.107:5555`)에 배포 및 전 기능 실사용자 E2E 테스트를 완료했습니다.\n\n---\n\n### 1. 근본 원인 분석 및 핵심 패치 내역\n\n1. **엠스틱(Mgears) 방"
     }
   ],
   "livePcArtifacts": [
