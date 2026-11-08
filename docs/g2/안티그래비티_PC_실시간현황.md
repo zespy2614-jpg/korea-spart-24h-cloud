@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 7:43:36
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 7:43:51
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -23,6 +23,8 @@
 - **[비즈니스]**: 지파츠 이베이 40선 실시간 재고 감시 및 8개국 크로스보더 80선(순마진 30% 이상 보장 공식)이 24시간 가동 중입니다.
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
+- **[안티그래비티(PC 작업 결과)]**: 사장님, 요청하신 **`https://atlas-2af66.web.app/` (`kanjji` 계정)**의 **`재고관리` · `매출확인` 실시간 연동 메뉴**와 **안드로이드 스마트폰 전용 네이티브 앱 (`Atlas_Pro_KO.apk`)** 제작 및 실서버 배포까지 모두 완료했습니다. --- ### 1. 아틀라스(`atlas-2af66.web.app`) 실시간 `재고관리` & `매출확인` 메뉴 구축 * **[`재고관리`](file:///C:/Users/%EB%B0%95%EC%A0%95%EC%88%98/Desktop/%EB%B9%84%EB%91%98%EA%B8%B0/goals-app/js/pages/inventory.js) 메뉴**:   * **이플렉스(곤지암2F/C) 실시간 가용재고 14종 (총 442개)** + **입고예정 6건 (
+- **[대표님(PC 안티그래비티 요청)]**: ui좀 핸드폰에 최적회시켜줘
 - **[대표님(PC 안티그래비티 요청)]**: usb는 포트 2개로해주고 sd카드삽입부분넣었나? 그리고 제품후면부에 필요포트가 다있게해야되 hdmi랑 그리고이미지도보여줘 <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 - **[안티그래비티(PC 작업 결과)]**: `CPUSpeed=148` + 클럭 고정 해제 치트 적용(`psp_opt3`) 결과, PSP 철권 6 실제 전투 속도가 **평균 101.2% (최저 98.3%, 최고 104.0%)**로 **100% 풀스피드**에 도달했으며 CPU3 점유율도 85.2%로 여유가 생겼습니다. 남는 CPU 여유분으로 화면 표시 프레임까지 더 부드럽게(15fps → 20~30fps) 올리기 위해 `FrameSkip=2` 조합(`psp_opt4`)을 측정 중입니다. 완료되는 대로 최종 반영 및 검증하겠습니다.
 - **[대표님(PC 안티그래비티 요청)]**: 철권태그 랑 철권6 그리고 나머지 에뮬일렉 속도도개선된거야?? 두개게임 전투때 측정해야해
