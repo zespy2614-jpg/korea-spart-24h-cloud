@@ -1,9 +1,17 @@
 {
-  "updatedAt": "2026. 11. 8. AM 10:10:07",
+  "updatedAt": "2026. 11. 8. AM 10:10:39",
   "bridgeStatus": "active",
   "autoInjectIdeWindow": true,
   "autoRunLocalAgent": true,
   "tasks": [
+    {
+      "id": "task_1794100239297",
+      "timestamp": "2026. 11. 8. AM 10:10:39",
+      "command": "아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 그 막 초록색으로 그 음량 바 같은 거 없애주고 그리고 손가락 떼면은 바로 전송하게끔 해 줘. 한 1, 2초 있다가 전송되더라고.",
+      "action": "auto_task",
+      "status": "running",
+      "resultSummary": "PC 로컬 데몬 및 안티그래비티 브릿지 실행 중..."
+    },
     {
       "id": "task_1794100103428",
       "timestamp": "2026. 11. 8. AM 10:08:23",
