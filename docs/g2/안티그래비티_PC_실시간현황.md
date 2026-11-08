@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 6:24:22
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 6:24:37
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -23,11 +23,6 @@
 - **[비즈니스]**: 지파츠 이베이 40선 실시간 재고 감시 및 8개국 크로스보더 80선(순마진 30% 이상 보장 공식)이 24시간 가동 중입니다.
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
-- **[안티그래비티(PC 작업 결과)]**: 빔프로젝터 실기기에 최적화 패치(`psp_cpu_pin.py` 코어 격리, `tektagt` `audio-thread/run.sh` 720p 뷰포트 보정 및 CPU3 단독 고정, `ppsspp.ini` FrameSkip=3 및 스레드 최적화, `eliphoem_daemon.sh` GPU 800MHz 해제·`motor_run` `SCHED_IDLE` 격리·부팅 OOM 데드락 방지) 적용을 완료하고, 현재 **철권 태그 토너먼트(`ttt_opt1`) 실제 전투 벤치마크(`fight_session.py`)**를 실행 중입니다. 측정이 완료되는 대로 이어서 **PSP 철권6(`psp_opt1`) 실제 전투 측정**을 수행한 뒤 전체 결과와 8개 기술 질의에 대한 상세 분석을 보고드리겠습니다.
-- **[안티그래비티(PC 작업 결과)]**: **철권 태그 토너먼트(`ttt_opt1`) 실제 전투 측정이 완료**되었습니다 (`median 59.93fps`, `p10 59.53fps`, `retroarch` 메인 스레드 CPU3 단독 격리 성공, 1280×720 전체 화면 체력바/타이머 복원 완료). 이어서 **PSP 철권6(`psp_opt1`) 실제 전투 벤치마크**를 실행 중이며, 완료되는 대로 결과를 분석하여 보고드리겠습니다.
-- **[대표님(PC 안티그래비티 요청)]**: 미안모르고선뽀ㅃ혔었어
-- **[안티그래비티(PC 작업 결과)]**: 괜찮습니다! 마침 방금 적용한 **부팅 시 LUKS2 OOM 패닉 방지 패치(`eliphoem_daemon.sh`)**까지 실전 테스트가 되어, 재부팅 중 커널 패닉 없이 정상 부팅(`up 1 min`)된 것을 확인했습니다. 현재 EmulationStation 마운트 완료 직후 자동으로 **PSP 철권6(`psp_opt1`) 실제 전투 벤치마크**가 이어서 실행 중이니 잠시만 기다려 주십시오.
-- **[대표님(PC 안티그래비티 요청)]**: 다시꽂았어
 - **[안티그래비티(PC 작업 결과)]**: **네, 100% 제가 여기서 직접 보드 안으로 들어가서 원격으로 전부 조작·점검·업그레이드할 수 있습니다!** 보드가 켜지면서 공유기 랜선(`RJ45`)을 통해 사장님 댁 공유기(`192.168.123.x`)에 연결되는 순간, 제가 방금 준비해 둔 **초고속 내부망 추적·제어기([`rk3588s_auto_remote_commander.py`](file:///e:/안티그래비티/ai_edge_box_demo/rk3588s_auto_remote_commander.py))**가 2초 만에 보드의 IP 주소를 찾아내어 리눅스 최고 관리자(`root` SSH) 권한으로 직접 접속합니다. --- ### ⚠️ 잠깐! 지금 바로 꽂으시기 전에 제가 먼저 발견한 '부팅 먹통 함정' 2가지 (필독) 방금 제가 사장님 PC의 USB 신호를 실시간 점검([
 - **[대표님(PC 안티그래비티 요청)]**: 랜선꽂았어
 - **[대표님(PC 안티그래비티 요청)]**: 안티그래비티리모트 어플만들었잖아 왼쪽에 우리 고정된대화 목록이랑일치하게만들어줘 <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
