@@ -1,7 +1,8 @@
 {
   "ok": true,
-  "version": "v6.0",
-  "build": 60,
-  "apkUrl": "https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone.apk",
-  "notes": "ELIPHOEM v6.0: 삼성 One UI 7 (Android 15/16) 모바일 핫스팟 자동 끄기/켜기 및 무선 안드로이드 오토 Wi-Fi 복구 호환성 완비"
+  "version": "v6.1",
+  "build": 61,
+  "brand": "ELIPHOEM",
+  "title": "자동 핫스팟",
+  "apkUrl": "https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone.apk"
 }
