@@ -1,13 +1,17 @@
-// __EDITH_OTA__ Live Over-The-Air Patch v3.2.2 — Seamless Infinite Scroll Windows + Left/Right Optical Margin + Antigravity Live Wakeup
+// __EDITH_OTA__ Live Over-The-Air Patch v3.2.5 — Frame-by-Frame Zero-Flicker Clock Standby + Zero Menu/Border Bar + Hot-Reload Poller
 (function () {
-  if (window.__EDITH_OTA_V31_APPLIED__) return;
+  const OTA_VERSION = 'v3.2.5';
+  if (window.__EDITH_OTA_VERSION__ === OTA_VERSION) return;
+  window.__EDITH_OTA_VERSION__ = OTA_VERSION;
   window.__EDITH_OTA_V31_APPLIED__ = true;
-  console.log('[EDITH OTA] v3.2.2 Seamless Infinite Scroll Windows + Optical Margin + Live Antigravity Wakeup Activated');
+  console.log(`[EDITH OTA] ${OTA_VERSION} Zero-Flicker Atomic Clock Standby + Zero Menu/Border Bar + Live Hot-Reload Activated`);
 
   const agy = window.__EDITH_AGY__;
-  const origFetch = window.fetch.bind(window);
+  const origFetch = (window.__EDITH_ORIG_FETCH__ || window.fetch).bind(window);
+  window.__EDITH_ORIG_FETCH__ = origFetch;
   const translateCache = new Map();
   const CLOUD_SYNC_URL = 'https://ntfy.sh/agy_g2_brain_sync_e3562553';
+  const LAN_BASES = ['http://192.168.123.104:3860', 'http://192.168.123.150:3860'];
 
   const isLegacyV2Host = !Boolean(agy && agy.buildMenuItems);
 
