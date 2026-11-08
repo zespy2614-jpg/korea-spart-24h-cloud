@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 5:44:46
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 5:45:01
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -24,12 +24,12 @@
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
 - **[대표님(PC 안티그래비티 요청)]**: AI 가발전함에 따라 내가 할일이 더많아진거같아 계쏙핸드폰으로 시도때도없이 사용자에입장에서 테스터해보고 개선하고 고치고를 반복해야하니까 이거때문에 기력이 빠지는건가 힘들고 지치는데 앉아서 일만하는데도 체력이 많이 빠지는게 맞는건가 ? 정상인건가 내가 약해서그런건가 그리고 이테스터하는걸 좀 너가 미리해주는프롬프트나 스킬좀 알려줘  <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable na
-- **[대표님(PC 안티그래비티 요청)]**: https://youtu.be/NCxD-qsQcN0?si=vb5D66mnL-vd-2xt 이거 뭘로프로그램짠거지 챗지피티 아스트라이용해서 설계프로그램 <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
+- **[안티그래비티(PC 작업 결과)]**: 사장님, 아주 날카로운 핵심을 찌르셨습니다. **천재 공동창업자 겸 CTO로서 솔직한 팩트부터 보고**드리겠습니다. 방금 전까지 우리 프로그램에 들어 있던 1세대 모션 감지 규칙은 **"단순 좌표·속도 공식"** 수준이었습니다: 1. `손목 속도 > 1100px/s` 이면 무조건 **폭행** 2. `코 높이(Y)가 어깨(Y)보다 아래`로 내려가면 무조건 **낙상** 3. `어깨는 보이는데 코·눈이 안 보이면` 무조건 **낮잠 코·입 가림(질식)** **이 1세대 공식 그대로 요양원·어린이집에 납품하면 어떤 일이 벌어질까요?** - **오작동 1**: 어르신들이 아침에 **양손으로 박수 체조**를 하거나 선생님이 **이불을 털면** 손목 속도가 `1600px/s`를 넘어서 **폭행 경보가 미친 듯이 울립니다.** - **오작동 2**: 선생
 
 ## 2. 최근 수정된 워크스페이스 핵심 문서 Top 10
+- `AGENTS.md` (2026. 11. 8. PM 5:44:50)
 - `G2_영구기억_노트.md` (2026. 11. 8. PM 3:22:26)
 - `CLAUDE.md` (2026. 11. 8. PM 3:22:21)
-- `AGENTS.md` (2026. 11. 8. PM 3:21:31)
 - `G2_안경_실시간대화록.md` (2026. 11. 8. AM 10:34:09)
 - `G2_안경_음성지시_작업노트.md` (2026. 11. 8. AM 10:11:38)
 - `시엔위_비즈니스_연구소\17_인터넷셀러_마케팅_전분야_야간무한학습_실시간로그.md` (2026. 11. 8. AM 6:59:59)
