@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 9:28:24",
+  "updatedAt": "2026. 11. 8. PM 9:28:54",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -150,7 +150,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 9:28:24\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 9단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 9:28:54\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 8단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -725,14 +725,6 @@
   ],
   "livePcAntigravity": [
     {
-      "updatedAt": "2026-11-08T12:20:56Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 야보니까 너가 전체적으로 그 테스트하는거 마지막에 소비자입장에서 검증하는시스템이 부족해 이거에관해서 실사용처럼 검증하게하려면 스킬이나 학습크롤링이나 프롬프트 뭐가필요해? 필요한요건갖춰서해줘\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
-    },
-    {
-      "updatedAt": "2026-11-08T12:21:12Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 그리고 매번작업마다 필수로 테스트해줘야한다고 실사용자입장에서"
-    },
-    {
       "updatedAt": "2026-11-08T12:09:13Z",
       "snippet": "[대표님(PC 안티그래비티 요청)] 야부팅하니까 디바이스페일드락드걸려있다"
     },
@@ -753,12 +745,16 @@
       "snippet": "[대표님(PC 안티그래비티 요청)] 접속됐어 테크모월드컵이랑 하던작업마저해봐봐"
     },
     {
-      "updatedAt": "2026-11-08T12:21:15Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] 사장님! 요청하신 **① `SD카드(MicroSD / TF) 꽂는 슬롯`**과 **② `유선 인터넷 랜선(RJ45) 꽂는 단자`**까지 두 보드(`UIS7861` & `RK3566`) 모두 **같은 한 면(Single Edge)에 단차 `0.000mm` 일직선**으로 완벽하게 추가하여 **V2.4 3D 실물 완성본 사진**, **회로도·기판 설계도**, **검수 테스트**, **양산 좌표(`CPL.csv`)**까지 모두 업데이트하고 화면에 바로 띄워 드렸습니다!\n\n채팅창에서도 바로 보실 수 있도록 **새로 완성된 V2.4 3D 실물 사진과 설계 도면**을 아래에 바로 표시해 드립니다.\n\n---\n\n### 1. [V2.4 최종 3D 실물 완성본] 한 면에 `SD카드 슬롯` + `유선 인터넷 랜선(RJ45)`까지 총 8대 포트 `0.000mm` 칼"
+      "updatedAt": "2026-11-08T12:28:32Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 그리고 로딩더빠르게도가능해?"
     },
     {
-      "updatedAt": "2026-11-08T12:26:46Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 근데 UIS 7861 하고 RK3566 으로 JCPCB인가 그 외주맡기는거뭐지 그걸로가능해 ? 내가 보내주면되나"
+      "updatedAt": "2026-11-08T12:20:56Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 야보니까 너가 전체적으로 그 테스트하는거 마지막에 소비자입장에서 검증하는시스템이 부족해 이거에관해서 실사용처럼 검증하게하려면 스킬이나 학습크롤링이나 프롬프트 뭐가필요해? 필요한요건갖춰서해줘\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
+    },
+    {
+      "updatedAt": "2026-11-08T12:21:12Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 그리고 매번작업마다 필수로 테스트해줘야한다고 실사용자입장에서"
     }
   ],
   "recentDocs": [
@@ -816,16 +812,6 @@
   "livePcAntigravitySession": [
     {
       "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-08T12:20:56Z",
-      "summary": "야보니까 너가 전체적으로 그 테스트하는거 마지막에 소비자입장에서 검증하는시스템이 부족해 이거에관해서 실사용처럼 검증하게하려면 스킬이나 학습크롤링이나 프롬프트 뭐가필요해? 필요한요건갖춰서해줘\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
-    },
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-08T12:21:12Z",
-      "summary": "그리고 매번작업마다 필수로 테스트해줘야한다고 실사용자입장에서"
-    },
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
       "createdAt": "2026-11-08T12:09:13Z",
       "summary": "야부팅하니까 디바이스페일드락드걸려있다"
     },
@@ -850,23 +836,22 @@
       "summary": "접속됐어 테크모월드컵이랑 하던작업마저해봐봐"
     },
     {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-08T12:21:15Z",
-      "summary": "사장님! 요청하신 **① `SD카드(MicroSD / TF) 꽂는 슬롯`**과 **② `유선 인터넷 랜선(RJ45) 꽂는 단자`**까지 두 보드(`UIS7861` & `RK3566`) 모두 **같은 한 면(Single Edge)에 단차 `0.000mm` 일직선**으로 완벽하게 추가하여 **V2.4 3D 실물 완성본 사진**, **회로도·기판 설계도**, **검수 테스트**, **양산 좌표(`CPL.csv`)**까지 모두 업데이트하고 화면에 바로 띄워 드렸습니다!\n\n채팅창에서도 바로 보실 수 있도록 **새로 완성된 V2.4 3D 실물 사진과 설계 도면**을 아래에 바로 표시해 드립니다.\n\n---\n\n### 1. [V2.4 최종 3D 실물 완성본] 한 면에 `SD카드 슬롯` + `유선 인터넷 랜선(RJ45)`까지 총 8대 포트 `0.000mm` 칼"
+      "role": "대표님(PC 안티그래비티 요청)",
+      "createdAt": "2026-11-08T12:28:32Z",
+      "summary": "그리고 로딩더빠르게도가능해?"
     },
     {
       "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-08T12:26:46Z",
-      "summary": "근데 UIS 7861 하고 RK3566 으로 JCPCB인가 그 외주맡기는거뭐지 그걸로가능해 ? 내가 보내주면되나"
-    }
-  ],
-  "livePcArtifacts": [
+      "createdAt": "2026-11-08T12:20:56Z",
+      "summary": "야보니까 너가 전체적으로 그 테스트하는거 마지막에 소비자입장에서 검증하는시스템이 부족해 이거에관해서 실사용처럼 검증하게하려면 스킬이나 학습크롤링이나 프롬프트 뭐가필요해? 필요한요건갖춰서해줘\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
+    },
     {
-      "file": "UIS7861_RK3566_공용보드_최종설계보고서.md",
-      "updatedAt": "2026. 11. 8. PM 9:21:15",
-      "excerpt": "# [최종 종합 설계 보고서] Unisoc `UIS7861` & Rockchip `RK3566` 만능 공용 메인보드 V1.2 (회로도 · 완성품 포트 배치도 · 전자파 및 가상 안드로이드 검증)\n\n> [!IMPORTANT]\n> **핵심 설계 요약 (2종 공용보드 공통 특화 설계)**\n> 1. **외장하드(HDD/SSD) 장착 시 전압 강하 및 전파 간섭(GPS·Wi-Fi·블루투스 먹통) 100% 해결**:\n>    - 일반 보드처럼 `5.0V` 주전원과 느린 PPTC 퓨즈를 공유하지 않고, **외장하드 전용 `5.15V / 2.8A` 초저저항(`44mΩ`) 전력 스위치(`TPS2561`) + `470uF` 저ESR 폴리머 탄탈 캡(`C72044`)**을 독립 배치하여 외장하드 스핀업(`1.65A` 피크) 시에도 포트 전압을 **`5.03V` 이상**으로 유지합니다.\n>    - 데이터 라인에 **`90Ω` 공통모드 초크(`DLP11SN900`) + `18pF(2.4GHz Wi-Fi)` / `33pF(1575.42MHz GPS)` 듀얼 RF 노치 트랩**을 적용하여 고조파 방사 노이즈를 **`-26.5dB` 감쇠**시켰으며, 외장하드 포트(`J_HDD`)와 무선 안테나 단자를 기판 대각선 양 끝(**`125mm` / `108mm`**)으로 물리적 격리했습니다.\n> 2. **60V 서지(과전압) 방어 및 KC 전자파(`KN 32 / CISPR 32 Class B`) 통과**:\n>    - 차량 시동/배터리 탈거 시 발생하는 `+80V` 로드덤프 서지에도 칩이 타지 않도록 **`SMBJ24CA` 600W TVS 다이오드(`34.2V` 클램핑) + `60V` 고내압 벅 컨버터(`TPS54560DDAR`)**를 적용했습니다 (`+25.8V` 안전 여유 확보).\n> 3. **무벽돌(Unbrickable) 원클릭 복구 및 사전 가상 안드로이드 13 부팅 검증 완료**:\n>    - 케이스 외벽의 핀홀 복구 버튼(`SW1: KEY2 / SARADC_VIN0`)만 누르면 배선 분해나 강제 쇼트 없이 3초 만에 펌웨어 다운로드 모드로 진입하며, 기판 발주 전 **회로도 핀 번호 ↔ 안드로이드 13 커널(`.dts`) 1:1 매칭 및 가상 안드로이드 13 부팅 시험**을 모두 통과했습니다.\n\n---\n\n## ★ [최신 V2.2 무단차·히든리셋 최종 완성본] 전면 단차 0.0mm 일자 칼정렬 + 3.5mm AUX/AV 구멍 속 '젓가"
+      "role": "대표님(PC 안티그래비티 요청)",
+      "createdAt": "2026-11-08T12:21:12Z",
+      "summary": "그리고 매번작업마다 필수로 테스트해줘야한다고 실사용자입장에서"
     }
   ],
+  "livePcArtifacts": [],
   "recentWorkspaceDocs": [
     {
       "relPath": "안티그래비티_제미나이_마스터두뇌_통합바이블.md",
