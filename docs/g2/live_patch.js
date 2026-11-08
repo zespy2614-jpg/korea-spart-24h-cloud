@@ -1104,6 +1104,7 @@
         // When recording via Long-Press ('hold'):
         // 1) Keep st.trigger = 'hold' so lifting finger (LONG_PRESS_RELEASE_EVENT) immediately sends the voice message!
         // 2) Ensure 100% of G2 Glasses 16kHz PCM chunks are preserved (acceptOther=true, no syllable clipping in toWavBase64)!
+        // 3) Set silenceToStopMs = 750ms so even hands-free stops are snappy without 1.6s lag!
         if (st.mode === 'listening' && (st.trigger === 'hold' || st.trigger === 'longpress')) {
           st.trigger = 'hold';
           if (st.webSpeechRec) {
@@ -1114,9 +1115,9 @@
           if (st.recorder) {
             st.recorder.acceptOther = true;
             st.recorder.autoStopEnabled = true;
-            st.recorder.silenceToStopMs = 1550;
+            st.recorder.silenceToStopMs = 750;
             st.recorder.minSpeechRms = 75;
-            st.recorder.speechToArmMs = 100;
+            st.recorder.speechToArmMs = 80;
             if (!st.recorder.__wavHooked && typeof st.recorder.toWavBase64 === 'function') {
               st.recorder.__wavHooked = true;
               const origToWav = st.recorder.toWavBase64.bind(st.recorder);
@@ -1148,7 +1149,7 @@
               ...update,
               body: update.body
                 .replace('▶ 길게 눌러 말하거나, 탭하고 말하세요.', '▶ 길게 눌러 말씀하세요 (한 번 탭 오작동 차단됨).')
-                .replace('탭하면 전송, 잠시 멈춰도 전송.', '말씀 후 손을 떼거나 잠시 멈추면 전송합니다.')
+                .replace('탭하면 전송, 잠시 멈춰도 전송.', '말씀 후 손을 떼면 즉시 전송합니다.')
             };
           }
           if (update.body.includes('좋은 ') && update.body.includes('모든 시스템 온라인') && !update.body.includes('[기억]')) {
@@ -1202,7 +1203,12 @@
         if (update && typeof update.status === 'string') {
           update = {
             ...update,
-            status: update.status.replace(/\s*\|\s*/g, '  ').replace(/[■□]{2,}\s*/g, '')
+            status:
+              update.status
+                .replace(/\s*\|\s*/g, '  ')
+                .replace(/[▁▂▃▄▅▆▇█■□]+/g, '')
+                .replace(/\s{3,}/g, '  ')
+                .trim() || ' '
           };
         }
         if (wakingFromStandby) {
