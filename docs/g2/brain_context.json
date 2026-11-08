@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 6:43:07",
+  "updatedAt": "2026. 11. 8. PM 6:43:22",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -150,7 +150,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 6:43:07\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 4단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 6:43:22\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 4단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -645,20 +645,20 @@
   ],
   "livePcAntigravity": [
     {
-      "updatedAt": "2026-11-08T09:31:56Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] This request was blocked by Gemini's filters. They can occasionally trigger by mistake on safe coding, security, or biology-related queries. Please try rephrasing your prompt. You can [send feedback](https://aistudio.google.com/docs/troubleshooting#file-bug) or read more about [our policies here](https://policies.google.com/terms/generative-ai/use-policy)."
-    },
-    {
-      "updatedAt": "2026-11-08T09:38:19Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 아뭐가위반이야피해서해줘"
-    },
-    {
       "updatedAt": "2026-11-08T09:37:41Z",
       "snippet": "[안티그래비티(PC 작업 결과)] **네, 100% 가능합니다! 오히려 그게 현장에서 사건이 터지기를 기다리지 않고 출시 첫날부터 AI 지능을 최고치로 끌어올리는 가장 똑똑한 방법입니다!**\n\n말씀하시자마자 제가 바로 관제 사이트(`http://localhost:8765`)의 자가학습 모니터 안에 **「유튜브 사건사고 & 글로벌 CCTV 데이터셋 합법 뼈대 추출 학습기」**([`motion_ai_research_trainer.py`](file:///e:/안티그래비티/ai_edge_box_demo/rk3588s_firmware/motion_ai_research_trainer.py), [`edge_hub_server.py`](file:///e:/안티그래비티/ai_edge_box_demo/edge_hub_server.py), [`index.html`](file:///e:/안티그래비"
     },
     {
       "updatedAt": "2026-11-08T09:41:25Z",
       "snippet": "[대표님(PC 안티그래비티 요청)] 그럼 그거 학습하 서버나 뭐 이런 거 만들 수 있어? 컴퓨터 꺼졌을 때도 계속 학습하게끔"
+    },
+    {
+      "updatedAt": "2026-11-08T09:31:56Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] This request was blocked by Gemini's filters. They can occasionally trigger by mistake on safe coding, security, or biology-related queries. Please try rephrasing your prompt. You can [send feedback](https://aistudio.google.com/docs/troubleshooting#file-bug) or read more about [our policies here](https://policies.google.com/terms/generative-ai/use-policy)."
+    },
+    {
+      "updatedAt": "2026-11-08T09:38:19Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 아뭐가위반이야피해서해줘"
     }
   ],
   "recentDocs": [
@@ -716,16 +716,6 @@
   "livePcAntigravitySession": [
     {
       "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-08T09:31:56Z",
-      "summary": "This request was blocked by Gemini's filters. They can occasionally trigger by mistake on safe coding, security, or biology-related queries. Please try rephrasing your prompt. You can [send feedback](https://aistudio.google.com/docs/troubleshooting#file-bug) or read more about [our policies here](https://policies.google.com/terms/generative-ai/use-policy)."
-    },
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-08T09:38:19Z",
-      "summary": "아뭐가위반이야피해서해줘"
-    },
-    {
-      "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-08T09:37:41Z",
       "summary": "**네, 100% 가능합니다! 오히려 그게 현장에서 사건이 터지기를 기다리지 않고 출시 첫날부터 AI 지능을 최고치로 끌어올리는 가장 똑똑한 방법입니다!**\n\n말씀하시자마자 제가 바로 관제 사이트(`http://localhost:8765`)의 자가학습 모니터 안에 **「유튜브 사건사고 & 글로벌 CCTV 데이터셋 합법 뼈대 추출 학습기」**([`motion_ai_research_trainer.py`](file:///e:/안티그래비티/ai_edge_box_demo/rk3588s_firmware/motion_ai_research_trainer.py), [`edge_hub_server.py`](file:///e:/안티그래비티/ai_edge_box_demo/edge_hub_server.py), [`index.html`](file:///e:/안티그래비"
     },
@@ -733,6 +723,16 @@
       "role": "대표님(PC 안티그래비티 요청)",
       "createdAt": "2026-11-08T09:41:25Z",
       "summary": "그럼 그거 학습하 서버나 뭐 이런 거 만들 수 있어? 컴퓨터 꺼졌을 때도 계속 학습하게끔"
+    },
+    {
+      "role": "안티그래비티(PC 작업 결과)",
+      "createdAt": "2026-11-08T09:31:56Z",
+      "summary": "This request was blocked by Gemini's filters. They can occasionally trigger by mistake on safe coding, security, or biology-related queries. Please try rephrasing your prompt. You can [send feedback](https://aistudio.google.com/docs/troubleshooting#file-bug) or read more about [our policies here](https://policies.google.com/terms/generative-ai/use-policy)."
+    },
+    {
+      "role": "대표님(PC 안티그래비티 요청)",
+      "createdAt": "2026-11-08T09:38:19Z",
+      "summary": "아뭐가위반이야피해서해줘"
     }
   ],
   "livePcArtifacts": [
