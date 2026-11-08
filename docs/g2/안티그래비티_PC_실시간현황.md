@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. AM 9:33:50
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. AM 9:34:05
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -21,9 +21,9 @@
 - **[비즈니스]**: 지파츠 이베이 40선 실시간 재고 감시 및 8개국 크로스보더 80선(순마진 30% 이상 보장 공식)이 24시간 가동 중입니다.
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
-- **[대표님(PC 안티그래비티 요청)]**: 사람들이 코덱스 클로드코드 안티그래비티중 지금 코딩짜는거1위누구래? <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 - **[안티그래비티(PC 작업 결과)]**: 안경 화면에 전송되는 BLE 패킷과 디스플레이 컨테이너 좌표를 **밀리초(ms)·프레임 단위로 전수 추적**하여 두 가지 문제의 정확한 원인을 찾아 해결하고, **`v3.2.5`** 패치 및 디지털 트윈 프레임 검증(**22 PASSED, 0 FAILED**)을 완료했습니다. --- ### 1. 프레임 단위 근본 원인 분석 (`systematic-debugging`) #### ① 두 번 터치하여 시계 모드로 돌아갈 때 깜빡거리며 시계 쪽 잔상이 바뀌던 원인 (4-Frame 충돌) 기존 `enterClockStandby()` 실행 시 안경으로 다음 **4단계 BLE 프레임**이 약 `0ms ~ 120ms` 사이에 연속 발사되고 있었습니다: 1. **Frame 1 (`t = 20ms`, `hud.set` 선행 플러시)**: `hud.cloc
 - **[대표님(PC 안티그래비티 요청)]**: 이거 봐봐. 시계 모드에서 왼쪽하고 오른쪽에 무슨 바 같은 거 있잖아.
+- **[대표님(PC 안티그래비티 요청)]**: 사람들이 코덱스 클로드코드 안티그래비티중 지금 코딩짜는거1위누구래? <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 
 ## 2. 최근 수정된 워크스페이스 핵심 문서 Top 10
 - `G2_안경_음성지시_작업노트.md` (2026. 11. 8. AM 8:32:22)
