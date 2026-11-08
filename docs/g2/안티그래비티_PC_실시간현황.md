@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 4:14:28
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 4:14:43
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -23,10 +23,10 @@
 - **[비즈니스]**: 지파츠 이베이 40선 실시간 재고 감시 및 8개국 크로스보더 80선(순마진 30% 이상 보장 공식)이 24시간 가동 중입니다.
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
-- **[대표님(PC 안티그래비티 요청)]**: 당근마켓에서 RF70-200 캐논 팔려고하는데 얼마쯤하나봐봐 얼마에올리면될까 최저가얼마야  <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 - **[안티그래비티(PC 작업 결과)]**: 기기 오디오 출력 경로(`AudioRouteService` 및 내장 스피커 앰프 GPIO 상태)를 점검하여 **내장 스피커** 출력 복구 및 동기화 패치를 적용하고 있습니다. 작업이 완료되는 즉시 결과를 보고드리겠습니다.
 - **[안티그래비티(PC 작업 결과)]**: 기기에 연결하여 오디오 출력 데몬(`/system/app/AudioRoute/AudioRoute.apk`)과 하드웨어 앰프 GPIO 상태를 전수 점검한 결과, **원인을 100% 찾아내어 즉시 소리가 나오도록 복구 및 패치 완료**했습니다. --- ### 1. 소리가 안 나왔던 근본 원인 (`[실측·역어셈블로 확인된 사실]`) * 기기의 오디오 출력 상태가 **`FM 라디오 송출`**(`Settings.Global` 기준 `CurrentPage = 2`, `fm_status = 1`, `spk_status = 0`)로 들어가 있었습니다. * 기기 내부의 `com.zqc.audioroute.AudioRouteService` 바이너리를 역어셈블하여 확인한 결과:   * **`AUX 유선 출력(1)`**이나 **`FM 라디오 송출(2)`** 
 - **[대표님(PC 안티그래비티 요청)]**: 그리고 네비게이션 버튼 위로올릴때 왼쪽상단에 볼륨조절할수있는바도 만들어줘
+- **[대표님(PC 안티그래비티 요청)]**: 당근마켓에서 RF70-200 캐논 팔려고하는데 얼마쯤하나봐봐 얼마에올리면될까 최저가얼마야  <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 - **[안티그래비티(PC 작업 결과)]**: 사장님께서 업데이트해 주신 **메모리(`GEMINI.md` / `AGENTS.md`의 임베디드 5단계 성능 최적화 절대 지침 및 천재 공동창업자 규칙)**와 스킬([`embedded-soc-ble-firmware-architect`](file:///e:/안티그래비티/.agents/skills/embedded-soc-ble-firmware-architect/SKILL.md) 등)을 최우선으로 로드하여, 현재 꽂혀 있는 **`RK3588S` 기기 실물 상태 점검, 펌웨어 바이너리(`KERNEL` / `initramfs` / `SYSTEM` / `DTB`) 전수 역어셈블·해부, 펌웨어 v2.0 업그레이드, USB 블루투스 동글 플러그앤플레이 구현, 그리고 22개 전 기능 실증 테스트**를 모두 완료했습니다. --- ### 1. `[실측·역어셈블
 
 ## 2. 최근 수정된 워크스페이스 핵심 문서 Top 10
