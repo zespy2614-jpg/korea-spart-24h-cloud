@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 7:08:29",
+  "updatedAt": "2026. 11. 8. PM 7:08:44",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -150,7 +150,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 7:08:29\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 3단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 7:08:44\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 5단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -671,6 +671,14 @@
     {
       "updatedAt": "2026-11-08T10:04:07Z",
       "snippet": "[대표님(PC 안티그래비티 요청)] Hello, you have to diffrent vehicles listed for this taillight. It says both ev6 and ionic 5. Which one is it? 메시지왔는데뭐라능거야 이베이올린거메시지확인해서 알려줘"
+    },
+    {
+      "updatedAt": "2026-11-08T09:48:17Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] `https://atlas-2af66.web.app/`의 **`kanjji`** 계정 왼쪽 사이드바 메뉴(`중국 발주내역` 바로 아래)에 **`재고관리`**와 **`매출확인`** 두 개의 메뉴를 모두 구축하여 실서버 배포 및 데스크톱·모바일(`360x800` 큰 글씨 120% 확대) 실증 검증까지 완료했습니다.\n\n현재 열려 있는 웨일 브라우저의 `https://atlas-2af66.web.app/` 탭에도 바로 띄워 두었으니 지금 즉시 확인하실 수 있습니다.\n\n---\n\n### 1. 새로 추가된 2대 핵심 메뉴 및 주요 기능\n\n#### ① `재고관리` 메뉴 ([inventory.js](file:///C:/Users/박정수/Desktop/비둘기/goals-app/js/pages/inventory.js))\n- **상단 `[실시간 재고·판매 업데이트"
+    },
+    {
+      "updatedAt": "2026-11-08T10:01:51Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 그리고아틀라스연동되는앱좀만들러줘"
     }
   ],
   "recentDocs": [
@@ -740,6 +748,16 @@
       "role": "대표님(PC 안티그래비티 요청)",
       "createdAt": "2026-11-08T10:04:07Z",
       "summary": "Hello, you have to diffrent vehicles listed for this taillight. It says both ev6 and ionic 5. Which one is it? 메시지왔는데뭐라능거야 이베이올린거메시지확인해서 알려줘"
+    },
+    {
+      "role": "안티그래비티(PC 작업 결과)",
+      "createdAt": "2026-11-08T09:48:17Z",
+      "summary": "`https://atlas-2af66.web.app/`의 **`kanjji`** 계정 왼쪽 사이드바 메뉴(`중국 발주내역` 바로 아래)에 **`재고관리`**와 **`매출확인`** 두 개의 메뉴를 모두 구축하여 실서버 배포 및 데스크톱·모바일(`360x800` 큰 글씨 120% 확대) 실증 검증까지 완료했습니다.\n\n현재 열려 있는 웨일 브라우저의 `https://atlas-2af66.web.app/` 탭에도 바로 띄워 두었으니 지금 즉시 확인하실 수 있습니다.\n\n---\n\n### 1. 새로 추가된 2대 핵심 메뉴 및 주요 기능\n\n#### ① `재고관리` 메뉴 ([inventory.js](file:///C:/Users/박정수/Desktop/비둘기/goals-app/js/pages/inventory.js))\n- **상단 `[실시간 재고·판매 업데이트"
+    },
+    {
+      "role": "대표님(PC 안티그래비티 요청)",
+      "createdAt": "2026-11-08T10:01:51Z",
+      "summary": "그리고아틀라스연동되는앱좀만들러줘"
     }
   ],
   "livePcArtifacts": [],
