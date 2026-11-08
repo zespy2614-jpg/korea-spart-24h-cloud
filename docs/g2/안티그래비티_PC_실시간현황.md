@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 2:53:24
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 2:54:09
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -29,6 +29,7 @@
 - **[대표님(PC 안티그래비티 요청)]**: 야 아니면 블루투스로 기기찾기도있잖아
 - **[안티그래비티(PC 작업 결과)]**: 맞습니다!! **블루투스(BLE)로 주변 기기 자동 찾기**는 삼성 스마트싱스(SmartThings)나 갤럭시 버즈가 쓰는 가장 편한 방식입니다! 기기에 선만 꽂고 옆에서 우리 전용 앱을 켜면, **QR 코드를 찍거나 붙일 필요조차 없이** 핸드폰 화면에 **`"주변에서 [안심케어 AI 박스]가 발견되었습니다! [연결하기]"`** 팝업이 자동으로 떠서 터치 한 번으로 끝납니다. 심지어 보유하신 `RK3588S` 보드(`IEEKER Pi 5B`)의 설계도(`DTB.dts`)를 방금 확인해 보니 **`wireless-bluetooth` (`AP6275P` / `UART9` 블루투스 칩)**가 기본 탑재되어 있습니다! 그래서 지금 바로 **블루투스(BLE) 근접 스캔 + 공유기 무선 신호(UDP 비콘) 이중 자동 찾기**를 서버와 안드로이드 
 - **[안티그래비티(PC 작업 결과)]**: 방금 말씀하신 **블루투스(BLE) + 주변 기기 무설정 자동 탐색(Zero-Config Beacon)** 기능을 허브 서버([edge_hub_server.py](file:///e:/안티그래비티/ai_edge_box_demo/edge_hub_server.py))와 안드로이드 전용 앱([AnsimCare_AI_Box.apk](file:///e:/안티그래비티/ai_edge_box_demo/AnsimCare_AI_Box.apk))에 즉시 탑재하여 새로 빌드·서명까지 완료했습니다! --- ### 이제 고객(원장님·사장님)이 기기를 연결하는 방식이 얼마나 쉬워졌나? 삼성 스마트싱스(SmartThings)나 갤럭시 버즈 이어폰 연결할 때와 완전히 똑같아졌습니다. ```mermaid flowchart LR     A["1. 기기에 전원·랜선·HDM
+- **[대표님(PC 안티그래비티 요청)]**: 엇 지금 이거 보드안에 블루투스있어 ? 없지않아 ?
 - **[대표님(PC 안티그래비티 요청)]**: 클로드코드 울트라버전 300달러짜리쓰는데 고속모드는 크레딧있어야하는거맞지 ?공짜로 받는데 없나 다들 클로드 고속모드 안쓰나  <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 - **[안티그래비티(PC 작업 결과)]**: 네, 알고 계신 게 **정확히 맞습니다.** 아무리 최상위 요금제(Max / Ultra)를 쓰더라도 **고속 모드(`/fast`)는 구독제 한도와 완전히 별개인 '추가 크레딧(Extra Usage Credits)'이 있어야만 작동**합니다. 궁금해하신 3가지를 핵심만 정리해 드립니다. --- ### 1. 왜 비싼 구독제를 쓰는데도 크레딧을 따로 요구할까? * 클로드 코드의 고속 모드(`/fast`)는 가벼운 모델로 바꾸는 게 아니라, **가장 무거운 Opus 모델을 전용 고속 GPU 클러스터에 우선 배정해서 출력 속도를 2.5배로 쥐어짜는 방식**입니다. * 그래서 구독 플랜 사용량이 아무리 많이 남아 있어도, `/fast`를 켜는 순간 **구독 한도를 쓰지 않고 충전된 크레딧(종량제 잔액)에서 첫 토큰부터 현금처럼 차감**됩니다. -
 
