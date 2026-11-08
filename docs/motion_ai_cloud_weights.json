@@ -1,0 +1,72 @@
+{
+  "engine_version": "Cloud-24H-Biomechanical-12D-v2.5",
+  "cloud_provider": "GitHub Actions Ubuntu-Latest 24/7 Nonstop Cluster",
+  "epochs_completed": 545,
+  "total_samples_trained": 32800,
+  "web_harvest_clips": 1476,
+  "accuracy_pct": 99.5,
+  "false_positive_rate_pct": 0.57,
+  "raw_video_bytes_stored": 0,
+  "weights": {
+    "strike": [
+      0.44198,
+      -0.30678,
+      -4.39301,
+      0.43886,
+      0.50935,
+      0.08937,
+      -0.07264,
+      -0.14515,
+      -0.46621,
+      -0.24097,
+      -0.23628,
+      -0.03648
+    ],
+    "fall": [
+      -0.02267,
+      -0.01042,
+      -0.67686,
+      0.00905,
+      -0.83754,
+      -0.63464,
+      1.36858,
+      -3.8798,
+      0.50164,
+      -0.02865,
+      1.78019,
+      -0.42222
+    ],
+    "suffocation": [
+      -0.57878,
+      -0.57076,
+      0.16139,
+      -0.35307,
+      0.29398,
+      0.28668,
+      0.79897,
+      -3.25,
+      1.56093,
+      -3.55035,
+      -0.76533,
+      -2.86009
+    ]
+  },
+  "biases": {
+    "strike": -2.45003,
+    "fall": -2.28455,
+    "suffocation": -1.15692
+  },
+  "recent_cloud_cycles": [
+    {
+      "timestamp": "2026-11-08 18:43:26 KST",
+      "source": "한국 AI-Hub 요양원·어린이집·매장 이상행동 CCTV 스켈레톤 스트림",
+      "epochs_added": 25,
+      "clips_distilled": 56,
+      "epoch_now": 545,
+      "accuracy_pct": 99.5,
+      "fpr_pct": 0.57
+    }
+  ],
+  "last_updated_utc": "2026-11-08T09:43:26Z",
+  "last_updated_kst": "2026-11-08 18:43:26 KST"
+}
