@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 4:34:59",
+  "updatedAt": "2026. 11. 8. PM 4:35:29",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -149,7 +149,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 4:34:59\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 9단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 4:35:29\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 10단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -608,6 +608,10 @@
       "snippet": "[안티그래비티(PC 작업 결과)] 좌측 사이드바 드래그로 열릴 때 손가락 위치 때문에 볼륨이 튀지 않도록 안전 보호 타이머(`220ms`)까지 추가하여 최종 캡처 검증 중입니다. 완료되는 즉시 보고드리겠습니다."
     },
     {
+      "updatedAt": "2026-11-08T07:34:52Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] 좌측 사이드바 엣지 핸들 드래그 시 볼륨 변동 없이 정확히 `88%` 상태로 열리는지 최종 캡처 확인 중입니다. 완료되는 즉시 보고드리겠습니다."
+    },
+    {
       "updatedAt": "2026-11-08T07:12:13Z",
       "snippet": "[대표님(PC 안티그래비티 요청)] 당근마켓에서 RF70-200 캐논 팔려고하는데 얼마쯤하나봐봐 얼마에올리면될까 최저가얼마야 \n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
     },
@@ -699,6 +703,11 @@
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-08T07:32:33Z",
       "summary": "좌측 사이드바 드래그로 열릴 때 손가락 위치 때문에 볼륨이 튀지 않도록 안전 보호 타이머(`220ms`)까지 추가하여 최종 캡처 검증 중입니다. 완료되는 즉시 보고드리겠습니다."
+    },
+    {
+      "role": "안티그래비티(PC 작업 결과)",
+      "createdAt": "2026-11-08T07:34:52Z",
+      "summary": "좌측 사이드바 엣지 핸들 드래그 시 볼륨 변동 없이 정확히 `88%` 상태로 열리는지 최종 캡처 확인 중입니다. 완료되는 즉시 보고드리겠습니다."
     },
     {
       "role": "대표님(PC 안티그래비티 요청)",
