@@ -582,10 +582,10 @@
         obj.borderColor = 0;
         obj.borderRadius = 0;
         if (name === 'title') {
-          obj.xPosition = 24;
-          obj.yPosition = 4;
+          obj.xPosition = 20;
+          obj.yPosition = 0;
           obj.width = 280;
-          obj.height = 52;
+          obj.height = 50;
           obj.paddingLength = 0;
           obj.isEventCapture = 0;
           obj.textColor = hud.clockStandby ? 0 : (hud.dim ? 1 : 3);
@@ -599,12 +599,12 @@
               );
           built.title = obj.content;
         } else if (name === 'status') {
-          // Fixed coordinates (x=320, y=4, width=232, height=52, padding=0, borderColor=0, borderRadius=0)
-          // Inner height = 52px (more than 2x 26px single-line font height) -> ZERO vertical scrollbar pill & ZERO left/right border bars!
+          // Fixed coordinates (x=320, y=0, width=236, height=50, padding=0, borderColor=0, borderRadius=0)
+          // Inner height = 50px (nearly 2x 26px single-line font height) -> ZERO vertical scrollbar pill & ZERO left/right border bars!
           obj.xPosition = 320;
-          obj.yPosition = 4;
-          obj.width = 232;
-          obj.height = 52;
+          obj.yPosition = 0;
+          obj.width = 236;
+          obj.height = 50;
           obj.paddingLength = 0;
           obj.isEventCapture = 0;
           obj.textColor = hud.dim ? 1 : 3;
@@ -618,10 +618,10 @@
           built.status = obj.content;
         } else if (name === 'body') {
           obj.xPosition = 20;
-          obj.yPosition = 58;
+          obj.yPosition = 52;
           obj.width = 536;
-          obj.height = 230;
-          obj.paddingLength = 12;
+          obj.height = 236;
+          obj.paddingLength = 16;
           obj.isEventCapture = 1;
           obj.textColor = hud.clockStandby ? 0 : (hud.dim ? 1 : 4);
           obj.content = hud.clockStandby ? ' ' : sliceByUtf8Bytes(obj.content || ' ', 900);
