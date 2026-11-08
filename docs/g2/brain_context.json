@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 6:14:37",
+  "updatedAt": "2026. 11. 8. PM 6:14:52",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -150,7 +150,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 6:14:37\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 7단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 6:14:52\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 8단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -653,8 +653,12 @@
       "snippet": "[대표님(PC 안티그래비티 요청)] 그 UIS7861 로공용보드 만들어봐"
     },
     {
-      "updatedAt": "2026-11-08T09:13:52Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] 네, 사장님! **가능할 뿐만 아니라, 방금 제가 직접 사장님 브라우저로 접속해서 쿠팡윙·스마트스토어 자동 로그인 후 일매출을 조회하고, 이플렉스(LoIS eFLEXs) 로그인 → 네이버 메일(`kanjji@naver.com`)로 날아온 6자리 인증번호(`903875`) 실시간 확인 및 자동 입력 → 곤지암2F/C 통합재고조회까지 전부 완료**해 두었습니다.\n\n방금 조회한 **실시간 일매출(쿠팡윙·스마트스토어)**과 **이플렉스(CJ대한통운 곤지암2F/C) + 쿠팡 로켓그로스 현재 재고**를 바로 보고드립니다.\n\n---\n\n### 📊 1. 쿠팡윙 (제이투 / `nsync231`) & 스마트스토어 (`월광보합 파이널2 레트로`) 일매출 현황\n\n| 구분 | 오늘 실시간 (11월 8일 18:00 기준) | 어제 확정 (11월 7일) | 최근 누적 "
+      "updatedAt": "2026-11-08T09:14:31Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] 빔프로젝터 실기기에 최적화 패치(`psp_cpu_pin.py` 코어 격리, `tektagt` `audio-thread/run.sh` 720p 뷰포트 보정 및 CPU3 단독 고정, `ppsspp.ini` FrameSkip=3 및 스레드 최적화, `eliphoem_daemon.sh` GPU 800MHz 해제·`motor_run` `SCHED_IDLE` 격리·부팅 OOM 데드락 방지) 적용을 완료하고, 현재 **철권 태그 토너먼트(`ttt_opt1`) 실제 전투 벤치마크(`fight_session.py`)**를 실행 중입니다. 측정이 완료되는 대로 이어서 **PSP 철권6(`psp_opt1`) 실제 전투 측정**을 수행한 뒤 전체 결과와 8개 기술 질의에 대한 상세 분석을 보고드리겠습니다."
+    },
+    {
+      "updatedAt": "2026-11-08T09:10:15Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 내가 S905L3A 게임기 연결해서랜선꽂아놨거든 이거 속도 나 반응속도개선 PSP 최적화 철권태그 더빠르게 그리고 보안해킹못하게 만드는거 해봐봐 그때 보안관련이슈있었잖아 리셋키 \n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
     }
   ],
   "recentDocs": [
@@ -742,8 +746,13 @@
     },
     {
       "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-08T09:13:52Z",
-      "summary": "네, 사장님! **가능할 뿐만 아니라, 방금 제가 직접 사장님 브라우저로 접속해서 쿠팡윙·스마트스토어 자동 로그인 후 일매출을 조회하고, 이플렉스(LoIS eFLEXs) 로그인 → 네이버 메일(`kanjji@naver.com`)로 날아온 6자리 인증번호(`903875`) 실시간 확인 및 자동 입력 → 곤지암2F/C 통합재고조회까지 전부 완료**해 두었습니다.\n\n방금 조회한 **실시간 일매출(쿠팡윙·스마트스토어)**과 **이플렉스(CJ대한통운 곤지암2F/C) + 쿠팡 로켓그로스 현재 재고**를 바로 보고드립니다.\n\n---\n\n### 📊 1. 쿠팡윙 (제이투 / `nsync231`) & 스마트스토어 (`월광보합 파이널2 레트로`) 일매출 현황\n\n| 구분 | 오늘 실시간 (11월 8일 18:00 기준) | 어제 확정 (11월 7일) | 최근 누적 "
+      "createdAt": "2026-11-08T09:14:31Z",
+      "summary": "빔프로젝터 실기기에 최적화 패치(`psp_cpu_pin.py` 코어 격리, `tektagt` `audio-thread/run.sh` 720p 뷰포트 보정 및 CPU3 단독 고정, `ppsspp.ini` FrameSkip=3 및 스레드 최적화, `eliphoem_daemon.sh` GPU 800MHz 해제·`motor_run` `SCHED_IDLE` 격리·부팅 OOM 데드락 방지) 적용을 완료하고, 현재 **철권 태그 토너먼트(`ttt_opt1`) 실제 전투 벤치마크(`fight_session.py`)**를 실행 중입니다. 측정이 완료되는 대로 이어서 **PSP 철권6(`psp_opt1`) 실제 전투 측정**을 수행한 뒤 전체 결과와 8개 기술 질의에 대한 상세 분석을 보고드리겠습니다."
+    },
+    {
+      "role": "대표님(PC 안티그래비티 요청)",
+      "createdAt": "2026-11-08T09:10:15Z",
+      "summary": "내가 S905L3A 게임기 연결해서랜선꽂아놨거든 이거 속도 나 반응속도개선 PSP 최적화 철권태그 더빠르게 그리고 보안해킹못하게 만드는거 해봐봐 그때 보안관련이슈있었잖아 리셋키 \n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
     }
   ],
   "livePcArtifacts": [],
