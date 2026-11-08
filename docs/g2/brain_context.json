@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 4:11:28",
+  "updatedAt": "2026. 11. 8. PM 4:12:28",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -149,7 +149,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 4:11:28\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 5단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 4:12:28\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 4단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -596,6 +596,10 @@
   ],
   "livePcAntigravity": [
     {
+      "updatedAt": "2026-11-08T07:12:13Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 당근마켓에서 RF70-200 캐논 팔려고하는데 얼마쯤하나봐봐 얼마에올리면될까 최저가얼마야 \n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
+    },
+    {
       "updatedAt": "2026-11-08T07:08:41Z",
       "snippet": "[안티그래비티(PC 작업 결과)] 기기 오디오 출력 경로(`AudioRouteService` 및 내장 스피커 앰프 GPIO 상태)를 점검하여 **내장 스피커** 출력 복구 및 동기화 패치를 적용하고 있습니다. 작업이 완료되는 즉시 결과를 보고드리겠습니다."
     },
@@ -606,14 +610,6 @@
     {
       "updatedAt": "2026-11-08T06:59:25Z",
       "snippet": "[안티그래비티(PC 작업 결과)] 사장님께서 업데이트해 주신 **메모리(`GEMINI.md` / `AGENTS.md`의 임베디드 5단계 성능 최적화 절대 지침 및 천재 공동창업자 규칙)**와 스킬([`embedded-soc-ble-firmware-architect`](file:///e:/안티그래비티/.agents/skills/embedded-soc-ble-firmware-architect/SKILL.md) 등)을 최우선으로 로드하여, 현재 꽂혀 있는 **`RK3588S` 기기 실물 상태 점검, 펌웨어 바이너리(`KERNEL` / `initramfs` / `SYSTEM` / `DTB`) 전수 역어셈블·해부, 펌웨어 v2.0 업그레이드, USB 블루투스 동글 플러그앤플레이 구현, 그리고 22개 전 기능 실증 테스트**를 모두 완료했습니다.\n\n---\n\n### 1. `[실측·역어셈블"
-    },
-    {
-      "updatedAt": "2026-11-08T06:18:37Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 현대 차테블릿에 무슨칩들어가 ?무슨 테블릿이 700이라는데 칩이뭐지 42닷에서 얼마에공급하길래\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
-    },
-    {
-      "updatedAt": "2026-11-08T06:21:52Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] 사장님, 요즘 자동차 커뮤니티와 유튜브, 직장인 블라인드에서 가장 뜨겁게 불타오르고 있는 **‘현대차 신형 태블릿(플레오스 커넥트) 700만 원 논란 & 포티투닷(42dot) 납품가 이슈’**를 보셨군요!\n\n임베디드 하드웨어(SoC) 원가와 완성차 내부 정산 구조를 기준으로 **① 실제 들어간 칩의 정체와 원가**, **② 왜 태블릿이 700만 원이라는 말이 나왔는지**, **③ 포티투닷(42dot)이 얼마에 공급하길래 내부 폭로까지 터졌는지** 핵심 팩트만 속 시원하게 정리해 드립니다.\n\n---\n\n### 1. 현대차 신형 태블릿에 들어간 칩은 무엇인가?\n\n최근 출시된 **더 뉴 그랜저(페이스리프트)**, **디 올 뉴 아반떼(CN8)**, **신형 투싼** 등의 실내 중앙에 테슬라처럼 떡하니 붙어 나온 16:9 비율 대형 태블릿(12.9~1"
     }
   ],
   "recentDocs": [
@@ -670,6 +666,11 @@
   ],
   "livePcAntigravitySession": [
     {
+      "role": "대표님(PC 안티그래비티 요청)",
+      "createdAt": "2026-11-08T07:12:13Z",
+      "summary": "당근마켓에서 RF70-200 캐논 팔려고하는데 얼마쯤하나봐봐 얼마에올리면될까 최저가얼마야 \n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
+    },
+    {
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-08T07:08:41Z",
       "summary": "기기 오디오 출력 경로(`AudioRouteService` 및 내장 스피커 앰프 GPIO 상태)를 점검하여 **내장 스피커** 출력 복구 및 동기화 패치를 적용하고 있습니다. 작업이 완료되는 즉시 결과를 보고드리겠습니다."
@@ -683,16 +684,6 @@
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-08T06:59:25Z",
       "summary": "사장님께서 업데이트해 주신 **메모리(`GEMINI.md` / `AGENTS.md`의 임베디드 5단계 성능 최적화 절대 지침 및 천재 공동창업자 규칙)**와 스킬([`embedded-soc-ble-firmware-architect`](file:///e:/안티그래비티/.agents/skills/embedded-soc-ble-firmware-architect/SKILL.md) 등)을 최우선으로 로드하여, 현재 꽂혀 있는 **`RK3588S` 기기 실물 상태 점검, 펌웨어 바이너리(`KERNEL` / `initramfs` / `SYSTEM` / `DTB`) 전수 역어셈블·해부, 펌웨어 v2.0 업그레이드, USB 블루투스 동글 플러그앤플레이 구현, 그리고 22개 전 기능 실증 테스트**를 모두 완료했습니다.\n\n---\n\n### 1. `[실측·역어셈블"
-    },
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-08T06:18:37Z",
-      "summary": "현대 차테블릿에 무슨칩들어가 ?무슨 테블릿이 700이라는데 칩이뭐지 42닷에서 얼마에공급하길래\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
-    },
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-08T06:21:52Z",
-      "summary": "사장님, 요즘 자동차 커뮤니티와 유튜브, 직장인 블라인드에서 가장 뜨겁게 불타오르고 있는 **‘현대차 신형 태블릿(플레오스 커넥트) 700만 원 논란 & 포티투닷(42dot) 납품가 이슈’**를 보셨군요!\n\n임베디드 하드웨어(SoC) 원가와 완성차 내부 정산 구조를 기준으로 **① 실제 들어간 칩의 정체와 원가**, **② 왜 태블릿이 700만 원이라는 말이 나왔는지**, **③ 포티투닷(42dot)이 얼마에 공급하길래 내부 폭로까지 터졌는지** 핵심 팩트만 속 시원하게 정리해 드립니다.\n\n---\n\n### 1. 현대차 신형 태블릿에 들어간 칩은 무엇인가?\n\n최근 출시된 **더 뉴 그랜저(페이스리프트)**, **디 올 뉴 아반떼(CN8)**, **신형 투싼** 등의 실내 중앙에 테슬라처럼 떡하니 붙어 나온 16:9 비율 대형 태블릿(12.9~1"
     }
   ],
   "livePcArtifacts": [
