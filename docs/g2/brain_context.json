@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 4:27:14",
+  "updatedAt": "2026. 11. 8. PM 4:27:43",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -149,7 +149,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 4:27:14\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 10단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 4:27:43\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 11단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -620,6 +620,10 @@
       "snippet": "[안티그래비티(PC 작업 결과)] 화면 위아래 전체 길이를 활용한 초대형 세로 볼륨 바(`124 x 696px`)로 키워서 실기 배포 및 캡처 검증을 진행 중입니다. 완료되는 즉시 화면을 보여드리겠습니다."
     },
     {
+      "updatedAt": "2026-11-08T07:27:07Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] 하단 네비게이션 핸들을 위로 드래그할 때 **좌측 옆면 상하 전체(`124 x 696px`)에 큼직한 세로형 볼륨 조절 바**가 함께 나타나도록 [`NavBarService.java`](file:///C:/Users/%EB%B0%95%EC%A0%95%EC%88%98/.gemini/antigravity/brain/08abf2d4-e54d-43da-a03d-df4b6e390207/scratch/kor_helper/src/com/zqc/kor/wallpaper/NavBarService.java)를 수정하여 실기(`192.168.123.107:5555`) 및 OTA 배포 파일([`ELIPHOEM_System_v3.0.0.apk`](file:///e:/%EC%95%88%ED%8B%B0%EA%B7%B8%EB%9E%98%EB%B9%84%ED%8B%B0/E"
+    },
+    {
       "updatedAt": "2026-11-08T07:12:13Z",
       "snippet": "[대표님(PC 안티그래비티 요청)] 당근마켓에서 RF70-200 캐논 팔려고하는데 얼마쯤하나봐봐 얼마에올리면될까 최저가얼마야 \n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
     },
@@ -718,6 +722,11 @@
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-08T07:25:05Z",
       "summary": "화면 위아래 전체 길이를 활용한 초대형 세로 볼륨 바(`124 x 696px`)로 키워서 실기 배포 및 캡처 검증을 진행 중입니다. 완료되는 즉시 화면을 보여드리겠습니다."
+    },
+    {
+      "role": "안티그래비티(PC 작업 결과)",
+      "createdAt": "2026-11-08T07:27:07Z",
+      "summary": "하단 네비게이션 핸들을 위로 드래그할 때 **좌측 옆면 상하 전체(`124 x 696px`)에 큼직한 세로형 볼륨 조절 바**가 함께 나타나도록 [`NavBarService.java`](file:///C:/Users/%EB%B0%95%EC%A0%95%EC%88%98/.gemini/antigravity/brain/08abf2d4-e54d-43da-a03d-df4b6e390207/scratch/kor_helper/src/com/zqc/kor/wallpaper/NavBarService.java)를 수정하여 실기(`192.168.123.107:5555`) 및 OTA 배포 파일([`ELIPHOEM_System_v3.0.0.apk`](file:///e:/%EC%95%88%ED%8B%B0%EA%B7%B8%EB%9E%98%EB%B9%84%ED%8B%B0/E"
     },
     {
       "role": "대표님(PC 안티그래비티 요청)",
