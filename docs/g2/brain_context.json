@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 6:16:37",
+  "updatedAt": "2026. 11. 8. PM 6:17:22",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -150,7 +150,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 6:16:37\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 6단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 6:17:22\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 5단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -629,10 +629,6 @@
   ],
   "livePcAntigravity": [
     {
-      "updatedAt": "2026-11-08T09:10:15Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 내가 S905L3A 게임기 연결해서랜선꽂아놨거든 이거 속도 나 반응속도개선 PSP 최적화 철권태그 더빠르게 그리고 보안해킹못하게 만드는거 해봐봐 그때 보안관련이슈있었잖아 리셋키 \n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
-    },
-    {
       "updatedAt": "2026-11-08T08:55:11Z",
       "snippet": "[대표님(PC 안티그래비티 요청)] 여기에대해 스킬하고 학습할수있는거크롤링해줘 락칩하고 UIS7861 등"
     },
@@ -706,11 +702,6 @@
     }
   ],
   "livePcAntigravitySession": [
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-08T09:10:15Z",
-      "summary": "내가 S905L3A 게임기 연결해서랜선꽂아놨거든 이거 속도 나 반응속도개선 PSP 최적화 철권태그 더빠르게 그리고 보안해킹못하게 만드는거 해봐봐 그때 보안관련이슈있었잖아 리셋키 \n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
-    },
     {
       "role": "대표님(PC 안티그래비티 요청)",
       "createdAt": "2026-11-08T08:55:11Z",

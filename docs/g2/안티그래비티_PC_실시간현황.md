@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 6:16:37
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 6:17:22
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -23,7 +23,6 @@
 - **[비즈니스]**: 지파츠 이베이 40선 실시간 재고 감시 및 8개국 크로스보더 80선(순마진 30% 이상 보장 공식)이 24시간 가동 중입니다.
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
-- **[대표님(PC 안티그래비티 요청)]**: 내가 S905L3A 게임기 연결해서랜선꽂아놨거든 이거 속도 나 반응속도개선 PSP 최적화 철권태그 더빠르게 그리고 보안해킹못하게 만드는거 해봐봐 그때 보안관련이슈있었잖아 리셋키  <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 - **[대표님(PC 안티그래비티 요청)]**: 여기에대해 스킬하고 학습할수있는거크롤링해줘 락칩하고 UIS7861 등
 - **[안티그래비티(PC 작업 결과)]**: 사장님, 지시하신 대로 **① OpenAI Astra 방식의 AI 자율 하드웨어/PCB/3D 기구물 자동 설계 기술**, **② 락칩(Rockchip `RK3588` / `RK3588S` / `RK3568` / `RK3566` / `RV1106`) 하드웨어 설계 가이드**, **③ Unisoc `UIS7861` / `UIS7862`(`UMS512`) 차량용 안드로이드 올인원·전장 보드 회로/핀맵/CAN 프로토콜**을 전수 크롤링하여 에이전트 영구 스킬로 학습 및 구축 완료했습니다! --- ### 📂 1. 신규 구축 및 학습 완료된 스킬 & 지식베이스 파일 목록 언제든 저에게 하드웨어나 보드, 케이스 설계를 지시하시면 아래 스킬과 설계 바이블이 자동으로 로드됩니다: 1. **메인 하드웨어 설계 스킬**: [SKILL.md](file:/
 - **[대표님(PC 안티그래비티 요청)]**: 그 UIS7861 로공용보드 만들어봐
