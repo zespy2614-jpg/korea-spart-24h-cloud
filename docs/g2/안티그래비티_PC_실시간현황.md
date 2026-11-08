@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 9:15:23
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 9:15:39
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -23,15 +23,14 @@
 - **[비즈니스]**: 지파츠 이베이 40선 실시간 재고 감시 및 8개국 크로스보더 80선(순마진 30% 이상 보장 공식)이 24시간 가동 중입니다.
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
-- **[안티그래비티(PC 작업 결과)]**: 사장님, 말씀하신 대로 **화면이 정신없고 복잡했던 원인을 전부 걷어내고**, **토스(Toss) · 삼성 One UI 7 스타일의 초간결 카드형 UI**로 대폭 정리하여 라이브 서버(**https://atlas-2af66.web.app/**)와 전용 앱에 즉시 반영했습니다. > **지금 켜두신 아틀라스 앱(또는 모바일 웹)에서 상단 `[업데이트]` 버튼을 한 번 누르시거나 앱을 껐다 켜시면 재설치 없이도 즉시 새 화면으로 바뀝니다.** > *(새 APK `v1.3.0` 설치 링크: **https://atlas-2af66.web.app/apk.html**)* --- ### 📱 한눈에 들어오도록 정리한 핵심 변경 사항 1. **앱 내부 ‘중복 상단바·중복 하단바·중복 업데이트 버튼’ 완전 제거 ([index.html](file:///C
-- **[대표님(PC 안티그래비티 요청)]**: 근데 매출정보 어떻게가져오는거야 컴퓨터 항상켜있어야해?
 - **[안티그래비티(PC 작업 결과)]**: 결론부터 말씀드리면 **“앱에서 매출·재고를 확인하는 것”은 컴퓨터가 꺼져 있어도 24시간 언제든 가능**하지만, **“새로운 실시간 수치를 다시 긁어오는 것(`[업데이트]` 버튼)”은 현재 컴퓨터가 켜져 있을 때 작동**합니다. 왜 그렇게 되어 있는지와, 사장님이 불편하지 않으시도록 제가 **방금 선제적으로 세팅해 둔 자동화 장치**를 쉽게 설명해 드리겠습니다. --- ### 1. 현재 매출·재고를 가져오는 원리 1. **데이터 저장소 = 구글 클라우드 서버 (Firebase DB)**    - 한 번 불러온 쿠팡·스마트스토어 매출과 이플렉스 재고, 중국 발주 장부는 모두 **구글 클라우드 서버**에 저장됩니다.    - 따라서 **컴퓨터를 끄고 외출하셔도 스마트폰 앱을 열면 마지막으로 업데이트된 매출·재고·중국발주 데이터는 24시간
 - **[대표님(PC 안티그래비티 요청)]**: 컴퓨터꺼놔도 재고 알고싶어
 - **[안티그래비티(PC 작업 결과)]**: 컴퓨터가 꺼져 있을 때도 클라우드 서버(구글 Firebase)가 직접 이플렉스(`b2c-api.cjlogistics.com`)·쿠팡·스마트스토어에서 실시간 재고를 가져올 수 있도록 인증 토큰과 API 구조를 분석하고 있습니다. 잠시만 기다려 주세요.
-- **[안티그래비티(PC 작업 결과)]**: I have generated the photorealistic 3D studio photograph of the Rockchip RK3566 V2.3 Smart Beam Projector Mainboard with the exact zero-step flush connector alignment and coaxial behind-AUX reset switch, and reported the final image path back to the parent agent.
-- **[안티그래비티(PC 작업 결과)]**: I have generated the updated photorealistic 3D studio photograph for the **Rockchip RK3566 V2.4 Smart Beam Projector Mainboard** featuring all 8 front connectors (including the Push-Push MicroSD slot and metal-shielded RJ45 Gigabit Ethernet port) in a razor-straight 0.00mm flush row, along with the coaxial behind-AUX reset switch, and reported the final file path back to the parent agent.
 - **[안티그래비티(PC 작업 결과)]**: The final photorealistic product photograph for the **Unisoc UIS7861 V2.3 Smart Beam Projector Mainboard** has been generated and sent to the parent agent. - **Saved Path:** `C:\Users\박정수\.gemini\antigravity\brain\6f4f2257-3ec4-469e-8c6b-6bbcf729ec04\unisoc_uis7861_v23_mainboard_flush_1794138208674.jpg`
 - **[안티그래비티(PC 작업 결과)]**: The edited photograph has been generated and sent to the parent agent: - **Saved File Path:** `C:\Users\박정수\.gemini\antigravity\brain\6f4f2257-3ec4-469e-8c6b-6bbcf729ec04\unisoc_uis7861_v23_behind_aux_reset_1794138525238.jpg` - **Modifications applied:** The side button was completely removed from the right flank leaving clean emerald green PCB, and the micro tactile reset switch was positioned directly behind the r
+- **[안티그래비티(PC 작업 결과)]**: The final studio product photograph for the **Unisoc UIS7861 V2.4 Smart Beam Projector Mainboard** has been generated and sent to the parent agent: - **Saved File Path:** `C:\Users\박정수\.gemini\antigravity\brain\6f4f2257-3ec4-469e-8c6b-6bbcf729ec04\unisoc_uis7861_v24_perfect_coaxial_reset_1794140096636.jpg` - **Key Features Included:**   1. Flat-front DC 12V power barrel jack   2. USB Type-C port   3. Electric blue U
+- **[안티그래비티(PC 작업 결과)]**: I have generated the photorealistic 3D studio photograph of the Rockchip RK3566 V2.3 Smart Beam Projector Mainboard with the exact zero-step flush connector alignment and coaxial behind-AUX reset switch, and reported the final image path back to the parent agent.
+- **[안티그래비티(PC 작업 결과)]**: I have generated the updated photorealistic 3D studio photograph for the **Rockchip RK3566 V2.4 Smart Beam Projector Mainboard** featuring all 8 front connectors (including the Push-Push MicroSD slot and metal-shielded RJ45 Gigabit Ethernet port) in a razor-straight 0.00mm flush row, along with the coaxial behind-AUX reset switch, and reported the final file path back to the parent agent.
 
 ## 2. 최근 수정된 워크스페이스 핵심 문서 Top 10
 - `안티그래비티_제미나이_마스터두뇌_통합바이블.md` (2026. 11. 8. PM 9:00:43)
