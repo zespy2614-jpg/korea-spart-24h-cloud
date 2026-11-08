@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 6:38:07",
+  "updatedAt": "2026. 11. 8. PM 6:38:22",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -150,7 +150,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 6:38:07\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 3단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 6:38:22\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 5단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -637,8 +637,12 @@
   ],
   "livePcAntigravity": [
     {
-      "updatedAt": "2026-11-08T09:30:19Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] 외장 SSD 재인식 및 EmulationStation 마운트가 완료되었고(`GPU_FREQ=800000000`, 핫플러그 시 메모리 자동 확보 로직 추가 반영), 현재 **PSP 철권6(`psp_opt1`) 실제 전투 벤치마크**가 실행 중입니다. 완료되는 대로 전체 실측 비교 수치와 8개 기술 질의에 대한 상세 분석을 보고드리겠습니다."
+      "updatedAt": "2026-11-08T09:31:56Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] This request was blocked by Gemini's filters. They can occasionally trigger by mistake on safe coding, security, or biology-related queries. Please try rephrasing your prompt. You can [send feedback](https://aistudio.google.com/docs/troubleshooting#file-bug) or read more about [our policies here](https://policies.google.com/terms/generative-ai/use-policy)."
+    },
+    {
+      "updatedAt": "2026-11-08T09:38:19Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 아뭐가위반이야피해서해줘"
     },
     {
       "updatedAt": "2026-11-08T09:31:04Z",
@@ -647,6 +651,10 @@
     {
       "updatedAt": "2026-11-08T09:25:37Z",
       "snippet": "[대표님(PC 안티그래비티 요청)] 유튜브사건사고동영상들 인터넷에 다니는 영상들로학습도가능하지않아 ?"
+    },
+    {
+      "updatedAt": "2026-11-08T09:37:41Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] **네, 100% 가능합니다! 오히려 그게 현장에서 사건이 터지기를 기다리지 않고 출시 첫날부터 AI 지능을 최고치로 끌어올리는 가장 똑똑한 방법입니다!**\n\n말씀하시자마자 제가 바로 관제 사이트(`http://localhost:8765`)의 자가학습 모니터 안에 **「유튜브 사건사고 & 글로벌 CCTV 데이터셋 합법 뼈대 추출 학습기」**([`motion_ai_research_trainer.py`](file:///e:/안티그래비티/ai_edge_box_demo/rk3588s_firmware/motion_ai_research_trainer.py), [`edge_hub_server.py`](file:///e:/안티그래비티/ai_edge_box_demo/edge_hub_server.py), [`index.html`](file:///e:/안티그래비"
     }
   ],
   "recentDocs": [
@@ -704,8 +712,13 @@
   "livePcAntigravitySession": [
     {
       "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-08T09:30:19Z",
-      "summary": "외장 SSD 재인식 및 EmulationStation 마운트가 완료되었고(`GPU_FREQ=800000000`, 핫플러그 시 메모리 자동 확보 로직 추가 반영), 현재 **PSP 철권6(`psp_opt1`) 실제 전투 벤치마크**가 실행 중입니다. 완료되는 대로 전체 실측 비교 수치와 8개 기술 질의에 대한 상세 분석을 보고드리겠습니다."
+      "createdAt": "2026-11-08T09:31:56Z",
+      "summary": "This request was blocked by Gemini's filters. They can occasionally trigger by mistake on safe coding, security, or biology-related queries. Please try rephrasing your prompt. You can [send feedback](https://aistudio.google.com/docs/troubleshooting#file-bug) or read more about [our policies here](https://policies.google.com/terms/generative-ai/use-policy)."
+    },
+    {
+      "role": "대표님(PC 안티그래비티 요청)",
+      "createdAt": "2026-11-08T09:38:19Z",
+      "summary": "아뭐가위반이야피해서해줘"
     },
     {
       "role": "안티그래비티(PC 작업 결과)",
@@ -716,6 +729,11 @@
       "role": "대표님(PC 안티그래비티 요청)",
       "createdAt": "2026-11-08T09:25:37Z",
       "summary": "유튜브사건사고동영상들 인터넷에 다니는 영상들로학습도가능하지않아 ?"
+    },
+    {
+      "role": "안티그래비티(PC 작업 결과)",
+      "createdAt": "2026-11-08T09:37:41Z",
+      "summary": "**네, 100% 가능합니다! 오히려 그게 현장에서 사건이 터지기를 기다리지 않고 출시 첫날부터 AI 지능을 최고치로 끌어올리는 가장 똑똑한 방법입니다!**\n\n말씀하시자마자 제가 바로 관제 사이트(`http://localhost:8765`)의 자가학습 모니터 안에 **「유튜브 사건사고 & 글로벌 CCTV 데이터셋 합법 뼈대 추출 학습기」**([`motion_ai_research_trainer.py`](file:///e:/안티그래비티/ai_edge_box_demo/rk3588s_firmware/motion_ai_research_trainer.py), [`edge_hub_server.py`](file:///e:/안티그래비티/ai_edge_box_demo/edge_hub_server.py), [`index.html`](file:///e:/안티그래비"
     }
   ],
   "livePcArtifacts": [
