@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. AM 9:20:19",
+  "updatedAt": "2026. 11. 8. AM 9:26:35",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -131,7 +131,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. AM 9:20:19\n1. 영구 장기기억 금고: 15건 (고정: 그리고 이거 그 음성 전송하는 거 손가락 떼면 자동으로 전송되게 해 줘)\n2. PC 안티그래비티 실시간 작업: 최근 14단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 46건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. AM 9:26:35\n1. 영구 장기기억 금고: 15건 (고정: 그리고 이거 그 음성 전송하는 거 손가락 떼면 자동으로 전송되게 해 줘)\n2. PC 안티그래비티 실시간 작업: 최근 7단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 46건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -562,6 +562,10 @@
   ],
   "livePcAntigravity": [
     {
+      "updatedAt": "2026-11-08T00:19:37Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] 안경 화면에 전송되는 BLE 패킷과 디스플레이 컨테이너 좌표를 **밀리초(ms)·프레임 단위로 전수 추적**하여 두 가지 문제의 정확한 원인을 찾아 해결하고, **`v3.2.5`** 패치 및 디지털 트윈 프레임 검증(**22 PASSED, 0 FAILED**)을 완료했습니다.\n\n---\n\n### 1. 프레임 단위 근본 원인 분석 (`systematic-debugging`)\n\n#### ① 두 번 터치하여 시계 모드로 돌아갈 때 깜빡거리며 시계 쪽 잔상이 바뀌던 원인 (4-Frame 충돌)\n기존 `enterClockStandby()` 실행 시 안경으로 다음 **4단계 BLE 프레임**이 약 `0ms ~ 120ms` 사이에 연속 발사되고 있었습니다:\n1. **Frame 1 (`t = 20ms`, `hud.set` 선행 플러시)**: `hud.cloc"
+    },
+    {
       "updatedAt": "2026-11-07T23:49:43Z",
       "snippet": "[안티그래비티(PC 작업 결과)] 네이버 메일(`kanjji@naver.com`)에서 AVASK 관련 전체 메일 내역과 담당자 정보, 청구·미납 관련 메일을 정밀 조회하고 있습니다. 잠시만 기다려 주시면 확인 후 요약문을 정리해 보여드리겠습니다."
     },
@@ -584,38 +588,6 @@
     {
       "updatedAt": "2026-11-07T23:57:57Z",
       "snippet": "[안티그래비티(PC 작업 결과)] 네이버 메일(`kanjji@naver.com`)에서 **해당 사업자(SY CORPORATION)는 폐업 예정이라는 내용까지 추가하여 영문으로 정상 발송 완료**했습니다! (보낸메일함 등록 번호: `202669` 확인 완료)\n\n---\n\n### 발송 완료 내역 요약\n\n* **보낸 사람**: 박정수 (`kanjji@naver.com`)\n* **받는 사람 (To - 담당자 3곳)**:\n  * `catherine.kimani@avaskgroup.com` (캐서린 키마니 — 미납·채권 담당자)\n  * `habib.bouzidi@avaskgroup.com` (하빕 부지디 — 결제·신용관리 담당자)\n  * `customerservice@avaskgroup.com` (아바스크 고객지원 및 해지 담당팀)\n* **참조 (CC - 관련 부서 5곳)**:\n  * `"
-    },
-    {
-      "updatedAt": "2026-11-07T20:58:53Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] 전체 18개 게임 에뮬레이터 시스템(`arcade`, `mame`, `fbn`, `neogeo`, `snes`, `nes`, `gba`, `megadrive`, `mastersystem`, `pcengine`, `msx2`, `n64`, `psx`, `psp`, `dreamcast`, `naomi`, `atomiswave`, `nds`)의 코어 및 런처 스크립트를 전수 스캔 중입니다. 완료되는 대로 에뮬레이터별로 게임을 하나씩 실제 구동하고 종료하며 검증하겠습니다."
-    },
-    {
-      "updatedAt": "2026-11-07T21:01:38Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] 1차 에뮬레이터 10종(`nes`, `snes`, `gba`, `megadrive`, `mastersystem`, `pcengine`, `msx2`, `fbn`, `neogeo`, `mame`) 실제 구동 및 종료 테스트를 진행 중이며, 이어서 2차 에뮬레이터 10종(`arcade`, `twcup98`, `psx`, `tektagt`, `psp`, `n64`, `dreamcast`, `naomi`, `atomiswave`, `nds`) 테스트 스크립트도 준비를 마쳤습니다. 1차 완료 알림이 오면 바로 2차 테스트로 이어가겠습니다."
-    },
-    {
-      "updatedAt": "2026-11-07T21:01:52Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] 1차 에뮬레이터 10종(패미컴, 슈퍼패미컴, 게임보이어드밴스, 메가드라이브, 마스터시스템, PC엔진, MSX2, 파이널번, 네오지오, 마메) 실제 게임 진입·렌더링·사운드·종료 테스트가 진행 중입니다. 완료되는 즉시 결과를 확인하고 2차 10종 테스트를 실행하겠습니다."
-    },
-    {
-      "updatedAt": "2026-11-07T23:23:23Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 멈춰봐봐"
-    },
-    {
-      "updatedAt": "2026-11-07T23:24:16Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] 네, 진행 중이던 모든 테스트 작업을 즉시 중단했습니다. 말씀해 주세요!"
-    },
-    {
-      "updatedAt": "2026-11-07T23:41:26Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 이거 작업내용들 폴더어디에있어 ? 게임작업내용들 빔프로젝터"
-    },
-    {
-      "updatedAt": "2026-11-07T23:42:33Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 아직도 철권태그랑 psp 전투시에 너무느려서 다른 ai한테시켜보게 프롬프트랑위치알려줘"
-    },
-    {
-      "updatedAt": "2026-11-07T23:44:21Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] 빔프로젝터 및 게임 관련 모든 작업 파일과 백업은 아래 폴더에 정리되어 있으며, 다른 AI가 처음부터 헤매지 않고 바로 이어서 작업할 수 있도록 폴더 안에 **[AI_인수인계_및_최적화_가이드.md](file:///E:/안티그래비티/ELIPHOEM_Backups/backup_20261107_safe_state/AI_인수인계_및_최적화_가이드.md)** 문서까지 생성해 두었습니다.\n\n---\n\n### 1. 작업 파일 및 백업 폴더 위치\n\n* **메인 작업 및 안전 백업 폴더**:\n  `E:\\안티그래비티\\ELIPHOEM_Backups\\backup_20261107_safe_state`\n  * [AI_인수인계_및_최적화_가이드.md](file:///E:/안티그래비티/ELIPHOEM_Backups/backup_20261107_safe_state/AI_인"
     }
   ],
   "recentDocs": [
@@ -673,6 +645,11 @@
   "livePcAntigravitySession": [
     {
       "role": "안티그래비티(PC 작업 결과)",
+      "createdAt": "2026-11-08T00:19:37Z",
+      "summary": "안경 화면에 전송되는 BLE 패킷과 디스플레이 컨테이너 좌표를 **밀리초(ms)·프레임 단위로 전수 추적**하여 두 가지 문제의 정확한 원인을 찾아 해결하고, **`v3.2.5`** 패치 및 디지털 트윈 프레임 검증(**22 PASSED, 0 FAILED**)을 완료했습니다.\n\n---\n\n### 1. 프레임 단위 근본 원인 분석 (`systematic-debugging`)\n\n#### ① 두 번 터치하여 시계 모드로 돌아갈 때 깜빡거리며 시계 쪽 잔상이 바뀌던 원인 (4-Frame 충돌)\n기존 `enterClockStandby()` 실행 시 안경으로 다음 **4단계 BLE 프레임**이 약 `0ms ~ 120ms` 사이에 연속 발사되고 있었습니다:\n1. **Frame 1 (`t = 20ms`, `hud.set` 선행 플러시)**: `hud.cloc"
+    },
+    {
+      "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-07T23:49:43Z",
       "summary": "네이버 메일(`kanjji@naver.com`)에서 AVASK 관련 전체 메일 내역과 담당자 정보, 청구·미납 관련 메일을 정밀 조회하고 있습니다. 잠시만 기다려 주시면 확인 후 요약문을 정리해 보여드리겠습니다."
     },
@@ -700,46 +677,6 @@
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-07T23:57:57Z",
       "summary": "네이버 메일(`kanjji@naver.com`)에서 **해당 사업자(SY CORPORATION)는 폐업 예정이라는 내용까지 추가하여 영문으로 정상 발송 완료**했습니다! (보낸메일함 등록 번호: `202669` 확인 완료)\n\n---\n\n### 발송 완료 내역 요약\n\n* **보낸 사람**: 박정수 (`kanjji@naver.com`)\n* **받는 사람 (To - 담당자 3곳)**:\n  * `catherine.kimani@avaskgroup.com` (캐서린 키마니 — 미납·채권 담당자)\n  * `habib.bouzidi@avaskgroup.com` (하빕 부지디 — 결제·신용관리 담당자)\n  * `customerservice@avaskgroup.com` (아바스크 고객지원 및 해지 담당팀)\n* **참조 (CC - 관련 부서 5곳)**:\n  * `"
-    },
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-07T20:58:53Z",
-      "summary": "전체 18개 게임 에뮬레이터 시스템(`arcade`, `mame`, `fbn`, `neogeo`, `snes`, `nes`, `gba`, `megadrive`, `mastersystem`, `pcengine`, `msx2`, `n64`, `psx`, `psp`, `dreamcast`, `naomi`, `atomiswave`, `nds`)의 코어 및 런처 스크립트를 전수 스캔 중입니다. 완료되는 대로 에뮬레이터별로 게임을 하나씩 실제 구동하고 종료하며 검증하겠습니다."
-    },
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-07T21:01:38Z",
-      "summary": "1차 에뮬레이터 10종(`nes`, `snes`, `gba`, `megadrive`, `mastersystem`, `pcengine`, `msx2`, `fbn`, `neogeo`, `mame`) 실제 구동 및 종료 테스트를 진행 중이며, 이어서 2차 에뮬레이터 10종(`arcade`, `twcup98`, `psx`, `tektagt`, `psp`, `n64`, `dreamcast`, `naomi`, `atomiswave`, `nds`) 테스트 스크립트도 준비를 마쳤습니다. 1차 완료 알림이 오면 바로 2차 테스트로 이어가겠습니다."
-    },
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-07T21:01:52Z",
-      "summary": "1차 에뮬레이터 10종(패미컴, 슈퍼패미컴, 게임보이어드밴스, 메가드라이브, 마스터시스템, PC엔진, MSX2, 파이널번, 네오지오, 마메) 실제 게임 진입·렌더링·사운드·종료 테스트가 진행 중입니다. 완료되는 즉시 결과를 확인하고 2차 10종 테스트를 실행하겠습니다."
-    },
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-07T23:23:23Z",
-      "summary": "멈춰봐봐"
-    },
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-07T23:24:16Z",
-      "summary": "네, 진행 중이던 모든 테스트 작업을 즉시 중단했습니다. 말씀해 주세요!"
-    },
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-07T23:41:26Z",
-      "summary": "이거 작업내용들 폴더어디에있어 ? 게임작업내용들 빔프로젝터"
-    },
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-07T23:42:33Z",
-      "summary": "아직도 철권태그랑 psp 전투시에 너무느려서 다른 ai한테시켜보게 프롬프트랑위치알려줘"
-    },
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-07T23:44:21Z",
-      "summary": "빔프로젝터 및 게임 관련 모든 작업 파일과 백업은 아래 폴더에 정리되어 있으며, 다른 AI가 처음부터 헤매지 않고 바로 이어서 작업할 수 있도록 폴더 안에 **[AI_인수인계_및_최적화_가이드.md](file:///E:/안티그래비티/ELIPHOEM_Backups/backup_20261107_safe_state/AI_인수인계_및_최적화_가이드.md)** 문서까지 생성해 두었습니다.\n\n---\n\n### 1. 작업 파일 및 백업 폴더 위치\n\n* **메인 작업 및 안전 백업 폴더**:\n  `E:\\안티그래비티\\ELIPHOEM_Backups\\backup_20261107_safe_state`\n  * [AI_인수인계_및_최적화_가이드.md](file:///E:/안티그래비티/ELIPHOEM_Backups/backup_20261107_safe_state/AI_인"
     }
   ],
   "livePcArtifacts": [],
