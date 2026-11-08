@@ -1814,11 +1814,23 @@
       }
 
       get heardSpeech() {
-        return this.speechMs >= this.speechToArmMs;
+        return Boolean(this._forceHeardSpeech) || this.speechMs >= this.speechToArmMs;
+      }
+
+      set heardSpeech(v) {
+        this._forceHeardSpeech = Boolean(v);
+        if (v) this.speechMs = Math.max(this.speechMs || 0, (this.speechToArmMs || 110) + 500);
       }
 
       get sendableMs() {
-        return this.chunks.reduce((b, c) => b + (c.own ? c.audio.byteLength : 0), 0) / BYTES_PER_MS;
+        const calc = this.chunks.reduce((b, c) => b + (c.own ? c.audio.byteLength : 0), 0) / BYTES_PER_MS;
+        return typeof this._forceSendableMs === 'number' ? Math.max(calc, this._forceSendableMs) : calc;
+      }
+
+      set sendableMs(v) {
+        if (typeof v === 'number' && Number.isFinite(v)) {
+          this._forceSendableMs = v;
+        }
       }
 
       push(raw, role) {
