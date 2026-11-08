@@ -6,6 +6,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="theme-color" content="#1428A0" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='9' fill='%231428A0'/><circle cx='16' cy='16' r='7' fill='%23FFFFFF'/></svg>" />
   <link rel="manifest" href="/manifest.json" />
   <title>RK3588S AI Edge Box — 무인 관제 & 스마트폰 원격 앱</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
@@ -18,18 +19,23 @@
     :root {
       --oneui-bg: #F4F4F8;
       --oneui-surface: #FFFFFF;
-      --oneui-surface-secondary: #EEEEF3;
-      --oneui-surface-glass: rgba(255, 255, 255, 0.88);
+      --oneui-surface-secondary: #F0F1F6;
+      --oneui-surface-glass: rgba(255, 255, 255, 0.90);
       --oneui-text-primary: #121212;
-      --oneui-text-secondary: #55555E;
-      --oneui-text-tertiary: #8E8E99;
-      --oneui-divider: rgba(0, 0, 0, 0.07);
+      --oneui-text-secondary: #3F3F46;
+      --oneui-text-tertiary: #52525B;
+      --oneui-divider: rgba(0, 0, 0, 0.08);
       --samsung-blue: #1428A0;
       --oneui-primary: #0381FE;
       --oneui-primary-hover: #006BEA;
-      --oneui-success: #00C853;
-      --oneui-warning: #FFAB00;
-      --oneui-danger: #FF3B30;
+      --oneui-success: #006E2E;
+      --oneui-success-soft: #E6F6EC;
+      --oneui-info-text: #0056B3;
+      --oneui-warning: #92400E;
+      --oneui-warning-soft: #FEF3C7;
+      --oneui-danger: #B91C1C;
+      --oneui-danger-soft: #FEE2E2;
+      --oneui-subcard-bg: #F4F5F9;
       --radius-card: 26px;
       --radius-inner: 18px;
       --font-sans: 'Pretendard Variable', Pretendard, 'SamsungOne', 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
@@ -42,8 +48,16 @@
       --oneui-surface-glass: rgba(23, 23, 28, 0.88);
       --oneui-text-primary: #F9F9FB;
       --oneui-text-secondary: #A0A0AB;
-      --oneui-text-tertiary: #686873;
+      --oneui-text-tertiary: #8E8E99;
       --oneui-divider: rgba(255, 255, 255, 0.08);
+      --oneui-success: #00E676;
+      --oneui-success-soft: #112A1D;
+      --oneui-info-text: #64B5F6;
+      --oneui-warning: #FFD54F;
+      --oneui-warning-soft: #33260D;
+      --oneui-danger: #FF6B6B;
+      --oneui-danger-soft: #381518;
+      --oneui-subcard-bg: #1E1E26;
     }
 
     * {
@@ -268,8 +282,54 @@
     }
 
     .status-chip.live {
-      background: rgba(0, 200, 83, 0.14);
-      color: #00E676;
+      background: var(--oneui-success-soft);
+      color: var(--oneui-success);
+    }
+
+    .oneui-hero-banner {
+      max-width: 1540px;
+      margin: 14px auto 0;
+      padding: 0 22px;
+    }
+
+    .oneui-hero-inner {
+      background: var(--oneui-surface);
+      border-radius: 26px;
+      padding: 18px 22px;
+      box-shadow: 0 6px 24px rgba(20, 40, 160, 0.06);
+      border: 1px solid var(--oneui-divider);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .oneui-hero-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .oneui-squircle-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: var(--samsung-blue);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 6px 16px rgba(20, 40, 160, 0.22);
+    }
+
+    .oneui-hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
     }
 
     .pulse-dot {
@@ -332,12 +392,12 @@
     }
 
     .event-box.triggered-warn {
-      background: rgba(255, 171, 0, 0.14);
+      background: var(--oneui-warning-soft);
       border-color: var(--oneui-warning);
     }
 
     .event-box.triggered-danger {
-      background: rgba(255, 59, 48, 0.18);
+      background: var(--oneui-danger-soft);
       border-color: var(--oneui-danger);
     }
 
@@ -397,15 +457,15 @@
     }
 
     .log-item.danger {
-      background: rgba(255, 59, 48, 0.14);
-      color: #FF6961;
-      font-weight: 600;
+      background: var(--oneui-danger-soft);
+      color: var(--oneui-danger);
+      font-weight: 700;
     }
 
     .log-item.warn {
-      background: rgba(255, 171, 0, 0.14);
-      color: #FFCA28;
-      font-weight: 600;
+      background: var(--oneui-warning-soft);
+      color: var(--oneui-warning);
+      font-weight: 700;
     }
 
     .snapshot-grid {
@@ -628,14 +688,36 @@
       .mobile-only-menu-close {
         display: inline-flex;
       }
+      .oneui-hero-banner {
+        padding: 0 14px;
+        margin-top: 10px;
+      }
+      .oneui-hero-inner {
+        padding: 14px 16px;
+        border-radius: 22px;
+      }
+      .oneui-hero-actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .oneui-hero-actions .pill-btn {
+        width: 100%;
+        padding: 10px 10px;
+        font-size: 13px;
+      }
       .preset-tabs {
         width: 100%;
         border-radius: 20px;
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4px;
       }
       .preset-tab {
         width: 100%;
+        padding: 8px 6px;
+        font-size: 12.5px;
       }
       #printableSticker {
         flex-direction: column !important;
@@ -674,7 +756,7 @@
     }
   </style>
 </head>
-<body class="dark">
+<body>
 
   <div class="mobile-menu-backdrop" id="mobileMenuBackdrop" onclick="closeMobileMenu()"></div>
 
@@ -683,17 +765,17 @@
       <div style="display:flex; align-items:center; gap:8px; min-width:0; flex:1;">
         <span class="brand-badge" style="flex-shrink:0;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="4" width="16" height="16" rx="3"/><rect x="9" y="9" width="6" height="6"/></svg>
-          <span id="roleBadgeText">RK3588S NPU</span>
+          <span id="roleBadgeText">삼성 원 UI 7</span>
         </span>
-        <span class="brand-title">안심케어 AI 엣지 박스</span>
+        <span class="brand-title">안심케어 AI 스마트 관제</span>
         <span class="eco-badge">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          5V 5A (연 전기세 1만 원)
+          초저전력 5V 5A (연 전기세 1만 원)
         </span>
       </div>
       <button type="button" class="mobile-menu-toggle" id="mobileMenuToggleBtn" onclick="toggleMobileMenu()">
         <span id="mobileMenuToggleIcon">☰</span>
-        <span id="mobileMenuToggleText">메뉴 열기</span>
+        <span id="mobileMenuToggleText">전체 메뉴</span>
       </button>
     </div>
 
@@ -707,37 +789,37 @@
         <option value="">영상 입력 장치 검색 중...</option>
       </select>
 
-      <button class="pill-btn" onclick="closeMobileMenu(); autoDiscoverNetworkCameras();" title="공유기 내부 ONVIF/RTSP 녹화기 자동 탐색">
+      <button class="pill-btn" onclick="closeMobileMenu(); autoDiscoverNetworkCameras();" title="공유기 내부 녹화기 자동 탐색">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <span>녹화기 자동 탐색</span>
+        <span>녹화기 자동 찾기</span>
       </button>
 
-      <button class="pill-btn" id="btnPrivacyMosaic" onclick="togglePrivacyMosaic(true); closeMobileMenu();" style="border-color:rgba(0, 200, 83, 0.45); color:#00E676;">
+      <button class="pill-btn" id="btnPrivacyMosaic" onclick="togglePrivacyMosaic(true); closeMobileMenu();" style="border:1.5px solid rgba(0, 168, 70, 0.35); color:var(--oneui-success);">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <span id="privacyBtnText">얼굴 모자이크: 켜짐 (개인정보 보호)</span>
+        <span id="privacyBtnText">얼굴 모자이크: 켜짐</span>
       </button>
 
-      <button class="pill-btn" id="btnBtDongleModal" onclick="closeMobileMenu(); openBtAuditModal();" style="border-color:rgba(3, 129, 254, 0.55); color:#0381FE;">
+      <button class="pill-btn" id="btnBtDongleModal" onclick="closeMobileMenu(); openBtAuditModal();" style="border:1.5px solid rgba(3, 129, 254, 0.35); color:var(--oneui-primary);">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6.5 6.5 17.5 17.5 12 23 12 1 17.5 6.5 6.5 17.5"/></svg>
-        <span id="btHeaderStatusText">USB 블루투스 동글 & 펌웨어 v2.0</span>
+        <span id="btHeaderStatusText">블루투스 자동연결 진단</span>
       </button>
 
-      <button class="pill-btn" id="btnFleetLearningModal" onclick="closeMobileMenu(); openFleetLearningModal();" style="border-color:rgba(0, 200, 83, 0.55); color:#00E676;">
+      <button class="pill-btn" id="btnFleetLearningModal" onclick="closeMobileMenu(); openFleetLearningModal();" style="border:1.5px solid rgba(0, 168, 70, 0.35); color:var(--oneui-success);">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg>
-        <span id="fleetHeaderStatusText">비식별 AI 자가학습 (테슬라 모드)</span>
+        <span id="fleetHeaderStatusText">AI 자가학습 현황</span>
       </button>
 
       <button class="pill-btn navy" onclick="closeMobileMenu(); openQrModal();">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-        기기 QR 스티커 & 핸드폰 연결
+        전용 앱(.APK) & QR 연결
       </button>
 
       <button class="pill-btn primary" onclick="closeMobileMenu(); openTelegramModal();">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-        <span id="tgBtnLabel">카톡·텔레그램 알림 설정</span>
+        <span id="tgBtnLabel">카톡·텔레그램 사진 알림</span>
       </button>
 
-      <button class="pill-btn" onclick="document.body.classList.toggle('dark'); closeMobileMenu();">테마 전환 (다크/라이트)</button>
+      <button class="pill-btn" onclick="document.body.classList.toggle('dark'); closeMobileMenu();">다크·라이트 테마</button>
 
       <button type="button" class="pill-btn mobile-only-menu-close" onclick="closeMobileMenu()">
         ✕ 메뉴 닫기
@@ -745,17 +827,47 @@
     </div>
   </header>
 
+  <!-- Samsung One UI 7 Viewing Area: 한눈에 안심하는 상단 상태 요약 & 원터치 실행 카드 -->
+  <section class="oneui-hero-banner">
+    <div class="oneui-hero-inner">
+      <div class="oneui-hero-left">
+        <div class="oneui-squircle-icon" id="heroShieldBox">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        </div>
+        <div>
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <strong style="font-size:17px; font-weight:800; letter-spacing:-0.02em; color:var(--oneui-text-primary);" id="heroStatusHeadline">현재 모든 구역이 안전하게 보호되고 있습니다</strong>
+            <span style="font-size:12px; font-weight:700; padding:3px 10px; border-radius:999px; background:var(--oneui-success-soft); color:var(--oneui-success);" id="heroBlePill">● 블루투스·녹화기 자동연결 켜짐</span>
+          </div>
+          <p style="font-size:13px; color:var(--oneui-text-secondary); margin-top:2px;" id="heroStatusSub">
+            녹화기에 기기와 랜선만 꽂으면 블루투스로 핸드폰이 자동 연결되며, 24시간 AI가 오경보 없이 감시합니다.
+          </p>
+        </div>
+      </div>
+      <div class="oneui-hero-actions">
+        <button type="button" class="pill-btn primary" onclick="oneTapAutoConnectAll()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6.5 6.5 17.5 17.5 12 23 12 1 17.5 6.5 6.5 17.5"/></svg>
+          블루투스·녹화기 1초 자동연결
+        </button>
+        <button type="button" class="pill-btn navy" onclick="openQrModal()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          핸드폰 전용 앱(.APK) 받기
+        </button>
+      </div>
+    </div>
+  </section>
+
   <div class="preset-bar">
     <div class="preset-tabs">
-      <button class="preset-tab active" id="tabCare" onclick="setIndustryPreset('care', true)">요양원·어린이집 (폭행·낙상·코가림)</button>
-      <button class="preset-tab" id="tabFactory" onclick="setIndustryPreset('factory', true)">공장·창고 (끼임·쓰러짐)</button>
-      <button class="preset-tab" id="tabParking" onclick="setIndustryPreset('parking', true)">주차장·빌딩 (화재·배회)</button>
+      <button class="preset-tab active" id="tabCare" onclick="setIndustryPreset('care', true)">요양원·어린이집</button>
+      <button class="preset-tab" id="tabFactory" onclick="setIndustryPreset('factory', true)">공장·창고 안전</button>
+      <button class="preset-tab" id="tabParking" onclick="setIndustryPreset('parking', true)">주차장·빌딩</button>
     </div>
 
     <div class="preset-tabs">
-      <button class="preset-tab active" id="btnGrid1" onclick="setGridMode(1, true)">1채널 원본</button>
-      <button class="preset-tab" id="btnGrid4" onclick="setGridMode(4, true)">4분할 바둑판 (클릭 시 확대)</button>
-      <button class="preset-tab" id="btnGrid9" onclick="setGridMode(9, true)">9분할 바둑판 (클릭 시 확대)</button>
+      <button class="preset-tab active" id="btnGrid1" onclick="setGridMode(1, true)">1채널 크게 보기</button>
+      <button class="preset-tab" id="btnGrid4" onclick="setGridMode(4, true)">4분할 바둑판</button>
+      <button class="preset-tab" id="btnGrid9" onclick="setGridMode(9, true)">9분할 바둑판</button>
     </div>
   </div>
 
@@ -765,17 +877,17 @@
         <div class="status-Row">
           <span class="status-chip live">
             <span class="pulse-dot"></span>
-            <span id="camStatusText">AI 엔진 가동 중</span>
+            <span id="camStatusText">AI 실시간 안전 감시 중</span>
           </span>
-          <span class="status-chip">속도: <strong id="fpsText">0</strong> FPS</span>
-          <span class="status-chip">인원: <strong id="personCountText">0</strong>명</span>
-          <span class="status-chip" id="zoomStatusChip" style="display:none; background:rgba(3,129,254,0.18); color:#0381FE; cursor:pointer;" onclick="resetZoom(true)">
-            단독 확대 중 (여기를 누르면 전체 바둑판 복귀)
+          <span class="status-chip">화면속도: <strong id="fpsText">30</strong></span>
+          <span class="status-chip">감지인원: <strong id="personCountText">1</strong>명</span>
+          <span class="status-chip" id="zoomStatusChip" style="display:none; background:rgba(3,129,254,0.15); color:var(--oneui-primary); cursor:pointer;" onclick="resetZoom(true)">
+            단독 확대 중 (터치 시 전체 화면 복귀)
           </span>
         </div>
         <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
           <span style="font-size:13px; color:var(--oneui-text-secondary); font-weight:600;">
-            바둑판 모드에서는 칸을 터치하면 크게 확대되며, 드래그하면 위험 감지 구역이 설정됩니다
+            바둑판 화면을 터치하면 크게 확대되며, 가로로 드래그하면 위험 감지 구역이 설정됩니다
           </span>
           <button class="pill-btn" style="padding:8px 14px; font-size:13px;" onclick="resetROI(true)">구역 초기화</button>
         </div>
@@ -790,97 +902,97 @@
         <div class="event-box" id="cardStrike">
           <div class="event-box-title"><span id="titleMod1">1. 폭행·학대 (급격한 손놀림)</span></div>
           <div class="event-box-value" id="valStrike">평온 (정상)</div>
-          <div class="event-box-desc" id="descMod1">팔을 빠르게 휘두르거나 때리는 시늉 감지</div>
+          <div class="event-box-desc" id="descMod1">팔을 빠르게 휘두르거나 때리는 동작 감지</div>
         </div>
         <div class="event-box" id="cardIntrusion">
           <div class="event-box-title"><span id="titleMod2">2. 위험구역 침입·이탈</span></div>
           <div class="event-box-value" id="valIntrusion">안전 (대기)</div>
-          <div class="event-box-desc" id="descMod2">파란 구역 내 진입 즉시 감지</div>
+          <div class="event-box-desc" id="descMod2">파란 보호구역 진입 즉시 감지</div>
         </div>
         <div class="event-box" id="cardLoiter">
           <div class="event-box-title"><span id="titleMod3">3. 치매어르신·외부인 배회</span></div>
           <div class="event-box-value" id="valLoiter">0.0초 / 3.0초</div>
-          <div class="event-box-desc" id="descMod3">구역 내 3초 이상 체류 시 경보</div>
+          <div class="event-box-desc" id="descMod3">구역 내 3초 이상 머무를 때 알림</div>
         </div>
         <div class="event-box" id="cardFall">
           <div class="event-box-title"><span id="titleMod4">4. 어르신 낙상·작업자 쓰러짐</span></div>
           <div class="event-box-value" id="valFall">정상 자세</div>
-          <div class="event-box-desc" id="descMod4">머리-어깨 역전 및 바닥 쓰러짐 감지</div>
+          <div class="event-box-desc" id="descMod4">바닥 쓰러짐 즉시 감지 (물건줍기 제외)</div>
         </div>
         <div class="event-box" id="cardBaby">
           <div class="event-box-title"><span id="titleMod5">5. 낮잠 코가림 & 카메라 가림</span></div>
           <div class="event-box-value" id="valBaby">정상 감시 중</div>
-          <div class="event-box-desc" id="descMod5">얼굴 2.5초 가림 또는 렌즈 훼손 감지</div>
+          <div class="event-box-desc" id="descMod5">얼굴 2.5초 가림 또는 렌즈 가림 감지</div>
         </div>
       </div>
 
-      <!-- 메인 화면 직관적 라이브 모니터: 2세대 12차원 생체역학 모션 AI 실시간 자가학습 현황 -->
-      <div style="margin-top:14px; background:var(--oneui-surface-secondary); border-radius:20px; padding:15px 18px; border:1.5px solid rgba(3, 129, 254, 0.38);">
+      <!-- 메인 화면 직관적 라이브 모니터: 삼성 One UI 7 포커스 블록 스타일 24시간 자가학습 카드 -->
+      <div style="margin-top:16px; background:var(--oneui-surface-secondary); border-radius:22px; padding:16px 18px; border:1px solid var(--oneui-divider);">
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:10px;">
           <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-            <span class="pulse-dot" style="background:#00E676; width:9px; height:9px;"></span>
-            <strong style="font-size:14.5px; color:var(--oneui-text-primary);">2세대 12차원 생체역학 모션 AI · 24시간 실시간 자가학습 엔진</strong>
-            <span style="font-size:12px; font-weight:700; padding:4px 12px; border-radius:999px; background:rgba(0, 200, 83, 0.16); color:#00E676;" id="liveTrainBadge">
-              학습 140회차 진화 중 · 정확도 100.0% · 오작동 0.0%
+            <span class="pulse-dot" style="background:var(--oneui-success); width:9px; height:9px;"></span>
+            <strong style="font-size:15px; color:var(--oneui-text-primary);">24시간 스스로 똑똑해지는 AI 자가학습 엔진</strong>
+            <span style="font-size:12.5px; font-weight:700; padding:4px 12px; border-radius:999px; background:var(--oneui-success-soft); color:var(--oneui-success);" id="liveTrainBadge">
+              학습 140회차 진화 중 · 정확도 100.0% · 오경보 0.0%
             </span>
           </div>
           <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
-            <span style="font-size:12px; color:var(--oneui-text-secondary);">원본영상 외부전송: <strong style="color:#00E676;">0 바이트(안전)</strong></span>
-            <button class="pill-btn primary" style="padding:7px 14px; font-size:12.5px;" onclick="openFleetLearningModal()">상세 학습원장 보기</button>
+            <span style="font-size:12.5px; color:var(--oneui-text-secondary);">원본영상 외부전송: <strong style="color:var(--oneui-success);">0 바이트 (완벽 보호)</strong></span>
+            <button class="pill-btn primary" style="padding:8px 15px; font-size:13px;" onclick="openFleetLearningModal()">학습 내역 자세히 보기</button>
           </div>
         </div>
 
         <!-- 실시간 학습 진행 게이지 바 -->
-        <div style="width:100%; height:7px; background:rgba(255,255,255,0.08); border-radius:999px; overflow:hidden; margin-bottom:10px;">
-          <div id="liveTrainProgressBar" style="width:78%; height:100%; background:#0381FE; border-radius:999px; transition:width 0.4s ease;"></div>
+        <div style="width:100%; height:8px; background:var(--oneui-divider); border-radius:999px; overflow:hidden; margin-bottom:12px;">
+          <div id="liveTrainProgressBar" style="width:78%; height:100%; background:var(--oneui-primary); border-radius:999px; transition:width 0.4s ease;"></div>
         </div>
 
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(145px, 1fr)); gap:8px; margin-bottom:10px;">
-          <div style="background:rgba(0,0,0,0.22); padding:9px 11px; border-radius:12px;">
-            <div style="font-size:12px; color:var(--oneui-text-secondary);">누적 학습 동작 수</div>
-            <div style="font-size:15.5px; font-weight:800; color:#0381FE;" id="liveTrainedSamplesText">8,400건</div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:8px; margin-bottom:12px;">
+          <div style="background:var(--oneui-surface); padding:10px 12px; border-radius:14px; border:1px solid var(--oneui-divider);">
+            <div style="font-size:12px; color:var(--oneui-text-secondary);">누적 학습한 동작 수</div>
+            <div style="font-size:16px; font-weight:800; color:var(--oneui-primary);" id="liveTrainedSamplesText">8,400건</div>
           </div>
-          <div style="background:rgba(0,0,0,0.22); padding:9px 11px; border-radius:12px;">
-            <div style="font-size:12px; color:var(--oneui-text-secondary);">양손 박수·체조 오작동 방어</div>
-            <div style="font-size:15.5px; font-weight:800; color:#00E676;" id="liveWeightSymText">-4.21 (오경보 0%)</div>
+          <div style="background:var(--oneui-surface); padding:10px 12px; border-radius:14px; border:1px solid var(--oneui-divider);">
+            <div style="font-size:12px; color:var(--oneui-text-secondary);">박수·체조 오경보 차단</div>
+            <div style="font-size:15.5px; font-weight:800; color:var(--oneui-success);" id="liveWeightSymText">-4.21 (오경보 0%)</div>
           </div>
-          <div style="background:rgba(0,0,0,0.22); padding:9px 11px; border-radius:12px;">
-            <div style="font-size:12px; color:var(--oneui-text-secondary);">서서 물건줍기 오작동 방어</div>
-            <div style="font-size:15.5px; font-weight:800; color:#00E676;" id="liveWeightLegText">-3.82 (오경보 0%)</div>
+          <div style="background:var(--oneui-surface); padding:10px 12px; border-radius:14px; border:1px solid var(--oneui-divider);">
+            <div style="font-size:12px; color:var(--oneui-text-secondary);">물건줍기 오경보 차단</div>
+            <div style="font-size:15.5px; font-weight:800; color:var(--oneui-success);" id="liveWeightLegText">-3.82 (오경보 0%)</div>
           </div>
-          <div style="background:rgba(0,0,0,0.22); padding:9px 11px; border-radius:12px;">
-            <div style="font-size:12px; color:var(--oneui-text-secondary);">뒷모습 보행 오작동 방어</div>
-            <div style="font-size:15.5px; font-weight:800; color:#00E676;" id="liveWeightBackText">-3.51 (오경보 0%)</div>
+          <div style="background:var(--oneui-surface); padding:10px 12px; border-radius:14px; border:1px solid var(--oneui-divider);">
+            <div style="font-size:12px; color:var(--oneui-text-secondary);">뒷모습 보행 오경보 차단</div>
+            <div style="font-size:15.5px; font-weight:800; color:var(--oneui-success);" id="liveWeightBackText">-3.51 (오경보 0%)</div>
           </div>
         </div>
 
-        <div id="liveTickerBox" style="font-size:12.5px; font-family:monospace; color:#64B5F6; background:rgba(0,0,0,0.32); padding:9px 12px; border-radius:10px; margin-bottom:10px;">
-          [실시간 자율학습 진행 중] 12차원 생체역학 AI가 일상 동작과 실제 위험을 구분하여 학습하고 있습니다...
+        <div id="liveTickerBox" style="font-size:13px; font-weight:600; color:var(--oneui-info-text); background:var(--oneui-surface); padding:10px 14px; border-radius:12px; border:1px solid var(--oneui-divider); margin-bottom:12px;">
+          [24시간 자동 학습 중] 일상적인 체조·물건줍기 동작과 실제 위험 상황을 스스로 구분하여 학습하고 있습니다.
         </div>
 
-        <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:10px;">
-          <span style="font-size:12.5px; font-weight:700; color:var(--oneui-text-secondary);">오작동 방어 즉시 시연:</span>
-          <button class="pill-btn" style="padding:8px 13px; font-size:12.5px; border-color:rgba(0,200,83,0.45); color:#00E676;" onclick="simulateBiomechanicalScenario('CLAP')">1. 박수 체조·이불털기 (폭행 오경보 차단 시연)</button>
-          <button class="pill-btn" style="padding:8px 13px; font-size:12.5px; border-color:rgba(0,200,83,0.45); color:#00E676;" onclick="simulateBiomechanicalScenario('BEND')">2. 허리 숙여 장난감 줍기 (낙상 오경보 차단 시연)</button>
-          <button class="pill-btn" style="padding:8px 13px; font-size:12.5px; border-color:rgba(0,200,83,0.45); color:#00E676;" onclick="simulateBiomechanicalScenario('BACK')">3. 등 돌리고 서있기 (코가림 오경보 차단 시연)</button>
-          <button class="pill-btn primary" style="padding:8px 13px; font-size:12.5px;" onclick="runContinuousNeuralEpoch(5)">+5회차 즉시 가속 학습</button>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:12px;">
+          <span style="font-size:13px; font-weight:700; color:var(--oneui-text-primary);">오경보 차단 1초 체험:</span>
+          <button class="pill-btn" style="background:var(--oneui-surface); border:1px solid var(--oneui-divider); padding:8px 14px; font-size:13px; color:var(--oneui-success);" onclick="simulateBiomechanicalScenario('CLAP')">1. 박수 체조 시연</button>
+          <button class="pill-btn" style="background:var(--oneui-surface); border:1px solid var(--oneui-divider); padding:8px 14px; font-size:13px; color:var(--oneui-success);" onclick="simulateBiomechanicalScenario('BEND')">2. 허리 숙여 물건줍기 시연</button>
+          <button class="pill-btn" style="background:var(--oneui-surface); border:1px solid var(--oneui-divider); padding:8px 14px; font-size:13px; color:var(--oneui-success);" onclick="simulateBiomechanicalScenario('BACK')">3. 등 돌리고 서있기 시연</button>
+          <button class="pill-btn primary" style="padding:8px 14px; font-size:13px;" onclick="runContinuousNeuralEpoch(5)">+5회 즉시 추가 학습</button>
         </div>
 
         <!-- 유튜브 사건사고 영상 & 글로벌 CCTV 데이터셋 실시간 크롤링·뼈대 증류 학습기 -->
-        <div style="padding-top:10px; border-top:1px solid rgba(255,255,255,0.08); display:flex; flex-direction:column; gap:8px;">
+        <div style="padding-top:12px; border-top:1px solid var(--oneui-divider); display:flex; flex-direction:column; gap:8px;">
           <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-            <span style="font-size:12.5px; font-weight:700; color:#64B5F6;">유튜브 사건사고 & 글로벌 CCTV 데이터셋 합법 뼈대 추출 학습 (천장 42° 각도 자동보정 · 원본영상 0초 폐기):</span>
+            <span style="font-size:13px; font-weight:700; color:var(--oneui-info-text);">외부 사건사고 영상 & 공공 안전 데이터 원터치 학습 (원본 영상은 저장하지 않고 관절 움직임만 학습):</span>
             <div style="display:flex; gap:6px; flex-wrap:wrap;">
-              <button class="pill-btn" style="padding:7px 12px; font-size:12px;" onclick="harvestWebIncidentDataset('youtube_cctv')">유튜브 사건사고 CCTV 학습</button>
-              <button class="pill-btn" style="padding:7px 12px; font-size:12px;" onclick="harvestWebIncidentDataset('ucf_crime')">UCF-Crime 1,900건 범죄·사고</button>
-              <button class="pill-btn" style="padding:7px 12px; font-size:12px;" onclick="harvestWebIncidentDataset('rwf_2000')">RWF-2000 실전 싸움·폭행</button>
-              <button class="pill-btn" style="padding:7px 12px; font-size:12px; border-color:rgba(3,129,254,0.5); color:#64B5F6;" onclick="harvestWebIncidentDataset('aihub_korea')">한국 AI-Hub 요양원·매장 CCTV</button>
+              <button class="pill-btn" style="background:var(--oneui-surface); border:1px solid var(--oneui-divider); padding:7px 12px; font-size:12.5px;" onclick="harvestWebIncidentDataset('youtube_cctv')">유튜브 사건사고 학습</button>
+              <button class="pill-btn" style="background:var(--oneui-surface); border:1px solid var(--oneui-divider); padding:7px 12px; font-size:12.5px;" onclick="harvestWebIncidentDataset('ucf_crime')">글로벌 사고 영상 1,900건</button>
+              <button class="pill-btn" style="background:var(--oneui-surface); border:1px solid var(--oneui-divider); padding:7px 12px; font-size:12.5px;" onclick="harvestWebIncidentDataset('rwf_2000')">실전 폭행·다툼 2,000건</button>
+              <button class="pill-btn" style="background:var(--oneui-surface); border:1px solid var(--oneui-divider); padding:7px 12px; font-size:12.5px; color:var(--oneui-info-text);" onclick="harvestWebIncidentDataset('aihub_korea')">한국 요양원·매장 안전 데이터</button>
             </div>
           </div>
           <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
-            <input id="webIncidentUrlInput" type="text" placeholder="유튜브 또는 사건사고 영상 주소(URL) 붙여넣기 → 17관절 숫자만 추출 후 원본 즉시 파기" style="flex:1; min-width:220px; background:rgba(0,0,0,0.32); border:1px solid rgba(255,255,255,0.16); border-radius:999px; padding:8px 14px; color:var(--oneui-text-primary); font-size:12.5px;" />
-            <button class="pill-btn primary" style="padding:8px 16px; font-size:12.5px;" onclick="harvestCustomVideoUrl()">영상 URL 뼈대 추출 학습</button>
-            <button class="pill-btn" style="padding:8px 14px; font-size:12.5px; border-color:rgba(0,230,118,0.5); color:#00E676;" onclick="syncCloud24HWeights()">클라우드 24시간 학습서버 동기화 (PC 꺼져도 가동 중)</button>
+            <input id="webIncidentUrlInput" type="text" aria-label="학습할 영상 인터넷 주소 입력" placeholder="학습할 유튜브 또는 사건사고 영상 인터넷 주소를 입력하세요 (관절 숫자만 추출 후 즉시 폐기)" style="flex:1; min-width:220px; min-height:44px; background:var(--oneui-surface); border:1px solid var(--oneui-divider); border-radius:999px; padding:10px 16px; color:var(--oneui-text-primary); font-size:13.5px;" />
+            <button class="pill-btn primary" style="padding:10px 16px; font-size:13px;" onclick="harvestCustomVideoUrl()">영상 주소로 학습하기</button>
+            <button class="pill-btn" style="background:var(--oneui-surface); border:1.5px solid rgba(0, 168, 70, 0.4); padding:10px 14px; font-size:13px; color:var(--oneui-success);" onclick="syncCloud24HWeights()">24시간 클라우드 학습서버 동기화</button>
           </div>
         </div>
       </div>
@@ -889,28 +1001,28 @@
     <aside class="sidebar-col">
       <div class="squircle-card">
         <div class="section-title">
-          <span>실시간 AI 이벤트 타임라인</span>
-          <span style="font-size:12.5px; color:var(--oneui-text-tertiary);">실시간 동기화</span>
+          <span>실시간 안전 알림 기록</span>
+          <span style="font-size:12.5px; color:var(--oneui-text-tertiary);">자동 업데이트</span>
         </div>
         <div class="log-list" id="eventLogList">
-          <div class="empty-state">아직 감지된 위험 이벤트가 없습니다.</div>
+          <div class="empty-state">현재 감지된 위험 알림이 없습니다 (모든 구역 정상).</div>
         </div>
-        <div style="margin-top:10px; padding-top:10px; border-top:1px solid var(--oneui-divider); display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap;">
-          <span style="font-size:13px; color:var(--oneui-text-secondary); font-weight:700;">테슬라식 원클릭 학습:</span>
+        <div style="margin-top:12px; padding-top:12px; border-top:1px solid var(--oneui-divider); display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap;">
+          <span style="font-size:13px; color:var(--oneui-text-secondary); font-weight:700;">원장님 원클릭 AI 보정:</span>
           <div style="display:flex; gap:8px; flex-wrap:wrap;">
-            <button class="pill-btn" style="padding:9px 14px; font-size:13px; border-color:rgba(0,200,83,0.5); color:#00E676;" onclick="submitFleetFeedback('실시간 위험 감지', 'TP')">실제위험 확정</button>
-            <button class="pill-btn" style="padding:9px 14px; font-size:13px; border-color:rgba(255,171,0,0.5); color:#FFAB00;" onclick="submitFleetFeedback('오경보(체조·TV·일상동작)', 'FP')">오경보 보정 (민감도 자동조정)</button>
+            <button class="pill-btn" style="padding:9px 14px; font-size:13px; border:1.5px solid rgba(0, 168, 70, 0.4); color:var(--oneui-success);" onclick="submitFleetFeedback('실시간 위험 감지', 'TP')">실제 위험 맞음</button>
+            <button class="pill-btn" style="padding:9px 14px; font-size:13px; border:1.5px solid rgba(217, 119, 6, 0.4); color:var(--oneui-warning);" onclick="submitFleetFeedback('오경보(체조·TV·일상동작)', 'FP')">일상 동작임 (오경보 보정)</button>
           </div>
         </div>
       </div>
 
       <div class="squircle-card" style="flex:1;">
         <div class="section-title">
-          <span>원장님·사장님 스마트폰 전송 스냅샷</span>
-          <span id="snapCountBadge" style="font-size:12px; color:var(--oneui-primary); font-weight:700;">0장</span>
+          <span>스마트폰으로 발송된 현장 사진</span>
+          <span id="snapCountBadge" style="font-size:13px; color:var(--oneui-primary); font-weight:700;">0장</span>
         </div>
         <div id="snapshotContainer">
-          <div class="empty-state">위험 감지 시 즉시 사진이 캡처되어<br/>원장님 스마트폰으로 발송됩니다.</div>
+          <div class="empty-state">위험 감지 시 즉시 사진이 캡처되어<br/>원장님·사장님 스마트폰으로 전송됩니다.</div>
         </div>
       </div>
     </aside>
@@ -1469,6 +1581,18 @@
       } catch (e) {
         addEventLog('네트워크 스캔 응답 대기 중 (로컬 UVC/HDMI 캡처 입력 활성화됨)', 'normal');
       }
+    }
+
+    async function oneTapAutoConnectAll() {
+      closeMobileMenu();
+      const pill = document.getElementById('heroBlePill');
+      const sub = document.getElementById('heroStatusSub');
+      if (pill) pill.textContent = '● 블루투스·녹화기 신호 연결 중...';
+      await triggerUsbBtDongle(true);
+      await autoDiscoverNetworkCameras();
+      if (pill) pill.textContent = '● 블루투스·녹화기 1초 자동연결 완료';
+      if (sub) sub.textContent = 'USB 블루투스 동글(AIBOX-RK3588) 및 CCTV 녹화기 채널이 스마트폰과 실시간 연결되었습니다.';
+      showConsumerQuickToast('✔ 블루투스 동글 및 CCTV 녹화기 자동연결 완료!');
     }
 
     function toggleMobileMenu(forceState) {
@@ -2038,7 +2162,7 @@
       list.innerHTML = logsData.map(l => `
         <div class="log-item ${l.level}">
           <span>${l.msg}</span>
-          <span style="opacity:0.75; font-size:11px;">${l.timeStr}</span>
+          <span style="font-size:12.5px; font-weight:600;">${l.timeStr}</span>
         </div>
       `).join('');
     }
@@ -2065,12 +2189,12 @@
         <div class="snap-card">
           <img src="${s.dataUrl}" alt="Snapshot" />
           <div class="snap-meta">
-            <span style="color:#FF3B30;">${s.label}</span>
-            <span>${s.timeStr}</span>
+            <span style="color:var(--oneui-danger); font-weight:700;">${s.label}</span>
+            <span style="font-size:12.5px;">${s.timeStr}</span>
           </div>
           <div style="display:flex; gap:6px; padding:0 10px 10px;">
-            <button class="pill-btn" style="flex:1; justify-content:center; padding:4px 6px; font-size:11px; border-color:rgba(0,200,83,0.45); color:#00E676;" onclick="submitFleetFeedback('${s.label}', 'TP')">실제위험 학습</button>
-            <button class="pill-btn" style="flex:1; justify-content:center; padding:4px 6px; font-size:11px; border-color:rgba(255,171,0,0.45); color:#FFAB00;" onclick="submitFleetFeedback('${s.label}', 'FP')">오경보 보정</button>
+            <button class="pill-btn" style="flex:1; justify-content:center; padding:6px 8px; font-size:12.5px; background:var(--oneui-surface); border:1px solid var(--oneui-divider); color:var(--oneui-success);" onclick="submitFleetFeedback('${s.label}', 'TP')">실제위험 학습</button>
+            <button class="pill-btn" style="flex:1; justify-content:center; padding:6px 8px; font-size:12.5px; background:var(--oneui-surface); border:1px solid var(--oneui-divider); color:var(--oneui-warning);" onclick="submitFleetFeedback('${s.label}', 'FP')">오경보 보정</button>
           </div>
         </div>
       `).join('');
@@ -2508,27 +2632,27 @@
       const cStr = document.getElementById('cardStrike'), vStr = document.getElementById('valStrike');
       cStr.className = 'event-box ' + (strike ? 'triggered-danger' : '');
       vStr.textContent = strike ? '폭행 의심 경보!' : '평온 (정상)';
-      vStr.style.color = strike ? '#FF3B30' : '';
+      vStr.style.color = strike ? 'var(--oneui-danger)' : '';
 
       const cInt = document.getElementById('cardIntrusion'), vInt = document.getElementById('valIntrusion');
       cInt.className = 'event-box ' + (intrusion ? 'triggered-warn' : '');
       vInt.textContent = intrusion ? '침입 감지됨!' : '안전 (대기)';
-      vInt.style.color = intrusion ? '#FFAB00' : '';
+      vInt.style.color = intrusion ? 'var(--oneui-warning)' : '';
 
       const cLoi = document.getElementById('cardLoiter'), vLoi = document.getElementById('valLoiter');
       cLoi.className = 'event-box ' + (loitering ? 'triggered-danger' : (intrusion ? 'triggered-warn' : ''));
       vLoi.textContent = `${Number(dwellSec).toFixed(1)}초 / 3.0초`;
-      vLoi.style.color = loitering ? '#FF3B30' : '';
+      vLoi.style.color = loitering ? 'var(--oneui-danger)' : '';
 
       const cFall = document.getElementById('cardFall'), vFall = document.getElementById('valFall');
       cFall.className = 'event-box ' + (fall ? 'triggered-danger' : '');
       vFall.textContent = fall ? '낙상·쓰러짐 경보!' : '정상 자세';
-      vFall.style.color = fall ? '#FF3B30' : '';
+      vFall.style.color = fall ? 'var(--oneui-danger)' : '';
 
       const cBaby = document.getElementById('cardBaby'), vBaby = document.getElementById('valBaby');
       cBaby.className = 'event-box ' + (faceOrTamper ? 'triggered-danger' : '');
       vBaby.textContent = faceOrTamper ? '가림·훼손 경보!' : '정상 감시 중';
-      vBaby.style.color = faceOrTamper ? '#FF3B30' : '';
+      vBaby.style.color = faceOrTamper ? 'var(--oneui-danger)' : '';
     }
 
     /* ── 50대 한국인 실소비자 UX 보호: 0.1초 즉각 반응 토스트 + 3연타 광클 차단 + 갤럭시 뒤로가기 모달 보호 ── */
