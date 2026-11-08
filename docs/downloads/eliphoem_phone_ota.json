@@ -1,7 +1,11 @@
 {
-  "version": "v6.2",
-  "build": 62,
+  "ok": true,
+  "version": "v6.3",
+  "build": 63,
+  "brand": "ELIPHOEM",
+  "title": "자동 핫스팟",
   "connMode": "TABLET",
+  "autoOff": true,
   "apkUrl": "https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone.apk",
-  "notes": "ELIPHOEM v6.2: Mstick-style automatic Hotspot on car entry, instant Android Auto termination/recovery, clean return to ELIPHOEM after Hotspot toggle, and Hotspot/UDP keep-alive protection"
+  "notes": "ELIPHOEM v6.3: Bottom CTA button changed to '자동 핫스팟 연결하기' while keeping '무선 안드로이드 오토' toggle in the main card."
 }
