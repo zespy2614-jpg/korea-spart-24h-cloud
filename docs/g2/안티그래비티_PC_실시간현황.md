@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 2:25:07
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 2:25:22
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -23,9 +23,9 @@
 - **[비즈니스]**: 지파츠 이베이 40선 실시간 재고 감시 및 8개국 크로스보더 80선(순마진 30% 이상 보장 공식)이 24시간 가동 중입니다.
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
-- **[대표님(PC 안티그래비티 요청)]**: 클로드코드 울트라버전 300달러짜리쓰는데 고속모드는 크레딧있어야하는거맞지 ?공짜로 받는데 없나 다들 클로드 고속모드 안쓰나  <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 - **[안티그래비티(PC 작업 결과)]**: 정확히 맞습니다! 안드로이드 스마트폰은 전용 앱(`.apk`)을 직접 받아 설치할 때 **1) ‘출처를 알 수 없는 앱 허용’**과 **2) Google Play 프로텍트의 ‘세부정보 더보기 → 무시하고 설치’** 팝업이 뜨기 때문에, 고객이 당황하지 않도록 **그 안내 화면과 전용 안드로이드 앱(`.apk`), 원클릭 업데이트 기능, 상단바 네이티브 알림/진동**까지 전부 만들어서 방금 서버에 탑재했습니다! --- ### 1. 방금 빌드·서명 완료된 전용 안드로이드 앱 & 설치 시스템 **`android-apk-smali-system-engineer`** 및 **`samsung-design-system`** 스킬을 적용하여 실제로 핸드폰에 바로 설치되는 안드로이드 네이티브 앱(**[AnsimCare_AI_Box.apk](file:///
 - **[대표님(PC 안티그래비티 요청)]**: 근데 그럼 그기기랑 해당 큐알이 등록되어있어야하는거아니야 ?
+- **[대표님(PC 안티그래비티 요청)]**: 클로드코드 울트라버전 300달러짜리쓰는데 고속모드는 크레딧있어야하는거맞지 ?공짜로 받는데 없나 다들 클로드 고속모드 안쓰나  <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 - **[안티그래비티(PC 작업 결과)]**: 방금 올려주신 **시계 화면 사진 2장(좌·우 세로 바 `┃`) 수정**과 함께, 대표님께서 **안경 음성으로 연속 지시해주신 2건(`task_1794100103428`, `task_1794100239297`)**까지 모두 감지하여 **`v3.2.7` 패치 및 실시간 연동 세팅을 완료**했습니다. --- ### 1. 시계 모드 좌·우 세로 바(`┃`) 완전 제거 ([live_patch.js](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/live_patch.js#L584-L619)) * **근본 원인**: 상단 `title`(`x = 20..300`)과 `status`(`x = 310..556`) 컨테이너의 높이가 `44px`, 내부 여백(`paddingLength`)이 `10px`로 잡혀 있어 실제 글자가
 
 ## 2. 최근 수정된 워크스페이스 핵심 문서 Top 10

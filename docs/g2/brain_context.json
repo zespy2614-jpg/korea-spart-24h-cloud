@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 2:25:07",
+  "updatedAt": "2026. 11. 8. PM 2:25:22",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -149,7 +149,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 2:25:07\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 4단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 2:25:22\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 4단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -596,16 +596,16 @@
   ],
   "livePcAntigravity": [
     {
-      "updatedAt": "2026-11-08T05:24:56Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 클로드코드 울트라버전 300달러짜리쓰는데 고속모드는 크레딧있어야하는거맞지 ?공짜로 받는데 없나 다들 클로드 고속모드 안쓰나 \n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
-    },
-    {
       "updatedAt": "2026-11-08T05:23:10Z",
       "snippet": "[안티그래비티(PC 작업 결과)] 정확히 맞습니다! 안드로이드 스마트폰은 전용 앱(`.apk`)을 직접 받아 설치할 때 **1) ‘출처를 알 수 없는 앱 허용’**과 **2) Google Play 프로텍트의 ‘세부정보 더보기 → 무시하고 설치’** 팝업이 뜨기 때문에, 고객이 당황하지 않도록 **그 안내 화면과 전용 안드로이드 앱(`.apk`), 원클릭 업데이트 기능, 상단바 네이티브 알림/진동**까지 전부 만들어서 방금 서버에 탑재했습니다!\n\n---\n\n### 1. 방금 빌드·서명 완료된 전용 안드로이드 앱 & 설치 시스템\n\n**`android-apk-smali-system-engineer`** 및 **`samsung-design-system`** 스킬을 적용하여 실제로 핸드폰에 바로 설치되는 안드로이드 네이티브 앱(**[AnsimCare_AI_Box.apk](file:///"
     },
     {
       "updatedAt": "2026-11-08T05:24:17Z",
       "snippet": "[대표님(PC 안티그래비티 요청)] 근데 그럼 그기기랑 해당 큐알이 등록되어있어야하는거아니야 ?"
+    },
+    {
+      "updatedAt": "2026-11-08T05:24:56Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 클로드코드 울트라버전 300달러짜리쓰는데 고속모드는 크레딧있어야하는거맞지 ?공짜로 받는데 없나 다들 클로드 고속모드 안쓰나 \n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
     },
     {
       "updatedAt": "2026-11-08T01:28:14Z",
@@ -666,11 +666,6 @@
   ],
   "livePcAntigravitySession": [
     {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-08T05:24:56Z",
-      "summary": "클로드코드 울트라버전 300달러짜리쓰는데 고속모드는 크레딧있어야하는거맞지 ?공짜로 받는데 없나 다들 클로드 고속모드 안쓰나 \n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
-    },
-    {
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-08T05:23:10Z",
       "summary": "정확히 맞습니다! 안드로이드 스마트폰은 전용 앱(`.apk`)을 직접 받아 설치할 때 **1) ‘출처를 알 수 없는 앱 허용’**과 **2) Google Play 프로텍트의 ‘세부정보 더보기 → 무시하고 설치’** 팝업이 뜨기 때문에, 고객이 당황하지 않도록 **그 안내 화면과 전용 안드로이드 앱(`.apk`), 원클릭 업데이트 기능, 상단바 네이티브 알림/진동**까지 전부 만들어서 방금 서버에 탑재했습니다!\n\n---\n\n### 1. 방금 빌드·서명 완료된 전용 안드로이드 앱 & 설치 시스템\n\n**`android-apk-smali-system-engineer`** 및 **`samsung-design-system`** 스킬을 적용하여 실제로 핸드폰에 바로 설치되는 안드로이드 네이티브 앱(**[AnsimCare_AI_Box.apk](file:///"
@@ -679,6 +674,11 @@
       "role": "대표님(PC 안티그래비티 요청)",
       "createdAt": "2026-11-08T05:24:17Z",
       "summary": "근데 그럼 그기기랑 해당 큐알이 등록되어있어야하는거아니야 ?"
+    },
+    {
+      "role": "대표님(PC 안티그래비티 요청)",
+      "createdAt": "2026-11-08T05:24:56Z",
+      "summary": "클로드코드 울트라버전 300달러짜리쓰는데 고속모드는 크레딧있어야하는거맞지 ?공짜로 받는데 없나 다들 클로드 고속모드 안쓰나 \n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
     },
     {
       "role": "안티그래비티(PC 작업 결과)",
