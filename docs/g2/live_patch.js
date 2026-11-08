@@ -1529,29 +1529,50 @@
       if (Array.isArray(agy.hud.menu) && agy.hud.menu.length > 0) {
         agy.hud.menu = [];
       }
+      // If bridge attached after OTA loaded, immediately sanitize & rebuild once so v2.0.0 startup borders/bars are wiped out
+      if (agy.hud.bridge && agy.hud.__v326StartupCleared !== OTA_VERSION) {
+        hookBridgeContainerSanitizer(agy.hud.bridge, agy.hud);
+        if (agy.hud.startupSpent && typeof agy.hud.rebuild === 'function') {
+          agy.hud.__v326StartupCleared = OTA_VERSION;
+          void agy.hud.rebuild();
+        }
+      }
     }, 120);
   }
 
-  // Real-Time Live OTA Hot-Reload Poller (Every 8s): Automatically applies newer live_patch.js without restarting Even app
-  if (!window.__EDITH_OTA_POLLER__) {
-    window.__EDITH_OTA_POLLER__ = setInterval(async () => {
-      const urls = [
-        `http://192.168.123.104:3860/live_patch.js?t=${Date.now()}`,
-        `https://zespy2614-jpg.github.io/korea-spart-24h-cloud/g2/live_patch.js?t=${Date.now()}`
-      ];
-      for (const u of urls) {
-        try {
-          const r = await origFetch(u, { cache: 'no-store', signal: AbortSignal.timeout(1500) });
-          if (r.ok) {
-            const code = await r.text();
-            const m = code.match(/const\s+OTA_VERSION\s*=\s*['"]([^'"]+)['"]/);
-            if (m && m[1] && m[1] !== window.__EDITH_OTA_VERSION__) {
-              new Function(code)();
-            }
-            break;
-          }
-        } catch {}
-      }
-    }, 8000);
+  // Notify local PC server when OTA patch activates on phone so we can verify in real-time
+  void (async () => {
+    for (const base of LAN_BASES) {
+      try {
+        await origFetch(`${base}/api/ota-ping?v=${encodeURIComponent(OTA_VERSION)}&t=${Date.now()}`, {
+          signal: AbortSignal.timeout(1000)
+        });
+        break;
+      } catch {}
+    }
+  })();
+
+  // Real-Time Live OTA Hot-Reload Poller (Every 5s): Automatically applies newer live_patch.js without restarting Even app
+  if (window.__EDITH_OTA_POLLER__) {
+    try { clearInterval(window.__EDITH_OTA_POLLER__); } catch {}
   }
+  window.__EDITH_OTA_POLLER__ = setInterval(async () => {
+    const urls = [
+      `http://192.168.123.104:3860/live_patch.js?t=${Date.now()}`,
+      `https://zespy2614-jpg.github.io/korea-spart-24h-cloud/g2/live_patch.js?t=${Date.now()}`
+    ];
+    for (const u of urls) {
+      try {
+        const r = await origFetch(u, { cache: 'no-store', signal: AbortSignal.timeout(1500) });
+        if (r.ok) {
+          const code = await r.text();
+          const m = code.match(/const\s+OTA_VERSION\s*=\s*['"]([^'"]+)['"]/);
+          if (m && m[1] && m[1] !== window.__EDITH_OTA_VERSION__) {
+            new Function(code)();
+          }
+          break;
+        }
+      } catch {}
+    }
+  }, 5000);
 })();
