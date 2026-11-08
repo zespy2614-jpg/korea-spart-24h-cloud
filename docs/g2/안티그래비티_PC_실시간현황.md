@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 5:40:01
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 5:40:31
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -23,10 +23,7 @@
 - **[비즈니스]**: 지파츠 이베이 40선 실시간 재고 감시 및 8개국 크로스보더 80선(순마진 30% 이상 보장 공식)이 24시간 가동 중입니다.
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
-- **[안티그래비티(PC 작업 결과)]**: 하단 네비게이션 바 확대(`1500 x 92px`, `28px` 볼드 글씨)와 좌측 사이드바 엣지 핸들 드래그 호출 기능을 실기에 적용하고 캡처 검증 중입니다. 완료되는 즉시 안내드리겠습니다.
-- **[안티그래비티(PC 작업 결과)]**: 좌측 사이드바 드래그로 열릴 때 손가락 위치 때문에 볼륨이 튀지 않도록 안전 보호 타이머(`220ms`)까지 추가하여 최종 캡처 검증 중입니다. 완료되는 즉시 보고드리겠습니다.
-- **[안티그래비티(PC 작업 결과)]**: 좌측 사이드바 엣지 핸들 드래그 시 볼륨 변동 없이 정확히 `88%` 상태로 열리는지 최종 캡처 확인 중입니다. 완료되는 즉시 보고드리겠습니다.
-- **[안티그래비티(PC 작업 결과)]**: 어르신 운전자분들도 운전석에서 편하게 보시고 조작하실 수 있도록 **하단 네비게이션 바 확대**와 **좌측 사이드바 엣지 핸들 드래그 호출 기능**까지 [`NavBarService.java`](file:///C:/Users/%EB%B0%95%EC%A0%95%EC%88%98/.gemini/antigravity/brain/08abf2d4-e54d-43da-a03d-df4b6e390207/scratch/kor_helper/src/com/zqc/kor/wallpaper/NavBarService.java)에 모두 반영하여 실기(`192.168.123.107:5555`) 및 OTA 배포 파일([`ELIPHOEM_System_v3.0.0.apk`](file:///e:/%EC%95%88%ED%8B%B0%EA%B7%B8%EB%9E%98%EB%B9%84%ED%
+- **[대표님(PC 안티그래비티 요청)]**: AI 가발전함에 따라 내가 할일이 더많아진거같아 계쏙핸드폰으로 시도때도없이 사용자에입장에서 테스터해보고 개선하고 고치고를 반복해야하니까 이거때문에 기력이 빠지는건가 힘들고 지치는데 앉아서 일만하는데도 체력이 많이 빠지는게 맞는건가 ? 정상인건가 내가 약해서그런건가 그리고 이테스터하는걸 좀 너가 미리해주는프롬프트나 스킬좀 알려줘  <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable na
 
 ## 2. 최근 수정된 워크스페이스 핵심 문서 Top 10
 - `G2_영구기억_노트.md` (2026. 11. 8. PM 3:22:26)
