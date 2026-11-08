@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 6:14:52",
+  "updatedAt": "2026. 11. 8. PM 6:15:07",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -150,7 +150,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 6:14:52\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 8단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 6:15:07\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 8단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -629,6 +629,10 @@
   ],
   "livePcAntigravity": [
     {
+      "updatedAt": "2026-11-08T09:10:15Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 내가 S905L3A 게임기 연결해서랜선꽂아놨거든 이거 속도 나 반응속도개선 PSP 최적화 철권태그 더빠르게 그리고 보안해킹못하게 만드는거 해봐봐 그때 보안관련이슈있었잖아 리셋키 \n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
+    },
+    {
       "updatedAt": "2026-11-08T08:51:56Z",
       "snippet": "[안티그래비티(PC 작업 결과)] 올려주신 유튜브 영상은 OpenAI가 공개한 **〈Design hardware with Astra〉 (GPT-6 Astra 하드웨어 설계 쇼케이스)** 영상입니다.\n\nOpenAI 연구원 저스틴 린(Justin Lin)이 노트북을 열지 않고도 코딩 에이전트(Codex)와 음성으로 대화할 수 있는 다마고치 형태의 휴대용 기기(**일명 'Codex Pet' / 'TamaGPT'**)를 **GPT-6 Astra**를 시켜 **일주일 만에 통째로 설계(회로도 + PCB 기판 + 3D 케이스 + 펌웨어)**한 과정을 담은 영상입니다.\n\n영상 속 컴퓨터 화면 프레임과 실제 사용된 설계 프로그램들을 정밀 분석한 결과는 다음과 같습니다.\n\n---\n\n### 1. 영상 속에서 사용한 핵심 설계 프로그램 4가지 (`[영상 프레임 실측 확인]`)\n\n#### ① 전자"
     },
@@ -655,10 +659,6 @@
     {
       "updatedAt": "2026-11-08T09:14:31Z",
       "snippet": "[안티그래비티(PC 작업 결과)] 빔프로젝터 실기기에 최적화 패치(`psp_cpu_pin.py` 코어 격리, `tektagt` `audio-thread/run.sh` 720p 뷰포트 보정 및 CPU3 단독 고정, `ppsspp.ini` FrameSkip=3 및 스레드 최적화, `eliphoem_daemon.sh` GPU 800MHz 해제·`motor_run` `SCHED_IDLE` 격리·부팅 OOM 데드락 방지) 적용을 완료하고, 현재 **철권 태그 토너먼트(`ttt_opt1`) 실제 전투 벤치마크(`fight_session.py`)**를 실행 중입니다. 측정이 완료되는 대로 이어서 **PSP 철권6(`psp_opt1`) 실제 전투 측정**을 수행한 뒤 전체 결과와 8개 기술 질의에 대한 상세 분석을 보고드리겠습니다."
-    },
-    {
-      "updatedAt": "2026-11-08T09:10:15Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 내가 S905L3A 게임기 연결해서랜선꽂아놨거든 이거 속도 나 반응속도개선 PSP 최적화 철권태그 더빠르게 그리고 보안해킹못하게 만드는거 해봐봐 그때 보안관련이슈있었잖아 리셋키 \n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
     }
   ],
   "recentDocs": [
@@ -715,6 +715,11 @@
   ],
   "livePcAntigravitySession": [
     {
+      "role": "대표님(PC 안티그래비티 요청)",
+      "createdAt": "2026-11-08T09:10:15Z",
+      "summary": "내가 S905L3A 게임기 연결해서랜선꽂아놨거든 이거 속도 나 반응속도개선 PSP 최적화 철권태그 더빠르게 그리고 보안해킹못하게 만드는거 해봐봐 그때 보안관련이슈있었잖아 리셋키 \n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
+    },
+    {
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-08T08:51:56Z",
       "summary": "올려주신 유튜브 영상은 OpenAI가 공개한 **〈Design hardware with Astra〉 (GPT-6 Astra 하드웨어 설계 쇼케이스)** 영상입니다.\n\nOpenAI 연구원 저스틴 린(Justin Lin)이 노트북을 열지 않고도 코딩 에이전트(Codex)와 음성으로 대화할 수 있는 다마고치 형태의 휴대용 기기(**일명 'Codex Pet' / 'TamaGPT'**)를 **GPT-6 Astra**를 시켜 **일주일 만에 통째로 설계(회로도 + PCB 기판 + 3D 케이스 + 펌웨어)**한 과정을 담은 영상입니다.\n\n영상 속 컴퓨터 화면 프레임과 실제 사용된 설계 프로그램들을 정밀 분석한 결과는 다음과 같습니다.\n\n---\n\n### 1. 영상 속에서 사용한 핵심 설계 프로그램 4가지 (`[영상 프레임 실측 확인]`)\n\n#### ① 전자"
@@ -748,11 +753,6 @@
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-08T09:14:31Z",
       "summary": "빔프로젝터 실기기에 최적화 패치(`psp_cpu_pin.py` 코어 격리, `tektagt` `audio-thread/run.sh` 720p 뷰포트 보정 및 CPU3 단독 고정, `ppsspp.ini` FrameSkip=3 및 스레드 최적화, `eliphoem_daemon.sh` GPU 800MHz 해제·`motor_run` `SCHED_IDLE` 격리·부팅 OOM 데드락 방지) 적용을 완료하고, 현재 **철권 태그 토너먼트(`ttt_opt1`) 실제 전투 벤치마크(`fight_session.py`)**를 실행 중입니다. 측정이 완료되는 대로 이어서 **PSP 철권6(`psp_opt1`) 실제 전투 측정**을 수행한 뒤 전체 결과와 8개 기술 질의에 대한 상세 분석을 보고드리겠습니다."
-    },
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-08T09:10:15Z",
-      "summary": "내가 S905L3A 게임기 연결해서랜선꽂아놨거든 이거 속도 나 반응속도개선 PSP 최적화 철권태그 더빠르게 그리고 보안해킹못하게 만드는거 해봐봐 그때 보안관련이슈있었잖아 리셋키 \n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
     }
   ],
   "livePcArtifacts": [],
