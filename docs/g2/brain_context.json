@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 9:14:08",
+  "updatedAt": "2026. 11. 8. PM 9:14:38",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -150,7 +150,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 9:14:08\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 12단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 9:14:38\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 9단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -717,6 +717,10 @@
   ],
   "livePcAntigravity": [
     {
+      "updatedAt": "2026-11-08T11:44:10Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] I have generated the photorealistic 3D studio photograph of the Rockchip RK3566 V2.3 Smart Beam Projector Mainboard with the exact zero-step flush connector alignment and coaxial behind-AUX reset switch, and reported the final image path back to the parent agent."
+    },
+    {
       "updatedAt": "2026-11-08T11:33:35Z",
       "snippet": "[안티그래비티(PC 작업 결과)] 카드 내부 숫자 줄바꿈과 3칸 재고 카드 높이 정렬까지 마무리하여 최종 배포 및 모바일 화면 검증을 진행 중입니다. 잠시만 기다려 주세요."
     },
@@ -741,28 +745,12 @@
       "snippet": "[안티그래비티(PC 작업 결과)] 컴퓨터가 꺼져 있을 때도 클라우드 서버(구글 Firebase)가 직접 이플렉스(`b2c-api.cjlogistics.com`)·쿠팡·스마트스토어에서 실시간 재고를 가져올 수 있도록 인증 토큰과 API 구조를 분석하고 있습니다. 잠시만 기다려 주세요."
     },
     {
-      "updatedAt": "2026-11-08T11:43:06Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] 사장님, 이전 3D 사진에서 **① `3.5mm AUX` 단자 앞코와 `DC 12V` 잭이 살짝 튀어나와 있던 점**, **② 리셋 스위치가 `AUX` 단자 정후방(바로 뒤)이 아니라 오른쪽 옆에 붙어 있던 점**, 그리고 **③ 방금 검수에서 보정한 `5.00mm` 균일 간격 및 2단 듀얼 USB 구조**를 100% 정확하게 교정한 **최신 V2.3 3D 실물 렌더링 2종(`UIS7861` & `RK3566`)**을 지금 바로 생성하고 있습니다. 완료되는 즉시 화면과 채팅창에 바로 띄워 드리겠습니다!"
+      "updatedAt": "2026-11-08T11:44:40Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] The final photorealistic product photograph for the **Unisoc UIS7861 V2.3 Smart Beam Projector Mainboard** has been generated and sent to the parent agent.\n\n- **Saved Path:** `C:\\Users\\박정수\\.gemini\\antigravity\\brain\\6f4f2257-3ec4-469e-8c6b-6bbcf729ec04\\unisoc_uis7861_v23_mainboard_flush_1794138208674.jpg`"
     },
     {
-      "updatedAt": "2026-11-08T11:48:18Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] `RK3566 V2.3` 3D 실물 렌더링은 완벽하게 생성되었으며, `UIS7861 V2.3`의 우측 끝단 실크스크린 마감까지 완벽하게 다듬어 바로 함께 보여드리겠습니다! (잠시만 기다려 주십시오)"
-    },
-    {
-      "updatedAt": "2026-11-08T11:50:38Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] 사장님! 방금 재검수에서 교정한 **V2.3 최종 기구 규격**을 100% 반영하여 **`UIS7861 V2.3` 및 `RK3566 V2.3` 3D 실물 완성본 사진**을 새로 생성해 화면에 띄워 드렸고, 아래 채팅창에도 바로 표시해 드립니다!\n\n---\n\n### 🔍 이번 V2.3 3D 실물 사진에서 완벽하게 교정된 3가지 핵심 포인트\n\n1. **リ셋 스위치(`SW1`) 위치 교정 (옆면 배치 → `3.5mm AUX` 단자 정후방 동축 일직선 배치!)**:\n   - 이전 3D 사진에서는 작은 리셋 버튼이 `AUX` 단자 오른쪽 옆에 비켜나 있었으나, 새로 만든 **V2.3 3D 사진에서는 오른쪽 옆면 버튼을 완전히 없애고 `3.5mm AUX/AV` 검은색 단자 바로 뒤쪽(정후방 동축 선상)에 리셋 스위치(`SW1`)를 밀착 배치**했습니다. "
-    },
-    {
-      "updatedAt": "2026-11-08T12:11:49Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 야 SD카드 꽂는곳도 만들어줘야해"
-    },
-    {
-      "updatedAt": "2026-11-08T12:12:17Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 인터넷랜선꽂는거랑"
-    },
-    {
-      "updatedAt": "2026-11-08T11:44:10Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] I have generated the photorealistic 3D studio photograph of the Rockchip RK3566 V2.3 Smart Beam Projector Mainboard with the exact zero-step flush connector alignment and coaxial behind-AUX reset switch, and reported the final image path back to the parent agent."
+      "updatedAt": "2026-11-08T11:48:56Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] The edited photograph has been generated and sent to the parent agent:\n\n- **Saved File Path:** `C:\\Users\\박정수\\.gemini\\antigravity\\brain\\6f4f2257-3ec4-469e-8c6b-6bbcf729ec04\\unisoc_uis7861_v23_behind_aux_reset_1794138525238.jpg`\n- **Modifications applied:** The side button was completely removed from the right flank leaving clean emerald green PCB, and the micro tactile reset switch was positioned directly behind the r"
     }
   ],
   "recentDocs": [
@@ -820,6 +808,11 @@
   "livePcAntigravitySession": [
     {
       "role": "안티그래비티(PC 작업 결과)",
+      "createdAt": "2026-11-08T11:44:10Z",
+      "summary": "I have generated the photorealistic 3D studio photograph of the Rockchip RK3566 V2.3 Smart Beam Projector Mainboard with the exact zero-step flush connector alignment and coaxial behind-AUX reset switch, and reported the final image path back to the parent agent."
+    },
+    {
+      "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-08T11:33:35Z",
       "summary": "카드 내부 숫자 줄바꿈과 3칸 재고 카드 높이 정렬까지 마무리하여 최종 배포 및 모바일 화면 검증을 진행 중입니다. 잠시만 기다려 주세요."
     },
@@ -850,42 +843,16 @@
     },
     {
       "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-08T11:43:06Z",
-      "summary": "사장님, 이전 3D 사진에서 **① `3.5mm AUX` 단자 앞코와 `DC 12V` 잭이 살짝 튀어나와 있던 점**, **② 리셋 스위치가 `AUX` 단자 정후방(바로 뒤)이 아니라 오른쪽 옆에 붙어 있던 점**, 그리고 **③ 방금 검수에서 보정한 `5.00mm` 균일 간격 및 2단 듀얼 USB 구조**를 100% 정확하게 교정한 **최신 V2.3 3D 실물 렌더링 2종(`UIS7861` & `RK3566`)**을 지금 바로 생성하고 있습니다. 완료되는 즉시 화면과 채팅창에 바로 띄워 드리겠습니다!"
+      "createdAt": "2026-11-08T11:44:40Z",
+      "summary": "The final photorealistic product photograph for the **Unisoc UIS7861 V2.3 Smart Beam Projector Mainboard** has been generated and sent to the parent agent.\n\n- **Saved Path:** `C:\\Users\\박정수\\.gemini\\antigravity\\brain\\6f4f2257-3ec4-469e-8c6b-6bbcf729ec04\\unisoc_uis7861_v23_mainboard_flush_1794138208674.jpg`"
     },
     {
       "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-08T11:48:18Z",
-      "summary": "`RK3566 V2.3` 3D 실물 렌더링은 완벽하게 생성되었으며, `UIS7861 V2.3`의 우측 끝단 실크스크린 마감까지 완벽하게 다듬어 바로 함께 보여드리겠습니다! (잠시만 기다려 주십시오)"
-    },
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-08T11:50:38Z",
-      "summary": "사장님! 방금 재검수에서 교정한 **V2.3 최종 기구 규격**을 100% 반영하여 **`UIS7861 V2.3` 및 `RK3566 V2.3` 3D 실물 완성본 사진**을 새로 생성해 화면에 띄워 드렸고, 아래 채팅창에도 바로 표시해 드립니다!\n\n---\n\n### 🔍 이번 V2.3 3D 실물 사진에서 완벽하게 교정된 3가지 핵심 포인트\n\n1. **リ셋 스위치(`SW1`) 위치 교정 (옆면 배치 → `3.5mm AUX` 단자 정후방 동축 일직선 배치!)**:\n   - 이전 3D 사진에서는 작은 리셋 버튼이 `AUX` 단자 오른쪽 옆에 비켜나 있었으나, 새로 만든 **V2.3 3D 사진에서는 오른쪽 옆면 버튼을 완전히 없애고 `3.5mm AUX/AV` 검은색 단자 바로 뒤쪽(정후방 동축 선상)에 리셋 스위치(`SW1`)를 밀착 배치**했습니다. "
-    },
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-08T12:11:49Z",
-      "summary": "야 SD카드 꽂는곳도 만들어줘야해"
-    },
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-08T12:12:17Z",
-      "summary": "인터넷랜선꽂는거랑"
-    },
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-08T11:44:10Z",
-      "summary": "I have generated the photorealistic 3D studio photograph of the Rockchip RK3566 V2.3 Smart Beam Projector Mainboard with the exact zero-step flush connector alignment and coaxial behind-AUX reset switch, and reported the final image path back to the parent agent."
+      "createdAt": "2026-11-08T11:48:56Z",
+      "summary": "The edited photograph has been generated and sent to the parent agent:\n\n- **Saved File Path:** `C:\\Users\\박정수\\.gemini\\antigravity\\brain\\6f4f2257-3ec4-469e-8c6b-6bbcf729ec04\\unisoc_uis7861_v23_behind_aux_reset_1794138525238.jpg`\n- **Modifications applied:** The side button was completely removed from the right flank leaving clean emerald green PCB, and the micro tactile reset switch was positioned directly behind the r"
     }
   ],
-  "livePcArtifacts": [
-    {
-      "file": "UIS7861_RK3566_공용보드_최종설계보고서.md",
-      "updatedAt": "2026. 11. 8. PM 8:50:13",
-      "excerpt": "# [최종 종합 설계 보고서] Unisoc `UIS7861` & Rockchip `RK3566` 만능 공용 메인보드 V1.2 (회로도 · 완성품 포트 배치도 · 전자파 및 가상 안드로이드 검증)\n\n> [!IMPORTANT]\n> **핵심 설계 요약 (2종 공용보드 공통 특화 설계)**\n> 1. **외장하드(HDD/SSD) 장착 시 전압 강하 및 전파 간섭(GPS·Wi-Fi·블루투스 먹통) 100% 해결**:\n>    - 일반 보드처럼 `5.0V` 주전원과 느린 PPTC 퓨즈를 공유하지 않고, **외장하드 전용 `5.15V / 2.8A` 초저저항(`44mΩ`) 전력 스위치(`TPS2561`) + `470uF` 저ESR 폴리머 탄탈 캡(`C72044`)**을 독립 배치하여 외장하드 스핀업(`1.65A` 피크) 시에도 포트 전압을 **`5.03V` 이상**으로 유지합니다.\n>    - 데이터 라인에 **`90Ω` 공통모드 초크(`DLP11SN900`) + `18pF(2.4GHz Wi-Fi)` / `33pF(1575.42MHz GPS)` 듀얼 RF 노치 트랩**을 적용하여 고조파 방사 노이즈를 **`-26.5dB` 감쇠**시켰으며, 외장하드 포트(`J_HDD`)와 무선 안테나 단자를 기판 대각선 양 끝(**`125mm` / `108mm`**)으로 물리적 격리했습니다.\n> 2. **60V 서지(과전압) 방어 및 KC 전자파(`KN 32 / CISPR 32 Class B`) 통과**:\n>    - 차량 시동/배터리 탈거 시 발생하는 `+80V` 로드덤프 서지에도 칩이 타지 않도록 **`SMBJ24CA` 600W TVS 다이오드(`34.2V` 클램핑) + `60V` 고내압 벅 컨버터(`TPS54560DDAR`)**를 적용했습니다 (`+25.8V` 안전 여유 확보).\n> 3. **무벽돌(Unbrickable) 원클릭 복구 및 사전 가상 안드로이드 13 부팅 검증 완료**:\n>    - 케이스 외벽의 핀홀 복구 버튼(`SW1: KEY2 / SARADC_VIN0`)만 누르면 배선 분해나 강제 쇼트 없이 3초 만에 펌웨어 다운로드 모드로 진입하며, 기판 발주 전 **회로도 핀 번호 ↔ 안드로이드 13 커널(`.dts`) 1:1 매칭 및 가상 안드로이드 13 부팅 시험**을 모두 통과했습니다.\n\n---\n\n## ★ [최신 V2.2 무단차·히든리셋 최종 완성본] 전면 단차 0.0mm 일자 칼정렬 + 3.5mm AUX/AV 구멍 속 '젓가"
-    }
-  ],
+  "livePcArtifacts": [],
   "recentWorkspaceDocs": [
     {
       "relPath": "안티그래비티_제미나이_마스터두뇌_통합바이블.md",
