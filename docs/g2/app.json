@@ -1,0 +1,37 @@
+{
+  "package_id": "com.antigravity.g2brain",
+  "edition": "202601",
+  "name": "Antigravity Brain",
+  "version": "3.2.6",
+  "min_sdk_version": "0.0.16",
+  "entrypoint": "index.html",
+  "permissions": [
+    {
+      "name": "network",
+      "desc": "Syncs conversations and brain context with Antigravity Cloud, Google Drive, GitHub, OpenRouter, and Gemini AI.",
+      "whitelist": [
+        "https://openrouter.ai",
+        "https://api.github.com",
+        "https://generativelanguage.googleapis.com",
+        "https://ntfy.sh",
+        "https://zespy2614-jpg.github.io",
+        "https://raw.githubusercontent.com",
+        "https://cdn.jsdelivr.net",
+        "http://192.168.123.150:3860",
+        "http://192.168.123.104:3860"
+      ]
+    },
+    {
+      "name": "g2-microphone",
+      "desc": "Captures voice questions from Even G2 smart glasses microphone array."
+    },
+    {
+      "name": "phone-microphone",
+      "desc": "Captures voice questions from the companion smartphone microphone."
+    }
+  ],
+  "supported_languages": [
+    "ko",
+    "en"
+  ]
+}
