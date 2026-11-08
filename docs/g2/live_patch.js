@@ -1447,7 +1447,10 @@
   syncPhoneKeyToPcOnce();
 
   if (agy && agy.state && agy.hud) {
-    setInterval(() => {
+    if (window.__EDITH_GUARD_TIMER__) {
+      try { clearInterval(window.__EDITH_GUARD_TIMER__); } catch {}
+    }
+    window.__EDITH_GUARD_TIMER__ = setInterval(() => {
       const st = agy.state;
 
       // Always block 'subtitles' mode
@@ -1515,10 +1518,33 @@
         }
       }
 
-      // Ensure 6-item clean menu stays active
-      if (Array.isArray(agy.hud.menu) && agy.hud.menu.some((m) => m.name === '자막 모드' || m.name === 'AI 전환')) {
-        upgradeGlassesHudAndMenu();
+      // Ensure menu stays empty so Even G2 OS never renders top-center menu bar
+      if (Array.isArray(agy.hud.menu) && agy.hud.menu.length > 0) {
+        agy.hud.menu = [];
       }
     }, 120);
+  }
+
+  // Real-Time Live OTA Hot-Reload Poller (Every 8s): Automatically applies newer live_patch.js without restarting Even app
+  if (!window.__EDITH_OTA_POLLER__) {
+    window.__EDITH_OTA_POLLER__ = setInterval(async () => {
+      const urls = [
+        `http://192.168.123.104:3860/live_patch.js?t=${Date.now()}`,
+        `https://zespy2614-jpg.github.io/korea-spart-24h-cloud/g2/live_patch.js?t=${Date.now()}`
+      ];
+      for (const u of urls) {
+        try {
+          const r = await origFetch(u, { cache: 'no-store', signal: AbortSignal.timeout(1500) });
+          if (r.ok) {
+            const code = await r.text();
+            const m = code.match(/const\s+OTA_VERSION\s*=\s*['"]([^'"]+)['"]/);
+            if (m && m[1] && m[1] !== window.__EDITH_OTA_VERSION__) {
+              new Function(code)();
+            }
+            break;
+          }
+        } catch {}
+      }
+    }, 8000);
   }
 })();
