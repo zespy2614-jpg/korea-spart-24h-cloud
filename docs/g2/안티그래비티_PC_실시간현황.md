@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 6:42:38
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 6:42:53
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -23,8 +23,7 @@
 - **[비즈니스]**: 지파츠 이베이 40선 실시간 재고 감시 및 8개국 크로스보더 80선(순마진 30% 이상 보장 공식)이 24시간 가동 중입니다.
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
-- **[안티그래비티(PC 작업 결과)]**: 외장 SSD 재인식 및 EmulationStation 마운트가 완료되었고(`GPU_FREQ=800000000`, 핫플러그 시 메모리 자동 확보 로직 추가 반영), 현재 **PSP 철권6(`psp_opt1`) 실제 전투 벤치마크**가 실행 중입니다. 완료되는 대로 전체 실측 비교 수치와 8개 기술 질의에 대한 상세 분석을 보고드리겠습니다.
-- **[안티그래비티(PC 작업 결과)]**: USB 선이 빠졌다가 다시 꽂혔을 때 `storage_a` 내부의 빈 `roms` 스켈레톤 폴더 때문에 외장 SSD(`eeroms`) 바인드 마운트가 누락되어 `<항목을 찾을 수 없습니다>`가 뜨던 핫플러그 버그까지 발견하여 `eliphoem_daemon.sh`에 자동 복구 로직(`[ -f "$EEROOT/storage/roms/psp/gamelist.xml" ]` 검증 및 자동 재마운트)을 반영했습니다. 현재 `/storage/roms` 재마운트 후 **PSP 철권6(`psp_opt1`) 실제 전투 벤치마크**가 실행 중이니 완료되는 대로 보고드리겠습니다.
+- **[안티그래비티(PC 작업 결과)]**: `https://atlas-2af66.web.app/`의 **`kanjji`** 계정 왼쪽 사이드바 메뉴에 **`재고관리`**와 **`매출확인`** 두 메뉴를 모두 구현하고, 실시간 동기화 데몬(`http://127.0.0.1:3877`) 기동 및 Firebase Hosting 배포를 진행 중입니다. 배포가 완료되는 즉시 실증 테스트 후 결과를 브리핑해 드리겠습니다.
 - **[안티그래비티(PC 작업 결과)]**: This request was blocked by Gemini's filters. They can occasionally trigger by mistake on safe coding, security, or biology-related queries. Please try rephrasing your prompt. You can [send feedback](https://aistudio.google.com/docs/troubleshooting#file-bug) or read more about [our policies here](https://policies.google.com/terms/generative-ai/use-policy).
 - **[대표님(PC 안티그래비티 요청)]**: 아뭐가위반이야피해서해줘
 
