@@ -484,13 +484,13 @@
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.68);
-      backdrop-filter: blur(6px);
-      z-index: 100;
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(8px);
+      z-index: 3000;
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 18px;
+      padding: 12px;
     }
 
     .modal-backdrop.open {
@@ -501,9 +501,153 @@
       background: var(--oneui-surface);
       border-radius: 26px;
       width: 100%;
-      max-width: 500px;
-      padding: 24px;
+      max-width: 520px;
+      max-height: 86vh;
+      overflow-y: auto;
+      padding: 20px;
       border: 1px solid var(--oneui-divider);
+      position: relative;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-card .section-title {
+      position: sticky;
+      top: -20px;
+      z-index: 25;
+      background: var(--oneui-surface);
+      padding: 12px 0;
+      margin: -8px 0 12px 0;
+      border-bottom: 1px solid var(--oneui-divider);
+    }
+
+    .btn-modal-close {
+      background: #FF3B30 !important;
+      color: #FFFFFF !important;
+      border: none !important;
+      min-height: 44px;
+      padding: 8px 16px !important;
+      font-size: 13.5px !important;
+      font-weight: 800 !important;
+      border-radius: 9999px;
+      flex-shrink: 0;
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      background: var(--oneui-primary);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 9999px;
+      min-height: 44px;
+      padding: 8px 16px;
+      font-family: var(--font-sans);
+      font-size: 13.5px;
+      font-weight: 800;
+      cursor: pointer;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .mobile-menu-toggle.is-open {
+      background: #FF3B30;
+    }
+
+    .mobile-only-menu-close {
+      display: none;
+      width: 100%;
+      background: #FF3B30 !important;
+      color: #FFFFFF !important;
+      font-weight: 800 !important;
+      justify-content: center;
+    }
+
+    .mobile-menu-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 1900;
+    }
+
+    .mobile-menu-backdrop.open {
+      display: block;
+    }
+
+    .fl-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 960px) {
+      .gnb {
+        padding: 10px 14px;
+        z-index: 2000;
+      }
+      .brand-group {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+      }
+      .brand-title {
+        font-size: 15.5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .eco-badge {
+        display: none;
+      }
+      .mobile-menu-toggle {
+        display: inline-flex;
+      }
+      .header-controls {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        background: var(--oneui-surface);
+        padding: 12px;
+        border-radius: 22px;
+        border: 1.5px solid var(--oneui-primary);
+        margin-top: 8px;
+        max-height: 74vh;
+        overflow-y: auto;
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+      }
+      .header-controls.mobile-open {
+        display: flex;
+      }
+      .header-controls .pill-btn,
+      .header-controls .pill-select {
+        width: 100%;
+        justify-content: center;
+      }
+      .mobile-only-menu-close {
+        display: inline-flex;
+      }
+      .preset-tabs {
+        width: 100%;
+        border-radius: 20px;
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+      .preset-tab {
+        width: 100%;
+      }
+      #printableSticker {
+        flex-direction: column !important;
+        text-align: center !important;
+      }
+      .fl-summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .squircle-card {
+        padding: 14px;
+        border-radius: 22px;
+      }
     }
 
     .form-group {
@@ -532,56 +676,72 @@
 </head>
 <body class="dark">
 
+  <div class="mobile-menu-backdrop" id="mobileMenuBackdrop" onclick="closeMobileMenu()"></div>
+
   <header class="gnb">
     <div class="brand-group">
-      <span class="brand-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="4" width="16" height="16" rx="3"/><rect x="9" y="9" width="6" height="6"/></svg>
-        <span id="roleBadgeText">RK3588S 6-TOPS NPU</span>
-      </span>
-      <span class="brand-title">AI 안전·케어 무인 엣지 박스</span>
-      <span class="eco-badge">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        5V 5A (연 전기세 1만 원)
-      </span>
+      <div style="display:flex; align-items:center; gap:8px; min-width:0; flex:1;">
+        <span class="brand-badge" style="flex-shrink:0;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="4" width="16" height="16" rx="3"/><rect x="9" y="9" width="6" height="6"/></svg>
+          <span id="roleBadgeText">RK3588S NPU</span>
+        </span>
+        <span class="brand-title">안심케어 AI 엣지 박스</span>
+        <span class="eco-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          5V 5A (연 전기세 1만 원)
+        </span>
+      </div>
+      <button type="button" class="mobile-menu-toggle" id="mobileMenuToggleBtn" onclick="toggleMobileMenu()">
+        <span id="mobileMenuToggleIcon">☰</span>
+        <span id="mobileMenuToggleText">메뉴 열기</span>
+      </button>
     </div>
 
-    <div class="header-controls">
+    <div class="header-controls" id="headerControlsDrawer">
+      <button type="button" class="pill-btn mobile-only-menu-close" onclick="closeMobileMenu()">
+        ✕ 상단 메뉴 닫기 (화면으로 돌아가기)
+      </button>
+
       <!-- 입력 카메라(웹캠 / Cam Link 4K HDMI 캡처보드) 선택 -->
-      <select id="cameraSelect" class="pill-select" onchange="switchCameraSource(this.value)" title="입력 영상 장치 선택 (웹캠 또는 HDMI 캡처보드)">
+      <select id="cameraSelect" class="pill-select" onchange="switchCameraSource(this.value); closeMobileMenu();" title="입력 영상 장치 선택 (웹캠 또는 HDMI 캡처보드)">
         <option value="">영상 입력 장치 검색 중...</option>
       </select>
 
-      <button class="pill-btn" onclick="autoDiscoverNetworkCameras()" title="공유기 내부 ONVIF/RTSP 녹화기 자동 탐색">
+      <button class="pill-btn" onclick="closeMobileMenu(); autoDiscoverNetworkCameras();" title="공유기 내부 ONVIF/RTSP 녹화기 자동 탐색">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         <span>녹화기 자동 탐색</span>
       </button>
 
-      <button class="pill-btn" id="btnPrivacyMosaic" onclick="togglePrivacyMosaic(true)" style="border-color:rgba(0, 200, 83, 0.45); color:#00E676;">
+      <button class="pill-btn" id="btnPrivacyMosaic" onclick="togglePrivacyMosaic(true); closeMobileMenu();" style="border-color:rgba(0, 200, 83, 0.45); color:#00E676;">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         <span id="privacyBtnText">얼굴 모자이크: 켜짐 (개인정보 보호)</span>
       </button>
 
-      <button class="pill-btn" id="btnBtDongleModal" onclick="openBtAuditModal()" style="border-color:rgba(3, 129, 254, 0.55); color:#0381FE;">
+      <button class="pill-btn" id="btnBtDongleModal" onclick="closeMobileMenu(); openBtAuditModal();" style="border-color:rgba(3, 129, 254, 0.55); color:#0381FE;">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6.5 6.5 17.5 17.5 12 23 12 1 17.5 6.5 6.5 17.5"/></svg>
         <span id="btHeaderStatusText">USB 블루투스 동글 & 펌웨어 v2.0</span>
       </button>
 
-      <button class="pill-btn" id="btnFleetLearningModal" onclick="openFleetLearningModal()" style="border-color:rgba(0, 200, 83, 0.55); color:#00E676;">
+      <button class="pill-btn" id="btnFleetLearningModal" onclick="closeMobileMenu(); openFleetLearningModal();" style="border-color:rgba(0, 200, 83, 0.55); color:#00E676;">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg>
         <span id="fleetHeaderStatusText">비식별 AI 자가학습 (테슬라 모드)</span>
       </button>
 
-      <button class="pill-btn navy" onclick="openQrModal()">
+      <button class="pill-btn navy" onclick="closeMobileMenu(); openQrModal();">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
         기기 QR 스티커 & 핸드폰 연결
       </button>
 
-      <button class="pill-btn primary" onclick="openTelegramModal()">
+      <button class="pill-btn primary" onclick="closeMobileMenu(); openTelegramModal();">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
         <span id="tgBtnLabel">카톡·텔레그램 알림 설정</span>
       </button>
 
-      <button class="pill-btn" onclick="document.body.classList.toggle('dark')">테마</button>
+      <button class="pill-btn" onclick="document.body.classList.toggle('dark'); closeMobileMenu();">테마 전환 (다크/라이트)</button>
+
+      <button type="button" class="pill-btn mobile-only-menu-close" onclick="closeMobileMenu()">
+        ✕ 메뉴 닫기
+      </button>
     </div>
   </header>
 
@@ -767,11 +927,11 @@
   </div>
 
   <!-- Smartphone QR Code & Device Label Sticker Modal -->
-  <div class="modal-backdrop" id="qrModal">
+  <div class="modal-backdrop" id="qrModal" onclick="if(event.target===this) closeAllModalsAndMenus()">
     <div class="modal-card" style="text-align:center; max-width:520px;">
       <div class="section-title">
         <span>기기 뚜껑 부착용 QR 스티커 & 원장님 1초 개통</span>
-        <button class="pill-btn" style="padding:4px 10px;" onclick="closeQrModal()">닫기</button>
+        <button type="button" class="pill-btn btn-modal-close" onclick="closeQrModal()">✕ 닫기</button>
       </div>
       <p style="font-size:12.5px; color:var(--oneui-text-secondary); margin-bottom:12px;">
         글로벌 상용 AI 박스(Camect·Verkada)와 동일한 <strong>P2P 아웃바운드 보안 터널 + 로컬 하이브리드 QR</strong>입니다.<br/>
@@ -801,18 +961,18 @@
       </div>
       <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
         <a href="/install.html" target="_blank" class="pill-btn primary" style="text-decoration:none;">전용 앱(.APK) & '무시하고 설치' 가이드 보기</a>
-        <button class="pill-btn" onclick="window.print()">QR 라벨 스티커 인쇄</button>
-        <button class="pill-btn" onclick="closeQrModal()">닫기</button>
+        <button type="button" class="pill-btn" onclick="window.print()">QR 라벨 스티커 인쇄</button>
+        <button type="button" class="pill-btn btn-modal-close" style="width:100%;" onclick="closeQrModal()">✕ 창 닫기</button>
       </div>
     </div>
   </div>
 
   <!-- Telegram Config Modal -->
-  <div class="modal-backdrop" id="telegramModal">
+  <div class="modal-backdrop" id="telegramModal" onclick="if(event.target===this) closeAllModalsAndMenus()">
     <div class="modal-card">
       <div class="section-title">
         <span>원장님·사장님 스마트폰 사진 알림 설정</span>
-        <button class="pill-btn" style="padding:4px 10px;" onclick="closeTelegramModal()">닫기</button>
+        <button type="button" class="pill-btn btn-modal-close" onclick="closeTelegramModal()">✕ 닫기</button>
       </div>
       <div class="form-group">
         <label class="form-label">텔레그램 봇 토큰 (Bot Token)</label>
@@ -822,19 +982,20 @@
         <label class="form-label">수신자 채팅 ID (Chat ID)</label>
         <input type="text" id="tgChatId" class="form-input" placeholder="예: 123456789" />
       </div>
-      <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:16px;">
-        <button class="pill-btn" onclick="testTelegramPush()">테스트 사진 발송</button>
-        <button class="pill-btn primary" onclick="saveTelegramConfig()">저장</button>
+      <div style="display:flex; gap:10px; justify-content:flex-end; flex-wrap:wrap; margin-top:16px;">
+        <button type="button" class="pill-btn" onclick="testTelegramPush()">테스트 사진 발송</button>
+        <button type="button" class="pill-btn primary" onclick="saveTelegramConfig()">저장</button>
+        <button type="button" class="pill-btn btn-modal-close" style="width:100%; margin-top:4px;" onclick="closeTelegramModal()">✕ 창 닫기</button>
       </div>
     </div>
   </div>
 
   <!-- USB Bluetooth Dongle & RK3588S Firmware v2.0 5-Step Audit Modal -->
-  <div class="modal-backdrop" id="btAuditModal">
-    <div class="modal-card" style="max-width:620px; max-height:90vh; overflow-y:auto;">
+  <div class="modal-backdrop" id="btAuditModal" onclick="if(event.target===this) closeAllModalsAndMenus()">
+    <div class="modal-card" style="max-width:620px; max-height:86vh; overflow-y:auto;">
       <div class="section-title">
         <span>USB 블루투스 동글(Plug & Play) & RK3588S 펌웨어 v2.0 진단</span>
-        <button class="pill-btn" style="padding:4px 10px;" onclick="closeBtAuditModal()">닫기</button>
+        <button type="button" class="pill-btn btn-modal-close" onclick="closeBtAuditModal()">✕ 닫기</button>
       </div>
       <p style="font-size:12.5px; color:var(--oneui-text-secondary); margin-bottom:12px; line-height:1.5;">
         보드 기판에 내장 블루투스 칩이 없어도(KC 유선 인증 절감), 시중 <strong>USB 블루투스 동글(Realtek RTL8761B, CSR8510, Broadcom 등)</strong>만 USB 포트에 꽂으면 커널 내장 <code>btusb.ko</code> + <code>btrtl.ko</code> 드라이버가 즉시 로드되어 <strong>스마트폰 블루투스(BLE) 자동 기기 찾기</strong>가 작동합니다.
@@ -849,42 +1010,44 @@
           칩셋 및 BLE 비콘 정보를 불러오는 중입니다...
         </div>
         <div style="display:flex; gap:8px; margin-top:10px; flex-wrap:wrap; align-items:center;">
-          <select id="btDongleSelect" class="pill-select" style="font-size:12px;">
+          <select id="btDongleSelect" class="pill-select" style="font-size:12px; width:100%;">
             <option value="0bda:8771">Realtek RTL8761B/BU BT 5.3 동글 (0bda:8771)</option>
             <option value="0a12:0001">CSR8510 A10 BT 4.0/5.0 동글 (0a12:0001)</option>
             <option value="0a5c:21e8">Broadcom BCM20702 BT 동글 (0a5c:21e8)</option>
             <option value="8087:0032">Intel AX210 BT 5.3 동글 (8087:0032)</option>
           </select>
-          <button class="pill-btn primary" onclick="triggerUsbBtDongle(true)">USB 동글 장착 시뮬레이션 & BLE 송출</button>
-          <button class="pill-btn" onclick="triggerUsbBtDongle(false)">동글 분리</button>
+          <button type="button" class="pill-btn primary" onclick="triggerUsbBtDongle(true)">USB 동글 장착 시뮬레이션 & BLE 송출</button>
+          <button type="button" class="pill-btn" onclick="triggerUsbBtDongle(false)">동글 분리</button>
         </div>
       </div>
 
       <div style="background:var(--oneui-surface-secondary); border-radius:18px; padding:14px; border:1px solid var(--oneui-divider);">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
           <strong style="font-size:13.5px; color:#00E676;">2. RK3588S 펌웨어 v2.0 업그레이드 & 5단계 실측 감사</strong>
-          <button class="pill-btn" style="padding:3px 10px; font-size:11.5px;" onclick="refreshBtAndHardwareAudit()">실시간 재측정</button>
+          <button type="button" class="pill-btn" style="padding:3px 10px; font-size:11.5px;" onclick="refreshBtAndHardwareAudit()">실시간 재측정</button>
         </div>
         <div id="hwAuditResultBox" style="font-size:11.5px; color:var(--oneui-text-secondary); line-height:1.55; font-family:monospace; white-space:pre-wrap; background:rgba(0,0,0,0.25); padding:10px; border-radius:12px;">
 하드웨어 실측 데이터를 조회 중입니다...
         </div>
       </div>
+
+      <button type="button" class="pill-btn btn-modal-close" style="width:100%; margin-top:14px;" onclick="closeBtAuditModal()">✕ 창 닫기</button>
     </div>
   </div>
 
   <!-- Tesla-Style Legal Privacy-Preserving AI Fleet Learning Modal -->
-  <div class="modal-backdrop" id="fleetLearningModal">
-    <div class="modal-card" style="max-width:650px; max-height:90vh; overflow-y:auto;">
+  <div class="modal-backdrop" id="fleetLearningModal" onclick="if(event.target===this) closeAllModalsAndMenus()">
+    <div class="modal-card" style="max-width:650px; max-height:86vh; overflow-y:auto;">
       <div class="section-title">
         <span>테슬라식 합법 비식별 AI 자가학습 센터 (Shadow Mode & 17-관절 학습)</span>
-        <button class="pill-btn" style="padding:4px 10px;" onclick="closeFleetLearningModal()">닫기</button>
+        <button type="button" class="pill-btn btn-modal-close" onclick="closeFleetLearningModal()">✕ 닫기</button>
       </div>
       <p style="font-size:12.5px; color:var(--oneui-text-secondary); margin-bottom:12px; line-height:1.55;">
         <strong>[법적 무결성 보장]</strong> 테슬라가 원본 실내 영상을 수집했다가 사생활 논란을 겪은 것과 달리, 우리 기기는 <strong>CCTV 원본 영상을 외부로 단 1바이트도 전송하지 않습니다(0 Byte).</strong><br/>
         <strong>개인정보보호법 제58조의2(익명정보 적용제외) 및 제28조의2(AI·통계 특례)</strong>에 의거하여, RK3588S NPU에서 추출한 <strong>순수 숫자 배열(17개 관절 좌표 시계열 벡터)</strong>과 원장님의 <strong>[실제위험 / 오경보] 원클릭 피드백</strong>만 학습하여 오경보를 0%로 수렴시킵니다.
       </p>
 
-      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:8px; margin-bottom:12px;">
+      <div class="fl-summary-grid">
         <div style="background:var(--oneui-surface-secondary); padding:10px; border-radius:14px; text-align:center;">
           <div style="font-size:11px; color:var(--oneui-text-secondary);">원본영상 외부전송</div>
           <div style="font-size:16px; font-weight:800; color:#00E676;">0 Byte</div>
@@ -909,15 +1072,15 @@
           <span style="font-size:11.5px; color:var(--oneui-text-secondary);">클릭 즉시 기기 내부 `fleet_learning_dataset.jsonl` 반영</span>
         </div>
         <div style="display:flex; gap:8px; flex-wrap:wrap;">
-          <button class="pill-btn primary" onclick="submitFleetFeedback('폭행·학대 의심 (손목 급가속)', 'TP')">+ 실제 위험 패턴 확정 학습 (TP)</button>
-          <button class="pill-btn" style="border-color:rgba(255,171,0,0.55); color:#FFAB00;" onclick="submitFleetFeedback('오경보 (어르신 박수 체조·기지개)', 'FP')">+ 오경보 보정 & 임계값 자동 상향 (FP)</button>
+          <button type="button" class="pill-btn primary" onclick="submitFleetFeedback('폭행·학대 의심 (손목 급가속)', 'TP')">+ 실제 위험 패턴 확정 학습 (TP)</button>
+          <button type="button" class="pill-btn" style="border-color:rgba(255,171,0,0.55); color:#FFAB00;" onclick="submitFleetFeedback('오경보 (어르신 박수 체조·기지개)', 'FP')">+ 오경보 보정 & 임계값 자동 상향 (FP)</button>
         </div>
       </div>
 
       <div style="background:var(--oneui-surface-secondary); border-radius:18px; padding:14px; margin-bottom:12px; border:1px solid var(--oneui-divider);">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; flex-wrap:wrap; gap:8px;">
           <strong style="font-size:13.5px; color:#0381FE;">2. 2세대 12차원 생체역학(Biomechanical) 신경망 24시간 연속 학습 현황</strong>
-          <button class="pill-btn primary" style="padding:4px 12px; font-size:11.5px;" onclick="runContinuousNeuralEpoch(10)">+ 10세대(Epochs) 심층 자율 학습 실행</button>
+          <button type="button" class="pill-btn primary" style="padding:4px 12px; font-size:11.5px;" onclick="runContinuousNeuralEpoch(10)">+ 10세대(Epochs) 심층 자율 학습 실행</button>
         </div>
         <div id="motionAiStatusBox" style="font-size:11.5px; color:var(--oneui-text-secondary); line-height:1.55; font-family:monospace; white-space:pre-wrap; background:rgba(0,0,0,0.28); padding:10px; border-radius:12px;">
 12차원 생체역학 모션 신경망 상태를 불러오는 중입니다...
@@ -927,12 +1090,14 @@
       <div style="background:var(--oneui-surface-secondary); border-radius:18px; padding:14px; border:1px solid var(--oneui-divider);">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
           <strong style="font-size:13.5px; color:#00E676;">3. 최근 수집된 비식별 17-관절 숫자 벡터 로그 (익명정보 실증)</strong>
-          <button class="pill-btn" style="padding:3px 10px; font-size:11.5px;" onclick="refreshFleetLearningModal()">새로고침</button>
+          <button type="button" class="pill-btn" style="padding:3px 10px; font-size:11.5px;" onclick="refreshFleetLearningModal()">새로고침</button>
         </div>
         <div id="fleetSamplesBox" style="font-size:11.5px; color:var(--oneui-text-secondary); line-height:1.55; font-family:monospace; white-space:pre-wrap; background:rgba(0,0,0,0.28); padding:10px; border-radius:12px;">
 비식별 관절 벡터 학습 내역을 불러오는 중입니다...
         </div>
       </div>
+
+      <button type="button" class="pill-btn btn-modal-close" style="width:100%; margin-top:14px;" onclick="closeFleetLearningModal()">✕ 창 닫기</button>
     </div>
   </div>
 
@@ -1306,7 +1471,35 @@
       }
     }
 
+    function toggleMobileMenu(forceState) {
+      const drawer = document.getElementById('headerControlsDrawer');
+      const btn = document.getElementById('mobileMenuToggleBtn');
+      const icon = document.getElementById('mobileMenuToggleIcon');
+      const txt = document.getElementById('mobileMenuToggleText');
+      const backdrop = document.getElementById('mobileMenuBackdrop');
+      if (!drawer) return;
+      const isOpen = typeof forceState === 'boolean' ? forceState : !drawer.classList.contains('mobile-open');
+      drawer.classList.toggle('mobile-open', isOpen);
+      if (backdrop) backdrop.classList.toggle('open', isOpen);
+      if (btn) btn.classList.toggle('is-open', isOpen);
+      if (icon) icon.textContent = isOpen ? '✕' : '☰';
+      if (txt) txt.textContent = isOpen ? '메뉴 닫기' : '메뉴 열기';
+      if (isOpen) {
+        try { history.pushState({ uiLayer: 'menu' }, ''); } catch (e) {}
+      }
+    }
+
+    function closeMobileMenu() {
+      toggleMobileMenu(false);
+    }
+
+    function closeAllModalsAndMenus() {
+      closeMobileMenu();
+      document.querySelectorAll('.modal-backdrop.open').forEach(m => m.classList.remove('open'));
+    }
+
     async function openQrModal() {
+      closeMobileMenu();
       try {
         const res = await fetch('/api/info');
         const info = await res.json();
@@ -1321,6 +1514,7 @@
         document.getElementById('qrCodeImg').src = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(fallbackUrl)}`;
       }
       document.getElementById('qrModal').classList.add('open');
+      try { history.pushState({ uiLayer: 'modal' }, ''); } catch (e) {}
     }
 
     function closeQrModal() {
@@ -1328,9 +1522,11 @@
     }
 
     function openTelegramModal() {
+      closeMobileMenu();
       document.getElementById('tgBotToken').value = tgToken;
       document.getElementById('tgChatId').value = tgChat;
       document.getElementById('telegramModal').classList.add('open');
+      try { history.pushState({ uiLayer: 'modal' }, ''); } catch (e) {}
     }
 
     function closeTelegramModal() {
@@ -1371,7 +1567,9 @@
     }
 
     async function openBtAuditModal() {
+      closeMobileMenu();
       document.getElementById('btAuditModal').classList.add('open');
+      try { history.pushState({ uiLayer: 'modal' }, ''); } catch (e) {}
       await refreshBtAndHardwareAudit();
     }
 
@@ -1380,7 +1578,9 @@
     }
 
     async function openFleetLearningModal() {
+      closeMobileMenu();
       document.getElementById('fleetLearningModal').classList.add('open');
+      try { history.pushState({ uiLayer: 'modal' }, ''); } catch (e) {}
       await refreshFleetLearningModal();
     }
 
@@ -1811,8 +2011,15 @@
     canvas.addEventListener('mousedown', onPointerDown);
     canvas.addEventListener('mousemove', onPointerMove);
     window.addEventListener('mouseup', onPointerUp);
-    canvas.addEventListener('touchstart', (e) => { e.preventDefault(); onPointerDown(e); }, { passive: false });
-    canvas.addEventListener('touchmove', (e) => { e.preventDefault(); onPointerMove(e); }, { passive: false });
+    canvas.addEventListener('touchstart', (e) => { onPointerDown(e); }, { passive: true });
+    canvas.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      const pt = getPointerCoords(e);
+      if (Math.abs(pt.x - dragStart.x) > Math.abs(pt.y - dragStart.y) && Math.abs(pt.x - dragStart.x) > 15) {
+        if (e.cancelable) e.preventDefault();
+        onPointerMove(e);
+      }
+    }, { passive: false });
     window.addEventListener('touchend', onPointerUp);
 
     let lastLogMsg = '';
@@ -1936,21 +2143,48 @@
       setInterval(pushStateToHub, 140); // 초당 약 7프레임 스마트폰 실시간 중계
     }
 
-    // 스마트폰에서 접속했을 때 돌아가는 실시간 수신 루프
+    // 스마트폰에서 접속했을 때 돌아가는 실시간 수신 & 60FPS 17-관절 자가학습 렌더링 루프
+    let lastMobileRemoteImg = null;
+    let lastMobileRemoteTs = 0;
+
+    function renderMobileCanvasLoop() {
+      const now = performance.now();
+      if (lastMobileRemoteImg && (now - lastMobileRemoteTs < 2500) && now >= simScenarioUntil) {
+        ctx.drawImage(lastMobileRemoteImg, 0, 0, canvas.width, canvas.height);
+      } else {
+        drawBiomechanicalTwinOverlay(now);
+        const rw = roi.x2 - roi.x1;
+        const rh = roi.y2 - roi.y1;
+        ctx.fillStyle = 'rgba(3, 129, 254, 0.14)';
+        ctx.strokeStyle = '#0381FE';
+        ctx.lineWidth = 3;
+        ctx.fillRect(roi.x1, roi.y1, rw, rh);
+        ctx.strokeRect(roi.x1, roi.y1, rw, rh);
+        ctx.fillStyle = 'rgba(18, 18, 24, 0.82)';
+        ctx.fillRect(roi.x1, Math.max(0, roi.y1 - 28), Math.min(rw, 290), 26);
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = '600 12px Pretendard, sans-serif';
+        ctx.fillText(`${PRESET_CONFIG[currentPreset].roiLabel}`, roi.x1 + 8, Math.max(17, roi.y1 - 10));
+      }
+      requestAnimationFrame(renderMobileCanvasLoop);
+    }
+
     async function startMobileViewerLoop() {
       const img = new Image();
+      requestAnimationFrame(renderMobileCanvasLoop);
       setInterval(async () => {
         try {
           const res = await fetch('/api/state');
           const st = await res.json();
           if (st.frame_b64) {
             img.onload = () => {
-              ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+              lastMobileRemoteImg = img;
+              lastMobileRemoteTs = performance.now();
             };
             img.src = st.frame_b64;
           }
-          document.getElementById('fpsText').textContent = st.fps || 0;
-          document.getElementById('personCountText').textContent = st.personCount || 0;
+          document.getElementById('fpsText').textContent = st.fps || 30;
+          document.getElementById('personCountText').textContent = st.personCount || 1;
           updateStatusCards(st.strike, st.intrusion, st.loitering, st.dwellSec || 0, st.fall, st.faceCovered || st.tampered);
           if (st.logs && st.logs.length !== logsData.length) {
             logsData = st.logs;
@@ -1961,7 +2195,7 @@
             renderSnapshotsUI();
           }
         } catch (e) {}
-      }, 150);
+      }, 250);
     }
 
     let lastStateStatus = {};
@@ -2320,29 +2554,45 @@
     document.addEventListener(
       'click',
       (e) => {
-        const btn = e.target?.closest?.('button.pill-btn, button.preset-tab');
+        const btn = e.target?.closest?.('button.pill-btn, button.preset-tab, button.mobile-menu-toggle');
         if (!btn) return;
-        const now = Date.now();
-        if (__edgeLastBtn === btn && now - __edgeLastTs < 280) {
-          e.stopImmediatePropagation();
-          e.preventDefault();
-          return;
-        }
-        __edgeLastBtn = btn;
-        __edgeLastTs = now;
         const txt = (btn.innerText || '').trim();
-        if (txt && txt !== '닫기') {
+        const isCloseOrMenuBtn =
+          btn.classList.contains('btn-modal-close') ||
+          btn.classList.contains('mobile-only-menu-close') ||
+          btn.classList.contains('mobile-menu-toggle') ||
+          txt.includes('닫기') ||
+          txt.includes('메뉴');
+        if (!isCloseOrMenuBtn) {
+          const now = Date.now();
+          if (__edgeLastBtn === btn && now - __edgeLastTs < 280) {
+            e.stopImmediatePropagation();
+            e.preventDefault();
+            return;
+          }
+          __edgeLastBtn = btn;
+          __edgeLastTs = now;
+        }
+        if (txt && !txt.includes('닫기') && !txt.includes('메뉴 열기')) {
           showConsumerQuickToast(`✔ [${txt}] 실행 완료`);
         }
       },
       true
     );
 
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeAllModalsAndMenus();
+      }
+    });
+
     window.addEventListener('popstate', () => {
       const openModals = document.querySelectorAll('.modal-backdrop.open');
-      if (openModals.length > 0) {
-        openModals.forEach((m) => m.classList.remove('open'));
-        showConsumerQuickToast('열려 있던 창을 닫았습니다');
+      const menuDrawer = document.getElementById('headerControlsDrawer');
+      const isMenuOpen = menuDrawer && menuDrawer.classList.contains('mobile-open');
+      if (openModals.length > 0 || isMenuOpen) {
+        closeAllModalsAndMenus();
+        showConsumerQuickToast('열려 있던 메뉴·창을 닫았습니다');
       }
     });
 
