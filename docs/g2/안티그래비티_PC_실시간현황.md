@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 6:12:07
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 6:12:22
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -27,7 +27,6 @@
 - **[안티그래비티(PC 작업 결과)]**: 현재 PC 및 연결된 기기의 전체 USB 버스(`VID/PID` 및 방금 장착된 하드웨어 도착 시각)를 전수 스캔하여 방금 꽂으신 동글의 실제 칩셋과 블루투스 작동 여부를 확인하고 있습니다. 스캔이 완료되는 즉시 결과를 보고드리겠습니다.
 - **[안티그래비티(PC 작업 결과)]**: 사장님, 방금 요청하신 **관제 사이트([http://localhost:8765](http://localhost:8765))는 PC 화면에 바로 띄워드렸고**, 동시에 방금 꽂으신 동글이 왜 안 잡히는지 **PC와 보드의 전체 USB 물리 버스(`Get-PnpDevice` 및 포트별 전원·오류코드)를 전수 실측**했습니다. 결론부터 말씀드리면 **현재 윈도우에 새로 잡힌 블루투스 장치는 `0개`**이며, 실측 결과 **아래 3가지 원인 중 하나**로 100% 특정되었습니다! --- ### 🔍 `[실측으로 확인된 사실]` 방금 꽂으신 동글이 안 잡힌 3가지 정확한 이유 #### 1️⃣ 만약 동글을 **‘RK3588S 보드(기판)’의 USB 구멍**에 꽂으셨다면? - **실측 팩트**: 지금 보드의 운영체제가 담긴 **SD카드(`Lexa
 - **[대표님(PC 안티그래비티 요청)]**: 그럼 5v5a 어댑터꽂고 블루투스동글꽂은다음 랜선꽂으면 너가조작가능해?
-- **[대표님(PC 안티그래비티 요청)]**: 내가 S905L3A 게임기 연결해서랜선꽂아놨거든 이거 속도 나 반응속도개선 PSP 최적화 철권태그 더빠르게 그리고 보안해킹못하게 만드는거 해봐봐 그때 보안관련이슈있었잖아 리셋키  <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 
 ## 2. 최근 수정된 워크스페이스 핵심 문서 Top 10
 - `CLAUDE.md` (2026. 11. 8. PM 6:06:35)
