@@ -534,13 +534,114 @@
         ? `▼ 스크롤 ${idx + 1}/${total}  100%`
         : (cleanFull.length > 180 ? '▼ 스크롤 가능  100%' : '● 온라인  100%');
     }
-    hud.shown = { title: '', status: '', body: '' };
-    hud.flushQueued = false;
     if (typeof hud.updateMirror === 'function') hud.updateMirror();
     if (rebuildNowFlag && typeof hud.rebuild === 'function') {
+      // Pre-set shown to the 900-byte rebuild snapshot so no premature flush fires before rebuildNow()
+      hud.shown = {
+        title: hud.slotText('title'),
+        status: hud.slotText('status'),
+        body: sliceByUtf8Bytes(hud.slotText('body'), 900)
+      };
+      hud.flushQueued = false;
       void hud.rebuild();
     } else if (typeof hud.scheduleFlush === 'function') {
+      hud.shown = { title: '', status: '', body: '' };
+      hud.flushQueued = false;
       hud.scheduleFlush();
+    }
+  }
+
+  function formatCleanClockStatus(st) {
+    let clk = String(st?.clockStr || '').trim();
+    if (!clk || clk.includes('--')) {
+      clk = new Date().toLocaleTimeString('ko-KR', {
+        timeZone: 'Asia/Seoul',
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true
+      });
+      if (st) st.clockStr = clk;
+    }
+    const level = st?.battery?.level;
+    const charging = Boolean(st?.battery?.charging);
+    const hasBat = typeof level === 'number' && Number.isFinite(level);
+    const pct = hasBat ? Math.max(0, Math.min(100, Math.round(level))) : 100;
+    return `${clk}  ${charging ? '+' : ''}${pct}%`;
+  }
+
+  function sanitizePageContainerPayload(payload, hud) {
+    if (!payload || typeof payload !== 'object') return payload;
+    payload.menuObject = undefined;
+    delete payload.menuObject;
+    if (Array.isArray(payload.textObject)) {
+      const built = { title: ' ', status: ' ', body: ' ' };
+      for (const obj of payload.textObject) {
+        if (!obj || typeof obj !== 'object') continue;
+        const name = obj.containerName;
+        obj.borderWidth = 0;
+        obj.borderColor = 0;
+        obj.borderRadius = 0;
+        if (name === 'title') {
+          obj.xPosition = 20;
+          obj.yPosition = 0;
+          obj.width = 280;
+          obj.height = 44;
+          obj.paddingLength = 10;
+          obj.isEventCapture = 0;
+          obj.textColor = hud.clockStandby ? 0 : (hud.dim ? 1 : 3);
+          obj.content = hud.clockStandby
+            ? ' '
+            : sliceByUtf8Bytes(String(obj.content || ' ').replace(/\s*\|\s*/g, '  '), 180);
+          built.title = obj.content;
+        } else if (name === 'status') {
+          // Fixed coordinates (x=310, width=246, padding=10) & brightness (3) in BOTH normal & clockStandby so clock NEVER jumps or flickers!
+          obj.xPosition = 310;
+          obj.yPosition = 0;
+          obj.width = 246;
+          obj.height = 44;
+          obj.paddingLength = 10;
+          obj.isEventCapture = 0;
+          obj.textColor = hud.dim ? 1 : 3;
+          obj.content = sliceByUtf8Bytes(
+            String(obj.content || ' ')
+              .replace(/\s*\|\s*/g, '  ')
+              .replace(/[■□]{2,}\s*/g, ''),
+            180
+          );
+          built.status = obj.content;
+        } else if (name === 'body') {
+          obj.xPosition = 20;
+          obj.yPosition = 46;
+          obj.width = 536;
+          obj.height = 242;
+          obj.paddingLength = 16;
+          obj.isEventCapture = 1;
+          obj.textColor = hud.clockStandby ? 0 : (hud.dim ? 1 : 4);
+          obj.content = hud.clockStandby ? ' ' : sliceByUtf8Bytes(obj.content || ' ', 900);
+          built.body = obj.content;
+        }
+      }
+      hud.__lastBuiltSent = built;
+    }
+    return payload;
+  }
+
+  function hookBridgeContainerSanitizer(bridge, hud) {
+    if (!bridge || bridge.__v325BridgeSanitized) return;
+    bridge.__v325BridgeSanitized = true;
+    if (typeof bridge.createStartUpPageContainer === 'function') {
+      const origCreate = bridge.createStartUpPageContainer.bind(bridge);
+      bridge.createStartUpPageContainer = function (container) {
+        sanitizePageContainerPayload(container, hud);
+        return origCreate(container);
+      };
+    }
+    if (typeof bridge.rebuildPageContainer === 'function') {
+      const origRebuild = bridge.rebuildPageContainer.bind(bridge);
+      bridge.rebuildPageContainer = function (container) {
+        sanitizePageContainerPayload(container, hud);
+        return origRebuild(container);
+      };
     }
   }
 
@@ -554,18 +655,27 @@
       st.__scrollWinIdx = 0;
       hud.wanted.status = '● 온라인  100%';
       hud.wanted.body = st.__scrollWindows[0];
-      hud.shown = { title: '', status: '', body: '' };
-      hud.flushQueued = false;
       if (typeof hud.updateMirror === 'function') hud.updateMirror();
-      if (forceRebuild && typeof hud.rebuild === 'function') void hud.rebuild();
-      else if (typeof hud.scheduleFlush === 'function') hud.scheduleFlush();
+      if (forceRebuild && typeof hud.rebuild === 'function') {
+        hud.shown = {
+          title: hud.slotText('title'),
+          status: hud.slotText('status'),
+          body: sliceByUtf8Bytes(hud.slotText('body'), 900)
+        };
+        hud.flushQueued = false;
+        void hud.rebuild();
+      } else if (typeof hud.scheduleFlush === 'function') {
+        hud.shown = { title: '', status: '', body: '' };
+        hud.flushQueued = false;
+        hud.scheduleFlush();
+      }
       return;
     }
     const fullBody = formatFullScrollableChat(st.last.you, st.last.reply);
     applyScrollWindowToHud(st, hud, fullBody, true, forceRebuild);
   }
 
-  // 4. Enforce 6-Item Menu, Safe Optical Margins (x=20), UTF-8 Safe Scroll Windows & Hardware Event Interception
+  // 4. Enforce Zero Menu Bar, Safe Optical Margins (x=20), Atomic Clock Standby & Hardware Event Interception
   function upgradeGlassesHudAndMenu() {
     if (!agy || !agy.hud || !agy.state) return;
     const st = agy.state;
@@ -574,37 +684,54 @@
     ensureValidApiKeyOnDevice();
     ensureLastConversationOnState(st);
 
-    // Ensure slotText('body') always returns UTF-8 byte-safe text (<= 1650 UTF-8 bytes) so textContainerUpgrade NEVER fails!
-    if (!hud.__v32SlotTextHooked && typeof hud.slotText === 'function') {
-      hud.__v32SlotTextHooked = true;
-      hud.slotText = function (slot) {
-        if (this.clockStandby && (slot === 'title' || slot === 'body')) {
-          return ' ';
-        }
-        const raw = this.wanted[slot] || ' ';
-        return sliceByUtf8Bytes(raw, slot === 'body' ? 1650 : 240);
+    if (hud.bridge) {
+      hookBridgeContainerSanitizer(hud.bridge, hud);
+    }
+    if (!hud.__v325AttachBridgeHooked && typeof hud.attachBridge === 'function') {
+      hud.__v325AttachBridgeHooked = true;
+      const origAttachBridge = hud.attachBridge.bind(hud);
+      hud.attachBridge = function (bridge) {
+        hookBridgeContainerSanitizer(bridge, this);
+        return origAttachBridge(bridge);
       };
     }
 
-    // Fix markPageBuilt race condition: reset both shown AND flushQueued so textContainerUpgrade ALWAYS runs after rebuildNow()!
-    if (!hud.__v32MarkBuiltHooked) {
-      hud.__v32MarkBuiltHooked = true;
-      hud.markPageBuilt = function () {
-        this.shown = { title: '', status: '', body: '' };
-        this.flushQueued = false;
+    // Ensure slotText('body') always returns UTF-8 byte-safe text (<= 1650 UTF-8 bytes) so textContainerUpgrade NEVER fails!
+    hud.slotText = function (slot) {
+      if (this.clockStandby && (slot === 'title' || slot === 'body')) {
+        return ' ';
+      }
+      const raw = this.wanted[slot] || ' ';
+      return sliceByUtf8Bytes(raw, slot === 'body' ? 1650 : 240);
+    };
+
+    // Frame-by-Frame Zero-Flicker markPageBuilt:
+    // Record exact snapshot sent in RebuildPageContainer so scheduleFlush() NEVER re-sends redundant TextContainerUpgrade packets for title/status 60ms later!
+    hud.markPageBuilt = function () {
+      const built = this.__lastBuiltSent || {
+        title: this.slotText('title'),
+        status: this.slotText('status'),
+        body: sliceByUtf8Bytes(this.slotText('body'), 900)
+      };
+      this.shown = {
+        title: built.title,
+        status: built.status,
+        body: built.body
+      };
+      this.flushQueued = false;
+      // Only queue a post-rebuild flush if body (>900 UTF-8 bytes) or another slot has remaining text beyond what RebuildPageContainer already rendered!
+      if (
+        this.slotText('body') !== this.shown.body ||
+        this.slotText('title') !== this.shown.title ||
+        this.slotText('status') !== this.shown.status
+      ) {
         if (typeof this.scheduleFlush === 'function') {
           this.scheduleFlush();
         }
-      };
-    }
+      }
+    };
 
     // Intercept EvenHub hardware events at window.dispatchEvent BEFORE legacy v2.0.0 onEvenHubEvent can mis-handle them!
-    // Handles:
-    //  - SCROLL_BOTTOM_EVENT (2): seamlessly loads next 460-char scroll window & resets hardware scrollbar!
-    //  - SCROLL_TOP_EVENT (1): seamlessly loads previous scroll window!
-    //  - CLICK_EVENT (0): wakes Clock Standby -> shows previous chat (or advances scroll window in idle), NEVER starts tap-recording!
-    //  - LONG_PRESS_RELEASE_EVENT (5): keeps mic open hands-free when user lifts finger after long-press!
-    //  - DOUBLE_CLICK_EVENT (3): blocks residual double-tap bounce within 1.8s after canceling recording!
     if (!window.__v32EvenEventDispatchHooked && typeof window.dispatchEvent === 'function') {
       window.__v32EvenEventDispatchHooked = true;
       const origDispatchEvent = window.dispatchEvent.bind(window);
@@ -638,7 +765,11 @@
                   if (st.mode === 'idle') {
                     hud.wanted.status = `▼ 스크롤 ${st.__scrollWinIdx + 1}/${total}  100%`;
                   }
-                  hud.shown = { title: '', status: '', body: '' };
+                  hud.shown = {
+                    title: hud.slotText('title'),
+                    status: hud.slotText('status'),
+                    body: sliceByUtf8Bytes(hud.slotText('body'), 900)
+                  };
                   hud.flushQueued = false;
                   if (typeof hud.updateMirror === 'function') hud.updateMirror();
                   if (typeof hud.rebuild === 'function') void hud.rebuild();
@@ -659,7 +790,11 @@
                   if (st.mode === 'idle') {
                     hud.wanted.status = `▼ 스크롤 ${st.__scrollWinIdx + 1}/${total}  100%`;
                   }
-                  hud.shown = { title: '', status: '', body: '' };
+                  hud.shown = {
+                    title: hud.slotText('title'),
+                    status: hud.slotText('status'),
+                    body: sliceByUtf8Bytes(hud.slotText('body'), 900)
+                  };
                   hud.flushQueued = false;
                   if (typeof hud.updateMirror === 'function') hud.updateMirror();
                   if (typeof hud.rebuild === 'function') void hud.rebuild();
@@ -687,7 +822,11 @@
                   const total = st.__scrollWindows.length;
                   hud.wanted.body = st.__scrollWindows[st.__scrollWinIdx];
                   hud.wanted.status = `▼ 스크롤 ${st.__scrollWinIdx + 1}/${total}  100%`;
-                  hud.shown = { title: '', status: '', body: '' };
+                  hud.shown = {
+                    title: hud.slotText('title'),
+                    status: hud.slotText('status'),
+                    body: sliceByUtf8Bytes(hud.slotText('body'), 900)
+                  };
                   hud.flushQueued = false;
                   if (typeof hud.updateMirror === 'function') hud.updateMirror();
                   if (typeof hud.rebuild === 'function') void hud.rebuild();
@@ -736,19 +875,31 @@
       };
     }
 
-    // Block accidental clockStandby entry during thinking/answering or right after canceling recording
-    if (!hud.__v32StandbyHooked && typeof hud.setClockStandby === 'function') {
-      hud.__v32StandbyHooked = true;
-      const origSetClockStandby = hud.setClockStandby.bind(hud);
-      hud.setClockStandby = function (standby) {
-        if (standby && (st.mode === 'thinking' || st.mode === 'answering' || Date.now() - (st.__lastCancelMs || 0) < 1800)) {
-          st.clockStandby = false;
-          this.clockStandby = false;
-          return Promise.resolve(false);
-        }
-        return origSetClockStandby(standby);
-      };
+    // Block accidental clockStandby entry during thinking/answering or right after canceling recording,
+    // and prevent duplicate rebuilds when hud.set already transitioned to clockStandby!
+    if (!hud.__v32StandbyOrigin) {
+      hud.__v32StandbyOrigin = hud.setClockStandby.bind(hud);
     }
+    hud.setClockStandby = function (standby) {
+      if (standby && (st.mode === 'thinking' || st.mode === 'answering' || Date.now() - (st.__lastCancelMs || 0) < 1800)) {
+        st.clockStandby = false;
+        this.clockStandby = false;
+        return Promise.resolve(false);
+      }
+      if (this.clockStandby === standby) {
+        return Promise.resolve(true);
+      }
+      this.clockStandby = standby;
+      st.clockStandby = standby;
+      if (standby) {
+        const cleanStatus = formatCleanClockStatus(st);
+        this.wanted = { title: ' ', status: cleanStatus, body: ' ' };
+        this.shown = { title: ' ', status: cleanStatus, body: ' ' };
+        this.flushQueued = false;
+      }
+      if (typeof this.updateMirror === 'function') this.updateMirror();
+      return this.startupSpent ? this.rebuild() : Promise.resolve(true);
+    };
 
     // Force disable followUp and wakeWord on state
     if (st.prefs) {
@@ -765,27 +916,6 @@
     }
     st.hudPages = [];
 
-    const getClean6MenuItems = () => {
-      if (isLegacyV2Host) {
-        return [
-          { id: 1, name: '새 채팅' },
-          { id: 2, name: st.clockStandby ? 'HUD 켜기' : '시계 대기' },
-          { id: 4, name: st.roomMode === 'translate' ? '번역 끄기' : '상대 번역' },
-          { id: 7, name: '두뇌 동기화' },
-          { id: 5, name: st.prefs?.discreet ? '밝기: 밝게' : '밝기: 어둡게' },
-          { id: 99, name: '닫기' }
-        ];
-      }
-      return [
-        { id: 1, name: '새 채팅' },
-        { id: 2, name: st.clockStandby ? 'HUD 켜기' : '시계 대기' },
-        { id: 3, name: st.roomMode === 'translate' ? '번역 끄기' : '상대 번역' },
-        { id: 4, name: '두뇌 동기화' },
-        { id: 5, name: st.prefs?.discreet ? '밝기: 밝게' : '밝기: 어둡게' },
-        { id: 6, name: '닫기' }
-      ];
-    };
-
     // Completely disable smartphone WebSpeech API so it NEVER hijacks the mobile OS audio session from G2 Glasses BLE mic!
     try {
       window.SpeechRecognition = undefined;
@@ -797,77 +927,95 @@
     hud.menuObject = function () {
       return undefined;
     };
-    if (!hud.__v31MenuHooked && typeof hud.setMenu === 'function') {
-      hud.__v31MenuHooked = true;
-      hud.setMenu = function () {
-        this.menu = [];
-      };
-    }
+    hud.setMenu = function () {
+      this.menu = [];
+    };
 
-    // Safe Optical Waveguide Geometry: xPosition=20, width=536, paddingLength=16 (36px left/right glyph margin -> zero left-edge clipping!)
+    // Safe Optical Waveguide Geometry + Fixed Clock Coordinates (Zero 40px shift, Zero border, Zero menu bar)
     window.__AGY_HUD_Y_OFFSET__ = 0;
     localStorage.setItem('agy_g2_hud_y_offset', '0');
-    if (!hud.__v31PageObjectsHooked && typeof hud.pageObjects === 'function') {
-      hud.__v31PageObjectsHooked = true;
-      const origPageObjects = hud.pageObjects.bind(hud);
+    if (!hud.__v31PageObjectsOrigin && typeof hud.pageObjects === 'function') {
+      hud.__v31PageObjectsOrigin = hud.pageObjects.bind(hud);
+    }
+    if (hud.__v31PageObjectsOrigin) {
       hud.pageObjects = function (snapshot) {
-        const objs = origPageObjects(snapshot);
-        if (Array.isArray(objs)) {
-          for (const obj of objs) {
-            const name = obj?.containerName;
-            if (name === 'title') {
-              obj.xPosition = 20;
-              obj.yPosition = 0;
-              obj.width = 260;
-              obj.height = 44;
-              obj.borderWidth = 0;
-              obj.paddingLength = 10;
-              obj.content = sliceByUtf8Bytes(String(obj.content || ' ').replace(/\s*\|\s*/g, '  '), 180);
-            } else if (name === 'status') {
-              obj.xPosition = this.clockStandby ? 336 : 296;
-              obj.yPosition = 0;
-              obj.width = this.clockStandby ? 220 : 260;
-              obj.height = 44;
-              obj.borderWidth = 0;
-              obj.paddingLength = this.clockStandby ? 6 : 10;
-              obj.content = sliceByUtf8Bytes(
-                String(obj.content || ' ')
-                  .replace(/\s*\|\s*/g, '  ')
-                  .replace(/[■□]{2,}\s*/g, ''),
-                180
-              );
-            } else if (name === 'body') {
-              obj.xPosition = 20;
-              obj.yPosition = 46;
-              obj.width = 536;
-              obj.height = 242;
-              obj.borderWidth = 0;
-              obj.paddingLength = 16;
-              obj.isEventCapture = 1;
-              // Initial container packet uses 900 UTF-8 bytes (~300 Korean chars); markPageBuilt() immediately upgrades to 1650 UTF-8 bytes!
-              obj.content = sliceByUtf8Bytes(obj.content || ' ', 900);
-            }
-          }
-        }
+        const objs = hud.__v31PageObjectsOrigin(snapshot);
+        sanitizePageContainerPayload({ textObject: objs }, this);
         return objs;
       };
     }
 
-    hud.setMenu(getClean6MenuItems());
-    if (typeof hud.rebuild === 'function') {
-      void hud.rebuild();
+    // Re-register startup page container WITHOUT menuObject in case v2.0.0 host called hud.start() before live_patch.js loaded!
+    if (hud.bridge && !hud.__v325StartupCleared) {
+      hud.__v325StartupCleared = true;
+      hud.shown = {
+        title: hud.slotText('title'),
+        status: hud.slotText('status'),
+        body: sliceByUtf8Bytes(hud.slotText('body'), 900)
+      };
+      hud.flushQueued = false;
+      if (typeof hud.start === 'function') {
+        hud.startupSpent = false;
+        void hud.start();
+      } else if (typeof hud.rebuild === 'function') {
+        void hud.rebuild();
+      }
     }
 
     // Hook hud.set to:
-    // 1) Immediately block any single-tap ('tap') recording attempt on v2.0.0 host & show full scrollable previous chat!
-    // 2) Disable phone WebSpeech during glasses recording so distant phone mic never overrides G2 glasses mic!
-    // 3) Show full scrollable previous chat when canceling recording (double-tap)
-    // 4) Automatically window long answers (up to 12,000 chars) into UTF-8 safe scroll windows!
-    if (!hud.__v31SetHooked) {
-      hud.__v31SetHooked = true;
-      const origSet = hud.set.bind(hud);
+    // 1) Execute Clock Standby entry in a SINGLE ATOMIC FRAME (0 coordinate shift, 0 intermediate TextContainerUpgrade flicker!)
+    // 2) Immediately block any single-tap ('tap') recording attempt on v2.0.0 host & show full scrollable previous chat!
+    // 3) Disable phone WebSpeech during glasses recording so distant phone mic never overrides G2 glasses mic!
+    // 4) Show full scrollable previous chat when canceling recording (double-tap)
+    // 5) Automatically window long answers (up to 12,000 chars) into UTF-8 safe scroll windows!
+    if (!hud.__v31SetOrigin && typeof hud.set === 'function') {
+      hud.__v31SetOrigin = hud.set.bind(hud);
+    }
+    if (hud.__v31SetOrigin) {
+      const origSet = hud.__v31SetOrigin;
 
       hud.set = function (update) {
+        // ATOMIC SINGLE-FRAME CLOCK STANDBY ENTRY & ZERO-FLICKER CLOCK TICK
+        if (st.clockStandby || (update && update.title === ' ' && update.body === ' ')) {
+          if (st.mode === 'thinking' || st.mode === 'answering' || Date.now() - (st.__lastCancelMs || 0) < 1800) {
+            st.clockStandby = false;
+            this.clockStandby = false;
+            return;
+          }
+          const cleanStatus = formatCleanClockStatus(st);
+          const enteringNow = !this.clockStandby;
+          st.clockStandby = true;
+          this.clockStandby = true;
+          this.wanted = {
+            title: ' ',
+            status: cleanStatus,
+            body: ' '
+          };
+          if (typeof this.updateMirror === 'function') this.updateMirror();
+          if (enteringNow) {
+            // Pre-populate shown so NO TextContainerUpgrade is sent before or after RebuildPageContainer!
+            this.shown = { title: ' ', status: cleanStatus, body: ' ' };
+            this.flushQueued = false;
+            if (typeof this.rebuild === 'function') {
+              void this.rebuild();
+            }
+          } else {
+            // Already in Clock Standby (e.g. 15s updateClock tick): only flush status in-place if the minute/battery actually changed!
+            this.shown.title = ' ';
+            this.shown.body = ' ';
+            if (this.shown.status !== cleanStatus && typeof this.scheduleFlush === 'function') {
+              this.scheduleFlush();
+            }
+          }
+          return;
+        }
+
+        // If waking from clockStandby via goIdle() / hud.set({ title: '◆ E.D.I.T.H...' })
+        const wakingFromStandby = Boolean(this.clockStandby && !st.clockStandby);
+        if (wakingFromStandby) {
+          this.clockStandby = false;
+        }
+
         // BLOCK SINGLE-TAP ('tap') LISTENING IMMEDIATELY & SHOW PREVIOUS CONVERSATION!
         if (
           (st.mode === 'listening' && st.trigger === 'tap') ||
@@ -876,7 +1024,7 @@
           st.mode = 'idle';
           st.trigger = 'idle';
           st.clockStandby = false;
-          hud.clockStandby = false;
+          this.clockStandby = false;
           try { st.recorder?.stop(); } catch {}
           st.recorder = null;
           if (st.ticker) {
@@ -889,11 +1037,11 @@
           }
           st.webSpeechTranscript = '';
           st.quietListening = false;
-          if (hud.bridge && st.micOpen) {
+          if (this.bridge && st.micOpen) {
             st.micOpen = false;
-            try { hud.bridge.audioControl(false); } catch {}
+            try { this.bridge.audioControl(false); } catch {}
           }
-          showPreviousChatOnHud(st, hud, false);
+          showPreviousChatOnHud(st, this, false);
           return;
         }
 
@@ -935,7 +1083,7 @@
             st.__lastCancelMs = Date.now();
             const hasPrev = ensureLastConversationOnState(st);
             if (hasPrev && st.last && st.last.reply) {
-              showPreviousChatOnHud(st, hud, false);
+              showPreviousChatOnHud(st, this, false);
               return;
             }
           }
@@ -1000,6 +1148,22 @@
             ...update,
             status: update.status.replace(/\s*\|\s*/g, '  ').replace(/[■□]{2,}\s*/g, '')
           };
+        }
+        if (wakingFromStandby) {
+          for (const slot of ['title', 'status', 'body']) {
+            if (update && update[slot] !== undefined) {
+              this.wanted[slot] = update[slot] || ' ';
+            }
+          }
+          this.shown = {
+            title: this.slotText('title'),
+            status: this.slotText('status'),
+            body: sliceByUtf8Bytes(this.slotText('body'), 900)
+          };
+          this.flushQueued = false;
+          if (typeof this.updateMirror === 'function') this.updateMirror();
+          if (typeof this.rebuild === 'function') void this.rebuild();
+          return;
         }
         return origSet(update);
       };
