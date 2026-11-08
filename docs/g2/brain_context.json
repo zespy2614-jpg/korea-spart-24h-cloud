@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 3:09:56",
+  "updatedAt": "2026. 11. 8. PM 3:11:56",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -149,7 +149,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 3:09:56\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 11단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 3:11:56\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 12단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -596,6 +596,14 @@
   ],
   "livePcAntigravity": [
     {
+      "updatedAt": "2026-11-08T06:01:44Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] 워크스페이스에 보관된 실제 펌웨어 이미지([`boot.img`](file:///e:/안티그래비티/ELIPHOEM_Backups/RK3566_Firmware_IMG_20261107/boot.img), [`uboot.img`](file:///e:/안티그래비티/ELIPHOEM_Backups/RK3566_Firmware_IMG_20261107/uboot.img), [`trust.img`](file:///e:/안티그래비티/ELIPHOEM_Backups/RK3566_Firmware_IMG_20261107/trust.img))와 현재 운용 중인 쉼(Shim) 소스 코드([`mali_compat.c`](file:///e:/안티그래비티/ELIPHOEM_Backups/backup_20261107_safe_state/mali_compat.c))를 직접 역어셈블("
+    },
+    {
+      "updatedAt": "2026-11-08T06:11:47Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 그럼너는 왜 진작에 너한테 일시킬때이거안했어"
+    },
+    {
       "updatedAt": "2026-11-08T05:40:47Z",
       "snippet": "[안티그래비티(PC 작업 결과)] 방금 말씀하신 **블루투스(BLE) + 주변 기기 무설정 자동 탐색(Zero-Config Beacon)** 기능을 허브 서버([edge_hub_server.py](file:///e:/안티그래비티/ai_edge_box_demo/edge_hub_server.py))와 안드로이드 전용 앱([AnsimCare_AI_Box.apk](file:///e:/안티그래비티/ai_edge_box_demo/AnsimCare_AI_Box.apk))에 즉시 탑재하여 새로 빌드·서명까지 완료했습니다!\n\n---\n\n### 이제 고객(원장님·사장님)이 기기를 연결하는 방식이 얼마나 쉬워졌나?\n\n삼성 스마트싱스(SmartThings)나 갤럭시 버즈 이어폰 연결할 때와 완전히 똑같아졌습니다.\n\n```mermaid\nflowchart LR\n    A[\"1. 기기에 전원·랜선·HDM"
     },
@@ -626,10 +634,6 @@
     {
       "updatedAt": "2026-11-08T06:08:59Z",
       "snippet": "[안티그래비티(PC 작업 결과)] **[10수 앞을 보는 천재 공동창업자(CTO) 모드]**가 즉시 가동되었습니다.\n\n말로만 대답하는 대신, 지침을 받자마자 사장님이 시키시기 전에 **실제 납품 현장에서 터질 반품·고장 원인 4가지**를 펌웨어 코어([rk3588_edge_engine.py](file:///e:/안티그래비티/ai_edge_box_demo/rk3588s_firmware/rk3588_edge_engine.py))에 먼저 다 구현해 넣고, **[verify_ai_edge_box_digital_twin.py](file:///e:/안티그래비티/ai_edge_box_demo/verify_ai_edge_box_digital_twin.py) 18개 전수 테스트 100% 통과(PASS)** 및 마스터 폴더(`E:\\dev\\rk3588s_usb_hdd\\ai_edge_box`) 배"
-    },
-    {
-      "updatedAt": "2026-11-08T06:01:44Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] 워크스페이스에 보관된 실제 펌웨어 이미지([`boot.img`](file:///e:/안티그래비티/ELIPHOEM_Backups/RK3566_Firmware_IMG_20261107/boot.img), [`uboot.img`](file:///e:/안티그래비티/ELIPHOEM_Backups/RK3566_Firmware_IMG_20261107/uboot.img), [`trust.img`](file:///e:/안티그래비티/ELIPHOEM_Backups/RK3566_Firmware_IMG_20261107/trust.img))와 현재 운용 중인 쉼(Shim) 소스 코드([`mali_compat.c`](file:///e:/안티그래비티/ELIPHOEM_Backups/backup_20261107_safe_state/mali_compat.c))를 직접 역어셈블("
     },
     {
       "updatedAt": "2026-11-08T05:24:56Z",
@@ -695,6 +699,16 @@
   "livePcAntigravitySession": [
     {
       "role": "안티그래비티(PC 작업 결과)",
+      "createdAt": "2026-11-08T06:01:44Z",
+      "summary": "워크스페이스에 보관된 실제 펌웨어 이미지([`boot.img`](file:///e:/안티그래비티/ELIPHOEM_Backups/RK3566_Firmware_IMG_20261107/boot.img), [`uboot.img`](file:///e:/안티그래비티/ELIPHOEM_Backups/RK3566_Firmware_IMG_20261107/uboot.img), [`trust.img`](file:///e:/안티그래비티/ELIPHOEM_Backups/RK3566_Firmware_IMG_20261107/trust.img))와 현재 운용 중인 쉼(Shim) 소스 코드([`mali_compat.c`](file:///e:/안티그래비티/ELIPHOEM_Backups/backup_20261107_safe_state/mali_compat.c))를 직접 역어셈블("
+    },
+    {
+      "role": "대표님(PC 안티그래비티 요청)",
+      "createdAt": "2026-11-08T06:11:47Z",
+      "summary": "그럼너는 왜 진작에 너한테 일시킬때이거안했어"
+    },
+    {
+      "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-08T05:40:47Z",
       "summary": "방금 말씀하신 **블루투스(BLE) + 주변 기기 무설정 자동 탐색(Zero-Config Beacon)** 기능을 허브 서버([edge_hub_server.py](file:///e:/안티그래비티/ai_edge_box_demo/edge_hub_server.py))와 안드로이드 전용 앱([AnsimCare_AI_Box.apk](file:///e:/안티그래비티/ai_edge_box_demo/AnsimCare_AI_Box.apk))에 즉시 탑재하여 새로 빌드·서명까지 완료했습니다!\n\n---\n\n### 이제 고객(원장님·사장님)이 기기를 연결하는 방식이 얼마나 쉬워졌나?\n\n삼성 스마트싱스(SmartThings)나 갤럭시 버즈 이어폰 연결할 때와 완전히 똑같아졌습니다.\n\n```mermaid\nflowchart LR\n    A[\"1. 기기에 전원·랜선·HDM"
     },
@@ -732,11 +746,6 @@
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-08T06:08:59Z",
       "summary": "**[10수 앞을 보는 천재 공동창업자(CTO) 모드]**가 즉시 가동되었습니다.\n\n말로만 대답하는 대신, 지침을 받자마자 사장님이 시키시기 전에 **실제 납품 현장에서 터질 반품·고장 원인 4가지**를 펌웨어 코어([rk3588_edge_engine.py](file:///e:/안티그래비티/ai_edge_box_demo/rk3588s_firmware/rk3588_edge_engine.py))에 먼저 다 구현해 넣고, **[verify_ai_edge_box_digital_twin.py](file:///e:/안티그래비티/ai_edge_box_demo/verify_ai_edge_box_digital_twin.py) 18개 전수 테스트 100% 통과(PASS)** 및 마스터 폴더(`E:\\dev\\rk3588s_usb_hdd\\ai_edge_box`) 배"
-    },
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-08T06:01:44Z",
-      "summary": "워크스페이스에 보관된 실제 펌웨어 이미지([`boot.img`](file:///e:/안티그래비티/ELIPHOEM_Backups/RK3566_Firmware_IMG_20261107/boot.img), [`uboot.img`](file:///e:/안티그래비티/ELIPHOEM_Backups/RK3566_Firmware_IMG_20261107/uboot.img), [`trust.img`](file:///e:/안티그래비티/ELIPHOEM_Backups/RK3566_Firmware_IMG_20261107/trust.img))와 현재 운용 중인 쉼(Shim) 소스 코드([`mali_compat.c`](file:///e:/안티그래비티/ELIPHOEM_Backups/backup_20261107_safe_state/mali_compat.c))를 직접 역어셈블("
     },
     {
       "role": "대표님(PC 안티그래비티 요청)",
