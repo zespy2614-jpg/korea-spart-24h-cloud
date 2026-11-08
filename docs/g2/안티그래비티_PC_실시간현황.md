@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 5:59:31
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 5:59:47
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -23,9 +23,9 @@
 - **[비즈니스]**: 지파츠 이베이 40선 실시간 재고 감시 및 8개국 크로스보더 80선(순마진 30% 이상 보장 공식)이 24시간 가동 중입니다.
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
+- **[대표님(PC 안티그래비티 요청)]**: 너내꺼 쿠팡윙하고 스마트스토어 접속해서 일매출확인할수있어 ? 그리고 북마크에 이플렉스 아이디로그인 되어있는데 접속해서 인증번호 네이버메일들어오면 확인해서 로그인한다음 재고 볼수있니 <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 - **[안티그래비티(PC 작업 결과)]**: 사장님께서 앞으로 **어떤 대화를 새로 시작하시든, 어떤 물건(스마트안경·앱·웹·하드웨어·쇼핑몰 도구 등)을 만드시든 일일이 지시하지 않으셔도 제가 무조건 ‘50대 한국인 실소비자 테스터’로 빙의하여 모든 기능을 처음부터 끝까지 다 써보고 불편한 점을 알아서 고쳐놓도록** 아래 3곳에 영구 법칙으로 박아넣었습니다. - **전역 최상위 뇌 규칙**: [`GEMINI.md`](file:///C:/Users/박정수/.gemini/GEMINI.md#L33-L40) (사장님의 모든 프로젝트에 영구 자동 적용) - **워크스페이스 규칙**: [`AGENTS.md`](file:///e:/안티그래비티/AGENTS.md#L3-L6) - **50대 실소비자 빙의 전용 스킬 & 자동 검증기**: [`SKILL.md`](file:///e:/안티그래비티/.agen
 - **[대표님(PC 안티그래비티 요청)]**: 지금부터 너는 개발자가 아니라 '기계를 잘 모르고, 눈이 침침하고(노안), 성격이 급한 50대 한국인 갤럭시 스마트폰 실소비자'야. 내가 폰 들고 직접 테스트하느라 진 빼지 않게, 네가 직접 50대 소비자가 되어서 이 물건의 모든 기능을 처음부터 끝까지 하나도 빠짐없이 다 눌러보고 사용해 봐.  특히 아래 6가지를 무조건 직접 검증하고, 소비자가 조금이라도 불편해할 만한 건 나한테 물어보지 말고 네가 알아서 다 고쳐놔: 1. [노안 & 큰 글씨(120%) 확인]: 갤럭시 작은 화면(360x800)과 '글자 크기 크게(120%)' 상태에서 글씨가 잘리거나 작은 글씨(12px 이하)로 되어 있는 곳은 전부 큼직하고 선명하게 키워라. 2. [굵은 엄지손가락 터치]: 돋보기 없이 한 손 엄지로 대충 눌러도 옆 버튼이 안 눌리게 모든 버튼을 
-- **[대표님(PC 안티그래비티 요청)]**: 너내꺼 쿠팡윙하고 스마트스토어 접속해서 일매출확인할수있어 ? 그리고 북마크에 이플렉스 아이디로그인 되어있는데 접속해서 인증번호 네이버메일들어오면 확인해서 로그인한다음 재고 볼수있니 <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 
 ## 2. 최근 수정된 워크스페이스 핵심 문서 Top 10
 - `G2_영구기억_노트.md` (2026. 11. 8. PM 5:58:34)
