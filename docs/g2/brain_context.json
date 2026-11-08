@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 4:15:28",
+  "updatedAt": "2026. 11. 8. PM 4:15:43",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -149,7 +149,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 4:15:28\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 5단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 4:15:43\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 5단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -596,14 +596,6 @@
   ],
   "livePcAntigravity": [
     {
-      "updatedAt": "2026-11-08T07:15:25Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 폴드8 이있고 폴드8울트라가있어?\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
-    },
-    {
-      "updatedAt": "2026-11-08T07:12:13Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 당근마켓에서 RF70-200 캐논 팔려고하는데 얼마쯤하나봐봐 얼마에올리면될까 최저가얼마야 \n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
-    },
-    {
       "updatedAt": "2026-11-08T07:08:41Z",
       "snippet": "[안티그래비티(PC 작업 결과)] 기기 오디오 출력 경로(`AudioRouteService` 및 내장 스피커 앰프 GPIO 상태)를 점검하여 **내장 스피커** 출력 복구 및 동기화 패치를 적용하고 있습니다. 작업이 완료되는 즉시 결과를 보고드리겠습니다."
     },
@@ -614,6 +606,14 @@
     {
       "updatedAt": "2026-11-08T07:13:09Z",
       "snippet": "[대표님(PC 안티그래비티 요청)] 그리고 네비게이션 버튼 위로올릴때 왼쪽상단에 볼륨조절할수있는바도 만들어줘"
+    },
+    {
+      "updatedAt": "2026-11-08T07:15:25Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 폴드8 이있고 폴드8울트라가있어?\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
+    },
+    {
+      "updatedAt": "2026-11-08T07:12:13Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 당근마켓에서 RF70-200 캐논 팔려고하는데 얼마쯤하나봐봐 얼마에올리면될까 최저가얼마야 \n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
     }
   ],
   "recentDocs": [
@@ -670,16 +670,6 @@
   ],
   "livePcAntigravitySession": [
     {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-08T07:15:25Z",
-      "summary": "폴드8 이있고 폴드8울트라가있어?\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
-    },
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-08T07:12:13Z",
-      "summary": "당근마켓에서 RF70-200 캐논 팔려고하는데 얼마쯤하나봐봐 얼마에올리면될까 최저가얼마야 \n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
-    },
-    {
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-08T07:08:41Z",
       "summary": "기기 오디오 출력 경로(`AudioRouteService` 및 내장 스피커 앰프 GPIO 상태)를 점검하여 **내장 스피커** 출력 복구 및 동기화 패치를 적용하고 있습니다. 작업이 완료되는 즉시 결과를 보고드리겠습니다."
@@ -693,6 +683,16 @@
       "role": "대표님(PC 안티그래비티 요청)",
       "createdAt": "2026-11-08T07:13:09Z",
       "summary": "그리고 네비게이션 버튼 위로올릴때 왼쪽상단에 볼륨조절할수있는바도 만들어줘"
+    },
+    {
+      "role": "대표님(PC 안티그래비티 요청)",
+      "createdAt": "2026-11-08T07:15:25Z",
+      "summary": "폴드8 이있고 폴드8울트라가있어?\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
+    },
+    {
+      "role": "대표님(PC 안티그래비티 요청)",
+      "createdAt": "2026-11-08T07:12:13Z",
+      "summary": "당근마켓에서 RF70-200 캐논 팔려고하는데 얼마쯤하나봐봐 얼마에올리면될까 최저가얼마야 \n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
     }
   ],
   "livePcArtifacts": [
