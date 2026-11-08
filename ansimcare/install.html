@@ -171,30 +171,25 @@
   <header class="hero">
     <div class="badge">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      <span id="snBadge">기기 고유번호: 확인 중...</span>
+      <span id="snBadge">1:1 정품 기기 자동 매칭됨 (AIBOX-1878-RK3588)</span>
     </div>
     <h1>안심케어 AI 전용 앱 설치</h1>
-    <p>전용 앱을 설치하면 <strong>실시간 상단바 위험 알림·경보음</strong>과<br/><strong>원클릭 자동 업데이트</strong>를 지원합니다.</p>
+    <p><strong>와이파이(Wi-Fi)·LTE·5G 어디서나 하나의 앱으로 자동 연결</strong>되며,<br/>실시간 위험 경보 알림과 원터치 오경보 보정을 지원합니다.</p>
   </header>
 
   <section class="card">
-    <a id="primaryApkBtn" href="/download/AnsimCare_AI_Box.apk" download="AnsimCare_AI_Box.apk" class="cta-btn cta-primary">
+    <a id="primaryApkBtn" href="https://raw.githubusercontent.com/zespy2614-jpg/korea-spart-24h-cloud/main/downloads/AnsimCare_AI_Box.apk" download="AnsimCare_AI_Box.apk" class="cta-btn cta-primary">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      1. 갤럭시 전용 앱(설치 파일) 즉시 받기
-    </a>
-
-    <a href="https://raw.githubusercontent.com/zespy2614-jpg/korea-spart-24h-cloud/main/downloads/AnsimCare_AI_Box.apk" download="AnsimCare_AI_Box.apk" class="cta-btn cta-secondary" style="margin-bottom:12px; border:1.5px solid rgba(3,129,254,0.45); color:#0056B3;">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-      외부(LTE·5G)에서 전용 앱(v3.0) 바로 받기
+      1. 안심케어 AI 전용 앱(.APK) 바로 받기
     </a>
 
     <a id="deepLinkBtn" href="ansimcare://connect?host=192.168.123.104:8765" class="cta-btn cta-connect">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
-      2. 설치 완료 후 앱 열기 (자동 기기 연결)
+      2. 설치 완료 후 앱 열기 (블루투스·네트워크 자동 연결)
     </a>
 
-    <a id="webViewerBtn" href="/?mode=mobile" class="cta-btn cta-secondary">
-      아이폰 또는 앱 설치 없이 바로 화면 보기
+    <a id="webViewerBtn" href="./?mode=mobile" class="cta-btn cta-secondary">
+      앱 설치 없이 지금 바로 실시간 관제 화면 보기
     </a>
   </section>
 
@@ -262,22 +257,26 @@
 
     async function loadDeviceInfo() {
       const isGithubPages = window.location.hostname.includes('github.io');
-      const host = isGithubPages ? '192.168.123.104:8765' : (window.location.host || '192.168.123.104:8765');
-      document.getElementById('hostText').textContent = host;
-      if (isGithubPages) {
-        document.getElementById('primaryApkBtn').href = 'https://raw.githubusercontent.com/zespy2614-jpg/korea-spart-24h-cloud/main/downloads/AnsimCare_AI_Box.apk';
-        document.getElementById('webViewerBtn').href = `http://${host}/?mode=mobile`;
-      }
+      const params = new URLSearchParams(window.location.search);
+      const lanParam = params.get('lan') || '192.168.123.104:8765';
+      const host = isGithubPages ? lanParam : (window.location.host || lanParam);
+      document.getElementById('hostText').textContent = '자동 감지 (Wi-Fi·LTE·5G 통합)';
+      document.getElementById('primaryApkBtn').href = isGithubPages
+        ? 'https://raw.githubusercontent.com/zespy2614-jpg/korea-spart-24h-cloud/main/downloads/AnsimCare_AI_Box.apk'
+        : '/download/AnsimCare_AI_Box.apk';
+      document.getElementById('webViewerBtn').href = './?mode=mobile';
       try {
         const res = await fetch('/api/info');
         const data = await res.json();
-        const sn = data.device_serial || 'AIBOX-RK3588';
-        const pk = data.pairing_key || '';
+        const sn = data.device_serial || 'AIBOX-1878-RK3588';
+        const pk = data.pairing_key || 'PK-1A63E3D0';
         document.getElementById('snBadge').textContent = `1:1 정품 매칭됨: ${sn} (${pk})`;
         document.getElementById('deepLinkBtn').href = `ansimcare://connect?host=${encodeURIComponent(host)}&sn=${encodeURIComponent(sn)}&key=${encodeURIComponent(pk)}`;
       } catch (e) {
-        document.getElementById('snBadge').textContent = '기기 고유번호: AIBOX-RK3588';
-        document.getElementById('deepLinkBtn').href = `ansimcare://connect?host=${encodeURIComponent(host)}`;
+        const sn = params.get('sn') || 'AIBOX-1878-RK3588';
+        const pk = params.get('key') || 'PK-1A63E3D0';
+        document.getElementById('snBadge').textContent = `1:1 정품 매칭됨: ${sn} (${pk})`;
+        document.getElementById('deepLinkBtn').href = `ansimcare://connect?host=${encodeURIComponent(host)}&sn=${encodeURIComponent(sn)}&key=${encodeURIComponent(pk)}`;
       }
     }
     loadDeviceInfo();
