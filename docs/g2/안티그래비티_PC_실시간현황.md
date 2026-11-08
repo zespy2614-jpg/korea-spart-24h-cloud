@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 3:34:42
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 3:35:12
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -23,8 +23,6 @@
 - **[비즈니스]**: 지파츠 이베이 40선 실시간 재고 감시 및 8개국 크로스보더 80선(순마진 30% 이상 보장 공식)이 24시간 가동 중입니다.
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
-- **[안티그래비티(PC 작업 결과)]**: **[10수 앞을 보는 천재 공동창업자(CTO) 모드]**가 즉시 가동되었습니다. 말로만 대답하는 대신, 지침을 받자마자 사장님이 시키시기 전에 **실제 납품 현장에서 터질 반품·고장 원인 4가지**를 펌웨어 코어([rk3588_edge_engine.py](file:///e:/안티그래비티/ai_edge_box_demo/rk3588s_firmware/rk3588_edge_engine.py))에 먼저 다 구현해 넣고, **[verify_ai_edge_box_digital_twin.py](file:///e:/안티그래비티/ai_edge_box_demo/verify_ai_edge_box_digital_twin.py) 18개 전수 테스트 100% 통과(PASS)** 및 마스터 폴더(`E:\dev\rk3588s_usb_hdd\ai_edge_box`) 배
-- **[대표님(PC 안티그래비티 요청)]**: 내가 너메모리랑스킬업데이트했는데 그거보고 지금 꽂혀있는 RK3588S 기기 전체적으로 더점검하고 펌웨어 업그레이드해줘 오류잡아주고 기능하나씩들어가보면서 테스트하고 그리고 블루투스기능은 블루투스없으니까 동글USB로 껴도되잖아
 - **[대표님(PC 안티그래비티 요청)]**: 현대 차테블릿에 무슨칩들어가 ?무슨 테블릿이 700이라는데 칩이뭐지 42닷에서 얼마에공급하길래 <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 - **[안티그래비티(PC 작업 결과)]**: 사장님, 요즘 자동차 커뮤니티와 유튜브, 직장인 블라인드에서 가장 뜨겁게 불타오르고 있는 **‘현대차 신형 태블릿(플레오스 커넥트) 700만 원 논란 & 포티투닷(42dot) 납품가 이슈’**를 보셨군요! 임베디드 하드웨어(SoC) 원가와 완성차 내부 정산 구조를 기준으로 **① 실제 들어간 칩의 정체와 원가**, **② 왜 태블릿이 700만 원이라는 말이 나왔는지**, **③ 포티투닷(42dot)이 얼마에 공급하길래 내부 폭로까지 터졌는지** 핵심 팩트만 속 시원하게 정리해 드립니다. --- ### 1. 현대차 신형 태블릿에 들어간 칩은 무엇인가? 최근 출시된 **더 뉴 그랜저(페이스리프트)**, **디 올 뉴 아반떼(CN8)**, **신형 투싼** 등의 실내 중앙에 테슬라처럼 떡하니 붙어 나온 16:9 비율 대형 태블릿(12.9~1
 - **[안티그래비티(PC 작업 결과)]**: 워크스페이스에 보관된 실제 펌웨어 이미지([`boot.img`](file:///e:/안티그래비티/ELIPHOEM_Backups/RK3566_Firmware_IMG_20261107/boot.img), [`uboot.img`](file:///e:/안티그래비티/ELIPHOEM_Backups/RK3566_Firmware_IMG_20261107/uboot.img), [`trust.img`](file:///e:/안티그래비티/ELIPHOEM_Backups/RK3566_Firmware_IMG_20261107/trust.img))와 현재 운용 중인 쉼(Shim) 소스 코드([`mali_compat.c`](file:///e:/안티그래비티/ELIPHOEM_Backups/backup_20261107_safe_state/mali_compat.c))를 직접 역어셈블(

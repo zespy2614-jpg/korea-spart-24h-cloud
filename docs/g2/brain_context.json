@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 3:34:42",
+  "updatedAt": "2026. 11. 8. PM 3:35:12",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -149,7 +149,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 3:34:42\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 11단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 3:35:12\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 9단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -596,14 +596,6 @@
   ],
   "livePcAntigravity": [
     {
-      "updatedAt": "2026-11-08T06:08:59Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] **[10수 앞을 보는 천재 공동창업자(CTO) 모드]**가 즉시 가동되었습니다.\n\n말로만 대답하는 대신, 지침을 받자마자 사장님이 시키시기 전에 **실제 납품 현장에서 터질 반품·고장 원인 4가지**를 펌웨어 코어([rk3588_edge_engine.py](file:///e:/안티그래비티/ai_edge_box_demo/rk3588s_firmware/rk3588_edge_engine.py))에 먼저 다 구현해 넣고, **[verify_ai_edge_box_digital_twin.py](file:///e:/안티그래비티/ai_edge_box_demo/verify_ai_edge_box_digital_twin.py) 18개 전수 테스트 100% 통과(PASS)** 및 마스터 폴더(`E:\\dev\\rk3588s_usb_hdd\\ai_edge_box`) 배"
-    },
-    {
-      "updatedAt": "2026-11-08T06:25:58Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 내가 너메모리랑스킬업데이트했는데 그거보고 지금 꽂혀있는 RK3588S 기기 전체적으로 더점검하고 펌웨어 업그레이드해줘 오류잡아주고 기능하나씩들어가보면서 테스트하고 그리고 블루투스기능은 블루투스없으니까 동글USB로 껴도되잖아"
-    },
-    {
       "updatedAt": "2026-11-08T06:18:37Z",
       "snippet": "[대표님(PC 안티그래비티 요청)] 현대 차테블릿에 무슨칩들어가 ?무슨 테블릿이 700이라는데 칩이뭐지 42닷에서 얼마에공급하길래\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
     },
@@ -693,16 +685,6 @@
     }
   ],
   "livePcAntigravitySession": [
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-08T06:08:59Z",
-      "summary": "**[10수 앞을 보는 천재 공동창업자(CTO) 모드]**가 즉시 가동되었습니다.\n\n말로만 대답하는 대신, 지침을 받자마자 사장님이 시키시기 전에 **실제 납품 현장에서 터질 반품·고장 원인 4가지**를 펌웨어 코어([rk3588_edge_engine.py](file:///e:/안티그래비티/ai_edge_box_demo/rk3588s_firmware/rk3588_edge_engine.py))에 먼저 다 구현해 넣고, **[verify_ai_edge_box_digital_twin.py](file:///e:/안티그래비티/ai_edge_box_demo/verify_ai_edge_box_digital_twin.py) 18개 전수 테스트 100% 통과(PASS)** 및 마스터 폴더(`E:\\dev\\rk3588s_usb_hdd\\ai_edge_box`) 배"
-    },
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-08T06:25:58Z",
-      "summary": "내가 너메모리랑스킬업데이트했는데 그거보고 지금 꽂혀있는 RK3588S 기기 전체적으로 더점검하고 펌웨어 업그레이드해줘 오류잡아주고 기능하나씩들어가보면서 테스트하고 그리고 블루투스기능은 블루투스없으니까 동글USB로 껴도되잖아"
-    },
     {
       "role": "대표님(PC 안티그래비티 요청)",
       "createdAt": "2026-11-08T06:18:37Z",
