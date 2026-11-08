@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 6:40:52",
+  "updatedAt": "2026. 11. 8. PM 6:41:07",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -150,7 +150,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 6:40:52\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 8단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 6:41:07\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 9단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -637,14 +637,6 @@
   ],
   "livePcAntigravity": [
     {
-      "updatedAt": "2026-11-08T09:31:56Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] This request was blocked by Gemini's filters. They can occasionally trigger by mistake on safe coding, security, or biology-related queries. Please try rephrasing your prompt. You can [send feedback](https://aistudio.google.com/docs/troubleshooting#file-bug) or read more about [our policies here](https://policies.google.com/terms/generative-ai/use-policy)."
-    },
-    {
-      "updatedAt": "2026-11-08T09:38:19Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 아뭐가위반이야피해서해줘"
-    },
-    {
       "updatedAt": "2026-11-08T09:15:31Z",
       "snippet": "[안티그래비티(PC 작업 결과)] 사장님, 지시하신 대로 **`UIS7861`(및 핀 호환 `UIS7862`) 코어 모듈을 얹어서 차량용 안드로이드 올인원, 화물차/중장비 24V 단말기, 스마트 모니터, 산업용 비전 AI 박스에 모두 공용으로 쓸 수 있는 『UIS7861 만능 공용 메인보드 (140×100mm 4층 기판) & 방열 케이스』** 전 과정 설계를 완료했습니다!\n\n---\n\n### 📂 1. 생성 완료된 『UIS7861 만능 공용 메인보드』 실물 설계 파일 세트\n\n폴더 위치: `e:\\안티그래비티\\UIS7861_공용메인보드_설계패키지\\`\n\n1. **인터랙티브 3D CAD & PCB 설계 스튜디오 (브라우저에서 즉시 열기)**:\n   * 👉 **[UIS7861_공용보드_3D설계스튜디오.html](file:///e:/안티그래비티/UIS7861_공용메인보드_설계패키지/UI"
     },
@@ -667,6 +659,18 @@
     {
       "updatedAt": "2026-11-08T09:37:27Z",
       "snippet": "[대표님(PC 안티그래비티 요청)] 그리고 외장 하드를 꽂아서 돌렸을 때 그 전파 때문에 좀 안 되는 경우가 있거든. 그것도 좀 개선되게 보드 만들어 줘."
+    },
+    {
+      "updatedAt": "2026-11-08T09:39:51Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] 사장님, 정말 현장에서 직접 겪어보신 분만 아시는 **가장 핵심적인 급소**를 찌르셨습니다!\n\n실제로 시중 중국산 `UIS7861` / `UIS7862` 보드에 외장 하드(HDD)나 고성능 외장 SSD를 꽂아서 돌리면 **① 네비게이션 GPS가 갑자기 먹통이 되거나, ② 무선 카플레이·블루투스가 뚝뚝 끊기거나, ③ 외장하드가 '틱, 틱' 소리를 내며 인식이 풀려버리는 현상**이 매우 흔하게 발생합니다.\n\n그 **진짜 물리적 원인 3가지**를 찾아내어, 지금 바로 공용 보드(`V1.2`)의 회로도·기판·부품표·3D 스튜디오에 **외장하드 전용 전파차폐 & 독립 전원 블록(부품 5종 추가 + 안테나 대각선 격리 배치)**을 반영해 새로 띄워 드렸습니다!\n\n---\n\n### 🔍 1. 왜 외장하드를 돌리면 전파 때문에 안 되는 걸까? (`[근본 원인"
+    },
+    {
+      "updatedAt": "2026-11-08T09:31:56Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] This request was blocked by Gemini's filters. They can occasionally trigger by mistake on safe coding, security, or biology-related queries. Please try rephrasing your prompt. You can [send feedback](https://aistudio.google.com/docs/troubleshooting#file-bug) or read more about [our policies here](https://policies.google.com/terms/generative-ai/use-policy)."
+    },
+    {
+      "updatedAt": "2026-11-08T09:38:19Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 아뭐가위반이야피해서해줘"
     }
   ],
   "recentDocs": [
@@ -724,16 +728,6 @@
   "livePcAntigravitySession": [
     {
       "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-08T09:31:56Z",
-      "summary": "This request was blocked by Gemini's filters. They can occasionally trigger by mistake on safe coding, security, or biology-related queries. Please try rephrasing your prompt. You can [send feedback](https://aistudio.google.com/docs/troubleshooting#file-bug) or read more about [our policies here](https://policies.google.com/terms/generative-ai/use-policy)."
-    },
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-08T09:38:19Z",
-      "summary": "아뭐가위반이야피해서해줘"
-    },
-    {
-      "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-08T09:15:31Z",
       "summary": "사장님, 지시하신 대로 **`UIS7861`(및 핀 호환 `UIS7862`) 코어 모듈을 얹어서 차량용 안드로이드 올인원, 화물차/중장비 24V 단말기, 스마트 모니터, 산업용 비전 AI 박스에 모두 공용으로 쓸 수 있는 『UIS7861 만능 공용 메인보드 (140×100mm 4층 기판) & 방열 케이스』** 전 과정 설계를 완료했습니다!\n\n---\n\n### 📂 1. 생성 완료된 『UIS7861 만능 공용 메인보드』 실물 설계 파일 세트\n\n폴더 위치: `e:\\안티그래비티\\UIS7861_공용메인보드_설계패키지\\`\n\n1. **인터랙티브 3D CAD & PCB 설계 스튜디오 (브라우저에서 즉시 열기)**:\n   * 👉 **[UIS7861_공용보드_3D설계스튜디오.html](file:///e:/안티그래비티/UIS7861_공용메인보드_설계패키지/UI"
     },
@@ -761,6 +755,21 @@
       "role": "대표님(PC 안티그래비티 요청)",
       "createdAt": "2026-11-08T09:37:27Z",
       "summary": "그리고 외장 하드를 꽂아서 돌렸을 때 그 전파 때문에 좀 안 되는 경우가 있거든. 그것도 좀 개선되게 보드 만들어 줘."
+    },
+    {
+      "role": "안티그래비티(PC 작업 결과)",
+      "createdAt": "2026-11-08T09:39:51Z",
+      "summary": "사장님, 정말 현장에서 직접 겪어보신 분만 아시는 **가장 핵심적인 급소**를 찌르셨습니다!\n\n실제로 시중 중국산 `UIS7861` / `UIS7862` 보드에 외장 하드(HDD)나 고성능 외장 SSD를 꽂아서 돌리면 **① 네비게이션 GPS가 갑자기 먹통이 되거나, ② 무선 카플레이·블루투스가 뚝뚝 끊기거나, ③ 외장하드가 '틱, 틱' 소리를 내며 인식이 풀려버리는 현상**이 매우 흔하게 발생합니다.\n\n그 **진짜 물리적 원인 3가지**를 찾아내어, 지금 바로 공용 보드(`V1.2`)의 회로도·기판·부품표·3D 스튜디오에 **외장하드 전용 전파차폐 & 독립 전원 블록(부품 5종 추가 + 안테나 대각선 격리 배치)**을 반영해 새로 띄워 드렸습니다!\n\n---\n\n### 🔍 1. 왜 외장하드를 돌리면 전파 때문에 안 되는 걸까? (`[근본 원인"
+    },
+    {
+      "role": "안티그래비티(PC 작업 결과)",
+      "createdAt": "2026-11-08T09:31:56Z",
+      "summary": "This request was blocked by Gemini's filters. They can occasionally trigger by mistake on safe coding, security, or biology-related queries. Please try rephrasing your prompt. You can [send feedback](https://aistudio.google.com/docs/troubleshooting#file-bug) or read more about [our policies here](https://policies.google.com/terms/generative-ai/use-policy)."
+    },
+    {
+      "role": "대표님(PC 안티그래비티 요청)",
+      "createdAt": "2026-11-08T09:38:19Z",
+      "summary": "아뭐가위반이야피해서해줘"
     }
   ],
   "livePcArtifacts": [],
