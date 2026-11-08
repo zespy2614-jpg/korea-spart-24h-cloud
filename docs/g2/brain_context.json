@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 7:48:51",
+  "updatedAt": "2026. 11. 8. PM 7:49:06",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -150,7 +150,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 7:48:51\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 4단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 7:49:06\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 4단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -689,8 +689,8 @@
       "snippet": "[안티그래비티(PC 작업 결과)] `ppsspp.sh`에서 불필요한 디스크 캐시 초기화(`drop_caches`)로 인한 초기 로딩 지연을 제거하고, 별도 옵션 없이 기본 실행 시에도 PSP 철권 6가 즉시 전투에 진입하여 풀스피드로 동작하는지 최종 실전 벤치마크(`psp_final`)를 측정 중입니다. 완료되는 대로 결과를 보고드리겠습니다."
     },
     {
-      "updatedAt": "2026-11-08T10:47:21Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] The image generation task has been completed and the result sent to the caller.\n\n- **Image Path**: `C:\\Users\\박정수\\.gemini\\antigravity\\brain\\0564586d-4896-48c2-b250-a8d082f585eb\\rk3566_mainboard_rear_io_v3_1794134828423.jpg`\n- **Description**: Photorealistic 3D studio product photography (16:9) of the Rockchip RK3566 Universal Mainboard V1.3 in an exploded CNC aluminum enclosure, featuring all requested rear I/O ports "
+      "updatedAt": "2026-11-08T10:48:45Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] 가장 무거운 스테이지인 **Mystical Forest(물결·숲 스테이지)** 실제 전투 측정(`psp_final`)에서도 속도 **평균 98.9% (최저 95.3%, 최고 105.1%, 대기 평균 100.2%)**, 최고 온도 **85.0°C**로 확인되었습니다. 마지막 백업 동기화 검증이 곧 완료됩니다."
     }
   ],
   "recentDocs": [
@@ -763,8 +763,8 @@
     },
     {
       "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-08T10:47:21Z",
-      "summary": "The image generation task has been completed and the result sent to the caller.\n\n- **Image Path**: `C:\\Users\\박정수\\.gemini\\antigravity\\brain\\0564586d-4896-48c2-b250-a8d082f585eb\\rk3566_mainboard_rear_io_v3_1794134828423.jpg`\n- **Description**: Photorealistic 3D studio product photography (16:9) of the Rockchip RK3566 Universal Mainboard V1.3 in an exploded CNC aluminum enclosure, featuring all requested rear I/O ports "
+      "createdAt": "2026-11-08T10:48:45Z",
+      "summary": "가장 무거운 스테이지인 **Mystical Forest(물결·숲 스테이지)** 실제 전투 측정(`psp_final`)에서도 속도 **평균 98.9% (최저 95.3%, 최고 105.1%, 대기 평균 100.2%)**, 최고 온도 **85.0°C**로 확인되었습니다. 마지막 백업 동기화 검증이 곧 완료됩니다."
     }
   ],
   "livePcArtifacts": [],
