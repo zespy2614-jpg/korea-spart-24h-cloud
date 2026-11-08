@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 4:16:28
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 4:16:43
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -23,12 +23,13 @@
 - **[비즈니스]**: 지파츠 이베이 40선 실시간 재고 감시 및 8개국 크로스보더 80선(순마진 30% 이상 보장 공식)이 24시간 가동 중입니다.
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
+- **[대표님(PC 안티그래비티 요청)]**: 당근마켓에서 RF70-200 캐논 팔려고하는데 얼마쯤하나봐봐 얼마에올리면될까 최저가얼마야  <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
+- **[안티그래비티(PC 작업 결과)]**: 방금 당근마켓 전국 실시간 매물 데이터를 직접 전수 스캔하여 확인한 **캐논 RF 70-200mm 시리즈 실제 등록 최저가 및 적정 판매가**입니다. 보유하신 렌즈가 **① F2.8 (일명 '알아빠')**, **② F4 (일명 '알형아')**, **③ 신형 F2.8 Z (이너줌)** 중 어느 모델인지에 따라 가격 차이가 크므로, 3가지 모델 모두 실시간 매물 기준으로 정리해 드립니다. --- ### 📊 당근마켓 RF 70-200mm 모델별 실시간 시세 & 추천 판매가 | 모델명 (별칭) | 현재 당근 최저가 | 주력 거래 시세 | ⚡ 빠른 판매 추천가 (1~3일 내) | 💰 제값 받는 추천가 (네고 감안) | | :--- | :---: | :---: | :---: | :---: | | **RF 70-200mm F2.8 L IS US
 - **[대표님(PC 안티그래비티 요청)]**: 폴드8 이있고 폴드8울트라가있어? <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 - **[안티그래비티(PC 작업 결과)]**: 네, 맞습니다! 삼성전자가 **2026년 하반기(7월 언팩 공개, 8월 출시)**부터 폴더블 라인업을 이원화하면서 **'갤럭시 Z 폴드8'**과 **'갤럭시 Z 폴드8 울트라'** 두 가지 모델로 나뉘어 출시되었습니다. 단순히 스펙만 조금 다른 급나누기가 아니라 **기기 모양(화면 비율) 자체가 완전히 다른 두 종류의 폴더블폰**입니다. 핵심 차이를 한눈에 보실 수 있게 정리해 드립니다. --- ### 📊 갤럭시 Z 폴드8 vs 폴드8 울트라 핵심 비교 | 구분 | 갤럭시 Z 폴드8 (신규 와이드형) | 갤럭시 Z 폴드8 울트라 (정통 후속작) | | :--- | :--- | :--- | | **모델 번호 (국내)** | `SM-F971N` | `SM-F976N` | | **폼팩터 특징** | **여권처럼 가로로 넓고 세로가 짧은 형
 - **[안티그래비티(PC 작업 결과)]**: 기기 오디오 출력 경로(`AudioRouteService` 및 내장 스피커 앰프 GPIO 상태)를 점검하여 **내장 스피커** 출력 복구 및 동기화 패치를 적용하고 있습니다. 작업이 완료되는 즉시 결과를 보고드리겠습니다.
 - **[안티그래비티(PC 작업 결과)]**: 기기에 연결하여 오디오 출력 데몬(`/system/app/AudioRoute/AudioRoute.apk`)과 하드웨어 앰프 GPIO 상태를 전수 점검한 결과, **원인을 100% 찾아내어 즉시 소리가 나오도록 복구 및 패치 완료**했습니다. --- ### 1. 소리가 안 나왔던 근본 원인 (`[실측·역어셈블로 확인된 사실]`) * 기기의 오디오 출력 상태가 **`FM 라디오 송출`**(`Settings.Global` 기준 `CurrentPage = 2`, `fm_status = 1`, `spk_status = 0`)로 들어가 있었습니다. * 기기 내부의 `com.zqc.audioroute.AudioRouteService` 바이너리를 역어셈블하여 확인한 결과:   * **`AUX 유선 출력(1)`**이나 **`FM 라디오 송출(2)`** 
 - **[대표님(PC 안티그래비티 요청)]**: 그리고 네비게이션 버튼 위로올릴때 왼쪽상단에 볼륨조절할수있는바도 만들어줘
-- **[대표님(PC 안티그래비티 요청)]**: 당근마켓에서 RF70-200 캐논 팔려고하는데 얼마쯤하나봐봐 얼마에올리면될까 최저가얼마야  <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 
 ## 2. 최근 수정된 워크스페이스 핵심 문서 Top 10
 - `G2_영구기억_노트.md` (2026. 11. 8. PM 3:22:26)
