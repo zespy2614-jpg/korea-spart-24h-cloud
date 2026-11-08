@@ -32,16 +32,17 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Run All 6 Cloud Nonstop Crawlers (Gparts, Worldwide, Marketing, Moat, Embedded, Android) & G2 Glasses Sync
+      - name: Run All 6 Cloud Nonstop Crawlers, G2 Glasses Sync & 24H AnsimCare Motion AI Trainer
         run: |
           node cloud_24h_master_worker.mjs
           node sync_g2_glasses_cloud.mjs
+          python3 cloud_motion_ai_24h_trainer.py
 
       - name: Commit & Push Live Cloud State
         run: |
           git config user.name "KOREA-SPART-24H-Bot"
           git config user.email "zespy2614@gmail.com"
           git pull --rebase origin main || true
-          git add docs/gparts_state.json docs/live_scan_stream_db.json docs/seller_marketing_live_stream_db.json docs/uncharted_moat_live_stream_db.json docs/embedded_chip_live_stream_db.json docs/android_expert_live_stream_db.json docs/g2/
-          git diff --staged --quiet || git commit -m "☁️ [Auto-Sync] 24H Cloud 6-Engine & Even G2 Conversations Update"
+          git add docs/gparts_state.json docs/live_scan_stream_db.json docs/seller_marketing_live_stream_db.json docs/uncharted_moat_live_stream_db.json docs/embedded_chip_live_stream_db.json docs/android_expert_live_stream_db.json docs/g2/ downloads/motion_ai_cloud_weights.json docs/motion_ai_cloud_weights.json
+          git diff --staged --quiet || git commit -m "☁️ [Auto-Sync] 24H Cloud 6-Engine, G2 & AnsimCare Motion AI Weights Update"
           git push origin main || true
