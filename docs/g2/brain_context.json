@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 3:21:57",
+  "updatedAt": "2026. 11. 8. PM 3:22:12",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -149,7 +149,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 3:21:57\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 14단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 3:22:12\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 14단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -596,10 +596,6 @@
   ],
   "livePcAntigravity": [
     {
-      "updatedAt": "2026-11-08T06:01:44Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] 워크스페이스에 보관된 실제 펌웨어 이미지([`boot.img`](file:///e:/안티그래비티/ELIPHOEM_Backups/RK3566_Firmware_IMG_20261107/boot.img), [`uboot.img`](file:///e:/안티그래비티/ELIPHOEM_Backups/RK3566_Firmware_IMG_20261107/uboot.img), [`trust.img`](file:///e:/안티그래비티/ELIPHOEM_Backups/RK3566_Firmware_IMG_20261107/trust.img))와 현재 운용 중인 쉼(Shim) 소스 코드([`mali_compat.c`](file:///e:/안티그래비티/ELIPHOEM_Backups/backup_20261107_safe_state/mali_compat.c))를 직접 역어셈블("
-    },
-    {
       "updatedAt": "2026-11-08T06:11:47Z",
       "snippet": "[대표님(PC 안티그래비티 요청)] 그럼너는 왜 진작에 너한테 일시킬때이거안했어"
     },
@@ -618,6 +614,10 @@
     {
       "updatedAt": "2026-11-08T06:20:32Z",
       "snippet": "[대표님(PC 안티그래비티 요청)] [임베디드·성능 최적화 절대 지침 — 겉면 수정 전에 아래 5단계를 먼저 수행할 것]\r\n\r\n1. 표면 수치(sysfs) 맹신 금지 및 물리적 실측:\r\n   - cpufreq(scaling_cur_freq)나 라이브러리 문자열만 보고 클럭/SoC/GPU를 단정하지 마라.\r\n   - 반드시 실제 클럭 트리(clk_summary), 레귤레이터 전압(vdd_cpu 등), 그리고 짧은 CPU 연산 루프 실측 시간으로 클럭이 진짜 올라갔는지 교차 검증해라.\r\n\r\n2. 대기 상태(Idle) 도둑 프로세스 및 전체 경로 선행 감사:\r\n   - 타겟 앱(게임/런처)만 좁게 보지 말고, 아무것도 안 할 때 CPU를 2% 이상 먹는 커널 스레드(ps -A, top -H)와 백그라운드 데몬 스크립트부터 먼저 찾아내라.\r\n   - 네가 작성하거나 수정한 쉘 스크립트"
+    },
+    {
+      "updatedAt": "2026-11-08T06:18:37Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 현대 차테블릿에 무슨칩들어가 ?무슨 테블릿이 700이라는데 칩이뭐지 42닷에서 얼마에공급하길래\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
     },
     {
       "updatedAt": "2026-11-08T05:40:47Z",
@@ -706,11 +706,6 @@
   ],
   "livePcAntigravitySession": [
     {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-08T06:01:44Z",
-      "summary": "워크스페이스에 보관된 실제 펌웨어 이미지([`boot.img`](file:///e:/안티그래비티/ELIPHOEM_Backups/RK3566_Firmware_IMG_20261107/boot.img), [`uboot.img`](file:///e:/안티그래비티/ELIPHOEM_Backups/RK3566_Firmware_IMG_20261107/uboot.img), [`trust.img`](file:///e:/안티그래비티/ELIPHOEM_Backups/RK3566_Firmware_IMG_20261107/trust.img))와 현재 운용 중인 쉼(Shim) 소스 코드([`mali_compat.c`](file:///e:/안티그래비티/ELIPHOEM_Backups/backup_20261107_safe_state/mali_compat.c))를 직접 역어셈블("
-    },
-    {
       "role": "대표님(PC 안티그래비티 요청)",
       "createdAt": "2026-11-08T06:11:47Z",
       "summary": "그럼너는 왜 진작에 너한테 일시킬때이거안했어"
@@ -734,6 +729,11 @@
       "role": "대표님(PC 안티그래비티 요청)",
       "createdAt": "2026-11-08T06:20:32Z",
       "summary": "[임베디드·성능 최적화 절대 지침 — 겉면 수정 전에 아래 5단계를 먼저 수행할 것]\r\n\r\n1. 표면 수치(sysfs) 맹신 금지 및 물리적 실측:\r\n   - cpufreq(scaling_cur_freq)나 라이브러리 문자열만 보고 클럭/SoC/GPU를 단정하지 마라.\r\n   - 반드시 실제 클럭 트리(clk_summary), 레귤레이터 전압(vdd_cpu 등), 그리고 짧은 CPU 연산 루프 실측 시간으로 클럭이 진짜 올라갔는지 교차 검증해라.\r\n\r\n2. 대기 상태(Idle) 도둑 프로세스 및 전체 경로 선행 감사:\r\n   - 타겟 앱(게임/런처)만 좁게 보지 말고, 아무것도 안 할 때 CPU를 2% 이상 먹는 커널 스레드(ps -A, top -H)와 백그라운드 데몬 스크립트부터 먼저 찾아내라.\r\n   - 네가 작성하거나 수정한 쉘 스크립트"
+    },
+    {
+      "role": "대표님(PC 안티그래비티 요청)",
+      "createdAt": "2026-11-08T06:18:37Z",
+      "summary": "현대 차테블릿에 무슨칩들어가 ?무슨 테블릿이 700이라는데 칩이뭐지 42닷에서 얼마에공급하길래\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
     },
     {
       "role": "안티그래비티(PC 작업 결과)",
