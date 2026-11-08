@@ -1,7 +1,15 @@
 {
-  "updatedAt": "2026. 11. 8. PM 6:06:35",
-  "pinnedReminder": "대표님의 차량은 파란색 자동차입니다.",
+  "updatedAt": "2026. 11. 8. PM 9:47:35",
+  "pinnedReminder": "오늘 날씨랑 일정 알려줘",
   "items": [
+    {
+      "id": "mem_1794142053817",
+      "category": "할일/일정",
+      "fact": "오늘 날씨랑 일정 알려줘",
+      "sourceQuestion": "",
+      "createdAt": "2026. 11. 8. PM 9:47:35",
+      "pinned": true
+    },
     {
       "id": "mem_1794100239300_2bdz",
       "category": "PC원격작업",
@@ -124,7 +132,7 @@
       "fact": "대표님의 차량은 파란색 자동차입니다.",
       "sourceQuestion": "저기 있는 파란색 자동차가 제 차예요",
       "createdAt": "2026. 11. 7. 오후 9:21:49",
-      "pinned": true,
+      "pinned": false,
       "updatedAt": "2026. 11. 8. PM 6:06:35"
     },
     {
