@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 4:36:44",
+  "updatedAt": "2026. 11. 8. PM 4:37:14",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -149,7 +149,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 4:36:44\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 9단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 4:37:14\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 10단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -608,6 +608,10 @@
       "snippet": "[안티그래비티(PC 작업 결과)] 좌측 사이드바 엣지 핸들 드래그 시 볼륨 변동 없이 정확히 `88%` 상태로 열리는지 최종 캡처 확인 중입니다. 완료되는 즉시 보고드리겠습니다."
     },
     {
+      "updatedAt": "2026-11-08T07:36:41Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] 어르신 운전자분들도 운전석에서 편하게 보시고 조작하실 수 있도록 **하단 네비게이션 바 확대**와 **좌측 사이드바 엣지 핸들 드래그 호출 기능**까지 [`NavBarService.java`](file:///C:/Users/%EB%B0%95%EC%A0%95%EC%88%98/.gemini/antigravity/brain/08abf2d4-e54d-43da-a03d-df4b6e390207/scratch/kor_helper/src/com/zqc/kor/wallpaper/NavBarService.java)에 모두 반영하여 실기(`192.168.123.107:5555`) 및 OTA 배포 파일([`ELIPHOEM_System_v3.0.0.apk`](file:///e:/%EC%95%88%ED%8B%B0%EA%B7%B8%EB%9E%98%EB%B9%84%ED%"
+    },
+    {
       "updatedAt": "2026-11-08T07:12:13Z",
       "snippet": "[대표님(PC 안티그래비티 요청)] 당근마켓에서 RF70-200 캐논 팔려고하는데 얼마쯤하나봐봐 얼마에올리면될까 최저가얼마야 \n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
     },
@@ -699,6 +703,11 @@
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-08T07:34:52Z",
       "summary": "좌측 사이드바 엣지 핸들 드래그 시 볼륨 변동 없이 정확히 `88%` 상태로 열리는지 최종 캡처 확인 중입니다. 완료되는 즉시 보고드리겠습니다."
+    },
+    {
+      "role": "안티그래비티(PC 작업 결과)",
+      "createdAt": "2026-11-08T07:36:41Z",
+      "summary": "어르신 운전자분들도 운전석에서 편하게 보시고 조작하실 수 있도록 **하단 네비게이션 바 확대**와 **좌측 사이드바 엣지 핸들 드래그 호출 기능**까지 [`NavBarService.java`](file:///C:/Users/%EB%B0%95%EC%A0%95%EC%88%98/.gemini/antigravity/brain/08abf2d4-e54d-43da-a03d-df4b6e390207/scratch/kor_helper/src/com/zqc/kor/wallpaper/NavBarService.java)에 모두 반영하여 실기(`192.168.123.107:5555`) 및 OTA 배포 파일([`ELIPHOEM_System_v3.0.0.apk`](file:///e:/%EC%95%88%ED%8B%B0%EA%B7%B8%EB%9E%98%EB%B9%84%ED%"
     },
     {
       "role": "대표님(PC 안티그래비티 요청)",
