@@ -1,10 +1,10 @@
-// __EDITH_OTA__ Live Over-The-Air Patch v3.2.6 — Zero Left/Right Clock Bars (borderColor=0, borderRadius=0, padding=0, height=52) + Atomic Clock Standby + Hot-Reload
+// __EDITH_OTA__ Live Over-The-Air Patch v3.2.7 — Instant Send on Finger Release (0ms Delay) + Remove Green Volume Bar + Zero Left/Right Clock Bars + Claude Code Sync
 (function () {
-  const OTA_VERSION = 'v3.2.6';
+  const OTA_VERSION = 'v3.2.7';
   if (window.__EDITH_OTA_VERSION__ === OTA_VERSION) return;
   window.__EDITH_OTA_VERSION__ = OTA_VERSION;
   window.__EDITH_OTA_V31_APPLIED__ = true;
-  console.log(`[EDITH OTA] ${OTA_VERSION} Zero Left/Right Clock Bars + Atomic Clock Standby + Live Hot-Reload Activated`);
+  console.log(`[EDITH OTA] ${OTA_VERSION} Instant Send on Finger Release + Zero Green Volume Bar + Zero Clock Bars Activated`);
 
   const agy = window.__EDITH_AGY__;
   const origFetch = (window.__EDITH_ORIG_FETCH__ || window.fetch).bind(window);
@@ -24,6 +24,7 @@
     }
     s = s
       .replace(/컴피\s*반트\s*비디오|컴퓨턴트\s*비디오|안티\s*그래픽(티|기)?|안티그래픽(티|기)?|안티\s*그래비키/gi, '안티그래비티')
+      .replace(/플러드\s*코드|클라우드\s*코드|클로드\s*코트/gi, '클로드 코드')
       .replace(/기사부|기허브|깃\s*허브/gi, '깃허브')
       .replace(/데미나인|재미나이|제미\s*나이/gi, '제미나이')
       .replace(/아라곤\s*4|아르고\s*4/gi, '아라곤 4')
