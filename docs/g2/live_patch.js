@@ -912,8 +912,9 @@
               st.holdReleasedAt = now;
               if (st.mode === 'listening') {
                 st.trigger = 'hold';
-                armAndSendRecordingNow(st, hud);
-                return true;
+                if (armAndSendRecordingNow(st, hud)) {
+                  return true;
+                }
               }
             }
 
