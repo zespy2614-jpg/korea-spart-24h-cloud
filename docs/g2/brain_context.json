@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 6:39:53",
+  "updatedAt": "2026. 11. 8. PM 6:40:52",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -150,7 +150,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 6:39:53\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 8단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 6:40:52\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 8단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -637,6 +637,14 @@
   ],
   "livePcAntigravity": [
     {
+      "updatedAt": "2026-11-08T09:31:56Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] This request was blocked by Gemini's filters. They can occasionally trigger by mistake on safe coding, security, or biology-related queries. Please try rephrasing your prompt. You can [send feedback](https://aistudio.google.com/docs/troubleshooting#file-bug) or read more about [our policies here](https://policies.google.com/terms/generative-ai/use-policy)."
+    },
+    {
+      "updatedAt": "2026-11-08T09:38:19Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 아뭐가위반이야피해서해줘"
+    },
+    {
       "updatedAt": "2026-11-08T09:15:31Z",
       "snippet": "[안티그래비티(PC 작업 결과)] 사장님, 지시하신 대로 **`UIS7861`(및 핀 호환 `UIS7862`) 코어 모듈을 얹어서 차량용 안드로이드 올인원, 화물차/중장비 24V 단말기, 스마트 모니터, 산업용 비전 AI 박스에 모두 공용으로 쓸 수 있는 『UIS7861 만능 공용 메인보드 (140×100mm 4층 기판) & 방열 케이스』** 전 과정 설계를 완료했습니다!\n\n---\n\n### 📂 1. 생성 완료된 『UIS7861 만능 공용 메인보드』 실물 설계 파일 세트\n\n폴더 위치: `e:\\안티그래비티\\UIS7861_공용메인보드_설계패키지\\`\n\n1. **인터랙티브 3D CAD & PCB 설계 스튜디오 (브라우저에서 즉시 열기)**:\n   * 👉 **[UIS7861_공용보드_3D설계스튜디오.html](file:///e:/안티그래비티/UIS7861_공용메인보드_설계패키지/UI"
     },
@@ -659,14 +667,6 @@
     {
       "updatedAt": "2026-11-08T09:37:27Z",
       "snippet": "[대표님(PC 안티그래비티 요청)] 그리고 외장 하드를 꽂아서 돌렸을 때 그 전파 때문에 좀 안 되는 경우가 있거든. 그것도 좀 개선되게 보드 만들어 줘."
-    },
-    {
-      "updatedAt": "2026-11-08T09:31:56Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] This request was blocked by Gemini's filters. They can occasionally trigger by mistake on safe coding, security, or biology-related queries. Please try rephrasing your prompt. You can [send feedback](https://aistudio.google.com/docs/troubleshooting#file-bug) or read more about [our policies here](https://policies.google.com/terms/generative-ai/use-policy)."
-    },
-    {
-      "updatedAt": "2026-11-08T09:38:19Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 아뭐가위반이야피해서해줘"
     }
   ],
   "recentDocs": [
@@ -724,6 +724,16 @@
   "livePcAntigravitySession": [
     {
       "role": "안티그래비티(PC 작업 결과)",
+      "createdAt": "2026-11-08T09:31:56Z",
+      "summary": "This request was blocked by Gemini's filters. They can occasionally trigger by mistake on safe coding, security, or biology-related queries. Please try rephrasing your prompt. You can [send feedback](https://aistudio.google.com/docs/troubleshooting#file-bug) or read more about [our policies here](https://policies.google.com/terms/generative-ai/use-policy)."
+    },
+    {
+      "role": "대표님(PC 안티그래비티 요청)",
+      "createdAt": "2026-11-08T09:38:19Z",
+      "summary": "아뭐가위반이야피해서해줘"
+    },
+    {
+      "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-08T09:15:31Z",
       "summary": "사장님, 지시하신 대로 **`UIS7861`(및 핀 호환 `UIS7862`) 코어 모듈을 얹어서 차량용 안드로이드 올인원, 화물차/중장비 24V 단말기, 스마트 모니터, 산업용 비전 AI 박스에 모두 공용으로 쓸 수 있는 『UIS7861 만능 공용 메인보드 (140×100mm 4층 기판) & 방열 케이스』** 전 과정 설계를 완료했습니다!\n\n---\n\n### 📂 1. 생성 완료된 『UIS7861 만능 공용 메인보드』 실물 설계 파일 세트\n\n폴더 위치: `e:\\안티그래비티\\UIS7861_공용메인보드_설계패키지\\`\n\n1. **인터랙티브 3D CAD & PCB 설계 스튜디오 (브라우저에서 즉시 열기)**:\n   * 👉 **[UIS7861_공용보드_3D설계스튜디오.html](file:///e:/안티그래비티/UIS7861_공용메인보드_설계패키지/UI"
     },
@@ -751,16 +761,6 @@
       "role": "대표님(PC 안티그래비티 요청)",
       "createdAt": "2026-11-08T09:37:27Z",
       "summary": "그리고 외장 하드를 꽂아서 돌렸을 때 그 전파 때문에 좀 안 되는 경우가 있거든. 그것도 좀 개선되게 보드 만들어 줘."
-    },
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-08T09:31:56Z",
-      "summary": "This request was blocked by Gemini's filters. They can occasionally trigger by mistake on safe coding, security, or biology-related queries. Please try rephrasing your prompt. You can [send feedback](https://aistudio.google.com/docs/troubleshooting#file-bug) or read more about [our policies here](https://policies.google.com/terms/generative-ai/use-policy)."
-    },
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-08T09:38:19Z",
-      "summary": "아뭐가위반이야피해서해줘"
     }
   ],
   "livePcArtifacts": [],
