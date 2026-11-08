@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. AM 10:34:12
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 2:15:21
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -23,17 +23,13 @@
 - **[비즈니스]**: 지파츠 이베이 40선 실시간 재고 감시 및 8개국 크로스보더 80선(순마진 30% 이상 보장 공식)이 24시간 가동 중입니다.
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
+- **[안티그래비티(PC 작업 결과)]**: 설치된 모든 핵심 스킬(**`samsung-design-system`**, **`proactive-hardware-simulator`**, **`embedded-soc-ble-firmware-architect`**, **`embedded-systems`**, **`deep-osint-crawler-intelligence`**, **`zero-regression-engineering`**, **`verification-before-completion`**)을 전수 적용하여 프로그램을 **상용 v2.0 아키텍처로 재구축**하고, **13개 항목의 하드웨어 디지털 트윈 자동 검증 테스트를 100% 통과(PASS)**한 뒤 PC 실시간 허브 서버 및 보드 마스터 배포판(`E:\dev\rk3588s_usb_hdd\ai_edge_box`)에 설치를 완료
+- **[대표님(PC 안티그래비티 요청)]**: 그럼 다시가보자 그 고객이 내꺼기기를사면 그 CCTV박스에 연결하고 , 거기에붙은 QR을 우리핸드폰 앱으로 스캔하는거야 ?
 - **[안티그래비티(PC 작업 결과)]**: 방금 올려주신 **시계 화면 사진 2장(좌·우 세로 바 `┃`) 수정**과 함께, 대표님께서 **안경 음성으로 연속 지시해주신 2건(`task_1794100103428`, `task_1794100239297`)**까지 모두 감지하여 **`v3.2.7` 패치 및 실시간 연동 세팅을 완료**했습니다. --- ### 1. 시계 모드 좌·우 세로 바(`┃`) 완전 제거 ([live_patch.js](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/live_patch.js#L584-L619)) * **근본 원인**: 상단 `title`(`x = 20..300`)과 `status`(`x = 310..556`) 컨테이너의 높이가 `44px`, 내부 여백(`paddingLength`)이 `10px`로 잡혀 있어 실제 글자가
 - **[대표님(PC 안티그래비티 요청)]**: 어 영어로보내주고 해당사업자는 폐업예정이라고도 덛붙혀줘
 - **[안티그래비티(PC 작업 결과)]**: 네이버 메일(`kanjji@naver.com`)에서 **해당 사업자(SY CORPORATION)는 폐업 예정이라는 내용까지 추가하여 영문으로 정상 발송 완료**했습니다! (보낸메일함 등록 번호: `202669` 확인 완료) --- ### 발송 완료 내역 요약 * **보낸 사람**: 박정수 (`kanjji@naver.com`) * **받는 사람 (To - 담당자 3곳)**:   * `catherine.kimani@avaskgroup.com` (캐서린 키마니 — 미납·채권 담당자)   * `habib.bouzidi@avaskgroup.com` (하빕 부지디 — 결제·신용관리 담당자)   * `customerservice@avaskgroup.com` (아바스크 고객지원 및 해지 담당팀) * **참조 (CC - 관련 부서 5곳)**:   * `
 - **[대표님(PC 안티그래비티 요청)]**: 받은메일함보면 메일못받고 아바스크사이트에서 게시글올리라고해서 로그인해놨어너가해줘
 - **[안티그래비티(PC 작업 결과)]**: 로그인해 두신 **아바스크 공식 고객지원 사이트(`helpdesk.avask.com`)에 접속하여 게시글(공식 문의 티켓) 등록까지 완료**했습니다! 현재 열려 있는 브라우저 화면에서도 방금 등록된 게시글을 바로 확인하실 수 있습니다. --- ### 아바스크 사이트 게시글 등록 완료 내역 * **등록 상태**: `Your request was successfully submitted.` (제출 완료) * **공식 접수 번호**: **티켓 `#177355`** (`https://helpdesk.avask.com/hc/en-gb/requests/177355`)   *(추가로 앞서 이메일로 발송한 내용도 고객지원팀에 **티켓 `#177352`**로 함께 접수되었고, 퇴사한 하빕 부지디의 후임 담당자인 **Sanga Dolo**에게도 자동 전
-- **[안티그래비티(PC 작업 결과)]**: 스마트폰에서 아래 링크를 터치하시면 최신 **ELIPHOEM 자동 핫스팟 (`v5.6`)** 설치 파일(`.apk`)이 즉시 다운로드되어 설치됩니다. ### 1. 스마트폰 직접 다운로드 링크 (클라우드 · LTE/5G/Wi-Fi 모두 가능) - **[ELIPHOEM_AutoHotspot_v5.6.apk 다운로드](https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone.apk)**   - 주소: `https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone.apk`   - 단축 주소: `https://zespy2614-jpg.github.io/ko
-- **[대표님(PC 안티그래비티 요청)]**: 밑에네비게이션바는 위로 드래그했을때나오게해줘 클릭이아니라
-- **[안티그래비티(PC 작업 결과)]**: 하단 네비게이션 바가 단순 터치(클릭)나 창 전환 시에는 열리지 않고, **하단 핸들을 위로 드래그(스와이프)했을 때만 열리도록** `KorSystemHelper.apk`를 빌드하여 모니터에 설치 및 실증 테스트 중입니다. 완료되는 즉시 캡처 결과를 보여드리겠습니다.
-- **[안티그래비티(PC 작업 결과)]**: 하단 네비게이션 바([`NavBarService.java`](file:///C:/Users/%EB%B0%95%EC%A0%95%EC%88%98/.gemini/antigravity/brain/08abf2d4-e54d-43da-a03d-df4b6e390207/scratch/kor_helper/src/com/zqc/kor/wallpaper/NavBarService.java))가 단순 클릭이나 창 전환 시에는 열리지 않고, **화면 하단 핸들 영역을 위로 드래그(스와이프)했을 때만 올라오도록** 수정하여 모니터(`192.168.123.107:5555`)에 즉시 적용했습니다. 실제 기기에서 **① 단순 터치(열리지 않음) → ② 위로 드래그(즉시 열림) → ③ 3.5초 경과 후 자동 닫힘** 3단계 테스트를 마쳤으며, 캡처 결과는 [walkthroug
-- **[대표님(PC 안티그래비티 요청)]**: 이거 클로드코드한테 재점검시켜보게 파일위치랑 작업내용 프롬프트 작성해줘
-- **[안티그래비티(PC 작업 결과)]**: 클로드 코드(Claude Code)에 그대로 복사해서 붙여넣으실 수 있도록 **파일 경로, 아키텍처, 작업 내역, 회귀 방지(불변 조건) 및 실기 검증 체크리스트**를 모두 포함한 프롬프트를 작성해 드립니다. --- ### 📋 클로드 코드(Claude Code) 전달용 프롬프트 (복사해서 붙여넣기) ```markdown 당신은 안드로이드 시스템 엔지니어링(`android-apk-smali-system-engineer`), 삼성 One UI 디자인 시스템(`samsung-design-system`), 회귀 오류 방지(`zero-regression-engineering`), 실증 검증(`verification-before-completion`) 전문가입니다. 현재 안드로이드 차량용 올인원 모니터(`192.168.123.107:5555`,
 
 ## 2. 최근 수정된 워크스페이스 핵심 문서 Top 10
 - `G2_안경_실시간대화록.md` (2026. 11. 8. AM 10:34:09)
