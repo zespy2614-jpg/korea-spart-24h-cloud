@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 2:56:09",
+  "updatedAt": "2026. 11. 8. PM 2:56:24",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -149,7 +149,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 2:56:09\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 7단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 2:56:24\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 6단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -596,10 +596,6 @@
   ],
   "livePcAntigravity": [
     {
-      "updatedAt": "2026-11-08T05:36:47Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 야 아니면 블루투스로 기기찾기도있잖아"
-    },
-    {
       "updatedAt": "2026-11-08T05:37:41Z",
       "snippet": "[안티그래비티(PC 작업 결과)] 맞습니다!! **블루투스(BLE)로 주변 기기 자동 찾기**는 삼성 스마트싱스(SmartThings)나 갤럭시 버즈가 쓰는 가장 편한 방식입니다!\n\n기기에 선만 꽂고 옆에서 우리 전용 앱을 켜면, **QR 코드를 찍거나 붙일 필요조차 없이** 핸드폰 화면에 **`\"주변에서 [안심케어 AI 박스]가 발견되었습니다! [연결하기]\"`** 팝업이 자동으로 떠서 터치 한 번으로 끝납니다.\n\n심지어 보유하신 `RK3588S` 보드(`IEEKER Pi 5B`)의 설계도(`DTB.dts`)를 방금 확인해 보니 **`wireless-bluetooth` (`AP6275P` / `UART9` 블루투스 칩)**가 기본 탑재되어 있습니다!\n\n그래서 지금 바로 **블루투스(BLE) 근접 스캔 + 공유기 무선 신호(UDP 비콘) 이중 자동 찾기**를 서버와 안드로이드 "
     },
@@ -625,6 +621,11 @@
     }
   ],
   "recentDocs": [
+    {
+      "name": "AGENTS.md",
+      "updatedAt": "2026. 11. 8. PM 2:56:19",
+      "preview": "# [Workspace Engineering, Proactive Hardware Digital Twin & Zero-Regression Rules]\n\n1. **최우선 엔지니어링 및 하드웨어 디지털 트윈 스킬 자동 적용**:\n   - 모든 코딩·디버깅·패치 작업 시 `.agents/skills/` 및 `~/.gemini/config/skills/`에 설치된 **`proactive-hardware-simulator`**, **`zero-regression-engineering`**, **`systematic-debugging`**, **`verification-before-completion`**, **`test-driven-development`**, **`react-best-practices`** 스킬의 절차를 엄격히 준수한다.\n2. **선제적 하드웨어 시뮬레이션 원칙 (사용자를 베타 테스터로 쓰지 말 것)**:\n   - 사용자가 직접 안경을 쓰고 겪어봐야만 알 수 있는 기계적/펌웨어적 한계(광학 렌즈 좌우 베젤 잘림, BLE UTF-8 바이트 버퍼 한계 및 `SCROLL_BOTTOM_EVENT` 연동, 정전식 템플 터치패드 바운스/오작동, 16kHz PCM 오디오 `SpeakerRole` 필터링, WebView 큐 레이스 컨디션 등)를 에이전트가 먼저 예측하고 **`node EvenG2_안티그래비티_AI허브/verify_g2_digital_twin.mjs`** 디지털 트윈 시뮬레이터로 사전 검증·해결한 뒤 보고한다.\n3. **안경 음성 지시 실시간 반응 및 전용 관제창 연동**:\n   - 안경에서 음성으로 지시하거나 불편 사항을 말하면 `G2_안경_실시간_작업큐.json` 및 `watch_g2_voice_trigger.mjs` 백그라운드 워처를 통해 안티그래비티 에이전트가 즉시 깨어"
+    },
     {
       "name": "G2_안경_실시간대화록.md",
       "updatedAt": "2026. 11. 8. AM 10:34:09",
@@ -666,22 +667,12 @@
       "preview": "# 🤖 [안드로이드 시스템·AOSP·전장·리버스엔지니어링·OTA·Edge AI] 6-워커 병렬 크롤링 & 실시간 무한학습 로그\n\n> **관제 서버**: `http://127.0.0.1:3853` | **구글 드라이브 샤드 경로**: `G:\\내 드라이브\\안티그래비티_글로벌소싱_DB\\android_expert_shards`\n> **핵심 타겟**: `E900V22D(S905L3A)` 안드로이드 12 + `UIS7861(T606)` 11.4인치 열화상 카플레이 모니터 + `RK3566` 빔프로젝터/NPU + `AWS OTA 서버` + `Antigravity Remote Pro APK`\n\n---\n\n## 🤖 [안드로이드 전문가 학습 #1 (Cycle 1)] [AOSP-01] Amlogic(S905L3A/E900V22D·S905X4·T982) USB Burning Tool 이미지 언팩·리팩 & 핀쇼트 부트로더 진입 (2026. 11. 5. PM 8:46:45)\n\n- **전문 영역 및 타겟 보드**: 🔥 1. AOSP·커스텀롬·펌웨어개조 | `E900V22D (S905L3A), S905X3/X4, T972, T982 빔프로젝터/셋톱박스`\n- **황금 구현 공식(Core Formula)**: `AmlImagePack -d aml_upgrade.img unpacked_dir/ → system/vendor 수정 → AmlImagePack -r`\n- **실전 적용 법칙**: eMMC 클럭-GND 핀쇼트로 MaskROM 모드에 강제 진입한 뒤, 한국어 로케일·OTA 에이전트·커스텀 런처가 심어진 전용 단일 .img 파일을 90초 만에 양산 플래싱한다.\n\n- **🐙 GitHub 오픈소스**: [android-expert/aosp-01-core (⭐210)](https://github.com/search"
     },
     {
-      "name": "AGENTS.md",
-      "updatedAt": "2026. 11. 8. AM 12:46:39",
-      "preview": "# [Workspace Engineering, Proactive Hardware Digital Twin & Zero-Regression Rules]\n\n1. **최우선 엔지니어링 및 하드웨어 디지털 트윈 스킬 자동 적용**:\n   - 모든 코딩·디버깅·패치 작업 시 `.agents/skills/` 및 `~/.gemini/config/skills/`에 설치된 **`proactive-hardware-simulator`**, **`zero-regression-engineering`**, **`systematic-debugging`**, **`verification-before-completion`**, **`test-driven-development`**, **`react-best-practices`** 스킬의 절차를 엄격히 준수한다.\n2. **선제적 하드웨어 시뮬레이션 원칙 (사용자를 베타 테스터로 쓰지 말 것)**:\n   - 사용자가 직접 안경을 쓰고 겪어봐야만 알 수 있는 기계적/펌웨어적 한계(광학 렌즈 좌우 베젤 잘림, BLE UTF-8 바이트 버퍼 한계 및 `SCROLL_BOTTOM_EVENT` 연동, 정전식 템플 터치패드 바운스/오작동, 16kHz PCM 오디오 `SpeakerRole` 필터링, WebView 큐 레이스 컨디션 등)를 에이전트가 먼저 예측하고 **`node EvenG2_안티그래비티_AI허브/verify_g2_digital_twin.mjs`** 디지털 트윈 시뮬레이터로 사전 검증·해결한 뒤 보고한다.\n3. **안경 음성 지시 실시간 반응 및 전용 관제창 연동**:\n   - 안경에서 음성으로 지시하거나 불편 사항을 말하면 `G2_안경_실시간_작업큐.json` 및 `watch_g2_voice_trigger.mjs` 백그라운드 워처를 통해 안티그래비티 에이전트가 즉시 깨어"
-    },
-    {
       "name": "아는형님_공유용_안티그래비티_초실전_마스터프롬프트_모음집.md",
       "updatedAt": "2026. 11. 7. AM 12:02:01",
       "preview": "================================================================================\n🚀 [아는 형님 공유용] 어떤 업종이든 AI 답변을 180도 바꾸는 '초실전 마스터 프롬프트' 풀패키지\n================================================================================\n- 용도: 순정 AI의 뻔하고 추상적인 교과서식 답변을 100% 제거하고,\n        내가 하는 사업/업무 분야가 무엇이든 관계없이\n        ① 3명의 적대적 서브에이전트 끝장 검증 (기회 발굴자 × 냉혹한 레드팀 × 독점 해자 설계자)\n        ② 실측 데이터·순마진 방어 공식·리스크 사전 차단 필터\n        ③ 상위 0.1% 마케팅 & 세일즈 전환율(SEO·상세 설득·미끼 가격·무자본 바이럴·클레임 0% CS)\n        ④ 삼성 One UI 7 플래그십 UI/UX 디자인 시스템 (웹/앱/자료 제작 시 AI 티 0%)\n        을 한 번에 주입하는 범용 마스터 프롬프트 모음집입니다.\n================================================================================\n\n\n================================================================================\n📌 [프롬프트 1] 만능 올인원 '마스터 두뇌' 프롬프트 (가장 먼저 복사해서 AI에게 입력!)\n👉 사용법: Antigravity 기본 규칙(GEMINI.md), 제미나이(Gemini Gems), 챗GPT 맞춤 지침, 또는 새 대화창 첫 줄에 복사해서 붙여넣고 맨 아래 [내 사업/관심 분야]만 "
     }
   ],
   "livePcAntigravitySession": [
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-08T05:36:47Z",
-      "summary": "야 아니면 블루투스로 기기찾기도있잖아"
-    },
     {
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-08T05:37:41Z",
@@ -727,6 +718,11 @@
   ],
   "recentWorkspaceDocs": [
     {
+      "relPath": "AGENTS.md",
+      "updatedAt": "2026. 11. 8. PM 2:56:19",
+      "excerpt": "# [Workspace Engineering, Proactive Hardware Digital Twin & Zero-Regression Rules]\n\n1. **최우선 엔지니어링 및 하드웨어 디지털 트윈 스킬 자동 적용**:\n   - 모든 코딩·디버깅·패치 작업 시 `.agents/skills/` 및 `~/.gemini/config/skills/`에 설치된 **`proactive-hardware-simulator`**, **`zero-regression-engineering`**, **`systematic-debugging`**, **`verification-before-completion`**, **`test-driven-development`**, **`react-best-practices`** 스킬의 절차를 엄격히 준수한다.\n2. **선제적 하드웨어 시뮬레이션 원칙 (사용자를 베타 테스터로 쓰지 말 것)**:\n   - 사용자가 직접 안경을 쓰고 겪어봐야만 알 수 있는 기계적/펌웨어적 한계(광학 렌즈 좌우 베젤 잘림, BLE UTF-8 바이트 버퍼 한계 및 `SCROLL_BOTTOM_EVENT` 연동, 정전식 템플 터치패드 바운스/오작동, 16kHz PCM 오디오 `SpeakerRole` 필터링, WebView 큐 레이스 컨디션 등)를 에이전트가 먼저 예측하고 **`node EvenG2_안티그래비티_AI허브/verify_g2_digital_twin.mjs`** 디지털 트윈 시뮬레이터로 사전 검증·해결한 뒤 보고한다.\n3. **안경 음성 지시 실시간 반응 및 전용 관제창 연동**:\n   - 안경에서 음성으로 지시하거나 불편 사항을 말하면 `G2_안경_실시간_작업큐.json` 및 `watch_g2_voice_trigger.mjs` 백그라운드 워처를 통해 안티그래비티 에이전트가 즉시 깨어"
+    },
+    {
       "relPath": "G2_안경_실시간대화록.md",
       "updatedAt": "2026. 11. 8. AM 10:34:09",
       "excerpt": "# 👓 안티그래비티 × Even G2 스마트 안경 실시간 누적 대화록\n\n> **최종 업데이트**: 2026. 11. 8. AM 10:34:09\n> **연동 경로**: 로컬 PC (`e:\\안티그래비티\\G2_안경_실시간대화록.md`) ↔ 구글 드라이브 (`G:\\내 드라이브\\안티그래비티_제미나이_두뇌`) ↔ GitHub 클라우드 (`docs/g2/G2_안경_실시간대화록.md`)\n\n---\n\n## [2026. 11. 7. PM 6:17:02] 질문: 안티그래비티 × Even G2 시스템 개통 확인\n- **사용 모델**: `Antigravity-System`\n- **안티그래비티 답변**:\n\n대표님의 컴퓨터(e:\\안티그래비티), 구글 드라이브, GitHub 클라우드, 그리고 Even G2 안경이 실시간 양방향으로 연결되었습니다.\n\n---\n\n## [2026. 11. 7. 오후 8:45:36] 질문: 너 지금 라우더 그걸로 적용\n- **사용 모델**: `google/gemini-2.5-flash`\n- **안티그래비티 답변**:\n\n라우더 필터를 적용 중입니다.\n\n---\n\n## [2026. 11. 7. 오후 8:45:57] 질문: 아니 그 저거 있잖아. 그 이름 뭐냐? 아까 샀던 거 AI 라우터 있잖아. 그 오픈 라우터 그거 된 거냐고.\n- **사용 모델**: `google/gemini-2.5-flash`\n- **안티그래비티 답변**:\n\n네 AI 오픈 라우터 필터 적용을 완료했습니다.\n\n---\n\n## [2026. 11. 7. 오후 8:46:38] 질문: 야 근데 그\n- **사용 모델**: `google/gemini-2.5-flash`\n- **안티그래비티 답변**:\n\n예, 대표님.\n말씀하시던 '그' 내용에 대해 현재 안티그래비티와 GitHub 두뇌를 실시간으로 동기화하여 분석하고 있습니다.\n좀 더 구체적"
@@ -765,11 +761,6 @@
       "relPath": "시엔위_비즈니스_연구소\\28_안드로이드전문가_AOSP_전장_커스텀롬_OTA_NDK_무한학습로그.md",
       "updatedAt": "2026. 11. 8. AM 6:59:55",
       "excerpt": "# 🤖 [안드로이드 시스템·AOSP·전장·리버스엔지니어링·OTA·Edge AI] 6-워커 병렬 크롤링 & 실시간 무한학습 로그\n\n> **관제 서버**: `http://127.0.0.1:3853` | **구글 드라이브 샤드 경로**: `G:\\내 드라이브\\안티그래비티_글로벌소싱_DB\\android_expert_shards`\n> **핵심 타겟**: `E900V22D(S905L3A)` 안드로이드 12 + `UIS7861(T606)` 11.4인치 열화상 카플레이 모니터 + `RK3566` 빔프로젝터/NPU + `AWS OTA 서버` + `Antigravity Remote Pro APK`\n\n---\n\n## 🤖 [안드로이드 전문가 학습 #1 (Cycle 1)] [AOSP-01] Amlogic(S905L3A/E900V22D·S905X4·T982) USB Burning Tool 이미지 언팩·리팩 & 핀쇼트 부트로더 진입 (2026. 11. 5. PM 8:46:45)\n\n- **전문 영역 및 타겟 보드**: 🔥 1. AOSP·커스텀롬·펌웨어개조 | `E900V22D (S905L3A), S905X3/X4, T972, T982 빔프로젝터/셋톱박스`\n- **황금 구현 공식(Core Formula)**: `AmlImagePack -d aml_upgrade.img unpacked_dir/ → system/vendor 수정 → AmlImagePack -r`\n- **실전 적용 법칙**: eMMC 클럭-GND 핀쇼트로 MaskROM 모드에 강제 진입한 뒤, 한국어 로케일·OTA 에이전트·커스텀 런처가 심어진 전용 단일 .img 파일을 90초 만에 양산 플래싱한다.\n\n- **🐙 GitHub 오픈소스**: [android-expert/aosp-01-core (⭐210)](https://github.com/search"
-    },
-    {
-      "relPath": "AGENTS.md",
-      "updatedAt": "2026. 11. 8. AM 12:46:39",
-      "excerpt": "# [Workspace Engineering, Proactive Hardware Digital Twin & Zero-Regression Rules]\n\n1. **최우선 엔지니어링 및 하드웨어 디지털 트윈 스킬 자동 적용**:\n   - 모든 코딩·디버깅·패치 작업 시 `.agents/skills/` 및 `~/.gemini/config/skills/`에 설치된 **`proactive-hardware-simulator`**, **`zero-regression-engineering`**, **`systematic-debugging`**, **`verification-before-completion`**, **`test-driven-development`**, **`react-best-practices`** 스킬의 절차를 엄격히 준수한다.\n2. **선제적 하드웨어 시뮬레이션 원칙 (사용자를 베타 테스터로 쓰지 말 것)**:\n   - 사용자가 직접 안경을 쓰고 겪어봐야만 알 수 있는 기계적/펌웨어적 한계(광학 렌즈 좌우 베젤 잘림, BLE UTF-8 바이트 버퍼 한계 및 `SCROLL_BOTTOM_EVENT` 연동, 정전식 템플 터치패드 바운스/오작동, 16kHz PCM 오디오 `SpeakerRole` 필터링, WebView 큐 레이스 컨디션 등)를 에이전트가 먼저 예측하고 **`node EvenG2_안티그래비티_AI허브/verify_g2_digital_twin.mjs`** 디지털 트윈 시뮬레이터로 사전 검증·해결한 뒤 보고한다.\n3. **안경 음성 지시 실시간 반응 및 전용 관제창 연동**:\n   - 안경에서 음성으로 지시하거나 불편 사항을 말하면 `G2_안경_실시간_작업큐.json` 및 `watch_g2_voice_trigger.mjs` 백그라운드 워처를 통해 안티그래비티 에이전트가 즉시 깨어"
     },
     {
       "relPath": "아는형님_공유용_안티그래비티_초실전_마스터프롬프트_모음집.md",
