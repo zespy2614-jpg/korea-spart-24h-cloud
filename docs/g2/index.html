@@ -2466,12 +2466,8 @@
       if (state.mode !== 'listening' || !recorder) return;
       const seconds = Math.floor(recorder.durationMs / 1000);
       const levels = recorder.levels;
-      const meter = levels
-        .slice(-8)
-        .map((lvl) => LEVEL_BARS[Math.min(LEVEL_BARS.length - 1, Math.floor(lvl * LEVEL_BARS.length))])
-        .join('');
       const clock = `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`;
-      hud.set({ status: `● 녹음 ${clock}${meter ? `  ${meter}` : ''}` });
+      hud.set({ status: `● 녹음 ${clock}` });
       const latestLevel = levels[levels.length - 1] ?? 0.15;
       talkBtn.style.setProperty('--level', latestLevel.toFixed(2));
       sphereHud.setLevel(latestLevel);
