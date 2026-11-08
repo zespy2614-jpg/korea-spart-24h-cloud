@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 3:50:27
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 3:50:58
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -23,10 +23,6 @@
 - **[비즈니스]**: 지파츠 이베이 40선 실시간 재고 감시 및 8개국 크로스보더 80선(순마진 30% 이상 보장 공식)이 24시간 가동 중입니다.
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
-- **[안티그래비티(PC 작업 결과)]**: 하단 네비게이션 바([`NavBarService.java`](file:///C:/Users/%EB%B0%95%EC%A0%95%EC%88%98/.gemini/antigravity/brain/08abf2d4-e54d-43da-a03d-df4b6e390207/scratch/kor_helper/src/com/zqc/kor/wallpaper/NavBarService.java))가 단순 클릭이나 창 전환 시에는 열리지 않고, **화면 하단 핸들 영역을 위로 드래그(스와이프)했을 때만 올라오도록** 수정하여 모니터(`192.168.123.107:5555`)에 즉시 적용했습니다. 실제 기기에서 **① 단순 터치(열리지 않음) → ② 위로 드래그(즉시 열림) → ③ 3.5초 경과 후 자동 닫힘** 3단계 테스트를 마쳤으며, 캡처 결과는 [walkthroug
-- **[대표님(PC 안티그래비티 요청)]**: 이거 클로드코드한테 재점검시켜보게 파일위치랑 작업내용 프롬프트 작성해줘
-- **[안티그래비티(PC 작업 결과)]**: 클로드 코드(Claude Code)에 그대로 복사해서 붙여넣으실 수 있도록 **파일 경로, 아키텍처, 작업 내역, 회귀 방지(불변 조건) 및 실기 검증 체크리스트**를 모두 포함한 프롬프트를 작성해 드립니다. --- ### 📋 클로드 코드(Claude Code) 전달용 프롬프트 (복사해서 붙여넣기) ```markdown 당신은 안드로이드 시스템 엔지니어링(`android-apk-smali-system-engineer`), 삼성 One UI 디자인 시스템(`samsung-design-system`), 회귀 오류 방지(`zero-regression-engineering`), 실증 검증(`verification-before-completion`) 전문가입니다. 현재 안드로이드 차량용 올인원 모니터(`192.168.123.107:5555`,
-- **[대표님(PC 안티그래비티 요청)]**: 야 왜기기 소리가안나오지
 - **[대표님(PC 안티그래비티 요청)]**: 현대 차테블릿에 무슨칩들어가 ?무슨 테블릿이 700이라는데 칩이뭐지 42닷에서 얼마에공급하길래 <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 - **[안티그래비티(PC 작업 결과)]**: 사장님, 요즘 자동차 커뮤니티와 유튜브, 직장인 블라인드에서 가장 뜨겁게 불타오르고 있는 **‘현대차 신형 태블릿(플레오스 커넥트) 700만 원 논란 & 포티투닷(42dot) 납품가 이슈’**를 보셨군요! 임베디드 하드웨어(SoC) 원가와 완성차 내부 정산 구조를 기준으로 **① 실제 들어간 칩의 정체와 원가**, **② 왜 태블릿이 700만 원이라는 말이 나왔는지**, **③ 포티투닷(42dot)이 얼마에 공급하길래 내부 폭로까지 터졌는지** 핵심 팩트만 속 시원하게 정리해 드립니다. --- ### 1. 현대차 신형 태블릿에 들어간 칩은 무엇인가? 최근 출시된 **더 뉴 그랜저(페이스리프트)**, **디 올 뉴 아반떼(CN8)**, **신형 투싼** 등의 실내 중앙에 테슬라처럼 떡하니 붙어 나온 16:9 비율 대형 태블릿(12.9~1
 
