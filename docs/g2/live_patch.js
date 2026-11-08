@@ -602,6 +602,7 @@
         } else if (name === 'status') {
           // Fixed coordinates (x=320, y=0, width=236, height=50, padding=0, borderColor=0, borderRadius=0)
           // Inner height = 50px (nearly 2x 26px single-line font height) -> ZERO vertical scrollbar pill & ZERO left/right border bars!
+          // Also strip green volume level bars (▁▂▃▄▅▆▇█■□) so top-right status shows clean timer only during recording!
           obj.xPosition = 320;
           obj.yPosition = 0;
           obj.width = 236;
@@ -613,7 +614,9 @@
             String(obj.content || ' ')
               .replace(/\r?\n/g, ' ')
               .replace(/\s*\|\s*/g, '  ')
-              .replace(/[■□]{2,}\s*/g, ''),
+              .replace(/[▁▂▃▄▅▆▇█■□]+/g, '')
+              .replace(/\s{3,}/g, '  ')
+              .trim() || ' ',
             120
           );
           built.status = obj.content;
@@ -635,22 +638,59 @@
   }
 
   function hookBridgeContainerSanitizer(bridge, hud) {
-    if (!bridge || bridge.__v325BridgeSanitized) return;
-    bridge.__v325BridgeSanitized = true;
+    if (!bridge || bridge.__v327BridgeSanitized === OTA_VERSION) return;
+    bridge.__v327BridgeSanitized = OTA_VERSION;
     if (typeof bridge.createStartUpPageContainer === 'function') {
-      const origCreate = bridge.createStartUpPageContainer.bind(bridge);
+      const origCreate = bridge.__origCreateStartUpPage || bridge.createStartUpPageContainer.bind(bridge);
+      bridge.__origCreateStartUpPage = origCreate;
       bridge.createStartUpPageContainer = function (container) {
         sanitizePageContainerPayload(container, hud);
         return origCreate(container);
       };
     }
     if (typeof bridge.rebuildPageContainer === 'function') {
-      const origRebuild = bridge.rebuildPageContainer.bind(bridge);
+      const origRebuild = bridge.__origRebuildPage || bridge.rebuildPageContainer.bind(bridge);
+      bridge.__origRebuildPage = origRebuild;
       bridge.rebuildPageContainer = function (container) {
         sanitizePageContainerPayload(container, hud);
         return origRebuild(container);
       };
     }
+  }
+
+  function armAndSendRecordingNow(st, hud) {
+    const rec = st && st.recorder;
+    if (!rec || rec.stopped || st.mode !== 'listening') return false;
+    try {
+      if (Array.isArray(rec.chunks)) {
+        for (const c of rec.chunks) {
+          c.own = true;
+          c.speech = true;
+        }
+      }
+      // Set backing properties AND define writable own properties so getter-only heardSpeech/sendableMs NEVER throw TypeError!
+      rec.speechToArmMs = 40;
+      rec.speechMs = Math.max(rec.speechMs || 0, rec.durationMs || 600, 600);
+      rec.peakRms = Math.max(rec.peakRms || 0, 150);
+      try {
+        Object.defineProperty(rec, 'heardSpeech', { value: true, configurable: true, writable: true });
+        Object.defineProperty(rec, 'sendableMs', {
+          value: Math.max(rec.durationMs || 600, 600),
+          configurable: true,
+          writable: true
+        });
+      } catch {}
+    } catch {}
+    if (typeof rec.triggerAutoStop === 'function') {
+      rec.triggerAutoStop('manual');
+      return true;
+    }
+    if (typeof rec.onAutoStop === 'function') {
+      rec.stopped = true;
+      rec.onAutoStop('manual');
+      return true;
+    }
+    return false;
   }
 
   function showPreviousChatOnHud(st, hud, forceRebuild = false) {
@@ -704,12 +744,21 @@
       };
     }
 
-    // Ensure slotText('body') always returns UTF-8 byte-safe text (<= 1650 UTF-8 bytes) so textContainerUpgrade NEVER fails!
+    // Ensure slotText('body') always returns UTF-8 byte-safe text (<= 1650 UTF-8 bytes) and slotText('status') strips green volume bars!
     hud.slotText = function (slot) {
       if (this.clockStandby && (slot === 'title' || slot === 'body')) {
         return ' ';
       }
-      const raw = this.wanted[slot] || ' ';
+      let raw = String(this.wanted[slot] || ' ');
+      if (slot === 'status') {
+        raw =
+          raw
+            .replace(/\r?\n/g, ' ')
+            .replace(/\s*\|\s*/g, '  ')
+            .replace(/[▁▂▃▄▅▆▇█■□]+/g, '')
+            .replace(/\s{3,}/g, '  ')
+            .trim() || ' ';
+      }
       return sliceByUtf8Bytes(raw, slot === 'body' ? 1650 : 240);
     };
 
@@ -740,9 +789,10 @@
     };
 
     // Intercept EvenHub hardware events at window.dispatchEvent BEFORE legacy v2.0.0 onEvenHubEvent can mis-handle them!
-    if (!window.__v32EvenEventDispatchHooked && typeof window.dispatchEvent === 'function') {
-      window.__v32EvenEventDispatchHooked = true;
-      const origDispatchEvent = window.dispatchEvent.bind(window);
+    if (window.__v32EvenEventDispatchHooked !== OTA_VERSION && typeof window.dispatchEvent === 'function') {
+      window.__v32EvenEventDispatchHooked = OTA_VERSION;
+      const origDispatchEvent = window.__EDITH_ORIG_DISPATCH_EVENT__ || window.dispatchEvent.bind(window);
+      window.__EDITH_ORIG_DISPATCH_EVENT__ = origDispatchEvent;
       window.dispatchEvent = function (ev) {
         try {
           if (ev && ev.type === 'evenHubEvent' && ev.detail) {
@@ -811,8 +861,15 @@
               return true;
             }
 
-            // 3) CLICK_EVENT (0) -> When NOT recording, wake Clock Standby or advance scroll window, NEVER start tap recording!
-            if (evType === 0 && st.mode !== 'listening') {
+            // 3) CLICK_EVENT (0) -> If recording, send immediately; when NOT recording, wake Clock Standby or advance scroll window!
+            if (evType === 0) {
+              if (st.mode === 'listening') {
+                if (now - (st.holdStartedAt || 0) >= 200) {
+                  st.holdReleasedAt = now;
+                  armAndSendRecordingNow(st, hud);
+                }
+                return true;
+              }
               if (now - (st.holdReleasedAt || 0) < 700 || now - (st.__lastTapHandledAt || 0) < 320) {
                 return true;
               }
@@ -846,7 +903,7 @@
               return true;
             }
 
-            // 4) LONG_PRESS_EVENT (9) & LONG_PRESS_RELEASE_EVENT (10) -> Push-to-Talk: Send immediately when user lifts finger!
+            // 4) LONG_PRESS_EVENT (9) & LONG_PRESS_RELEASE_EVENT (10) -> Push-to-Talk: Send IMMEDIATELY (0ms delay) when user lifts finger!
             if (evType === 9) {
               st.holdStartedAt = now;
               st.trigger = 'hold';
@@ -855,17 +912,8 @@
               st.holdReleasedAt = now;
               if (st.mode === 'listening') {
                 st.trigger = 'hold';
-                if (st.recorder) {
-                  st.recorder.heardSpeech = true;
-                  st.recorder.speechMs = Math.max(st.recorder.speechMs || 0, st.recorder.durationMs || 600);
-                  st.recorder.sendableMs = Math.max(st.recorder.sendableMs || 0, st.recorder.durationMs || 600);
-                  if (Array.isArray(st.recorder.chunks)) {
-                    for (const c of st.recorder.chunks) {
-                      c.own = true;
-                      c.speech = true;
-                    }
-                  }
-                }
+                armAndSendRecordingNow(st, hud);
+                return true;
               }
             }
 
