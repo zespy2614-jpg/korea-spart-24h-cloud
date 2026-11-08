@@ -1588,17 +1588,16 @@
             : this.dim
               ? DIM_BRIGHTNESS[slot]
               : box.brightness;
-          const isStandbyStatus = this.clockStandby && slot === 'status';
           const contentText = snapshot ? snapshot[slot] : sliceByUtf8Bytes(this.slotText(slot), 850);
           return new TextContainerProperty({
-            xPosition: isStandbyStatus ? 336 : box.x,
+            xPosition: box.x,
             yPosition: box.y,
-            width: isStandbyStatus ? 220 : box.width,
+            width: box.width,
             height: box.height,
-            borderWidth: this.clockStandby ? 0 : box.border,
-            borderColor: 6,
-            borderRadius: 8,
-            paddingLength: isStandbyStatus ? 6 : box.padding,
+            borderWidth: 0,
+            borderColor: 0,
+            borderRadius: 0,
+            paddingLength: box.padding,
             containerID: box.id,
             containerName: box.name,
             isEventCapture: box.capture,
@@ -1626,14 +1625,13 @@
           const result = await this.bridge.createStartUpPageContainer(
             new CreateStartUpPageContainer({
               containerTotalNum: 3,
-              textObject: this.pageObjects(snapshot),
-              menuObject: this.menuObject()
+              textObject: this.pageObjects(snapshot)
             })
           );
           if (result !== StartUpPageCreateResult.success) {
             return this.rebuildNow();
           }
-          this.markPageBuilt();
+          this.markPageBuilt(snapshot);
           return true;
         });
       }
@@ -1653,20 +1651,30 @@
         const ok = await this.bridge.rebuildPageContainer(
           new RebuildPageContainer({
             containerTotalNum: 3,
-            textObject: this.pageObjects(snapshot),
-            menuObject: this.menuObject()
+            textObject: this.pageObjects(snapshot)
           })
         );
-        if (ok) this.markPageBuilt();
+        if (ok) this.markPageBuilt(snapshot);
         return Boolean(ok);
       }
 
-      markPageBuilt() {
+      markPageBuilt(snapshot) {
+        const built = snapshot || {
+          title: sliceByUtf8Bytes(this.slotText('title'), 300),
+          status: sliceByUtf8Bytes(this.slotText('status'), 300),
+          body: sliceByUtf8Bytes(this.slotText('body'), 850)
+        };
         for (const slot of ['title', 'status', 'body']) {
-          this.shown[slot] = '';
+          this.shown[slot] = built[slot];
         }
         this.flushQueued = false;
-        this.scheduleFlush();
+        if (
+          this.slotText('body') !== this.shown.body ||
+          this.slotText('title') !== this.shown.title ||
+          this.slotText('status') !== this.shown.status
+        ) {
+          this.scheduleFlush();
+        }
       }
 
       scheduleFlush() {
