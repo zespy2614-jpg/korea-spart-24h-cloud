@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 7:57:06",
+  "updatedAt": "2026. 11. 8. PM 7:57:21",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -150,7 +150,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 7:57:06\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 2단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 7:57:21\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 1단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -679,10 +679,6 @@
     {
       "updatedAt": "2026-11-08T10:56:20Z",
       "snippet": "[안티그래비티(PC 작업 결과)] 사장님, 지적해주신 3가지 핵심 사항(**① USB 포트 딱 2개로 구성**, **② 누락되어 있던 물리적 MicroSD(TF) 카드 삽입구 정식 탑재**, **③ `HDMI`를 포함한 모든 필수 포트를 제품 후면부 한 줄에 일자 배치**)을 두 보드(`UIS7861` 및 `RK3566`)의 **회로도(`.kicad_sch`), 기판(`.kicad_pcb`), 안드로이드 커널(`.dts`), 발주 부품표(`BOM.csv`), 그리고 3D 완성본 실사 사진**에 100% 반영하여 **`V1.3 (All-Rear I/O 후면 통합 버전)`**으로 즉시 재설계했습니다.\n\n전체 고해상도 3D 사진과 후면 포트 배치도는 우측 상단 아티팩트 문서인 **[UIS7861_RK3566_후면통합포트_V1.3_설계보고서.md](file:///C:/Users/박정"
-    },
-    {
-      "updatedAt": "2026-11-08T10:56:50Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] I have generated the requested 3D photorealistic studio hardware photograph of the **Rockchip RK3566 V2.0 Smart Beam Projector Mainboard (Single-Edge I/O Edition)** and reported the result directly to the caller agent via `send_message`."
     }
   ],
   "recentDocs": [
@@ -742,11 +738,6 @@
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-08T10:56:20Z",
       "summary": "사장님, 지적해주신 3가지 핵심 사항(**① USB 포트 딱 2개로 구성**, **② 누락되어 있던 물리적 MicroSD(TF) 카드 삽입구 정식 탑재**, **③ `HDMI`를 포함한 모든 필수 포트를 제품 후면부 한 줄에 일자 배치**)을 두 보드(`UIS7861` 및 `RK3566`)의 **회로도(`.kicad_sch`), 기판(`.kicad_pcb`), 안드로이드 커널(`.dts`), 발주 부품표(`BOM.csv`), 그리고 3D 완성본 실사 사진**에 100% 반영하여 **`V1.3 (All-Rear I/O 후면 통합 버전)`**으로 즉시 재설계했습니다.\n\n전체 고해상도 3D 사진과 후면 포트 배치도는 우측 상단 아티팩트 문서인 **[UIS7861_RK3566_후면통합포트_V1.3_설계보고서.md](file:///C:/Users/박정"
-    },
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-08T10:56:50Z",
-      "summary": "I have generated the requested 3D photorealistic studio hardware photograph of the **Rockchip RK3566 V2.0 Smart Beam Projector Mainboard (Single-Edge I/O Edition)** and reported the result directly to the caller agent via `send_message`."
     }
   ],
   "livePcArtifacts": [
