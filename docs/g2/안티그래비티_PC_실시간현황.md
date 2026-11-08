@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 2:15:21
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 8. PM 2:15:51
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -25,6 +25,7 @@
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
 - **[안티그래비티(PC 작업 결과)]**: 설치된 모든 핵심 스킬(**`samsung-design-system`**, **`proactive-hardware-simulator`**, **`embedded-soc-ble-firmware-architect`**, **`embedded-systems`**, **`deep-osint-crawler-intelligence`**, **`zero-regression-engineering`**, **`verification-before-completion`**)을 전수 적용하여 프로그램을 **상용 v2.0 아키텍처로 재구축**하고, **13개 항목의 하드웨어 디지털 트윈 자동 검증 테스트를 100% 통과(PASS)**한 뒤 PC 실시간 허브 서버 및 보드 마스터 배포판(`E:\dev\rk3588s_usb_hdd\ai_edge_box`)에 설치를 완료
 - **[대표님(PC 안티그래비티 요청)]**: 그럼 다시가보자 그 고객이 내꺼기기를사면 그 CCTV박스에 연결하고 , 거기에붙은 QR을 우리핸드폰 앱으로 스캔하는거야 ?
+- **[안티그래비티(PC 작업 결과)]**: 네, 맞습니다! 그런데 고객(어린이집·요양원 원장님, 공장 사장님)이 연세가 있으시거나 기계를 잘 모르셔도 **10초 만에 연결하실 수 있도록, 두 가지 방법(① 기본 카메라로 바로 찍기 / ② 우리 전용 앱으로 찍기)이 둘 다 되게** 만드는 것이 가장 좋습니다. 고객이 택배를 받아서 선을 꽂고 핸드폰으로 스캔할 때 **뒤에서 실제로 어떻게 연결되는지** 순서대로 딱 정리해 드릴게요. --- ### 고객이 기기를 받아서 연결하는 실제 과정 (딱 3단계) ```mermaid sequenceDiagram     autonumber     participant Box as 📦 내 기기 (AI 엣지 박스)<br/>뚜껑에 [고유번호 QR] 부착됨     participant Cloud as 🌐 자동 짝짓기 안내소<br/>(무료 클라우드/봇
 - **[안티그래비티(PC 작업 결과)]**: 방금 올려주신 **시계 화면 사진 2장(좌·우 세로 바 `┃`) 수정**과 함께, 대표님께서 **안경 음성으로 연속 지시해주신 2건(`task_1794100103428`, `task_1794100239297`)**까지 모두 감지하여 **`v3.2.7` 패치 및 실시간 연동 세팅을 완료**했습니다. --- ### 1. 시계 모드 좌·우 세로 바(`┃`) 완전 제거 ([live_patch.js](file:///e:/안티그래비티/EvenG2_안티그래비티_AI허브/public/live_patch.js#L584-L619)) * **근본 원인**: 상단 `title`(`x = 20..300`)과 `status`(`x = 310..556`) 컨테이너의 높이가 `44px`, 내부 여백(`paddingLength`)이 `10px`로 잡혀 있어 실제 글자가
 - **[대표님(PC 안티그래비티 요청)]**: 어 영어로보내주고 해당사업자는 폐업예정이라고도 덛붙혀줘
 - **[안티그래비티(PC 작업 결과)]**: 네이버 메일(`kanjji@naver.com`)에서 **해당 사업자(SY CORPORATION)는 폐업 예정이라는 내용까지 추가하여 영문으로 정상 발송 완료**했습니다! (보낸메일함 등록 번호: `202669` 확인 완료) --- ### 발송 완료 내역 요약 * **보낸 사람**: 박정수 (`kanjji@naver.com`) * **받는 사람 (To - 담당자 3곳)**:   * `catherine.kimani@avaskgroup.com` (캐서린 키마니 — 미납·채권 담당자)   * `habib.bouzidi@avaskgroup.com` (하빕 부지디 — 결제·신용관리 담당자)   * `customerservice@avaskgroup.com` (아바스크 고객지원 및 해지 담당팀) * **참조 (CC - 관련 부서 5곳)**:   * `
