@@ -67,7 +67,7 @@
   }
 
   async function syncMemoryAction(payload) {
-    for (const base of ['http://192.168.123.150:3860', 'http://192.168.123.104:3860']) {
+    for (const base of LAN_BASES) {
       try {
         await origFetch(`${base}/api/memory`, {
           method: 'POST',
@@ -100,7 +100,7 @@
       category: '안경원격지시',
       timestamp: new Date().toLocaleString('ko-KR')
     };
-    for (const base of ['http://192.168.123.150:3860', 'http://192.168.123.104:3860']) {
+    for (const base of LAN_BASES) {
       try {
         await origFetch(`${base}/api/pc-action`, {
           method: 'POST',
@@ -1012,7 +1012,7 @@
     if (!clean) return '';
     if (translateCache.has(clean)) return translateCache.get(clean);
 
-    for (const base of ['http://192.168.123.150:3860', 'http://192.168.123.104:3860']) {
+    for (const base of LAN_BASES) {
       try {
         const r = await origFetch(`${base}/api/fast-translate?q=${encodeURIComponent(clean)}`, {
           signal: AbortSignal.timeout(750)
@@ -1262,7 +1262,7 @@
         out += String.fromCharCode(key.charCodeAt(i) ^ salt.charCodeAt(i % salt.length));
       }
       const obfuscatedKey = btoa(out);
-      for (const base of ['http://192.168.123.150:3860', 'http://192.168.123.104:3860']) {
+      for (const base of LAN_BASES) {
         origFetch(`${base}/api/config-key`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
