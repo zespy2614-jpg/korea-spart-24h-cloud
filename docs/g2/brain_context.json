@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026. 11. 8. PM 9:32:39",
+  "updatedAt": "2026. 11. 8. PM 9:32:54",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
     "k": "EgxUMBUfKUJMWhU5V1MDUgQCSmteVGgSBVgSaQIGVgRWA047UgFuQVMOETwDAQIABANNaVJTOhJXDxA8VgQBDlhUT29VUzpHBw==",
-    "m": "google/gemini-4-argon"
+    "m": "google/gemini-3.1-pro-preview"
   },
   "pinnedReminder": "대표님의 차량은 파란색 자동차입니다.",
   "longTermMemories": [
@@ -150,7 +150,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 9:32:39\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 4단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 9:32:54\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 4단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -339,6 +339,10 @@
     {
       "name": "evidence_snapshots",
       "type": "folder"
+    },
+    {
+      "name": "firebase-debug.log",
+      "type": "file"
     },
     {
       "name": "G2_안경_실시간_작업큐.json",
@@ -605,6 +609,10 @@
     {
       "name": "e:\\안티그래비티\\evidence_snapshots",
       "summary": "워크스페이스 프로젝트 폴더"
+    },
+    {
+      "name": "e:\\안티그래비티\\firebase-debug.log",
+      "summary": "워크스페이스 핵심 문서"
     },
     {
       "name": "e:\\안티그래비티\\G2_안경_실시간_작업큐.json",
