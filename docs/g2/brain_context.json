@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 5:50:16",
+  "updatedAt": "2026. 11. 8. PM 5:50:46",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -149,7 +149,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 5:50:16\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 4단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 5:50:46\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 4단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -612,12 +612,12 @@
       "snippet": "[대표님(PC 안티그래비티 요청)] 사이트보여줘봐 자가학습하는모습이랑있나"
     },
     {
-      "updatedAt": "2026-11-08T08:47:08Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 너는 임베디드 리눅스/안드로이드(Rockchip RK3566)와 에뮬레이터(PPSSPP, RetroArch pcsx_rearmed) 성능 최적화 전문가야.\r\n아래는 내 빔프로젝터 게임기의 현재 상태와, 지금까지 측정하고 적용한 내용이야. 이걸 바탕으로 두 가지를 해 줘.\r\n(1) 놓친 원인이나 틀린 판단이 있는지 검토해 줘.\r\n(2) 실제 전투 중 성능을 더 올릴 방법을 우선순위로 제안해 줘.\r\n\r\n## 기기\r\n- **장치**: ELIPHOEM 빔프로젝터\r\n- **SoC**: RK3566 (Cortex-A55 ×4, Mali-G52 2EE), RAM 약 1.5GB(low_ram)\r\n- **OS**: Android 12L(32비트 사용자영역), 커널 4.19.232(Rockchip BSP)\r\n- **화면**: 패널 56Hz. 키스톤 보정은 Su"
-    },
-    {
       "updatedAt": "2026-11-08T08:42:36Z",
       "snippet": "[대표님(PC 안티그래비티 요청)] https://youtu.be/NCxD-qsQcN0?si=vb5D66mnL-vd-2xt 이거 뭘로프로그램짠거지 챗지피티 아스트라이용해서 설계프로그램\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
+    },
+    {
+      "updatedAt": "2026-11-08T08:47:08Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 너는 임베디드 리눅스/안드로이드(Rockchip RK3566)와 에뮬레이터(PPSSPP, RetroArch pcsx_rearmed) 성능 최적화 전문가야.\r\n아래는 내 빔프로젝터 게임기의 현재 상태와, 지금까지 측정하고 적용한 내용이야. 이걸 바탕으로 두 가지를 해 줘.\r\n(1) 놓친 원인이나 틀린 판단이 있는지 검토해 줘.\r\n(2) 실제 전투 중 성능을 더 올릴 방법을 우선순위로 제안해 줘.\r\n\r\n## 기기\r\n- **장치**: ELIPHOEM 빔프로젝터\r\n- **SoC**: RK3566 (Cortex-A55 ×4, Mali-G52 2EE), RAM 약 1.5GB(low_ram)\r\n- **OS**: Android 12L(32비트 사용자영역), 커널 4.19.232(Rockchip BSP)\r\n- **화면**: 패널 56Hz. 키스톤 보정은 Su"
     }
   ],
   "recentDocs": [
@@ -685,13 +685,13 @@
     },
     {
       "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-08T08:47:08Z",
-      "summary": "너는 임베디드 리눅스/안드로이드(Rockchip RK3566)와 에뮬레이터(PPSSPP, RetroArch pcsx_rearmed) 성능 최적화 전문가야.\r\n아래는 내 빔프로젝터 게임기의 현재 상태와, 지금까지 측정하고 적용한 내용이야. 이걸 바탕으로 두 가지를 해 줘.\r\n(1) 놓친 원인이나 틀린 판단이 있는지 검토해 줘.\r\n(2) 실제 전투 중 성능을 더 올릴 방법을 우선순위로 제안해 줘.\r\n\r\n## 기기\r\n- **장치**: ELIPHOEM 빔프로젝터\r\n- **SoC**: RK3566 (Cortex-A55 ×4, Mali-G52 2EE), RAM 약 1.5GB(low_ram)\r\n- **OS**: Android 12L(32비트 사용자영역), 커널 4.19.232(Rockchip BSP)\r\n- **화면**: 패널 56Hz. 키스톤 보정은 Su"
+      "createdAt": "2026-11-08T08:42:36Z",
+      "summary": "https://youtu.be/NCxD-qsQcN0?si=vb5D66mnL-vd-2xt 이거 뭘로프로그램짠거지 챗지피티 아스트라이용해서 설계프로그램\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
     },
     {
       "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-08T08:42:36Z",
-      "summary": "https://youtu.be/NCxD-qsQcN0?si=vb5D66mnL-vd-2xt 이거 뭘로프로그램짠거지 챗지피티 아스트라이용해서 설계프로그램\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Argon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
+      "createdAt": "2026-11-08T08:47:08Z",
+      "summary": "너는 임베디드 리눅스/안드로이드(Rockchip RK3566)와 에뮬레이터(PPSSPP, RetroArch pcsx_rearmed) 성능 최적화 전문가야.\r\n아래는 내 빔프로젝터 게임기의 현재 상태와, 지금까지 측정하고 적용한 내용이야. 이걸 바탕으로 두 가지를 해 줘.\r\n(1) 놓친 원인이나 틀린 판단이 있는지 검토해 줘.\r\n(2) 실제 전투 중 성능을 더 올릴 방법을 우선순위로 제안해 줘.\r\n\r\n## 기기\r\n- **장치**: ELIPHOEM 빔프로젝터\r\n- **SoC**: RK3566 (Cortex-A55 ×4, Mali-G52 2EE), RAM 약 1.5GB(low_ram)\r\n- **OS**: Android 12L(32비트 사용자영역), 커널 4.19.232(Rockchip BSP)\r\n- **화면**: 패널 56Hz. 키스톤 보정은 Su"
     }
   ],
   "livePcArtifacts": [
