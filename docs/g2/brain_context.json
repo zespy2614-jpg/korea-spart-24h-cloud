@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 7:26:05",
+  "updatedAt": "2026. 11. 8. PM 7:26:20",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -150,7 +150,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 7:26:05\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 5단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 7:26:20\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 5단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -677,6 +677,14 @@
   ],
   "livePcAntigravity": [
     {
+      "updatedAt": "2026-11-08T10:20:11Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] PSP 철권 6 추가 최적화 설정(`compat.ini` NEON VMMUL 고속화, `FastEmulatedGPU`, `DisableAccurateDepth`, 텍스처 세컨더리 캐시 해제 및 클럭 고정 해제 치트)을 기기에 적용 중입니다. 완료되는 대로 실제 전투 속도를 측정하겠습니다."
+    },
+    {
+      "updatedAt": "2026-11-08T10:21:51Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] PSP 철권 6 2차 최적화(`compat.ini` NEON VMMUL 고속화 + `FastEmulatedGPU` + 텍스처 캐시 최적화) 적용 후 실제 전투 벤치마크(`psp_opt2`)를 측정 중입니다. 완료되는 대로 결과를 확인하고 클럭 언더클럭 조합까지 이어서 테스트하겠습니다."
+    },
+    {
       "updatedAt": "2026-11-08T10:09:27Z",
       "snippet": "[안티그래비티(PC 작업 결과)] S905L3A EmuELEC 콘솔(`192.168.123.105:60222`)에 대한 **하드웨어 클럭·전압·인터럽트 실측 감사 → 전체 반응속도·I/O 최적화 → 철권 태그 토너먼트 DRC 패치 및 코어 격리 → PSP(`PPSSPPSDL`) 멀티코어 분리·설정 최적화 → LAN SSH 및 `kernel.img`(`KEY0`/`.reset_key`) 보안 패치** 작업을 완료했습니다.\n\n> [!IMPORTANT]\n> **마지막 5초 작업 안내 (USB를 PC에 잠깐 꽂아주세요!)**\n> `/storage` 내부의 모든 최적화(철권 태그, PSP, RetroArch, EmulationStation, I/O, SSH 보안)는 기기에 **100% 적용 완료**되었습니다.\n> 마지막 단계로 `/flash/kernel.img` 보안 부트 이미지를 적"
     },
@@ -687,14 +695,6 @@
     {
       "updatedAt": "2026-11-08T10:23:05Z",
       "snippet": "[대표님(PC 안티그래비티 요청)] 리셋키 ★별표여러개넣어서 구글드라이브 게임기폴더에도 업로드해줘 오늘날짜적고"
-    },
-    {
-      "updatedAt": "2026-11-08T10:20:11Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] PSP 철권 6 추가 최적화 설정(`compat.ini` NEON VMMUL 고속화, `FastEmulatedGPU`, `DisableAccurateDepth`, 텍스처 세컨더리 캐시 해제 및 클럭 고정 해제 치트)을 기기에 적용 중입니다. 완료되는 대로 실제 전투 속도를 측정하겠습니다."
-    },
-    {
-      "updatedAt": "2026-11-08T10:21:51Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] PSP 철권 6 2차 최적화(`compat.ini` NEON VMMUL 고속화 + `FastEmulatedGPU` + 텍스처 캐시 최적화) 적용 후 실제 전투 벤치마크(`psp_opt2`)를 측정 중입니다. 완료되는 대로 결과를 확인하고 클럭 언더클럭 조합까지 이어서 테스트하겠습니다."
     }
   ],
   "recentDocs": [
@@ -752,6 +752,16 @@
   "livePcAntigravitySession": [
     {
       "role": "안티그래비티(PC 작업 결과)",
+      "createdAt": "2026-11-08T10:20:11Z",
+      "summary": "PSP 철권 6 추가 최적화 설정(`compat.ini` NEON VMMUL 고속화, `FastEmulatedGPU`, `DisableAccurateDepth`, 텍스처 세컨더리 캐시 해제 및 클럭 고정 해제 치트)을 기기에 적용 중입니다. 완료되는 대로 실제 전투 속도를 측정하겠습니다."
+    },
+    {
+      "role": "안티그래비티(PC 작업 결과)",
+      "createdAt": "2026-11-08T10:21:51Z",
+      "summary": "PSP 철권 6 2차 최적화(`compat.ini` NEON VMMUL 고속화 + `FastEmulatedGPU` + 텍스처 캐시 최적화) 적용 후 실제 전투 벤치마크(`psp_opt2`)를 측정 중입니다. 완료되는 대로 결과를 확인하고 클럭 언더클럭 조합까지 이어서 테스트하겠습니다."
+    },
+    {
+      "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-08T10:09:27Z",
       "summary": "S905L3A EmuELEC 콘솔(`192.168.123.105:60222`)에 대한 **하드웨어 클럭·전압·인터럽트 실측 감사 → 전체 반응속도·I/O 최적화 → 철권 태그 토너먼트 DRC 패치 및 코어 격리 → PSP(`PPSSPPSDL`) 멀티코어 분리·설정 최적화 → LAN SSH 및 `kernel.img`(`KEY0`/`.reset_key`) 보안 패치** 작업을 완료했습니다.\n\n> [!IMPORTANT]\n> **마지막 5초 작업 안내 (USB를 PC에 잠깐 꽂아주세요!)**\n> `/storage` 내부의 모든 최적화(철권 태그, PSP, RetroArch, EmulationStation, I/O, SSH 보안)는 기기에 **100% 적용 완료**되었습니다.\n> 마지막 단계로 `/flash/kernel.img` 보안 부트 이미지를 적"
     },
@@ -764,16 +774,6 @@
       "role": "대표님(PC 안티그래비티 요청)",
       "createdAt": "2026-11-08T10:23:05Z",
       "summary": "리셋키 ★별표여러개넣어서 구글드라이브 게임기폴더에도 업로드해줘 오늘날짜적고"
-    },
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-08T10:20:11Z",
-      "summary": "PSP 철권 6 추가 최적화 설정(`compat.ini` NEON VMMUL 고속화, `FastEmulatedGPU`, `DisableAccurateDepth`, 텍스처 세컨더리 캐시 해제 및 클럭 고정 해제 치트)을 기기에 적용 중입니다. 완료되는 대로 실제 전투 속도를 측정하겠습니다."
-    },
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-08T10:21:51Z",
-      "summary": "PSP 철권 6 2차 최적화(`compat.ini` NEON VMMUL 고속화 + `FastEmulatedGPU` + 텍스처 캐시 최적화) 적용 후 실제 전투 벤치마크(`psp_opt2`)를 측정 중입니다. 완료되는 대로 결과를 확인하고 클럭 언더클럭 조합까지 이어서 테스트하겠습니다."
     }
   ],
   "livePcArtifacts": [],
