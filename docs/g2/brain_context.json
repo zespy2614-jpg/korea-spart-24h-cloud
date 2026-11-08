@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 4:36:29",
+  "updatedAt": "2026. 11. 8. PM 4:36:44",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -149,7 +149,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 4:36:29\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 9단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 4:36:44\n1. 영구 장기기억 금고: 17건 (고정: 아 그리고 이거 어플 안경 있잖아요. 너무 잘 만들었어. 근데 그 이제 녹음 중에 두 가지. 녹음 중에 오른쪽 위에 )\n2. PC 안티그래비티 실시간 작업: 최근 9단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -734,7 +734,7 @@
   "livePcArtifacts": [
     {
       "file": "walkthrough.md",
-      "updatedAt": "2026. 11. 8. PM 4:27:07",
+      "updatedAt": "2026. 11. 8. PM 4:36:41",
       "excerpt": "# 전체 시스템 기능 전수 검수 및 오류 수정 보고서\n\n설치된 글로벌 엔지니어링·UI/UX 스킬(`samsung-design-system`, `android-apk-smali-system-engineer`, `zero-regression-engineering`, `systematic-debugging`, `proactive-hardware-simulator`, `verification-before-completion`)을 기반으로 **런처(`KorLauncher3.apk`), 시스템 헬퍼(`KorSystemHelper.apk`), 차량용 자동 핫스팟(`CarAutoHotspot.apk`), 스마트폰 컴패니언 앱(`OneUI_AutoHotspot_Phone.apk` v5.5)** 전체 코드를 전수 감사하여 발견된 불일치·잠재 버그를 모두 수정하고, 실제 모니터(`192.168.123.107:5555`)에서 모든 화면과 기능을 하나씩 실행하여 검증했습니다.\n\n---\n\n## 1. 전수 코드 감사로 발견 및 수정한 항목\n\n1. **홈 2페이지(앱 서랍) 및 멀티태스킹 창 `오디오 출력` 아이콘 불일치 수정**\n   - **원인**: 홈 1페이지(중앙 카드·하단 독)와 앱 추가 모달에서는 `오디오 출력`(`com.zqc.audioroute`)이 파란색 삼성 One UI 스쿼클 아이콘으로 표시되었으나, 홈 2페이지(`buildAppDrawerItems`)와 멀티태스킹 최근 실행 앱(`NavBarService.rebuildRecentsCards`)에서는 기존 초록색 아이콘이 표시되는 시각적 불일치가 존재했습니다.\n   - **수정**: 홈 2페이지 앱 서랍과 멀티태스킹 최근 앱 카드 모두 파란색 One UI 스쿼클 아이콘을 사용하도록 통일했습니다.\n\n2. **음악 위젯(`노래가 재생되지 않음`) 좌측 흰색 점(SeekBar Thumb) 영구 차단 강화**\n   - **원인**: 미디어 브로드캐스트 수신 시 숨겨진 `music_progress`(`0x7f090247`) 프로그레스바가 갱신되면서 좌측 끝(0%) 흰색 썸(Thumb)이 다시 그려질 수 있었습니다.\n   - **수정**: `initViewsAndListeners`와 `onResume`(`disableDateClockClick`) 양쪽 모두에서 `SeekBar`의 `Thumb`과 `ProgressDrawable`을 완전 투명(`ColorDrawable(Color.T"
     }
   ],
