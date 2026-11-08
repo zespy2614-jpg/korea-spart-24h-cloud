@@ -2388,12 +2388,12 @@
         hud.menu = buildMenuItems();
       }
 
-      // Allow auto-stop on silence (1.65s) even when started via long-press so both "hold-to-talk" and "long-press-once-then-speak" work cleanly
+      // Allow auto-stop on silence (750ms) and instant send on finger release
       const recorder = new EdithRecorder({
         autoStop: true,
-        silenceToStopMs: 1650,
+        silenceToStopMs: 750,
         minSpeechRms: 95,
-        speechToArmMs: 140,
+        speechToArmMs: 100,
         onAutoStop: (reason) => void finishListening(reason)
       });
 
