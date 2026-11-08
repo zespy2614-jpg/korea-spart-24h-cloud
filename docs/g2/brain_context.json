@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 8. PM 9:15:09",
+  "updatedAt": "2026. 11. 8. PM 9:15:23",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -150,7 +150,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 9:15:09\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 8단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 8. PM 9:15:23\n1. 영구 장기기억 금고: 17건 (고정: 대표님의 차량은 파란색 자동차입니다.)\n2. PC 안티그래비티 실시간 작업: 최근 9단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -717,14 +717,6 @@
   ],
   "livePcAntigravity": [
     {
-      "updatedAt": "2026-11-08T11:44:40Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] The final photorealistic product photograph for the **Unisoc UIS7861 V2.3 Smart Beam Projector Mainboard** has been generated and sent to the parent agent.\n\n- **Saved Path:** `C:\\Users\\박정수\\.gemini\\antigravity\\brain\\6f4f2257-3ec4-469e-8c6b-6bbcf729ec04\\unisoc_uis7861_v23_mainboard_flush_1794138208674.jpg`"
-    },
-    {
-      "updatedAt": "2026-11-08T11:48:56Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] The edited photograph has been generated and sent to the parent agent:\n\n- **Saved File Path:** `C:\\Users\\박정수\\.gemini\\antigravity\\brain\\6f4f2257-3ec4-469e-8c6b-6bbcf729ec04\\unisoc_uis7861_v23_behind_aux_reset_1794138525238.jpg`\n- **Modifications applied:** The side button was completely removed from the right flank leaving clean emerald green PCB, and the micro tactile reset switch was positioned directly behind the r"
-    },
-    {
       "updatedAt": "2026-11-08T11:34:01Z",
       "snippet": "[안티그래비티(PC 작업 결과)] 사장님, 말씀하신 대로 **화면이 정신없고 복잡했던 원인을 전부 걷어내고**, **토스(Toss) · 삼성 One UI 7 스타일의 초간결 카드형 UI**로 대폭 정리하여 라이브 서버(**https://atlas-2af66.web.app/**)와 전용 앱에 즉시 반영했습니다.\n\n> **지금 켜두신 아틀라스 앱(또는 모바일 웹)에서 상단 `[업데이트]` 버튼을 한 번 누르시거나 앱을 껐다 켜시면 재설치 없이도 즉시 새 화면으로 바뀝니다.**\n> *(새 APK `v1.3.0` 설치 링크: **https://atlas-2af66.web.app/apk.html**)*\n\n---\n\n### 📱 한눈에 들어오도록 정리한 핵심 변경 사항\n\n1. **앱 내부 ‘중복 상단바·중복 하단바·중복 업데이트 버튼’ 완전 제거 ([index.html](file:///C"
     },
@@ -747,6 +739,18 @@
     {
       "updatedAt": "2026-11-08T11:44:10Z",
       "snippet": "[안티그래비티(PC 작업 결과)] I have generated the photorealistic 3D studio photograph of the Rockchip RK3566 V2.3 Smart Beam Projector Mainboard with the exact zero-step flush connector alignment and coaxial behind-AUX reset switch, and reported the final image path back to the parent agent."
+    },
+    {
+      "updatedAt": "2026-11-08T12:15:05Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] I have generated the updated photorealistic 3D studio photograph for the **Rockchip RK3566 V2.4 Smart Beam Projector Mainboard** featuring all 8 front connectors (including the Push-Push MicroSD slot and metal-shielded RJ45 Gigabit Ethernet port) in a razor-straight 0.00mm flush row, along with the coaxial behind-AUX reset switch, and reported the final file path back to the parent agent."
+    },
+    {
+      "updatedAt": "2026-11-08T11:44:40Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] The final photorealistic product photograph for the **Unisoc UIS7861 V2.3 Smart Beam Projector Mainboard** has been generated and sent to the parent agent.\n\n- **Saved Path:** `C:\\Users\\박정수\\.gemini\\antigravity\\brain\\6f4f2257-3ec4-469e-8c6b-6bbcf729ec04\\unisoc_uis7861_v23_mainboard_flush_1794138208674.jpg`"
+    },
+    {
+      "updatedAt": "2026-11-08T11:48:56Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] The edited photograph has been generated and sent to the parent agent:\n\n- **Saved File Path:** `C:\\Users\\박정수\\.gemini\\antigravity\\brain\\6f4f2257-3ec4-469e-8c6b-6bbcf729ec04\\unisoc_uis7861_v23_behind_aux_reset_1794138525238.jpg`\n- **Modifications applied:** The side button was completely removed from the right flank leaving clean emerald green PCB, and the micro tactile reset switch was positioned directly behind the r"
     }
   ],
   "recentDocs": [
@@ -804,16 +808,6 @@
   "livePcAntigravitySession": [
     {
       "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-08T11:44:40Z",
-      "summary": "The final photorealistic product photograph for the **Unisoc UIS7861 V2.3 Smart Beam Projector Mainboard** has been generated and sent to the parent agent.\n\n- **Saved Path:** `C:\\Users\\박정수\\.gemini\\antigravity\\brain\\6f4f2257-3ec4-469e-8c6b-6bbcf729ec04\\unisoc_uis7861_v23_mainboard_flush_1794138208674.jpg`"
-    },
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-08T11:48:56Z",
-      "summary": "The edited photograph has been generated and sent to the parent agent:\n\n- **Saved File Path:** `C:\\Users\\박정수\\.gemini\\antigravity\\brain\\6f4f2257-3ec4-469e-8c6b-6bbcf729ec04\\unisoc_uis7861_v23_behind_aux_reset_1794138525238.jpg`\n- **Modifications applied:** The side button was completely removed from the right flank leaving clean emerald green PCB, and the micro tactile reset switch was positioned directly behind the r"
-    },
-    {
-      "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-08T11:34:01Z",
       "summary": "사장님, 말씀하신 대로 **화면이 정신없고 복잡했던 원인을 전부 걷어내고**, **토스(Toss) · 삼성 One UI 7 스타일의 초간결 카드형 UI**로 대폭 정리하여 라이브 서버(**https://atlas-2af66.web.app/**)와 전용 앱에 즉시 반영했습니다.\n\n> **지금 켜두신 아틀라스 앱(또는 모바일 웹)에서 상단 `[업데이트]` 버튼을 한 번 누르시거나 앱을 껐다 켜시면 재설치 없이도 즉시 새 화면으로 바뀝니다.**\n> *(새 APK `v1.3.0` 설치 링크: **https://atlas-2af66.web.app/apk.html**)*\n\n---\n\n### 📱 한눈에 들어오도록 정리한 핵심 변경 사항\n\n1. **앱 내부 ‘중복 상단바·중복 하단바·중복 업데이트 버튼’ 완전 제거 ([index.html](file:///C"
     },
@@ -841,6 +835,21 @@
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-08T11:44:10Z",
       "summary": "I have generated the photorealistic 3D studio photograph of the Rockchip RK3566 V2.3 Smart Beam Projector Mainboard with the exact zero-step flush connector alignment and coaxial behind-AUX reset switch, and reported the final image path back to the parent agent."
+    },
+    {
+      "role": "안티그래비티(PC 작업 결과)",
+      "createdAt": "2026-11-08T12:15:05Z",
+      "summary": "I have generated the updated photorealistic 3D studio photograph for the **Rockchip RK3566 V2.4 Smart Beam Projector Mainboard** featuring all 8 front connectors (including the Push-Push MicroSD slot and metal-shielded RJ45 Gigabit Ethernet port) in a razor-straight 0.00mm flush row, along with the coaxial behind-AUX reset switch, and reported the final file path back to the parent agent."
+    },
+    {
+      "role": "안티그래비티(PC 작업 결과)",
+      "createdAt": "2026-11-08T11:44:40Z",
+      "summary": "The final photorealistic product photograph for the **Unisoc UIS7861 V2.3 Smart Beam Projector Mainboard** has been generated and sent to the parent agent.\n\n- **Saved Path:** `C:\\Users\\박정수\\.gemini\\antigravity\\brain\\6f4f2257-3ec4-469e-8c6b-6bbcf729ec04\\unisoc_uis7861_v23_mainboard_flush_1794138208674.jpg`"
+    },
+    {
+      "role": "안티그래비티(PC 작업 결과)",
+      "createdAt": "2026-11-08T11:48:56Z",
+      "summary": "The edited photograph has been generated and sent to the parent agent:\n\n- **Saved File Path:** `C:\\Users\\박정수\\.gemini\\antigravity\\brain\\6f4f2257-3ec4-469e-8c6b-6bbcf729ec04\\unisoc_uis7861_v23_behind_aux_reset_1794138525238.jpg`\n- **Modifications applied:** The side button was completely removed from the right flank leaving clean emerald green PCB, and the micro tactile reset switch was positioned directly behind the r"
     }
   ],
   "livePcArtifacts": [],
