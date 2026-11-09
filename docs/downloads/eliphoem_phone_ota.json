@@ -1,11 +1,10 @@
 {
   "ok": true,
-  "version": "v6.3",
-  "build": 63,
+  "version": "v6.4",
+  "build": 64,
   "brand": "ELIPHOEM",
   "title": "자동 핫스팟",
   "connMode": "TABLET",
   "autoOff": true,
-  "apkUrl": "https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone.apk",
-  "notes": "ELIPHOEM v6.3: Bottom CTA button changed to '자동 핫스팟 연결하기' while keeping '무선 안드로이드 오토' toggle in the main card."
+  "apkUrl": "https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone.apk"
 }
