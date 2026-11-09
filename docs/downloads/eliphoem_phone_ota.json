@@ -1,11 +1,11 @@
 {
   "ok": true,
-  "version": "v6.16",
-  "build": 76,
+  "version": "v6.18",
+  "build": 78,
   "brand": "ELIPHOEM",
   "title": "자동 핫스팟",
   "connMode": "TABLET",
   "autoOff": true,
-  "apkUrl": "https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone_v6.16.apk",
-  "sha256": "7906f744ceecebdf4b146346057af2a95a8e44d9d74e2dbc346c1554719f2a08"
+  "apkUrl": "https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone_v6.18.apk",
+  "sha256": "2d0e5fed45966960e519df072826713b0530ba8bd27faace610c6b9bd0b88241"
 }
