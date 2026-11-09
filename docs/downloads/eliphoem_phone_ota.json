@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "version": "v6.4",
-  "build": 64,
+  "version": "v6.5",
+  "build": 65,
   "brand": "ELIPHOEM",
   "title": "자동 핫스팟",
   "connMode": "TABLET",
