@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 10. AM 7:30:31",
+  "updatedAt": "2026. 11. 10. AM 7:30:46",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -158,7 +158,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 10. AM 7:30:31\n1. 영구 장기기억 금고: 18건 (고정: 오늘 날씨랑 일정 알려줘)\n2. PC 안티그래비티 실시간 작업: 최근 8단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 10. AM 7:30:46\n1. 영구 장기기억 금고: 18건 (고정: 오늘 날씨랑 일정 알려줘)\n2. PC 안티그래비티 실시간 작업: 최근 8단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -887,6 +887,11 @@
   ],
   "recentDocs": [
     {
+      "name": "시엔위_비즈니스_연구소\\31_글로벌한국_저번달실판매량_리뷰수기준_대량공급처검증_총괄보고서.md",
+      "updatedAt": "2026. 11. 10. AM 7:30:48",
+      "preview": "# 글로벌·한국 단일 품목별 저번 달 실판매량 & 누적 리뷰 수 및 중고+신품 공급처 직링크 총괄보고서 (1품목=1행 완전 분리판)\n\n> **[전면 개편 핵심 요약 — 차종·품목 합산 완전 폐기 & 단일 품목 1:1 중고공급처 직링크 매칭]**\n> 1. **차종·복합 품목 합산 완전 금지**: 기존에 테슬라 모델 Y와 모델 3, 수납함·오토프렁크·요크핸들·후석 모니터를 하나로 묶어 판매량·리뷰를 합산했던 방식을 전면 폐기하고, **모델 Y 전용 / 모델 3 전용 및 개별 부품 단위(총 100대 단일 품목)**로 100% 분리하여 각각의 실제 단일 품목 월 판매량과 누적 리뷰 수를 산출했습니다.\n> 2. **품목별 3중 공급처 직링크(① 시엔위 중고·탈거 코어 직링크 + ② 국내 중고나라·지파츠 중고부품 직링크 + ③ 1688 신품 하우징·하네스 공장 직링크) 100% 매칭**: 엉뚱한 매물(양말, 견과류, 무관한 철제함 등)을 전량 삭제하고 해당 품목의 실제 하드웨어 부품 직링크만 연결했습니다.\n\n## 1. 테슬라 모델 Y vs 모델 3 단일 품목 완전 분리 비교표 (1~12번)\n\n| 번호 | 단일 차종·품목명 | 한국 월판매(리뷰) | 아마존 월판매(리뷰) | 이베이 30일 판매 | ① 시엔위 중고·탈거 공급처 직링크 | ② 국내 중고공급처 직링크 | ③ 1688 하우징·하네스 직링크 |\n| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n| **#1** | **테슬라 모델 Y(주니퍼/구형) 전용 순정 탈거 알칸타라 듀얼 무선충전 패드 모듈** | 2,450개 (8,920건) | 6,200개 (19,400건) | 2,850개 | [시엔위 중고코어 직링크](https://www.goofish.com/item?id=83940874485"
+    },
+    {
       "name": "시엔위_비즈니스_연구소\\17_인터넷셀러_마케팅_전분야_야간무한학습_실시간로그.md",
       "updatedAt": "2026. 11. 10. AM 7:30:11",
       "preview": "# 🧠 [인터넷 셀러 전문가 & 마케팅 전 분야] 6-워커 무소음 병렬 크롤링 & 실시간 학습 로그\n\n> **관제 서버**: `http://127.0.0.1:3849` | **구글 드라이브 샤드 경로**: `G:\\내 드라이브\\안티그래비티_글로벌소싱_DB\\seller_marketing_shards`\n\n---\n\n## 🧠 [셀러·마케팅 병렬학습 #1 (Cycle 1)] [SEO-01] eBay Cassini 80자 황금 타이틀 배합 공식 (OEM 품번 + 교차호환 + 신뢰키워드) (2026. 11. 3. PM 11:43:00)\n\n- **전문 트랙 및 타겟 플랫폼**: 📈 마켓 알고리즘 & SEO | `eBay US / DE / AU / UK`\n- **핵심 황금 공식(Core Formula)**: `[OEM Brand] + [Exact Part No.] + [Cross-Ref Part No.] + [Target Machine/Model] + [Tested/Plug&Play]`\n- **기대 전환율·수익 상승폭**: **노출량 +340% / 클릭률(CTR) +185%**\n- **즉시 실행 실전 법칙**: 앞 45자 이내에 바이어가 검색창에 치는 핵심 순정 품번(하이픈 포함/제거 병기)과 호환 모델명을 배치하고, 뒤 35자에 Tested·Plug&Play·Fast Ship을 넣어 Cassini 적합도 점수를 극대화한다.\n\n### 🇺🇸🇩🇪🇦🇺 [글로벌 eBay 상위노출 리스팅 타이틀 & SEO 해부]\n- **🇺🇸 미국 eBay.com 상위셀러**: [[Cassini 상위 1% 타이틀 표본] OEM Genuine Tested Module Plug and Play - 100% Bench Tested w/ Pinout](https://www.ebay.com/sch/i.html?_nkw"
@@ -930,11 +935,6 @@
       "name": "AGENTS.md",
       "updatedAt": "2026. 11. 9. PM 11:07:36",
       "preview": "# [Workspace Engineering, Mandatory Real-Consumer E2E Gate & Proactive Hardware Digital Twin Rules]\n\n1. **매 작업 종료 전 '50대 실소비자 E2E 전수 검증 게이트' 100% 필수 실행 원칙 (`autonomous-user-qa-tester` v2.0)**:\n   - 모든 코딩·디버깅·패치 작업 시 `.agents/skills/` 및 `~/.gemini/config/skills/`에 설치된 **`autonomous-user-qa-tester`**, **`proactive-hardware-simulator`**, **`android-device-automation`**, **`webapp-testing`**, **`zero-regression-engineering`**, **`systematic-debugging`**, **`verification-before-completion`**, **`test-driven-development`**, **`react-best-practices`** 스킬의 절차를 엄격히 준수한다.\n   - **사장님이 매번 말씀하지 않으셔도 모든 작업의 마지막 단계에는 예외 없이 실사용자 입장에서 전수 테스트를 수행한다.** 에이전트가 무조건 **'기계 잘 모르고, 눈 침침하고(노안·갤럭시 큰 글씨 120%), 성격 급한 50대 한국인 소비자'**가 되어 아래 파이프라인을 실행한다:\n     - ① **신규 도메인 소비자 VOC 크롤링 학습**: `node .agents/skills/autonomous-user-qa-tester/scripts/learn_consumer_voc_crawler.mjs \"<도메인>\"` (`references/consumer_voc_knowledge.j"
-    },
-    {
-      "name": "codex_direct_reply.md",
-      "updatedAt": "2026. 11. 9. PM 6:37:49",
-      "preview": "[합의 JSON](E:/안티그래비티/CODEX_ANTIGRAVITY_HANDSHAKE.json)을 저장하고, 지정된 Antigravity 대화에 요청 문구를 **1회 전송해 브리지 접수까지 확인했습니다.**\n\n추가 보완점 2개도 기록했습니다.\n\n- 작업 ID·중복 방지·파일/기기 단일 소유권\n- 실측 증거·완료 조건·중단 및 복구 기준\n\n`codex queue --thread … --message …` 지원은 확인했습니다. 실제 왕복 수신과 상대 답장은 아직 미확인입니다.\n\n**[📊 실사용자 E2E 전수 검증 성적표]**\n\n| 항목 | 결과 |\n|---|---|\n| JSON·서명값·보완점 2개 | PASS |\n| 지정 메시지 1회 접수 | PASS |\n| 모바일 UI | 해당 없음—JSON 표시 검사는 실행 |"
     }
   ],
   "livePcAntigravitySession": [
@@ -988,6 +988,11 @@
   ],
   "recentWorkspaceDocs": [
     {
+      "relPath": "시엔위_비즈니스_연구소\\31_글로벌한국_저번달실판매량_리뷰수기준_대량공급처검증_총괄보고서.md",
+      "updatedAt": "2026. 11. 10. AM 7:30:48",
+      "excerpt": "# 글로벌·한국 단일 품목별 저번 달 실판매량 & 누적 리뷰 수 및 중고+신품 공급처 직링크 총괄보고서 (1품목=1행 완전 분리판)\n\n> **[전면 개편 핵심 요약 — 차종·품목 합산 완전 폐기 & 단일 품목 1:1 중고공급처 직링크 매칭]**\n> 1. **차종·복합 품목 합산 완전 금지**: 기존에 테슬라 모델 Y와 모델 3, 수납함·오토프렁크·요크핸들·후석 모니터를 하나로 묶어 판매량·리뷰를 합산했던 방식을 전면 폐기하고, **모델 Y 전용 / 모델 3 전용 및 개별 부품 단위(총 100대 단일 품목)**로 100% 분리하여 각각의 실제 단일 품목 월 판매량과 누적 리뷰 수를 산출했습니다.\n> 2. **품목별 3중 공급처 직링크(① 시엔위 중고·탈거 코어 직링크 + ② 국내 중고나라·지파츠 중고부품 직링크 + ③ 1688 신품 하우징·하네스 공장 직링크) 100% 매칭**: 엉뚱한 매물(양말, 견과류, 무관한 철제함 등)을 전량 삭제하고 해당 품목의 실제 하드웨어 부품 직링크만 연결했습니다.\n\n## 1. 테슬라 모델 Y vs 모델 3 단일 품목 완전 분리 비교표 (1~12번)\n\n| 번호 | 단일 차종·품목명 | 한국 월판매(리뷰) | 아마존 월판매(리뷰) | 이베이 30일 판매 | ① 시엔위 중고·탈거 공급처 직링크 | ② 국내 중고공급처 직링크 | ③ 1688 하우징·하네스 직링크 |\n| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n| **#1** | **테슬라 모델 Y(주니퍼/구형) 전용 순정 탈거 알칸타라 듀얼 무선충전 패드 모듈** | 2,450개 (8,920건) | 6,200개 (19,400건) | 2,850개 | [시엔위 중고코어 직링크](https://www.goofish.com/item?id=83940874485"
+    },
+    {
       "relPath": "시엔위_비즈니스_연구소\\17_인터넷셀러_마케팅_전분야_야간무한학습_실시간로그.md",
       "updatedAt": "2026. 11. 10. AM 7:30:11",
       "excerpt": "# 🧠 [인터넷 셀러 전문가 & 마케팅 전 분야] 6-워커 무소음 병렬 크롤링 & 실시간 학습 로그\n\n> **관제 서버**: `http://127.0.0.1:3849` | **구글 드라이브 샤드 경로**: `G:\\내 드라이브\\안티그래비티_글로벌소싱_DB\\seller_marketing_shards`\n\n---\n\n## 🧠 [셀러·마케팅 병렬학습 #1 (Cycle 1)] [SEO-01] eBay Cassini 80자 황금 타이틀 배합 공식 (OEM 품번 + 교차호환 + 신뢰키워드) (2026. 11. 3. PM 11:43:00)\n\n- **전문 트랙 및 타겟 플랫폼**: 📈 마켓 알고리즘 & SEO | `eBay US / DE / AU / UK`\n- **핵심 황금 공식(Core Formula)**: `[OEM Brand] + [Exact Part No.] + [Cross-Ref Part No.] + [Target Machine/Model] + [Tested/Plug&Play]`\n- **기대 전환율·수익 상승폭**: **노출량 +340% / 클릭률(CTR) +185%**\n- **즉시 실행 실전 법칙**: 앞 45자 이내에 바이어가 검색창에 치는 핵심 순정 품번(하이픈 포함/제거 병기)과 호환 모델명을 배치하고, 뒤 35자에 Tested·Plug&Play·Fast Ship을 넣어 Cassini 적합도 점수를 극대화한다.\n\n### 🇺🇸🇩🇪🇦🇺 [글로벌 eBay 상위노출 리스팅 타이틀 & SEO 해부]\n- **🇺🇸 미국 eBay.com 상위셀러**: [[Cassini 상위 1% 타이틀 표본] OEM Genuine Tested Module Plug and Play - 100% Bench Tested w/ Pinout](https://www.ebay.com/sch/i.html?_nkw"
@@ -1031,11 +1036,6 @@
       "relPath": "AGENTS.md",
       "updatedAt": "2026. 11. 9. PM 11:07:36",
       "excerpt": "# [Workspace Engineering, Mandatory Real-Consumer E2E Gate & Proactive Hardware Digital Twin Rules]\n\n1. **매 작업 종료 전 '50대 실소비자 E2E 전수 검증 게이트' 100% 필수 실행 원칙 (`autonomous-user-qa-tester` v2.0)**:\n   - 모든 코딩·디버깅·패치 작업 시 `.agents/skills/` 및 `~/.gemini/config/skills/`에 설치된 **`autonomous-user-qa-tester`**, **`proactive-hardware-simulator`**, **`android-device-automation`**, **`webapp-testing`**, **`zero-regression-engineering`**, **`systematic-debugging`**, **`verification-before-completion`**, **`test-driven-development`**, **`react-best-practices`** 스킬의 절차를 엄격히 준수한다.\n   - **사장님이 매번 말씀하지 않으셔도 모든 작업의 마지막 단계에는 예외 없이 실사용자 입장에서 전수 테스트를 수행한다.** 에이전트가 무조건 **'기계 잘 모르고, 눈 침침하고(노안·갤럭시 큰 글씨 120%), 성격 급한 50대 한국인 소비자'**가 되어 아래 파이프라인을 실행한다:\n     - ① **신규 도메인 소비자 VOC 크롤링 학습**: `node .agents/skills/autonomous-user-qa-tester/scripts/learn_consumer_voc_crawler.mjs \"<도메인>\"` (`references/consumer_voc_knowledge.j"
-    },
-    {
-      "relPath": "codex_direct_reply.md",
-      "updatedAt": "2026. 11. 9. PM 6:37:49",
-      "excerpt": "[합의 JSON](E:/안티그래비티/CODEX_ANTIGRAVITY_HANDSHAKE.json)을 저장하고, 지정된 Antigravity 대화에 요청 문구를 **1회 전송해 브리지 접수까지 확인했습니다.**\n\n추가 보완점 2개도 기록했습니다.\n\n- 작업 ID·중복 방지·파일/기기 단일 소유권\n- 실측 증거·완료 조건·중단 및 복구 기준\n\n`codex queue --thread … --message …` 지원은 확인했습니다. 실제 왕복 수신과 상대 답장은 아직 미확인입니다.\n\n**[📊 실사용자 E2E 전수 검증 성적표]**\n\n| 항목 | 결과 |\n|---|---|\n| JSON·서명값·보완점 2개 | PASS |\n| 지정 메시지 1회 접수 | PASS |\n| 모바일 UI | 해당 없음—JSON 표시 검사는 실행 |"
     }
   ],
   "gpartsQuickIndex": [
