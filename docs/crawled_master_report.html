@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>크롤링 전수 통합 총괄 보고서</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231428A0' stroke-width='2'><rect x='3' y='3' width='18' height='18' rx='5'/><path d='M8 12h8M8 8h8M8 16h5'/></svg>">
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  html, body {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color: #F4F4F8;
+    color: #121212;
+    font-family: 'Pretendard Variable', Pretendard, 'SamsungOne', 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page-wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 20px 16px 56px 16px;
+  }
+  @media (min-width: 768px) {
+    .page-wrap {
+      padding: 36px 32px 72px 32px;
+    }
+  }
+
+  /* Viewing Area */
+  .viewing-header {
+    padding: 8px 4px 20px 4px;
+  }
+  .brand-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #E6ECF8;
+    color: #1428A0;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 13.5px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .viewing-title {
+    font-size: clamp(1.5rem, 3.6vw, 2.35rem);
+    font-weight: 800;
+    line-height: 1.24;
+    letter-spacing: -0.025em;
+    color: #121212;
+    margin: 0 0 10px 0;
+  }
+  .viewing-desc {
+    font-size: 15.5px;
+    color: #3A3A42;
+    margin: 0 0 18px 0;
+    max-width: 720px;
+  }
+
+  /* KPI Summary Strip */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  @media (min-width: 768px) {
+    .kpi-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+  }
+  .kpi-card {
+    background-color: #FFFFFF;
+    border-radius: 26px;
+    padding: 18px 16px;
+    box-shadow: 0 4px 20px rgba(18, 18, 20, 0.04);
+  }
+  .kpi-label {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #45454F;
+    margin-bottom: 4px;
+  }
+  .kpi-value {
+    font-size: clamp(1.2rem, 2.5vw, 1.55rem);
+    font-weight: 800;
+    color: #1428A0;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+  }
+  .kpi-sub {
+    font-size: 13px;
+    color: #45454F;
+    margin-top: 4px;
+  }
+
+  /* Search & Primary Action Box (Top placement to prevent mobile keyboard overlap) */
+  .control-block {
+    background-color: #FFFFFF;
+    border-radius: 26px;
+    padding: 18px;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 20px rgba(18, 18, 20, 0.04);
+  }
+  .search-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: stretch;
+  }
+  .search-input-wrap {
+    flex: 1 1 220px;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .search-icon {
+    position: absolute;
+    left: 16px;
+    width: 20px;
+    height: 20px;
+    color: #45454F;
+    pointer-events: none;
+  }
+  .search-input {
+    width: 100%;
+    min-height: 48px;
+    padding: 11px 16px 11px 44px;
+    border-radius: 9999px;
+    border: 1.5px solid #D4D4DE;
+    background-color: #F7F7FA;
+    color: #121212;
+    font-family: inherit;
+    font-size: 15.5px;
+    outline: none;
+    transition: border-color 0.2s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .search-input:focus {
+    border-color: #0381FE;
+    background-color: #FFFFFF;
+  }
+  .pill-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 48px;
+    padding: 11px 22px;
+    border-radius: 9999px;
+    border: none;
+    background-color: #0381FE;
+    color: #FFFFFF;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.22s cubic-bezier(0.22, 1, 0.36, 1), transform 0.12s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .pill-cta:hover {
+    background-color: #006BEA;
+  }
+  .pill-cta:active {
+    background-color: #0056B3;
+    transform: scale(0.97);
+  }
+  .pill-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 48px;
+    padding: 11px 20px;
+    border-radius: 9999px;
+    border: 1.5px solid #D4D4DE;
+    background-color: #EEEEF3;
+    color: #121212;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.22s cubic-bezier(0.22, 1, 0.36, 1), transform 0.12s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .pill-secondary:hover {
+    background-color: #E2E2EA;
+  }
+  .pill-secondary:active {
+    transform: scale(0.97);
+  }
+
+  .feedback-toast {
+    margin-top: 12px;
+    padding: 12px 16px;
+    border-radius: 18px;
+    background-color: #E8F8F0;
+    color: #0B5334;
+    font-size: 14.5px;
+    font-weight: 700;
+    display: none;
+  }
+  .feedback-toast.show {
+    display: block;
+  }
+
+  /* Strictly 3 Category Tabs */
+  .tab-nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  @media (max-width: 420px) {
+    .tab-nav {
+      grid-template-columns: 1fr;
+    }
+  }
+  .tab-btn {
+    min-height: 48px;
+    padding: 12px 14px;
+    border-radius: 9999px;
+    border: 1.5px solid #D8D8E2;
+    background-color: #FFFFFF;
+    color: #3A3A42;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    transition: all 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .tab-btn.active {
+    background-color: #1428A0;
+    border-color: #1428A0;
+    color: #FFFFFF;
+    box-shadow: 0 6px 18px rgba(20, 40, 160, 0.18);
+  }
+
+  /* Section & Focus Block Cards */
+  .section-intro {
+    background-color: #FFFFFF;
+    border-radius: 26px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 20px rgba(18, 18, 20, 0.04);
+  }
+  .section-title {
+    font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+    font-weight: 800;
+    margin: 0 0 6px 0;
+    color: #121212;
+    letter-spacing: -0.02em;
+  }
+  .section-sub {
+    font-size: 15px;
+    color: #3A3A42;
+    margin: 0;
+  }
+
+  .bento-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  @media (min-width: 768px) {
+    .bento-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+  }
+  .item-card {
+    background-color: #FFFFFF;
+    border-radius: 26px;
+    padding: 22px 20px;
+    box-shadow: 0 4px 20px rgba(18, 18, 20, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 14px;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .item-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(20, 40, 160, 0.08);
+  }
+  .badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .rank-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    background-color: #E6ECF8;
+    color: #1428A0;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .profit-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    background-color: #E8F8F0;
+    color: #0B5334;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .item-title {
+    font-size: 17.5px;
+    font-weight: 800;
+    color: #121212;
+    margin: 0 0 8px 0;
+    line-height: 1.38;
+    letter-spacing: -0.015em;
+  }
+  .item-summary {
+    font-size: 15px;
+    color: #3A3A42;
+    margin: 0;
+    line-height: 1.58;
+  }
+  .metric-box {
+    background-color: #F7F7FA;
+    border-radius: 18px;
+    padding: 12px 14px;
+    font-size: 14.5px;
+    color: #1F1F24;
+    font-weight: 600;
+  }
+  .card-action-row {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .empty-box {
+    background-color: #FFFFFF;
+    border-radius: 26px;
+    padding: 36px 20px;
+    text-align: center;
+    color: #3A3A42;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  /* Detail Modal */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(18, 18, 20, 0.56);
+    backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    z-index: 1000;
+  }
+  .modal-backdrop.open {
+    display: flex;
+  }
+  .modal-panel {
+    background-color: #FFFFFF;
+    border-radius: 28px;
+    max-width: 600px;
+    width: 100%;
+    max-height: 86vh;
+    overflow-y: auto;
+    padding: 24px 20px;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.22);
+  }
+  .modal-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #121212;
+    margin: 8px 0 12px 0;
+    line-height: 1.35;
+  }
+  .modal-detail-list {
+    margin: 0 0 20px 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .modal-detail-list li {
+    background-color: #F7F7FA;
+    border-radius: 18px;
+    padding: 14px 16px;
+    font-size: 15px;
+    color: #1F1F24;
+  }
+  .modal-detail-list strong {
+    display: block;
+    font-size: 13.5px;
+    color: #1428A0;
+    margin-bottom: 4px;
+  }
+  .modal-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+  <header class="viewing-header">
+    <div class="brand-pill">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/>
+      </svg>
+      <span>전 분야 데이터 수집 결산 (2026. 11. 11.)</span>
+    </div>
+    <h1 class="viewing-title">크롤링 전수 통합 마스터 보고서</h1>
+    <p class="viewing-desc">
+      그동안 수집·검증한 77만 건의 해외 수출, 내수 실판매량, 방산 선행기술, 가성비 반도체 핵심 결과를 한곳에 정리했습니다.
+    </p>
+  </header>
+
+  <section class="kpi-grid" aria-label="전체 수집 핵심 지표">
+    <div class="kpi-card">
+      <div class="kpi-label">누적 수집·검증 건수</div>
+      <div class="kpi-value">770,000건+</div>
+      <div class="kpi-sub">개인 단품 4,039건 배제 완료</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">보관 데이터 총량</div>
+      <div class="kpi-value">956.3 MB</div>
+      <div class="kpi-sub">핵심 95종 클라우드 백업</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">즉시 판매 검증 품목</div>
+      <div class="kpi-value">338개 품목</div>
+      <div class="kpi-sub">이베이 250종 + 실판매 88선</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">방산 동일 제품 유무</div>
+      <div class="kpi-value">전 세계 0건</div>
+      <div class="kpi-sub">5개 국어 18건 대조 완료</div>
+    </div>
+  </section>
+
+  <section class="control-block" aria-label="보고서 검색 및 요약 복사">
+    <div class="search-row">
+      <div class="search-input-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+        </svg>
+        <input
+          type="search"
+          id="searchInput"
+          class="search-input"
+          placeholder="품목·사업명 검색 (예: 농기계)"
+          aria-label="보고서 항목 검색"
+          autocomplete="off"
+        >
+      </div>
+      <button type="button" id="copySummaryBtn" class="pill-cta">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+        </svg>
+        <span>핵심 요약 복사하기</span>
+      </button>
+    </div>
+    <div id="toastBanner" class="feedback-toast" role="status" aria-live="polite"></div>
+  </section>
+
+  <nav class="tab-nav" aria-label="보고서 핵심 분야 선택">
+    <button type="button" class="tab-btn active" id="tabBtn-biz" data-tab="biz">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+      </svg>
+      <span>수출·판매 핵심</span>
+    </button>
+    <button type="button" class="tab-btn" id="tabBtn-defense" data-tab="defense">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+      <span>방산·신사업 발굴</span>
+    </button>
+    <button type="button" class="tab-btn" id="tabBtn-tech" data-tab="tech">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="4" y="4" width="16" height="16" rx="3"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/>
+      </svg>
+      <span>부품·기술·보관함</span>
+    </button>
+  </nav>
+
+  <main id="reportMain">
+    <section class="section-intro" id="sectionIntro">
+      <h2 class="section-title" id="sectionTitle">수출·내수 실판매 검증 핵심 사업</h2>
+      <p class="section-sub" id="sectionSub">모든 수수료와 배송비를 빼고도 순마진 43~70%가 남는 검증된 수익 모델과 대량 공급처 결과입니다.</p>
+    </section>
+
+    <div class="bento-grid" id="cardsContainer"></div>
+  </main>
+</div>
+
+<div class="modal-backdrop" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-panel">
+    <span class="rank-tag" id="modalBadge">상세 데이터</span>
+    <h3 class="modal-title" id="modalTitle">항목 제목</h3>
+    <ul class="modal-detail-list" id="modalList"></ul>
+    <div class="modal-footer">
+      <a href="./crawled_vault/" id="modalLinkBtn" target="_blank" rel="noopener noreferrer" class="pill-cta" style="display:none;">원본 자료 열기</a>
+      <button type="button" id="closeModalBtn" class="pill-secondary">닫기</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const SECTION_META = {
+    biz: {
+      title: '수출·내수 실판매 검증 핵심 사업',
+      sub: '모든 수수료와 배송비를 제하고도 순마진 43~70%가 남는 검증된 수익 모델과 대량 공급처 결과입니다.'
+    },
+    defense: {
+      title: '방산 지뢰탐지 대조 및 독점 신사업 발굴',
+      sub: '우크라이나·러시아·특허청 189회 수집 대조 결과 및 경쟁자가 쉽게 따라오지 못하는 신사업 모델입니다.'
+    },
+    tech: {
+      title: '중고 반도체 서열·개조 기술·원본 보관함',
+      sub: '제조 원가를 크게 낮추는 시엔위 검증 반도체 45선, 안드로이드·마케팅 핵심 공식 및 파일 보관함입니다.'
+    }
+  };
+
+  const REPORT_ITEMS = [
+    {
+      id: 'biz-1',
+      tab: 'biz',
+      badge: '사업성 1위 · 98점',
+      profit: '순마진 62% ~ 70%',
+      title: '초경량 50g 농기계·중장비 진단 케이블 및 보드 우편 수출',
+      summary: '무거운 부품을 나르는 대신 50g짜리 진단 연결선과 전용 프로그램 보드를 묶어 소형 항공우편으로 북미·유럽에 직수출하는 최고수익 트랙입니다.',
+      metric: '건당 순수익 +5만 ~ +19만 원 · 품절 위험 0%',
+      details: [
+        { label: '수집 및 검증 규모', text: '전 세계 4대 권역 21,011회 실시간 스캔 및 이베이 실거래 완료 가격 교차 검증' },
+        { label: '핵심 경쟁 우위', text: '전용 배선 안내도와 사전 주입된 소프트웨어 덕분에 일반 보따리상 복제가 불가능함' },
+        { label: '실행 방법', text: '중국 대량 도매처에서 기본 커넥터 확보 후 영문 안내서 1장을 동봉하여 이베이·틴디에 즉시 출품' }
+      ],
+      link: './crawled_vault/xianyu_reports/16_대표님맞춤_실전사업모델_TOP10_및_80선_마스터바이블.html',
+      linkText: 'TOP 10 상세 뷰어 열기'
+    },
+    {
+      id: 'biz-2',
+      tab: 'biz',
+      badge: '사업성 2위 · 95점',
+      profit: '순마진 54% ~ 68%',
+      title: '한국 내수 농기계(대동·LS) 전장품 → 북미 호환 품번 직수출',
+      summary: '국내 대동·LS 트랙터 순정 부품이 북미 수출형(Kioti·New Holland)과 완벽히 같은 부품임을 활용한 품번 비대칭 직수출 모델입니다.',
+      metric: '건당 순수익 +29만 ~ +49만 원 · 검색 독점률 92%',
+      details: [
+        { label: '원가 및 판매가 구조', text: '대동 계기판 클러스터 기준 국내 매입가 약 123,000원 → 북미 실거래 시세 495달러(순수익 약 +46만 원)' },
+        { label: '품번 연금술 기법', text: '한국 내수 품번과 북미 호환 품번을 제목에 동시 기재하여 현지 농장주 검색을 독점' },
+        { label: '공급처 안정성', text: '국내 농기계 부품 대리점 및 중고 농기계 해체장에서 상시 조달 가능' }
+      ],
+      link: './crawled_vault/xianyu_reports/15_글로벌60대_실매물검증_순마진30퍼센트_마스터순위표.md',
+      linkText: '글로벌 60대 순위표 보기'
+    },
+    {
+      id: 'biz-3',
+      tab: 'biz',
+      badge: '사업성 3위 · 93점',
+      profit: '순마진 58% ~ 69%',
+      title: '평택·안산·시화 산단 반도체 센서·비전카메라 역수출',
+      summary: '국내 산업단지 설비 교체 시 쏟아지는 고가 광학 센서(Keyence)와 비전 카메라(Cognex)를 확보해 해외 공장에 공급합니다.',
+      metric: '건당 순수익 +23만 ~ +46만 원 · 상시 물량 풍부',
+      details: [
+        { label: '바이어 신뢰 확보 공식', text: '24V 전원을 연결해 정상 점등되는 실물 사진 1장만 첨부해도 미검증 매물 대비 1.8배 가격에 즉시 판매됨' },
+        { label: '주요 수요처', text: '단종된 동일 모델 센서를 구하지 못해 생산 라인이 멈춘 북미·유럽·동남아 제조 공장' }
+      ],
+      link: './crawled_vault/xianyu_reports/11_글로벌_중국_일본_한국_중고리사이클링_80대_사업_마스터바이블.md',
+      linkText: '리사이클링 80선 보기'
+    },
+    {
+      id: 'biz-4',
+      tab: 'biz',
+      badge: '현재 250종 가동 중',
+      profit: '순마진 43% ~ 50%',
+      title: '지파츠 × 이베이(KOREA S-PART) 현대·제네시스 전장품 수출',
+      summary: '국내 지파츠 실매물과 이베이 판매 계정을 연동하여 250개 핵심 자동차 부품(레이더·앰프·후미등)의 재고를 24시간 감시·판매 중입니다.',
+      metric: '라이브 등록 250종 · 평균 판매가 192달러 (건당 +5만~15만 원)',
+      details: [
+        { label: '대표 고수익 품번', text: '제네시스 GV80 후측방 레이더(99140-T6000, 순마진 44.7%), 아이오닉5 전방 레이더(99110-GI500, 48.7%), 렉시콘 앰프(96370-B1010, 50.0%)' },
+        { label: '안전 필터 적용 완료', text: '미국·캐나다·호주 좌핸들 호환 검증 및 사진 내 한글 설명 영문화 일괄 반영 완료' }
+      ],
+      link: './index.html',
+      linkText: '실시간 재고 관제판 열기'
+    },
+    {
+      id: 'biz-5',
+      tab: 'biz',
+      badge: '실판매량 88선 검증',
+      profit: '대량 공장 2중 매칭',
+      title: '쿠팡·아마존 실판매 1위 품목 vs 전문 시공용 순정 부품 분리 전략',
+      summary: '66만 건 데이터 중 개인 단품 매물 4,039건을 완전히 삭제하고, 수백 개 재고를 가진 창고·원청 공장 6,523곳만 엄선해 연결했습니다.',
+      metric: '모델Y 맥세이프 거치대 원청가 6,900원 → 쿠팡가 29,990원 (상품평 517건)',
+      details: [
+        { label: '쿠팡 상위권의 진실', text: '쿠팡 판매량순 실측 결과, 공구 없이 1분 만에 끼우는 거치대·강화유리(308건)·선쉐이드(274건)·키카드 케이스(177건)가 판매량을 독점함' },
+        { label: '고단가 순정 탈거 부품 채널', text: '오토프렁크·스피커 하네스·순정 앰프·요크핸들은 쿠팡 상품평이 0~8건뿐이므로 반드시 스마트스토어(장착점 연계)·동호회·이베이로 판매해야 함' }
+      ],
+      link: './downloads/report_31_viewer.html',
+      linkText: '실판매량 88선 뷰어 열기'
+    },
+    {
+      id: 'biz-6',
+      tab: 'biz',
+      badge: '무인증 안전 트랙',
+      profit: '순마진 55% ~ 68%',
+      title: '다이슨·생활가전 무전원 기구물 분해 공급 및 승강기 제어보드 조달',
+      summary: '국내에서는 인증 부담이 없는 플라스틱 기구물(모터헤드·먼지통·제빙기 호퍼)로 현금을 만들고, 해외로는 단종 승강기 보드를 조달합니다.',
+      metric: '내수 건당 +4만~12만 원 · 승강기 보드 수출 건당 +30만~36만 원',
+      details: [
+        { label: '다이슨 결합상품 138선', text: '중고 본체 급매물을 매입해 정상 부품을 부위별로 세척·분해 판매하거나 배터리 변환 어댑터 키트로 부가가치 창출' },
+        { label: '승강기·선박 단종 보드', text: '오티스·미쓰비시 노후 아파트 교체 현장 제어보드 및 부산 영도 선박 레이더 모듈 경량 수출' }
+      ],
+      link: './crawled_vault/mobile_packages/00_모바일전용_시엔위_신사업바이블_및_다이슨V8형_138선_통합뷰어.html',
+      linkText: '다이슨 138선 통합뷰어 열기'
+    },
+
+    {
+      id: 'def-1',
+      tab: 'defense',
+      badge: '특허 독창성 입증',
+      profit: '동일 제품 전 세계 0건',
+      title: '우크라이나·러시아·한미 특허청 지뢰탐지 로봇 189회 수집 대조 결론',
+      summary: '우크라이나 전장(Brave1)과 러시아 공병 장비, 한·미 등록특허 18건을 5개 국어로 정밀 비교한 결과 사장님 설계와 동일한 제품은 전 세계 0건입니다.',
+      metric: '최고 선행기술 유사도 52% · 독자 특허 출원 가능 판정',
+      details: [
+        { label: '우크라이나 전장 실측 비교', text: 'RoverTech Zmiy(약 2,000만 원, 대형 장갑형), Tryminer Ratel(약 420만 원, 단순 원격 폭파형), UADamage(공중 촬영 전용 드론)' },
+        { label: '사장님 모델만의 4대 독창 구조', text: '① 0.5g 강철 공이 타격 + 초광대역 유전율 교차 판독 ② 회피가 아닌 정조준 개척 ③ 기폭 직전 고가 센서 바 자동 들어올림 보호 ④ 저가 분리형 원판 롤러 결합' }
+      ],
+      link: './crawled_vault/defense_osint/osint_live_report.json',
+      linkText: '방산 대조 원본 열기'
+    },
+    {
+      id: 'def-2',
+      tab: 'defense',
+      badge: '신사업 발굴 · MOAT-14',
+      profit: '월 구독 29달러 모델',
+      title: '불타서 글자가 지워진 산업용 기판 부품·핀맵 자동 판독 서비스',
+      summary: '산업용 인버터·전원공급장치 기판의 부품이 타버렸을 때, 스마트폰 사진 한 장으로 정상 양품 기판과 대조해 원래 부품 규격을 찾아줍니다.',
+      metric: '누적 3,721건 신사업 시그널 중 카피캣 방어력 최상위 선정',
+      details: [
+        { label: '왜 남들이 못 따라오는가', text: '일반 인공지능은 까맣게 탄 부품의 원래 각인을 절대 알 수 없으나, 품번별 정상 기판 접사 사진을 축적하면 독점 수리 사전이 됨' },
+        { label: '보유 사업과의 시너지', text: '산단 센서·승강기 제어보드·선박 레이더 수리 및 역수출 사업 시 자체 수리율을 극대화하는 핵심 무기' }
+      ],
+      link: './crawled_vault/xianyu_reports/25_미개척_철옹성_개발저축형_신사업_무한발굴_실시간로그.md',
+      linkText: '신사업 발굴 로그 보기'
+    },
+    {
+      id: 'def-3',
+      tab: 'defense',
+      badge: '신사업 발굴 · MOAT-13',
+      profit: '고부가 수리 키트화',
+      title: '센터에서 통교체하라는 고장코드를 3,000원 부품으로 고치는 수리 도감',
+      summary: '자동차·트랙터 공식 센터에서 수백만 원 어셈블리 교체를 요구하는 증상을 단품 릴레이·센서 교체로 해결하는 실증 수리법과 부품 묶음입니다.',
+      metric: '북미·유럽 자가수리(수리권 법안) 시장 직접 겨냥',
+      details: [
+        { label: '수익화 방식', text: '3,000원짜리 핵심 수리 소자와 전용 분해 공구, 사진 설명서를 묶어 49~89달러 자가수리 키트로 글로벌 판매' },
+        { label: '데이터 축적 현황', text: '해외 정비 포럼·유튜브·레딧의 실제 수리 성공 사례를 고장코드별로 자동 수집·분류 중' }
+      ],
+      link: './crawled_vault/xianyu_reports/25_미개척_철옹성_개발저축형_신사업_무한발굴_실시간로그.md',
+      linkText: '신사업 발굴 로그 보기'
+    },
+    {
+      id: 'def-4',
+      tab: 'defense',
+      badge: '신사업 발굴 · MOAT-08/10',
+      profit: '기업·지자체 납품형',
+      title: '노후 연구·생산장비 무선 변환기 및 지게차 사각지대 안전 경보기',
+      summary: '구형 자수기·병원 분석기의 유선 인쇄 출력을 무선 문서로 바꿔주는 소형 박스와, 산업안전 의무화 대상인 지게차 자석식 인체감지 키트입니다.',
+      metric: '고가 설비 교체 비용의 1/10 가격으로 즉각 도입 유도',
+      details: [
+        { label: '단종 산업장비 변환 브릿지', text: '수천만 원짜리 구형 장비를 버리지 못해 구형 컴퓨터를 붙들고 있는 병원·공장에 꽂기만 하면 스마트폰·클라우드로 결과 전송' },
+        { label: '법규·보조금 수요 공략', text: '물류창고 중장비 인체감지 의무화 및 지자체 독거노인 안부확인 바우처 사업에 자체 설계 보드 투입 가능' }
+      ],
+      link: './crawled_vault/xianyu_reports/24_해커데이_Hackaday_내가만들만한_쌈빡한_오픈소스하드웨어_사업화아이템_TOP6.md',
+      linkText: '오픈소스 사업화 6선 보기'
+    },
+
+    {
+      id: 'tech-1',
+      tab: 'tech',
+      badge: '반도체 서열 45선',
+      profit: '부품 원가 70% 절감',
+      title: '시엔위 중고 탈거 반도체 가성비 서열 및 보드 설계 기준표',
+      summary: '7,169회 스캔을 통해 시엔위에서 대량으로 구할 수 있는 고성능 중고 칩셋 45종의 성능·단가·회로도 확보 난이도를 서열화했습니다.',
+      metric: '1위 RK3588M · 2위 스냅드래곤 865 · 무선칩 AP6256 개당 약 650원',
+      details: [
+        { label: '상위 5대 주력 칩셋', text: '1위 Rockchip RK3588M(고성능 영상·로봇), 2위 스냅드래곤 865, 3위 스냅드래곤 845, 4위 스냅드래곤 695, 5위 Helio G99(전장 모니터용)' },
+        { label: '초저가 무선 확장 모듈', text: 'AP6256 / RTL8822CS 무선 모듈을 약 650원(3~4위안)에 대량 매입하여 자체 보드 원가를 극한으로 절감' }
+      ],
+      link: './crawled_vault/xianyu_reports/01_시엔위_중고칩_서열_마스터보고서.md',
+      linkText: '중고칩 마스터 보고서 보기'
+    },
+    {
+      id: 'tech-2',
+      tab: 'tech',
+      badge: '안드로이드 60대 기법',
+      profit: '37,067회 누적 학습',
+      title: '중국 내수 기기 완벽 한국어화 및 전장·빔프로젝터 시스템 최적화',
+      summary: '중국 내수용 열화상 카메라·프로젝터·차량용 모니터의 앱과 시스템을 분해해 완벽한 한국어·영어로 바꾸고 성능을 끌어올리는 60가지 기술입니다.',
+      metric: 'S905L3A · RK3566/3588 · UIS7861/7862 전 기종 대응',
+      details: [
+        { label: '핵심 포팅 공식', text: '안드로이드 10~14 동적 파티션 무손실 분해·재조립, 이종 액정 및 무선칩 10분 이식법, 부트로더 복구 기법 완비' },
+        { label: '상품화 직결 가치', text: '저렴한 중국 내수 전용 하드웨어를 매입해 깔끔한 한국어·영어 전용 소프트웨어로 재탄생시켜 부가가치 2~3배 창출' }
+      ],
+      link: './crawled_vault/xianyu_reports/29_안드로이드전문가_60대핵심기법_마스터바이블.md',
+      linkText: '안드로이드 60대 기법 보기'
+    },
+    {
+      id: 'tech-3',
+      tab: 'tech',
+      badge: '셀러 마케팅 80대 기법',
+      profit: '노출량 +340% 공식',
+      title: '이베이·아마존·스마트스토어·쿠팡 상위노출 및 객단가 2.2배 설계',
+      summary: '40,508회 스캔으로 검증한 해외·국내 오픈마켓 검색 알고리즘 공략법과 단품 미끼 노출 후 풀키트 구매를 유도하는 옵션 설계 공식입니다.',
+      metric: '클릭률 +185% 상승 · 쿠팡 아이템위너 탈취 완벽 방어',
+      details: [
+        { label: '해외 수출 제목 공식', text: '순정 품번 + 북미 교차호환 차종 + 점등 테스트 완료 키워드를 80자 안에 배합하여 신규 계정에서도 상단 노출 달성' },
+        { label: '풀키트 객단가 상승 전략', text: '저렴한 단품 가격으로 클릭을 유도한 뒤 보드+배선+케이스+설명서가 포함된 풀키트 옵션을 기본 선택하게 만들어 객단가 2.2배 확보' }
+      ],
+      link: './crawled_vault/xianyu_reports/18_인터넷셀러_마케팅_전분야_80대기법_마스터바이블.md',
+      linkText: '셀러 마케팅 80대 기법 보기'
+    },
+    {
+      id: 'tech-4',
+      tab: 'tech',
+      badge: '95종 클라우드 금고',
+      profit: '언제 어디서나 열람',
+      title: '전체 크롤링 원본 파일 95종 보관함 및 내 컴퓨터 저장 위치 안내',
+      summary: '누락되어 있던 로컬 크롤링 데이터와 엑셀·워드·뷰어 파일 95종(30.24MB)을 모두 클라우드 저장소에 백업 완료했습니다.',
+      metric: '초대용량 실시간 로그 5종(926MB)은 내 컴퓨터 연구소 폴더에 안전 보관',
+      details: [
+        { label: '내 컴퓨터(E 드라이브) 4대 본진', text: '① E:\\안티그래비티\\시엔위_비즈니스_연구소 ② 지파츠_이베이_자동리스팅 ③ rk3588s_defense_startup_hub ④ 클라우드_24시간_무중단_관제센터\\docs\\crawled_vault' },
+        { label: '스마트폰 열람 지원', text: '깃허브 100MB 제한을 넘는 원본 로그를 제외한 핵심 정제 보고서·엑셀 시트·모바일 뷰어 95종 전체를 웹에서 즉시 열람 가능' }
+      ],
+      link: './crawled_vault/mobile_packages/31_글로벌한국_저번달실판매량_88선_엑셀시트.csv',
+      linkText: '실판매 88선 엑셀 내려받기'
+    }
+  ];
+
+  const STORAGE_KEY_TAB = 'crawled_report_active_tab_v1';
+  const STORAGE_KEY_QUERY = 'crawled_report_query_v1';
+
+  let activeTab = 'biz';
+  let searchQuery = '';
+  let lastClickTime = 0;
+
+  try {
+    const savedTab = localStorage.getItem(STORAGE_KEY_TAB);
+    if (savedTab && SECTION_META[savedTab]) activeTab = savedTab;
+    const savedQuery = localStorage.getItem(STORAGE_KEY_QUERY);
+    if (typeof savedQuery === 'string') searchQuery = savedQuery;
+  } catch (e) {}
+
+  const searchInput = document.getElementById('searchInput');
+  const copySummaryBtn = document.getElementById('copySummaryBtn');
+  const toastBanner = document.getElementById('toastBanner');
+  const cardsContainer = document.getElementById('cardsContainer');
+  const sectionTitle = document.getElementById('sectionTitle');
+  const sectionSub = document.getElementById('sectionSub');
+  const tabBtns = document.querySelectorAll('.tab-btn');
+
+  const detailModal = document.getElementById('detailModal');
+  const modalBadge = document.getElementById('modalBadge');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalList = document.getElementById('modalList');
+  const modalLinkBtn = document.getElementById('modalLinkBtn');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+
+  function escapeHtml(str) {
+    return String(str || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function showToast(msg) {
+    toastBanner.textContent = msg;
+    toastBanner.classList.add('show');
+  }
+
+  function render() {
+    tabBtns.forEach(function(btn) {
+      const isMatch = btn.getAttribute('data-tab') === activeTab;
+      btn.classList.toggle('active', isMatch);
+      btn.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+    });
+
+    const meta = SECTION_META[activeTab] || SECTION_META.biz;
+    const q = searchQuery.trim().toLowerCase();
+
+    if (q.length > 0) {
+      sectionTitle.textContent = '"' + searchQuery.trim() + '" 전체 분야 통합 검색 결과';
+      sectionSub.textContent = '3개 분야 전체에서 검색어와 일치하는 핵심 보고서 항목을 찾았습니다.';
+    } else {
+      sectionTitle.textContent = meta.title;
+      sectionSub.textContent = meta.sub;
+    }
+
+    const filtered = REPORT_ITEMS.filter(function(item) {
+      if (q.length > 0) {
+        const hay = (
+          item.title + ' ' +
+          item.summary + ' ' +
+          item.metric + ' ' +
+          item.badge + ' ' +
+          item.details.map(function(d) { return d.label + ' ' + d.text; }).join(' ')
+        ).toLowerCase();
+        return hay.indexOf(q) !== -1;
+      }
+      return item.tab === activeTab;
+    });
+
+    if (filtered.length === 0) {
+      cardsContainer.innerHTML =
+        '<div class="empty-box">' +
+          '입력하신 검색어와 일치하는 항목이 없습니다. 다른 단어로 검색하거나 검색어를 지워 주세요.' +
+        '</div>';
+      return;
+    }
+
+    cardsContainer.innerHTML = filtered.map(function(item) {
+      return (
+        '<article class="item-card">' +
+          '<div>' +
+            '<div class="badge-row">' +
+              '<span class="rank-tag">' + escapeHtml(item.badge) + '</span>' +
+              '<span class="profit-tag">' + escapeHtml(item.profit) + '</span>' +
+            '</div>' +
+            '<h3 class="item-title">' + escapeHtml(item.title) + '</h3>' +
+            '<p class="item-summary">' + escapeHtml(item.summary) + '</p>' +
+          '</div>' +
+          '<div>' +
+            '<div class="metric-box" style="margin-bottom:12px;">' + escapeHtml(item.metric) + '</div>' +
+            '<div class="card-action-row">' +
+              '<button type="button" class="pill-secondary detail-trigger" data-id="' + escapeHtml(item.id) + '">' +
+                '<span>자세히 보기</span>' +
+              '</button>' +
+            '</div>' +
+          '</div>' +
+        '</article>'
+      );
+    }).join('');
+  }
+
+  function openModalById(id) {
+    const now = Date.now();
+    if (now - lastClickTime < 80) return;
+    lastClickTime = now;
+
+    const item = REPORT_ITEMS.find(function(x) { return x.id === id; });
+    if (!item) return;
+
+    modalBadge.textContent = item.badge + ' · ' + item.profit;
+    modalTitle.textContent = item.title;
+    modalList.innerHTML = item.details.map(function(d) {
+      return '<li><strong>' + escapeHtml(d.label) + '</strong>' + escapeHtml(d.text) + '</li>';
+    }).join('');
+
+    if (item.link) {
+      modalLinkBtn.href = item.link;
+      modalLinkBtn.textContent = item.linkText || '원본 자료 열기';
+      modalLinkBtn.style.display = 'inline-flex';
+    } else {
+      modalLinkBtn.style.display = 'none';
+    }
+
+    if (!detailModal.classList.contains('open')) {
+      detailModal.classList.add('open');
+      try {
+        history.pushState({ reportModalOpen: true }, '');
+      } catch (e) {}
+    }
+  }
+
+  function closeModal(fromPopState) {
+    if (!detailModal.classList.contains('open')) return;
+    detailModal.classList.remove('open');
+    if (!fromPopState && history.state && history.state.reportModalOpen) {
+      try {
+        history.back();
+      } catch (e) {}
+    }
+  }
+
+  tabBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const now = Date.now();
+      if (now - lastClickTime < 80) return;
+      lastClickTime = now;
+
+      const targetTab = btn.getAttribute('data-tab');
+      if (!targetTab) return;
+      activeTab = targetTab;
+      searchQuery = '';
+      searchInput.value = '';
+      try {
+        localStorage.setItem(STORAGE_KEY_TAB, activeTab);
+        localStorage.setItem(STORAGE_KEY_QUERY, '');
+      } catch (e) {}
+      render();
+    });
+  });
+
+  searchInput.value = searchQuery;
+  searchInput.addEventListener('input', function(e) {
+    searchQuery = e.target.value || '';
+    try {
+      localStorage.setItem(STORAGE_KEY_QUERY, searchQuery);
+    } catch (err) {}
+    render();
+  });
+
+  cardsContainer.addEventListener('click', function(e) {
+    const btn = e.target.closest('.detail-trigger');
+    if (!btn) return;
+    openModalById(btn.getAttribute('data-id'));
+  });
+
+  closeModalBtn.addEventListener('click', function() {
+    closeModal(false);
+  });
+
+  detailModal.addEventListener('click', function(e) {
+    if (e.target === detailModal) {
+      closeModal(false);
+    }
+  });
+
+  window.addEventListener('popstate', function() {
+    if (detailModal.classList.contains('open')) {
+      closeModal(true);
+    }
+  });
+
+  window.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && detailModal.classList.contains('open')) {
+      closeModal(false);
+    }
+  });
+
+  copySummaryBtn.addEventListener('click', function() {
+    const now = Date.now();
+    if (now - lastClickTime < 80) return;
+    lastClickTime = now;
+
+    const summaryText = [
+      '[크롤링 전수 통합 총괄 요약]',
+      '1. 전체 규모: 누적 77만 건+ 수집·검증 (총 956.3MB / 핵심 95종 클라우드 백업 완료)',
+      '2. 수출·차익 1순위: 50g 진단케이블 우편수출(순마진 62~70%), 대동·LS 농기계 북미 직수출(54~68%), 산단 센서 역수출(58~69%), 지파츠×이베이 250종 실시간 판매 중',
+      '3. 내수·대량 소싱: 개인 단품 4,039건 배제 및 대량 창고·원청공장 6,523곳 검증 완료 (공구 없는 1분 장착 소품은 쿠팡, 배선 시공 부품은 스마트스토어·이베이 분리)',
+      '4. 방산 지뢰탐지 대조: 5개 국어 189회 수집 결과 동일 구조 제품 전 세계 0건 (독자 특허 출원 가능)',
+      '5. 미래 신사업·기술: 탄 기판 자동 판독기 등 미개척 신사업 24선, 중고 반도체 45선, 안드로이드·마케팅 140대 실전 공식 확보'
+    ].join('\n');
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(summaryText).then(function() {
+        showToast('핵심 요약 내용이 복사되었습니다. 카카오톡이나 메모장에 바로 붙여넣으실 수 있습니다.');
+      }).catch(function() {
+        showToast('핵심 요약 준비가 완료되었습니다.');
+      });
+    } else {
+      showToast('핵심 요약 내용이 준비되었습니다.');
+    }
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
