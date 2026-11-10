@@ -2,7 +2,7 @@
   "cycle": 21,
   "idx": 509,
   "totalSignalsCrawled": 510,
-  "lastUpdated": "2026. 11. 9. 오후 3:12:35",
+  "lastUpdated": "2026. 11. 11. 오전 12:54:44",
   "recentSignals": [
     {
       "seq": 510,
@@ -1241,8 +1241,77 @@
   },
   "totalShardLines": 510,
   "totalShardMb": "0.80",
-  "totalScans": 14,
+  "totalScans": 17,
   "records": [
+    {
+      "idx": 17,
+      "ts": "2026. 11. 11. 오전 12:54:44",
+      "code": "MOAT-04",
+      "domain": "2. 0.1mm 정밀 공차 파라메트릭 3D 도면 자동 생성기(SaaS)",
+      "title": "마끼다·디월트·밀워키 전동공구 배터리 이종교배 어댑터 파라메트릭 생성기",
+      "aiBlindspot": "슬라이드 레일 각도 및 단자 핀 간격(0.1mm 공차)을 일반 생성형 3D AI는 설계 불가",
+      "compoundAsset": "공구 브랜드 20종의 암/수 슬롯 치수를 코드로 모듈화해 400종의 커스텀 결합 도면 즉시 생성",
+      "gh": {
+        "name": "open-hardware/protocol-bridge",
+        "url": "https://github.com/search?q=OpenSCAD%20parametric%20battery%20adapter",
+        "stars": 150,
+        "desc": "마끼다·디월트·밀워키 전동공구 배터리 이종교배 어댑터 파라메트릭 생성기"
+      },
+      "reddit": {
+        "title": "[Cloud Discovery] 마끼다·디월트·밀워키 전동공구 배터리 이종교배 어댑터 파라메트릭 생성기",
+        "url": "https://www.reddit.com/search/?q=OpenSCAD%20parametric%20battery%20adapter"
+      },
+      "hackaday": {
+        "title": "Hackaday Hardware Reference: MOAT-04",
+        "url": "https://hackaday.com/?s=OpenSCAD%20parametric%20battery%20adapter"
+      }
+    },
+    {
+      "idx": 16,
+      "ts": "2026. 11. 10. 오후 4:34:38",
+      "code": "MOAT-01",
+      "domain": "1. 비공개 프로토콜 역설계 & WebUSB 온라인 언락 SaaS",
+      "title": "WebSerial/WebUSB 기반 중국 내수용·산업용 기기 브라우저 원클릭 언락·한글화 클라우드(SaaS)",
+      "aiBlindspot": "제조사 비공개 레지스터 주소 및 체크섬(CRC) 계산식이 인터넷에 없어 일반 AI로는 구현 불가",
+      "compoundAsset": "지원 기기 프로파일을 1개씩 뚫어 DB에 저축할수록 건당 $15~$39 디지털 통행료 복리 누적",
+      "gh": {
+        "name": "lordbuffcloud/flashbay",
+        "url": "https://github.com/lordbuffcloud/flashbay",
+        "stars": 2,
+        "desc": "Firmware aggregator for cybersecurity hardware: Expo app with WebUSB/WebSerial flashing and operator-console UI."
+      },
+      "reddit": {
+        "title": "[Cloud Discovery] WebSerial/WebUSB 기반 중국 내수용·산업용 기기 브라우저 원클릭 언락·한글화 클라우드(SaaS)",
+        "url": "https://www.reddit.com/search/?q=WebSerial%20WebUSB%20flasher%20firmware"
+      },
+      "hackaday": {
+        "title": "Hackaday Hardware Reference: MOAT-01",
+        "url": "https://hackaday.com/?s=WebSerial%20WebUSB%20flasher%20firmware"
+      }
+    },
+    {
+      "idx": 15,
+      "ts": "2026. 11. 10. 오전 9:24:10",
+      "code": "MOAT-09",
+      "domain": "3. 단종 산업장비·계측기 레거시 S/W & 데이터 변환 브릿지",
+      "title": "구형 CNC·사출기·계측기 플로피/RS232 데이터를 스마트폰·클라우드로 빼주는 브릿지",
+      "aiBlindspot": "현장 구형 장비의 비표준 핸드셰이크 타이밍과 바이너리 포맷은 실물 패킷 분석 필수",
+      "compoundAsset": "장비 모델별 파서(Parser) 라이브러리를 저축할수록 글로벌 공장 B2B 납품 단가 상승",
+      "gh": {
+        "name": "open-hardware/protocol-bridge",
+        "url": "https://github.com/search?q=FlashFloppy%20Gotek%20industrial%20CNC%20RS232",
+        "stars": 150,
+        "desc": "구형 CNC·사출기·계측기 플로피/RS232 데이터를 스마트폰·클라우드로 빼주는 브릿지"
+      },
+      "reddit": {
+        "title": "[Cloud Discovery] 구형 CNC·사출기·계측기 플로피/RS232 데이터를 스마트폰·클라우드로 빼주는 브릿지",
+        "url": "https://www.reddit.com/search/?q=FlashFloppy%20Gotek%20industrial%20CNC%20RS232"
+      },
+      "hackaday": {
+        "title": "Hackaday Hardware Reference: MOAT-09",
+        "url": "https://hackaday.com/?s=FlashFloppy%20Gotek%20industrial%20CNC%20RS232"
+      }
+    },
     {
       "idx": 14,
       "ts": "2026. 11. 9. 오후 3:12:35",
