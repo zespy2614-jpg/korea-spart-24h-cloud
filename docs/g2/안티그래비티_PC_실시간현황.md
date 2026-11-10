@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 11. AM 6:41:46
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 11. AM 6:42:46
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -24,13 +24,13 @@
 - **[비즈니스]**: 지파츠 이베이 40선 실시간 재고 감시 및 8개국 크로스보더 80선(순마진 30% 이상 보장 공식)이 24시간 가동 중입니다.
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
-- **[대표님(PC 안티그래비티 요청)]**: 나한테 말안하고 너가 먼저선행으로 고쳐버리는 버릇이있는데 그거 물어보고하는걸로 메모리업데이트해줘 <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Carbon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
+- **[대표님(PC 안티그래비티 요청)]**: 안티그래비티리모트어플 이상태에서 대화쓰고오른쪽전송화살표누르면 안먹히고 다른대화로갈때가있는데 점검해주고 <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Carbon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 
 ## 2. 최근 수정된 워크스페이스 핵심 문서 Top 10
-- `시엔위_비즈니스_연구소\17_인터넷셀러_마케팅_전분야_야간무한학습_실시간로그.md` (2026. 11. 11. AM 6:41:44)
-- `시엔위_비즈니스_연구소\28_안드로이드전문가_AOSP_전장_커스텀롬_OTA_NDK_무한학습로그.md` (2026. 11. 11. AM 6:41:43)
-- `시엔위_비즈니스_연구소\13_전세계4대권역_eBay_야후옥션_시엔위_글로벌차익_야간무한로그.md` (2026. 11. 11. AM 6:41:43)
-- `시엔위_비즈니스_연구소\27_임베디드전문가_시엔위중고칩45선_PCB펌웨어_무한크롤링로그.md` (2026. 11. 11. AM 6:41:38)
+- `시엔위_비즈니스_연구소\17_인터넷셀러_마케팅_전분야_야간무한학습_실시간로그.md` (2026. 11. 11. AM 6:42:46)
+- `시엔위_비즈니스_연구소\13_전세계4대권역_eBay_야후옥션_시엔위_글로벌차익_야간무한로그.md` (2026. 11. 11. AM 6:42:45)
+- `시엔위_비즈니스_연구소\28_안드로이드전문가_AOSP_전장_커스텀롬_OTA_NDK_무한학습로그.md` (2026. 11. 11. AM 6:42:44)
+- `시엔위_비즈니스_연구소\27_임베디드전문가_시엔위중고칩45선_PCB펌웨어_무한크롤링로그.md` (2026. 11. 11. AM 6:42:39)
 - `안티그래비티_제미나이_마스터두뇌_통합바이블.md` (2026. 11. 11. AM 4:20:30)
 - `시엔위_비즈니스_연구소\25_미개척_철옹성_개발저축형_신사업_무한발굴_실시간로그.md` (2026. 11. 11. AM 4:20:28)
 - `테크모월드컵98_STV_45to59fps_클로드Fable5.2_해부보고서.md` (2026. 11. 11. AM 1:29:44)
