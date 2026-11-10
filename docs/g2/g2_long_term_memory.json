@@ -1,14 +1,15 @@
 {
-  "updatedAt": "2026. 11. 9. 오전 5:39:09",
+  "updatedAt": "2026. 11. 10. PM 1:51:09",
   "pinnedReminder": "오늘 날씨랑 일정 알려줘",
   "items": [
     {
       "id": "mem_1794142053817",
-      "category": "할일/일정",
+      "category": "PC원격작업",
       "fact": "오늘 날씨랑 일정 알려줘",
       "sourceQuestion": "",
-      "createdAt": "2026. 11. 8. 오후 9:47:33",
-      "pinned": true
+      "createdAt": "2026. 11. 8. PM 9:47:35",
+      "pinned": true,
+      "updatedAt": "2026. 11. 10. PM 1:51:09"
     },
     {
       "id": "mem_1794100239300_2bdz",
