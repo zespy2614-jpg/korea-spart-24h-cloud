@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 10. AM 11:06:53",
+  "updatedAt": "2026. 11. 10. AM 11:07:07",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -158,7 +158,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 10. AM 11:06:53\n1. 영구 장기기억 금고: 18건 (고정: 오늘 날씨랑 일정 알려줘)\n2. PC 안티그래비티 실시간 작업: 최근 7단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 10. AM 11:07:07\n1. 영구 장기기억 금고: 18건 (고정: 오늘 날씨랑 일정 알려줘)\n2. PC 안티그래비티 실시간 작업: 최근 7단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -883,14 +883,14 @@
   ],
   "recentDocs": [
     {
+      "name": "시엔위_비즈니스_연구소\\28_안드로이드전문가_AOSP_전장_커스텀롬_OTA_NDK_무한학습로그.md",
+      "updatedAt": "2026. 11. 10. AM 11:07:10",
+      "preview": "# 🤖 [안드로이드 시스템·AOSP·전장·리버스엔지니어링·OTA·Edge AI] 6-워커 병렬 크롤링 & 실시간 무한학습 로그\n\n> **관제 서버**: `http://127.0.0.1:3853` | **구글 드라이브 샤드 경로**: `G:\\내 드라이브\\안티그래비티_글로벌소싱_DB\\android_expert_shards`\n> **핵심 타겟**: `E900V22D(S905L3A)` 안드로이드 12 + `UIS7861(T606)` 11.4인치 열화상 카플레이 모니터 + `RK3566` 빔프로젝터/NPU + `AWS OTA 서버` + `Antigravity Remote Pro APK`\n\n---\n\n## 🤖 [안드로이드 전문가 학습 #1 (Cycle 1)] [AOSP-01] Amlogic(S905L3A/E900V22D·S905X4·T982) USB Burning Tool 이미지 언팩·리팩 & 핀쇼트 부트로더 진입 (2026. 11. 5. PM 8:46:45)\n\n- **전문 영역 및 타겟 보드**: 🔥 1. AOSP·커스텀롬·펌웨어개조 | `E900V22D (S905L3A), S905X3/X4, T972, T982 빔프로젝터/셋톱박스`\n- **황금 구현 공식(Core Formula)**: `AmlImagePack -d aml_upgrade.img unpacked_dir/ → system/vendor 수정 → AmlImagePack -r`\n- **실전 적용 법칙**: eMMC 클럭-GND 핀쇼트로 MaskROM 모드에 강제 진입한 뒤, 한국어 로케일·OTA 에이전트·커스텀 런처가 심어진 전용 단일 .img 파일을 90초 만에 양산 플래싱한다.\n\n- **🐙 GitHub 오픈소스**: [android-expert/aosp-01-core (⭐210)](https://github.com/search"
+    },
+    {
       "name": "시엔위_비즈니스_연구소\\27_임베디드전문가_시엔위중고칩45선_PCB펌웨어_무한크롤링로그.md",
       "updatedAt": "2026. 11. 10. AM 11:06:19",
       "preview": "# ⚡ [임베디드 전문가 × 시엔위 중고·탈거칩 45선] 6-워커 병렬 오픈소스 PCB·펌웨어·완제품 연금술 실시간 로그\n\n> **관제 서버**: `http://127.0.0.1:3852` | **구글 드라이브 샤드 경로**: `G:\\내 드라이브\\안티그래비티_글로벌소싱_DB\\embedded_chip_shards`\n> **핵심 미션**: 시엔위 대량 탈거(拆机)/잉여(库存) 칩셋 45종(메인 SoC 38종 + 필수 주변칩 7종)의 실시간 매물·OSHWHub 회로도·GitHub BSP·글로벌 완제품 차익을 24시간 추적합니다.\n\n---\n\n## ⚡ [임베디드 중고칩 딥스캔 #1 (Cycle 1)] [서열 #1위 | CHIP-01] Rockchip RK3588M (2026. 11. 5. PM 8:36:25)\n\n- **모델명 및 별칭**: `Rockchip RK3588M` (RK3588 / 전장급 플래그십 SoC) | **분류**: 📷 D. 독립 NPU·AI비전·엣지서버\n- **공정 / 코어 / 특기**: `8nm` | `4x Cortex-A76 + 4x A55 / Mali-G610 MP4` | 엠스틱3 대비 **280%** — 6.0 TOPS NPU + 8K 디코딩/인코딩 + PCIe 3.0 + 듀얼 기가비트 + 다중 MIPI-CSI\n- **시엔위 재고 및 실측 단가**: **60+개 (보드 다수)** | **125위안** (약 24,000원)\n- **임베디드 BOM & PCB 스펙**: 짝꿍 PMIC(`RK806-1 / RK806-2 + LPDDR4X/LPDDR5`) | 권장 기판(`8층~10층 HDI 기판 (또는 Core SOM 모듈 + 4층 캐리어 보드 권장)`)\n- **타겟 완제품 연금술**: **8채널 AI NVR 비전 서버 / 자율주행 ADAS 박스 / 하이엔드 사이버덱 UMPC"
-    },
-    {
-      "name": "시엔위_비즈니스_연구소\\28_안드로이드전문가_AOSP_전장_커스텀롬_OTA_NDK_무한학습로그.md",
-      "updatedAt": "2026. 11. 10. AM 11:06:19",
-      "preview": "# 🤖 [안드로이드 시스템·AOSP·전장·리버스엔지니어링·OTA·Edge AI] 6-워커 병렬 크롤링 & 실시간 무한학습 로그\n\n> **관제 서버**: `http://127.0.0.1:3853` | **구글 드라이브 샤드 경로**: `G:\\내 드라이브\\안티그래비티_글로벌소싱_DB\\android_expert_shards`\n> **핵심 타겟**: `E900V22D(S905L3A)` 안드로이드 12 + `UIS7861(T606)` 11.4인치 열화상 카플레이 모니터 + `RK3566` 빔프로젝터/NPU + `AWS OTA 서버` + `Antigravity Remote Pro APK`\n\n---\n\n## 🤖 [안드로이드 전문가 학습 #1 (Cycle 1)] [AOSP-01] Amlogic(S905L3A/E900V22D·S905X4·T982) USB Burning Tool 이미지 언팩·리팩 & 핀쇼트 부트로더 진입 (2026. 11. 5. PM 8:46:45)\n\n- **전문 영역 및 타겟 보드**: 🔥 1. AOSP·커스텀롬·펌웨어개조 | `E900V22D (S905L3A), S905X3/X4, T972, T982 빔프로젝터/셋톱박스`\n- **황금 구현 공식(Core Formula)**: `AmlImagePack -d aml_upgrade.img unpacked_dir/ → system/vendor 수정 → AmlImagePack -r`\n- **실전 적용 법칙**: eMMC 클럭-GND 핀쇼트로 MaskROM 모드에 강제 진입한 뒤, 한국어 로케일·OTA 에이전트·커스텀 런처가 심어진 전용 단일 .img 파일을 90초 만에 양산 플래싱한다.\n\n- **🐙 GitHub 오픈소스**: [android-expert/aosp-01-core (⭐210)](https://github.com/search"
     },
     {
       "name": "시엔위_비즈니스_연구소\\17_인터넷셀러_마케팅_전분야_야간무한학습_실시간로그.md",
@@ -979,14 +979,14 @@
   ],
   "recentWorkspaceDocs": [
     {
+      "relPath": "시엔위_비즈니스_연구소\\28_안드로이드전문가_AOSP_전장_커스텀롬_OTA_NDK_무한학습로그.md",
+      "updatedAt": "2026. 11. 10. AM 11:07:10",
+      "excerpt": "# 🤖 [안드로이드 시스템·AOSP·전장·리버스엔지니어링·OTA·Edge AI] 6-워커 병렬 크롤링 & 실시간 무한학습 로그\n\n> **관제 서버**: `http://127.0.0.1:3853` | **구글 드라이브 샤드 경로**: `G:\\내 드라이브\\안티그래비티_글로벌소싱_DB\\android_expert_shards`\n> **핵심 타겟**: `E900V22D(S905L3A)` 안드로이드 12 + `UIS7861(T606)` 11.4인치 열화상 카플레이 모니터 + `RK3566` 빔프로젝터/NPU + `AWS OTA 서버` + `Antigravity Remote Pro APK`\n\n---\n\n## 🤖 [안드로이드 전문가 학습 #1 (Cycle 1)] [AOSP-01] Amlogic(S905L3A/E900V22D·S905X4·T982) USB Burning Tool 이미지 언팩·리팩 & 핀쇼트 부트로더 진입 (2026. 11. 5. PM 8:46:45)\n\n- **전문 영역 및 타겟 보드**: 🔥 1. AOSP·커스텀롬·펌웨어개조 | `E900V22D (S905L3A), S905X3/X4, T972, T982 빔프로젝터/셋톱박스`\n- **황금 구현 공식(Core Formula)**: `AmlImagePack -d aml_upgrade.img unpacked_dir/ → system/vendor 수정 → AmlImagePack -r`\n- **실전 적용 법칙**: eMMC 클럭-GND 핀쇼트로 MaskROM 모드에 강제 진입한 뒤, 한국어 로케일·OTA 에이전트·커스텀 런처가 심어진 전용 단일 .img 파일을 90초 만에 양산 플래싱한다.\n\n- **🐙 GitHub 오픈소스**: [android-expert/aosp-01-core (⭐210)](https://github.com/search"
+    },
+    {
       "relPath": "시엔위_비즈니스_연구소\\27_임베디드전문가_시엔위중고칩45선_PCB펌웨어_무한크롤링로그.md",
       "updatedAt": "2026. 11. 10. AM 11:06:19",
       "excerpt": "# ⚡ [임베디드 전문가 × 시엔위 중고·탈거칩 45선] 6-워커 병렬 오픈소스 PCB·펌웨어·완제품 연금술 실시간 로그\n\n> **관제 서버**: `http://127.0.0.1:3852` | **구글 드라이브 샤드 경로**: `G:\\내 드라이브\\안티그래비티_글로벌소싱_DB\\embedded_chip_shards`\n> **핵심 미션**: 시엔위 대량 탈거(拆机)/잉여(库存) 칩셋 45종(메인 SoC 38종 + 필수 주변칩 7종)의 실시간 매물·OSHWHub 회로도·GitHub BSP·글로벌 완제품 차익을 24시간 추적합니다.\n\n---\n\n## ⚡ [임베디드 중고칩 딥스캔 #1 (Cycle 1)] [서열 #1위 | CHIP-01] Rockchip RK3588M (2026. 11. 5. PM 8:36:25)\n\n- **모델명 및 별칭**: `Rockchip RK3588M` (RK3588 / 전장급 플래그십 SoC) | **분류**: 📷 D. 독립 NPU·AI비전·엣지서버\n- **공정 / 코어 / 특기**: `8nm` | `4x Cortex-A76 + 4x A55 / Mali-G610 MP4` | 엠스틱3 대비 **280%** — 6.0 TOPS NPU + 8K 디코딩/인코딩 + PCIe 3.0 + 듀얼 기가비트 + 다중 MIPI-CSI\n- **시엔위 재고 및 실측 단가**: **60+개 (보드 다수)** | **125위안** (약 24,000원)\n- **임베디드 BOM & PCB 스펙**: 짝꿍 PMIC(`RK806-1 / RK806-2 + LPDDR4X/LPDDR5`) | 권장 기판(`8층~10층 HDI 기판 (또는 Core SOM 모듈 + 4층 캐리어 보드 권장)`)\n- **타겟 완제품 연금술**: **8채널 AI NVR 비전 서버 / 자율주행 ADAS 박스 / 하이엔드 사이버덱 UMPC"
-    },
-    {
-      "relPath": "시엔위_비즈니스_연구소\\28_안드로이드전문가_AOSP_전장_커스텀롬_OTA_NDK_무한학습로그.md",
-      "updatedAt": "2026. 11. 10. AM 11:06:19",
-      "excerpt": "# 🤖 [안드로이드 시스템·AOSP·전장·리버스엔지니어링·OTA·Edge AI] 6-워커 병렬 크롤링 & 실시간 무한학습 로그\n\n> **관제 서버**: `http://127.0.0.1:3853` | **구글 드라이브 샤드 경로**: `G:\\내 드라이브\\안티그래비티_글로벌소싱_DB\\android_expert_shards`\n> **핵심 타겟**: `E900V22D(S905L3A)` 안드로이드 12 + `UIS7861(T606)` 11.4인치 열화상 카플레이 모니터 + `RK3566` 빔프로젝터/NPU + `AWS OTA 서버` + `Antigravity Remote Pro APK`\n\n---\n\n## 🤖 [안드로이드 전문가 학습 #1 (Cycle 1)] [AOSP-01] Amlogic(S905L3A/E900V22D·S905X4·T982) USB Burning Tool 이미지 언팩·리팩 & 핀쇼트 부트로더 진입 (2026. 11. 5. PM 8:46:45)\n\n- **전문 영역 및 타겟 보드**: 🔥 1. AOSP·커스텀롬·펌웨어개조 | `E900V22D (S905L3A), S905X3/X4, T972, T982 빔프로젝터/셋톱박스`\n- **황금 구현 공식(Core Formula)**: `AmlImagePack -d aml_upgrade.img unpacked_dir/ → system/vendor 수정 → AmlImagePack -r`\n- **실전 적용 법칙**: eMMC 클럭-GND 핀쇼트로 MaskROM 모드에 강제 진입한 뒤, 한국어 로케일·OTA 에이전트·커스텀 런처가 심어진 전용 단일 .img 파일을 90초 만에 양산 플래싱한다.\n\n- **🐙 GitHub 오픈소스**: [android-expert/aosp-01-core (⭐210)](https://github.com/search"
     },
     {
       "relPath": "시엔위_비즈니스_연구소\\17_인터넷셀러_마케팅_전분야_야간무한학습_실시간로그.md",
