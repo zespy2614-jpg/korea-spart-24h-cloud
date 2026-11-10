@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚔️ [안티그래비티 슈퍼셀러] 인터넷 판매·마케팅 1클릭 올인원 무기 생성기 & 통합 관제보드</title>
+<style>
+  :root {
+    --bg: #090d16;
+    --card: #111827;
+    --border: #334155;
+    --accent: #a855f7;
+    --green: #22c55e;
+    --blue: #38bdf8;
+    --amber: #facc15;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Malgun Gothic', -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.55;
+  }
+  .container { max-width: 1460px; margin: 0 auto; }
+  .hero {
+    background: linear-gradient(135deg, #1e1b4b 0%, #3b0764 50%, #064e3b 100%);
+    border: 2px solid var(--accent);
+    border-radius: 14px;
+    padding: 20px 26px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    box-shadow: 0 10px 30px rgba(168,85,247,0.25);
+  }
+  .hero h1 { margin: 0 0 6px 0; font-size: 22px; color: #f3e8ff; }
+  .daemon-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .daemon-card {
+    background: #0f172a;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .daemon-card a {
+    background: #1e293b;
+    color: var(--blue);
+    border: 1px solid #38bdf8;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  .daemon-card a:hover { background: #38bdf8; color: #090d16; }
+  .tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .tab-btn {
+    background: #1e293b;
+    color: #cbd5e1;
+    border: 1px solid var(--border);
+    padding: 11px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  .tab-btn.active {
+    background: var(--accent);
+    color: #ffffff;
+    border-color: #d8b4fe;
+    box-shadow: 0 0 16px rgba(168,85,247,0.4);
+  }
+  .panel { display: none; }
+  .panel.active { display: block; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 980px) { .grid-2 { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 16px;
+  }
+  .card h3 {
+    margin: 0 0 12px 0;
+    color: var(--amber);
+    font-size: 16px;
+    border-bottom: 1px solid #1e293b;
+    padding-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  label { display: block; font-size: 12.5px; color: var(--muted); margin-bottom: 4px; font-weight: bold; }
+  select, input, textarea {
+    width: 100%;
+    background: #090d16;
+    color: #f8fafc;
+    border: 1px solid #475569;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 13.5px;
+    font-family: inherit;
+    margin-bottom: 12px;
+  }
+  textarea { font-family: 'Consolas', 'Courier New', monospace; resize: vertical; }
+  .btn {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12.5px;
+  }
+  .btn:hover { background: #1d4ed8; }
+  .btn-green { background: #16a34a; }
+  .btn-green:hover { background: #15803d; }
+  .btn-purple { background: #9333ea; }
+  .btn-purple:hover { background: #7e22ce; }
+  .price-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .price-box {
+    background: #090d16;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+  }
+  .price-box.highlight {
+    border: 2px solid var(--green);
+    background: #052e16;
+  }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: bold;
+    background: #3b0764;
+    color: #e9d5ff;
+  }
+  @media print {
+    body * { visibility: hidden; }
+    #printablePinout, #printablePinout * { visibility: visible; }
+    #printablePinout { position: absolute; left: 0; top: 0; width: 100%; background: #fff !important; color: #000 !important; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="hero">
+    <div>
+      <h1>⚔️ [안티그래비티 슈퍼셀러] 인터넷 판매 · 마케팅 1클릭 올인원 무기 생성기 & 실시간 관제보드</h1>
+      <div style="font-size:13.5px;color:#e2e8f0;">글로벌 8개국 소싱 데이터 × 상위 0.1% 셀러 마케팅 80대 기법 결합 — 품번 선택 1초 만에 타이틀·7단 HTML·미끼가격·핀맵·바이럴·다국어 CS 완성!</div>
+    </div>
+    <div style="text-align:right;">
+      <span class="badge" style="font-size:13px;padding:6px 12px;background:#065f46;color:#6ee7b7;">🟢 4대 백그라운드 데몬 동시 가동 중</span>
+    </div>
+  </div>
+
+  <!-- 4대 실시간 데몬 바로가기 바 -->
+  <div class="daemon-bar">
+    <div class="daemon-card">
+      <div>
+        <div style="font-weight:bold;color:#e9d5ff;font-size:13.5px;">🟣 셀러·마케팅·아마존 7-워커 데몬</div>
+        <div style="font-size:11.5px;color:#94a3b8;">eBay·Amazon COSMO·Reddit·번들링 수집</div>
+      </div>
+      <a href="http://127.0.0.1:3850" target="_blank">3850 관제 열기 ↗</a>
+    </div>
+    <div class="daemon-card">
+      <div>
+        <div style="font-weight:bold;color:#4ade80;font-size:13.5px;">🟢 8개국 글로벌 소싱 6-워커 데몬</div>
+        <div style="font-size:11.5px;color:#94a3b8;">누적 110,400건+ 차익 시그널 수집</div>
+      </div>
+      <a href="http://127.0.0.1:3848" target="_blank">3848 관제 열기 ↗</a>
+    </div>
+    <div class="daemon-card">
+      <div>
+        <div style="font-weight:bold;color:#38bdf8;font-size:13.5px;">🔵 제미나이 마스터 두뇌 동기화</div>
+        <div style="font-size:11.5px;color:#94a3b8;">60초마다 구글드라이브 PDF/TXT 갱신</div>
+      </div>
+      <a href="http://127.0.0.1:3849" target="_blank">3849 관제 열기 ↗</a>
+    </div>
+    <div class="daemon-card">
+      <div>
+        <div style="font-weight:bold;color:#facc15;font-size:13.5px;">🟡 지파츠 × 이베이 24h 재고감시</div>
+        <div style="font-size:11.5px;color:#94a3b8;">KOREA S-PART 주력 품번 품절 방어</div>
+      </div>
+      <a href="http://127.0.0.1:3847" target="_blank">3847 관제 열기 ↗</a>
+    </div>
+  </div>
+
+  <!-- 메인 탭 네비게이션 -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="openTab('tab1', this)">⚡ 1. 품번 1클릭 리스팅 생성기 (20대 주력 프리셋 + 7단 HTML + 가격심리학)</button>
+    <button class="tab-btn" onclick="openTab('tab2', this)">🖨️ 2. A5 1페이지 방수 영문 핀맵 인쇄소 (3종)</button>
+    <button class="tab-btn" onclick="openTab('tab3', this)">🚀 3. 광고비 0원 포럼 바이럴 원고 5편 & 15초 쇼츠 콘티 5편</button>
+    <button class="tab-btn" onclick="openTab('tab4', this)">🛡️ 4. 10초 복붙 다국어(영/독/스) 무적 CS 백과사전 (15선)</button>
+    <button class="tab-btn" onclick="openTab('tab5', this)" style="border-color:#f59e0b;color:#fde047;">👑 5. 아마존(Amazon) COSMO 타이틀·불릿·249B 서치텀·FBA/FBM &amp; SAFE-T</button>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- 탭 1: 품번 1클릭 리스팅 생성기 -->
+  <!-- ===================================================================== -->
+  <div id="tab1" class="panel active">
+    <div class="grid-2">
+      <div>
+        <div class="card">
+          <h3>🎯 STEP 1. 주력 20대 프리셋 선택 또는 새 품번 입력</h3>
+          <label>주력 20대 검증 아이템 프리셋 불러오기</label>
+          <select id="presetSelect" onchange="loadPreset()"></select>
+
+          <div class="grid-2" style="gap:10px;">
+            <div>
+              <label>핵심 순정 품번 / MPN (교차품번 포함)</label>
+              <input type="text" id="inpPartNo" oninput="updateGenerator()">
+            </div>
+            <div>
+              <label>호환 브랜드 / 대상 장비명</label>
+              <input type="text" id="inpModel" oninput="updateGenerator()">
+            </div>
+          </div>
+
+          <div class="grid-2" style="gap:10px;">
+            <div>
+              <label>총 매입+개조 원가 (KRW 원)</label>
+              <input type="number" id="inpCostKrw" value="15000" oninput="updateGenerator()">
+            </div>
+            <div>
+              <label>예상 국제배송비 (KRW 원, K-Packet 4500 / 특송 22000)</label>
+              <input type="number" id="inpShipKrw" value="4500" oninput="updateGenerator()">
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>
+            <span>📈 STEP 2. eBay Cassini 80자 영문 타이틀 & 네이버 40자 상품명</span>
+            <span id="charCountBadge" class="badge">79 / 80자</span>
+          </h3>
+          <label>① eBay Cassini 80자 황금 배합 타이틀 (영문)</label>
+          <div style="display:flex;gap:8px;margin-bottom:10px;">
+            <input type="text" id="outEbayTitle" style="margin:0;color:#4ade80;font-weight:bold;" oninput="updateCharCount()">
+            <button class="btn btn-green" style="white-space:nowrap;" onclick="copyVal('outEbayTitle')">📋 복사</button>
+          </div>
+
+          <label>② 네이버 플러스 스토어 40자 AI 만점 상품명 (중복단어 0개)</label>
+          <div style="display:flex;gap:8px;margin-bottom:10px;">
+            <input type="text" id="outNaverTitle" style="margin:0;color:#38bdf8;font-weight:bold;">
+            <button class="btn btn-green" style="white-space:nowrap;" onclick="copyVal('outNaverTitle')">📋 복사</button>
+          </div>
+
+          <label>③ Item Specifics 교차 호환 품번 (MPN / OE / Interchange 다중 입력용)</label>
+          <div style="display:flex;gap:8px;margin-bottom:10px;">
+            <input type="text" id="outMpnMatrix" style="margin:0;color:#facc15;">
+            <button class="btn" style="white-space:nowrap;" onclick="copyVal('outMpnMatrix')">📋 복사</button>
+          </div>
+
+          <label>④ 쿠팡 / 스마트스토어 검색태그 10개 (쉼표 구분)</label>
+          <div style="display:flex;gap:8px;">
+            <input type="text" id="outKrTags" style="margin:0;">
+            <button class="btn" style="white-space:nowrap;" onclick="copyVal('outKrTags')">📋 복사</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>💰 STEP 3. 가격 심리학: 30% 마진 방어가 & 3단 미끼 옵션(Decoy) & Best Offer 자동계산</h3>
+          <div id="priceSummaryText" style="font-size:13px;color:#cbd5e1;margin-bottom:10px;"></div>
+          <div class="price-grid">
+            <div class="price-box">
+              <div style="font-size:11.5px;color:#94a3b8;">[옵션 A: 트래픽 유도 단품 미끼]</div>
+              <div style="font-size:13px;font-weight:bold;margin:4px 0;">Bare Unit Only</div>
+              <div id="priceOptA" style="font-size:20px;font-weight:900;color:#cbd5e1;">$45.00</div>
+              <div style="font-size:11px;color:#94a3b8;">검색 최저가 노출용</div>
+            </div>
+            <div class="price-box highlight">
+              <div style="font-size:11.5px;color:#4ade80;font-weight:bold;">★ [옵션 B: 90% 선택 주력 풀키트]</div>
+              <div style="font-size:13px;font-weight:bold;margin:4px 0;">Full Plug &amp; Play Kit</div>
+              <div id="priceOptB" style="font-size:22px;font-weight:900;color:#4ade80;">$69.00</div>
+              <div id="profitOptB" style="font-size:11.5px;color:#86efac;font-weight:bold;">순마진 65% 주력</div>
+            </div>
+            <div class="price-box">
+              <div style="font-size:11.5px;color:#facc15;">[옵션 C: 앵커링 프로 번들]</div>
+              <div style="font-size:13px;font-weight:bold;margin:4px 0;">Pro Shop Bundle</div>
+              <div id="priceOptC" style="font-size:20px;font-weight:900;color:#facc15;">$89.00</div>
+              <div style="font-size:11px;color:#94a3b8;">예비케이블+툴 포함</div>
+            </div>
+          </div>
+          <div id="bestOfferBox" style="margin-top:12px;background:#090d16;border:1px solid #334155;padding:10px 14px;border-radius:8px;font-size:12.5px;color:#e2e8f0;"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card">
+          <h3>
+            <span>💻 STEP 4. CVR 300% 폭발 7단 설득 블록 HTML 코드 (자동 치환됨)</span>
+            <button class="btn btn-green" onclick="copyVal('outHtmlCode')">📋 HTML 전체 복사 (eBay 코드뷰 붙여넣기)</button>
+          </h3>
+          <textarea id="outHtmlCode" rows="10"></textarea>
+          <label style="margin-top:8px;">🔍 실시간 상세페이지 렌더링 미리보기</label>
+          <div id="htmlPreviewBox" style="background:#fff;color:#000;border-radius:8px;padding:10px;max-height:520px;overflow-y:auto;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- 탭 2: A5 1페이지 방수 컬러 영문 핀맵 인쇄소 -->
+  <!-- ===================================================================== -->
+  <div id="tab2" class="panel">
+    <div class="card">
+      <h3>
+        <span>🖨️ 박스 동봉용 A5 1페이지 방수 컬러 영문 핀맵 & 장착 치트시트 (원가 150원 → 체감가치 +$29)</span>
+        <div>
+          <button class="btn btn-purple" onclick="window.print()">🖨️ 현재 핀맵 A5 시트 바로 인쇄하기 (Ctrl+P)</button>
+          <button class="btn btn-green" onclick="copyVal('pinoutRawText')">📋 텍스트 원문 복사</button>
+        </div>
+      </h3>
+      <div style="display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;">
+        <button class="btn" onclick="selectPinout(0)">🚜 템플릿 A: 농기계/중장비 4핀·9핀 OBD2 & 컨트롤러용</button>
+        <button class="btn" onclick="selectPinout(1)">🏭 템플릿 B: 24V 산단 센서·PLC·화웨이 정류기·Dala CAN용</button>
+        <button class="btn" onclick="selectPinout(2)">☕ 템플릿 C: 오픈소스 무납땜 개조 풀키트(Gaggiuino/iMac/NAS)용</button>
+      </div>
+      <div id="printablePinout" style="background:#ffffff;color:#0f172a;padding:24px;border-radius:10px;border:3px solid #1e3a8a;font-family:'Consolas','Courier New',monospace;white-space:pre-wrap;font-size:13px;line-height:1.45;"></div>
+      <textarea id="pinoutRawText" style="display:none;"></textarea>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- 탭 3: 해외 포럼 바이럴 원고 5편 & 15초 쇼츠 콘티 5편 -->
+  <!-- ===================================================================== -->
+  <div id="tab3" class="panel">
+    <div class="grid-2">
+      <div class="card">
+        <h3>🌐 해외 커뮤니티(Reddit·TractorByNet·STH·PLCtalk) 스팸 차단 0% 바이럴 원고 5편</h3>
+        <div id="viralPostsContainer"></div>
+      </div>
+      <div class="card">
+        <h3>🎬 YouTube Shorts / TikTok / Reels 15초 무언어(Non-Verbal) ASMR 쇼츠 콘티 5편</h3>
+        <div id="shortsScriptsContainer"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- 탭 4: 15대 상황별 다국어 무적 CS 백과사전 -->
+  <!-- ===================================================================== -->
+  <div id="tab4" class="panel">
+    <div class="card">
+      <h3>🛡️ 글로벌 셀러 '10초 복붙' 15대 실전 상황별 다국어(영문 EN / 독일어 DE / 스페인어 ES) CS 백과사전</h3>
+      <div id="csTemplatesContainer" class="grid-2"></div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- 탭 5: 아마존(Amazon) COSMO 200자 타이틀·불릿·249B 서치텀·FBA/FBM & SAFE-T -->
+  <!-- ===================================================================== -->
+  <div id="tab5" class="panel">
+    <div class="grid-2">
+      <div>
+        <div class="card">
+          <h3>
+            <span>👑 아마존(Amazon US/DE/JP &amp; Business) COSMO/Rufus 1클릭 리스팅 생성기</span>
+            <span id="amzModeBadge" class="badge" style="background:#065f46;color:#6ee7b7;">FBA Prime 권장</span>
+          </h3>
+          <div style="font-size:12.5px;color:#cbd5e1;margin-bottom:10px;">
+            탭 1에서 선택한 프리셋 품번을 기반으로 <b>IP(상표권) 정지 위험 0%</b> 공식(<code>[Brand] + [Item] + Compatible with [Model] + (Replaces #[MPN])</code>)을 적용한 아마존 전용 세트입니다.
+          </div>
+
+          <label>① 아마존 IP 안전 200자 타이틀 (Fair Use Policy 100% 준수)</label>
+          <div style="display:flex;gap:8px;margin-bottom:10px;">
+            <input type="text" id="outAmzTitle" style="margin:0;color:#fde047;font-weight:bold;">
+            <button class="btn btn-green" style="white-space:nowrap;" onclick="copyVal('outAmzTitle')">📋 복사</button>
+          </div>
+
+          <label>② COSMO &amp; Rufus AI 추론 최적화 5대 불릿 포인트 (Bullet Points 1~5)</label>
+          <div style="display:flex;justify-content:flex-end;margin-bottom:4px;">
+            <button class="btn btn-green" onclick="copyVal('outAmzBullets')">📋 5대 불릿 전체 복사</button>
+          </div>
+          <textarea id="outAmzBullets" rows="9" style="color:#e2e8f0;font-size:12.5px;"></textarea>
+
+          <label>③ 백엔드 Generic Keywords (249 Bytes 이내 · 쉼표 없음 · 타사 상표권 제외)</label>
+          <div style="display:flex;gap:8px;margin-bottom:6px;">
+            <input type="text" id="outAmzBackend" style="margin:0;color:#38bdf8;">
+            <button class="btn btn-green" style="white-space:nowrap;" onclick="copyVal('outAmzBackend')">📋 복사</button>
+          </div>
+          <div id="amzByteInfo" style="font-size:11.5px;color:#94a3b8;"></div>
+        </div>
+
+        <div class="card">
+          <h3>📊 아마존 FBA(미국 창고 입고) vs FBM(한국 직발송) 순마진 &amp; B2B 할인가 자동 비교</h3>
+          <div id="amzMarginBox" style="font-size:13px;line-height:1.6;color:#e2e8f0;"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card">
+          <h3>
+            <span>📦 아마존 TOS 100% 합법 'A6 핀맵 &amp; 중립 리뷰 유도 인서트 카드'</span>
+            <button class="btn btn-green" onclick="copyVal('outAmzInsertCard')">📋 인서트 카드 복사</button>
+          </h3>
+          <textarea id="outAmzInsertCard" rows="9" style="font-size:12px;color:#86efac;"></textarea>
+        </div>
+
+        <div class="card">
+          <h3>🛡️ 아마존 SAFE-T Claim (바꿔치기 반품 100% 보상) &amp; Suspected IP 해제 POA 소명서</h3>
+          <div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap;">
+            <button class="btn btn-purple" onclick="selectAmzDefense(0)">🚨 1. SAFE-T: 고장난 구형 부품 바꿔치기(Swap Scam) 100% 보상 청구</button>
+            <button class="btn" onclick="selectAmzDefense(1)">⚡ 2. SAFE-T: 고객 배선 실수/과전압 파손 반품 보상 청구</button>
+            <button class="btn" onclick="selectAmzDefense(2)">⚖️ 3. IP/Section 3: 호환 부품 상표권 오탐지 즉시 해제 POA</button>
+          </div>
+          <div style="display:flex;justify-content:flex-end;margin-bottom:4px;">
+            <button class="btn btn-green" onclick="copyVal('outAmzDefenseText')">📋 현재 소명서 복사</button>
+          </div>
+          <textarea id="outAmzDefenseText" rows="9" style="font-size:12px;color:#f8fafc;"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const PRESETS_20 = [
+  { code:'UG-08', name:'01. [UG-08] 구보타/얀마/대동 4핀-OBD2 진단 케이블 풀키트', partNo:'3824-26 / KUB-4PIN-OBD2 / Diagmaster', model:'Kubota, Kioti (Daedong), Yanmar, Bobcat Tractors', cost:8000, ship:4500, ebayTitle:'Fits Kubota Kioti Yanmar 4-Pin to OBD2 Diagnostic Adapter Cable Kit 3824-26 DHL', naverTitle:'구보다 얀마 대동트랙터 4핀 OBD2 고장진단기 변환 케이블 어댑터키트', tags:'구보다진단기,얀마진단케이블,대동트랙터스캐너,농기계고장진단기,4핀OBD2젠더,382426,트랙터ECU초기화,DPF강제재생케이블,쿠보타스캐너,중장비진단어댑터' },
+  { code:'UG-19', name:'02. [UG-19] 존디어/커민스 J1939 9핀-OBD2 진단 어댑터 풀키트', partNo:'J1939-9P-OBD2 / RE37651 / 4919780 / 3165159', model:'John Deere, Cummins, Caterpillar, Volvo Heavy Duty', cost:6500, ship:4500, ebayTitle:'Fits John Deere Cummins J1939 Type-2 9-Pin to OBD2 Diagnostic Cable Adapter Kit', naverTitle:'존디어 커민스 J1939 9핀 OBD2 중장비 트랙터 진단기 변환케이블', tags:'존디어진단기,커민스스캐너,J1939케이블,9핀OBD2변환,굴삭기진단기,대형트럭스캐너,타입2녹색9핀,농기계ECU진단,디젤엔진스캐너,서비스어드바이저' },
+  { code:'UG-06', name:'03. [UG-06] 대동트랙터 계기판 → 북미 Kioti CK/DK/RX 클러스터', partNo:'T4686-75101 / T2185-69014 / T4625-75101', model:'Kioti CK25, CK30, CK35, DK35, DK45, RX6010, Bobcat CT', cost:95000, ship:22000, ebayTitle:'OEM Kioti T4686-75101 T2185-69014 Instrument Cluster Gauge Panel CK DK RX Tested', naverTitle:'대동트랙터 순정 계기판 메터세트 T4686-75101 CK DK RX용', tags:'대동트랙터계기판,T468675101,T218569014,대동메터세트,트랙터RPM게이지,대동농기계부품,키오티클러스터,대동DK계기판,대동RX계기판,트랙터계기판수리' },
+  { code:'UG-07', name:'04. [UG-07] LS엠트론 트랙터 컨트롤러 → New Holland Boomer 제어기', partNo:'40301857 / 40284461 / MT40301857 / 40355015', model:'LS Tractor XR/XU/MT3, New Holland Boomer 30-50, Case IH', cost:100000, ship:20000, ebayTitle:'OEM LS Tractor 40301857 40284461 ECU Controller Module Fits New Holland Boomer', naverTitle:'LS엠트론 트랙터 순정 컨트롤러 ECU 제어기 40301857 신품급', tags:'LS트랙터부품,LS엠트론컨트롤러,40301857,40284461,트랙터ECU제어기,엘에스트랙터수리,뉴홀랜드부머부품,유압제어모듈,트랙터전장보드,MT40301857' },
+  { code:'KIT-04', name:'05. [KIT-04] 폐전기차 배터리 → 태양광 인버터 Dala CAN 브릿지 보드', partNo:'T-2CAN-DALA / ESP32-S3-DUAL-CAN / H657', model:'Nissan Leaf, Tesla, BYD EV Pack to Fronius/Solax/Deye Inverter', cost:25000, ship:4500, ebayTitle:'Pre-Flashed Dala Battery Emulator LilyGo T-2CAN Dual CAN-Bus EV to Solar Bridge', naverTitle:'폐전기차 배터리 ESS 태양광 인버터 변환 Dala 듀얼CAN 브릿지보드', tags:'폐배터리재활용,전기차배터리ESS,달라배터리에뮬레이터,LilyGoT2CAN,듀얼CAN통신보드,태양광하이브리드인버터,아이오닉배터리개조,코나EV배터리팩,ESP32CAN보드,Deye인버터연동' },
+  { code:'KIT-14', name:'06. [KIT-14] 화웨이 R4850G2 3000W 정류기 가변전압 CAN 컨트롤러 키트', partNo:'HW-R4850G2-CAN-KIT / R4875G1 / R4850N2', model:'Huawei R4850G2 48V LiFePO4 Solar & E-Bike Fast Charger', cost:11500, ship:4500, ebayTitle:'Fits Huawei R4850G2 R4875G1 3000W Charger Voltage Adjust USB-CAN Controller Kit', naverTitle:'화웨이 R4850G2 정류기 파워 가변전압 전류조절 USB-CAN 제어킷', tags:'화웨이정류기개조,R4850G2,R4875G1,인산철급속충전기,파워뱅크충전기,전기자전거급속충전,서론충전기개조,USBCAN컨트롤러,가변전압파워서플라이,서버파워개조' },
+  { code:'KR-10', name:'07. [KR-10] 반도체 산단 MKS Baratron 정밀 진공 게이지 (626B/627B)', partNo:'626B01TBE / 627B01TDC1B / 1179A / 722B', model:'MKS Instruments Semiconductor Vacuum Chamber Manometer', cost:155000, ship:24000, ebayTitle:'MKS Baratron 626B 627B Capacitance Manometer Vacuum Pressure Gauge Transducer', naverTitle:'MKS 바라트론 정밀 진공게이지 626B 627B 1179A MFC센서', tags:'MKS진공게이지,바라트론센서,626B,627B,1179A,질량유량계MFC,반도체장비부품,진공챔버압력센서,캐패시턴스마노미터,중고계측기매입판매' },
+  { code:'KR-09', name:'08. [KR-09] Keyence 레이저 변위 센서 헤드 & 디지털 앰프 (LK-G5001)', partNo:'LK-G5001 / LK-G5000 / GT2-71N / IL-100', model:'KEYENCE Precision Factory Automation Sensor & Amplifier', cost:115000, ship:20000, ebayTitle:'Keyence LK-G5001 GT2-71N High-Accuracy Laser Displacement Sensor Head Amp Tested', naverTitle:'키엔스 레이저 변위센서 헤드 앰프 LK-G5001 GT2-71N 검수품', tags:'키엔스센서,LKG5001,GT271N,레이저변위센서,키엔스앰프,접촉식변위센서,자동화설비부품,키엔스중고센서,IL100,정밀두께측정기' },
+  { code:'KR-15', name:'09. [KR-15] Cognex In-Sight 머신비전 스마트 카메라 (IS7000/IS5400)', partNo:'IS7000 / IS5400 / IS2000 / 821-0032-1R / DM260', model:'Cognex In-Sight Industrial Machine Vision Inspection System', cost:135000, ship:22000, ebayTitle:'Cognex In-Sight IS7000 IS5400 Industrial Machine Vision Smart Camera System DHL', naverTitle:'코그넥스 인사이트 머신비전 스마트카메라 IS7000 IS5400 IS2000', tags:'코그넥스카메라,머신비전카메라,IS7000,IS5400,IS2000,인사이트비전,데이터맨바코드리더기,DM260,불량검사카메라,FA비전검사장비' },
+  { code:'UG-15', name:'10. [UG-15] Siemens SIMATIC S7-300 CPU & HMI 패널 (6ES7 315-2EH14)', partNo:'6ES7315-2EH14-0AB0 / 6ES73152EH140AB0 / 6AV6643', model:'Siemens SIMATIC S7-300 CPU 315-2 PN/DP PROFINET PLC', cost:95000, ship:22000, ebayTitle:'Siemens SIMATIC S7-300 6ES7315-2EH14-0AB0 CPU 315-2 PN/DP PLC Module Tested Fast', naverTitle:'지멘스 S7-300 PLC CPU모듈 6ES7315-2EH14-0AB0 정품', tags:'지멘스PLC,S7300CPU,6ES73152EH140AB0,3152PNDP,지멘스터치패널,SIMATICHMI,프로피넷모듈,공장자동화PLC,지멘스단종부품,6ES7315' },
+  { code:'UG-14', name:'11. [UG-14] Fanuc CNC 공작기계 서보 제어 보드 (A16B-2202-0420)', partNo:'A16B-2202-0420 / A20B-2100-0740 / A20B-2101-0040', model:'FANUC Series 0i/16i/18i/21i CNC Lathe & Machining Center', cost:75000, ship:22000, ebayTitle:'Fits FANUC A16B-2202-0420 A20B-2100 Axis Control Servo PCB Board CNC Tested DHL', naverTitle:'화낙 FANUC CNC 서보앰프 제어보드 A16B-2202 A20B-2100', tags:'화낙보드,파낙서보앰프,A16B22020420,A20B2100,A20B2101,CNC공작기계수리,머시닝센터기판,두산공작기계부품,화낙메인보드,서보람프알람수리' },
+  { code:'KR-01', name:'12. [KR-01] 제네시스 GV80/G80 전방 스마트 크루즈 레이더 (99110-T6000)', partNo:'99110-T6000 / 99110-G9000 / 99110-T1000', model:'Genesis GV80 (JX1), G80 (RG3), G90, GV70 ADAS Radar', cost:110000, ship:22000, ebayTitle:'OEM Genesis GV80 G80 99110-T6000 99110-G9000 Front Smart Cruise Radar Sensor', naverTitle:'제네시스 GV80 G80 전방 스마트크루즈 레이더센서 99110-T6000', tags:'제네시스전방레이더,GV80레이더센서,G80크루즈센서,99110T6000,99110G9000,99110T1000,스마트크루즈컨트롤,전방추돌방지센서,제네시스중고부품,모비스순정부품' },
+  { code:'KR-06', name:'13. [KR-06] 제네시스 헤드라이트 LED 발라스트 모듈 (92180-T6000)', partNo:'92180-T6000 / 92180-G9000 / 92180-T1000', model:'Genesis G80, GV80, G90 OEM Headlamp LED Control Unit', cost:55000, ship:15000, ebayTitle:'OEM Genesis G80 GV80 G90 92180-T6000 92180-G9000 Headlight LED Control Ballast', naverTitle:'제네시스 G80 GV80 헤드라이트 LED 파워모듈 발라스트 92180', tags:'제네시스헤드라이트모듈,GV80발라스트,G80전조등모듈,92180T6000,92180G9000,92180T1000,데이라이트수리,LED헤드램프컨트롤러,제네시스라이트고장,전조등파워모듈' },
+  { code:'UG-01', name:'14. [UG-01] 오티스(Otis) 엘리베이터 LCB2/TCBC 제어 보드 (GGA26800)', partNo:'GGA26800KA / GAA26800KA1 / GDA26800 / GECB', model:'OTIS Gen2 / MCS220 / Sigma Elevator Main Control PCB', cost:85000, ship:24000, ebayTitle:'Fits OTIS Elevator GGA26800 GAA26800 LCB2 TCBC Main Control PCB Board Tested DHL', naverTitle:'오티스 엘리베이터 승강기 메인 제어보드 LCB2 TCBC GGA26800', tags:'오티스엘리베이터부품,승강기제어보드,LCB2보드,TCBC보드,GECB기판,GGA26800,GAA26800,엘리베이터메인보드,시그마승강기부품,승강기보수부품' },
+  { code:'UG-04', name:'15. [UG-04] 후루노(Furuno) 선박 레이더 디스플레이 보드 (FR-8062)', partNo:'FR-8062 / RDP-149 / 03P9339 / MAF1422B', model:'Furuno NavNet vx2 & JRC Marine Radar Display System', cost:120000, ship:25000, ebayTitle:'Fits Furuno FR-8062 RDP-149 NavNet Marine Radar Display Main PCB Board Magnetron', naverTitle:'후루노 선박용 레이더 메인보드 마그네트론 FR-8062 RDP-149', tags:'후루노레이더,선박레이더수리,마그네트론,FR8062,RDP149,어군탐지기보드,선박전자장비부품,JRC레이더,후루노파워보드,어선항해장비' },
+  { code:'KIT-01', name:'16. [KIT-01] 아이맥 27 5K(LM270QQ1) → 스튜디오 디스플레이 R1811 키트', partNo:'R1811-5K-KIT / LM270QQ1-SDA1 / R9A18', model:'Apple iMac 27" A1419 A2115 5K Retina LCD Panel Conversion', cost:65000, ship:7000, ebayTitle:'5K R1811 LCD Driver Controller Board Kit Fits iMac 27" LM270QQ1 USB-C DP1.4 DIY', naverTitle:'아이맥 27인치 5K 모니터 개조 R1811 드라이버보드 LM270QQ1', tags:'아이맥5K모니터개조,R1811보드,LM270QQ1,스튜디오디스플레이개조,A1419보드,A2115액정활용,5KAD보드,아이맥27인치개조,R9A18,USBC모니터보드' },
+  { code:'KIT-02', name:'17. [KIT-02] 가찌아 클래식 Gaggiuino V3/V4 스마트 프로파일링 풀키트', partNo:'GAGGIUINO-V3-FULL / STM32F411 / RI9380', model:'Gaggia Classic Pro & Evo Smart Espresso Profiling System', cost:58000, ship:6000, ebayTitle:'Pre-Soldered Gaggiuino V3 V4 PCB Full Kit Fits Gaggia Classic Pro Smart Espresso', naverTitle:'가찌아 클래식 프로 가찌아노 V3 V4 스마트 개조 풀키트 PCB보드', tags:'가찌아클래식개조,가찌아노키트,Gaggiuino,가찌아PID킷,에스프레소압력프로파일링,가찌아클래식프로,홈카페머신개조,란실리오실비아PID,STM32제어보드,디센트머신개조' },
+  { code:'KIT-05', name:'18. [KIT-05] 천체망원경 적도의 OnStep WiFi 자동 별추적 컨버전 키트', partNo:'ONSTEP-V4-PRO-KIT / TMC2209 / Vixen GP / CG-5', model:'Vixen GP, GPD2, Celestron CG-5, Sky-Watcher EQ3/EQ5 Mount', cost:52000, ship:7000, ebayTitle:'OnStep V4 Pro WiFi GoTo Telescope Controller Kit Fits Vixen GP Celestron CG-5', naverTitle:'천체망원경 적도의 OnStep 온스텝 자동추적 GoTo 개조 풀키트', tags:'온스텝키트,OnStep,천체망원경고투개조,빅센GP적도의,EQ3적도의모터,EQ5자동추적,별자리자동추적기,ASIAIR연동,천체사진촬영장비,적도의모터드라이브' },
+  { code:'KIT-09', name:'19. [KIT-09] 서버 스위치(Brocade ICX6450) 무소음 팬 스푸퍼 3종 세트', partNo:'FAN-SPOOFER-3PK / ICX6450 / ICX7250 / Aruba', model:'Brocade ICX6450, ICX7250, Supermicro, Cisco Silent Noctua Mod', cost:5500, ship:4500, ebayTitle:'Silent Fan Spoofer Emulator 3-Pack Kit Fits Brocade ICX6450 ICX7250 Noctua Mod', naverTitle:'서버 스위치 무소음 녹투아 팬 개조 PWM 스푸퍼 에뮬레이터 3개', tags:'서버무소음개조,팬스푸퍼,녹투아팬개조,브로케이드스위치,ICX6450,시스코스위치소음,홈랩서버구축,타코미터에뮬레이터,채굴기팬더미플러그,1U서버쿨러개조' },
+  { code:'KIT-13', name:'20. [KIT-13] 레노버 1L 미니PC(M720q/M920q) 4베이 NAS 라이저 키트', partNo:'THINKNAS-4BAY-KIT / 01AJ940 / ASM1166', model:'Lenovo ThinkCentre M720q, M920q, M920x, P330 Tiny 1L NAS', cost:26000, ship:6000, ebayTitle:'ThinkNAS 4-Bay SATA NAS Conversion Kit + PCIe Riser Fits Lenovo M720q M920q Tiny', naverTitle:'레노버 M720q M920q 미니PC 4베이 자작NAS 변환 라이저키트', tags:'레노버미니PC나스,M720q라이저카드,M920q개조,자작NAS케이스,헤놀로지구축,01AJ940,ThinkNAS,P330미니PC,프록스목스홈서버,ASM1166사타카드' }
+];
+
+const PINOUT_TEMPLATES = [
+`================================================================================
+🇰🇷 KOREA S-PART LAB | FIELD SERVICE PINOUT & DIAGNOSTIC CHEAT SHEET (DOC #A-104)
+MODEL: KUBOTA / KIOTI / YANMAR / HEAVY DUTY 4-PIN & 9-PIN TO OBD2 (J1939 / CAN)
+================================================================================
+
+[SECTION 1: CONNECTOR PINOUT & COLOR-TO-COLOR WIRING MAP]
+       +---[ LATCH ]---+
+       |  [1]     [2]  |    Pin 1 (RED)    : +12V / +24V Battery Power (Fused)
+       |               |    Pin 2 (BLACK)  : Chassis Ground (GND - 0.0V)
+       |  [3]     [4]  |    Pin 3 (YELLOW) : CAN-HIGH (J1939+ / OBD2 Pin 6)
+       +---------------+    Pin 4 (GREEN)  : CAN-LOW  (J1939- / OBD2 Pin 14)
+
+* TIP: With Key OFF, resistance between CAN-HIGH (Pin 3) and CAN-LOW (Pin 4) = ~60 Ohms.
+
+[SECTION 2: 3-STEP QUICK CONNECTION & NO-POWER TROUBLESHOOTING]
+1. KEY OFF FIRST: Plug the 4-Pin/9-Pin end firmly into the machine port until it clicks.
+2. CONNECT SCANNER: Plug 16-Pin OBD2 into your scanner, then turn Ignition Key ON.
+3. SCANNER WON'T POWER ON? Check your machine's "DIAG / ECU / METER" 10A blade fuse!
+
+[SECTION 3: TOP COMMON TRACTOR & HEAVY EQUIPMENT DTC FAULT CODES]
+- P0087 / P0088 : Fuel Rail Pressure Too Low / High (Check fuel filter & SCV valve)
+- P0401 / P0404 : EGR Flow Insufficient / Valve Stuck (Clean carbon in EGR valve)
+- P2002 / P242F : DPF Particulate Restriction (Check diff pressure hoses & Regen)
+- U0100 / U0001 : Lost Comm with ECM / High-Speed CAN Bus (Check Pin 3/4 & 60-Ohm)
+================================================================================
+🛡️ 30-DAY DOA WARRANTY | Need Wiring Help? Message "KOREA S-PART LAB" Anytime!`,
+
+`================================================================================
+🇰🇷 KOREA S-PART LAB | INDUSTRIAL 24V / CAN-BUS ENGINEERING QUICK-START (DOC #B-208)
+MODEL: 24V PLC SENSOR / HUAWEI R4850G2 / DALA CAN-BUS BRIDGE CONTROLLER SERIES
+================================================================================
+
+[SECTION 1: WIRING DIAGRAM & TERMINAL BLOCK PIN ASSIGNMENT]
+  +24V DC Regulated (V+) -------[2A FUSE]-----> [PIN 1: VCC +12V~24V IN] (RED)
+  0V DC Common Ground (V-) -------------------> [PIN 2: GND / 0V COM]    (BLACK)
+  CAN-HIGH (Twisted Pair +) ------------------> [PIN 3: CAN-H]           (YELLOW)
+  CAN-LOW  (Twisted Pair -) --[120Ω JUMPER]---> [PIN 4: CAN-L]           (GREEN)
+  PNP / NPN / Relay Output <------------------- [PIN 5: OUT1 / CTRL]     (BLUE)
+  Slot Detect / Interlock  <--[SHORT TO GND]--> [PIN 6: EN / INTERLOCK]  (WHITE)
+
+[SECTION 2: PRE-POWER FUSE & POLARITY SAFETY CHECK]
+[!] 1. VERIFY POLARITY WITH MULTIMETER BEFORE PLUGGING IN (+24V Red / GND Black).
+[!] 2. 120-OHM CAN TERMINATION JUMPER: Close JP1 if at the end of CAN bus line.
+
+[SECTION 3: ONBOARD DIAGNOSTIC LED STATUS INDICATOR TABLE]
+- PWR (GREEN Solid)  : +24V / +5V Power Rail Normal (OK)
+- CAN (BLUE Blinking): Active CAN-Bus Packet Handshake (125k / 500kbps OK)
+- ERR (RED Blinking) : Over-Voltage / Short Protection Triggered (Inspect Load)
+================================================================================
+🔬 100% BENCH VERIFIED IN SOUTH KOREA | Message us a photo of LED status for help!`,
+
+`================================================================================
+🇰🇷 KOREA S-PART LAB | SOLDERLESS OPEN-SOURCE MOD KIT QUICK-START (DOC #C-312)
+MODEL: PLUG & PLAY UPGRADE FULL KIT (PRE-FLASHED & BENCH VERIFIED EDITION)
+================================================================================
+
+[SECTION 1: WHAT'S IN YOUR ALL-IN-ONE KIT]
+ [✓] 1x Main Controller / Driver Board (Pre-Flashed with Latest Stable Firmware)
+ [✓] 1x Custom Pre-Crimped Plug & Play Wiring Harness (Color-Coded & Numbered)
+ [✓] 1x Protection Enclosure / Mounting Pack + This Waterproof A5 Guide Sheet
+
+[SECTION 2: 4-STEP SOLDERLESS INSTALLATION GUIDE (15 MINUTES)]
+ 1. POWER DOWN & ESD DISCHARGE: Unplug AC cord and wait 3 mins before opening case.
+ 2. SNAP IN NUMBERED HARNESS: Match #1, #2, #3 tags directly to factory plugs.
+ 3. CHECK PIN 1 ORIENTATION (▲): Align Red Stripe / Triangle mark with Pin 1 on PCB.
+ 4. FIRST POWER-ON TEST: Verify GREEN Status LED before tightening housing screws!
+
+[SECTION 3: TOP 3 INSTALL MISTAKES TO AVOID]
+ ❌ Keep 110V/220V AC wires separated from low-voltage 3.3V/5V sensor wires.
+ ❌ Never hot-plug ribbon/eDP cables while power adapter is connected.
+ ❌ Do NOT re-flash blindly—your board is already pre-flashed and tested in Korea!
+================================================================================
+📱 STUCK ON A STEP? Message us a photo of your wiring BEFORE powering on!`
+];
+
+const VIRAL_POSTS = [
+  { target: 'TractorByNet / r/tractors', title: '[Solved / Cross-Reference Guide] Kioti CK/DK & Bobcat CT Dead Instrument Cluster Fix – Save 65% Using Factory Daedong OEM Part #s (T4686-75101)', searchHook: 'Daedong T4686-75101 Tested Genuine', body: 'My local US dealer quoted $850 for a Kioti dash cluster + 4 weeks wait. Since Kioti & Bobcat CT tractors are built by Daedong in South Korea, the Korean factory part # T4686-75101 / T2185-69014 is 100% identical plug-and-play at 1/3 the price! Check Pin 1 (+12V), Pin 2 (GND), and Pin 4 (Key-On) with a multimeter first. Ordered the bench-tested Daedong OEM unit from South Korea—arrived in 4 days and plugged right in!' },
+  { target: 'r/SolarDIY / DIYSolarForum', title: '[Guide & Pinout] Zero-Solder Setup: Connecting EV Battery / Huawei R4850G2 Rectifier to Hybrid Inverter using a 50g Dual-CAN Bridge Board', searchHook: 'Pre-Flashed Dala CAN Bridge Board Kit with Pigtails', body: 'Stop soldering thick wires directly onto Huawei R4850G2 rear blades! Pin 14 is CAN_H, Pin 15 is CAN_L, and Pin 13 to GND enables slot interlock. Used a solderless slot adapter + 50g Pre-Flashed Dala CAN-Bus Bridge Board with color-coded pigtails and a 1-page laminated pinout card. Running closed-loop BMS with my hybrid inverter for 3 weeks with zero packet drops!' },
+  { target: 'r/homelab / ServeTheHome', title: '[Silence Mod Guide] Taming a 65dB Brocade ICX6450 / Supermicro Chassis + Lenovo Tiny M720q 10GbE NAS Build', searchHook: 'Brocade ICX Supermicro Fan Tach Spoofer Simulator Adapter', body: 'Swapping Noctua fans into Brocade ICX6450/7250 or Supermicro triggers FAN_FAULT because Noctua spins at 3,000 RPM instead of 13,000 RPM. Used a 5g inline 4-Pin Fan Tach Spoofer adapter that feeds a 13,500 RPM square wave to the motherboard while running Noctua fans at 28dB! Also dropped a 01AJ940 PCIe riser into a Lenovo M720q for a silent 4-bay NAS.' },
+  { target: 'r/gaggiuino / r/espresso', title: 'Finally did the Gaggiuino + Mazzer Super Jolly Single-Dose Mod in 25 Mins (Zero Soldering / Numbered Harness Tips)', searchHook: 'Pre-Flashed Plug and Play Gaggiuino Kit Numbered Harness', body: 'I put off the Gaggiuino mod for a year because of crimping 30 JST wires and flashing STM32. Finally used a Pre-Flashed, Number-Labeled (#1-#4) Plug & Play Harness Kit with pre-sealed PTFE pressure transducer fitting. Took 25 minutes with zero soldering and pulls 9-bar blooming shots like a $4,000 machine!' },
+  { target: 'PLCtalk / r/PLC / EEVblog', title: '[Field Tip] Avoiding Counterfeit/DOA Legacy PLC & CNC Modules (Fanuc / Siemens S7 / Keyence) During a Line-Down Emergency', searchHook: '[24V Bench Tested + Pigtail Included] Ships from Korea', body: '3 rules that saved our factory during a 2 AM line-down: 1) Always get a kit that includes the mating 15cm pigtail plug. 2) Order from Korean semiconductor surplus labs that send a live 24.0V DC bench-test photo of your exact serial number before FedEx dispatch. 3) Verify hardware revision stamp.' }
+];
+
+const SHORTS_SCRIPTS = [
+  { title: '콘티 1: 트랙터 계기판/릴레이 5분 수리 ASMR', hook: '[0~3초] 시동 키 돌리나 틱틱 소리만 남 ("Dealer Quote: $650 💀")', action: '[3~9초] 한국 순정 보드 방수 커넥터 "찰-칵!(CLICK)" 체결 클로즈업', payoff: '[9~15초] 계기판 세리머니 점등 + 우렁찬 디젤 시동음 ("$45 Plug & Play Fix ✅")' },
+  { title: '콘티 2: 화웨이 R4850G2 & 태양광 CAN 브릿지 무납땜 장착', hook: '[0~3초] 위험한 납땜 뭉침 + 인버터 빨간색 BMS FAULT 경고음', action: '[3~9초] 무납땜 슬롯 어댑터 "철컥" + 50g CAN 보드 커넥터 "딸깍" 체결', payoff: '[9~15초] 파란색 CAN 통신 LED 고속 점멸 + 인버터 "BMS OK 98%" 점등' },
+  { title: '콘티 3: 68dB 비행기 소음 서버 스위치 → 28dB 무소음 개조', hook: '[0~3초] 소음 측정기 68dB 빨간불 + 귀가 찢어지는 서버 팬 소음', action: '[3~9초] 5g 팬 스푸퍼(Fan Spoofer) 젠더 + 녹투아 팬 "딸깍" 연결 후 정적', payoff: '[9~15초] 소음 측정기 28dB 초록불 + 터미널 "Fan Status: OK" 인증' },
+  { title: '콘티 4: Gaggiuino 에스프레소 머신 무납땜 번호표 하네스', hook: '[0~3초] 복잡한 전선과 납땜 인두기를 손으로 확 치워버리는 장면', action: '[3~9초] #1, #2 번호표가 붙은 프리플래시 하네스를 단자에 "착! 착! 착!" 체결', payoff: '[9~15초] 터치스크린 9-Bar 압력 그래프 + 황금빛 크레마 에스프레소 추출 ASMR' },
+  { title: '콘티 5: 산단 24V 센서·PLC 출고 전 점등 & 릴레이 스위칭 ASMR', hook: '[0~3초] 타사 미검수 중고 부품 전원 연결 시 먹통(DEAD) 비프음', action: '[3~9초] ESD 매트 위 피그테일 커넥터 "딸깍" + VOID 보안 씰 부착 + 24V ON', payoff: '[9~15초] 선명한 디지털 숫자 점등 + 초고속 릴레이 "타다닥!" 작동음' }
+];
+
+const CS_TEMPLATES = [
+  { title: '① 구매 전 호환성(Fitment) 문의 답변', en: `Hi [Buyer_Name], thank you for reaching out! Yes, this unit (Part #[Part_Number]) is 100% compatible with your [Machine_Model]. To be doubly sure before you order, feel free to send us a quick photo of your current part's label or connector plug, and our engineer will verify the exact pinout for you within minutes!`, de: `Hallo [Buyer_Name], vielen Dank für Ihre Nachricht! Ja, dieses Bauteil (Teilenummer #[Part_Number]) ist zu 100 % kompatibel mit Ihrem [Machine_Model]. Senden Sie uns gerne ein kurzes Foto Ihres alten Bauteils oder Steckers zur sofortigen Prüfung!` },
+  { title: '② 딜러십 코딩/프로그래밍 필요 여부 (Plug & Play 안심)', en: `Great question! Zero dealer programming or software coding is required. This unit comes pre-calibrated / pre-flashed and is 100% Plug-and-Play—simply disconnect your negative (-) battery terminal, plug this unit in until it clicks, and you are ready to go in 5–10 minutes!`, de: `Gute Frage! Es ist keinerlei Programmierung durch den Händler erforderlich (100 % Plug & Play). Einfach Minuspol (-) abklemmen, einstecken und sofort starten!` },
+  { title: '③ B2B 정비소/리셀러 복수구매 볼륨 할인 제안', en: `Hi [Buyer_Name], we love working with repair shops! If you need [X] or more units, we can offer you a 15% B2B Volume Discount plus combined Express shipping at no extra cost. Simply use the "Make Offer" button and we will approve it immediately!`, de: `Hallo [Buyer_Name], ab [X] Stück bieten wir Ihnen 15 % B2B-Mengenrabatt sowie kostenlosen kombinierten Expressversand an!` },
+  { title: '④ 관세 및 통관 문의 (미국 $800 면세 & 유럽 IOSS 안심)', en: `No worries at all! For US Buyers: Under U.S. Customs Section 321 De Minimis rules, orders under $800 USD enter 100% Duty-Free and Tax-Free. For EU/UK/AU Buyers: We attach the official eBay IOSS code and tariff-free HS Code (8517.62 / 8536.41) for smooth clearance without double taxation!`, de: `Keine Sorge! Wir übermitteln die offizielle eBay-IOSS-Nummer sowie den korrekten HS-Code digital, sodass Ihr Paket ohne Doppelbesteuerung direkt durch den Zoll geht.` },
+  { title: '⑤ [핵심] 결제 직후 오주문 차단 1분 커넥터 사진 더블체크', en: `Hi [Buyer_Name], thank you for your order! Your [Item_Name] is on our test bench right now. To prevent any wrong-order hassle, we offer a FREE 1-Minute Engineer Double-Check before dispatch: simply reply with your machine's Model/Year OR 1 quick photo of your old part/connector! (If you already verified the part number, no action is needed—we will ship on schedule!)`, de: `Hallo [Buyer_Name], vielen Dank für Ihre Bestellung! Antworten Sie gerne kurz mit dem Modell/Baujahr ODER 1 Foto Ihres alten Steckers für unseren kostenlosen 1-Minuten-Techniker-Check vor dem Versand!` },
+  { title: '⑥ [핵심] 발송 완료 + 시리얼 넘버 & 24V 점등 인증샷 전송', en: `Hi [Buyer_Name], your order has shipped via [Carrier] (Tracking: [Tracking_Number])! Attached is a live bench-test photo of your exact unit (Serial #[Serial_Number] with security seal intact) passing our 24V load test alongside your shipping label. Remember to disconnect battery (-) before plugging in. Message us here anytime BEFORE opening a return if you need setup help!`, de: `Hallo [Buyer_Name], Ihre Bestellung wurde versandt (Tracking: [Tracking_Number])! Im Anhang finden Sie das Prüfstand-Foto Ihres exakten Bauteils (Serien-Nr. #[Serial_Number]) beim bestandenen Funktionstest.` },
+  { title: '⑦ 배송 완료 2일 후 안부 & 5성 긍정 피드백 유도', en: `Hi [Buyer_Name], tracking shows your package was delivered! We wanted to make sure the installation went smoothly. If you're happy with our bench-tested part and pinout guide, leaving a quick 5-Star Positive Feedback on eBay would mean the world to our engineering team! ⭐🙏`, de: `Hallo [Buyer_Name], Ihr Paket wurde zugestellt! Wenn alles perfekt funktioniert, würden wir uns riesig über eine kurze positive 5-Sterne-Bewertung freuen! ⭐🙏` },
+  { title: '⑧ 장착 후 작동 불량(INAD 오픈 전) 긴급 트러블슈팅 & 자백 유도', en: `Hi [Buyer_Name], we are here to help right away! Since your exact unit (Serial #[Serial_Number]) passed our 24V load simulator test before packing, 95% of issues are solved by two quick checks: 1) Push the waterproof connector firmly until you hear a loud "CLICK". 2) Check your machine's 10A/15A line fuse. Could you send 1 photo of how it is currently plugged in and confirm your model year? (If you accidentally ordered for a different year/model, just let us know honestly and we'll help right away!)`, de: `Hallo [Buyer_Name], wir helfen sofort! Bitte prüfen Sie: 1) Sitzt der Stecker fest bis er hörbar "KLICKT"? 2) Ist die 10A-Sicherung intakt? Bitte senden Sie uns 1 kurzes Foto im eingebauten Zustand!` },
+  { title: '⑨ 바이어 오주문 고백 시 원만한 교환/반품 유도', en: `Thank you for your honesty, [Buyer_Name]! Knowing it was a model-year mismatch saves us both diagnostic time. We can either ship the exact version for your model at a 20% discount right away, or you may return the unused unit with its security seal intact (please select "Ordered by mistake / Doesn't fit" when opening the return). Let us know which you prefer!`, de: `Vielen Dank für Ihre Ehrlichkeit! Wir können Ihnen entweder sofort das passende Modell mit 20 % Rabatt senden oder Sie senden das unbenutzte Teil mit intaktem Siegel zurück.` },
+  { title: '⑩ $50 이하 경량 키트 리턴리스 부분환불(Returnless Refund) 제안', en: `Hi [Buyer_Name], to save you the time and hassle of standing in line at the post office for an international return, we can offer you an immediate $[20.00] partial refund right now AND you can KEEP the kit as a spare! Would you like us to send that instant refund to your account now?`, de: `Hallo [Buyer_Name], um Ihnen den Aufwand einer Rücksendung zu ersparen, bieten wir Ihnen eine sofortige Teilrückerstattung von [20,00 €] an – und Sie dürfen das Kit behalten!` },
+  { title: '⑪ 세관 통관 지연(INR) 안심 및 10일 홀드 시간 벌기', en: `Hi [Buyer_Name], I just checked the live international postal log for [Tracking_Number]: your package arrived at your country's International Customs Sorting Center ([ISC / Local Hub]) and is awaiting final local carrier scan. We just submitted an Official Priority Scan Alert to push it through faster. You are 100% covered by our delivery guarantee—thank you for giving customs just a few more days!`, de: `Hallo [Buyer_Name], Ihr Paket befindet sich bereits im internationalen Zollzentrum und wartet auf den Übergabe-Scan. Wir haben soeben eine Prioritäts-Meldung eingereicht. Sie sind zu 100 % abgesichert!` },
+  { title: '⑫ 부품 바꿔치기(Swap Scam) 적발 시 시리얼·UV 증거 경고문', en: `SECURITY ALERT (#[Order_ID]): Our receiving camera recorded the unboxing of your return, and the item inside is an old corroded unit (Serial #[Fake_Serial]) that does NOT match the unit we shipped you (Serial #[Original_Serial] with Tamper Seal #[Seal_No] and UV factory mark, documented in your eBay messages on [Ship_Date]). If your workshop accidentally put the old part in the box by mistake, please reply within 24 hours or close the return request to resolve this before we file an official eBay Fraud / IC3 Mail Fraud declaration.`, de: `SICHERHEITSHINWEIS: Das zurückgesandte Altteil stimmt nicht mit unserer dokumentierten Seriennummer (#[Original_Serial] inkl. UV-Markierung) überein. Bitte prüfen Sie binnen 24 Stunden, ob in Ihrer Werkstatt versehentlich das Altteil verpackt wurde.` }
+];
+
+const AMZ_INSERT_CARD = `======================================================================
+   🛠️ 100% BENCH-TESTED & QUALITY VERIFIED (Unit S/N: ____________)
+======================================================================
+⚠️ CRITICAL PRE-INSTALLATION CHECKLIST:
+1. Disconnect the Negative (-) Battery Terminal or 24V DC Power Supply
+   BEFORE plugging in this module to prevent voltage-spike damage.
+2. Check your upstream fuse (10A/15A) and clean the chassis ground pin.
+3. Push the connector housing firmly until it locks with a loud "CLICK".
+
+📐 FULL COLOR WIRING DIAGRAM & PINOUT GUIDE (PDF)
+👉 Scan the QR Code to view the Technical PDF Manual (No login required)
+   [QR CODE: Links strictly to a clean PDF / GitHub Wiki with ZERO store links]
+
+💬 DIRECT ENGINEERING TECH SUPPORT
+• Go to Amazon "Your Orders" ➔ Click "Problem with Order" or
+  Click our Seller Name ➔ Click "Ask a Question".
+
+📝 SHARE YOUR REPAIR EXPERIENCE
+We are a small team of hardware engineers dedicated to keeping legacy
+machines, tractors, and servers running without overpriced OEM markups.
+When your project is complete, please consider sharing your honest
+product review on Amazon. Hearing how our parts worked on your specific
+machine model helps fellow DIYers and technicians in the community!
+======================================================================`;
+
+const AMZ_DEFENSE_SCRIPTS = [
+`Dear Amazon SAFE-T Claims Team,
+
+We are filing a SAFE-T reimbursement claim for Order ID: [Order_ID] because the buyer returned a completely different, heavily used/corroded old component (Part Swap Fraud) instead of the brand-new, serial-tracked unit we shipped.
+
+Summary of Evidence (Attached Photos 1-6):
+1. Pre-Shipment Serial & Security Seal Record (Photo #1): On [Ship_Date], we shipped a brand-new, bench-tested [Item_Name] bearing our unique factory Serial Number #[Original_Serial] and intact Tamper-Evident Holographic VOID Seal #[Seal_No].
+2. Materially Different Item Returned (Photos #2-#4): Upon opening the return package (Return Tracking: [Return_Tracking_No]), we found that the buyer kept our new unit and returned their old, burnt-out original machine part (missing our security seal and covered in grease/corrosion).
+3. Side-by-Side Comparison (Photos #5-#6): Clearly shows the discrepancy in PCB layout, serial markings, and physical condition alongside the return shipping label in a single frame.
+
+Because Amazon automatically issued a full refund via Refund at First Scan (RFS), and the returned item is unsellable scrap that did not originate from our inventory, we respectfully request a 100% full reimbursement of the item price plus the return shipping label fee under Amazon's SAFE-T Policy for materially different returns. Thank you!`,
+
+`Dear Amazon SAFE-T Claims Team,
+
+We are requesting reimbursement for Order ID: [Order_ID] because the item was returned with severe customer-induced physical/electrical damage, rendering it a total loss.
+
+Key Facts & Evidence:
+1. Shipped in Verified Working Condition (Photo #1): Prior to shipping, Unit S/N #[Serial_Number] passed our 12V/24V load test with zero defects, intact connector pins, and an unbroken security seal.
+2. Customer-Induced Damage Upon Return (Photos #2-#5): The returned unit arrived with the tamper seal broken, the main connector housing physically cracked by excessive force, and visible reverse-polarity burn marks on the input terminal caused by improper installation without disconnecting the battery.
+
+Per Amazon's Return & Refund Policy, when a buyer returns an item damaged due to improper installation or misuse, the seller is eligible for restocking deduction / SAFE-T reimbursement. Since Amazon auto-refunded 100% via RFS, please reimburse our account for the damaged unit and return label cost. Thank you!`,
+
+`Subject: Plan of Action & Fair Use Compliance Appeal for ASIN: [Insert_ASIN]
+
+Dear Amazon Seller Performance & Brand Protection Team,
+
+We are writing to appeal the deactivation of ASIN [Insert_ASIN] flagged for Suspected Intellectual Property (Trademark) Violation regarding "[Target_Brand_Name]".
+
+1. ROOT CAUSE OF THE ISSUE:
+- Our product is an independent aftermarket replacement / compatibility accessory manufactured under our own brand "KOREA S-PART".
+- In our initial title/description, compatibility terms ("Compatible with" / "Replaces Part #") were flagged by the automated system.
+
+2. IMMEDIATE CORRECTIVE ACTIONS TAKEN:
+- We immediately updated the Product Title, Bullet Points, and Backend Generic Keywords in strict accordance with Amazon's Fair Use Policy:
+  * Corrected Title Format: "KOREA S-PART [Product Name] Compatible with [Target_Brand_Name] [Model] (Replaces Part # [Part_Number])"
+- We removed all third-party brand names from backend Generic Keywords and audited all product images to ensure zero third-party logos appear.
+
+3. PREVENTATIVE MEASURES:
+- Every listing now passes a mandatory Fair Use naming check prior to publishing. Please review our updated contributions for ASIN [Insert_ASIN] and reinstate the listing. Thank you!`
+];
+
+function selectAmzDefense(idx) {
+  document.getElementById('outAmzDefenseText').value = AMZ_DEFENSE_SCRIPTS[idx];
+}
+
+function updateAmazonGenerator(partNo, model, costKrw, shipKrw, optBUsd) {
+  const mainPart = partNo.split('/')[0].trim();
+  const isFbaFriendly = costKrw <= 35000;
+  const amzBadge = document.getElementById('amzModeBadge');
+  if (amzBadge) {
+    amzBadge.textContent = isFbaFriendly ? '🟢 미국 FBA (Prime 자동판매 권장)' : '🔵 한국 FBM (특송 무재고/단일재고 권장)';
+    amzBadge.style.background = isFbaFriendly ? '#065f46' : '#1e3a8a';
+  }
+
+  const amzTitle = `KOREA S-PART Complete Plug & Play Module Kit Compatible with ${model} (Replaces Part # ${partNo}) 24V Bench Tested with Pigtail Harness & English Pinout Guide`.slice(0, 198);
+  document.getElementById('outAmzTitle').value = amzTitle;
+
+  const amzBullets = [
+    `• DIRECT PLUG & PLAY REPLACEMENT: Engineered as a drop-in solution compatible with ${model} (Directly replaces OEM Part # ${partNo}) without complex dealer coding or soldering.`,
+    `• 100% 24V LOAD & SIGNAL BENCH TESTED: Every unit is individually power-cycled and CAN-Bus / signal verified in our South Korea ESD engineering facility prior to dispatch.`,
+    `• BONUS MATING PIGTAIL HARNESS INCLUDED: Comes with a pre-crimped 18AWG color-coded mating connector pigtail so you can replace corroded or melted factory plugs in 15 minutes.`,
+    `• LAMINATED A5 ENGLISH PINOUT & TROUBLESHOOTING GUIDE: Package includes a waterproof full-color pinout diagram, fuse safety checklist, and LED status indicator table.`,
+    `• EXCLUSIVE FULL KIT PACKAGE (MODEL KSP-${mainPart.replace(/[^A-Z0-9]/gi,'').slice(0,8)}-KIT): Includes 1x Tested Main Unit, 1x Mating Pigtail Harness, 1x KOREA S-PART Velcro Strap, and 1x English Pinout Sheet backed by a 30-Day DOA Warranty.`
+  ].join('\n');
+  document.getElementById('outAmzBullets').value = amzBullets;
+
+  const cleanKeywords = `${partNo.replace(/[^a-zA-Z0-9 ]/g, ' ')} replacement module controller sensor diagnostic harness adapter kit plug and play pigtail connector wiring pinout diagram repair assembly heavy duty`.replace(/\s+/g, ' ').trim().slice(0, 240);
+  document.getElementById('outAmzBackend').value = cleanKeywords;
+  const byteLen = new Blob([cleanKeywords]).size;
+  document.getElementById('amzByteInfo').textContent = `현재 백엔드 키워드 용량: ${byteLen} / 249 Bytes (쉼표 제외 · 타사 상표권 중복 제외 완료)`;
+
+  // FBA vs FBM 마진 비교 계산
+  const fx = 1380;
+  const refRate = isFbaFriendly ? 0.08 : 0.15; // 전자/PC 컴포넌트 8% vs 중장비/자동차 15%
+  const fbaFeeUsd = isFbaFriendly ? 4.25 : 8.50; // FBA $3.40 + EMS 분할입고 $0.85
+  const fbmShipUsd = Math.round(shipKrw / fx);
+  const fbaNetUsd = (optBUsd * (1 - refRate) - (costKrw / fx) - fbaFeeUsd).toFixed(2);
+  const fbmNetUsd = (optBUsd * (1 - refRate) - (costKrw / fx) - fbmShipUsd).toFixed(2);
+  const b2bPrice1 = (optBUsd * 0.975).toFixed(2);
+  const b2bPrice2 = (optBUsd * 0.95).toFixed(2);
+  const b2bPrice5 = (optBUsd * 0.92).toFixed(2);
+
+  document.getElementById('amzMarginBox').innerHTML = `
+    <div>• <b>권장 아마존 판매가:</b> <span style="color:#4ade80;font-weight:bold;">$${optBUsd}.00</span> (카테고리 수수료율 <b>${Math.round(refRate*100)}%</b> 적용)</div>
+    <div>• <b>미국 FBA (창고 입고) 건당 순익:</b> <span style="color:#fde047;font-weight:bold;">+$${fbaNetUsd} (약 ${Math.round(fbaNetUsd*fx).toLocaleString()}원)</span> — Small Standard 물류비 $3.40 + EMS 묶음입고 $0.85</div>
+    <div>• <b>한국 FBM (직발송) 건당 순익:</b> <span style="color:#38bdf8;font-weight:bold;">+$${fbmNetUsd} (약 ${Math.round(fbmNetUsd*fx).toLocaleString()}원)</span> — 한국발 직배송비 $${fbmShipUsd} 반영</div>
+    <div style="margin-top:8px;padding-top:8px;border-top:1px solid #334155;">
+      🏢 <b>Amazon Business (B2B 법인카드 싹쓸이) 권장 세팅값:</b><br>
+      • Business Price (1개): <b>$${b2bPrice1} (-2.5%)</b> &nbsp;|&nbsp; 2+ Units: <b>$${b2bPrice2} (-5%)</b> &nbsp;|&nbsp; 5+ Units: <b>$${b2bPrice5} (-8%)</b>
+    </div>
+  `;
+}
+
+function init() {
+  const sel = document.getElementById('presetSelect');
+  PRESETS_20.forEach((p, i) => {
+    const opt = document.createElement('option');
+    opt.value = i;
+    opt.textContent = p.name;
+    sel.appendChild(opt);
+  });
+  loadPreset();
+  selectPinout(0);
+  renderViralAndShorts();
+  renderCsTemplates();
+  document.getElementById('outAmzInsertCard').value = AMZ_INSERT_CARD;
+  selectAmzDefense(0);
+}
+
+function openTab(id, btn) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function loadPreset() {
+  const idx = document.getElementById('presetSelect').value || 0;
+  const p = PRESETS_20[idx];
+  document.getElementById('inpPartNo').value = p.partNo;
+  document.getElementById('inpModel').value = p.model;
+  document.getElementById('inpCostKrw').value = p.cost;
+  document.getElementById('inpShipKrw').value = p.ship;
+  document.getElementById('outEbayTitle').value = p.ebayTitle;
+  document.getElementById('outNaverTitle').value = p.naverTitle;
+  document.getElementById('outMpnMatrix').value = p.partNo.replace(/\s*\/\s*/g, ', ');
+  document.getElementById('outKrTags').value = p.tags;
+  updateGenerator(true);
+}
+
+function updateCharCount() {
+  const t = document.getElementById('outEbayTitle').value;
+  const b = document.getElementById('charCountBadge');
+  b.textContent = `${t.length} / 80자`;
+  b.style.background = t.length <= 80 ? '#065f46' : '#991b1b';
+}
+
+function updateGenerator(fromPreset = false) {
+  const partNo = document.getElementById('inpPartNo').value.trim();
+  const model = document.getElementById('inpModel').value.trim();
+  const costKrw = Number(document.getElementById('inpCostKrw').value) || 0;
+  const shipKrw = Number(document.getElementById('inpShipKrw').value) || 0;
+  const totalCostKrw = costKrw + shipKrw;
+
+  if (!fromPreset) {
+    const rawTitle = `Fits ${model.split(',')[0]} ${partNo.split('/')[0].trim()} Module Full Kit Tested DHL`.slice(0, 80);
+    document.getElementById('outEbayTitle').value = rawTitle;
+    document.getElementById('outMpnMatrix').value = partNo.replace(/\s*\/\s*/g, ', ');
+  }
+  updateCharCount();
+
+  // 순마진 30% 보장 최저 판매가 공식: 총원가 / 0.555 (환율 1380원 기준)
+  const fx = 1380;
+  const minFloorKrw = Math.round(totalCostKrw / 0.555);
+  const minFloorUsd = Math.max(19, Math.ceil(minFloorKrw / fx));
+
+  // 3단 미끼 옵션(Decoy) 가격 산출
+  const optAUsd = minFloorUsd;
+  const optBUsd = Math.ceil(minFloorUsd * 1.45);
+  const optCUsd = Math.ceil(minFloorUsd * 1.80);
+
+  const netProfitB = Math.round((optBUsd * fx * 0.855) - totalCostKrw - 4500);
+  const netMarginB = Math.round((netProfitB / (optBUsd * fx)) * 100);
+
+  document.getElementById('priceSummaryText').innerHTML =
+    `총원가: <b>${totalCostKrw.toLocaleString()}원</b> (매입 ${costKrw.toLocaleString()} + 배송 ${shipKrw.toLocaleString()}) → ` +
+    `순마진 30% 철벽 최저 방어가: <b style="color:#38bdf8;">$${minFloorUsd}.00 (${minFloorKrw.toLocaleString()}원)</b>`;
+
+  document.getElementById('priceOptA').textContent = `$${optAUsd}.00`;
+  document.getElementById('priceOptB').textContent = `$${optBUsd}.00`;
+  document.getElementById('profitOptB').textContent = `건당 순익 +${netProfitB.toLocaleString()}원 (${netMarginB}%)`;
+  document.getElementById('priceOptC').textContent = `$${optCUsd}.00`;
+
+  // Best Offer 3단 임계값 (+18% 등록가 / 88% 자동수락 / 72% 자동거절)
+  const listBinUsd = Math.ceil(optBUsd * 1.18);
+  const autoAcceptUsd = (listBinUsd * 0.88).toFixed(2);
+  const autoDeclineUsd = (listBinUsd * 0.72).toFixed(2);
+  document.getElementById('bestOfferBox').innerHTML =
+    `🤝 <b>단일 리스팅 Best Offer(가격 제안) 심리 방어선 세팅값:</b> ` +
+    `Buy It Now 표시가 <b style="color:#facc15;">$${listBinUsd}.00</b> (+18% 버퍼) &nbsp;|&nbsp; ` +
+    `🟢 Auto-Accept(자동 수락): <b style="color:#4ade80;">$${autoAcceptUsd}</b> (88%) &nbsp;|&nbsp; ` +
+    `🔴 Auto-Decline(자동 거절): <b style="color:#f87171;">$${autoDeclineUsd}</b> (72%)`;
+
+  // 7단 설득 블록 HTML 코드 생성
+  const ebayTitle = document.getElementById('outEbayTitle').value;
+  const htmlCode = `<div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;max-width:920px;margin:0 auto;color:#1e293b;background:#f8fafc;border:1px solid #cbd5e1;border-radius:10px;overflow:hidden;line-height:1.55;">
+  <div style="background:linear-gradient(90deg,#0f172a,#1e3a8a);color:#f8fafc;padding:12px 18px;font-size:13px;font-weight:700;text-align:center;border-bottom:3px solid #f59e0b;">
+    🇰🇷 <span style="color:#fbbf24;">100% 24V BENCH TESTED IN SOUTH KOREA</span> &nbsp;|&nbsp; ⚡ SAME-DAY EXPRESS DISPATCH (FedEx / DHL / K-Packet)
+  </div>
+  <div style="background:#ffffff;padding:22px;border-bottom:1px solid #e2e8f0;">
+    <div style="font-size:12px;font-weight:800;color:#0f172a;background:#e2e8f0;display:inline-block;padding:4px 10px;border-radius:4px;margin-bottom:8px;">🔬 KOREA S-PART LAB — INDUSTRIAL &amp; AUTO ELECTRONICS</div>
+    <h1 style="font-size:21px;font-weight:800;color:#0f172a;margin:4px 0 8px 0;">${ebayTitle}</h1>
+    <p style="font-size:14px;color:#475569;margin:0;">Direct Plug &amp; Play Solution — Ultrasonic Cleaned, 24V Bench Verified, and Shipped with Bonus Pigtail Harness &amp; Laminated A5 English Pinout Guide.</p>
+  </div>
+  <div style="background:#ffffff;margin:14px;padding:18px;border-radius:8px;border:1px solid #e2e8f0;">
+    <h2 style="font-size:16px;font-weight:800;margin:0 0 10px 0;padding-bottom:6px;border-bottom:2px solid #0f172a;">✅ STEP 1: 3-SECOND FITMENT CHECK &amp; OEM CROSS-REFERENCE</h2>
+    <div style="background:#f0fdf4;border:2px solid #16a34a;border-radius:8px;padding:14px;">
+      <div style="background:#0f172a;color:#fbbf24;padding:10px 12px;border-radius:6px;font-family:monospace;font-size:14.5px;font-weight:700;margin-bottom:10px;">🔍 DIRECT OEM / INTERCHANGE PART #: ${partNo}</div>
+      <div style="font-size:13.5px;margin-bottom:5px;">☑️ <b>1. Exact Part Number Match:</b> 100% compatible with any of the OEM numbers listed above.</div>
+      <div style="font-size:13.5px;margin-bottom:5px;">☑️ <b>2. Compatible Systems:</b> Engineered for <b>${model}</b>.</div>
+      <div style="font-size:13.5px;">☑️ <b>3. Zero Coding Required:</b> Pre-tested &amp; ready for 15-minute plug-and-play installation!</div>
+    </div>
+  </div>
+  <div style="background:#ffffff;margin:14px;padding:18px;border-radius:8px;border:1px solid #e2e8f0;overflow-x:auto;">
+    <h2 style="font-size:16px;font-weight:800;margin:0 0 10px 0;padding-bottom:6px;border-bottom:2px solid #0f172a;">⚖️ STEP 2: WHY SMART BUYERS CHOOSE OUR FULL KIT</h2>
+    <table style="width:100%;border-collapse:collapse;font-size:13px;">
+      <thead>
+        <tr>
+          <th style="padding:9px;border:1px solid #cbd5e1;background:#f1f5f9;text-align:left;">Comparison</th>
+          <th style="padding:9px;border:1px solid #cbd5e1;background:#fef2f2;color:#991b1b;text-align:left;">❌ Cheap "Bare-Board" Sellers</th>
+          <th style="padding:9px;border:1px solid #cbd5e1;background:#166534;color:#ffffff;text-align:left;">✅ KOREA S-PART LAB FULL KIT</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:9px;border:1px solid #cbd5e1;"><b>Pre-Shipment Test</b></td><td style="padding:9px;border:1px solid #cbd5e1;background:#fff5f5;">Untested bulk salvage</td><td style="padding:9px;border:1px solid #cbd5e1;background:#f0fdf4;font-weight:700;">✅ 100% 24V Load &amp; CAN-Bus Verified</td></tr>
+        <tr><td style="padding:9px;border:1px solid #cbd5e1;"><b>Mating Pigtail Plug</b></td><td style="padding:9px;border:1px solid #cbd5e1;background:#fff5f5;">❌ Not Included (+$35 extra)</td><td style="padding:9px;border:1px solid #cbd5e1;background:#f0fdf4;font-weight:700;">✅ FREE 15cm Pre-Wired Pigtail Included</td></tr>
+        <tr><td style="padding:9px;border:1px solid #cbd5e1;"><b>Wiring Pinout Map</b></td><td style="padding:9px;border:1px solid #cbd5e1;background:#fff5f5;">❌ No documentation</td><td style="padding:9px;border:1px solid #cbd5e1;background:#f0fdf4;font-weight:700;">✅ Waterproof A5 Color English Pinout Sheet</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="background:#ffffff;margin:14px;padding:18px;border-radius:8px;border:1px solid #e2e8f0;">
+    <h2 style="font-size:16px;font-weight:800;margin:0 0 10px 0;padding-bottom:6px;border-bottom:2px solid #0f172a;">🛡️ STEP 3–7: ESD ARMOR PACKAGING, US $800 DUTY-FREE &amp; 30-DAY WARRANTY</h2>
+    <p style="font-size:13.5px;margin:0 0 8px 0;"><b>• Triple-Layer ESD Armor:</b> Sealed in Anti-Static (ESD) Shield Bag + Pin-Saver Foam + Crush-Proof Box. Dispatched within 24 hours from South Korea.</p>
+    <p style="font-size:13.5px;margin:0 0 8px 0;"><b>• 100% Duty-Free for US Buyers:</b> Orders under $800 USD enter the United States with zero customs duties (Section 321).</p>
+    <p style="font-size:13.5px;margin:0 0 10px 0;"><b>• Ironclad 30-Day DOA Warranty:</b> Free express replacement or 100% full refund + 1-on-1 Senior Engineer Tech Support.</p>
+    <div style="background:#fef2f2;border:2px solid #dc2626;border-radius:6px;padding:12px;font-size:13px;color:#7f1d1d;">
+      <b>⚠️ STOP! PRE-INSTALL CHECKLIST:</b> Disconnect battery negative (-) first and verify your machine's 10A/15A fuse &amp; harness have no active short circuit before plugging in. Send us a photo of your old part label anytime for a 1-minute compatibility check!
+    </div>
+  </div>
+</div>`;
+
+  document.getElementById('outHtmlCode').value = htmlCode;
+  document.getElementById('htmlPreviewBox').innerHTML = htmlCode;
+  updateAmazonGenerator(partNo, model, costKrw, shipKrw, optBUsd);
+}
+
+function selectPinout(idx) {
+  const txt = PINOUT_TEMPLATES[idx];
+  document.getElementById('printablePinout').textContent = txt;
+  document.getElementById('pinoutRawText').value = txt;
+}
+
+function renderViralAndShorts() {
+  const vBox = document.getElementById('viralPostsContainer');
+  vBox.innerHTML = VIRAL_POSTS.map((v, i) => `
+    <div style="background:#090d16;border:1px solid #334155;border-radius:8px;padding:14px;margin-bottom:12px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+        <span class="badge">${v.target}</span>
+        <button class="btn btn-green" onclick="copyText(${JSON.stringify(v.title + '\n\n' + v.body + '\n\n[Follow-up Comment Search Keyword]: ' + v.searchHook).replace(/"/g, '&quot;')})">📋 원고+유도키워드 복사</button>
+      </div>
+      <div style="font-weight:bold;color:#facc15;font-size:13.5px;margin-bottom:6px;">${v.title}</div>
+      <div style="font-size:12.5px;color:#cbd5e1;margin-bottom:6px;">${v.body}</div>
+      <div style="font-size:12px;color:#4ade80;">🎯 <b>댓글 자연 검색 유도 키워드:</b> <code>${v.searchHook}</code></div>
+    </div>
+  `).join('');
+
+  const sBox = document.getElementById('shortsScriptsContainer');
+  sBox.innerHTML = SHORTS_SCRIPTS.map(s => `
+    <div style="background:#090d16;border:1px solid #334155;border-radius:8px;padding:14px;margin-bottom:12px;">
+      <div style="font-weight:bold;color:#38bdf8;font-size:14px;margin-bottom:6px;">${s.title}</div>
+      <div style="font-size:12.5px;color:#fca5a5;margin-bottom:4px;">• ${s.hook}</div>
+      <div style="font-size:12.5px;color:#fde047;margin-bottom:4px;">• ${s.action}</div>
+      <div style="font-size:12.5px;color:#86efac;">• ${s.payoff}</div>
+    </div>
+  `).join('');
+}
+
+function renderCsTemplates() {
+  const cBox = document.getElementById('csTemplatesContainer');
+  cBox.innerHTML = CS_TEMPLATES.map(c => `
+    <div style="background:#090d16;border:1px solid #334155;border-radius:8px;padding:14px;">
+      <div style="font-weight:bold;color:#facc15;font-size:14px;margin-bottom:8px;">${c.title}</div>
+      <div style="font-size:12.5px;color:#e2e8f0;background:#111827;padding:10px;border-radius:6px;margin-bottom:8px;">🇺🇸 <b>[EN]</b> ${c.en}</div>
+      <div style="font-size:12px;color:#94a3b8;background:#111827;padding:8px;border-radius:6px;margin-bottom:10px;">🇩🇪 <b>[DE]</b> ${c.de}</div>
+      <div style="display:flex;gap:8px;">
+        <button class="btn btn-green" onclick="copyText(${JSON.stringify(c.en).replace(/"/g, '&quot;')})">📋 영어(EN) 복사</button>
+        <button class="btn" onclick="copyText(${JSON.stringify(c.de).replace(/"/g, '&quot;')})">📋 독일어(DE) 복사</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function copyVal(id) {
+  const el = document.getElementById(id);
+  navigator.clipboard.writeText(el.value);
+  alert('클립보드에 복사되었습니다!');
+}
+
+function copyText(txt) {
+  navigator.clipboard.writeText(txt);
+  alert('클립보드에 복사되었습니다!');
+}
+
+init();
+</script>
+</body>
+</html>

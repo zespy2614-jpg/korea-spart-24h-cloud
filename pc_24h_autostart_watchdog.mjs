@@ -34,7 +34,7 @@ function isNightCrawlerWindow() {
 async function isPortOpen(port) {
   try {
     const controller = new AbortController();
-    const t = setTimeout(() => controller.abort(), 2000);
+    const t = setTimeout(() => controller.abort(), 6000);
     const res = await fetch(`http://127.0.0.1:${port}`, { signal: controller.signal });
     clearTimeout(t);
     return res.ok || res.status < 500;

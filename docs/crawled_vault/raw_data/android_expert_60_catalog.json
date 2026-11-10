@@ -1,0 +1,602 @@
+[
+  {
+    "id": "AOSP-01",
+    "group": "🔥 1. AOSP·커스텀롬·펌웨어개조",
+    "title": "Amlogic(S905L3A/E900V22D·S905X4·T982) USB Burning Tool 이미지 언팩·리팩 & 핀쇼트 부트로더 진입",
+    "coreFormula": "AmlImagePack -d aml_upgrade.img unpacked_dir/ → system/vendor 수정 → AmlImagePack -r",
+    "targetBoard": "E900V22D (S905L3A), S905X3/X4, T972, T982 빔프로젝터/셋톱박스",
+    "ghKw": "amlogic customization tool unpack repack img",
+    "xdaKw": "Amlogic S905 unpack repack USB Burning Tool ROM",
+    "actionableRule": "eMMC 클럭-GND 핀쇼트로 MaskROM 모드에 강제 진입한 뒤, 한국어 로케일·OTA 에이전트·커스텀 런처가 심어진 전용 단일 .img 파일을 90초 만에 양산 플래싱한다."
+  },
+  {
+    "id": "AOSP-02",
+    "group": "🔥 1. AOSP·커스텀롬·펌웨어개조",
+    "title": "Android 10~14 동적 파티션(Dynamic Partition: super.img) lpunpack / lpmake 무손실 분해·재조립 공식",
+    "coreFormula": "simg2img super.img super.raw → lpunpack super.raw out/ → resize2fs & e2fsck → lpmake --sparse",
+    "targetBoard": "Android 12/13/14 전 기종 (E900V22D, RK3566, UIS7861)",
+    "ghKw": "lpunpack lpmake super.img android dynamic partition",
+    "xdaKw": "unpack repack super.img lpmake RW mount android 12 13",
+    "actionableRule": "읽기 전용(erofs/ext4 shared_blocks)으로 잠긴 Android 12+ super.img에서 `e2fsck -E unshare_blocks`로 쓰기 권한을 확보하고 기본 프리로드 앱을 시스템 파티션에 영구 주입한다."
+  },
+  {
+    "id": "AOSP-03",
+    "group": "🔥 1. AOSP·커스텀롬·펌웨어개조",
+    "title": "Rockchip(RK3566·RK3568·RK3588) update.img 언팩(afptool/rkImageMaker) 및 parameter.txt 파티션 확장",
+    "coreFormula": "rkImageMaker -unpack update.img out/ && afptool -unpack firmware.img out/",
+    "targetBoard": "RK3566 (태산파/빔프로젝터), RK3568 (클라우드보드), RK3588",
+    "ghKw": "rkImageMaker afptool rockchip parameter.txt unpack",
+    "xdaKw": "Rockchip RK3566 RK3588 unpack update.img parameter.txt",
+    "actionableRule": "parameter.txt의 CMDLINE 내 파티션 오프셋을 수정하여 쓸모없는 캐시 영역을 줄이고 userdata/system 용량을 극대화한 뒤 RKDevTool로 대량 구워낸다."
+  },
+  {
+    "id": "AOSP-04",
+    "group": "🔥 1. AOSP·커스텀롬·펌웨어개조",
+    "title": "UNISOC(UIS7861/UMS9230·UIS7862/UMS512) 차량용 전장 펌웨어(.pac / AllAppUpdate.bin) 커스터마이징",
+    "coreFormula": "ResearchDownload .pac 언팩 + lsec6315update / AllAppUpdate.bin 서명 우회 리패키징",
+    "targetBoard": "UIS7861(T606) 11.4인치 안드로이드 14 모니터, UIS7862(UMS512) 네비게이션",
+    "ghKw": "uis7862 fyt firmware unpack AllAppUpdate",
+    "xdaKw": "FYT UIS7862 UIS7861 T606 modify AllAppUpdate.bin custom rom",
+    "actionableRule": "중국 전장 보드(FYT/TS10/Topway)의 OTA 패키지인 AllAppUpdate.bin 내부에 대표님 전용 열화상 뷰어와 한국형 T맵 자동실행 스크립트를 심어 USB 꽂기만 하면 1분 만에 한국형 제품으로 변신시킨다."
+  },
+  {
+    "id": "AOSP-05",
+    "group": "🔥 1. AOSP·커스텀롬·펌웨어개조",
+    "title": "Device Tree(DTS/DTB) 역컴파일(dtc)을 통한 이종 액정(MIPI-DSI)·Wi-Fi(AP6256/RTL8822CS)·터치IC 10분 이식법",
+    "coreFormula": "dtc -I dtb -O dts -o board.dts board.dtb → panel-init-sequence 수정 → dtc -I dts -O dtb",
+    "targetBoard": "RK3566, RK3399, S905L3A, T113-S3 모든 커스텀 보드",
+    "ghKw": "device tree dts mipi dsi panel init sequence rockchip",
+    "xdaKw": "decompile dtb to dts modify mipi panel timing android",
+    "actionableRule": "전체 커널 소스를 다시 빌드하지 않고도, boot/resource 파티션에서 DTB만 추출해 `panel-init-sequence`와 GPIO 핀 번호만 고쳐 다른 규격의 시엔위 저가 액정을 즉시 점등시킨다."
+  },
+  {
+    "id": "AOSP-06",
+    "group": "🔥 1. AOSP·커스텀롬·펌웨어개조",
+    "title": "Magisk / KernelSU / init.rc 데몬 주입을 통한 무팝업(Silent) 영구 루트 권한 부여 및 하드웨어 제어",
+    "coreFormula": "magiskboot unpack boot.img → ramdisk init.custom.rc 데몬 등록 (seclabel u:r:su:s0)",
+    "targetBoard": "산업용/차량용 안드로이드 보드 전 기종",
+    "ghKw": "KernelSU magiskboot init.rc custom service root",
+    "xdaKw": "add custom root script init.rc boot.img without prompt",
+    "actionableRule": "사용자에게 루팅 허용 팝업을 띄우지 않고, 부팅 즉시 `init.rc`에서 `/dev/ttyS*`, `/dev/bus/usb/*`, `/sys/class/gpio/*` 권한을 `chmod 0666`으로 열어 일반 APK에서도 하드웨어를 직결 제어한다."
+  },
+  {
+    "id": "AOSP-07",
+    "group": "🔥 1. AOSP·커스텀롬·펌웨어개조",
+    "title": "SELinux 정책(sepolicy / Cil) 바이너리 직접 패치로 네이티브 데몬 및 시리얼 포트 차단(avc: denied) 100% 해결",
+    "coreFormula": "dmesg | grep \"avc: denied\" → audit2allow → magiskpolicy --live \"allow untrusted_app serial_device chr_file { read write open ioctl }\"",
+    "targetBoard": "Android 11/12/13/14 SELinux Enforcing 보드",
+    "ghKw": "magiskpolicy sepolicy patch avc denied android",
+    "xdaKw": "fix avc denied selinux enforcing custom hardware access",
+    "actionableRule": "커널을 Permissive로 풀지 않고도 `dmesg`의 `avc: denied` 로그만 뽑아 해당 디바이스 노드 권한만 정확히 허용함으로써 보안과 하드웨어 직결을 동시에 달성한다."
+  },
+  {
+    "id": "AOSP-08",
+    "group": "🔥 1. AOSP·커스텀롬·펌웨어개조",
+    "title": "부트로더 1초 스플래시(logo.img) + 60fps 부트 애니메이션(bootanimation.zip) + 브랜드 모델명(build.prop) 완벽 세탁",
+    "coreFormula": "ro.product.model=\"KOREA S-PART PRO\" + persist.sys.timezone=\"Asia/Seoul\" + persist.sys.locale=\"ko-KR\"",
+    "targetBoard": "중국 내수용 보드 글로벌/한국 브랜드화 전 기종",
+    "ghKw": "android bootanimation logo.img generator build.prop",
+    "xdaKw": "change boot logo.img rockchip amlogic build.prop brand",
+    "actionableRule": "전원을 넣는 첫 0.1초부터 중국어 흔적을 완전히 지우고 자체 브랜드 로고와 한국어/영문 UI가 뜨도록 만들어 3만 원짜리 내수 보드를 35만 원짜리 정품 장비로 격상시킨다."
+  },
+  {
+    "id": "AOSP-09",
+    "group": "🔥 1. AOSP·커스텀롬·펌웨어개조",
+    "title": "중국 내수 보드 만성 질환(시간 초기화·구글 막힘·중국 서버 핑) 해결: NTP 한국 서버 & Captive Portal 제거 패치",
+    "coreFormula": "settings put global captive_portal_mode 0 && settings put global ntp_server time.bora.net",
+    "targetBoard": "RTC 건전지가 없는 차량용 모니터·셋톱박스·빔프로젝터",
+    "ghKw": "android captive portal ntp server china rom fix",
+    "xdaKw": "disable captive portal WiFi exclamation mark ntp server android",
+    "actionableRule": "중국 보드가 구글 서버 접속 실패로 Wi-Fi 아이콘에 느낌표(!)를 띄우며 연결을 끊는 현상을 Captive Portal 비활성화 및 국내 NTP 서버 고정으로 영구 해결한다."
+  },
+  {
+    "id": "AOSP-10",
+    "group": "🔥 1. AOSP·커스텀롬·펌웨어개조",
+    "title": "eMMC 덤프(dd / EMMC RAW Tool) 기반 골든 마스터(Golden Master) 이미지 복제 및 1:10 멀티 양산 시스템",
+    "coreFormula": " 완벽 세팅된 1호기 보드에서 파티션별 raw 덤프 추출 → Sparse Image 변환 → 멀티 USB 허브 동시 플래싱",
+    "targetBoard": "E900V22D, RK3566, S905X3 소량 다품종 양산 라인",
+    "ghKw": "android emmc dump sparse img clone tool",
+    "xdaKw": "dump full emmc backup restore mass production android tv box",
+    "actionableRule": "일일이 앱을 깔고 설정할 필요 없이, 완벽하게 세팅된 1호기(Golden Sample)의 eMMC를 통째로 떠서 10대의 보드에 동시에 구워내는 양산 자동화를 구축한다."
+  },
+  {
+    "id": "AUTO-01",
+    "group": "🚗 2. 안드로이드오토·카플레이·전장",
+    "title": "UIS7861 11.4인치 모니터 [좌측 T맵/카플레이 + 우측 InfiRay 열화상 나이트비전] 5:5 / 7:3 듀얼 파이프(Split-Screen) 엔진",
+    "coreFormula": "ActivityOptions.setLaunchWindowingMode(WINDOWING_MODE_SPLIT_SCREEN_PRIMARY) + UVC SurfaceView Overlay",
+    "targetBoard": "UIS7861 (UMS9230), UIS7862 (UMS512) 와이드 전장 모니터",
+    "ghKw": "android split screen programmatic launch overlay car",
+    "xdaKw": "auto split screen launch two apps startup android headunit",
+    "actionableRule": "시동이 켜지면 2초 내에 좌측에는 무선 카플레이/티맵을, 우측에는 USB 열화상 카메라 뷰어를 자동 분할 배치하여 미국 아마존 $399 야간 사슴 충돌방지 모니터를 구현한다."
+  },
+  {
+    "id": "AUTO-02",
+    "group": "🚗 2. 안드로이드오토·카플레이·전장",
+    "title": "무선 안드로이드 오토(Android Auto) & 애플 카플레이 동글(Carlinkit/Autokit) 프로토콜 연동 및 자체 렌더러 내장",
+    "coreFormula": "USB Bulk Transfer (AOA 2.0) + H.264 MediaCodec Surface 디코딩 + 멀티터치 HID 역전송",
+    "targetBoard": "RK3566, S905L3A, UIS7861, T113-S3 모든 모니터 보드",
+    "ghKw": "openauto headunit reloaded android auto receiver",
+    "xdaKw": "Headunit Reloaded Autokit zlink wireless android auto apk",
+    "actionableRule": "비싼 라이선스 칩 없이 오픈소스 AOA/무선 프로토콜 리시버 또는 검증된 Autokit/Zlink 모듈을 시스템 앱으로 내장해 모든 보드를 무선 카플레이 모니터로 탈바꿈시킨다."
+  },
+  {
+    "id": "AUTO-03",
+    "group": "🚗 2. 안드로이드오토·카플레이·전장",
+    "title": "차량 ACC 시동 OFF 시 0.3초 초고속 딥슬립(Suspend-to-RAM) 및 시동 ON 시 1.5초 즉시 화면 복귀 아키텍처",
+    "coreFormula": "GPIO ACC 인터럽트 감지 → Wi-Fi/BT/화면전원 즉시 차단 & PowerManager.goToSleep() → 시동 시 즉시 WakeLock",
+    "targetBoard": "차량/바이크/농기계/중장비 장착형 안드로이드 단말기",
+    "ghKw": "android automotive deep sleep suspend to ram acc ignition",
+    "xdaKw": "android headunit fast boot deep sleep battery drain fix",
+    "actionableRule": "콜드 부팅(30초) 대신 딥슬립 상태에서 대기 전류를 5mA 미만으로 억제하여 시동을 걸자마자 1.5초 만에 후방카메라와 네비가 뜨게 만들고, 72시간 미운행 시 자동 완전 종료해 배터리 방전을 막는다."
+  },
+  {
+    "id": "AUTO-04",
+    "group": "🚗 2. 안드로이드오토·카플레이·전장",
+    "title": "CAN-Bus(J1939 / OBD2 / SocketCAN) 직결 트랙터·중장비·승용차 실시간 디지털 계기판(Virtual Cluster) UI",
+    "coreFormula": "USB-CAN / 내장 CAN 컨트롤러 → 500kbps/250kbps 프레임 파싱 → Jetpack Compose Canvas 60fps 게이지 렌더링",
+    "targetBoard": "RK3568(CAN 3채널 내장), T113-S3(CAN 내장), UIS7861",
+    "ghKw": "android canbus dashboard cluster obd2 j1939",
+    "xdaKw": "android canbus decoder app steering wheel control cluster",
+    "actionableRule": "대동/Kioti 트랙터나 클래식카의 J1939/OBD2 데이터를 읽어 RPM, 냉각수 온도, 유압, 시간(Hour), 고장코드(DTC)를 한글/영문으로 보여주는 스마트 계기판을 구축한다."
+  },
+  {
+    "id": "AUTO-05",
+    "group": "🚗 2. 안드로이드오토·카플레이·전장",
+    "title": "후진 기어(R단 12V 트리거) 감지 시 안드로이드 부팅 전이라도 0.5초 만에 AHD 후방카메라 강제 우선 전환",
+    "coreFormula": "커널 드라이버(early-camera / V4L2) 인터럽트 + CAN 조향각 연동 다이내믹 주차 가이드라인 오버레이",
+    "targetBoard": "T507, RK3568, UIS7861/7862 전장 모니터",
+    "ghKw": "android reverse camera fast switch ahd v4l2 overlay",
+    "xdaKw": "instant reverse camera trigger android head unit guidelines",
+    "actionableRule": "운전자가 시동 켜고 바로 후진 기어를 넣었을 때 안드로이드 로고를 기다리지 않고 커널 레벨에서 즉시 AHD 카메라 영상을 화면에 직결 투사한다."
+  },
+  {
+    "id": "AUTO-06",
+    "group": "🚗 2. 안드로이드오토·카플레이·전장",
+    "title": "4채널 1080P AHD 카메라 동시 입력 기반 360도 어라운드뷰(Bird-Eye View) 원근 변환(Homography) 합성 앱",
+    "coreFormula": "OpenGL ES Fragment Shader 4채널 텍스처 워핑(Warping) + 체크보드 1분 자동 캘리브레이션",
+    "targetBoard": "Allwinner T507, Rockchip RK3568/RK3588",
+    "ghKw": "surround view 360 bird eye view opengl android calibration",
+    "xdaKw": "360 panorama camera app calibration android head unit",
+    "actionableRule": "지게차·화물차·캠핑카 사각지대 안전장비(MOAT-10)에서 바닥 마커 4개만 찍으면 자동으로 위에서 내려다보는 360도 통합 화면을 만들어준다."
+  },
+  {
+    "id": "AUTO-07",
+    "group": "🚗 2. 안드로이드오토·카플레이·전장",
+    "title": "듀얼 블루투스(Dual BT) 라우팅: 스마트폰은 모니터에 연결하고 오디오는 차량 순정 블루투스로 무손실 토스",
+    "coreFormula": "BT1(모니터 내장: 카플레이/터치 제어) + BT2(차량 순정 오디오 A2DP 싱크 직결) 이중 프로파일 분리",
+    "targetBoard": "UIS7861, UIS7862, SM6125 거치형 카플레이 모니터",
+    "ghKw": "android dual bluetooth audio routing a2dp sink source",
+    "xdaKw": "dual bluetooth transmitter carplay audio to factory car stereo",
+    "actionableRule": "AUX 선을 주렁주렁 꽂지 않아도 거치형 모니터의 화면은 터치로 조작하고 소리는 차량 순정 스피커와 핸들 리모컨으로 완벽히 연동시킨다."
+  },
+  {
+    "id": "AUTO-08",
+    "group": "🚗 2. 안드로이드오토·카플레이·전장",
+    "title": "블랙박스(DVR) 순환 녹화(Loop Recording) 백그라운드 서비스 & 충격 감지(G-Sensor) 이벤트 파일 잠금",
+    "coreFormula": "MediaMuxer 1분 단위 세그먼트 분할 저장 + 디스크 여유공간 15% 미만 시 최고령 파일 자동 삭제 + eMMC 수명 보호",
+    "targetBoard": "차량/지게차/선박용 안드로이드 카메라 시스템",
+    "ghKw": "android dashcam loop recording background service mediacodec",
+    "xdaKw": "background dvr recording usb ahd camera android car",
+    "actionableRule": "화면에는 네비게이션이나 열화상 뷰어를 띄운 상태에서도 백그라운드에서 전후방 카메라 영상을 끊김 없이 외장 SD카드에 순환 녹화한다."
+  },
+  {
+    "id": "AUTO-09",
+    "group": "🚗 2. 안드로이드오토·카플레이·전장",
+    "title": "주야간 조도 센서 / 차량 미등(ILL) 연동 다크모드 자동 전환 & 눈부심 방지 PWM 백라이트 제어",
+    "coreFormula": "UiModeManager.setNightMode(MODE_NIGHT_YES) + /sys/class/backlight/backlight/brightness 곡선 제어",
+    "targetBoard": "야간 운전/선박 항해용 모니터 및 HUD",
+    "ghKw": "android auto night mode headlight trigger brightness pwm",
+    "xdaKw": "auto dim brightness night mode illumination wire android car",
+    "actionableRule": "야간 운전이나 터널 진입 시 화면이 눈부시지 않도록 미등 신호나 시간대/카메라 조도를 감지해 0.2초 만에 다크 테마와 최저 휘도로 부드럽게 낮춘다."
+  },
+  {
+    "id": "AUTO-10",
+    "group": "🚗 2. 안드로이드오토·카플레이·전장",
+    "title": "차박·캠핑카 모드: 차량 시동 꺼짐 상태에서 마끼다/인산철 보조배터리 전환 시 절전 미디어 시네마 UI 전환",
+    "coreFormula": "전원 소스 감지 → CPU 거버너 powersave 전환 + RK3566/프로젝터 무선 미러링(Miracast/AirPlay) 자동 활성화",
+    "targetBoard": "RK3566 차박 시네마 바(MOAT-23) & 캠핑카 올인원 컨트롤러",
+    "ghKw": "android miracast airplay receiver sink open source",
+    "xdaKw": "android tv box airplay miracast receiver app low power",
+    "actionableRule": "차박 시 스마트폰 영상을 데이터 소모 없이 직결 미러링하고, 소비 전력을 40% 줄여 배터리 하나로 밤새 영화를 볼 수 있게 만든다."
+  },
+  {
+    "id": "HWIO-01",
+    "group": "🔌 3. 하드웨어직결(USB·BLE·GPIO)",
+    "title": "USB UVC 열화상 코어(InfiRay Tiny1/T2S+ · FLIR) 루팅 없는 Android 직접 구동 & 9종 의사컬러(Ironbow/WhiteHot) 셰이더",
+    "coreFormula": "libuvc / UVCCamera JNI + YUY2/RAW14 16bit 온도 배열 추출 + OpenGL ES Color Lookup Table(LUT) 실시간 입히기",
+    "targetBoard": "UIS7861 모니터, RK3566 태블릿, 일반 안드로이드 스마트폰",
+    "ghKw": "android uvc thermal camera infiray flir opengl lut",
+    "xdaKw": "InfiRay P2 Pro T2S+ raw thermal data uvc android app",
+    "actionableRule": "시엔위에서 200위안에 매집한 InfiRay 256x192 열화상 탈거 모듈을 USB에 꽂기만 하면 최고/최저 온도점 추적과 고해상도 열화상 컬러맵이 뜨는 독점 앱을 완성한다."
+  },
+  {
+    "id": "HWIO-02",
+    "group": "🔌 3. 하드웨어직결(USB·BLE·GPIO)",
+    "title": "USB 권한 팝업(\"이 USB 장치를 사용하시겠습니까?\") 영구 제거 시스템 화이트리스트 패치",
+    "coreFormula": "packages.xml 또는 UsbPermissionActivity 후킹 / device_filter.xml 시스템 권한 선승인",
+    "targetBoard": "USB 카메라·시리얼 동글을 상시 꽂아 쓰는 모든 무인/차량 단말기",
+    "ghKw": "android bypass usb permission dialog system app",
+    "xdaKw": "disable usb permission popup permanently android root",
+    "actionableRule": "전원을 켤 때마다 뜨는 성가신 USB 권한 확인 팝업을 시스템 레벨에서 자동 승인 처리하여 100% 무인 플러그앤플레이를 구현한다."
+  },
+  {
+    "id": "HWIO-03",
+    "group": "🔌 3. 하드웨어직결(USB·BLE·GPIO)",
+    "title": "usb-serial-for-android 기반 CH340·CP210x·FTDI·PL2303 무드라이버 시리얼 통신 및 Modbus RTU 마스터",
+    "coreFormula": "UsbSerialProber.getDefaultProber().findAllDrivers(usbManager) + SerialInputOutputManager 비동기 링버퍼",
+    "targetBoard": "공장 PLC HMI 대체 모니터(MOAT-09) & 연구소 데이터 로거(MOAT-08)",
+    "ghKw": "usb-serial-for-android modbus rtu rs485 rs232",
+    "xdaKw": "android usb serial rs232 rs485 communication without root",
+    "actionableRule": "커널에 시리얼 드라이버가 없는 보드라도 순수 Java/Kotlin USB Host API만으로 RS232/RS485 산업장비와 115200bps 무손실 통신을 수행한다."
+  },
+  {
+    "id": "HWIO-04",
+    "group": "🔌 3. 하드웨어직결(USB·BLE·GPIO)",
+    "title": "온보드 하드웨어 UART(/dev/ttyS0~S4) JNI NDK 직결: 290원짜리 AT6558R GPS 및 3,000원 mmWave 레이더 파싱",
+    "coreFormula": "termios.h (B115200, CS8, CLOCAL, CREAD) C++ JNI 바인딩 + NMEA-0183 / LD2410 호흡·낙상 패킷 디코더",
+    "targetBoard": "RK3566, S905L3A(E900V22D), T113-S3 커스텀 보드",
+    "ghKw": "android-serialport-api jni ttyS0 nmea parser mmwave",
+    "xdaKw": "connect gps module uart ttyS android tv box location provider",
+    "actionableRule": "외부 UART 핀에 290원짜리 AT6558R GPS를 납땜하고 Android Mock/Custom LocationProvider로 주입해 GPS 없는 보드에서 티맵과 네비가 완벽히 작동하게 만든다."
+  },
+  {
+    "id": "HWIO-05",
+    "group": "🔌 3. 하드웨어직결(USB·BLE·GPIO)",
+    "title": "BLE(Bluetooth Low Energy) GATT 멀티 센서 연동: 심박계·파워미터 연동 무선에어건 스마트 윈드 터널 앱(MOAT-19)",
+    "coreFormula": "BluetoothLeScanner + Heart Rate(0x180D) / Cycling Power(0x1818) Notification → ESP32/BLDC PWM 풍속 비례 제어",
+    "targetBoard": "스마트 사이클링 팬 컨트롤러 & 마끼다 BMS 진단 앱",
+    "ghKw": "android ble gatt cycling power heart rate pwm fan",
+    "xdaKw": "android ble auto reconnect background service gatt",
+    "actionableRule": "자전거 페달 파워(Watt)와 심박수가 올라가면 실시간으로 무선에어건 BLDC 모터의 RPM을 높여 정품 42만 원 와후 헤드윈드를 완벽히 대체한다."
+  },
+  {
+    "id": "HWIO-06",
+    "group": "🔌 3. 하드웨어직결(USB·BLE·GPIO)",
+    "title": "알리페이 탈거 오비중광(Orbbec Astra/Tornado 15위안) 3D 구조광 Depth 카메라 Android NDK 포인트클라우드 뷰어",
+    "coreFormula": "Orbbec OpenNI2 / Astra SDK Android JNI + Depth Map to 3D Mesh(.PLY/.STL) 실시간 복원",
+    "targetBoard": "RK3588, RK3566, 고사양 안드로이드 태블릿/폰",
+    "ghKw": "orbbec astra android sdk depth camera 3d scanner",
+    "xdaKw": "orbbec 3d camera android usb point cloud",
+    "actionableRule": "시엔위에서 15~39위안에 판 쓸어온 오비중광 3D 카메라에 전용 안드로이드 스캔 앱을 묶어 $250 핸드헬드 3D 스캐너 풀키트로 수출한다."
+  },
+  {
+    "id": "HWIO-07",
+    "group": "🔌 3. 하드웨어직결(USB·BLE·GPIO)",
+    "title": "화웨이 R4850G2 3000W 정류기 & 전기차 BMS 전압/전류 실시간 세팅용 Android USB-CAN 컨피규레이터 앱",
+    "coreFormula": "CAN Extended ID(0x108140FE 등) 패킷 송수신 → 슬라이더로 출력 전압(42V~58.5V) 및 전류(0~60A) 0.1초 제어",
+    "targetBoard": "화웨이 정류기 개조 충전기(GL-01, KIT-14) 전용 안드로이드 앱",
+    "ghKw": "huawei r4850g2 can bus voltage control android",
+    "xdaKw": "usb can analyzer android app custom frame sender",
+    "actionableRule": "어려운 명령어를 칠 필요 없이 스마트폰이나 모니터 터치 슬라이더만으로 화웨이 3000W 정류기의 전압·전류를 조절하고 영구 저장(EEPROM)하는 앱을 키트에 동봉한다."
+  },
+  {
+    "id": "HWIO-08",
+    "group": "🔌 3. 하드웨어직결(USB·BLE·GPIO)",
+    "title": "Sysfs / Libgpiod 기반 안드로이드 하드웨어 GPIO·릴레이·쿨링팬 PWM 온도 비례 자동 제어 데몬",
+    "coreFormula": "/sys/class/thermal/thermal_zone0/temp 감시 → 60℃ 이상 시 GPIO/PWM 듀티비 상승 (히스테리시스 제어)",
+    "targetBoard": "밀폐형 케이스에 들어가는 RK3566/RK3588/S905 보드",
+    "ghKw": "android gpio pwm fan control thermal zone sysfs",
+    "xdaKw": "auto cooling fan control script android tv box temperature",
+    "actionableRule": "평소에는 팬을 완전히 꺼서 무소음(0dB)을 유지하다가 부하가 걸려 칩 온도가 올라갈 때만 부드럽게 팬을 돌려 소음과 발열을 모두 잡는다."
+  },
+  {
+    "id": "HWIO-09",
+    "group": "🔌 3. 하드웨어직결(USB·BLE·GPIO)",
+    "title": "외장 캡처카드(MS2109 / MS2130 / RK628D HDMI-to-USB) 기반 안드로이드 포터블 서버 모니터 & IP-KVM 앱",
+    "coreFormula": "UVC 1080p 60fps MJPEG/YUY2 저지연 렌더링 + USB HID 키보드/마우스 에뮬레이션 패스스루",
+    "targetBoard": "안드로이드 태블릿/모니터를 현장 엔지니어용 서버 콘솔로 변환",
+    "ghKw": "ms2109 ms2130 usb hdmi capture android kvm",
+    "xdaKw": "use android tablet as hdmi monitor usb capture card low latency",
+    "actionableRule": "5,000원짜리 MS2109/MS2130 캡처 동글과 안드로이드 모니터를 결합해 데이터센터나 산업 현장에서 미니 PC/서버에 꽂으면 바로 화면과 키보드가 되는 휴대용 콘솔을 만든다."
+  },
+  {
+    "id": "HWIO-10",
+    "group": "🔌 3. 하드웨어직결(USB·BLE·GPIO)",
+    "title": "오디오 DSP(QCC5125 / Equalizer APO급 Android DynamicsProcessing API) 10밴드 파라메트릭 EQ & 크로스오버",
+    "coreFormula": "Android AudioEffect DynamicsProcessing (Pre-EQ + Multi-band Compressor + Limiter) 전역 오디오 후킹",
+    "targetBoard": "시엔위 하만카돈/부메스터 유닛 결합 오디오 및 차량용 올인원",
+    "ghKw": "android DynamicsProcessing system wide parametric eq",
+    "xdaKw": "rootless system wide parametric equalizer android dsp",
+    "actionableRule": "하만카돈이나 부메스터 탈거 스피커 유닛의 주파수 특성에 딱 맞는 DSP 튜닝 프리셋을 안드로이드 시스템 오디오 단에 기본 적용해 하이엔드 음질을 구현한다."
+  },
+  {
+    "id": "REPK-01",
+    "group": "🛠️ 4. APK리버스·한글화·초고속빌드",
+    "title": "중국 내수용 하드웨어 전용 앱(열화상·드론·프로젝터·BMS) apktool 디컴파일 & 100% 완벽 한국어/영어 현지화 공식",
+    "coreFormula": "apktool d app.apk → res/values-ko/strings.xml 주입 + smali 내 const-string 유니코드(\\uXXXX) 일괄 번역 → apktool b",
+    "targetBoard": "중국 내수 기기 글로벌/한국 정식 상품화 전 품목 (Antigravity_Remote_Pro 적용 기법!)",
+    "ghKw": "apktool smali string translation automation script",
+    "xdaKw": "translate chinese apk to english korean smali strings.xml",
+    "actionableRule": "리소스 파일(strings.xml)뿐만 아니라 자바 코드(Smali)나 네이티브(.so)/Assets에 박힌 중국어까지 정규식 스크립트로 전수 추출·번역하여 100% 한국 정품 앱처럼 만든다."
+  },
+  {
+    "id": "REPK-02",
+    "group": "🛠️ 4. APK리버스·한글화·초고속빌드",
+    "title": "Android Studio(무거운 Gradle) 없이 CLI(aapt2 + javac + d8 + zipalign + apksigner)만으로 3초 만에 APK 빌드하기",
+    "coreFormula": "aapt2 compile/link → javac → d8 classes.dex → zipalign -p -f 4 → apksigner sign --ks release.jks",
+    "targetBoard": "안티그래비티 리모트 전용앱 및 모든 경량 하드웨어 제어 유틸리티",
+    "ghKw": "build android apk command line without gradle aapt2 d8",
+    "xdaKw": "minimal android apk build script aapt2 d8 apksigner fast",
+    "actionableRule": "수 기가바이트짜리 Gradle 캐시나 빌드 지연 없이, 스크립트 실행 3초 만에 서명 완료된 순수 네이티브 APK를 찍어내어 현장 수정 및 배포 속도를 100배 높인다."
+  },
+  {
+    "id": "REPK-03",
+    "group": "🛠️ 4. APK리버스·한글화·초고속빌드",
+    "title": "APK 서명 검증 우회(Signature Verification Killer / PMS 후킹)로 리패키징 시 앱 강제종료 방지",
+    "coreFormula": "원본 인증서 SHA-256 지문 추출 → PackageManager.getPackageInfo() 스푸핑 또는 core-oj.jar 서명 체크 무력화",
+    "targetBoard": "자체 무결성 검증(Tamper Check)이 걸린 상용 하드웨어 제어 APK 개조",
+    "ghKw": "android signature killer bypass packageInfo hook",
+    "xdaKw": "bypass apk signature verification after resigning smali",
+    "actionableRule": "한글화 후 다시 서명(Re-sign)했을 때 앱이 변조를 감지하고 꺼지는 현상을 Smali 후킹으로 완벽히 우회한다."
+  },
+  {
+    "id": "REPK-04",
+    "group": "🛠️ 4. APK리버스·한글화·초고속빌드",
+    "title": "중국 앱 내장 강제 업데이트 팝업·바이두/알리 텔레메트리·광고 SDK Smali 레벨 완전 거세(Stubbing)",
+    "coreFormula": "Smali 메서드 진입점 바로 아래에 `return-void` 삽입 + AndroidManifest.xml 내 광고 Activity/Service 제거",
+    "targetBoard": "시엔위/타오바오 발 하드웨어 번들 APK 정화",
+    "ghKw": "smali patch remove update popup ads android",
+    "xdaKw": "disable forced update dialog smali return-void apktool",
+    "actionableRule": "사용 중에 갑자기 중국어로 업데이트 창이 뜨거나 중국 서버로 데이터를 보내는 코드를 Smali 단에서 `return-void` 한 줄로 영구 차단한다."
+  },
+  {
+    "id": "REPK-05",
+    "group": "🛠️ 4. APK리버스·한글화·초고속빌드",
+    "title": "산업용/상업용 키오스크 모드(Device Owner + LockTaskMode): 상단바·홈버튼·설정 진입 완벽 봉쇄 및 단일 앱 전용 단말기화",
+    "coreFormula": "dpm set-device-owner com.antigravity.kiosk/.AdminReceiver + startLockTask() + HOME Intent 독점",
+    "targetBoard": "공방 투사기(MOAT-16), 공장 카운터(MOAT-18), 경로당 돌봄 박스(MOAT-12)",
+    "ghKw": "android kiosk mode locktask device owner single app",
+    "xdaKw": "dedicated kiosk mode hide status bar navigation bar android",
+    "actionableRule": "고객이 전원을 켜면 안드로이드인지조차 모르고 오직 대표님의 전용 장비 UI만 뜨며, 임의로 다른 앱을 깔거나 설정을 망가뜨릴 수 없게 잠근다."
+  },
+  {
+    "id": "REPK-06",
+    "group": "🛠️ 4. APK리버스·한글화·초고속빌드",
+    "title": "Split APK(.apks / .xapk / App Bundle: base + config.arm64 + config.ko) 단일 만능 APK(Universal APK) 병합 공식",
+    "coreFormula": "APKEditor m -i split_apks_dir/ -o universal_merged.apk → zipalign & apksigner",
+    "targetBoard": "구글 플레이 스토어가 없는 E900V22D / 전장 모니터 / 프로젝터에 최신 앱 탑재",
+    "ghKw": "APKEditor merge split apks to single apk",
+    "xdaKw": "merge split apk bundles into single standalone apk",
+    "actionableRule": "최근 앱들이 쪼개진 Split APK로 배포되어 일반 `adb install`이나 파일관리자에서 설치 에러가 나는 문제를 단일 Universal APK 병합으로 100% 해결한다."
+  },
+  {
+    "id": "REPK-07",
+    "group": "🛠️ 4. APK리버스·한글화·초고속빌드",
+    "title": "APK 내부에 Node.js / Python / Go / FFmpeg 네이티브 리눅스 바이너리를 품고 실행하는 자급자족 서버 앱 아키텍처",
+    "coreFormula": "lib/arm64-v8a/libserver_exec.so 로 위장 패키징 → extractNativeLibs=\"true\" → ProcessBuilder(nativeLibraryDir + \"/libserver_exec.so\")",
+    "targetBoard": "Android 10+ W^X(실행권한 차단) 정책을 합법 통과하는 로컬 서버 내장 APK",
+    "ghKw": "android execute native binary nativeLibraryDir lib.so",
+    "xdaKw": "run executable binary Android 10 11 12 nativeLibraryDir W^X bypass",
+    "actionableRule": "Android 10 이상에서 앱 데이터 폴더의 바이너리 실행(`chmod +x`)을 막는 보안을 뚫기 위해, 실행 파일을 `libxxx.so` 이름으로 `lib/arm64-v8a/`에 넣으면 시스템이 자동으로 실행 권한을 부여한다!"
+  },
+  {
+    "id": "REPK-08",
+    "group": "🛠️ 4. APK리버스·한글화·초고속빌드",
+    "title": "리모컨(D-Pad / IR / 에어마우스) 전용 앱을 터치스크린용으로, 또는 모바일 세로 전용 앱을 가로 대화면(TV/모니터)용으로 강제 변환",
+    "coreFormula": "AndroidManifest.xml 내 `android:screenOrientation=\"landscape\"` 및 `resizeableActivity=\"true\"` 패치 + D-Pad 포커스 링 주입",
+    "targetBoard": "E900V22D TV박스 및 11.4인치 가로형 전장 모니터",
+    "ghKw": "android force landscape dpad focus tv compatibility patch",
+    "xdaKw": "convert mobile apk to android tv landscape remote friendly",
+    "actionableRule": "스마트폰용으로만 나와서 모니터에서 세로로 찌그러지거나 리모컨 화살표가 안 먹는 앱을 매니페스트·레이아웃 패치로 완벽한 가로형 대화면 앱으로 개조한다."
+  },
+  {
+    "id": "REPK-09",
+    "group": "🛠️ 4. APK리버스·한글화·초고속빌드",
+    "title": "Frida / Xposed(LSPosed) 없이 정적 바이너리 패치(LIEF / Frida-Gadget 주입)로 암호화 프로토콜 및 숨겨진 API 덤프",
+    "coreFormula": "patchelf --add-needed libfrida-gadget.so libtarget.so → SSL Pinning 우회 및 블루투스/UART 비공개 패킷 스니핑",
+    "targetBoard": "비공개 중국 하드웨어(BMS, 레이더, 프로젝터) 통신 프로토콜 역설계(MOAT-01/02)",
+    "ghKw": "frida gadget android apk inject lief patchelf",
+    "xdaKw": "inject frida gadget into apk without root reverse engineering",
+    "actionableRule": "제조사가 문서로 공개하지 않은 비공개 UART/BLE/CAN 제어 명령어를 공식 앱에 Frida Gadget을 찔러 넣어 5분 만에 평문 패킷으로 전부 가로챈다."
+  },
+  {
+    "id": "REPK-10",
+    "group": "🛠️ 4. APK리버스·한글화·초고속빌드",
+    "title": "초고성능 다크 글래스모피즘(Glassmorphism) 커스텀 View & 하드웨어 가속 캔버스 UI 템플릿 엔진",
+    "coreFormula": "RenderEffect.createBlurEffect() + Hardware Accelerated Canvas + 60fps ValueAnimator",
+    "targetBoard": "대표님 브랜드(KOREA S-PART / Antigravity Pro) 전 라인업 프리미엄 UI 통일",
+    "ghKw": "android custom view dashboard gauge glassmorphism",
+    "xdaKw": "modern car launcher ui theme custom view android",
+    "actionableRule": "투박한 중국산 UI 대신 테슬라·포르쉐 스타일의 세련된 다크 네온/글래스모피즘 한글 UI를 입혀 제품 가치를 즉시 2배 이상 끌어올린다."
+  },
+  {
+    "id": "OTAM-01",
+    "group": "☁️ 5. OTA서버·원격관제·프로젝터",
+    "title": "AWS / 자체 서버(ELIPHOEM_AWS_OTA_Server) 연동 무인 사일런트 OTA 업데이트(사용자 클릭 없이 백그라운드 자동 패치)",
+    "coreFormula": "manifest.json 버전 체크 → SHA-256 검증 다운로드 → PackageInstaller.Session 또는 루트 `pm install -r -d` 무인 설치 후 자동 재실행",
+    "targetBoard": "E900V22D, 안티그래비티 리모트 앱, 납품된 모든 B2B 안드로이드 장비",
+    "ghKw": "android silent install ota update device owner root",
+    "xdaKw": "silent apk update background without user prompt android",
+    "actionableRule": "이미 판매·납품된 수백 대의 기기에 버그 수정이나 신기능을 배포할 때, 고객이 아무것도 누르지 않아도 밤사이에 알아서 최신 버전으로 업데이트되게 만든다."
+  },
+  {
+    "id": "OTAM-02",
+    "group": "☁️ 5. OTA서버·원격관제·프로젝터",
+    "title": "죽지 않는 불사신 백그라운드 서비스(Immortal Foreground Service + BootReceiver + Native Watchdog) 아키텍처",
+    "coreFormula": "START_STICKY + NotificationChannel + UncaughtExceptionHandler 1초 부활 + AndroidManifest `persistent=\"true\"`(시스템앱)",
+    "targetBoard": "24시간 무인 돌아가야 하는 관제 단말기·카운터·돌봄 박스",
+    "ghKw": "android keep service alive foreground watchdog boot",
+    "xdaKw": "prevent android killing background service persistent system app",
+    "actionableRule": "안드로이드의 메모리 부족(LMK)이나 배터리 최적화(Doze)가 절대 앱을 죽이지 못하도록 `persistent=\"true\"` 시스템 앱 플래그와 이중 워치독을 걸어 365일 무중단 가동한다."
+  },
+  {
+    "id": "OTAM-03",
+    "group": "☁️ 5. OTA서버·원격관제·프로젝터",
+    "title": "scrcpy 코어(MediaProjection / SurfaceControl + MediaCodec H.264) 내장 초저지연(30ms) 웹브라우저 원격 제어기",
+    "coreFormula": "SurfaceControl.createDisplay() → MediaCodec H.264 Low-Latency → WebSocket 스트리밍 → InputManager.injectInputEvent()",
+    "targetBoard": "원격 기술지원(CS) 및 Antigravity Remote Pro 앱 고도화",
+    "ghKw": "ws-scrcpy webrcpy android remote control browser",
+    "xdaKw": "embed scrcpy server inside android apk remote control",
+    "actionableRule": "고객이 기기 사용법을 모르거나 세팅이 꼬였을 때, 대표님이 PC 웹브라우저에서 클릭 한 번으로 고객 기기 화면을 실시간으로 보며 원격 터치로 즉시 해결해 준다."
+  },
+  {
+    "id": "OTAM-04",
+    "group": "☁️ 5. OTA서버·원격관제·프로젝터",
+    "title": "빔프로젝터(RK3566 / T982 / T972 / H713) 4점 모서리 사다리꼴 보정(4-Corner Keystone) & 카메라 기반 자동 직각 맞춤",
+    "coreFormula": "OpenGL Matrix.setPolyToPoly() / SurfaceFlinger HWC Warp + 카메라 체커보드/테두리 호모그래피(Homography) 역산",
+    "targetBoard": "공방용 1:1 실측 도안 투사기(MOAT-16) 및 차박 프로젝터(MOAT-23)",
+    "ghKw": "projector keystone correction homography opencv android",
+    "xdaKw": "4 point keystone correction android projector surfaceflinger",
+    "actionableRule": "프로젝터를 비스듬히 놓고 쏴도 작업대 위의 마커 4개만 카메라로 비추면 1초 만에 정확한 직사각형과 실제 cm 치수로 화면을 칼같이 맞춰준다."
+  },
+  {
+    "id": "OTAM-05",
+    "group": "☁️ 5. OTA서버·원격관제·프로젝터",
+    "title": "Amlogic / Rockchip HDMI-CEC 양방향 제어: 셋톱박스/스틱 리모컨 하나로 TV 전원과 볼륨까지 동시 제어",
+    "coreFormula": "HdmiControlManager / `/dev/cec` One-Touch Play & System Standby 커맨드 연동",
+    "targetBoard": "E900V22D(S905L3A), S905X4, RK3528 TV 박스 및 스틱",
+    "ghKw": "android hdmi cec control amlogic rockchip",
+    "xdaKw": "fix hdmi cec power volume control android tv box",
+    "actionableRule": "E900V22D 전원을 켜면 연결된 TV나 모니터가 자동으로 켜지고 입력 포트가 바뀌는 완벽한 상용 셋톱박스 UX를 제공한다."
+  },
+  {
+    "id": "OTAM-06",
+    "group": "☁️ 5. OTA서버·원격관제·프로젝터",
+    "title": "전원선 뽑기(Sudden Power Cut)에 절대 파일시스템이 깨지지 않는 Read-Only RootFS + OverlayFS 방탄 파티션 설계",
+    "coreFormula": "system/vendor는 완전 RO 마운트 + 가변 데이터는 tmpfs(RAM) 또는 저널링 강화 f2fs 파티션으로 분리",
+    "targetBoard": "콘센트를 그냥 뽑아 끄는 공장 장비·차량용 모니터·농기계 단말기",
+    "ghKw": "android overlayfs read only data corruption power loss",
+    "xdaKw": "prevent data corruption sudden power off android embedded",
+    "actionableRule": "종료 버튼을 누르지 않고 차단기를 내리거나 시동을 바로 꺼버리는 열악한 산업/차량 환경에서도 eMMC 배드섹터나 무한부팅(벽돌)이 절대 발생하지 않게 보호한다."
+  },
+  {
+    "id": "OTAM-07",
+    "group": "☁️ 5. OTA서버·원격관제·프로젝터",
+    "title": "Tailscale / WireGuard 커널 모듈 내장 Zero-Config 원격 유지보수 VPN 및 무선 ADB(ADB over TCP/IP) 보안 터널",
+    "coreFormula": "setprop service.adb.tcp.port 5555 (VPN 인터페이스 바인딩 전용) + 기기 고유 시리얼 번호 기반 자동 등록",
+    "targetBoard": "지방 산단·농가·해외에 판매된 고부가가치 B2B 스마트 장비",
+    "ghKw": "wireguard android embedded remote adb tunnel",
+    "xdaKw": "remote adb over vpn unattended android tv box management",
+    "actionableRule": "공유기 포트포워딩이 불가능한 LTE 라우터나 공장 방화벽 뒤에 있는 장비라도 본사 서버에서 안전하게 원격 ADB로 접속해 로그를 보고 패치할 수 있다."
+  },
+  {
+    "id": "OTAM-08",
+    "group": "☁️ 5. OTA서버·원격관제·프로젝터",
+    "title": "구독형 하드웨어(Hardware-as-a-Service) 원격 라이선스 락/언락 및 미납 시 화면 안내문 전환 시스템",
+    "coreFormula": "기기 CPU 고유 시리얼(`/proc/cpuinfo` Serial) + 서버 서명 JWT 토큰 검증 → 만료 시 LockScreen 오버레이",
+    "targetBoard": "월 구독/렌탈 모델로 나가는 B2B 비전 검사기·공방 투사기·돌봄 단말기",
+    "ghKw": "android hardware id serial license activation offline token",
+    "xdaKw": "read unique cpu serial number rockchip amlogic android",
+    "actionableRule": "하드웨어 복제를 막기 위해 칩 내부의 변경 불가능한 eFuse CPU Serial과 서버 라이선스를 매칭하여, 렌탈료/구독료 기반의 안정적인 월간 반복 수익(MRR)을 강제한다."
+  },
+  {
+    "id": "OTAM-09",
+    "group": "☁️ 5. OTA서버·원격관제·프로젝터",
+    "title": "4K/8K 하드웨어 디코더(MediaCodec Surface) 기반 멀티존(화면 4분할/배너) 디지털 사이니지 & 무봉제(Gapless) 비디오 루프",
+    "coreFormula": "듀얼 ExoPlayer 인스턴스 교차 버퍼링(SetNextMediaPlayer) → 프레임 드랍 및 검은 화면(Black Flash) 0ms 완벽 제거",
+    "targetBoard": "E900V22D / T962 / RK3528 기반 소상공인 매장 메뉴판·엘리베이터 광고 모니터",
+    "ghKw": "exoplayer gapless video loop digital signage android",
+    "xdaKw": "seamless video loop without black flash exoplayer android tv",
+    "actionableRule": "동영상이 끝나고 다시 처음부터 재생될 때 0.5초간 깜빡이는 검은 화면을 듀얼 디코더 프리뷰 기법으로 완전히 없애 고급 상업용 사이니지 품질을 구현한다."
+  },
+  {
+    "id": "OTAM-10",
+    "group": "☁️ 5. OTA서버·원격관제·프로젝터",
+    "title": "온디바이스 로컬 음성비서(Sherpa-ONNX / Whisper-Tiny / Porcupine Wake-Word): 인터넷 없이 작동하는 한글 음성 명령기",
+    "coreFormula": "Sherpa-ONNX Android JNI → 오프라인 한글 호출어(\"하이 코리아\") 및 50개 제어 명령어 0.2초 인식",
+    "targetBoard": "인터넷이 안 터지는 지하/산간/선박/독거노인 돌봄 단말기(MOAT-12)",
+    "ghKw": "k2-fsa sherpa-onnx android offline speech recognition korean",
+    "xdaKw": "offline voice command recognition android without google services",
+    "actionableRule": "클라우드 API 비용 0원, 인터넷 연결 없이도 노인분들이나 작업자가 목소리만으로 화면을 켜고 기능을 실행하는 오프라인 한글 음성 AI를 탑재한다."
+  },
+  {
+    "id": "EDAI-01",
+    "group": "🧠 6. 온디바이스EdgeAI·비전·특수앱",
+    "title": "Rockchip RK3566 / RK3588 내장 NPU(RKNN-Toolkit2 Android JNI) 기반 30~60fps YOLOv8 실시간 객체/불량품 검출",
+    "coreFormula": "YOLOv8n.onnx → rknn.convert(target=\"rk3566\") → librknnrt.so Zero-Copy RGA 하드웨어 리사이즈 추론",
+    "targetBoard": "RK3566, RK3562, RK3568, RK3588 전 보드",
+    "ghKw": "rknn_model_zoo yolov8 android rk3566 rk3588",
+    "xdaKw": "rockchip npu rknn android studio jni example",
+    "actionableRule": "CPU를 전혀 쓰지 않고 칩 내장 NPU와 RGA(2D 가속기)만으로 카메라 영상을 0.02초 만에 판독해 지게차 보행자 경보(MOAT-10)와 공장 불량 카운터(MOAT-18)를 구현한다."
+  },
+  {
+    "id": "EDAI-02",
+    "group": "🧠 6. 온디바이스EdgeAI·비전·특수앱",
+    "title": "공방 전용 RK3566 빔프로젝터 \"사진 찍어 올리면 1초 선화(Line-Art) 도안 추출 & 1:1 실측 cm 투사\" 앱(MOAT-16)",
+    "coreFormula": "OpenCV Android Canny/AdaptiveThreshold 외곽선 추출 + 투사 거리별 픽셀-mm 캘리브레이션 매트릭스",
+    "targetBoard": "RK3566 / T982 / T972 빔프로젝터 (베이킹·가죽공예·미싱·타투·목공 공방 B2B)",
+    "ghKw": "opencv android line art edge detection projector calibration",
+    "xdaKw": "projector pattern sewing cake decorating android app",
+    "actionableRule": "10만 원짜리 일반 영화용 프로젝터에 이 전용 앱 하나를 심어 넣는 순간, 전국 수만 개 베이킹·가죽·미싱 공방이 38만 원에 사가는 B2B 필수 장비로 변신한다!"
+  },
+  {
+    "id": "EDAI-03",
+    "group": "🧠 6. 온디바이스EdgeAI·비전·특수앱",
+    "title": "중고 부품/기판 올려놓으면 0.5초 만에 순정 품번(Part No.)을 읽어 이베이 시세를 띄워주는 온디바이스 OCR 스캐너(MOAT-17)",
+    "coreFormula": "PaddleOCR / Google ML Kit Text Recognition v2 (오프라인) → 품번 정규식(`[0-9]{5}-[A-Z0-9]{5}` 등) 추출 → Port 3848 API 연동",
+    "targetBoard": "폐차장·산단 고물상·리퍼 공방용 스마트 스캐너 박스 및 대표님 소싱 앱",
+    "ghKw": "PaddleOCR Android NDK offline text recognition",
+    "xdaKw": "fast offline ocr scanner android camera part number",
+    "actionableRule": "폐차장이나 고물상 현장에서 스마트폰/단말기 카메라로 부품 라벨만 비추면 즉시 품번을 인식해 한국 매입가와 미국 이베이 판매가·순마진을 화면에 띄워준다."
+  },
+  {
+    "id": "EDAI-04",
+    "group": "🧠 6. 온디바이스EdgeAI·비전·특수앱",
+    "title": "소형 사출·나사·부품 포장 공장용 \"정상 샘플 5장만 찍으면 끝나는\" 무설정 시각 누락/이물질 카운터 앱(MOAT-18)",
+    "coreFormula": "OpenCV 윤곽선 면적(Contour Area) & 템플릿 매칭 / MobileNet Feature Embedding 코사인 유사도 비교",
+    "targetBoard": "안드로이드 올인원 모니터 + AHD/USB 접사 카메라 세트 (대당 55만 원 B2B)",
+    "ghKw": "opencv android object counting defect inspection",
+    "xdaKw": "industrial machine vision counting android camera",
+    "actionableRule": "딥러닝 재학습 없이 작업자가 화면에서 정상 부품 영역만 손가락으로 네모 치면 즉시 개수 누락과 불량을 찾아내 부저를 울리는 초간단 현장 검사기를 완성한다."
+  },
+  {
+    "id": "EDAI-05",
+    "group": "🧠 6. 온디바이스EdgeAI·비전·특수앱",
+    "title": "기판(PCB) 수리공 전용 \"열화상 카메라 + 실물 광학 카메라\" 실시간 윤곽선 중첩(MSX / Fusion Blending) 알고리즘",
+    "coreFormula": "광학 카메라 고주파 엣지(Sobel/Laplacian) 추출 → 열화상 온도 프레임 위에 알파 블렌딩(Alpha Blending) 및 시차(Parallax) 보정",
+    "targetBoard": "열화상 단안경 및 PCB 쇼트(Short) 부위 추적용 산업용 열화상 모니터",
+    "ghKw": "thermal camera visible edge fusion msx opencv android",
+    "xdaKw": "flir msx style dual camera fusion thermal optical android",
+    "actionableRule": "저해상도(256x192) 열화상 이미지 위에 일반 카메라의 선명한 글씨와 부품 윤곽선을 겹쳐 보여주어, 기판의 몇 번 저항/커패시터가 발열(쇼트) 중인지 1mm 오차 없이 짚어낸다!"
+  },
+  {
+    "id": "EDAI-06",
+    "group": "🧠 6. 온디바이스EdgeAI·비전·특수앱",
+    "title": "스마트폰 카메라로 동전 옆에 부러진 플라스틱 기어를 찍으면 이빨 수(Teeth)와 외경을 자동 역산해 3D STL을 만드는 비전 앱(MOAT-06)",
+    "coreFormula": "100원 동전(지름 24.0mm) 기준 픽셀 스케일 보정 → 기어 외경/내경/이빨 피치 원형 탐색 → 파라메트릭 OpenSCAD API 호출",
+    "targetBoard": "단종 가전/카메라/자동차 기어 복원 주문 플랫폼 앱",
+    "ghKw": "opencv coin reference size measurement gear teeth count",
+    "xdaKw": "measure object size using coin reference camera android",
+    "actionableRule": "버니어 캘리퍼스가 없는 일반 소비자도 동전 하나만 옆에 두고 사진을 찍으면 0.1mm 정밀도로 부러진 기어 치수를 역산해 나일론 출력 주문을 넣을 수 있게 한다."
+  },
+  {
+    "id": "EDAI-07",
+    "group": "🧠 6. 온디바이스EdgeAI·비전·특수앱",
+    "title": "RTSP / ONVIF 다채널 IP 카메라 4분할·9분할 초저지연(100ms 미만) 하드웨어 디코딩 관제 월패드",
+    "coreFormula": "Media3 RTSP / libvlcjni `--network-caching=100 --codec=mediacodec_ndk` SurfaceView 그리드",
+    "targetBoard": "E900V22D, RK3566, RK3568 기반 공장/농장/매장 CCTV 통합 뷰어",
+    "ghKw": "android low latency rtsp player mediacodec multi stream",
+    "xdaKw": "lowest latency rtsp viewer android tv box ip camera",
+    "actionableRule": "일반 플레이어에서 2~3초씩 밀리는 RTSP 카메라 지연을 NDK 하드웨어 디코더 직결로 0.1초 미만으로 줄여 실시간 현장 감시 모니터로 납품한다."
+  },
+  {
+    "id": "EDAI-08",
+    "group": "🧠 6. 온디바이스EdgeAI·비전·특수앱",
+    "title": "농기계·선박·오프로드 전용 완전 오프라인 벡터 지도(Mapsforge / MapLibre + MBTiles) 및 등고선/수심 내비게이션",
+    "coreFormula": "MapLibre Native Android + 로컬 SQLite `.mbtiles` 타일 서버 → 인터넷 0% 환경에서 60fps 3D 지형/항로 렌더링",
+    "targetBoard": "바다 한가운데 나가는 선박용 모니터 및 통신 음영지역 산림/농기계 단말기",
+    "ghKw": "maplibre android offline mbtiles vector map",
+    "xdaKw": "offline marine navigation vector maps android mbtiles",
+    "actionableRule": "LTE가 안 터지는 먼바다나 산속에서도 eMMC에 내장된 정밀 오프라인 전자해도/지형도와 290원짜리 GPS 칩만으로 완벽한 항해·작업 경로 기록을 수행한다."
+  },
+  {
+    "id": "EDAI-09",
+    "group": "🧠 6. 온디바이스EdgeAI·비전·특수앱",
+    "title": "스마트폰 오디오 잭/마이크 또는 포토다이오드 동글을 이용한 기계식 시계 타임그래퍼 & 카메라 셔터스피드 측정 앱(MOAT-21)",
+    "coreFormula": "AudioRecord 48kHz/96kHz 무압축 PCM 캡처 → FFT/피크 인터벌 마이크로초(μs) 분석 → 일오차(s/d) 및 셔터 막속도 그래프",
+    "targetBoard": "야후옥션 빈티지 카메라·시계 복원 셀러용 검수 인증서 발급 시스템",
+    "ghKw": "android timegrapher watch beat analyzer shutter speed",
+    "xdaKw": "watch timegrapher camera shutter speed tester android audio",
+    "actionableRule": "야후옥션에서 가져온 정크 필름카메라와 빈티지 시계를 수리한 뒤, 이 앱이 출력한 \"셔터스피드/오차 정밀 측정 그래프 화면\"을 이베이 사진 2번에 넣어 낙찰가를 40% 높인다."
+  },
+  {
+    "id": "EDAI-10",
+    "group": "🧠 6. 온디바이스EdgeAI·비전·특수앱",
+    "title": "안티그래비티(Antigravity) 6대 크롤링 서버(3847~3853) 통합 모바일 관제 & 원클릭 이베이/시엔위 승인 리모컨 앱",
+    "coreFormula": "Antigravity_Remote_Pro WebSocket/REST 연동 + 푸시 알림 + 음성 브리핑(TTS) + 원격 명령 실행",
+    "targetBoard": "대표님 스마트폰 및 전용 관제 태블릿 (Antigravity_Remote_Pro_v12 확장)",
+    "ghKw": "android server monitor dashboard websocket client",
+    "xdaKw": "custom homelab server control dashboard android apk",
+    "actionableRule": "외출 중에도 스마트폰 앱 하나로 로컬 PC와 클라우드의 7대 크롤러 상태, 지파츠 품절 알림, 시엔위 초특가 칩 매물, 이베이 주문을 실시간 확인하고 원클릭 제어한다."
+  }
+]

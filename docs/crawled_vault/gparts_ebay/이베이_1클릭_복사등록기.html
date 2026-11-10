@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>지파츠 → 이베이 TOP 10 1클릭 등록 대시보드</title>
+<style>
+  body { background:#121418; color:#eee; font-family:'Malgun Gothic',sans-serif; padding:24px; max-width:1150px; margin:0 auto; }
+  h1 { color:#4da3ff; margin-bottom:8px; }
+  .sub { color:#aaa; margin-bottom:20px; font-size:14px; }
+  .top-btns a { display:inline-block; background:#2ea043; color:#fff; padding:12px 20px; border-radius:8px; text-decoration:none; font-weight:bold; margin-right:12px; margin-bottom:20px; }
+  .card { background:#1e2229; border:1px solid #333; border-radius:10px; padding:18px; margin-bottom:18px; }
+  .header { display:flex; justify-content:space-between; font-size:17px; font-weight:bold; margin-bottom:12px; color:#ffd33d; }
+  .profit { color:#3fb950; }
+  .photos { margin-bottom:12px; overflow-x:auto; white-space:nowrap; }
+  .row { display:flex; gap:8px; margin-bottom:8px; align-items:center; }
+  input, textarea { flex:1; background:#0d1117; color:#fff; border:1px solid #444; padding:9px; border-radius:6px; font-family:Consolas,monospace; font-size:13px; }
+  button { background:#1f6feb; color:#fff; border:none; padding:9px 14px; border-radius:6px; cursor:pointer; font-weight:bold; white-space:nowrap; }
+  button:hover { background:#388bfd; }
+  .meta { font-size:13px; color:#aaa; margin-top:8px; display:flex; align-items:center; gap:8px; }
+</style>
+</head>
+<body>
+  <h1>🚀 지파츠(Gparts) → 이베이(eBay Motors) 황금부품 TOP 10 1클릭 등록기</h1>
+  <div class="sub">버튼만 누르면 영문 제목·품번·가격·상세설명이 자동 복사되며, 사진 업로드 창에서 [폴더경로 복사]를 붙여넣으면 사진 6장이 바로 열립니다!</div>
+  <div class="top-btns">
+    <a href="https://www.ebay.com/sh/reports/uploads" target="_blank">⚡ 방법 A: 이베이 CSV 10개 한방 업로드 페이지 열기</a>
+    <a href="https://www.ebay.com/sl/sell" target="_blank" style="background:#1f6feb;">📝 방법 B: 이베이 개별 등록(Sell) 페이지 열기</a>
+  </div>
+  
+  <div class="card">
+    <div class="header">
+      <span>#1 [Genesis GV80] LED Tail Light Lamp Assembly (품번: 92402-T6000)</span>
+      <span class="profit">예상 순수익: +185,439원 (지파츠 110,000원 → 이베이 $285.99)</span>
+    </div>
+    <div class="photos"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/01_92402-T6000_20261014300100041004/photo_1.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/01_92402-T6000_20261014300100041004/photo_2.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/01_92402-T6000_20261014300100041004/photo_3.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/01_92402-T6000_20261014300100041004/photo_4.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/01_92402-T6000_20261014300100041004/photo_5.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/01_92402-T6000_20261014300100041004/photo_6.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"></div>
+    <div class="row">
+      <input id="title_0" value="OEM Genesis GV80 Rear Right RH LED Tail Light Lamp Assembly 92402-T6000" readonly>
+      <button onclick="copyVal('title_0', this)">① 영문제목 복사</button>
+    </div>
+    <div class="row">
+      <input id="part_0" value="92402-T6000" readonly style="max-width:160px">
+      <button onclick="copyVal('part_0', this)">② 품번 복사</button>
+      <input id="sku_0" value="GPARTS-92402-T6000-20261014300100041004" readonly style="max-width:300px">
+      <button onclick="copyVal('sku_0', this)">③ SKU 복사</button>
+      <input id="price_0" value="285.99" readonly style="max-width:110px">
+      <button onclick="copyVal('price_0', this)">④ 가격($) 복사</button>
+    </div>
+    <div class="row">
+      <textarea id="desc_0" rows="3" readonly>====================================================================
+100% GENUINE OEM HYUNDAI / KIA / GENESIS FACTORY PART (SHIPPED FROM SOUTH KOREA)
+====================================================================
+
+■ PART INFORMATION
+• Vehicle Compatibility: Genesis GV80 (Model Years: 2021-2024)
+• Part Name: LED Tail Light Lamp Assembly
+• Placement on Vehicle: Rear Right Passenger Side (RH)
+• Genuine OEM Part Number: 92402-T6000 (Interchange: 92402T6000)
+• Condition: Used - Genuine OEM Factory Original (Tested & Inspected in South Korea)
+• Country of Origin: Made in South Korea (100% Authentic OEM, NOT a Chinese aftermarket clone)
+
+■ FITMENT & BUYER PROTECTION NOTICE (PLEASE READ BEFORE PURCHASE)
+1. MATCH PART NUMBER FIRST: Please verify that your existing part's 10-digit OEM Part Number matches [92402-T6000] before ordering.
+2. FAST & SAFE INTERNATIONAL SHIPPING: Shipped directly from South Korea via tracked air express with heavy-duty bubble wrap protection.</textarea>
+      <button onclick="copyVal('desc_0', this)">⑤ 상세설명 복사</button>
+    </div>
+    <div class="meta">
+      📂 사진 폴더 경로: <input id="dir_0" value="e:\안티그래비티\지파츠_이베이_자동리스팅\photos\01_92402-T6000_20261014300100041004" readonly style="max-width:460px;padding:4px 8px;font-size:12px;">
+      <button onclick="copyVal('dir_0', this)" style="padding:5px 10px;font-size:12px;background:#444;">폴더경로 복사</button>
+      | 지파츠 재고: <b>4개</b> (1순위 코드: <code>20261014300100041004</code>)
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="header">
+      <span>#2 [Hyundai Ioniq 5] LED Tail Light Lamp Assembly (품번: 92401-GI000)</span>
+      <span class="profit">예상 순수익: +132,846원 (지파츠 80,000원 → 이베이 $215.99)</span>
+    </div>
+    <div class="photos"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/02_92401-GI000_20250617780100040020/photo_1.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/02_92401-GI000_20250617780100040020/photo_2.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/02_92401-GI000_20250617780100040020/photo_3.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/02_92401-GI000_20250617780100040020/photo_4.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/02_92401-GI000_20250617780100040020/photo_5.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/02_92401-GI000_20250617780100040020/photo_6.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"></div>
+    <div class="row">
+      <input id="title_1" value="OEM Hyundai Ioniq 5 Rear Left LH LED Tail Light Lamp Assembly 92401-GI000" readonly>
+      <button onclick="copyVal('title_1', this)">① 영문제목 복사</button>
+    </div>
+    <div class="row">
+      <input id="part_1" value="92401-GI000" readonly style="max-width:160px">
+      <button onclick="copyVal('part_1', this)">② 품번 복사</button>
+      <input id="sku_1" value="GPARTS-92401-GI000-20250617780100040020" readonly style="max-width:300px">
+      <button onclick="copyVal('sku_1', this)">③ SKU 복사</button>
+      <input id="price_1" value="215.99" readonly style="max-width:110px">
+      <button onclick="copyVal('price_1', this)">④ 가격($) 복사</button>
+    </div>
+    <div class="row">
+      <textarea id="desc_1" rows="3" readonly>====================================================================
+100% GENUINE OEM HYUNDAI / KIA / GENESIS FACTORY PART (SHIPPED FROM SOUTH KOREA)
+====================================================================
+
+■ PART INFORMATION
+• Vehicle Compatibility: Hyundai Ioniq 5 (Model Years: 2022-2025)
+• Part Name: LED Tail Light Lamp Assembly
+• Placement on Vehicle: Rear Left Driver Side (LH)
+• Genuine OEM Part Number: 92401-GI000 (Interchange: 92401GI000)
+• Condition: Used - Genuine OEM Factory Original (Tested & Inspected in South Korea)
+• Country of Origin: Made in South Korea (100% Authentic OEM, NOT a Chinese aftermarket clone)
+
+■ FITMENT & BUYER PROTECTION NOTICE (PLEASE READ BEFORE PURCHASE)
+1. MATCH PART NUMBER FIRST: Please verify that your existing part's 10-digit OEM Part Number matches [92401-GI000] before ordering.
+2. FAST & SAFE INTERNATIONAL SHIPPING: Shipped directly from South Korea via tracked air express with heavy-duty bubble wrap protection.</textarea>
+      <button onclick="copyVal('desc_1', this)">⑤ 상세설명 복사</button>
+    </div>
+    <div class="meta">
+      📂 사진 폴더 경로: <input id="dir_1" value="e:\안티그래비티\지파츠_이베이_자동리스팅\photos\02_92401-GI000_20250617780100040020" readonly style="max-width:460px;padding:4px 8px;font-size:12px;">
+      <button onclick="copyVal('dir_1', this)" style="padding:5px 10px;font-size:12px;background:#444;">폴더경로 복사</button>
+      | 지파츠 재고: <b>2개</b> (1순위 코드: <code>20250617780100040020</code>)
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="header">
+      <span>#3 [Genesis GV70] LED Tail Light Lamp Assembly (품번: 92401-AR000)</span>
+      <span class="profit">예상 순수익: +185,439원 (지파츠 110,000원 → 이베이 $285.99)</span>
+    </div>
+    <div class="photos"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/03_92401-AR000_20260410100100040019/photo_1.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/03_92401-AR000_20260410100100040019/photo_2.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/03_92401-AR000_20260410100100040019/photo_3.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/03_92401-AR000_20260410100100040019/photo_4.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/03_92401-AR000_20260410100100040019/photo_5.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/03_92401-AR000_20260410100100040019/photo_6.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"></div>
+    <div class="row">
+      <input id="title_2" value="OEM Genesis GV70 2020-2023 Rear Left LH LED Tail Light Lamp Assembly 92401-AR000" readonly>
+      <button onclick="copyVal('title_2', this)">① 영문제목 복사</button>
+    </div>
+    <div class="row">
+      <input id="part_2" value="92401-AR000" readonly style="max-width:160px">
+      <button onclick="copyVal('part_2', this)">② 품번 복사</button>
+      <input id="sku_2" value="GPARTS-92401-AR000-20260410100100040019" readonly style="max-width:300px">
+      <button onclick="copyVal('sku_2', this)">③ SKU 복사</button>
+      <input id="price_2" value="285.99" readonly style="max-width:110px">
+      <button onclick="copyVal('price_2', this)">④ 가격($) 복사</button>
+    </div>
+    <div class="row">
+      <textarea id="desc_2" rows="3" readonly>====================================================================
+100% GENUINE OEM HYUNDAI / KIA / GENESIS FACTORY PART (SHIPPED FROM SOUTH KOREA)
+====================================================================
+
+■ PART INFORMATION
+• Vehicle Compatibility: Genesis GV70 (Model Years: 2020-2023)
+• Part Name: LED Tail Light Lamp Assembly
+• Placement on Vehicle: Rear Left Driver Side (LH)
+• Genuine OEM Part Number: 92401-AR000 (Interchange: 92401AR000)
+• Condition: Used - Genuine OEM Factory Original (Tested & Inspected in South Korea)
+• Country of Origin: Made in South Korea (100% Authentic OEM, NOT a Chinese aftermarket clone)
+
+■ FITMENT & BUYER PROTECTION NOTICE (PLEASE READ BEFORE PURCHASE)
+1. MATCH PART NUMBER FIRST: Please verify that your existing part's 10-digit OEM Part Number matches [92401-AR000] before ordering.
+2. FAST & SAFE INTERNATIONAL SHIPPING: Shipped directly from South Korea via tracked air express with heavy-duty bubble wrap protection.</textarea>
+      <button onclick="copyVal('desc_2', this)">⑤ 상세설명 복사</button>
+    </div>
+    <div class="meta">
+      📂 사진 폴더 경로: <input id="dir_2" value="e:\안티그래비티\지파츠_이베이_자동리스팅\photos\03_92401-AR000_20260410100100040019" readonly style="max-width:460px;padding:4px 8px;font-size:12px;">
+      <button onclick="copyVal('dir_2', this)" style="padding:5px 10px;font-size:12px;background:#444;">폴더경로 복사</button>
+      | 지파츠 재고: <b>3개</b> (1순위 코드: <code>20260410100100040019</code>)
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="header">
+      <span>#4 [Genesis GV70] LED Tail Light Lamp Assembly (품번: 92402-AR000)</span>
+      <span class="profit">예상 순수익: +234,133원 (지파츠 138,000원 → 이베이 $350.99)</span>
+    </div>
+    <div class="photos"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/04_92402-AR000_20261012280100041070/photo_1.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/04_92402-AR000_20261012280100041070/photo_2.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/04_92402-AR000_20261012280100041070/photo_3.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/04_92402-AR000_20261012280100041070/photo_4.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/04_92402-AR000_20261012280100041070/photo_5.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/04_92402-AR000_20261012280100041070/photo_6.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"></div>
+    <div class="row">
+      <input id="title_3" value="OEM Genesis GV70 Rear Right RH LED Tail Light Lamp Assembly 92402-AR000" readonly>
+      <button onclick="copyVal('title_3', this)">① 영문제목 복사</button>
+    </div>
+    <div class="row">
+      <input id="part_3" value="92402-AR000" readonly style="max-width:160px">
+      <button onclick="copyVal('part_3', this)">② 품번 복사</button>
+      <input id="sku_3" value="GPARTS-92402-AR000-20261012280100041070" readonly style="max-width:300px">
+      <button onclick="copyVal('sku_3', this)">③ SKU 복사</button>
+      <input id="price_3" value="350.99" readonly style="max-width:110px">
+      <button onclick="copyVal('price_3', this)">④ 가격($) 복사</button>
+    </div>
+    <div class="row">
+      <textarea id="desc_3" rows="3" readonly>====================================================================
+100% GENUINE OEM HYUNDAI / KIA / GENESIS FACTORY PART (SHIPPED FROM SOUTH KOREA)
+====================================================================
+
+■ PART INFORMATION
+• Vehicle Compatibility: Genesis GV70 (Model Years: 2023-2025)
+• Part Name: LED Tail Light Lamp Assembly
+• Placement on Vehicle: Rear Right Passenger Side (RH)
+• Genuine OEM Part Number: 92402-AR000 (Interchange: 92402AR000)
+• Condition: Used - Genuine OEM Factory Original (Tested & Inspected in South Korea)
+• Country of Origin: Made in South Korea (100% Authentic OEM, NOT a Chinese aftermarket clone)
+
+■ FITMENT & BUYER PROTECTION NOTICE (PLEASE READ BEFORE PURCHASE)
+1. MATCH PART NUMBER FIRST: Please verify that your existing part's 10-digit OEM Part Number matches [92402-AR000] before ordering.
+2. FAST & SAFE INTERNATIONAL SHIPPING: Shipped directly from South Korea via tracked air express with heavy-duty bubble wrap protection.</textarea>
+      <button onclick="copyVal('desc_3', this)">⑤ 상세설명 복사</button>
+    </div>
+    <div class="meta">
+      📂 사진 폴더 경로: <input id="dir_3" value="e:\안티그래비티\지파츠_이베이_자동리스팅\photos\04_92402-AR000_20261012280100041070" readonly style="max-width:460px;padding:4px 8px;font-size:12px;">
+      <button onclick="copyVal('dir_3', this)" style="padding:5px 10px;font-size:12px;background:#444;">폴더경로 복사</button>
+      | 지파츠 재고: <b>3개</b> (1순위 코드: <code>20261012280100041070</code>)
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="header">
+      <span>#5 [Genesis G80] Factory Audio Amplifier Amp (품번: 96370-B1010)</span>
+      <span class="profit">예상 순수익: +101,672원 (지파츠 58,000원 → 이베이 $164.99)</span>
+    </div>
+    <div class="photos"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/05_96370-B1010_20260310860200171003/photo_1.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/05_96370-B1010_20260310860200171003/photo_2.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/05_96370-B1010_20260310860200171003/photo_3.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/05_96370-B1010_20260310860200171003/photo_4.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/05_96370-B1010_20260310860200171003/photo_5.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/05_96370-B1010_20260310860200171003/photo_6.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"></div>
+    <div class="row">
+      <input id="title_4" value="OEM Genesis G80 2019-2021 Factory Audio Amplifier Amp 96370-B1010" readonly>
+      <button onclick="copyVal('title_4', this)">① 영문제목 복사</button>
+    </div>
+    <div class="row">
+      <input id="part_4" value="96370-B1010" readonly style="max-width:160px">
+      <button onclick="copyVal('part_4', this)">② 품번 복사</button>
+      <input id="sku_4" value="GPARTS-96370-B1010-20260310860200171003" readonly style="max-width:300px">
+      <button onclick="copyVal('sku_4', this)">③ SKU 복사</button>
+      <input id="price_4" value="164.99" readonly style="max-width:110px">
+      <button onclick="copyVal('price_4', this)">④ 가격($) 복사</button>
+    </div>
+    <div class="row">
+      <textarea id="desc_4" rows="3" readonly>====================================================================
+100% GENUINE OEM HYUNDAI / KIA / GENESIS FACTORY PART (SHIPPED FROM SOUTH KOREA)
+====================================================================
+
+■ PART INFORMATION
+• Vehicle Compatibility: Genesis G80 (Model Years: 2019-2021)
+• Part Name: Factory Audio Amplifier Amp
+• Placement on Vehicle: Direct Replacement
+• Genuine OEM Part Number: 96370-B1010 (Interchange: 96370B1010)
+• Condition: Used - Genuine OEM Factory Original (Tested & Inspected in South Korea)
+• Country of Origin: Made in South Korea (100% Authentic OEM, NOT a Chinese aftermarket clone)
+
+■ FITMENT & BUYER PROTECTION NOTICE (PLEASE READ BEFORE PURCHASE)
+1. MATCH PART NUMBER FIRST: Please verify that your existing part's 10-digit OEM Part Number matches [96370-B1010] before ordering.
+2. FAST & SAFE INTERNATIONAL SHIPPING: Shipped directly from South Korea via tracked air express with heavy-duty bubble wrap protection.</textarea>
+      <button onclick="copyVal('desc_4', this)">⑤ 상세설명 복사</button>
+    </div>
+    <div class="meta">
+      📂 사진 폴더 경로: <input id="dir_4" value="e:\안티그래비티\지파츠_이베이_자동리스팅\photos\05_96370-B1010_20260310860200171003" readonly style="max-width:460px;padding:4px 8px;font-size:12px;">
+      <button onclick="copyVal('dir_4', this)" style="padding:5px 10px;font-size:12px;background:#444;">폴더경로 복사</button>
+      | 지파츠 재고: <b>3개</b> (1순위 코드: <code>20260310860200171003</code>)
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="header">
+      <span>#6 [Genesis GV70] Rear Blind Spot Radar Sensor (품번: 99140-AR000)</span>
+      <span class="profit">예상 순수익: +277,652원 (지파츠 125,000원 → 이베이 $364.99)</span>
+    </div>
+    <div class="photos"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/06_99140-AR000_20250816220400440003/photo_1.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/06_99140-AR000_20250816220400440003/photo_2.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/06_99140-AR000_20250816220400440003/photo_3.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/06_99140-AR000_20250816220400440003/photo_4.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"></div>
+    <div class="row">
+      <input id="title_5" value="OEM Genesis GV70 2020-2023 Rear Left LH Rear Blind Spot Radar Sensor 99140-AR000" readonly>
+      <button onclick="copyVal('title_5', this)">① 영문제목 복사</button>
+    </div>
+    <div class="row">
+      <input id="part_5" value="99140-AR000" readonly style="max-width:160px">
+      <button onclick="copyVal('part_5', this)">② 품번 복사</button>
+      <input id="sku_5" value="GPARTS-99140-AR000-20250816220400440003" readonly style="max-width:300px">
+      <button onclick="copyVal('sku_5', this)">③ SKU 복사</button>
+      <input id="price_5" value="364.99" readonly style="max-width:110px">
+      <button onclick="copyVal('price_5', this)">④ 가격($) 복사</button>
+    </div>
+    <div class="row">
+      <textarea id="desc_5" rows="3" readonly>====================================================================
+100% GENUINE OEM HYUNDAI / KIA / GENESIS FACTORY PART (SHIPPED FROM SOUTH KOREA)
+====================================================================
+
+■ PART INFORMATION
+• Vehicle Compatibility: Genesis GV70 (Model Years: 2020-2023)
+• Part Name: Rear Blind Spot Radar Sensor
+• Placement on Vehicle: Rear Left Driver Side (LH)
+• Genuine OEM Part Number: 99140-AR000 (Interchange: 99140AR000)
+• Condition: Used - Genuine OEM Factory Original (Tested & Inspected in South Korea)
+• Country of Origin: Made in South Korea (100% Authentic OEM, NOT a Chinese aftermarket clone)
+
+■ FITMENT & BUYER PROTECTION NOTICE (PLEASE READ BEFORE PURCHASE)
+1. MATCH PART NUMBER FIRST: Please verify that your existing part's 10-digit OEM Part Number matches [99140-AR000] before ordering.
+2. FAST & SAFE INTERNATIONAL SHIPPING: Shipped directly from South Korea via tracked air express with heavy-duty bubble wrap protection.</textarea>
+      <button onclick="copyVal('desc_5', this)">⑤ 상세설명 복사</button>
+    </div>
+    <div class="meta">
+      📂 사진 폴더 경로: <input id="dir_5" value="e:\안티그래비티\지파츠_이베이_자동리스팅\photos\06_99140-AR000_20250816220400440003" readonly style="max-width:460px;padding:4px 8px;font-size:12px;">
+      <button onclick="copyVal('dir_5', this)" style="padding:5px 10px;font-size:12px;background:#444;">폴더경로 복사</button>
+      | 지파츠 재고: <b>3개</b> (1순위 코드: <code>20250816220400440003</code>)
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="header">
+      <span>#7 [Hyundai Ioniq 5] Front Cruise Control Radar Sensor (품번: 99110-GI500)</span>
+      <span class="profit">예상 순수익: +145,508원 (지파츠 66,000원 → 이베이 $202.99)</span>
+    </div>
+    <div class="photos"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/07_99110-GI500_20260213830200043021/photo_1.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/07_99110-GI500_20260213830200043021/photo_backup_2.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"></div>
+    <div class="row">
+      <input id="title_6" value="OEM Hyundai Ioniq 5 Front Front Cruise Control Radar Sensor 99110-GI500" readonly>
+      <button onclick="copyVal('title_6', this)">① 영문제목 복사</button>
+    </div>
+    <div class="row">
+      <input id="part_6" value="99110-GI500" readonly style="max-width:160px">
+      <button onclick="copyVal('part_6', this)">② 품번 복사</button>
+      <input id="sku_6" value="GPARTS-99110-GI500-20260213830200043021" readonly style="max-width:300px">
+      <button onclick="copyVal('sku_6', this)">③ SKU 복사</button>
+      <input id="price_6" value="202.99" readonly style="max-width:110px">
+      <button onclick="copyVal('price_6', this)">④ 가격($) 복사</button>
+    </div>
+    <div class="row">
+      <textarea id="desc_6" rows="3" readonly>====================================================================
+100% GENUINE OEM HYUNDAI / KIA / GENESIS FACTORY PART (SHIPPED FROM SOUTH KOREA)
+====================================================================
+
+■ PART INFORMATION
+• Vehicle Compatibility: Hyundai Ioniq 5 (Model Years: 2021-2024)
+• Part Name: Front Cruise Control Radar Sensor
+• Placement on Vehicle: Front
+• Genuine OEM Part Number: 99110-GI500 (Interchange: 99110GI500)
+• Condition: Used - Genuine OEM Factory Original (Tested & Inspected in South Korea)
+• Country of Origin: Made in South Korea (100% Authentic OEM, NOT a Chinese aftermarket clone)
+
+■ FITMENT & BUYER PROTECTION NOTICE (PLEASE READ BEFORE PURCHASE)
+1. MATCH PART NUMBER FIRST: Please verify that your existing part's 10-digit OEM Part Number matches [99110-GI500] before ordering.
+2. FAST & SAFE INTERNATIONAL SHIPPING: Shipped directly from South Korea via tracked air express with heavy-duty bubble wrap protection.</textarea>
+      <button onclick="copyVal('desc_6', this)">⑤ 상세설명 복사</button>
+    </div>
+    <div class="meta">
+      📂 사진 폴더 경로: <input id="dir_6" value="e:\안티그래비티\지파츠_이베이_자동리스팅\photos\07_99110-GI500_20260213830200043021" readonly style="max-width:460px;padding:4px 8px;font-size:12px;">
+      <button onclick="copyVal('dir_6', this)" style="padding:5px 10px;font-size:12px;background:#444;">폴더경로 복사</button>
+      | 지파츠 재고: <b>2개</b> (1순위 코드: <code>20260213830200043021</code>)
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="header">
+      <span>#8 [Kia EV6] Rear Blind Spot Radar Sensor (품번: 99140-CV000)</span>
+      <span class="profit">예상 순수익: +119,931원 (지파츠 55,000원 → 이베이 $171.99)</span>
+    </div>
+    <div class="photos"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/08_99140-CV000_20260213830400440016/photo_1.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/08_99140-CV000_20260213830400440016/photo_backup_2.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"></div>
+    <div class="row">
+      <input id="title_7" value="OEM Kia EV6 2021-2024 Rear Left LH Rear Blind Spot Radar Sensor 99140-CV000" readonly>
+      <button onclick="copyVal('title_7', this)">① 영문제목 복사</button>
+    </div>
+    <div class="row">
+      <input id="part_7" value="99140-CV000" readonly style="max-width:160px">
+      <button onclick="copyVal('part_7', this)">② 품번 복사</button>
+      <input id="sku_7" value="GPARTS-99140-CV000-20260213830400440016" readonly style="max-width:300px">
+      <button onclick="copyVal('sku_7', this)">③ SKU 복사</button>
+      <input id="price_7" value="171.99" readonly style="max-width:110px">
+      <button onclick="copyVal('price_7', this)">④ 가격($) 복사</button>
+    </div>
+    <div class="row">
+      <textarea id="desc_7" rows="3" readonly>====================================================================
+100% GENUINE OEM HYUNDAI / KIA / GENESIS FACTORY PART (SHIPPED FROM SOUTH KOREA)
+====================================================================
+
+■ PART INFORMATION
+• Vehicle Compatibility: Kia EV6 (Model Years: 2021-2024)
+• Part Name: Rear Blind Spot Radar Sensor
+• Placement on Vehicle: Rear Left Driver Side (LH)
+• Genuine OEM Part Number: 99140-CV000 (Interchange: 99140CV000)
+• Condition: Used - Genuine OEM Factory Original (Tested & Inspected in South Korea)
+• Country of Origin: Made in South Korea (100% Authentic OEM, NOT a Chinese aftermarket clone)
+
+■ FITMENT & BUYER PROTECTION NOTICE (PLEASE READ BEFORE PURCHASE)
+1. MATCH PART NUMBER FIRST: Please verify that your existing part's 10-digit OEM Part Number matches [99140-CV000] before ordering.
+2. FAST & SAFE INTERNATIONAL SHIPPING: Shipped directly from South Korea via tracked air express with heavy-duty bubble wrap protection.</textarea>
+      <button onclick="copyVal('desc_7', this)">⑤ 상세설명 복사</button>
+    </div>
+    <div class="meta">
+      📂 사진 폴더 경로: <input id="dir_7" value="e:\안티그래비티\지파츠_이베이_자동리스팅\photos\08_99140-CV000_20260213830400440016" readonly style="max-width:460px;padding:4px 8px;font-size:12px;">
+      <button onclick="copyVal('dir_7', this)" style="padding:5px 10px;font-size:12px;background:#444;">폴더경로 복사</button>
+      | 지파츠 재고: <b>2개</b> (1순위 코드: <code>20260213830400440016</code>)
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="header">
+      <span>#9 [Hyundai Ioniq 5] ADAS Front / Surround View Camera (품번: 99211-GI010)</span>
+      <span class="profit">예상 순수익: +491,426원 (지파츠 220,000원 → 이베이 $624.99)</span>
+    </div>
+    <div class="photos"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/09_99211-GI010_20250917300409999102/photo_1.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/09_99211-GI010_20250917300409999102/photo_2.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/09_99211-GI010_20250917300409999102/photo_3.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/09_99211-GI010_20250917300409999102/photo_4.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"></div>
+    <div class="row">
+      <input id="title_8" value="OEM Hyundai Ioniq 5 2021-2024 ADAS Front / Surround View Camera 99211-GI010" readonly>
+      <button onclick="copyVal('title_8', this)">① 영문제목 복사</button>
+    </div>
+    <div class="row">
+      <input id="part_8" value="99211-GI010" readonly style="max-width:160px">
+      <button onclick="copyVal('part_8', this)">② 품번 복사</button>
+      <input id="sku_8" value="GPARTS-99211-GI010-20250917300409999102" readonly style="max-width:300px">
+      <button onclick="copyVal('sku_8', this)">③ SKU 복사</button>
+      <input id="price_8" value="624.99" readonly style="max-width:110px">
+      <button onclick="copyVal('price_8', this)">④ 가격($) 복사</button>
+    </div>
+    <div class="row">
+      <textarea id="desc_8" rows="3" readonly>====================================================================
+100% GENUINE OEM HYUNDAI / KIA / GENESIS FACTORY PART (SHIPPED FROM SOUTH KOREA)
+====================================================================
+
+■ PART INFORMATION
+• Vehicle Compatibility: Hyundai Ioniq 5 (Model Years: 2021-2024)
+• Part Name: ADAS Front / Surround View Camera
+• Placement on Vehicle: Direct Replacement
+• Genuine OEM Part Number: 99211-GI010 (Interchange: 99211GI010)
+• Condition: Used - Genuine OEM Factory Original (Tested & Inspected in South Korea)
+• Country of Origin: Made in South Korea (100% Authentic OEM, NOT a Chinese aftermarket clone)
+
+■ FITMENT & BUYER PROTECTION NOTICE (PLEASE READ BEFORE PURCHASE)
+1. MATCH PART NUMBER FIRST: Please verify that your existing part's 10-digit OEM Part Number matches [99211-GI010] before ordering.
+2. FAST & SAFE INTERNATIONAL SHIPPING: Shipped directly from South Korea via tracked air express with heavy-duty bubble wrap protection.</textarea>
+      <button onclick="copyVal('desc_8', this)">⑤ 상세설명 복사</button>
+    </div>
+    <div class="meta">
+      📂 사진 폴더 경로: <input id="dir_8" value="e:\안티그래비티\지파츠_이베이_자동리스팅\photos\09_99211-GI010_20250917300409999102" readonly style="max-width:460px;padding:4px 8px;font-size:12px;">
+      <button onclick="copyVal('dir_8', this)" style="padding:5px 10px;font-size:12px;background:#444;">폴더경로 복사</button>
+      | 지파츠 재고: <b>1개</b> (1순위 코드: <code>20250917300409999102</code>)
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="header">
+      <span>#10 [Genesis GV70] Side Door Mirror w/ Camera & BSD (품번: 87610-AR010)</span>
+      <span class="profit">예상 순수익: +401,637원 (지파츠 180,000원 → 이베이 $514.99)</span>
+    </div>
+    <div class="photos"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/10_87610-AR010_20250411700100120096/photo_1.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/10_87610-AR010_20250411700100120096/photo_2.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/10_87610-AR010_20250411700100120096/photo_3.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/10_87610-AR010_20250411700100120096/photo_4.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/10_87610-AR010_20250411700100120096/photo_5.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"><img src="file:///e:/안티그래비티/지파츠_이베이_자동리스팅/photos/10_87610-AR010_20250411700100120096/photo_6.jpg" style="height:105px;border-radius:6px;border:1px solid #444;margin-right:8px;"></div>
+    <div class="row">
+      <input id="title_9" value="OEM Genesis GV70 2021-2024 Left LH Side Door Mirror w/ Camera & BSD 87610-AR010" readonly>
+      <button onclick="copyVal('title_9', this)">① 영문제목 복사</button>
+    </div>
+    <div class="row">
+      <input id="part_9" value="87610-AR010" readonly style="max-width:160px">
+      <button onclick="copyVal('part_9', this)">② 품번 복사</button>
+      <input id="sku_9" value="GPARTS-87610-AR010-20250411700100120096" readonly style="max-width:300px">
+      <button onclick="copyVal('sku_9', this)">③ SKU 복사</button>
+      <input id="price_9" value="514.99" readonly style="max-width:110px">
+      <button onclick="copyVal('price_9', this)">④ 가격($) 복사</button>
+    </div>
+    <div class="row">
+      <textarea id="desc_9" rows="3" readonly>====================================================================
+100% GENUINE OEM HYUNDAI / KIA / GENESIS FACTORY PART (SHIPPED FROM SOUTH KOREA)
+====================================================================
+
+■ PART INFORMATION
+• Vehicle Compatibility: Genesis GV70 (Model Years: 2021-2024)
+• Part Name: Side Door Mirror w/ Camera & BSD
+• Placement on Vehicle: Left Driver Side (LH)
+• Genuine OEM Part Number: 87610-AR010 (Interchange: 87610AR010)
+• Condition: Used - Genuine OEM Factory Original (Tested & Inspected in South Korea)
+• Country of Origin: Made in South Korea (100% Authentic OEM, NOT a Chinese aftermarket clone)
+
+■ FITMENT & BUYER PROTECTION NOTICE (PLEASE READ BEFORE PURCHASE)
+1. MATCH PART NUMBER FIRST: Please verify that your existing part's 10-digit OEM Part Number matches [87610-AR010] before ordering.
+2. FAST & SAFE INTERNATIONAL SHIPPING: Shipped directly from South Korea via tracked air express with heavy-duty bubble wrap protection.</textarea>
+      <button onclick="copyVal('desc_9', this)">⑤ 상세설명 복사</button>
+    </div>
+    <div class="meta">
+      📂 사진 폴더 경로: <input id="dir_9" value="e:\안티그래비티\지파츠_이베이_자동리스팅\photos\10_87610-AR010_20250411700100120096" readonly style="max-width:460px;padding:4px 8px;font-size:12px;">
+      <button onclick="copyVal('dir_9', this)" style="padding:5px 10px;font-size:12px;background:#444;">폴더경로 복사</button>
+      | 지파츠 재고: <b>1개</b> (1순위 코드: <code>20250411700100120096</code>)
+    </div>
+  </div>
+  <script>
+    function copyVal(id, btn) {
+      const el = document.getElementById(id);
+      navigator.clipboard.writeText(el.value);
+      const old = btn.innerText;
+      btn.innerText = '✅ 복사 완료!';
+      btn.style.background = '#2ea043';
+      setTimeout(() => {
+        btn.innerText = old;
+        btn.style.background = id.startsWith('dir_') ? '#444' : '#1f6feb';
+      }, 1200);
+    }
+  </script>
+</body>
+</html>

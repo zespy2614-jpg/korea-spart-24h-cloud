@@ -1,0 +1,16 @@
+{
+  "phone": "010-7633-0924",
+  "phoneClean": "01076330924",
+  "phoneE164": "+821076330924",
+  "naverEmail": "kanjji@naver.com",
+  "gmailEmail": "zespy2614@gmail.com",
+  "enableNaverGmailUrgentPush": true,
+  "enableNtfyMobilePush": true,
+  "ntfyTopicUrl": "https://ntfy.sh/ebay_order_01076330924",
+  "enableEbayNativeNotification": true,
+  "solapi": {
+    "apiKey": "",
+    "apiSecret": "",
+    "senderPhone": "01076330924"
+  }
+}

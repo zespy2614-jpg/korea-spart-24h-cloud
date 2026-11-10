@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>안티그래비티 — 웨일 전체탭 직행 런처 (해커데이 TOP 6 & 중국 개인 시제품 공방 22선)</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --card-hover: #26354d;
+      --border: #334155;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --green: #10b981;
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+      --purple: #a855f7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      padding: 28px 36px 60px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 28px;
+    }
+    h1 { font-size: 24px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+    .subtitle { color: var(--muted); font-size: 14px; margin-top: 4px; }
+    .badge-bar { display: flex; gap: 10px; flex-wrap: wrap; }
+    .badge {
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: var(--accent);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .section-title {
+      font-size: 19px;
+      font-weight: 700;
+      margin: 32px 0 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+    }
+    .section-title span {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      background: var(--card-hover);
+    }
+    .tag-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .tag {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 6px;
+      background: rgba(16, 185, 129, 0.18);
+      color: #34d399;
+    }
+    .tag.amber { background: rgba(245, 158, 11, 0.18); color: #fbbf24; }
+    .tag.purple { background: rgba(168, 85, 247, 0.18); color: #c084fc; }
+    .tag.rose { background: rgba(244, 63, 94, 0.18); color: #fb7185; }
+    .price { font-size: 13px; font-weight: 700; color: #fbbf24; }
+    .card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: #fff; }
+    .card p { font-size: 13.5px; color: var(--muted); margin-bottom: 14px; }
+    .btn-group { display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto; }
+    a.btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-decoration: none;
+      background: #0284c7;
+      color: #fff;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 9px 14px;
+      border-radius: 8px;
+      flex: 1;
+      text-align: center;
+      transition: background 0.15s;
+    }
+    a.btn:hover { background: #0369a1; }
+    a.btn.secondary { background: #334155; }
+    a.btn.secondary:hover { background: #475569; }
+    .copy-box {
+      background: #0b1120;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      margin-top: 10px;
+      font-size: 13px;
+      color: #cbd5e1;
+    }
+    .copy-btn {
+      margin-top: 8px;
+      background: var(--green);
+      color: #06281e;
+      border: none;
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 12.5px;
+    }
+    .copy-btn:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>🚀 안티그래비티 — 네이버 웨일 전체화면 직행 런처</h1>
+      <div class="subtitle">사이드바(내장 프리뷰)가 아닌 웨일 브라우저 본창 전체 탭에서 100% 바로 열리도록 구성된 전용 대시보드입니다.</div>
+    </div>
+    <div class="badge-bar">
+      <span class="badge">✅ 웨일 새 탭(전체화면) 열기 적용</span>
+      <span class="badge">⚡ bambulab.cn / makerworld.com.cn 초고속 패치 완료</span>
+    </div>
+  </header>
+
+  <!-- SECTION 1: HACKADAY TOP 6 -->
+  <div class="section-title">
+    🏆 1. 해커데이(Hackaday.io) 내가 만들 만한 '쌈빡한' 오픈소스 하드웨어 TOP 6
+    <span>(회로도 + 3D 도면 STL + 펌웨어 100% 공개작)</span>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div>
+        <div class="tag-row">
+          <span class="tag rose">1위 · 데스크테리어/컨트롤러 끝판왕</span>
+          <span class="price">원가 ~3만원 → 판가 13~18만원</span>
+        </div>
+        <h3>SmartKnob (스마트 햅틱 다이얼 노브)</h3>
+        <p>원형 IPS LCD + 초박형 짐벌 BLDC 모터 + ESP32 조합. 물리적 톱니 없이 전자기력(SimpleFOC)만으로 묵직한 금고 다이얼감·1도 정밀 클릭감·스프링 저항감을 실시간 변신시키는 미래형 컨트롤러.</p>
+      </div>
+      <div class="btn-group">
+        <a class="btn" href="https://hackaday.io/project/191447-smart-knob" target="_blank" rel="noopener">🔗 Smart Knob 원작 열기</a>
+        <a class="btn secondary" href="https://hackaday.io/project/196878-matouch-smartknob-assembled" target="_blank" rel="noopener">🔗 양산형 구조 레퍼런스</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <div class="tag-row">
+          <span class="tag rose">2위 · 3D프린터 유저/설계자 로망</span>
+          <span class="price">원가 ~2.7만원 → 판가 8~12만원</span>
+        </div>
+        <h3>MagMouse & Galaxy6D (6축 3D CAD 우주마우스)</h3>
+        <p>정품 35~55만 원짜리 3Dconnexion SpaceMouse를 단 1장의 커스텀 PCB + 3D 홀 자기센서 + 네오디뮴 자석 + 3D프린팅 탄성 스프링 + XIAO ESP32-S3(블루투스 무선)로 완벽 대체!</p>
+      </div>
+      <div class="btn-group">
+        <a class="btn" href="https://hackaday.io/project/204651-magmouse" target="_blank" rel="noopener">🔗 MagMouse (원보드 무선)</a>
+        <a class="btn secondary" href="https://hackaday.io/project/192855-galaxy6d-simple-diy-full-6d-space-mouse" target="_blank" rel="noopener">🔗 Galaxy6D 프로젝트</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <div class="tag-row">
+          <span class="tag amber">3위 · 무선에어건 부품 90% 호환!</span>
+          <span class="price">프라모델/네일/공방 고단가 시장</span>
+        </div>
+        <h3>무선 터보 분진·납연기 집진기 & 날개없는 팬 & 마끼다 파워독</h3>
+        <p>무선에어건용 브러시리스 모터·배터리·제어기를 그대로 써서 ①프라모델/네일/납땜 무선 집진기, ②다이슨형 날개없는 책상 선풍기, ③마끼다 18V 파워스테이션으로 제품 라인업 3배 확장!</p>
+      </div>
+      <div class="btn-group">
+        <a class="btn" href="https://hackaday.io/project/187925-solder-fume-extraction-station-deluxe-from-scrap" target="_blank" rel="noopener">🔗 USB-C PD 무선 집진기</a>
+        <a class="btn secondary" href="https://hackaday.io/project/174319-bladeless-fan" target="_blank" rel="noopener">🔗 날개없는 브러시리스 팬</a>
+        <a class="btn secondary" href="https://hackaday.io/project/194783-makita-lxt-power-station" target="_blank" rel="noopener">🔗 마끼다 파워스테이션</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <div class="tag-row">
+          <span class="tag purple">4위 · 추가 모듈 무한 확장</span>
+          <span class="price">원가 ~1.5만원 → 세트 6~9만원</span>
+        </div>
+        <h3>beyblock20 (자석으로 '찰칵' 합체되는 마그네틱 매크로패드)</h3>
+        <p>측면 자석과 포고핀(Pogo Pin)으로 기본 키패드에 볼륨 다이얼 블록·OLED 블록을 레고처럼 붙이면 자동 인식! 100% 3D 프린팅 케이스로 제작 가능.</p>
+      </div>
+      <div class="btn-group">
+        <a class="btn" href="https://hackaday.io/project/186937-beyblock20-the-modular-magnetic-macropad" target="_blank" rel="noopener">🔗 beyblock20 프로젝트 열기</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <div class="tag-row">
+          <span class="tag purple">5위 · RK3566 보드 활용 끝판왕</span>
+          <span class="price">원가 ~6만원 → 판가 19~29만원</span>
+        </div>
+        <h3>사이버덱 핸드헬드 리눅스 터미널 (Cyberdeck Handheld)</h3>
+        <p>2만 원대 타이산파이(RK3566) 보드 + 소형 IPS 화면 + 기계식 미니 키패드 + 노출형 황동/알루미늄 방열판 + 3D 프린팅 프레임을 결합한 포켓 리눅스 UMPC.</p>
+      </div>
+      <div class="btn-group">
+        <a class="btn" href="https://hackaday.io/project/202522-cyberdeck-handheld" target="_blank" rel="noopener">🔗 Cyberdeck Handheld 열기</a>
+        <a class="btn secondary" href="https://hackaday.io/project/191890-hamdeck-cyberdeck/details" target="_blank" rel="noopener">🔗 HamDeck 밀리터리 터미널</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <div class="tag-row">
+          <span class="tag">6위 · 기판 시제품 자작 필수템</span>
+          <span class="price">원가 ~1.2만원 → 판가 4~6만원</span>
+        </div>
+        <h3>DIY USB-C PD 100W 포켓 자동 리플로우 핫플레이트</h3>
+        <p>스마트폰 충전기(USB-C PD)를 꽂으면 명함 크기 세라믹 발열판이 250℃까지 자동 온도 제어로 SMD 기판을 납땜해주는 스마트 핫플레이트.</p>
+      </div>
+      <div class="btn-group">
+        <a class="btn" href="https://hackaday.io/project/194305-diy-usb-pd-powered-mch-automatic-reflow-hotplate" target="_blank" rel="noopener">🔗 MCH USB-PD 핫플레이트</a>
+        <a class="btn secondary" href="https://hackaday.io/project/196747-reflowcard" target="_blank" rel="noopener">🔗 Reflow.Card 명함형</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: GOOFISH CHINESE INDIVIDUAL MAKERS -->
+  <div class="section-title">
+    🇨🇳 2. 중국 시엔위(Goofish) 개인 시제품 제작업자·1인 공방 직링크 (무선에어건 / 나일론 출력 / RK3566)
+    <span>(브로커 제외한 실제 현업 개인 메이커)</span>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div>
+        <div class="tag-row">
+          <span class="tag">무선에어건 외장 커스텀 공방</span>
+          <span class="price">30 ~ 190위안 (약 6천원~3.7만원)</span>
+        </div>
+        <h3>다이슨 V8 & 브러시리스 터보팬 시제품 1인 공방 모음</h3>
+        <p>마끼다·데이A3·보쉬 배터리 슬롯 및 황동 인서트 너트 열압착, 치수 맞춤 설계, 완제품 샘플 제작이 가능한 중국 개인 공방 직링크입니다.</p>
+      </div>
+      <div class="btn-group">
+        <a class="btn" href="https://www.goofish.com/item?id=1052550741351" target="_blank" rel="noopener">① 5종 배터리 호환 커스텀(50위안)</a>
+        <a class="btn" href="https://www.goofish.com/item?id=906384003412" target="_blank" rel="noopener">② 치수맞춤+황동너트(139위안)</a>
+        <a class="btn secondary" href="https://www.goofish.com/item?id=1047487482146" target="_blank" rel="noopener">③ V8 회전전환 완제품(170위안)</a>
+        <a class="btn secondary" href="https://www.goofish.com/item?id=683732320664" target="_blank" rel="noopener">④ 32mm 소강포 원천공방</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <div class="tag-row">
+          <span class="tag amber">고강도 사출급 시제품 출력</span>
+          <span class="price">1개 단품 제작 & 무료 도면수정</span>
+        </div>
+        <h3>탄소섬유 나일론(PA6-CF) & HP MJF 나일론(PA12) 시제품 공방</h3>
+        <p>고속 모터 진동과 열에 깨지지 않는 엔지니어링 플라스틱(PA6-CF, PAHT-CF, 산업용 MJF 나일론, 전투명 레진) 1개 단위 시제품 출력소입니다.</p>
+      </div>
+      <div class="btn-group">
+        <a class="btn" href="https://www.goofish.com/item?id=1098417132999" target="_blank" rel="noopener">① PA6-CF 기계구조물 시제품</a>
+        <a class="btn" href="https://www.goofish.com/item?id=694799041929" target="_blank" rel="noopener">② HP MJF 나일론 직영(무료수정도면)</a>
+        <a class="btn secondary" href="https://www.goofish.com/item?id=1018257191991" target="_blank" rel="noopener">③ PAHT-CF 고온나일론 스냅핏</a>
+        <a class="btn secondary" href="https://www.goofish.com/item?id=1087065348551" target="_blank" rel="noopener">④ 전투명 레진/나일론 공장가</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <div class="tag-row">
+          <span class="tag purple">RK3566 / 임베디드 / PCB 외주</span>
+          <span class="price">현업 개인 엔지니어 (个人接单)</span>
+        </div>
+        <h3>RK3566 리눅스·하드웨어·BGA 수작업 실장 개인 엔지니어</h3>
+        <p>타이산파이(RK3566) 터치스크린+외장 시제품 제작자, 임베디드 리눅스/MCU 외주 개발자, BGA 칩 납땜 장인('리 엔지니어') 직링크입니다.</p>
+      </div>
+      <div class="btn-group">
+        <a class="btn" href="https://www.goofish.com/item?id=1096216722483" target="_blank" rel="noopener">① 임베디드/RK3588·3566 개발외주</a>
+        <a class="btn" href="https://www.goofish.com/item?id=1053226749827" target="_blank" rel="noopener">② 타이산파이 RK3566 완제품제작자</a>
+        <a class="btn secondary" href="https://www.goofish.com/item?id=652648330794" target="_blank" rel="noopener">③ 리 엔지니어(BGA칩 수작업실장)</a>
+        <a class="btn secondary" href="https://www.goofish.com/item?id=1095382219779" target="_blank" rel="noopener">④ RK3566 알루미늄 케이스세트</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: OPEN SOURCE HARDWARE & 3D SITES -->
+  <div class="section-title">
+    🌐 3. 메이커월드 & 오픈소스 하드웨어(기판+3D도면) 성지 사이트 바로가기
+  </div>
+  <div class="grid">
+    <div class="card">
+      <h3>중국 입창 오픈소스 하드웨어 광장 (OSHWHub)</h3>
+      <p>RK3566(타이산파이), 무선에어건, 스마트노브 회로도+PCB+3D외장을 원클릭으로 복제·주문하는 중국 최대 성지</p>
+      <div class="btn-group">
+        <a class="btn" href="https://oshwhub.com/search?wd=RK3566" target="_blank" rel="noopener">🔗 OSHWHub RK3566 검색</a>
+        <a class="btn secondary" href="https://oshwhub.com/search?wd=%E6%9A%B4%E5%8A%9B%E9%A3%8E%E6%89%87" target="_blank" rel="noopener">🔗 무선에어건(暴力风扇) 검색</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3>뱀부랩 중국 공식몰 & 메이커월드 중국판 (초고속 DNS 개통 완료)</h3>
+      <p>기존 150초 걸리던 접속 지연을 0.5초로 단축 완료한 중국 뱀부랩·메이커월드 직링크</p>
+      <div class="btn-group">
+        <a class="btn" href="https://makerworld.com.cn/zh" target="_blank" rel="noopener">🔗 MakerWorld 중국판</a>
+        <a class="btn secondary" href="https://bambulab.cn/zh-cn" target="_blank" rel="noopener">🔗 Bambu Lab 중국 공식몰</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3>해커데이(Hackaday.io) & 일렉트로메이커</h3>
+      <p>전 세계 천재 엔지니어들의 하드웨어 프로젝트 쇼케이스</p>
+      <div class="btn-group">
+        <a class="btn" href="https://hackaday.io/projects" target="_blank" rel="noopener">🔗 Hackaday.io 전체 프로젝트</a>
+        <a class="btn secondary" href="https://www.electromaker.io/projects" target="_blank" rel="noopener">🔗 Electromaker 프로젝트</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

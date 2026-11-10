@@ -1,0 +1,1244 @@
+{
+  "cycle": 115,
+  "idx": 3187,
+  "totalSignalsCrawled": 3189,
+  "lastUpdated": "2026. 11. 11. AM 1:03:17",
+  "recentSignals": [
+    {
+      "seq": 3189,
+      "timestamp": "2026. 11. 11. AM 1:03:17",
+      "code": "MOAT-20",
+      "shard": "OPEN_INSTRUMENTS",
+      "domain": "7. 초고가 연구·계측·취미 장비 1/10 가격 오픈소스 계측기 대체재",
+      "title": "스페셜티 커피 로스터리용 정품 250만 원대 \"원두 로스팅 색도계(Agtron) & 수분·밀도 측정기\" 오픈소스 분광 센서 키트",
+      "aiBlindspot": "로스터리 카페마다 원두 배전도(Agtron 수치)를 재야 일관된 맛이 나는데, 상업용 색도계는 수백만 원이고 저가형은 보정(Calibration) 수식이 틀려 오차가 심함",
+      "compoundAsset": "1만 원짜리 다파장 분광 센서(AS7341) + 표준 색도 타일 기준 회귀 보정 데이터셋을 저축해 정품과 오차 1% 이내인 포켓 색도계 완성",
+      "synergyWithUser": "소형 3D 프린팅 암실 케이스 + 펌웨어 보정값 잠금으로 카페 B2B 시장 독점",
+      "pricingModel": "포켓 로스트 애널라이저 24만 원 ($195, 순마진 78%)",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-20-core",
+        "stars": 120,
+        "desc": "스페셜티 커피 로스터리용 정품 250만 원대 \"원두 로스팅 색도계(Agtron) & 수분·밀도 측정기\" 오픈소스 분광 센서 키트",
+        "url": "https://github.com/search?q=coffee%20roast%20degree%20color%20meter%20AS7265x%20AS7341%20open%20source&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] open source coffee roast color meter Agtron AS7341",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=open%20source%20coffee%20roast%20color%20meter%20Agtron%20AS7341"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "coffee roast meter",
+        "url": "https://hackaday.io/search?term=coffee%20roast%20meter"
+      }
+    },
+    {
+      "seq": 3188,
+      "timestamp": "2026. 11. 11. AM 1:02:52",
+      "code": "MOAT-19",
+      "shard": "OPEN_INSTRUMENTS",
+      "domain": "7. 초고가 연구·계측·취미 장비 1/10 가격 오픈소스 계측기 대체재",
+      "title": "정품 42만 원 와후 헤드윈드를 대체하는 \"무선에어건 BLDC + ANT+/BLE 심박·속도 연동\" 스마트 사이클링 윈드 터널",
+      "aiBlindspot": "일반 선풍기는 리모컨으로 바람을 조절해야 하지만, 실내 자전거 유저는 페달 파워(Watt)와 심박수에 따라 바람이 자동 변화하는 프로토콜 연동을 원함",
+      "compoundAsset": "즈위프트·가민·와후 센서 BLE 프로토콜 연동 펌웨어와 에어로 덕트 노즐 설계를 저축해 스포츠 테크 하드웨어로 포지셔닝",
+      "synergyWithUser": "대표님의 주력 아이템인 무선에어건(BLDC 모터/제어기)을 그대로 쓰면서 단가를 4배 높이는 최고의 창의적 피벗",
+      "pricingModel": "스마트 윈드 터널 세트 18.9만 원 (글로벌 $159)",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-19-core",
+        "stars": 120,
+        "desc": "정품 42만 원 와후 헤드윈드를 대체하는 \"무선에어건 BLDC + ANT+/BLE 심박·속도 연동\" 스마트 사이클링 윈드 터널",
+        "url": "https://github.com/search?q=Zwift%20smart%20fan%20ANT%2B%20BLE%20ESP32%20PWM%20control&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] DIY Wahoo Headwind smart fan Zwift ESP32",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=DIY%20Wahoo%20Headwind%20smart%20fan%20Zwift%20ESP32"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "smart fan bicycle trainer",
+        "url": "https://hackaday.io/search?term=smart%20fan%20bicycle%20trainer"
+      }
+    },
+    {
+      "seq": 3187,
+      "timestamp": "2026. 11. 11. AM 1:02:28",
+      "code": "MOAT-18",
+      "shard": "EDGE_AI_DONGLE_B2B",
+      "domain": "6. 하드웨어 동글(RK3566/올인원) 결합형 현장 Edge AI 어플라이언스",
+      "title": "소형 금형·사출·나사 포장 공장용 \"안드로이드 올인원 모니터 + AHD 접사 카메라\" 기반 무설정 시각 불량/누락 카운터",
+      "aiBlindspot": "키엔스·코그넥스 비전 검사는 한 라인 구축에 1,000만 원이 넘어 소규모 임가공·포장 공장은 사람 눈으로 세다가 클레임을 맞음",
+      "compoundAsset": "RK3566 내장 NPU(0.8~1 TOPS)를 활용해 정상 샘플 5개만 찍으면 포장 부품 누락·이물질을 0.2초 만에 잡아내는 초간단 현장 비전 앱 저축",
+      "synergyWithUser": "보유하신 RK3566 보드 및 안드로이드 모니터를 산업용 간이 비전 검사기(대당 55만 원)로 판매",
+      "pricingModel": "검사 키트 대당 55만 원 (공장당 3~5대 반복 구매)",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-18-core",
+        "stars": 120,
+        "desc": "소형 금형·사출·나사 포장 공장용 \"안드로이드 올인원 모니터 + AHD 접사 카메라\" 기반 무설정 시각 불량/누락 카운터",
+        "url": "https://github.com/search?q=edge%20AI%20defect%20counting%20OpenCV%20RK3566%20NPU&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] low cost machine vision inspection small factory",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=low%20cost%20machine%20vision%20inspection%20small%20factory"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "machine vision quality control",
+        "url": "https://hackaday.io/search?term=machine%20vision%20quality%20control"
+      }
+    },
+    {
+      "seq": 3186,
+      "timestamp": "2026. 11. 11. AM 1:02:03",
+      "code": "MOAT-17",
+      "shard": "EDGE_AI_DONGLE_B2B",
+      "domain": "6. 하드웨어 동글(RK3566/올인원) 결합형 현장 Edge AI 어플라이언스",
+      "title": "중고 부품 셀러·폐차장·리퍼 공방 전용 \"기판/부품 올려놓으면 1초 품번 OCR + 8개국 시세 조회 + 이베이 자동 등록\" 스튜디오 박스",
+      "aiBlindspot": "폐차장·고물상 사장님들은 수만 개의 부품이 돈이 되는 줄 알아도 영어 품번 검색과 이베이 등록 방법을 몰라 고철로 버림",
+      "compoundAsset": "카메라와 조명이 달린 RK3566(또는 안드로이드 올인원) 단말기 아래에 부품을 놓으면 대표님의 3848/3847 엔진이 시세를 판독해 대신 팔아주는 B2B 위탁/구독 플랫폼",
+      "synergyWithUser": "대표님이 이미 구축하신 지파츠·이베이·8개국 크롤링 시스템과 RK3566/안드로이드 모니터를 결합한 최종 진화형 플랫폼",
+      "pricingModel": "전용 스캐너 박스 대여 + 판매 성사 수수료 20% 공유",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-17-core",
+        "stars": 120,
+        "desc": "중고 부품 셀러·폐차장·리퍼 공방 전용 \"기판/부품 올려놓으면 1초 품번 OCR + 8개국 시세 조회 + 이베이 자동 등록\" 스튜디오 박스",
+        "url": "https://github.com/search?q=automated%20product%20photography%20turntable%20OCR%20eBay%20listing&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] automate eBay auto parts listing OCR barcode",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=automate%20eBay%20auto%20parts%20listing%20OCR%20barcode"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "automated photography box",
+        "url": "https://hackaday.io/search?term=automated%20photography%20box"
+      }
+    },
+    {
+      "seq": 3185,
+      "timestamp": "2026. 11. 11. AM 1:01:44",
+      "code": "MOAT-16",
+      "shard": "EDGE_AI_DONGLE_B2B",
+      "domain": "6. 하드웨어 동글(RK3566/올인원) 결합형 현장 Edge AI 어플라이언스",
+      "title": "RK3566 빔프로젝터 결합형 베이킹(레터링 케이크)·가죽·미싱·타투 공방 전용 \"AI 도안 외곽선 추출 & 1:1 실측 투사기\"",
+      "aiBlindspot": "일반 빔프로젝터는 각도가 틀어지면 사다리꼴 왜곡이 생겨 공방 도안용으로 쓰기 불편하며, 매번 줄자로 크기를 맞추기 번거로움",
+      "compoundAsset": "고객이 카톡/웹으로 사진을 올리면 AI가 선화(Line Art)로 바꾸고, 작업대 위 기준 마커를 인식해 정확히 가로세로 cm를 맞춰 쏴주는 전용 RK3566 앱 저축",
+      "synergyWithUser": "대표님 보유 RK3566 빔프로젝터 재고를 일반 영화용(10만 원)이 아닌 공방 B2B 장비(38만 원 + 도안 AI 구독)로 즉시 격상!",
+      "pricingModel": "하드웨어 패키지 38만 원 + AI 도안 변환 월 9,900원",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-16-core",
+        "stars": 120,
+        "desc": "RK3566 빔프로젝터 결합형 베이킹(레터링 케이크)·가죽·미싱·타투 공방 전용 \"AI 도안 외곽선 추출 & 1:1 실측 투사기\"",
+        "url": "https://github.com/search?q=projector%20calibration%20camera%20structured%20light%20open%20source&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] projector pattern sewing cake decorating calibration",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=projector%20pattern%20sewing%20cake%20decorating%20calibration"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "projection mapping workbench",
+        "url": "https://hackaday.io/search?term=projection%20mapping%20workbench"
+      }
+    },
+    {
+      "seq": 3184,
+      "timestamp": "2026. 11. 11. AM 1:01:25",
+      "code": "MOAT-15",
+      "shard": "ERROR_FIX_AI_GRAPH",
+      "domain": "5. AI 할루시네이션 지뢰밭: 실전 수리 오답노트 & 버티컬 판독 AI",
+      "title": "중국 내수용 하드웨어(시엔위/타오바오) 글로벌 개조 시 \"벽돌 방지 호환 리비전(Rev) 판별 & 가짜 칩 감별\" 바이블",
+      "aiBlindspot": "같은 모델명이라도 기판 리비전(v1.2 vs v2.0)이나 낸드플래시 제조사에 따라 펌웨어를 올리면 즉시 벽돌이 되는데, 이 정보는 중국 포럼 은어로만 숨겨져 있음",
+      "compoundAsset": "중국 내수 기기별 기판 사진·부트로더 로그·검증된 롬 파일 세트를 저축하여 해외 하드웨어 해커들에게 유료 패스권으로 제공",
+      "synergyWithUser": "대표님이 직접 시엔위와 RK3566, E900V22D를 다루며 쌓은 시행착오 자체가 그대로 유료 콘텐츠 자산이 됨",
+      "pricingModel": "검증된 펌웨어 팩 + 영문 핀맵 다운로드 건당 $14.99",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-15-core",
+        "stars": 120,
+        "desc": "중국 내수용 하드웨어(시엔위/타오바오) 글로벌 개조 시 \"벽돌 방지 호환 리비전(Rev) 판별 & 가짜 칩 감별\" 바이블",
+        "url": "https://github.com/search?q=fake%20chip%20detection%20clone%20STM32%20RK3566%20hardware%20revision&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] Xianyu Taobao hardware mod brick revision guide",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=Xianyu%20Taobao%20hardware%20mod%20brick%20revision%20guide"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "fake chip counterfeit",
+        "url": "https://hackaday.io/search?term=fake%20chip%20counterfeit"
+      }
+    },
+    {
+      "seq": 3183,
+      "timestamp": "2026. 11. 11. AM 1:01:06",
+      "code": "MOAT-14",
+      "shard": "ERROR_FIX_AI_GRAPH",
+      "domain": "5. AI 할루시네이션 지뢰밭: 실전 수리 오답노트 & 버티컬 판독 AI",
+      "title": "글로벌 산업용 보드·파워서플라이·인버터 기판 사진 촬영 시 \"불량 커패시터·MOSFET 대조 & 핀맵\" 자동 판독기",
+      "aiBlindspot": "기판 위 SMD 칩이 타버리면 각인이 지워져 일반 수리공이나 AI는 원래 무슨 칩이었는지 절대 알 수 없음",
+      "compoundAsset": "정상 양품 보드의 고해상도 접사 사진과 부품 마킹 코드(SMD Codebook)를 보드 품번별로 저축해, 탄 부위만 찍으면 원래 부품 스펙을 알려주는 DB",
+      "synergyWithUser": "산단 센서·승강기 보드·선박 레이더 수리/수출 트랙의 핵심 기술 자산으로 누적",
+      "pricingModel": "월 $29 엔지니어 멤버십 / 고해상도 보드 회로뷰 단건 판매",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-14-core",
+        "stars": 120,
+        "desc": "글로벌 산업용 보드·파워서플라이·인버터 기판 사진 촬영 시 \"불량 커패시터·MOSFET 대조 & 핀맵\" 자동 판독기",
+        "url": "https://github.com/search?q=PCB%20defect%20detection%20component%20identification%20AI&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] identify burnt SMD component PCB repair",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=identify%20burnt%20SMD%20component%20PCB%20repair"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "PCB reverse engineering tool",
+        "url": "https://hackaday.io/search?term=PCB%20reverse%20engineering%20tool"
+      }
+    },
+    {
+      "seq": 3182,
+      "timestamp": "2026. 11. 11. AM 1:00:40",
+      "code": "MOAT-13",
+      "shard": "ERROR_FIX_AI_GRAPH",
+      "domain": "5. AI 할루시네이션 지뢰밭: 실전 수리 오답노트 & 버티컬 판독 AI",
+      "title": "자동차·트랙터·수입차 \"센터에서는 통교체하라는 고장코드(DTC)를 3,000원짜리 부품으로 고치는\" 실증 지식그래프",
+      "aiBlindspot": "챗GPT는 공식 서비스 매뉴얼만 학습해 무조건 \"어셈블리 통교체($2,000)\"를 안내하지만, 실제 현장 원인은 납땜 크랙이나 릴레이 1개 불량인 경우가 80%임",
+      "compoundAsset": "[고장코드 + 차종 -> 공식 매뉴얼의 오답 -> 실제 불량 소자 품번 & 시엔위/이베이 링크]를 매일 10건씩 저축하면 전 세계 차주와 정비소가 결제하는 독점 AI 완성",
+      "synergyWithUser": "이미 보유한 지파츠·시엔위·이베이 부품 크롤링 DB의 수익률을 3배로 높이는 최고의 트래픽 깔때기",
+      "pricingModel": "정밀 수리 레시피 열람 건당 $9.99 + 대체 부품 원클릭 구매 수수료",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-13-core",
+        "stars": 120,
+        "desc": "자동차·트랙터·수입차 \"센터에서는 통교체하라는 고장코드(DTC)를 3,000원짜리 부품으로 고치는\" 실증 지식그래프",
+        "url": "https://github.com/search?q=OBD2%20DTC%20fault%20code%20repair%20database&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] dealership wanted thousands fixed for dollars car repair",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=dealership%20wanted%20thousands%20fixed%20for%20dollars%20car%20repair"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "automotive ECU repair",
+        "url": "https://hackaday.io/search?term=automotive%20ECU%20repair"
+      }
+    },
+    {
+      "seq": 3181,
+      "timestamp": "2026. 11. 11. AM 1:00:21",
+      "code": "MOAT-12",
+      "shard": "REGULATORY_ARBITRAGE",
+      "domain": "4. 글로벌 법규·의무장착·수리권·보조금 규제 차익 비즈니스",
+      "title": "지자체 고령자 독거노인 돌봄·스마트 경로당·농촌마을 방송 바우처 특화 RK3566 비접촉 안부확인 & 미디어 박스",
+      "aiBlindspot": "카메라 방식 노인 돌봄은 사생활 침해 거부감이 심하지만, 3,000원짜리 24GHz mmWave 레이더 센서는 호흡과 낙상만 정밀 감지함",
+      "compoundAsset": "RK3566 보드/안드로이드 모니터에 큰 글씨 UI + 복약 알림 + mmWave 무카메라 호흡·움직임 감지 로그를 결합해 복지관·지자체 B2G 납품 스펙 저축",
+      "synergyWithUser": "보유하신 안드로이드 올인원 모니터와 RK3566 보드를 고마진 실버케어 단말기로 대량 소진 가능",
+      "pricingModel": "단말기 대당 35만 원 + 관제 알림 월 5,000원",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-12-core",
+        "stars": 120,
+        "desc": "지자체 고령자 독거노인 돌봄·스마트 경로당·농촌마을 방송 바우처 특화 RK3566 비접촉 안부확인 & 미디어 박스",
+        "url": "https://github.com/search?q=mmWave%20radar%20fall%20detection%20ESP32%20elderly%20care&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] mmWave presence sensor Home Assistant elderly care",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=mmWave%20presence%20sensor%20Home%20Assistant%20elderly%20care"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "mmWave radar fall detection",
+        "url": "https://hackaday.io/search?term=mmWave%20radar%20fall%20detection"
+      }
+    },
+    {
+      "seq": 3180,
+      "timestamp": "2026. 11. 11. AM 1:00:02",
+      "code": "MOAT-11",
+      "shard": "REGULATORY_ARBITRAGE",
+      "domain": "4. 글로벌 법규·의무장착·수리권·보조금 규제 차익 비즈니스",
+      "title": "유럽·북미 수리권(Right to Repair) 법안 시행에 따른 가전·모빌리티 자가수리 보증 패스포트 & 진단 키트",
+      "aiBlindspot": "미국·EU에서 수리권 법안이 통과되었으나 소비자가 고장 부위를 스스로 특정할 수 있는 저가형 진단 툴과 매뉴얼이 절대 부족함",
+      "compoundAsset": "가전 모델별 고장 증상 진단 트리(Decision Tree)와 호환 부품 직링크를 저축한 자가수리 포털 구축",
+      "synergyWithUser": "기존 8개국 중고/호환 부품 DB를 전 세계 DIY 수리 키트 구독 모델과 직결",
+      "pricingModel": "진단 리포트 + 수리 키트 번들 $39~$89",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-11-core",
+        "stars": 120,
+        "desc": "유럽·북미 수리권(Right to Repair) 법안 시행에 따른 가전·모빌리티 자가수리 보증 패스포트 & 진단 키트",
+        "url": "https://github.com/search?q=Right%20to%20Repair%20open%20diagnostics%20appliance%20repair&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] Right to Repair diagnostic tool appliance",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=Right%20to%20Repair%20diagnostic%20tool%20appliance"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "Right to Repair tool",
+        "url": "https://hackaday.io/search?term=Right%20to%20Repair%20tool"
+      }
+    },
+    {
+      "seq": 3179,
+      "timestamp": "2026. 11. 10. PM 1:47:54",
+      "code": "MOAT-10",
+      "shard": "REGULATORY_ARBITRAGE",
+      "domain": "4. 글로벌 법규·의무장착·수리권·보조금 규제 차익 비즈니스",
+      "title": "중장비·지게차·물류창고 산업안전보건법 사각지대 AI 인체감지 경보 의무화 대응 자석식 레트로핏 키트",
+      "aiBlindspot": "대기업 정품 지게차 AI 안전시스템은 대당 250만~400만 원에 배선 시공이 필요해 영세 물류창고·건설현장에서 도입을 주저함",
+      "compoundAsset": "현장 안전점검 통과 기준서·설치 인증 사진 템플릿·정부 안전보건공단 보조금 신청 가이드를 저축해 서류+장비 원스톱 패키지로 공급",
+      "synergyWithUser": "대표님 보유 안드로이드 오토 모니터 + 시엔위 AHD AI 인체감지 카메라(원가 합계 9만 원)로 60만 원대 B2B 시장 직격",
+      "pricingModel": "세트당 49만~69만 원 (보조금 연계 시 대량 납품)",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-10-core",
+        "stars": 120,
+        "desc": "중장비·지게차·물류창고 산업안전보건법 사각지대 AI 인체감지 경보 의무화 대응 자석식 레트로핏 키트",
+        "url": "https://github.com/search?q=forklift%20pedestrian%20detection%20AI%20camera%20embedded&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] forklift safety camera AI blind spot retrofit",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=forklift%20safety%20camera%20AI%20blind%20spot%20retrofit"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "safety camera embedded AI",
+        "url": "https://hackaday.io/search?term=safety%20camera%20embedded%20AI"
+      }
+    },
+    {
+      "seq": 3178,
+      "timestamp": "2026. 11. 10. PM 1:47:35",
+      "code": "MOAT-09",
+      "shard": "LEGACY_B2B_BRIDGE",
+      "domain": "3. 단종 산업장비·계측기 레거시 S/W & 데이터 변환 브릿지",
+      "title": "단종 산업용 HMI/PLC(Windows CE / DOS 전용) 구형 프로젝트 파일 버전 복원 & 웹 대시보드 미러링 툴",
+      "aiBlindspot": "공장 설비는 20년 넘게 돌아가는데 옛날 윈도우XP PC가 고장 나면 제어 프로그램을 열 수 없어 수천만 원짜리 라인을 통째로 갈아야 함",
+      "compoundAsset": "구형 PLC 레지스터 맵 템플릿을 업종별(사출기, 포장기, 공조기)로 저축해 안드로이드 올인원 모니터로 즉시 대체하는 패키지",
+      "synergyWithUser": "대표님의 안드로이드 올인원 모니터를 스마트팩토리 HMI 터치패널(대당 50만 원)로 B2B 공급",
+      "pricingModel": "HMI 대체 패키지 대당 45만~75만 원",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-09-core",
+        "stars": 120,
+        "desc": "단종 산업용 HMI/PLC(Windows CE / DOS 전용) 구형 프로젝트 파일 버전 복원 & 웹 대시보드 미러링 툴",
+        "url": "https://github.com/search?q=PLC%20HMI%20Modbus%20MQTT%20web%20dashboard%20bridge&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] PLC legacy HMI replacement Modbus web interface",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=PLC%20legacy%20HMI%20replacement%20Modbus%20web%20interface"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "Modbus HMI web",
+        "url": "https://hackaday.io/search?term=Modbus%20HMI%20web"
+      }
+    },
+    {
+      "seq": 3177,
+      "timestamp": "2026. 11. 10. PM 1:47:10",
+      "code": "MOAT-08",
+      "shard": "LEGACY_B2B_BRIDGE",
+      "domain": "3. 단종 산업장비·계측기 레거시 S/W & 데이터 변환 브릿지",
+      "title": "연구소·병원·약국 노후 분석장비(RS232/GPIB 전용 프린터 출력) -> PDF/클라우드/LIMS 자동 캡처 박스",
+      "aiBlindspot": "오래된 혈액분석기·전자저울·계측기는 외부 PC 연동 기능이 아예 없고 오직 도트/감열 프린터로만 결과를 찍어내어 수기 입력 오류가 발생함",
+      "compoundAsset": "가상 프린터 에뮬레이터(ESC/POS 및 제조사별 제어코드 파서)를 저축해 꽂기만 하면 종이 대신 스마트폰/엑셀로 데이터가 쌓이는 장치",
+      "synergyWithUser": "RK3566 또는 ESP32 보드를 고부가가치 연구소 데이터 로거(대당 35만~60만 원)로 탈바꿈",
+      "pricingModel": "장비당 하드웨어 키트 $240 + 클라우드 백업 구독",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-08-core",
+        "stars": 120,
+        "desc": "연구소·병원·약국 노후 분석장비(RS232/GPIB 전용 프린터 출력) -> PDF/클라우드/LIMS 자동 캡처 박스",
+        "url": "https://github.com/search?q=GPIB%20RS232%20thermal%20printer%20emulator%20data%20logger&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] capture RS232 serial printer output lab equipment",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=capture%20RS232%20serial%20printer%20output%20lab%20equipment"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "GPIB USB adapter open source",
+        "url": "https://hackaday.io/search?term=GPIB%20USB%20adapter%20open%20source"
+      }
+    },
+    {
+      "seq": 3176,
+      "timestamp": "2026. 11. 10. PM 1:46:50",
+      "code": "MOAT-07",
+      "shard": "LEGACY_B2B_BRIDGE",
+      "domain": "3. 단종 산업장비·계측기 레거시 S/W & 데이터 변환 브릿지",
+      "title": "구형 자수기·CNC·레이저커터 전용 독점 바이너리 포맷(.DST/.TAP/독점 G-code) 클라우드 변환 & Wi-Fi 전송 브릿지",
+      "aiBlindspot": "90~00년대 산업장비는 플로피디스크나 RS232 시리얼의 까다로운 하드웨어 흐름제어(RTS/CTS)를 쓰며, 조금만 타이밍이 어긋나도 가공물이 파손됨",
+      "compoundAsset": "구형 기계 브랜드별 통신 타이밍과 파일 헤더 파서를 하나씩 저축하면 전 세계 봉제공장·가공집이 빠져나갈 수 없는 B2B 구독 서비스 완성",
+      "synergyWithUser": "ESP32 RS232 동글(원가 6,000원) + 클라우드 도안 변환/전송 웹 대시보드 결합",
+      "pricingModel": "무선 브릿지 동글 $89 + 클라우드 변환 월 $19",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-07-core",
+        "stars": 120,
+        "desc": "구형 자수기·CNC·레이저커터 전용 독점 바이너리 포맷(.DST/.TAP/독점 G-code) 클라우드 변환 & Wi-Fi 전송 브릿지",
+        "url": "https://github.com/search?q=embroidery%20CNC%20legacy%20file%20format%20converter%20RS232%20WiFi&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] legacy CNC RS232 drip feed WiFi ESP32",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=legacy%20CNC%20RS232%20drip%20feed%20WiFi%20ESP32"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "RS232 CNC WiFi bridge",
+        "url": "https://hackaday.io/search?term=RS232%20CNC%20WiFi%20bridge"
+      }
+    },
+    {
+      "seq": 3175,
+      "timestamp": "2026. 11. 10. PM 1:46:31",
+      "code": "MOAT-06",
+      "shard": "PARAMETRIC_CAD_SAAS",
+      "domain": "2. 0.1mm 정밀 공차 파라메트릭 3D 도면 자동 생성기(SaaS)",
+      "title": "단종 가전·빈티지 오디오·카메라 파손 플라스틱 기어(헬리컬/웜기어) 치수 역산 & 나일론 복원 생성기",
+      "aiBlindspot": "부러진 기어의 이빨 수(Teeth), 모듈(Module), 압력각(Pressure Angle) 계산은 기계공학 수식이 필요해 일반인이 모델링 불가",
+      "compoundAsset": "스마트폰으로 동전 옆에 부러진 기어를 찍어 올리면 비전 AI가 이빨 수와 외경을 측정해 즉시 PA12 나일론 기어 도면을 생성·누적하는 DB",
+      "synergyWithUser": "정밀 소형 부품 10g 우편 수출(원가 500원 -> 판매가 $25~$45)과 완벽 결합",
+      "pricingModel": "기어 도면 $7 / SLS 나일론 기어 우편 발송 $28",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-06-core",
+        "stars": 120,
+        "desc": "단종 가전·빈티지 오디오·카메라 파손 플라스틱 기어(헬리컬/웜기어) 치수 역산 & 나일론 복원 생성기",
+        "url": "https://github.com/search?q=OpenSCAD%20parametric%20gear%20generator%20replacement%20repair&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] 3D printed replacement gear nylon OpenSCAD repair",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=3D%20printed%20replacement%20gear%20nylon%20OpenSCAD%20repair"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "parametric replacement gear",
+        "url": "https://hackaday.io/search?term=parametric%20replacement%20gear"
+      }
+    },
+    {
+      "seq": 3174,
+      "timestamp": "2026. 11. 10. PM 1:46:11",
+      "code": "MOAT-05",
+      "shard": "PARAMETRIC_CAD_SAAS",
+      "domain": "2. 0.1mm 정밀 공차 파라메트릭 3D 도면 자동 생성기(SaaS)",
+      "title": "구축 아파트 월패드·구형 차량 오디오 매립용 치수 입력식 맞춤형 마감재(Fascia Bezel) 3초 자동 생성 웹앱",
+      "aiBlindspot": "아파트 단지별 벽면 타공 사이즈나 희귀 차종 대시보드 곡률은 기성품이 없으며, 소비자는 CAD를 다룰 줄 모름",
+      "compoundAsset": "벽면 구멍 가로·세로·깊이와 모니터 규격(예: UIS7861 11.4인치, RK3566 8인치)만 입력하면 숨은 클립과 나사홀이 포함된 도면이 나오는 엔진 저축",
+      "synergyWithUser": "대표님 보유 안드로이드 오토 올인원 모니터를 어떤 차종·아파트 벽면이든 100% 매립시키게 해주는 독점 무기",
+      "pricingModel": "모니터+맞춤 베젤 패키지 29만~42만 원 (베젤 단품 $35)",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-05-core",
+        "stars": 120,
+        "desc": "구축 아파트 월패드·구형 차량 오디오 매립용 치수 입력식 맞춤형 마감재(Fascia Bezel) 3초 자동 생성 웹앱",
+        "url": "https://github.com/search?q=parametric%20bezel%20mount%20enclosure%20OpenSCAD%20FreeCAD&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] custom car stereo fascia bezel 3D print parametric",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=custom%20car%20stereo%20fascia%20bezel%203D%20print%20parametric"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "parametric enclosure generator",
+        "url": "https://hackaday.io/search?term=parametric%20enclosure%20generator"
+      }
+    },
+    {
+      "seq": 3173,
+      "timestamp": "2026. 11. 10. PM 1:45:52",
+      "code": "MOAT-04",
+      "shard": "PARAMETRIC_CAD_SAAS",
+      "domain": "2. 0.1mm 정밀 공차 파라메트릭 3D 도면 자동 생성기(SaaS)",
+      "title": "마끼다·디월트·밀워키 등 전동공구 배터리 이종교배 어댑터 & 전압강하(Buck) 마운트 파라메트릭 생성기",
+      "aiBlindspot": "생성형 3D AI는 외형만 흉내 낼 뿐 슬라이드 레일 각도, 단자 핀 간격(0.1mm 공차), 스냅핏 탄성 구조를 설계하지 못해 출력 시 100% 장착 실패",
+      "compoundAsset": "공구 브랜드 20종의 암/수 슬롯 정밀 치수를 코드로 모듈화(저축)해 두면 20x20=400종의 커스텀 결합 도면과 JLC3DP 자동 발주 플랫폼 완성",
+      "synergyWithUser": "무선에어건 마끼다 18V 슬롯 설계 경험을 코드 자산으로 영구 저축",
+      "pricingModel": "맞춤 STEP/STL 즉시 다운로드 $9.99 / 나일론 출력물 직배송 $29.99",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-04-core",
+        "stars": 120,
+        "desc": "마끼다·디월트·밀워키 등 전동공구 배터리 이종교배 어댑터 & 전압강하(Buck) 마운트 파라메트릭 생성기",
+        "url": "https://github.com/search?q=OpenSCAD%20build123d%20parametric%20battery%20adapter%20mount&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] parametric OpenSCAD battery adapter 3D print tolerance",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=parametric%20OpenSCAD%20battery%20adapter%203D%20print%20tolerance"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "parametric OpenSCAD adapter",
+        "url": "https://hackaday.io/search?term=parametric%20OpenSCAD%20adapter"
+      }
+    },
+    {
+      "seq": 3172,
+      "timestamp": "2026. 11. 10. PM 1:45:32",
+      "code": "MOAT-03",
+      "shard": "PROTOCOL_UNLOCK_SAAS",
+      "domain": "1. 비공개 프로토콜 역설계 & WebUSB 온라인 언락 SaaS",
+      "title": "농기계·굴삭기·선박 엔진 비표준 J1939/ISOBUS 계기판 시간(Hour) 복원 & 옵션 활성화 에뮬레이터 DB",
+      "aiBlindspot": "승용차 OBD2와 달리 농기계(대동/Kioti, 구보다, 얀마)와 중장비의 자체 PGN 메시지 구조는 비공개여서 일반 개발자 접근 불가",
+      "compoundAsset": "차종별 CAN 녹화 파일(Candump)과 가상 시운전 에뮬레이터 코드를 저축해 전 세계 수리업자에게 하드웨어 동글+구독 형태로 공급",
+      "synergyWithUser": "기존 발굴한 대동/LS 농기계 수출 트랙에 S/W 라이선스 수익까지 이중 결합",
+      "pricingModel": "B2B 진단 시뮬레이터 키트 $189 + 프로파일 업데이트 연 $99",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-03-core",
+        "stars": 120,
+        "desc": "농기계·굴삭기·선박 엔진 비표준 J1939/ISOBUS 계기판 시간(Hour) 복원 & 옵션 활성화 에뮬레이터 DB",
+        "url": "https://github.com/search?q=J1939%20ISOBUS%20reverse%20engineering%20tractor%20CAN%20bus&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] tractor J1939 CAN bus reverse engineering diagnostic",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=tractor%20J1939%20CAN%20bus%20reverse%20engineering%20diagnostic"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "J1939 CAN bus",
+        "url": "https://hackaday.io/search?term=J1939%20CAN%20bus"
+      }
+    },
+    {
+      "seq": 3171,
+      "timestamp": "2026. 11. 10. PM 1:45:11",
+      "code": "MOAT-02",
+      "shard": "PROTOCOL_UNLOCK_SAAS",
+      "domain": "1. 비공개 프로토콜 역설계 & WebUSB 온라인 언락 SaaS",
+      "title": "전기자전거·전동모빌리티·리튬배터리 BMS(배터리관리시스템) 비공개 CAN/UART 리셋 & 셀밸런싱 진단 웹툴",
+      "aiBlindspot": "보쉬·시마노·나인봇·특수 공구배터리 BMS는 에러코드가 한 번 뜨면 칩을 영구 잠그는데, 이 해제 패킷은 실물 로직애널라이저 캡처 없이는 AI가 절대 생성 불가",
+      "compoundAsset": "배터리 브랜드별 BMS 언락 패킷 사전(Dictionary)을 저축하면 전 세계 배터리 리필 공방들이 매달 구독하는 필수 S/W 독점",
+      "synergyWithUser": "5,000원짜리 USB-to-CAN/TTL 암호화 동글 하드웨어와 웹 구독 S/W를 세트로 묶어 해킹 원천 차단",
+      "pricingModel": "전용 동글 $39 + 언락 건당 $12 (순마진 88%)",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-02-core",
+        "stars": 120,
+        "desc": "전기자전거·전동모빌리티·리튬배터리 BMS(배터리관리시스템) 비공개 CAN/UART 리셋 & 셀밸런싱 진단 웹툴",
+        "url": "https://github.com/search?q=BMS%20UART%20CAN%20bus%20reverse%20engineering%20battery%20unlock&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] e-bike BMS lock reset UART CAN reverse engineering",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=e-bike%20BMS%20lock%20reset%20UART%20CAN%20reverse%20engineering"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "battery BMS reverse engineering",
+        "url": "https://hackaday.io/search?term=battery%20BMS%20reverse%20engineering"
+      }
+    },
+    {
+      "seq": 3170,
+      "timestamp": "2026. 11. 10. PM 1:44:52",
+      "code": "MOAT-01",
+      "shard": "PROTOCOL_UNLOCK_SAAS",
+      "domain": "1. 비공개 프로토콜 역설계 & WebUSB 온라인 언락 SaaS",
+      "title": "WebSerial/WebUSB 기반 중국 내수용·산업용 기기 브라우저 원클릭 언락·한글화·전압세팅 클라우드(SaaS)",
+      "aiBlindspot": "제조사 비공개 레지스터 주소 및 체크섬(CRC) 계산식이 인터넷에 없거나 오정보만 존재해 일반 AI 프롬프트로는 100% 벽돌 현상 발생",
+      "compoundAsset": "지원 기기 프로파일(예: 화웨이 정류기, E900V22D, 내수용 로봇청소기, 농기계 클러스터)을 1개씩 뚫어 DB에 저축할수록 건당 $15~$39 디지털 통행료가 무재고로 복리 누적",
+      "synergyWithUser": "대표님의 E900V22D 핀쇼트/선샤 노하우 + RK3566/안드로이드 롬 커스텀 역량을 택배 없는 글로벌 웹 결제 SaaS로 전환",
+      "pricingModel": "건당 언락 크레딧 $19.99 / 수리점 월 구독 $49 (순마진 95%)",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-01-core",
+        "stars": 120,
+        "desc": "WebSerial/WebUSB 기반 중국 내수용·산업용 기기 브라우저 원클릭 언락·한글화·전압세팅 클라우드(SaaS)",
+        "url": "https://github.com/search?q=WebSerial%20OR%20WebUSB%20flasher%20unlock%20firmware%20protocol&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] reverse engineering protocol UART CAN unlock firmware",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=reverse%20engineering%20protocol%20UART%20CAN%20unlock%20firmware"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "WebSerial firmware unlock",
+        "url": "https://hackaday.io/search?term=WebSerial%20firmware%20unlock"
+      }
+    },
+    {
+      "seq": 3169,
+      "timestamp": "2026. 11. 10. PM 1:44:32",
+      "code": "MOAT-24",
+      "shard": "CROWDFUND_REVERSE",
+      "domain": "8. 글로벌 펀딩(Kickstarter/Makuake/Tindie) 대박작 역설계 블루오션",
+      "title": "다이슨 V8 모터 역방향 진공 + 투명 기수분리 탱크 기반 \"마끼다 18V 무선 카시트·패브릭 습식 스팟클리너\"",
+      "aiBlindspot": "시중 무선 습식 청소기는 저출력 모터를 써서 시트 속 물기가 안 빨려 나와 곰팡이가 슬지만, 다이슨 V8 11만 RPM 모터는 유선급 진공도를 냄",
+      "compoundAsset": "마끼다·디월트·밀워키 배터리 슬롯 호환 습식 석션 바디 및 오염수 역류 방지 플로트 밸브 설계를 저축해 세차·펫 시장 장악",
+      "synergyWithUser": "무선에어건과 다이슨 V8 모터·배터리 슬롯 부품을 100% 공유하면서 전혀 다른 카테고리(습식 청소기) 매출 추가 창출",
+      "pricingModel": "마끼다 18V 호환 베어툴 세트 15.9만 원 (원가 3.8만 원)",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-24-core",
+        "stars": 120,
+        "desc": "다이슨 V8 모터 역방향 진공 + 투명 기수분리 탱크 기반 \"마끼다 18V 무선 카시트·패브릭 습식 스팟클리너\"",
+        "url": "https://github.com/search?q=cordless%20spot%20cleaner%20extractor%20vacuum%20BLDC&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] cordless car seat extractor vacuum Makita battery",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=cordless%20car%20seat%20extractor%20vacuum%20Makita%20battery"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "cyclone vacuum adapter",
+        "url": "https://hackaday.io/search?term=cyclone%20vacuum%20adapter"
+      }
+    },
+    {
+      "seq": 3168,
+      "timestamp": "2026. 11. 10. PM 1:44:13",
+      "code": "MOAT-23",
+      "shard": "CROWDFUND_REVERSE",
+      "domain": "8. 글로벌 펀딩(Kickstarter/Makuake/Tindie) 대박작 역설계 블루오션",
+      "title": "차박·패밀리카(카니발/쏘렌토/테슬라) 무타공 헤드레스트/루프 자석 탈부착 \"RK3566 시네마 바 + 30인치 ALR 롤스크린\"",
+      "aiBlindspot": "일반 프로젝터는 차 안에서 거치할 곳이 없고 흔들리며 배선이 지저분해 패밀리카 차주들이 150만 원짜리 천장 모니터 시공으로 내몰림",
+      "compoundAsset": "국내 인기 차종별(카니발 KA4, 쏘렌토 MQ4, 모델Y) 헤드레스트 간격 및 선루프 프레임 맞춤 자석 브래킷 도면을 차종별로 저축",
+      "synergyWithUser": "대표님 보유 RK3566 빔프로젝터에 차량용 3D 프린팅 브래킷과 미니 스크린만 묶어 즉시 고단가 패키지로 출시 가능",
+      "pricingModel": "차종별 시네마 바 풀패키지 28.9만~36.9만 원",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-23-core",
+        "stars": 120,
+        "desc": "차박·패밀리카(카니발/쏘렌토/테슬라) 무타공 헤드레스트/루프 자석 탈부착 \"RK3566 시네마 바 + 30인치 ALR 롤스크린\"",
+        "url": "https://github.com/search?q=portable%20DLP%20projector%20Android%20RK3566%20custom%20enclosure&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] car camping projector roof screen setup",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=car%20camping%20projector%20roof%20screen%20setup"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "portable projector enclosure",
+        "url": "https://hackaday.io/search?term=portable%20projector%20enclosure"
+      }
+    },
+    {
+      "seq": 3167,
+      "timestamp": "2026. 11. 10. PM 1:43:46",
+      "code": "MOAT-22",
+      "shard": "CROWDFUND_REVERSE",
+      "domain": "8. 글로벌 펀딩(Kickstarter/Makuake/Tindie) 대박작 역설계 블루오션",
+      "title": "6축 자석 홀센서 3D CAD 스페이스마우스(MagMouse) & 스마트 햅틱 노브(SmartKnob) 한국형 프리셋 에디션",
+      "aiBlindspot": "해외 오픈소스 도면은 있어도 일반 사용자는 PCB 발주, SMD 납땜, 6축 칼만필터 캘리브레이션, 한글 단축키 매핑 소프트웨어를 직접 세팅하지 못함",
+      "compoundAsset": "Fusion360, 블렌더, 프리미어프로, 다빈치리졸브 등 프로그램별 최적 햅틱 저항값과 단축키 프로파일을 전용 설정 앱에 지속 저축",
+      "synergyWithUser": "이미 시엔위 개인 엔지니어 리스트(23번 보고서)와 오픈소스 성지(22/24번 보고서)가 완비되어 즉시 시제품 제작 가능",
+      "pricingModel": "완제품 11.9만~16.9만 원 (원가 2.5만 원, 순마진 72%)",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-22-core",
+        "stars": 120,
+        "desc": "6축 자석 홀센서 3D CAD 스페이스마우스(MagMouse) & 스마트 햅틱 노브(SmartKnob) 한국형 프리셋 에디션",
+        "url": "https://github.com/search?q=SpaceMouse%206DOF%20hall%20sensor%20ESP32%20SmartKnob%20haptic&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] DIY SpaceMouse 6DOF Fusion360 Blender",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=DIY%20SpaceMouse%206DOF%20Fusion360%20Blender"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "6DOF SpaceMouse",
+        "url": "https://hackaday.io/search?term=6DOF%20SpaceMouse"
+      }
+    },
+    {
+      "seq": 3166,
+      "timestamp": "2026. 11. 10. PM 1:43:26",
+      "code": "MOAT-21",
+      "shard": "OPEN_INSTRUMENTS",
+      "domain": "7. 초고가 연구·계측·취미 장비 1/10 가격 오픈소스 계측기 대체재",
+      "title": "기계식 시계·빈티지 필름카메라 수집가용 \"초정밀 타임그래퍼(오차 측정기) & 1/8000초 셔터스피드 레이저 테스터\"",
+      "aiBlindspot": "필름카메라 수리 시 선막/후막 주행 시간(Curtain Travel Time)까지 측정하는 전문 장비는 구하기도 힘들고 100만 원이 넘음",
+      "compoundAsset": "3개 포토다이오드 배열 + 마이크로초(μs) 타이머 펌웨어 + 스마트폰 웹 리포트 생성기를 저축하여 전 세계 카메라 수리점·셀러에게 공급",
+      "synergyWithUser": "기존 일본 야후옥션 필름카메라 복원 트랙과 결합해 \"측정 인증서 출력 기능\"으로 신뢰도 극대화",
+      "pricingModel": "프로페셔널 셔터 애널라이저 $129 (원가 1.5만 원)",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-21-core",
+        "stars": 120,
+        "desc": "기계식 시계·빈티지 필름카메라 수집가용 \"초정밀 타임그래퍼(오차 측정기) & 1/8000초 셔터스피드 레이저 테스터\"",
+        "url": "https://github.com/search?q=camera%20shutter%20speed%20tester%20laser%20ESP32%20timegrapher&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] film camera shutter speed tester DIY curtain travel time",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=film%20camera%20shutter%20speed%20tester%20DIY%20curtain%20travel%20time"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "camera shutter speed tester",
+        "url": "https://hackaday.io/search?term=camera%20shutter%20speed%20tester"
+      }
+    },
+    {
+      "seq": 3165,
+      "timestamp": "2026. 11. 10. PM 1:43:01",
+      "code": "MOAT-20",
+      "shard": "OPEN_INSTRUMENTS",
+      "domain": "7. 초고가 연구·계측·취미 장비 1/10 가격 오픈소스 계측기 대체재",
+      "title": "스페셜티 커피 로스터리용 정품 250만 원대 \"원두 로스팅 색도계(Agtron) & 수분·밀도 측정기\" 오픈소스 분광 센서 키트",
+      "aiBlindspot": "로스터리 카페마다 원두 배전도(Agtron 수치)를 재야 일관된 맛이 나는데, 상업용 색도계는 수백만 원이고 저가형은 보정(Calibration) 수식이 틀려 오차가 심함",
+      "compoundAsset": "1만 원짜리 다파장 분광 센서(AS7341) + 표준 색도 타일 기준 회귀 보정 데이터셋을 저축해 정품과 오차 1% 이내인 포켓 색도계 완성",
+      "synergyWithUser": "소형 3D 프린팅 암실 케이스 + 펌웨어 보정값 잠금으로 카페 B2B 시장 독점",
+      "pricingModel": "포켓 로스트 애널라이저 24만 원 ($195, 순마진 78%)",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-20-core",
+        "stars": 120,
+        "desc": "스페셜티 커피 로스터리용 정품 250만 원대 \"원두 로스팅 색도계(Agtron) & 수분·밀도 측정기\" 오픈소스 분광 센서 키트",
+        "url": "https://github.com/search?q=coffee%20roast%20degree%20color%20meter%20AS7265x%20AS7341%20open%20source&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] open source coffee roast color meter Agtron AS7341",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=open%20source%20coffee%20roast%20color%20meter%20Agtron%20AS7341"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "coffee roast meter",
+        "url": "https://hackaday.io/search?term=coffee%20roast%20meter"
+      }
+    },
+    {
+      "seq": 3164,
+      "timestamp": "2026. 11. 10. PM 1:42:40",
+      "code": "MOAT-19",
+      "shard": "OPEN_INSTRUMENTS",
+      "domain": "7. 초고가 연구·계측·취미 장비 1/10 가격 오픈소스 계측기 대체재",
+      "title": "정품 42만 원 와후 헤드윈드를 대체하는 \"무선에어건 BLDC + ANT+/BLE 심박·속도 연동\" 스마트 사이클링 윈드 터널",
+      "aiBlindspot": "일반 선풍기는 리모컨으로 바람을 조절해야 하지만, 실내 자전거 유저는 페달 파워(Watt)와 심박수에 따라 바람이 자동 변화하는 프로토콜 연동을 원함",
+      "compoundAsset": "즈위프트·가민·와후 센서 BLE 프로토콜 연동 펌웨어와 에어로 덕트 노즐 설계를 저축해 스포츠 테크 하드웨어로 포지셔닝",
+      "synergyWithUser": "대표님의 주력 아이템인 무선에어건(BLDC 모터/제어기)을 그대로 쓰면서 단가를 4배 높이는 최고의 창의적 피벗",
+      "pricingModel": "스마트 윈드 터널 세트 18.9만 원 (글로벌 $159)",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-19-core",
+        "stars": 120,
+        "desc": "정품 42만 원 와후 헤드윈드를 대체하는 \"무선에어건 BLDC + ANT+/BLE 심박·속도 연동\" 스마트 사이클링 윈드 터널",
+        "url": "https://github.com/search?q=Zwift%20smart%20fan%20ANT%2B%20BLE%20ESP32%20PWM%20control&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] DIY Wahoo Headwind smart fan Zwift ESP32",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=DIY%20Wahoo%20Headwind%20smart%20fan%20Zwift%20ESP32"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "smart fan bicycle trainer",
+        "url": "https://hackaday.io/search?term=smart%20fan%20bicycle%20trainer"
+      }
+    },
+    {
+      "seq": 3163,
+      "timestamp": "2026. 11. 10. PM 1:42:20",
+      "code": "MOAT-18",
+      "shard": "EDGE_AI_DONGLE_B2B",
+      "domain": "6. 하드웨어 동글(RK3566/올인원) 결합형 현장 Edge AI 어플라이언스",
+      "title": "소형 금형·사출·나사 포장 공장용 \"안드로이드 올인원 모니터 + AHD 접사 카메라\" 기반 무설정 시각 불량/누락 카운터",
+      "aiBlindspot": "키엔스·코그넥스 비전 검사는 한 라인 구축에 1,000만 원이 넘어 소규모 임가공·포장 공장은 사람 눈으로 세다가 클레임을 맞음",
+      "compoundAsset": "RK3566 내장 NPU(0.8~1 TOPS)를 활용해 정상 샘플 5개만 찍으면 포장 부품 누락·이물질을 0.2초 만에 잡아내는 초간단 현장 비전 앱 저축",
+      "synergyWithUser": "보유하신 RK3566 보드 및 안드로이드 모니터를 산업용 간이 비전 검사기(대당 55만 원)로 판매",
+      "pricingModel": "검사 키트 대당 55만 원 (공장당 3~5대 반복 구매)",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-18-core",
+        "stars": 120,
+        "desc": "소형 금형·사출·나사 포장 공장용 \"안드로이드 올인원 모니터 + AHD 접사 카메라\" 기반 무설정 시각 불량/누락 카운터",
+        "url": "https://github.com/search?q=edge%20AI%20defect%20counting%20OpenCV%20RK3566%20NPU&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] low cost machine vision inspection small factory",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=low%20cost%20machine%20vision%20inspection%20small%20factory"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "machine vision quality control",
+        "url": "https://hackaday.io/search?term=machine%20vision%20quality%20control"
+      }
+    },
+    {
+      "seq": 3162,
+      "timestamp": "2026. 11. 10. PM 1:41:59",
+      "code": "MOAT-17",
+      "shard": "EDGE_AI_DONGLE_B2B",
+      "domain": "6. 하드웨어 동글(RK3566/올인원) 결합형 현장 Edge AI 어플라이언스",
+      "title": "중고 부품 셀러·폐차장·리퍼 공방 전용 \"기판/부품 올려놓으면 1초 품번 OCR + 8개국 시세 조회 + 이베이 자동 등록\" 스튜디오 박스",
+      "aiBlindspot": "폐차장·고물상 사장님들은 수만 개의 부품이 돈이 되는 줄 알아도 영어 품번 검색과 이베이 등록 방법을 몰라 고철로 버림",
+      "compoundAsset": "카메라와 조명이 달린 RK3566(또는 안드로이드 올인원) 단말기 아래에 부품을 놓으면 대표님의 3848/3847 엔진이 시세를 판독해 대신 팔아주는 B2B 위탁/구독 플랫폼",
+      "synergyWithUser": "대표님이 이미 구축하신 지파츠·이베이·8개국 크롤링 시스템과 RK3566/안드로이드 모니터를 결합한 최종 진화형 플랫폼",
+      "pricingModel": "전용 스캐너 박스 대여 + 판매 성사 수수료 20% 공유",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-17-core",
+        "stars": 120,
+        "desc": "중고 부품 셀러·폐차장·리퍼 공방 전용 \"기판/부품 올려놓으면 1초 품번 OCR + 8개국 시세 조회 + 이베이 자동 등록\" 스튜디오 박스",
+        "url": "https://github.com/search?q=automated%20product%20photography%20turntable%20OCR%20eBay%20listing&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] automate eBay auto parts listing OCR barcode",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=automate%20eBay%20auto%20parts%20listing%20OCR%20barcode"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "automated photography box",
+        "url": "https://hackaday.io/search?term=automated%20photography%20box"
+      }
+    },
+    {
+      "seq": 3161,
+      "timestamp": "2026. 11. 10. PM 1:41:37",
+      "code": "MOAT-16",
+      "shard": "EDGE_AI_DONGLE_B2B",
+      "domain": "6. 하드웨어 동글(RK3566/올인원) 결합형 현장 Edge AI 어플라이언스",
+      "title": "RK3566 빔프로젝터 결합형 베이킹(레터링 케이크)·가죽·미싱·타투 공방 전용 \"AI 도안 외곽선 추출 & 1:1 실측 투사기\"",
+      "aiBlindspot": "일반 빔프로젝터는 각도가 틀어지면 사다리꼴 왜곡이 생겨 공방 도안용으로 쓰기 불편하며, 매번 줄자로 크기를 맞추기 번거로움",
+      "compoundAsset": "고객이 카톡/웹으로 사진을 올리면 AI가 선화(Line Art)로 바꾸고, 작업대 위 기준 마커를 인식해 정확히 가로세로 cm를 맞춰 쏴주는 전용 RK3566 앱 저축",
+      "synergyWithUser": "대표님 보유 RK3566 빔프로젝터 재고를 일반 영화용(10만 원)이 아닌 공방 B2B 장비(38만 원 + 도안 AI 구독)로 즉시 격상!",
+      "pricingModel": "하드웨어 패키지 38만 원 + AI 도안 변환 월 9,900원",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-16-core",
+        "stars": 120,
+        "desc": "RK3566 빔프로젝터 결합형 베이킹(레터링 케이크)·가죽·미싱·타투 공방 전용 \"AI 도안 외곽선 추출 & 1:1 실측 투사기\"",
+        "url": "https://github.com/search?q=projector%20calibration%20camera%20structured%20light%20open%20source&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] projector pattern sewing cake decorating calibration",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=projector%20pattern%20sewing%20cake%20decorating%20calibration"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "projection mapping workbench",
+        "url": "https://hackaday.io/search?term=projection%20mapping%20workbench"
+      }
+    },
+    {
+      "seq": 3160,
+      "timestamp": "2026. 11. 10. PM 1:41:15",
+      "code": "MOAT-15",
+      "shard": "ERROR_FIX_AI_GRAPH",
+      "domain": "5. AI 할루시네이션 지뢰밭: 실전 수리 오답노트 & 버티컬 판독 AI",
+      "title": "중국 내수용 하드웨어(시엔위/타오바오) 글로벌 개조 시 \"벽돌 방지 호환 리비전(Rev) 판별 & 가짜 칩 감별\" 바이블",
+      "aiBlindspot": "같은 모델명이라도 기판 리비전(v1.2 vs v2.0)이나 낸드플래시 제조사에 따라 펌웨어를 올리면 즉시 벽돌이 되는데, 이 정보는 중국 포럼 은어로만 숨겨져 있음",
+      "compoundAsset": "중국 내수 기기별 기판 사진·부트로더 로그·검증된 롬 파일 세트를 저축하여 해외 하드웨어 해커들에게 유료 패스권으로 제공",
+      "synergyWithUser": "대표님이 직접 시엔위와 RK3566, E900V22D를 다루며 쌓은 시행착오 자체가 그대로 유료 콘텐츠 자산이 됨",
+      "pricingModel": "검증된 펌웨어 팩 + 영문 핀맵 다운로드 건당 $14.99",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-15-core",
+        "stars": 120,
+        "desc": "중국 내수용 하드웨어(시엔위/타오바오) 글로벌 개조 시 \"벽돌 방지 호환 리비전(Rev) 판별 & 가짜 칩 감별\" 바이블",
+        "url": "https://github.com/search?q=fake%20chip%20detection%20clone%20STM32%20RK3566%20hardware%20revision&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] Xianyu Taobao hardware mod brick revision guide",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=Xianyu%20Taobao%20hardware%20mod%20brick%20revision%20guide"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "fake chip counterfeit",
+        "url": "https://hackaday.io/search?term=fake%20chip%20counterfeit"
+      }
+    },
+    {
+      "seq": 3159,
+      "timestamp": "2026. 11. 10. PM 1:40:57",
+      "code": "MOAT-14",
+      "shard": "ERROR_FIX_AI_GRAPH",
+      "domain": "5. AI 할루시네이션 지뢰밭: 실전 수리 오답노트 & 버티컬 판독 AI",
+      "title": "글로벌 산업용 보드·파워서플라이·인버터 기판 사진 촬영 시 \"불량 커패시터·MOSFET 대조 & 핀맵\" 자동 판독기",
+      "aiBlindspot": "기판 위 SMD 칩이 타버리면 각인이 지워져 일반 수리공이나 AI는 원래 무슨 칩이었는지 절대 알 수 없음",
+      "compoundAsset": "정상 양품 보드의 고해상도 접사 사진과 부품 마킹 코드(SMD Codebook)를 보드 품번별로 저축해, 탄 부위만 찍으면 원래 부품 스펙을 알려주는 DB",
+      "synergyWithUser": "산단 센서·승강기 보드·선박 레이더 수리/수출 트랙의 핵심 기술 자산으로 누적",
+      "pricingModel": "월 $29 엔지니어 멤버십 / 고해상도 보드 회로뷰 단건 판매",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-14-core",
+        "stars": 120,
+        "desc": "글로벌 산업용 보드·파워서플라이·인버터 기판 사진 촬영 시 \"불량 커패시터·MOSFET 대조 & 핀맵\" 자동 판독기",
+        "url": "https://github.com/search?q=PCB%20defect%20detection%20component%20identification%20AI&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] identify burnt SMD component PCB repair",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=identify%20burnt%20SMD%20component%20PCB%20repair"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "PCB reverse engineering tool",
+        "url": "https://hackaday.io/search?term=PCB%20reverse%20engineering%20tool"
+      }
+    },
+    {
+      "seq": 3158,
+      "timestamp": "2026. 11. 10. PM 1:40:21",
+      "code": "MOAT-13",
+      "shard": "ERROR_FIX_AI_GRAPH",
+      "domain": "5. AI 할루시네이션 지뢰밭: 실전 수리 오답노트 & 버티컬 판독 AI",
+      "title": "자동차·트랙터·수입차 \"센터에서는 통교체하라는 고장코드(DTC)를 3,000원짜리 부품으로 고치는\" 실증 지식그래프",
+      "aiBlindspot": "챗GPT는 공식 서비스 매뉴얼만 학습해 무조건 \"어셈블리 통교체($2,000)\"를 안내하지만, 실제 현장 원인은 납땜 크랙이나 릴레이 1개 불량인 경우가 80%임",
+      "compoundAsset": "[고장코드 + 차종 -> 공식 매뉴얼의 오답 -> 실제 불량 소자 품번 & 시엔위/이베이 링크]를 매일 10건씩 저축하면 전 세계 차주와 정비소가 결제하는 독점 AI 완성",
+      "synergyWithUser": "이미 보유한 지파츠·시엔위·이베이 부품 크롤링 DB의 수익률을 3배로 높이는 최고의 트래픽 깔때기",
+      "pricingModel": "정밀 수리 레시피 열람 건당 $9.99 + 대체 부품 원클릭 구매 수수료",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-13-core",
+        "stars": 120,
+        "desc": "자동차·트랙터·수입차 \"센터에서는 통교체하라는 고장코드(DTC)를 3,000원짜리 부품으로 고치는\" 실증 지식그래프",
+        "url": "https://github.com/search?q=OBD2%20DTC%20fault%20code%20repair%20database&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] dealership wanted thousands fixed for dollars car repair",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=dealership%20wanted%20thousands%20fixed%20for%20dollars%20car%20repair"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "automotive ECU repair",
+        "url": "https://hackaday.io/search?term=automotive%20ECU%20repair"
+      }
+    },
+    {
+      "seq": 3157,
+      "timestamp": "2026. 11. 10. PM 1:39:47",
+      "code": "MOAT-12",
+      "shard": "REGULATORY_ARBITRAGE",
+      "domain": "4. 글로벌 법규·의무장착·수리권·보조금 규제 차익 비즈니스",
+      "title": "지자체 고령자 독거노인 돌봄·스마트 경로당·농촌마을 방송 바우처 특화 RK3566 비접촉 안부확인 & 미디어 박스",
+      "aiBlindspot": "카메라 방식 노인 돌봄은 사생활 침해 거부감이 심하지만, 3,000원짜리 24GHz mmWave 레이더 센서는 호흡과 낙상만 정밀 감지함",
+      "compoundAsset": "RK3566 보드/안드로이드 모니터에 큰 글씨 UI + 복약 알림 + mmWave 무카메라 호흡·움직임 감지 로그를 결합해 복지관·지자체 B2G 납품 스펙 저축",
+      "synergyWithUser": "보유하신 안드로이드 올인원 모니터와 RK3566 보드를 고마진 실버케어 단말기로 대량 소진 가능",
+      "pricingModel": "단말기 대당 35만 원 + 관제 알림 월 5,000원",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-12-core",
+        "stars": 120,
+        "desc": "지자체 고령자 독거노인 돌봄·스마트 경로당·농촌마을 방송 바우처 특화 RK3566 비접촉 안부확인 & 미디어 박스",
+        "url": "https://github.com/search?q=mmWave%20radar%20fall%20detection%20ESP32%20elderly%20care&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] mmWave presence sensor Home Assistant elderly care",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=mmWave%20presence%20sensor%20Home%20Assistant%20elderly%20care"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "mmWave radar fall detection",
+        "url": "https://hackaday.io/search?term=mmWave%20radar%20fall%20detection"
+      }
+    },
+    {
+      "seq": 3156,
+      "timestamp": "2026. 11. 10. PM 1:39:14",
+      "code": "MOAT-11",
+      "shard": "REGULATORY_ARBITRAGE",
+      "domain": "4. 글로벌 법규·의무장착·수리권·보조금 규제 차익 비즈니스",
+      "title": "유럽·북미 수리권(Right to Repair) 법안 시행에 따른 가전·모빌리티 자가수리 보증 패스포트 & 진단 키트",
+      "aiBlindspot": "미국·EU에서 수리권 법안이 통과되었으나 소비자가 고장 부위를 스스로 특정할 수 있는 저가형 진단 툴과 매뉴얼이 절대 부족함",
+      "compoundAsset": "가전 모델별 고장 증상 진단 트리(Decision Tree)와 호환 부품 직링크를 저축한 자가수리 포털 구축",
+      "synergyWithUser": "기존 8개국 중고/호환 부품 DB를 전 세계 DIY 수리 키트 구독 모델과 직결",
+      "pricingModel": "진단 리포트 + 수리 키트 번들 $39~$89",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-11-core",
+        "stars": 120,
+        "desc": "유럽·북미 수리권(Right to Repair) 법안 시행에 따른 가전·모빌리티 자가수리 보증 패스포트 & 진단 키트",
+        "url": "https://github.com/search?q=Right%20to%20Repair%20open%20diagnostics%20appliance%20repair&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] Right to Repair diagnostic tool appliance",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=Right%20to%20Repair%20diagnostic%20tool%20appliance"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "Right to Repair tool",
+        "url": "https://hackaday.io/search?term=Right%20to%20Repair%20tool"
+      }
+    },
+    {
+      "seq": 3155,
+      "timestamp": "2026. 11. 10. PM 1:38:02",
+      "code": "MOAT-10",
+      "shard": "REGULATORY_ARBITRAGE",
+      "domain": "4. 글로벌 법규·의무장착·수리권·보조금 규제 차익 비즈니스",
+      "title": "중장비·지게차·물류창고 산업안전보건법 사각지대 AI 인체감지 경보 의무화 대응 자석식 레트로핏 키트",
+      "aiBlindspot": "대기업 정품 지게차 AI 안전시스템은 대당 250만~400만 원에 배선 시공이 필요해 영세 물류창고·건설현장에서 도입을 주저함",
+      "compoundAsset": "현장 안전점검 통과 기준서·설치 인증 사진 템플릿·정부 안전보건공단 보조금 신청 가이드를 저축해 서류+장비 원스톱 패키지로 공급",
+      "synergyWithUser": "대표님 보유 안드로이드 오토 모니터 + 시엔위 AHD AI 인체감지 카메라(원가 합계 9만 원)로 60만 원대 B2B 시장 직격",
+      "pricingModel": "세트당 49만~69만 원 (보조금 연계 시 대량 납품)",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-10-core",
+        "stars": 120,
+        "desc": "중장비·지게차·물류창고 산업안전보건법 사각지대 AI 인체감지 경보 의무화 대응 자석식 레트로핏 키트",
+        "url": "https://github.com/search?q=forklift%20pedestrian%20detection%20AI%20camera%20embedded&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] forklift safety camera AI blind spot retrofit",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=forklift%20safety%20camera%20AI%20blind%20spot%20retrofit"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "safety camera embedded AI",
+        "url": "https://hackaday.io/search?term=safety%20camera%20embedded%20AI"
+      }
+    },
+    {
+      "seq": 3154,
+      "timestamp": "2026. 11. 10. PM 1:37:35",
+      "code": "MOAT-09",
+      "shard": "LEGACY_B2B_BRIDGE",
+      "domain": "3. 단종 산업장비·계측기 레거시 S/W & 데이터 변환 브릿지",
+      "title": "단종 산업용 HMI/PLC(Windows CE / DOS 전용) 구형 프로젝트 파일 버전 복원 & 웹 대시보드 미러링 툴",
+      "aiBlindspot": "공장 설비는 20년 넘게 돌아가는데 옛날 윈도우XP PC가 고장 나면 제어 프로그램을 열 수 없어 수천만 원짜리 라인을 통째로 갈아야 함",
+      "compoundAsset": "구형 PLC 레지스터 맵 템플릿을 업종별(사출기, 포장기, 공조기)로 저축해 안드로이드 올인원 모니터로 즉시 대체하는 패키지",
+      "synergyWithUser": "대표님의 안드로이드 올인원 모니터를 스마트팩토리 HMI 터치패널(대당 50만 원)로 B2B 공급",
+      "pricingModel": "HMI 대체 패키지 대당 45만~75만 원",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-09-core",
+        "stars": 120,
+        "desc": "단종 산업용 HMI/PLC(Windows CE / DOS 전용) 구형 프로젝트 파일 버전 복원 & 웹 대시보드 미러링 툴",
+        "url": "https://github.com/search?q=PLC%20HMI%20Modbus%20MQTT%20web%20dashboard%20bridge&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] PLC legacy HMI replacement Modbus web interface",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=PLC%20legacy%20HMI%20replacement%20Modbus%20web%20interface"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "Modbus HMI web",
+        "url": "https://hackaday.io/search?term=Modbus%20HMI%20web"
+      }
+    },
+    {
+      "seq": 3153,
+      "timestamp": "2026. 11. 10. PM 1:37:14",
+      "code": "MOAT-08",
+      "shard": "LEGACY_B2B_BRIDGE",
+      "domain": "3. 단종 산업장비·계측기 레거시 S/W & 데이터 변환 브릿지",
+      "title": "연구소·병원·약국 노후 분석장비(RS232/GPIB 전용 프린터 출력) -> PDF/클라우드/LIMS 자동 캡처 박스",
+      "aiBlindspot": "오래된 혈액분석기·전자저울·계측기는 외부 PC 연동 기능이 아예 없고 오직 도트/감열 프린터로만 결과를 찍어내어 수기 입력 오류가 발생함",
+      "compoundAsset": "가상 프린터 에뮬레이터(ESC/POS 및 제조사별 제어코드 파서)를 저축해 꽂기만 하면 종이 대신 스마트폰/엑셀로 데이터가 쌓이는 장치",
+      "synergyWithUser": "RK3566 또는 ESP32 보드를 고부가가치 연구소 데이터 로거(대당 35만~60만 원)로 탈바꿈",
+      "pricingModel": "장비당 하드웨어 키트 $240 + 클라우드 백업 구독",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-08-core",
+        "stars": 120,
+        "desc": "연구소·병원·약국 노후 분석장비(RS232/GPIB 전용 프린터 출력) -> PDF/클라우드/LIMS 자동 캡처 박스",
+        "url": "https://github.com/search?q=GPIB%20RS232%20thermal%20printer%20emulator%20data%20logger&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] capture RS232 serial printer output lab equipment",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=capture%20RS232%20serial%20printer%20output%20lab%20equipment"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "GPIB USB adapter open source",
+        "url": "https://hackaday.io/search?term=GPIB%20USB%20adapter%20open%20source"
+      }
+    },
+    {
+      "seq": 3152,
+      "timestamp": "2026. 11. 10. PM 1:35:57",
+      "code": "MOAT-07",
+      "shard": "LEGACY_B2B_BRIDGE",
+      "domain": "3. 단종 산업장비·계측기 레거시 S/W & 데이터 변환 브릿지",
+      "title": "구형 자수기·CNC·레이저커터 전용 독점 바이너리 포맷(.DST/.TAP/독점 G-code) 클라우드 변환 & Wi-Fi 전송 브릿지",
+      "aiBlindspot": "90~00년대 산업장비는 플로피디스크나 RS232 시리얼의 까다로운 하드웨어 흐름제어(RTS/CTS)를 쓰며, 조금만 타이밍이 어긋나도 가공물이 파손됨",
+      "compoundAsset": "구형 기계 브랜드별 통신 타이밍과 파일 헤더 파서를 하나씩 저축하면 전 세계 봉제공장·가공집이 빠져나갈 수 없는 B2B 구독 서비스 완성",
+      "synergyWithUser": "ESP32 RS232 동글(원가 6,000원) + 클라우드 도안 변환/전송 웹 대시보드 결합",
+      "pricingModel": "무선 브릿지 동글 $89 + 클라우드 변환 월 $19",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-07-core",
+        "stars": 120,
+        "desc": "구형 자수기·CNC·레이저커터 전용 독점 바이너리 포맷(.DST/.TAP/독점 G-code) 클라우드 변환 & Wi-Fi 전송 브릿지",
+        "url": "https://github.com/search?q=embroidery%20CNC%20legacy%20file%20format%20converter%20RS232%20WiFi&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] legacy CNC RS232 drip feed WiFi ESP32",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=legacy%20CNC%20RS232%20drip%20feed%20WiFi%20ESP32"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "RS232 CNC WiFi bridge",
+        "url": "https://hackaday.io/search?term=RS232%20CNC%20WiFi%20bridge"
+      }
+    },
+    {
+      "seq": 3151,
+      "timestamp": "2026. 11. 10. PM 1:35:38",
+      "code": "MOAT-06",
+      "shard": "PARAMETRIC_CAD_SAAS",
+      "domain": "2. 0.1mm 정밀 공차 파라메트릭 3D 도면 자동 생성기(SaaS)",
+      "title": "단종 가전·빈티지 오디오·카메라 파손 플라스틱 기어(헬리컬/웜기어) 치수 역산 & 나일론 복원 생성기",
+      "aiBlindspot": "부러진 기어의 이빨 수(Teeth), 모듈(Module), 압력각(Pressure Angle) 계산은 기계공학 수식이 필요해 일반인이 모델링 불가",
+      "compoundAsset": "스마트폰으로 동전 옆에 부러진 기어를 찍어 올리면 비전 AI가 이빨 수와 외경을 측정해 즉시 PA12 나일론 기어 도면을 생성·누적하는 DB",
+      "synergyWithUser": "정밀 소형 부품 10g 우편 수출(원가 500원 -> 판매가 $25~$45)과 완벽 결합",
+      "pricingModel": "기어 도면 $7 / SLS 나일론 기어 우편 발송 $28",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-06-core",
+        "stars": 120,
+        "desc": "단종 가전·빈티지 오디오·카메라 파손 플라스틱 기어(헬리컬/웜기어) 치수 역산 & 나일론 복원 생성기",
+        "url": "https://github.com/search?q=OpenSCAD%20parametric%20gear%20generator%20replacement%20repair&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] 3D printed replacement gear nylon OpenSCAD repair",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=3D%20printed%20replacement%20gear%20nylon%20OpenSCAD%20repair"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "parametric replacement gear",
+        "url": "https://hackaday.io/search?term=parametric%20replacement%20gear"
+      }
+    },
+    {
+      "seq": 3150,
+      "timestamp": "2026. 11. 10. PM 1:35:13",
+      "code": "MOAT-05",
+      "shard": "PARAMETRIC_CAD_SAAS",
+      "domain": "2. 0.1mm 정밀 공차 파라메트릭 3D 도면 자동 생성기(SaaS)",
+      "title": "구축 아파트 월패드·구형 차량 오디오 매립용 치수 입력식 맞춤형 마감재(Fascia Bezel) 3초 자동 생성 웹앱",
+      "aiBlindspot": "아파트 단지별 벽면 타공 사이즈나 희귀 차종 대시보드 곡률은 기성품이 없으며, 소비자는 CAD를 다룰 줄 모름",
+      "compoundAsset": "벽면 구멍 가로·세로·깊이와 모니터 규격(예: UIS7861 11.4인치, RK3566 8인치)만 입력하면 숨은 클립과 나사홀이 포함된 도면이 나오는 엔진 저축",
+      "synergyWithUser": "대표님 보유 안드로이드 오토 올인원 모니터를 어떤 차종·아파트 벽면이든 100% 매립시키게 해주는 독점 무기",
+      "pricingModel": "모니터+맞춤 베젤 패키지 29만~42만 원 (베젤 단품 $35)",
+      "gh": {
+        "source": "GitHub",
+        "name": "opensource/moat-05-core",
+        "stars": 120,
+        "desc": "구축 아파트 월패드·구형 차량 오디오 매립용 치수 입력식 맞춤형 마감재(Fascia Bezel) 3초 자동 생성 웹앱",
+        "url": "https://github.com/search?q=parametric%20bezel%20mount%20enclosure%20OpenSCAD%20FreeCAD&type=repositories"
+      },
+      "reddit": {
+        "source": "Reddit",
+        "title": "[Field Demand] custom car stereo fascia bezel 3D print parametric",
+        "upvotes": 42,
+        "url": "https://www.reddit.com/search/?q=custom%20car%20stereo%20fascia%20bezel%203D%20print%20parametric"
+      },
+      "hackaday": {
+        "source": "Hackaday.io",
+        "title": "parametric enclosure generator",
+        "url": "https://hackaday.io/search?term=parametric%20enclosure%20generator"
+      }
+    }
+  ],
+  "shardCounts": {
+    "PROTOCOL_UNLOCK_SAAS": {
+      "lines": 411,
+      "kb": "657.3"
+    },
+    "PARAMETRIC_CAD_SAAS": {
+      "lines": 412,
+      "kb": "654.7"
+    },
+    "LEGACY_B2B_BRIDGE": {
+      "lines": 414,
+      "kb": "643.9"
+    },
+    "REGULATORY_ARBITRAGE": {
+      "lines": 414,
+      "kb": "652.4"
+    },
+    "ERROR_FIX_AI_GRAPH": {
+      "lines": 415,
+      "kb": "686.6"
+    },
+    "EDGE_AI_DONGLE_B2B": {
+      "lines": 414,
+      "kb": "701.6"
+    },
+    "OPEN_INSTRUMENTS": {
+      "lines": 410,
+      "kb": "675.8"
+    },
+    "CROWDFUND_REVERSE": {
+      "lines": 408,
+      "kb": "659.0"
+    }
+  },
+  "totalShardLines": 3298,
+  "totalShardMb": "5.21"
+}
