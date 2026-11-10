@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 11. AM 7:53:47",
+  "updatedAt": "2026. 11. 11. AM 7:54:17",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -160,7 +160,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 11. AM 7:53:47\n1. 영구 장기기억 금고: 18건 (고정: 오늘 날씨랑 일정 알려줘)\n2. PC 안티그래비티 실시간 작업: 최근 7단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 11. AM 7:54:17\n1. 영구 장기기억 금고: 18건 (고정: 오늘 날씨랑 일정 알려줘)\n2. PC 안티그래비티 실시간 작업: 최근 7단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -895,6 +895,10 @@
   ],
   "livePcAntigravity": [
     {
+      "updatedAt": "2026-11-10T22:51:58Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 전송버튼 화살표버튼이없어젺잖아"
+    },
+    {
       "updatedAt": "2026-11-10T22:24:12Z",
       "snippet": "[안티그래비티(PC 작업 결과)] 사장님, 지시하신 **6대 핵심 황금 조건**에 맞춰 **① 전체 보고서(v2.0) 전면 재구축**과 **② AI 영구기억·마스터 두뇌·24시간 크롤러 규칙 전환**을 모두 완료했습니다.\n\n---\n\n### 1. 즉시 열람 가능한 재구축 보고서 (v2.0)\n- **Antigravity 마스터 리포트 아티팩트**: [crawled_master_report.md](file:///C:/Users/박정수/.gemini/antigravity/brain/e86750a1-a50f-470b-98b1-4428a55a6043/crawled_master_report.md)\n- **모바일·PC 웹 뷰어 (GitHub Pages 실시간 배포 완료)**: https://zespy2614-jpg.github.io/korea-spart-24h-cloud/crawled_ma"
     },
@@ -905,10 +909,6 @@
     {
       "updatedAt": "2026-11-10T22:53:44Z",
       "snippet": "[대표님(PC 안티그래비티 요청)] 야 1위가 텀블러해놓고 텀블러살균기는 다른품목이잖아 같은품목을순위에올려야지"
-    },
-    {
-      "updatedAt": "2026-11-10T22:51:58Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 전송버튼 화살표버튼이없어젺잖아"
     },
     {
       "updatedAt": "2026-11-10T22:40:02Z",
@@ -977,6 +977,11 @@
   ],
   "livePcAntigravitySession": [
     {
+      "role": "대표님(PC 안티그래비티 요청)",
+      "createdAt": "2026-11-10T22:51:58Z",
+      "summary": "전송버튼 화살표버튼이없어젺잖아"
+    },
+    {
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-10T22:24:12Z",
       "summary": "사장님, 지시하신 **6대 핵심 황금 조건**에 맞춰 **① 전체 보고서(v2.0) 전면 재구축**과 **② AI 영구기억·마스터 두뇌·24시간 크롤러 규칙 전환**을 모두 완료했습니다.\n\n---\n\n### 1. 즉시 열람 가능한 재구축 보고서 (v2.0)\n- **Antigravity 마스터 리포트 아티팩트**: [crawled_master_report.md](file:///C:/Users/박정수/.gemini/antigravity/brain/e86750a1-a50f-470b-98b1-4428a55a6043/crawled_master_report.md)\n- **모바일·PC 웹 뷰어 (GitHub Pages 실시간 배포 완료)**: https://zespy2614-jpg.github.io/korea-spart-24h-cloud/crawled_ma"
@@ -990,11 +995,6 @@
       "role": "대표님(PC 안티그래비티 요청)",
       "createdAt": "2026-11-10T22:53:44Z",
       "summary": "야 1위가 텀블러해놓고 텀블러살균기는 다른품목이잖아 같은품목을순위에올려야지"
-    },
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-10T22:51:58Z",
-      "summary": "전송버튼 화살표버튼이없어젺잖아"
     },
     {
       "role": "안티그래비티(PC 작업 결과)",
