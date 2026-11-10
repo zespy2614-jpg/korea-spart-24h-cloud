@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 11. AM 7:04:46",
+  "updatedAt": "2026. 11. 11. AM 7:05:16",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -159,7 +159,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 11. AM 7:04:46\n1. 영구 장기기억 금고: 18건 (고정: 오늘 날씨랑 일정 알려줘)\n2. PC 안티그래비티 실시간 작업: 최근 3단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 11. AM 7:05:16\n1. 영구 장기기억 금고: 18건 (고정: 오늘 날씨랑 일정 알려줘)\n2. PC 안티그래비티 실시간 작업: 최근 0단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -884,20 +884,7 @@
       "summary": "워크스페이스 핵심 문서"
     }
   ],
-  "livePcAntigravity": [
-    {
-      "updatedAt": "2026-11-10T22:02:40Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 그 ai 세개다결제해놨는데 코덱스 클로드코드 안티그래비티 세개 모두 알아서 최고모델로 사용하면서 작업라는 프로그램없을 까 서로 장단점이 다른데 셋이 다같이 작업하는거지 토큰다쓰먼 하위모델로전환하고 ㅠㅠ\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Carbon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
-    },
-    {
-      "updatedAt": "2026-11-10T21:56:28Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] 직접 모든 메모리 파일과 실시간 크롤러 코드를 전수 열어 확인해 보니, **아직 '특이분야(농기계·산단 센서·승강기·중고 개조부품)' 위주로 메모리가 그대로 남아 있고, 실제 크롤러도 생활용품 무필터로 완전히 바뀌지 않은 상태**입니다.\n\n현재 어디가 어떻게 되어 있는지 확인된 사실 그대로 보고드립니다.\n\n---\n\n### 🔍 [실측 확인 결과] 현재 메모리 및 크롤러 설정 상태\n\n| 구분 | 대상 파일 | 현재 실제 상태 | 상세 확인 내용 |\n| :--- | :--- | :---: | :--- |\n| **1. 제미나이 마스터 두뇌** | [gemini_brain_sync_daemon.mjs](file:///E:/안티그래비티/gemini_brain_sync_daemon.mjs#L440-L454)<br>[안티그래비티_제미나이_마스터두뇌_통합바"
-    },
-    {
-      "updatedAt": "2026-11-10T21:59:10Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 가장중요한조건은 \n1. 중로 시앤위업자가 물량안정적으로 공급가능한애가 맀어야해\n2. 쿠팡이나아마존에 한달간구내매갯수가 많거나 네이버검색광고 리뷰가 많거나 검색량이 많아야해 높은거부터 순위를매기면되겠지\n3. 모든용품다 아우러야해\n4. v8모터를 예를들면 공급도 좋았고 무선에어건 무선청소기 수요도 많았어\n5. s905l3a를 예를들면 레트로게임기 혹은 월광보합 키워드검색량도 많고 판매량도 많았어 아마존 레트로게임콘솔마냥 무선에어건하고 무선청소기도 아마존에 많겠지 수요량\n6. 위에 조건들로 다시만들어줘"
-    }
-  ],
+  "livePcAntigravity": [],
   "recentDocs": [
     {
       "name": "시엔위_비즈니스_연구소\\13_전세계4대권역_eBay_야후옥션_시엔위_글로벌차익_야간무한로그.md",
@@ -950,23 +937,7 @@
       "preview": "# 테크모 월드컵 98(ST-V) 약 45~48fps → 59.1~59.7fps: 무엇을 어떻게 했나\n\n다른 AI에게 전달하기 위한 설명문이다. 2026-11-11 작성, 작성자는 Claude(Fable 5.2, Claude Code)다. 초안을 독립된 검토 에이전트 5개가 원자료와 대조했고, 이 글은 그 지적을 반영한 판이다.\n\n- 기기: S905L3A 게임기(Cortex-A53 4코어 1.8GHz, Mali-G31, 720p 60Hz). 전용 RetroArch 프런트엔드와 YabaSanshiro ST-V 코어를 쓴다. ST-V는 세가 새턴 기반의 아케이드 기판이다.\n- 사용자 조건: 프레임스킵, 추가 해상도 저하, 필터 외형 변경, 오버클럭은 금지다. 2인용 입력, 소리, 종료 후 목록 복귀는 그대로여야 한다.\n- 표기: **[사실]** 은 실측·로그·코드·작업 기록으로 확인한 것이고, **[추정]** 은 확인하지 못한 내 해석이다.\n- 용어: SH2는 이 기판의 CPU(2개)다. 동적 재컴파일러는 SH2 명령을 ARM 코드 \"블록\"으로 바꿔 실행하는 부분이다. VDP1과 VDP2는 스프라이트와 배경을 그리는 칩이고, NBG0·NBG1은 일반 배경 레이어, RBG0은 회전 배경(경기장)이다. 아틀라스는 배경과 스프라이트 그림을 모아 GPU로 올리는 큰 텍스처 한 장이다. PMU는 CPU 안의 하드웨어 성능 계수기다. \"2초 창\"은 코어가 120프레임마다 남기는 측정 한 줄이다.\n\n## 0. 요약\n\n1. 이전 AI(Codex)가 이 게임을 다른 코어의 18~20fps에서 48~49fps까지 올려 두었다. 이번 작업은 그 위에 얹은 것이다.\n2. 이번에 한 일은 두 단계다. 1단계에서 에뮬레이션 루프의 CPU 사이클을 32% 줄이고, 변하지 않은 배경을 매 프레임 다시 복사·전송하던 "
     }
   ],
-  "livePcAntigravitySession": [
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-10T22:02:40Z",
-      "summary": "그 ai 세개다결제해놨는데 코덱스 클로드코드 안티그래비티 세개 모두 알아서 최고모델로 사용하면서 작업라는 프로그램없을 까 서로 장단점이 다른데 셋이 다같이 작업하는거지 토큰다쓰먼 하위모델로전환하고 ㅠㅠ\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Carbon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
-    },
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-10T21:56:28Z",
-      "summary": "직접 모든 메모리 파일과 실시간 크롤러 코드를 전수 열어 확인해 보니, **아직 '특이분야(농기계·산단 센서·승강기·중고 개조부품)' 위주로 메모리가 그대로 남아 있고, 실제 크롤러도 생활용품 무필터로 완전히 바뀌지 않은 상태**입니다.\n\n현재 어디가 어떻게 되어 있는지 확인된 사실 그대로 보고드립니다.\n\n---\n\n### 🔍 [실측 확인 결과] 현재 메모리 및 크롤러 설정 상태\n\n| 구분 | 대상 파일 | 현재 실제 상태 | 상세 확인 내용 |\n| :--- | :--- | :---: | :--- |\n| **1. 제미나이 마스터 두뇌** | [gemini_brain_sync_daemon.mjs](file:///E:/안티그래비티/gemini_brain_sync_daemon.mjs#L440-L454)<br>[안티그래비티_제미나이_마스터두뇌_통합바"
-    },
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-10T21:59:10Z",
-      "summary": "가장중요한조건은 \n1. 중로 시앤위업자가 물량안정적으로 공급가능한애가 맀어야해\n2. 쿠팡이나아마존에 한달간구내매갯수가 많거나 네이버검색광고 리뷰가 많거나 검색량이 많아야해 높은거부터 순위를매기면되겠지\n3. 모든용품다 아우러야해\n4. v8모터를 예를들면 공급도 좋았고 무선에어건 무선청소기 수요도 많았어\n5. s905l3a를 예를들면 레트로게임기 혹은 월광보합 키워드검색량도 많고 판매량도 많았어 아마존 레트로게임콘솔마냥 무선에어건하고 무선청소기도 아마존에 많겠지 수요량\n6. 위에 조건들로 다시만들어줘"
-    }
-  ],
+  "livePcAntigravitySession": [],
   "livePcArtifacts": [
     {
       "file": "crawled_master_report.md",
