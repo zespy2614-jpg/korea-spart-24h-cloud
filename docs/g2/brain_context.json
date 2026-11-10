@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 10. AM 11:29:53",
+  "updatedAt": "2026. 11. 10. AM 11:30:08",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -158,7 +158,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 10. AM 11:29:53\n1. 영구 장기기억 금고: 18건 (고정: 오늘 날씨랑 일정 알려줘)\n2. PC 안티그래비티 실시간 작업: 최근 7단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 10. AM 11:30:08\n1. 영구 장기기억 금고: 18건 (고정: 오늘 날씨랑 일정 알려줘)\n2. PC 안티그래비티 실시간 작업: 최근 7단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -884,7 +884,7 @@
   "recentDocs": [
     {
       "name": "시엔위_비즈니스_연구소\\28_안드로이드전문가_AOSP_전장_커스텀롬_OTA_NDK_무한학습로그.md",
-      "updatedAt": "2026. 11. 10. AM 11:29:19",
+      "updatedAt": "2026. 11. 10. AM 11:30:11",
       "preview": "# 🤖 [안드로이드 시스템·AOSP·전장·리버스엔지니어링·OTA·Edge AI] 6-워커 병렬 크롤링 & 실시간 무한학습 로그\n\n> **관제 서버**: `http://127.0.0.1:3853` | **구글 드라이브 샤드 경로**: `G:\\내 드라이브\\안티그래비티_글로벌소싱_DB\\android_expert_shards`\n> **핵심 타겟**: `E900V22D(S905L3A)` 안드로이드 12 + `UIS7861(T606)` 11.4인치 열화상 카플레이 모니터 + `RK3566` 빔프로젝터/NPU + `AWS OTA 서버` + `Antigravity Remote Pro APK`\n\n---\n\n## 🤖 [안드로이드 전문가 학습 #1 (Cycle 1)] [AOSP-01] Amlogic(S905L3A/E900V22D·S905X4·T982) USB Burning Tool 이미지 언팩·리팩 & 핀쇼트 부트로더 진입 (2026. 11. 5. PM 8:46:45)\n\n- **전문 영역 및 타겟 보드**: 🔥 1. AOSP·커스텀롬·펌웨어개조 | `E900V22D (S905L3A), S905X3/X4, T972, T982 빔프로젝터/셋톱박스`\n- **황금 구현 공식(Core Formula)**: `AmlImagePack -d aml_upgrade.img unpacked_dir/ → system/vendor 수정 → AmlImagePack -r`\n- **실전 적용 법칙**: eMMC 클럭-GND 핀쇼트로 MaskROM 모드에 강제 진입한 뒤, 한국어 로케일·OTA 에이전트·커스텀 런처가 심어진 전용 단일 .img 파일을 90초 만에 양산 플래싱한다.\n\n- **🐙 GitHub 오픈소스**: [android-expert/aosp-01-core (⭐210)](https://github.com/search"
     },
     {
@@ -980,7 +980,7 @@
   "recentWorkspaceDocs": [
     {
       "relPath": "시엔위_비즈니스_연구소\\28_안드로이드전문가_AOSP_전장_커스텀롬_OTA_NDK_무한학습로그.md",
-      "updatedAt": "2026. 11. 10. AM 11:29:19",
+      "updatedAt": "2026. 11. 10. AM 11:30:11",
       "excerpt": "# 🤖 [안드로이드 시스템·AOSP·전장·리버스엔지니어링·OTA·Edge AI] 6-워커 병렬 크롤링 & 실시간 무한학습 로그\n\n> **관제 서버**: `http://127.0.0.1:3853` | **구글 드라이브 샤드 경로**: `G:\\내 드라이브\\안티그래비티_글로벌소싱_DB\\android_expert_shards`\n> **핵심 타겟**: `E900V22D(S905L3A)` 안드로이드 12 + `UIS7861(T606)` 11.4인치 열화상 카플레이 모니터 + `RK3566` 빔프로젝터/NPU + `AWS OTA 서버` + `Antigravity Remote Pro APK`\n\n---\n\n## 🤖 [안드로이드 전문가 학습 #1 (Cycle 1)] [AOSP-01] Amlogic(S905L3A/E900V22D·S905X4·T982) USB Burning Tool 이미지 언팩·리팩 & 핀쇼트 부트로더 진입 (2026. 11. 5. PM 8:46:45)\n\n- **전문 영역 및 타겟 보드**: 🔥 1. AOSP·커스텀롬·펌웨어개조 | `E900V22D (S905L3A), S905X3/X4, T972, T982 빔프로젝터/셋톱박스`\n- **황금 구현 공식(Core Formula)**: `AmlImagePack -d aml_upgrade.img unpacked_dir/ → system/vendor 수정 → AmlImagePack -r`\n- **실전 적용 법칙**: eMMC 클럭-GND 핀쇼트로 MaskROM 모드에 강제 진입한 뒤, 한국어 로케일·OTA 에이전트·커스텀 런처가 심어진 전용 단일 .img 파일을 90초 만에 양산 플래싱한다.\n\n- **🐙 GitHub 오픈소스**: [android-expert/aosp-01-core (⭐210)](https://github.com/search"
     },
     {
