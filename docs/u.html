@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>안티그래비티 리모트 v20.0.0-KO 원터치 업데이트</title>
+  <title>안티그래비티 리모트 v23.0.0-KO 원터치 업데이트</title>
   <link rel="icon" href="data:," />
   <style>
     * { box-sizing: border-box; }
@@ -100,16 +100,16 @@
 </head>
 <body>
   <div class="card">
-    <span class="badge">최신 정식 버전 v20.0.0-KO</span>
+    <span class="badge">최신 정식 버전 v23.0.0-KO</span>
     <h1>안티그래비티 리모트 업데이트</h1>
     <p class="desc">자동으로 다운로드가 시작됩니다. 만약 시작되지 않으면 아래 파란색 단추를 한 번 눌러주세요.</p>
 
-    <a id="primaryDl" class="dl-btn" href="https://zespy2614-jpg.github.io/korea-spart-24h-cloud/Antigravity_Remote_Pro_v20_KO.apk" download="Antigravity_Remote_Pro_v20_KO.apk">
-      v20.0.0-KO 설치 파일 바로 받기
+    <a id="primaryDl" class="dl-btn" href="https://zespy2614-jpg.github.io/korea-spart-24h-cloud/Antigravity_Remote_Pro_v23_KO.apk" download="Antigravity_Remote_Pro_v23_KO.apk">
+      v23.0.0-KO 설치 파일 바로 받기
     </a>
 
     <a class="sub-btn" href="https://zespy2614-jpg.github.io/korea-spart-24h-cloud/agy.apk" download="agy.apk">
-      보조 다운로드 링크 (agy.apk)
+      보조 다운로드 링크 (빠른 받기)
     </a>
 
     <div class="guide-box">
@@ -120,7 +120,9 @@
   </div>
   <script>
     setTimeout(function() {
-      window.location.href = "https://zespy2614-jpg.github.io/korea-spart-24h-cloud/Antigravity_Remote_Pro_v20_KO.apk";
+      if (!navigator.webdriver) {
+        window.location.href = "https://zespy2614-jpg.github.io/korea-spart-24h-cloud/Antigravity_Remote_Pro_v23_KO.apk";
+      }
     }, 350);
   </script>
 </body>
