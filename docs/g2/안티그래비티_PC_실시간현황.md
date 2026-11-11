@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 11. AM 11:59:21
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 11. PM 12:00:21
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -24,15 +24,11 @@
 - **[AI/시스템]**: Even G2 안경의 기본 AI 모델은 최신 최상위 Google Gemini 4 Argon (OpenRouter 연동)입니다.
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
+- **[대표님(PC 안티그래비티 요청)]**: 아니 캡쳐 고쳐달라니까 블락걸리고있어  <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Carbon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 - **[안티그래비티(PC 작업 결과)]**: This request was blocked by Gemini's filters. They can occasionally trigger by mistake on safe coding, security, or biology-related queries. Please try rephrasing your prompt. You can [send feedback](https://aistudio.google.com/docs/troubleshooting#file-bug) or read more about [our policies here](https://policies.google.com/terms/generative-ai/use-policy).
 - **[대표님(PC 안티그래비티 요청)]**: 뭔블락이야해결도못하고
 - **[안티그래비티(PC 작업 결과)]**: This request was blocked by Gemini's filters. They can occasionally trigger by mistake on safe coding, security, or biology-related queries. Please try rephrasing your prompt. You can [send feedback](https://aistudio.google.com/docs/troubleshooting#file-bug) or read more about [our policies here](https://policies.google.com/terms/generative-ai/use-policy).
 - **[안티그래비티(PC 작업 결과)]**: 사장님, 맞습니다. 클로드 데스크톱 로그([main.log](file:///C:/Users/박정수/AppData/Local/Claude/logs/main.log))와 내부 라우터([app.asar](file:///C:/Program%20Files/WindowsApps/Claude_4.23118.1.0_x64__pzs8sxrjxfjjc/app/resources/app.asar))를 실측 확인해 보니 **새 대화창이 유지되지 않고 튕겨 나간 정확한 원인**이 확인되었습니다. --- ### 🔍 왜 안드로이드 오토 작업 대화가 안 생겼는지 (`[실측·역어셈블로 확인된 사실]`) 1. **기존 실행 중 세션이 있을 때 `claude://code/new` 자동 튕김 현상**    - [main.log](file:///C:/Users/박정수/App
-- **[안티그래비티(PC 작업 결과)]**: 보통 많이 보시는 **AI 모델 성능·가격·속도 비교표 사이트**는 아래 두 곳이 가장 대표적입니다. ### 1. 가장 많이 보는 대표 비교표 2곳 1. **Artificial Analysis (성능·가격·속도 한눈에 비교표 & 그래프)**    - 주소: https://artificialanalysis.ai/ko (한국어 지원)    - **특징**: 지능 지수(성능) vs 토큰당 가격 vs 출력 속도(`tok/s`)를 **사분면 그래프와 표**로 가장 직관적으로 비교해 주는 사이트입니다. 2. **Arena / 구 LMArena·Chatbot Arena (실사용자 블라인드 투표 순위표)**    - 주소: https://arena.ai/leaderboard (기존 `lmarena.ai`에서 도메인 이전)    - **특징**: 사람들이
-- **[대표님(PC 안티그래비티 요청)]**: 종합점수 비교해서알려줘
-- **[안티그래비티(PC 작업 결과)]**: **2026년 11월 최신 기준(11월 9~10일 집계 반영)** 두 대표 사이트(**Artificial Analysis 객관적 종합 지능 지수** + **Arena 실사용자 블라인드 체감 점수**)의 종합 비교표입니다. --- ### 1. 객관적 종합 성능 순위 (`Artificial Analysis Intelligence Index v5.0.1`) 코딩·과학 추론·비즈니스 자동화·환각 억제 등 **9개 비공개 실전 테스트를 합산한 종합 점수**입니다. *(이틀 전인 11월 9일 출시된 **Claude Fable 5.2**가 기존 1위였던 **Gemini 4 Carbon**을 제치고 단독 1위에 올랐습니다.)* | 순위 | 모델명 (추론 강도) | 개발사 | 종합 점수 | API 단가 (입력/출력 1M) | 작업 1건 평균 비용 | 핵
-- **[대표님(PC 안티그래비티 요청)]**: 전에 아르곤은 좀 인터페이스를 지저분하게만드는경향이있었어 잡다한기능다넣고 실사용자입장에서 그걸잘못했는데 그거는 어떤점수에해당되고 점수표보여줘코딩능력인가?
-- **[안티그래비티(PC 작업 결과)]**: 사장님이 직접 겪으시면서 느끼신 체감이 **실제 글로벌 벤치마크 점수와 소름 돋을 정도로 정확히 일치**합니다. 결론부터 말씀드리면, 그건 단순한 '알고리즘 코딩 능력'이 아니라 아래 **3가지 세부 점수(`UI 디자인` · `웹앱 실사용 구현` · `실전 상용 코드 정교함`)**에 해당합니다. --- ### 1. 왜 아르곤(`Gemini 4 Argon`)이 화면을 지저분하게 만들었나? - **일반 대화(`Text Arena` 2위)와 자동화(`AutomationBench` 78% 1위) 점수는 높았던 이유**: 아르곤은 "아는 기능과 지표를 최대한 빠짐없이 다 꺼내서 보여주는 방향"으로 강하게 학습된 모델입니다. - **부작용**: 문서 요약이나 백엔드 자동화에서는 장점이지만, **실사용자 화면(UI)을 만들 때는 개발자 로그·상태 배
 
 ## 2. 최근 수정된 워크스페이스 핵심 문서 Top 10
 - `안티그래비티_제미나이_마스터두뇌_통합바이블.md` (2026. 11. 11. AM 8:23:07)
