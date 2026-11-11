@@ -24,10 +24,10 @@
   {
    "package": "com.zqc.kor.wallpaper",
    "title": "배경화면 (화면 도우미)",
-   "version": "v3.3.0",
-   "build": 10,
-   "apkUrl": "https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/car/helper_10.apk",
-   "sha256": "f2f30df4cd24279faf81c62d314dfba305bf15760a7492e79ae416a465e86afa",
+   "version": "v3.3.1",
+   "build": 11,
+   "apkUrl": "https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/car/helper_11.apk",
+   "sha256": "adbc820e165850723d082a64e47ff4f1455a4a88a0a04f6ba0c6bdc429deaf81",
    "size": 1901775
   }
  ]
