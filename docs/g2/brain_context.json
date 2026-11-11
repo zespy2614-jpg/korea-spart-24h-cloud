@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 11. PM 12:23:22",
+  "updatedAt": "2026. 11. 11. PM 12:23:53",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -160,7 +160,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 11. PM 12:23:22\n1. 영구 장기기억 금고: 18건 (고정: 오늘 날씨랑 일정 알려줘)\n2. PC 안티그래비티 실시간 작업: 최근 5단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 11. PM 12:23:53\n1. 영구 장기기억 금고: 18건 (고정: 오늘 날씨랑 일정 알려줘)\n2. PC 안티그래비티 실시간 작업: 최근 7단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -907,8 +907,16 @@
       "snippet": "[대표님(PC 안티그래비티 요청)] tekken3 롬 구글에서 다운받아서e드라이브에놔줘 일판으로\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Carbon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
     },
     {
+      "updatedAt": "2026-11-11T03:22:57Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] 죄송하지만 **철권 3(Tekken 3)**는 저작권이 있는 상용 게임이므로, 인터넷(구글 등)에서 롬(ROM/ISO) 파일을 검색하거나 다운로드해 드릴 수 없습니다.\n\n대신 아래 작업은 바로 도와드릴 수 있습니다.\n\n1. **보유 중인 일본판 정품 디스크(`SLPS-01300`) 직접 추출**: PC 광학 드라이브를 이용해 정품 CD를 `.bin/.cue`로 덤프하고, 에뮬레이터용 고압축 포맷(`.chd`)으로 변환해 `E:\\` 드라이브에 저장하는 과정 안내 및 변환 자동화\n2. **로컬 백업 파일 정리 및 에뮬레이터 설정**: 이미 PC나 기기 내에 직접 백업해 두신 파일이 있다면 위치 확인·정리, 또는 에뮬레이터(PCSX-ReARMed, DuckStation, EmuELEC, MAME 등) 실행 및 프레임 최적화 설정\n\n원하시는 방향이 "
+    },
+    {
       "updatedAt": "2026-11-11T03:21:05Z",
       "snippet": "[대표님(PC 안티그래비티 요청)] 너일안하니 ?"
+    },
+    {
+      "updatedAt": "2026-11-11T03:23:41Z",
+      "snippet": "[대표님(PC 안티그래비티 요청)] 됐어 그리고 https://makerify.ai/app 이거 무슨사이트야 ? LLM으로 뭐시기라하면서 내가원하는 AI 3대장 프로그램돌릴때하라는데 요약해줘"
     },
     {
       "updatedAt": "2026-11-11T03:11:50Z",
@@ -982,9 +990,19 @@
       "summary": "tekken3 롬 구글에서 다운받아서e드라이브에놔줘 일판으로\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Carbon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
     },
     {
+      "role": "안티그래비티(PC 작업 결과)",
+      "createdAt": "2026-11-11T03:22:57Z",
+      "summary": "죄송하지만 **철권 3(Tekken 3)**는 저작권이 있는 상용 게임이므로, 인터넷(구글 등)에서 롬(ROM/ISO) 파일을 검색하거나 다운로드해 드릴 수 없습니다.\n\n대신 아래 작업은 바로 도와드릴 수 있습니다.\n\n1. **보유 중인 일본판 정품 디스크(`SLPS-01300`) 직접 추출**: PC 광학 드라이브를 이용해 정품 CD를 `.bin/.cue`로 덤프하고, 에뮬레이터용 고압축 포맷(`.chd`)으로 변환해 `E:\\` 드라이브에 저장하는 과정 안내 및 변환 자동화\n2. **로컬 백업 파일 정리 및 에뮬레이터 설정**: 이미 PC나 기기 내에 직접 백업해 두신 파일이 있다면 위치 확인·정리, 또는 에뮬레이터(PCSX-ReARMed, DuckStation, EmuELEC, MAME 등) 실행 및 프레임 최적화 설정\n\n원하시는 방향이 "
+    },
+    {
       "role": "대표님(PC 안티그래비티 요청)",
       "createdAt": "2026-11-11T03:21:05Z",
       "summary": "너일안하니 ?"
+    },
+    {
+      "role": "대표님(PC 안티그래비티 요청)",
+      "createdAt": "2026-11-11T03:23:41Z",
+      "summary": "됐어 그리고 https://makerify.ai/app 이거 무슨사이트야 ? LLM으로 뭐시기라하면서 내가원하는 AI 3대장 프로그램돌릴때하라는데 요약해줘"
     },
     {
       "role": "안티그래비티(PC 작업 결과)",
