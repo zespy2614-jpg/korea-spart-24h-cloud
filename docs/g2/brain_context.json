@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 11. AM 11:28:51",
+  "updatedAt": "2026. 11. 11. AM 11:30:21",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -160,7 +160,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 11. AM 11:28:51\n1. 영구 장기기억 금고: 18건 (고정: 오늘 날씨랑 일정 알려줘)\n2. PC 안티그래비티 실시간 작업: 최근 6단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 11. AM 11:30:21\n1. 영구 장기기억 금고: 18건 (고정: 오늘 날씨랑 일정 알려줘)\n2. PC 안티그래비티 실시간 작업: 최근 7단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -895,6 +895,10 @@
   ],
   "livePcAntigravity": [
     {
+      "updatedAt": "2026-11-11T02:28:41Z",
+      "snippet": "[안티그래비티(PC 작업 결과)] This request was blocked by Gemini's filters. They can occasionally trigger by mistake on safe coding, security, or biology-related queries. Please try rephrasing your prompt. You can [send feedback](https://aistudio.google.com/docs/troubleshooting#file-bug) or read more about [our policies here](https://policies.google.com/terms/generative-ai/use-policy)."
+    },
+    {
       "updatedAt": "2026-11-11T01:24:09Z",
       "snippet": "[안티그래비티(PC 작업 결과)] 사장님, 맞습니다. 클로드 데스크톱 로그([main.log](file:///C:/Users/박정수/AppData/Local/Claude/logs/main.log))와 내부 라우터([app.asar](file:///C:/Program%20Files/WindowsApps/Claude_4.23118.1.0_x64__pzs8sxrjxfjjc/app/resources/app.asar))를 실측 확인해 보니 **새 대화창이 유지되지 않고 튕겨 나간 정확한 원인**이 확인되었습니다.\n\n---\n\n### 🔍 왜 안드로이드 오토 작업 대화가 안 생겼는지 (`[실측·역어셈블로 확인된 사실]`)\n\n1. **기존 실행 중 세션이 있을 때 `claude://code/new` 자동 튕김 현상**\n   - [main.log](file:///C:/Users/박정수/App"
     },
@@ -972,6 +976,11 @@
     }
   ],
   "livePcAntigravitySession": [
+    {
+      "role": "안티그래비티(PC 작업 결과)",
+      "createdAt": "2026-11-11T02:28:41Z",
+      "summary": "This request was blocked by Gemini's filters. They can occasionally trigger by mistake on safe coding, security, or biology-related queries. Please try rephrasing your prompt. You can [send feedback](https://aistudio.google.com/docs/troubleshooting#file-bug) or read more about [our policies here](https://policies.google.com/terms/generative-ai/use-policy)."
+    },
     {
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-11T01:24:09Z",
