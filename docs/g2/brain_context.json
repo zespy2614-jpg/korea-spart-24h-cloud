@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 11. AM 9:33:49",
+  "updatedAt": "2026. 11. 11. AM 9:34:19",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -160,7 +160,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 11. AM 9:33:49\n1. 영구 장기기억 금고: 18건 (고정: 오늘 날씨랑 일정 알려줘)\n2. PC 안티그래비티 실시간 작업: 최근 9단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 11. AM 9:34:19\n1. 영구 장기기억 금고: 18건 (고정: 오늘 날씨랑 일정 알려줘)\n2. PC 안티그래비티 실시간 작업: 최근 8단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -895,10 +895,6 @@
   ],
   "livePcAntigravity": [
     {
-      "updatedAt": "2026-11-11T00:32:02Z",
-      "snippet": "[대표님(PC 안티그래비티 요청)] 클로드 안드로이드올인원작업시켰는데 계속 에러문구 대화창뜨는데 해결해줘\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Carbon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
-    },
-    {
       "updatedAt": "2026-11-11T00:14:08Z",
       "snippet": "[안티그래비티(PC 작업 결과)] 첫 화면(**`대화창` 탭 상단**)에서 다른 탭을 찾아 들어갈 필요 없이 **총사령관(1번 지휘 대장)**과 **클로드 코드·코덱스·안티그래비티 각각의 세부 모델**을 한눈에 직접 고르고 즉시 반영할 수 있도록 업그레이드하여 **http://127.0.0.1:3920**에 반영 완료했습니다. (열려 있는 브라우저에서 새로고침하시면 바로 적용됩니다.)\n\n---\n\n### 주요 구현 내용\n\n1. **대화창 첫 화면 상단 `총사령관 및 각 AI 모델 선택` 카드 신설 ([index.html](file:///e:/안티그래비티/AI_3대장_통합_관제실/public/index.html#L88-L148), [styles.css](file:///e:/안티그래비티/AI_3대장_통합_관제실/public/styles.css#L332-L368))**\n   - **"
     },
@@ -984,11 +980,6 @@
     }
   ],
   "livePcAntigravitySession": [
-    {
-      "role": "대표님(PC 안티그래비티 요청)",
-      "createdAt": "2026-11-11T00:32:02Z",
-      "summary": "클로드 안드로이드올인원작업시켰는데 계속 에러문구 대화창뜨는데 해결해줘\n\n\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 4 Carbon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"
-    },
     {
       "role": "안티그래비티(PC 작업 결과)",
       "createdAt": "2026-11-11T00:14:08Z",

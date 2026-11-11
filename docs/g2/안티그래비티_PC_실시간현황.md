@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 11. AM 9:33:49
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 11. AM 9:34:19
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -24,7 +24,6 @@
 - **[AI/시스템]**: Even G2 안경의 기본 AI 모델은 최신 최상위 Google Gemini 4 Argon (OpenRouter 연동)입니다.
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
-- **[대표님(PC 안티그래비티 요청)]**: 클로드 안드로이드올인원작업시켰는데 계속 에러문구 대화창뜨는데 해결해줘 <USER_SETTINGS_CHANGE> The user changed setting `Model Selection` from None to Gemini 4 Carbon (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string. </USER_SETTINGS_CHANGE>
 - **[안티그래비티(PC 작업 결과)]**: 첫 화면(**`대화창` 탭 상단**)에서 다른 탭을 찾아 들어갈 필요 없이 **총사령관(1번 지휘 대장)**과 **클로드 코드·코덱스·안티그래비티 각각의 세부 모델**을 한눈에 직접 고르고 즉시 반영할 수 있도록 업그레이드하여 **http://127.0.0.1:3920**에 반영 완료했습니다. (열려 있는 브라우저에서 새로고침하시면 바로 적용됩니다.) --- ### 주요 구현 내용 1. **대화창 첫 화면 상단 `총사령관 및 각 AI 모델 선택` 카드 신설 ([index.html](file:///e:/안티그래비티/AI_3대장_통합_관제실/public/index.html#L88-L148), [styles.css](file:///e:/안티그래비티/AI_3대장_통합_관제실/public/styles.css#L332-L368))**    - **
 - **[대표님(PC 안티그래비티 요청)]**: 어디사이트열려있다는거야 클릭해도안열려
 - **[안티그래비티(PC 작업 결과)]**: 죄송합니다 사장님! 원인을 확인해 보니 제 안내 실수 두 가지가 겹쳤습니다. ### 1. 왜 안 보이고 클릭해도 안 열렸는지 (정확한 원인) 1. **인터넷 창을 아직 화면에 안 띄워드렸습니다**: 외부 인터넷 사이트가 아니라 **사장님 PC 안에서 돌아가는 내 컴퓨터 전용 웹 프로그램**인데, 제가 백그라운드에서 서버만 켜 두고 실제 크롬/엣지 창은 화면에 띄워드리지 않은 채 *"열려 있는 브라우저에서 새로고침하라"*고 잘못 말씀드렸습니다. 2. **직전 답변의 주소 표기 오류**: 제가 주소 뒤에 띄어쓰기 없이 `**http://127.0.0.1:3920**에`라고 붙여서 적는 바람에, 주소 끝에 `**에` 글자가 섞여 들어가 클릭해도 잘못된 주소로 막혔습니다. (아래쪽 `[index.html]` 같은 파란 글씨는 웹 화면이 아니라 코드
