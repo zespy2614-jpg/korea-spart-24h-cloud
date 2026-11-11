@@ -1,286 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="theme-color" content="#000000" />
-  <title>안심케어 AI 안전 박스 — 전용 앱 설치 & 10초 개통</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
-  <style>
-    :root {
-      --oneui-bg: #F4F4F8;
-      --oneui-surface: #FFFFFF;
-      --oneui-surface-sec: #F0F1F6;
-      --oneui-text: #121212;
-      --oneui-sub: #4A4A52;
-      --samsung-blue: #1428A0;
-      --oneui-primary: #0381FE;
-      --oneui-success: #008A3A;
-      --oneui-warning: #D97706;
-    }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      word-break: keep-all;
-      overflow-wrap: break-word;
-    }
-    body {
-      font-family: 'Pretendard Variable', Pretendard, 'SamsungOne', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-      background: var(--oneui-bg);
-      color: var(--oneui-text);
-      line-height: 1.58;
-      padding: 20px 16px 48px;
-      max-width: 520px;
-      margin: 0 auto;
-    }
-    .hero {
-      text-align: center;
-      padding: 22px 12px 18px;
-    }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--samsung-blue);
-      color: #fff;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 7px 15px;
-      min-height: 36px;
-      border-radius: 9999px;
-      margin-bottom: 12px;
-    }
-    .hero h1 {
-      font-size: 25px;
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      margin-bottom: 6px;
-      color: #121212;
-    }
-    .hero p {
-      font-size: 14.5px;
-      color: var(--oneui-sub);
-    }
-    .card {
-      background: var(--oneui-surface);
-      border-radius: 26px;
-      padding: 22px;
-      margin-bottom: 16px;
-      box-shadow: 0 8px 28px rgba(20, 40, 160, 0.06);
-      border: 1px solid rgba(0, 0, 0, 0.06);
-    }
-    .cta-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      width: 100%;
-      min-height: 52px;
-      padding: 15px 20px;
-      border-radius: 9999px;
-      font-size: 16px;
-      font-weight: 800;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.15s ease;
-      margin-bottom: 12px;
-    }
-    .cta-btn:active {
-      transform: scale(0.98);
-    }
-    .cta-primary {
-      background: var(--oneui-primary);
-      color: #FFFFFF;
-      box-shadow: 0 6px 20px rgba(3, 129, 254, 0.28);
-    }
-    .cta-connect {
-      background: rgba(0, 138, 58, 0.12);
-      color: var(--oneui-success);
-      border: 1.5px solid rgba(0, 138, 58, 0.35);
-    }
-    .cta-secondary {
-      background: var(--oneui-surface-sec);
-      color: var(--oneui-text);
-      min-height: 48px;
-      font-size: 14.5px;
-      padding: 14px 18px;
-      margin-bottom: 0;
-    }
-    .step-title {
-      font-size: 16.5px;
-      font-weight: 800;
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .step-box {
-      background: var(--oneui-surface-sec);
-      border-radius: 18px;
-      padding: 16px;
-      margin-bottom: 12px;
-      border-left: 4px solid var(--oneui-primary);
-    }
-    .step-box.warn {
-      border-left-color: var(--oneui-warning);
-    }
-    .step-box.ok {
-      border-left-color: var(--oneui-success);
-    }
-    .step-num {
-      font-size: 13px;
-      font-weight: 800;
-      color: var(--oneui-primary);
-      margin-bottom: 4px;
-    }
-    .step-box.warn .step-num { color: var(--oneui-warning); }
-    .step-box.ok .step-num { color: var(--oneui-success); }
-    .step-head {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-    .step-desc {
-      font-size: 13.5px;
-      color: var(--oneui-sub);
-    }
-    .mock-dialog {
-      background: #FFFFFF;
-      border: 1px solid rgba(0,0,0,0.10);
-      border-radius: 14px;
-      padding: 12px;
-      margin-top: 8px;
-      font-size: 13.5px;
-      color: #121212;
-    }
-    .mock-highlight {
-      display: inline-block;
-      background: rgba(217, 119, 6, 0.14);
-      color: #B45309;
-      font-weight: 800;
-      padding: 2px 8px;
-      border-radius: 6px;
-      border: 1px solid rgba(217, 119, 6, 0.4);
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f4f6fa">
+<title>안심케어 앱 받기</title>
+<style>
+:root{font-size:16px;color-scheme:light;--blue:#145bdb;--ink:#192334;--muted:#56657b;--line:#e3e8f0}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:#f4f6fa;font-family:system-ui,-apple-system,'Segoe UI','Malgun Gothic',sans-serif;font-size:1.0625rem;line-height:1.7;word-break:keep-all;overflow-wrap:anywhere}
+main{max-width:680px;margin:auto;padding:1.25rem 1rem calc(3rem + env(safe-area-inset-bottom))}
+.brand{display:flex;gap:.6rem;align-items:center;font-weight:800;font-size:1.15rem;margin-bottom:1.5rem}
+.logo{width:2.6rem;height:2.6rem;border-radius:.8rem;background:var(--blue);display:grid;place-items:center;flex-shrink:0}
+h1{font-size:1.85rem;line-height:1.3;letter-spacing:-.03em;margin:0 0 .5rem}
+.lead{color:var(--muted);margin:0}
+.card{background:#fff;border:1px solid var(--line);border-radius:26px;padding:1.25rem;margin-top:1.25rem}
+.card h2{font-size:1.3rem;line-height:1.4;margin:0 0 .25rem}
+.meta{color:var(--muted);margin:0}
+.button{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;min-height:56px;padding:.8rem 1rem;border-radius:999px;font:inherit;font-weight:800;font-size:1.15rem;line-height:1.4;text-align:center;text-decoration:none;background:var(--blue);color:#fff;margin-top:1rem;touch-action:manipulation}
+.button.secondary{background:#eaf1ff;color:var(--blue);font-size:1.05rem}
+.button:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.guide{background:#f0f4fa;border-radius:18px;padding:1rem 1.1rem;margin-top:1rem}
+.guide .t{display:block;font-size:1.05rem;margin-bottom:.35rem}
+ol{margin:0;padding-left:1.35rem}
+li{margin:.45rem 0;line-height:1.65}
+li b{color:var(--blue)}
+.notice{background:#fff7e6;border-radius:18px;padding:1rem 1.1rem;margin-top:1.25rem;color:#5c4400}
+</style>
 </head>
 <body>
+<main>
+<div class="brand"><span class="logo" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg></span>안심케어</div>
+<h1>안심케어 앱 받기</h1>
+<p class="lead">휴대폰에 앱을 설치하면 본체를 찾아 연결하고, 카메라 영상과 알림을 볼 수 있어요.</p>
 
-  <header class="hero">
-    <div class="badge">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      <span id="snBadge">기기 고유번호: 확인 중...</span>
-    </div>
-    <h1>안심케어 AI 전용 앱 설치</h1>
-    <p>전용 앱을 설치하면 <strong>실시간 상단바 위험 알림·경보음</strong>과<br/><strong>원클릭 자동 업데이트</strong>를 지원합니다.</p>
-  </header>
+<section class="card">
+<h2>안드로이드 휴대폰용 앱</h2>
+<p class="meta">버전 3.3.0</p>
+<a class="button" id="apk-download" href="AnsimCare-3.3.0.apk" download="AnsimCare-3.3.0.apk"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></svg>안심케어 앱 받기</a>
+<div class="guide">
+<strong class="t">받기를 누른 뒤 이렇게 해 주세요</strong>
+<ol>
+<li><b>안내창이 나오면 [다운로드]를 누르세요.</b> &lsquo;폰에 손상을 줄 수 있습니다&rsquo;라고 나와도 안심케어 앱이에요.</li>
+<li><b>다 받으면 화면 아래 [파일 열기]를 바로 누르세요.</b> 3초쯤 뒤에 사라져요. 놓쳤다면 <b>&lsquo;내 파일&rsquo; 앱 &rarr; [설치 파일]</b>에서 안심케어 파일을 누르세요.</li>
+<li><b>[설치]를 누르세요.</b> &lsquo;알 수 없는 앱&rsquo; 안내가 나오면 [설정]에서 허용을 켜고 돌아오세요. &lsquo;Play 프로텍트&rsquo; 안내가 나오면 <b>[앱 검사]</b>를 누르고 안내대로 마치세요.</li>
+</ol>
+</div>
+<a class="button secondary" href="ansimcare://connect">설치한 앱 열기</a>
+</section>
 
-  <section class="card">
-    <a id="primaryApkBtn" href="/download/AnsimCare_AI_Box.apk" download="AnsimCare_AI_Box.apk" class="cta-btn cta-primary">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      1. 갤럭시 전용 앱(설치 파일) 즉시 받기
-    </a>
+<section class="card">
+<h2>설치한 다음에는</h2>
+<ol>
+<li>본체 전원을 켜고, 카메라가 본체에 연결돼 있는지 확인하세요.</li>
+<li>앱에서 <b>[기기 연결]</b>을 누르고 주변 기기 권한을 허용하세요.</li>
+<li>찾은 본체를 고른 뒤 <b>본체의 연결 버튼을 한 번</b> 누르면 연결돼요. 새 본체는 고르기만 하면 돼요.</li>
+</ol>
+</section>
 
-    <a href="https://raw.githubusercontent.com/zespy2614-jpg/korea-spart-24h-cloud/main/downloads/AnsimCare_AI_Box.apk" download="AnsimCare_AI_Box.apk" class="cta-btn cta-secondary" style="margin-bottom:12px; border:1.5px solid rgba(3,129,254,0.45); color:#0056B3;">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-      외부(LTE·5G)에서 전용 앱(v3.0) 바로 받기
-    </a>
-
-    <a id="deepLinkBtn" href="ansimcare://connect?host=192.168.123.104:8765" class="cta-btn cta-connect">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"/></svg>
-      2. 설치 완료 후 앱 열기 (자동 기기 연결)
-    </a>
-
-    <a id="webViewerBtn" href="/?mode=mobile" class="cta-btn cta-secondary">
-      아이폰 또는 앱 설치 없이 바로 화면 보기
-    </a>
-  </section>
-
-  <!-- 테슬라식 합법 비식별 AI 자가학습 동의 (개인정보보호법 제58조의2 익명정보 특례 준수) -->
-  <section class="card" style="border-color:rgba(0, 200, 83, 0.35);">
-    <div class="step-title" style="margin-bottom:8px;">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00E676" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      테슬라식 합법 비식별 AI 자가학습 (개인정보 보호)
-    </div>
-    <p style="font-size:12.5px; color:var(--oneui-sub); margin-bottom:10px;">
-      본 기기는 <strong>CCTV 원본 영상을 외부로 단 1바이트도 전송하지 않습니다(0 Byte).</strong><br/>
-      개인정보보호법 제58조의2(익명정보)에 따라 <strong>얼굴·배경이 완전히 제거된 17개 관절 좌표 숫자 벡터</strong>와 원장님의 <strong>[오경보 보정]</strong> 피드백만 기기 내부에서 자가학습하여 오경보를 0%로 줄입니다.
-    </p>
-    <label style="display:flex; align-items:center; gap:10px; background:var(--oneui-surface-sec); padding:12px 14px; border-radius:14px; font-size:13px; font-weight:700; cursor:pointer;">
-      <input type="checkbox" id="optInLearningChk" checked onchange="updateConsentOptIn(this.checked)" style="width:18px; height:18px; accent-color:#0381FE;" />
-      <span>비식별 관절 숫자벡터 자가학습 동의 (평생 무료 AI 정밀도 업그레이드 적용)</span>
-    </label>
-  </section>
-
-  <section class="card">
-    <div class="step-title">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFAB00" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      안드로이드 보안 팝업 10초 해결 가이드
-    </div>
-
-    <div class="step-box">
-      <div class="step-num">1단계 · 출처를 알 수 없는 앱 허용</div>
-      <div class="step-head">“보안을 위해 이 출처의 앱을 설치할 수 없습니다” 팝업이 뜰 때</div>
-      <div class="step-desc">
-        팝업창의 <strong>[설정]</strong> 버튼을 누른 뒤, <strong>[이 출처 허용]</strong> 스위치를 켜고 뒤로가기를 누르세요.
-      </div>
-    </div>
-
-    <div class="step-box warn">
-      <div class="step-num">2단계 · Google Play 프로텍트 ‘무시하고 설치’ (중요!)</div>
-      <div class="step-head">“Play 프로텍트에서 인식하지 못하는 앱입니다” 창이 뜰 때</div>
-      <div class="step-desc">
-        우리 기기 전용 보안 앱이므로 안심하고 아래 순서대로 눌러주세요:
-      </div>
-      <div class="mock-dialog">
-        ① 설명 글자 바로 아래의 <span class="mock-highlight">세부정보 더보기 ▼</span> 터치<br/>
-        ② 아래에 새로 나타난 <span class="mock-highlight">무시하고 설치</span> 터치!
-      </div>
-    </div>
-
-    <div class="step-box ok" style="margin-bottom:0;">
-      <div class="step-num">3단계 · 설치 완료 & 실시간 경보 알림 켜기</div>
-      <div class="step-head">설치가 끝나면 위 [2. 설치 완료 후 앱 열기]를 누르세요!</div>
-      <div class="step-desc">
-        앱이 열리면서 현재 기기(<span id="hostText">192.168.123.104:8765</span>)가 자동으로 등록되며, <strong>[알림 허용]</strong>을 누르면 폭행·낙상·코가림 감지 시 즉시 핸드폰 경보가 울립니다.
-      </div>
-    </div>
-  </section>
-
-  <script>
-    async function updateConsentOptIn(checked) {
-      try {
-        await fetch('/api/learning_consent', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ consent_opt_in: checked })
-        });
-      } catch (e) {}
-    }
-
-    async function loadDeviceInfo() {
-      const isGithubPages = window.location.hostname.includes('github.io');
-      const host = isGithubPages ? '192.168.123.104:8765' : (window.location.host || '192.168.123.104:8765');
-      document.getElementById('hostText').textContent = host;
-      if (isGithubPages) {
-        document.getElementById('primaryApkBtn').href = 'https://raw.githubusercontent.com/zespy2614-jpg/korea-spart-24h-cloud/main/downloads/AnsimCare_AI_Box.apk';
-        document.getElementById('webViewerBtn').href = `http://${host}/?mode=mobile`;
-      }
-      try {
-        const res = await fetch('/api/info');
-        const data = await res.json();
-        const sn = data.device_serial || 'AIBOX-RK3588';
-        const pk = data.pairing_key || '';
-        document.getElementById('snBadge').textContent = `1:1 정품 매칭됨: ${sn} (${pk})`;
-        document.getElementById('deepLinkBtn').href = `ansimcare://connect?host=${encodeURIComponent(host)}&sn=${encodeURIComponent(sn)}&key=${encodeURIComponent(pk)}`;
-      } catch (e) {
-        document.getElementById('snBadge').textContent = '기기 고유번호: AIBOX-RK3588';
-        document.getElementById('deepLinkBtn').href = `ansimcare://connect?host=${encodeURIComponent(host)}`;
-      }
-    }
-    loadDeviceInfo();
-  </script>
+<p class="notice">영상은 휴대폰과 본체가 같은 와이파이에 있을 때 볼 수 있어요. 아이폰용 앱은 아직 없어요.</p>
+</main>
 </body>
 </html>
