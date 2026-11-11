@@ -1,0 +1,34 @@
+{
+ "ok": true,
+ "channel": "car",
+ "updated": "2026-11-11",
+ "apps": [
+  {
+   "package": "com.zqc.mhotspot",
+   "title": "자동 핫스팟",
+   "version": "v5.13",
+   "build": 28,
+   "apkUrl": "https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/car/hotspot_28.apk",
+   "sha256": "a5c37a3e969263c630589c788f2a0a93038274437d14de626f4e73469f3cd228",
+   "size": 86568
+  },
+  {
+   "package": "com.zqc.kor.launcher3",
+   "title": "홈 화면",
+   "version": "빌드 36",
+   "build": 36,
+   "apkUrl": "https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/car/home_36.apk",
+   "sha256": "6304416b33ed2626d0cf32543ea5da5b7f389397f23b3f09786c4964e5c22e8b",
+   "size": 59467333
+  },
+  {
+   "package": "com.zqc.kor.wallpaper",
+   "title": "배경화면 (화면 도우미)",
+   "version": "v3.3.0",
+   "build": 10,
+   "apkUrl": "https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/car/helper_10.apk",
+   "sha256": "f2f30df4cd24279faf81c62d314dfba305bf15760a7492e79ae416a465e86afa",
+   "size": 1901775
+  }
+ ]
+}
