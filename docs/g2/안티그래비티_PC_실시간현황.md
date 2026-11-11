@@ -1,6 +1,6 @@
 # 🖥️ 안티그래비티 PC 실시간 작업 현황 & 두뇌 동기화 리포트
 
-> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 11. AM 11:21:21
+> **최종 GitHub 실시간 업로드 시각**: 2026. 11. 11. AM 11:22:21
 > **연동 상태**: PC (`e:\안티그래비티`) ↔ GitHub (`korea-spart-24h-cloud`) ↔ Even G2 스마트 안경 (OpenRouter AI)
 
 ## 0. 영구 장기기억 금고 (Memory Vault)
@@ -24,7 +24,6 @@
 - **[AI/시스템]**: Even G2 안경의 기본 AI 모델은 최신 최상위 Google Gemini 4 Argon (OpenRouter 연동)입니다.
 
 ## 1. 최근 PC 안티그래비티 실시간 대화 및 작업 내역
-- **[안티그래비티(PC 작업 결과)]**: 단축키 충돌(바로가기 `.lnk` 및 백그라운드 앱 `RegisterHotKey` 점유) 스캔 결과를 확인 중입니다. 곧바로 이어서 처리하겠습니다.
 - **[안티그래비티(PC 작업 결과)]**: `Ctrl+Shift+C` 단축키를 선점 중인 앱 설정(`Claude`, `Gemini`, `Whale` 등)을 마지막으로 대조하고 있습니다. 완료 즉시 복구 및 단축키 적용을 진행하겠습니다.
 - **[안티그래비티(PC 작업 결과)]**: 사장님, 맞습니다. 클로드 데스크톱 로그([main.log](file:///C:/Users/박정수/AppData/Local/Claude/logs/main.log))와 내부 라우터([app.asar](file:///C:/Program%20Files/WindowsApps/Claude_4.23118.1.0_x64__pzs8sxrjxfjjc/app/resources/app.asar))를 실측 확인해 보니 **새 대화창이 유지되지 않고 튕겨 나간 정확한 원인**이 확인되었습니다. --- ### 🔍 왜 안드로이드 오토 작업 대화가 안 생겼는지 (`[실측·역어셈블로 확인된 사실]`) 1. **기존 실행 중 세션이 있을 때 `claude://code/new` 자동 튕김 현상**    - [main.log](file:///C:/Users/박정수/App
 - **[안티그래비티(PC 작업 결과)]**: 보통 많이 보시는 **AI 모델 성능·가격·속도 비교표 사이트**는 아래 두 곳이 가장 대표적입니다. ### 1. 가장 많이 보는 대표 비교표 2곳 1. **Artificial Analysis (성능·가격·속도 한눈에 비교표 & 그래프)**    - 주소: https://artificialanalysis.ai/ko (한국어 지원)    - **특징**: 지능 지수(성능) vs 토큰당 가격 vs 출력 속도(`tok/s`)를 **사분면 그래프와 표**로 가장 직관적으로 비교해 주는 사이트입니다. 2. **Arena / 구 LMArena·Chatbot Arena (실사용자 블라인드 투표 순위표)**    - 주소: https://arena.ai/leaderboard (기존 `lmarena.ai`에서 도메인 이전)    - **특징**: 사람들이
