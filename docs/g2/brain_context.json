@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026. 11. 11. PM 12:32:22",
+  "updatedAt": "2026. 11. 11. PM 12:32:52",
   "owner": "박정수 대표님",
   "workspaceRoot": "e:\\안티그래비티",
   "encryptedConfig": {
@@ -160,7 +160,7 @@
       "pinned": false
     }
   ],
-  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 11. PM 12:32:22\n1. 영구 장기기억 금고: 18건 (고정: 오늘 날씨랑 일정 알려줘)\n2. PC 안티그래비티 실시간 작업: 최근 7단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
+  "briefingForGlasses": "[안티그래비티 실시간 두뇌 브리핑]\n동기화: 2026. 11. 11. PM 12:32:52\n1. 영구 장기기억 금고: 18건 (고정: 오늘 날씨랑 일정 알려줘)\n2. PC 안티그래비티 실시간 작업: 최근 6단계 GitHub 동기화됨\n3. 지파츠 40선 & 글로벌 소싱 80선 스카우터 대기 중\n4. 누적 안경 대화록: 48건 (GitHub 실시간 업로드 중)",
   "coreProjects": [
     {
       "name": "시엔위 비즈니스 연구소 & 8개국 크롤링 DB",
@@ -911,10 +911,6 @@
   ],
   "livePcAntigravity": [
     {
-      "updatedAt": "2026-11-11T03:22:05Z",
-      "snippet": "[안티그래비티(PC 작업 결과)] `교보eBook`과 `Fasoo DRM Client` 윈도우 정식 제거를 실행했습니다. 제거가 완료되는 즉시 알캡처(`Ctrl + Shift + C`)와 캡처 도구(`Alt + Shift + S`) 실제 작동까지 확인해 보고드리겠습니다."
-    },
-    {
       "updatedAt": "2026-11-11T03:32:15Z",
       "snippet": "[대표님(PC 안티그래비티 요청)] 캡처도구는 윈도우 + 쉬프트 s 지"
     },
@@ -992,11 +988,6 @@
     }
   ],
   "livePcAntigravitySession": [
-    {
-      "role": "안티그래비티(PC 작업 결과)",
-      "createdAt": "2026-11-11T03:22:05Z",
-      "summary": "`교보eBook`과 `Fasoo DRM Client` 윈도우 정식 제거를 실행했습니다. 제거가 완료되는 즉시 알캡처(`Ctrl + Shift + C`)와 캡처 도구(`Alt + Shift + S`) 실제 작동까지 확인해 보고드리겠습니다."
-    },
     {
       "role": "대표님(PC 안티그래비티 요청)",
       "createdAt": "2026-11-11T03:32:15Z",
