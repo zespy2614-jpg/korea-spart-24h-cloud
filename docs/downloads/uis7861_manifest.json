@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "versionCode": 310,
+  "build": 310,
+  "versionName": "ELIPHOEM-OS v3.1.0-KR",
+  "version": "v3.1.0",
+  "packageType": "apk",
+  "downloadUrl": "https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/ELIPHOEM_System_v3.1.0.apk",
+  "apkUrl": "https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/ELIPHOEM_System_v3.1.0.apk",
+  "sha256": "90f7f53942f0adceabf5a5adc7f7cd53ff2ff68807f7ff11188c4935a9596034",
+  "changelog": [
+    "휴대폰 및 자동차 스피커 블루투스 2대 동시 연결 지원",
+    "메인 스피커 체크(✓) 선택 및 시동 시 자동 복원",
+    "분할화면 실행 시 왼쪽·오른쪽 독립 내비게이션 바 2개 표시",
+    "유튜브 포함 모든 앱에서 왼쪽·아래 드래그 내비게이션 바 호출",
+    "우측 멀티태스킹 버튼 및 홈 화면 모두 닫기 번개 버튼 즉시 작동",
+    "홈 2페이지 앱 서랍 네이버 지도 상단 배치 및 세로 전체 스크롤 지원",
+    "와이파이 허용 팝업 자동 승인 및 키보드 타닥타닥 터치음 추가"
+  ]
+}

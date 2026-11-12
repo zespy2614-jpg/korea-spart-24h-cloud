@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>ELIPHOEM 공식 스토어 · 차량용 자동 핫스팟 다운로드 센터</title>
+  <title>엘리포엠 공식 업데이트 센터</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='26' fill='%230381FE'/><circle cx='50' cy='50' r='12' fill='white'/></svg>" />
   <style>
     :root {
@@ -11,17 +11,17 @@
       --card: #FFFFFF;
       --surface-sec: #EEEEF3;
       --text-primary: #121212;
-      --text-secondary: #4A4A52;
+      --text-secondary: #3A3A42;
       --brand-navy: #1428A0;
       --brand-blue: #0381FE;
-      --brand-blue-hover: #006BEA;
-      --success: #00A843;
+      --brand-blue-hover: #0056B3;
+      --success: #007A33;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       background: var(--bg);
       color: var(--text-primary);
-      font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      font-family: 'Pretendard Variable', Pretendard, 'SamsungOne', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
       word-break: keep-all;
       overflow-wrap: break-word;
       line-height: 1.6;
@@ -36,17 +36,17 @@
       gap: 16px;
     }
     .viewing-header {
-      padding: 12px 4px 6px;
+      padding: 14px 4px 8px;
       text-align: left;
     }
     .badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: #E8F2FF;
+      background: #E6F0FF;
       color: var(--brand-navy);
       font-weight: 800;
-      font-size: 13px;
+      font-size: 14px;
       padding: 6px 14px;
       border-radius: 9999px;
       margin-bottom: 12px;
@@ -55,40 +55,39 @@
       font-size: 26px;
       font-weight: 800;
       letter-spacing: -0.025em;
-      line-height: 1.28;
+      line-height: 1.3;
       color: var(--text-primary);
       margin-bottom: 8px;
     }
     .subtitle {
-      font-size: 15px;
+      font-size: 16px;
       color: var(--text-secondary);
     }
     .tab-bar {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 8px;
       background: var(--card);
       padding: 6px;
       border-radius: 9999px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
     }
     .tab-btn {
       border: none;
       background: transparent;
       color: var(--text-secondary);
       font-family: inherit;
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 800;
-      min-height: 44px;
-      padding: 8px 6px;
+      min-height: 50px;
+      padding: 10px 12px;
       border-radius: 9999px;
       cursor: pointer;
-      transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: background 0.18s ease, color 0.18s ease;
     }
     .tab-btn.active {
-      background: var(--brand-blue);
+      background: var(--brand-navy);
       color: #FFFFFF;
-      box-shadow: 0 4px 12px rgba(3, 129, 254, 0.25);
     }
     .card {
       background: var(--card);
@@ -103,23 +102,22 @@
       margin-bottom: 18px;
     }
     .app-icon {
-      width: 60px;
-      height: 60px;
-      border-radius: 16px;
-      background: linear-gradient(180deg, #0381FE 0%, #1428A0 100%);
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      background: var(--brand-navy);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      box-shadow: 0 6px 16px rgba(3, 129, 254, 0.25);
     }
     .app-title {
-      font-size: 19px;
+      font-size: 20px;
       font-weight: 800;
       color: var(--text-primary);
     }
     .app-ver {
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 700;
       color: var(--success);
       margin-top: 2px;
@@ -141,32 +139,30 @@
       border-radius: 9999px;
       padding: 14px 22px;
       cursor: pointer;
-      transition: background 0.15s ease, transform 0.1s ease;
     }
     .cta-btn:active {
       background: var(--brand-blue-hover);
-      transform: scale(0.98);
     }
     .cta-sub {
       display: flex;
       align-items: center;
       justify-content: center;
       width: 100%;
-      min-height: 50px;
-      margin-top: 10px;
-      background: #EEF1F8;
+      min-height: 52px;
+      margin-top: 12px;
+      background: #E8EEF9;
       color: var(--brand-navy);
       text-decoration: none;
       border: none;
       font-family: inherit;
-      font-size: 15px;
-      font-weight: 700;
+      font-size: 16px;
+      font-weight: 800;
       border-radius: 9999px;
       padding: 12px 18px;
       cursor: pointer;
     }
     .section-title {
-      font-size: 17px;
+      font-size: 18px;
       font-weight: 800;
       margin-bottom: 12px;
       color: var(--text-primary);
@@ -181,7 +177,7 @@
       background: #F7F7FA;
       border-radius: 18px;
       padding: 14px 16px;
-      font-size: 15px;
+      font-size: 16px;
       color: var(--text-primary);
     }
     .step-num {
@@ -189,35 +185,6 @@
       font-weight: 800;
       color: var(--brand-navy);
       margin-right: 6px;
-    }
-    .copy-box {
-      background: #F7F7FA;
-      border-radius: 18px;
-      padding: 14px 16px;
-      margin-bottom: 12px;
-    }
-    .copy-label {
-      font-size: 14px;
-      font-weight: 800;
-      color: var(--brand-navy);
-      margin-bottom: 6px;
-    }
-    .copy-val {
-      font-size: 14px;
-      color: var(--text-primary);
-      margin-bottom: 10px;
-    }
-    .copy-btn {
-      width: 100%;
-      min-height: 44px;
-      border: none;
-      border-radius: 9999px;
-      background: var(--brand-navy);
-      color: #FFFFFF;
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
     }
     .toast {
       display: none;
@@ -229,10 +196,12 @@
       color: #FFFFFF;
       padding: 12px 22px;
       border-radius: 9999px;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 700;
       z-index: 100;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      width: max-content;
+      max-width: 90vw;
+      text-align: center;
     }
     .panel { display: none; flex-direction: column; gap: 16px; }
     .panel.active { display: flex; }
@@ -244,10 +213,10 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 44px;
-      padding: 8px 18px;
+      min-height: 48px;
+      padding: 10px 18px;
       color: var(--text-secondary);
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 700;
       text-decoration: underline;
     }
@@ -256,25 +225,23 @@
 <body>
   <main class="container">
     <header class="viewing-header">
-      <div class="badge">ELIPHOEM 공식 출시 스토어</div>
-      <h1>엘리포엠 차량용 자동 핫스팟</h1>
+      <div class="badge">엘리포엠 공식 업데이트</div>
+      <h1>차량용 자동 핫스팟 및 내비게이션 업데이트</h1>
       <p class="subtitle">
-        차에 타면 자동으로 핫스팟이 켜지고, 무선 안드로이드 오토 전환과 차량 화면 원격 제어를 한 번에 지원합니다.
+        설치하실 기기를 선택한 뒤 파란색 업데이트 받기 버튼을 눌러주세요.
       </p>
     </header>
 
-    <nav class="tab-bar" aria-label="설치 대상 선택">
-      <button type="button" class="tab-btn active" id="tabBtnPhone" onclick="switchTab('phone')">스마트폰용 앱</button>
-      <button type="button" class="tab-btn" id="tabBtnCar" onclick="switchTab('car')">차량 기기용 앱</button>
-      <button type="button" class="tab-btn" id="tabBtnStore" onclick="switchTab('store')">스토어 등록정보</button>
+    <nav class="tab-bar" aria-label="설치 기기 선택">
+      <button type="button" class="tab-btn active" id="tabBtnPhone" onclick="switchTab('phone')">휴대폰용 앱</button>
+      <button type="button" class="tab-btn" id="tabBtnCar" onclick="switchTab('car')">내비게이션 올인원</button>
     </nav>
 
-    <!-- 패널 1: 스마트폰용 앱 -->
     <div id="panelPhone" class="panel active">
       <section class="card">
         <div class="app-meta">
           <div class="app-icon" aria-hidden="true">
-            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
               <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
               <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
@@ -282,129 +249,66 @@
             </svg>
           </div>
           <div>
-            <div class="app-title">ELIPHOEM 스마트폰 자동 핫스팟</div>
-            <div class="app-ver">최신 정식 출시판 v6.21 (빌드 81) · 무료</div>
+            <div class="app-title">휴대폰 자동 핫스팟</div>
+            <div class="app-ver">최신 6.22 버전 · 제한된 설정 해제 지원</div>
           </div>
         </div>
 
-        <a class="cta-btn" href="https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/OneUI_AutoHotspot_Phone.apk" download="OneUI_AutoHotspot_Phone.apk" onclick="showToast('스마트폰용 엘리포엠 앱(v6.21) 다운로드를 시작합니다.')">
+        <a class="cta-btn" id="btnDownloadPhone" href="./OneUI_AutoHotspot_Phone_v6.22.apk" download="OneUI_AutoHotspot_Phone_v6.22.apk" onclick="handleActionToast('휴대폰용 최신 업데이트 파일을 내려받습니다.')">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
             <polyline points="7 10 12 15 17 10"/>
             <line x1="12" y1="15" x2="12" y2="3"/>
           </svg>
-          스마트폰용 앱 다운로드 (v6.21)
-        </a>
-
-        <a class="cta-sub" href="https://zespy2614-jpg.github.io/korea-spart-24h-cloud/eliphoem.apk" download="eliphoem.apk" onclick="showToast('빠른 보조 링크(eliphoem.apk) 다운로드를 시작합니다.')">
-          보조 빠른 다운로드 링크 (eliphoem.apk)
+          휴대폰용 업데이트 받기
         </a>
       </section>
 
       <section class="card">
-        <h2 class="section-title">스마트폰 10초 설치 방법</h2>
+        <h2 class="section-title">접근성 제한된 설정 10초 해제 안내</h2>
         <ul class="step-list">
-          <li class="step-item"><span class="step-num">1단계.</span>위 파란색 <strong>스마트폰용 앱 다운로드 (v6.21)</strong> 버튼을 누른 뒤 상단 알림창에서 다운로드된 파일을 누릅니다.</li>
-          <li class="step-item"><span class="step-num">2단계.</span>보안 안내 창이 나오면 <strong>설정 → 이 출처 허용</strong>을 켜고 설치를 누릅니다.</li>
-          <li class="step-item"><span class="step-num">3단계.</span>Play 프로텍트 안내 창이 뜨면 <strong>세부정보 더보기 → 무시하고 설치</strong>를 누르면 즉시 설치됩니다.</li>
-          <li class="step-item"><span class="step-num">4단계.</span>앱 실행 후 <strong>설정 → 자동 연결 허용 → 설정 시작</strong>을 눌러 안내대로 허용하시면 차에 탈 때마다 자동으로 핫스팟이 켜집니다.</li>
+          <li class="step-item"><span class="step-num">1단계.</span>위 파란색 버튼을 눌러 설치한 뒤 앱을 실행합니다.</li>
+          <li class="step-item"><span class="step-num">2단계.</span>제한된 설정 안내가 뜨면 앱 안의 <strong>앱 정보 열기</strong> 버튼을 누른 뒤 화면 우측 상단 점 세 개 메뉴에서 <strong>제한된 설정 허용</strong>을 누릅니다.</li>
+          <li class="step-item"><span class="step-num">3단계.</span>다시 <strong>접근성 켜기</strong>를 눌러 허용하면 차에 탈 때마다 자동으로 핫스팟이 켜집니다.</li>
         </ul>
       </section>
     </div>
 
-    <!-- 패널 2: 차량 기기용 앱 -->
     <div id="panelCar" class="panel">
       <section class="card">
         <div class="app-meta">
           <div class="app-icon" aria-hidden="true">
-            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="4" width="20" height="16" rx="3"/>
-              <path d="M8 12h8"/>
-              <path d="M12 8v8"/>
+              <path d="M12 4v16"/>
             </svg>
           </div>
           <div>
-            <div class="app-title">ELIPHOEM 차량용(올인원·스틱) 앱</div>
-            <div class="app-ver">최신 정식 출시판 v5.13 (빌드 28) · 가로화면 전용</div>
+            <div class="app-title">내비게이션 올인원 통합 시스템</div>
+            <div class="app-ver">최신 3.1.0 버전 · 블루투스 2대·분할화면 바 탑재</div>
           </div>
         </div>
 
-        <a class="cta-btn" href="https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/MStickCarHotspot_Car.apk" download="MStickCarHotspot_Car.apk" onclick="showToast('차량용 엘리포엠 앱(v5.13) 다운로드를 시작합니다.')">
+        <a class="cta-btn" id="btnDownloadCarMain" href="./ELIPHOEM_System_v3.1.0.apk" download="ELIPHOEM_System_v3.1.0.apk" onclick="handleActionToast('내비게이션 올인원 통합 업데이트 파일을 내려받습니다.')">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
             <polyline points="7 10 12 15 17 10"/>
             <line x1="12" y1="15" x2="12" y2="3"/>
           </svg>
-          차량 기기용 앱 다운로드 (v5.13)
+          올인원 통합 업데이트 받기
+        </a>
+
+        <a class="cta-sub" id="btnDownloadCarSub" href="./MStickCarHotspot_Car_v5.14.apk" download="MStickCarHotspot_Car_v5.14.apk" onclick="handleActionToast('차량용 자동 핫스팟 보조 파일을 내려받습니다.')">
+          자동 핫스팟 단독 파일 받기
         </a>
       </section>
 
       <section class="card">
-        <div class="app-meta">
-          <div class="app-icon" aria-hidden="true">
-            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 12a9 9 0 1 1-3-6.7"/>
-              <polyline points="21 4 21 10 15 10"/>
-            </svg>
-          </div>
-          <div>
-            <div class="app-title">차량 소프트웨어 업데이트 (배경화면 앱)</div>
-            <div class="app-ver">v3.3.1 (빌드 11) · 한 번만 설치하면 돼요</div>
-          </div>
-        </div>
-        <p style="margin:12px 0 0;line-height:1.6;word-break:keep-all;color:#3A3A44;font-size:15px">이 파일을 한 번 설치하면, 그다음부터는 차량의 <strong>배경화면 → 소프트웨어 업데이트</strong>에서 새 버전을 바로 받을 수 있어요.</p>
-        <a class="cta-btn" href="https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/car/KorSystemHelper_v3.3.1.apk" download="KorSystemHelper_v3.3.1.apk" onclick="showToast('차량 소프트웨어 업데이트(v3.3.1) 다운로드를 시작합니다.')">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-            <polyline points="7 10 12 15 17 10"/>
-            <line x1="12" y1="15" x2="12" y2="3"/>
-          </svg>
-          업데이트 기능 받기 (v3.3.1)
-        </a>
-        <ul class="step-list" style="margin-top:14px">
-          <li class="step-item"><span class="step-num">1단계.</span>위 버튼을 누른 뒤, 받은 파일 <strong>KorSystemHelper_v3.3.1.apk</strong>를 누릅니다.</li>
-          <li class="step-item"><span class="step-num">2단계.</span>‘보안상의 이유로…’ 창이 나오면 <strong>설정 → 이 소스에서 가져온 앱 설치 허용</strong>을 켜고 뒤로(◀) 갑니다.</li>
-          <li class="step-item"><span class="step-num">3단계.</span><strong>업데이트</strong>를 누릅니다. ‘Google Play 프로텍트’ 창이 나오면 <strong>세부정보 더보기 → 검사 없이 설치</strong>를 누릅니다.</li>
-        </ul>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">차량용 내비게이션·스틱 설치 안내</h2>
+        <h2 class="section-title">내비게이션 올인원 업데이트 방법</h2>
         <ul class="step-list">
-          <li class="step-item"><span class="step-num">1단계.</span>차량용 안드로이드 올인원 또는 안드로이드 스틱에 위 파일을 설치합니다.</li>
-          <li class="step-item"><span class="step-num">2단계.</span>시동 시 스마트폰 핫스팟 신호를 자동으로 찾아 연결하며, 무선 안드로이드 오토 전환을 제어합니다.</li>
-          <li class="step-item"><span class="step-num">3단계.</span>새 버전은 차량의 배경화면 → 소프트웨어 업데이트에서 받아요. ‘Google Play 프로텍트’ 창이 뜨면 ‘세부정보 더보기’ → ‘검사 없이 설치’를 눌러 주세요.</li>
+          <li class="step-item"><span class="step-num">방법 1.</span>모니터 홈 화면의 <strong>오디오 출력 → 상단 업데이트 버튼</strong>을 누르면 최신 버전이 자동으로 설치됩니다.</li>
+          <li class="step-item"><span class="step-num">방법 2.</span>모니터 인터넷 창에서 위 <strong>올인원 통합 업데이트 받기</strong>를 눌러 설치하면 런처·블루투스·내비게이션 바가 한 번에 모두 업데이트됩니다.</li>
         </ul>
-      </section>
-    </div>
-
-    <!-- 패널 3: 구글 플레이 스토어 정식 등록 정보 -->
-    <div id="panelStore" class="panel">
-      <section class="card">
-        <h2 class="section-title">구글 플레이 스토어 원클릭 등록 시트</h2>
-        <div class="copy-box">
-          <div class="copy-label">1. 앱 이름 (30자 이내)</div>
-          <div class="copy-val" id="valAppName">ELIPHOEM - 차량용 자동 핫스팟</div>
-          <button type="button" class="copy-btn" onclick="copyText('valAppName', '앱 이름이 복사되었습니다.')">앱 이름 복사하기</button>
-        </div>
-
-        <div class="copy-box">
-          <div class="copy-label">2. 간단한 설명 (80자 이내)</div>
-          <div class="copy-val" id="valShortDesc">시동만 걸면 자동으로 켜지는 차량용 모바일 핫스팟 및 무선 안드로이드 오토 원터치 전환 컨트롤러</div>
-          <button type="button" class="copy-btn" onclick="copyText('valShortDesc', '간단한 설명이 복사되었습니다.')">간단한 설명 복사하기</button>
-        </div>
-
-        <div class="copy-box">
-          <div class="copy-label">3. 개인정보처리방침 공식 주소</div>
-          <div class="copy-val" id="valPrivacyUrl">https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/privacy.html</div>
-          <button type="button" class="copy-btn" onclick="copyText('valPrivacyUrl', '개인정보처리방침 주소가 복사되었습니다.')">개인정보처리방침 주소 복사하기</button>
-        </div>
-
-        <div class="copy-box">
-          <div class="copy-label">4. 접근성 권한 심사 선언문</div>
-          <div class="copy-val" id="valAccDecl">본 앱은 운전자가 차량 탑승 시 주행 안전을 위해 스마트폰을 직접 조작하지 않고도 모바일 핫스팟 스위치를 자동으로 켜고 끌 수 있도록 돕는 단일 목적으로만 접근성 서비스를 사용하며, 어떠한 사용자 데이터도 수집하거나 외부로 전송하지 않습니다.</div>
-          <button type="button" class="copy-btn" onclick="copyText('valAccDecl', '접근성 심사 선언문이 복사되었습니다.')">심사 선언문 복사하기</button>
-        </div>
       </section>
     </div>
 
@@ -416,26 +320,36 @@
   <div id="toastMsg" class="toast" role="status" aria-live="polite"></div>
 
   <script>
+    var lastActionAt = 0;
+
     function switchTab(tab) {
-      var tabs = ['phone', 'car', 'store'];
-      for (var i = 0; i < tabs.length; i++) {
-        var t = tabs[i];
-        var btn = document.getElementById('tabBtn' + t.charAt(0).toUpperCase() + t.slice(1));
-        var panel = document.getElementById('panel' + t.charAt(0).toUpperCase() + t.slice(1));
-        if (t === tab) {
-          btn.classList.add('active');
-          panel.classList.add('active');
-        } else {
-          btn.classList.remove('active');
-          panel.classList.remove('active');
-        }
+      var isCar = (tab === 'car');
+      var btnPhone = document.getElementById('tabBtnPhone');
+      var btnCar = document.getElementById('tabBtnCar');
+      var panelPhone = document.getElementById('panelPhone');
+      var panelCar = document.getElementById('panelCar');
+
+      if (isCar) {
+        btnCar.classList.add('active');
+        btnPhone.classList.remove('active');
+        panelCar.classList.add('active');
+        panelPhone.classList.remove('active');
+      } else {
+        btnPhone.classList.add('active');
+        btnCar.classList.remove('active');
+        panelPhone.classList.add('active');
+        panelCar.classList.remove('active');
       }
+
       try {
-        localStorage.setItem('eliphoem_store_tab', tab);
+        localStorage.setItem('eliphoem_store_tab_v2', isCar ? 'car' : 'phone');
       } catch (e) {}
     }
 
-    function showToast(msg) {
+    function handleActionToast(msg) {
+      var now = Date.now();
+      if (now - lastActionAt < 400) return;
+      lastActionAt = now;
       var el = document.getElementById('toastMsg');
       if (!el) return;
       el.textContent = msg;
@@ -443,28 +357,13 @@
       clearTimeout(window.__toastTimer);
       window.__toastTimer = setTimeout(function() {
         el.style.display = 'none';
-      }, 2500);
-    }
-
-    function copyText(elemId, msg) {
-      var el = document.getElementById(elemId);
-      if (!el) return;
-      var text = el.textContent || el.innerText;
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(function() {
-          showToast(msg);
-        }).catch(function() {
-          showToast(msg);
-        });
-      } else {
-        showToast(msg);
-      }
+      }, 2600);
     }
 
     (function initTab() {
       try {
-        var saved = localStorage.getItem('eliphoem_store_tab');
-        if (saved === 'phone' || saved === 'car' || saved === 'store') {
+        var saved = localStorage.getItem('eliphoem_store_tab_v2');
+        if (saved === 'car' || saved === 'phone') {
           switchTab(saved);
         }
       } catch (e) {}
