@@ -1,0 +1,14 @@
+{
+    "brand":  "ELIPHOEM ®",
+    "platform":  "RK3566_SMART_PROJECTOR_EMUELEC_47K",
+    "versionCode":  471,
+    "versionName":  "EmuELEC 4.7k-KR (Build 471)",
+    "packageUrl":  "https://eliphoem-ota-kr.s3.ap-northeast-2.amazonaws.com/firmware/rk3566/ELIPHOEM_EmuELEC_RK3566_v471.tar.gz",
+    "mirrorPackageUrl":  "https://raw.githubusercontent.com/zespy2614-jpg/korea-spart-24h-cloud/main/docs/downloads/ELIPHOEM_EmuELEC_RK3566_v471.tar.gz",
+    "lanPackageUrl":  "http://192.168.123.104:8080/firmware/rk3566/ELIPHOEM_EmuELEC_RK3566_v471.tar.gz",
+    "sha256":  "f758db5200cc2014b7747a1f6d63985463d2578d9ccbd56b7ec1c99aaad53692",
+    "fileSize":  623,
+    "releaseDate":  "2026-11-12",
+    "forceUpdate":  false,
+    "changelog":  "ELIPHOEM Smart Projector - EmuELEC 4.7k-KR Cloud OTA (Build 471)\n- 안드로이드 기본 Wi-Fi 연동 및 클라우드 무선 네트워크 업데이트(AWS S3 + 24h Cloud 이중화) 적용\n- USB 조이스틱 500Hz(2ms) 초저지연 폴링 및 철권 5/6·태그 토너먼트 최적화 유지\n- 미리보기 및 에뮬레이터 음량 균일화(-19 LUFS) 및 셰이더/난이도 설정 지원"
+}
