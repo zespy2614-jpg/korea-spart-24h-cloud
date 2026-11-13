@@ -1,20 +1,20 @@
 {
   "ok": true,
-  "versionCode": 310,
-  "build": 310,
-  "versionName": "ELIPHOEM-OS v3.1.0-KR",
-  "version": "v3.1.0",
+  "versionCode": 320,
+  "build": 320,
+  "versionName": "ELIPHOEM-OS v3.4.0-KR",
+  "version": "v3.4.0",
   "packageType": "apk",
-  "downloadUrl": "https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/ELIPHOEM_System_v3.1.0.apk",
-  "apkUrl": "https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/ELIPHOEM_System_v3.1.0.apk",
-  "sha256": "073f136e22f976599cfb01d6118f0675066011e20bb4561eea9c76ed5190f32f",
+  "downloadUrl": "https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/ELIPHOEM_System_v3.4.0.apk",
+  "apkUrl": "https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/ELIPHOEM_System_v3.4.0.apk",
+  "sha256": "33900daabc477b8813abf356c14ccb352943a5525b5553e1543cbb27c3d9b275",
   "changelog": [
-    "휴대폰 및 자동차 스피커 블루투스 2대 동시 연결 지원",
-    "메인 스피커 체크(✓) 선택 및 시동 시 자동 복원",
-    "분할화면 실행 시 왼쪽·오른쪽 독립 내비게이션 바 2개 표시",
-    "유튜브 포함 모든 앱에서 왼쪽·아래 드래그 내비게이션 바 호출",
-    "우측 멀티태스킹 버튼 및 홈 화면 모두 닫기 번개 버튼 즉시 작동",
-    "홈 2페이지 앱 서랍 네이버 지도 상단 배치 및 세로 전체 스크롤 지원",
-    "와이파이 허용 팝업 자동 승인 및 키보드 타닥타닥 터치음 추가"
+    "분할화면: 칸 아래 가장자리 어디서나 밀어 올리면 메뉴 막대 표시",
+    "분할화면: 좌우를 바꾼 뒤에도 오른쪽·왼쪽에 정확히 실행",
+    "분할화면: 소리 좌/우 버튼을 다시 눌러도 소리가 반대쪽으로 넘어가지 않음",
+    "분할화면: 경계선을 옮기면 막대와 홈 목록이 칸을 따라감",
+    "최근 실행 앱 목록이 잘리지 않고 옆으로 넘겨짐",
+    "홈 화면 CarPlay·안드로이드 오토 카드: 자동 핫스팟 모드에서 바꾸기 안내",
+    "자동 핫스팟 모드에서는 안드로이드 오토용 차량 Wi-Fi를 꺼서 휴대폰 인터넷 끊김 방지"
   ]
 }
