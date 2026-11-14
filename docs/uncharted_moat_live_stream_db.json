@@ -2,7 +2,7 @@
   "cycle": 21,
   "idx": 509,
   "totalSignalsCrawled": 510,
-  "lastUpdated": "2026. 11. 14. 오전 10:57:04",
+  "lastUpdated": "2026. 11. 14. 오후 5:36:04",
   "recentSignals": [
     {
       "seq": 510,
@@ -1241,8 +1241,31 @@
   },
   "totalShardLines": 510,
   "totalShardMb": "0.80",
-  "totalScans": 29,
+  "totalScans": 30,
   "records": [
+    {
+      "idx": 30,
+      "ts": "2026. 11. 14. 오후 5:36:04",
+      "code": "MOAT-09",
+      "domain": "3. 단종 산업장비·계측기 레거시 S/W & 데이터 변환 브릿지",
+      "title": "구형 CNC·사출기·계측기 플로피/RS232 데이터를 스마트폰·클라우드로 빼주는 브릿지",
+      "aiBlindspot": "현장 구형 장비의 비표준 핸드셰이크 타이밍과 바이너리 포맷은 실물 패킷 분석 필수",
+      "compoundAsset": "장비 모델별 파서(Parser) 라이브러리를 저축할수록 글로벌 공장 B2B 납품 단가 상승",
+      "gh": {
+        "name": "open-hardware/protocol-bridge",
+        "url": "https://github.com/search?q=FlashFloppy%20Gotek%20industrial%20CNC%20RS232",
+        "stars": 150,
+        "desc": "구형 CNC·사출기·계측기 플로피/RS232 데이터를 스마트폰·클라우드로 빼주는 브릿지"
+      },
+      "reddit": {
+        "title": "[Cloud Discovery] 구형 CNC·사출기·계측기 플로피/RS232 데이터를 스마트폰·클라우드로 빼주는 브릿지",
+        "url": "https://www.reddit.com/search/?q=FlashFloppy%20Gotek%20industrial%20CNC%20RS232"
+      },
+      "hackaday": {
+        "title": "Hackaday Hardware Reference: MOAT-09",
+        "url": "https://hackaday.com/?s=FlashFloppy%20Gotek%20industrial%20CNC%20RS232"
+      }
+    },
     {
       "idx": 29,
       "ts": "2026. 11. 14. 오전 10:57:04",
