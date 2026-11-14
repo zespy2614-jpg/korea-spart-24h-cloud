@@ -2,7 +2,7 @@
   "cycle": 21,
   "idx": 509,
   "totalSignalsCrawled": 510,
-  "lastUpdated": "2026. 11. 15. 오전 12:27:10",
+  "lastUpdated": "2026. 11. 15. 오전 5:08:18",
   "recentSignals": [
     {
       "seq": 510,
@@ -1241,8 +1241,31 @@
   },
   "totalShardLines": 510,
   "totalShardMb": "0.80",
-  "totalScans": 31,
+  "totalScans": 32,
   "records": [
+    {
+      "idx": 32,
+      "ts": "2026. 11. 15. 오전 5:08:18",
+      "code": "MOAT-04",
+      "domain": "2. 0.1mm 정밀 공차 파라메트릭 3D 도면 자동 생성기(SaaS)",
+      "title": "마끼다·디월트·밀워키 전동공구 배터리 이종교배 어댑터 파라메트릭 생성기",
+      "aiBlindspot": "슬라이드 레일 각도 및 단자 핀 간격(0.1mm 공차)을 일반 생성형 3D AI는 설계 불가",
+      "compoundAsset": "공구 브랜드 20종의 암/수 슬롯 치수를 코드로 모듈화해 400종의 커스텀 결합 도면 즉시 생성",
+      "gh": {
+        "name": "open-hardware/protocol-bridge",
+        "url": "https://github.com/search?q=OpenSCAD%20parametric%20battery%20adapter",
+        "stars": 150,
+        "desc": "마끼다·디월트·밀워키 전동공구 배터리 이종교배 어댑터 파라메트릭 생성기"
+      },
+      "reddit": {
+        "title": "[Cloud Discovery] 마끼다·디월트·밀워키 전동공구 배터리 이종교배 어댑터 파라메트릭 생성기",
+        "url": "https://www.reddit.com/search/?q=OpenSCAD%20parametric%20battery%20adapter"
+      },
+      "hackaday": {
+        "title": "Hackaday Hardware Reference: MOAT-04",
+        "url": "https://hackaday.com/?s=OpenSCAD%20parametric%20battery%20adapter"
+      }
+    },
     {
       "idx": 31,
       "ts": "2026. 11. 15. 오전 12:27:10",
