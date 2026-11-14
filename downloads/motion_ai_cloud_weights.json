@@ -1,62 +1,71 @@
 {
   "engine_version": "Cloud-24H-Biomechanical-12D-v2.5",
   "cloud_provider": "GitHub Actions Ubuntu-Latest 24/7 Nonstop Cluster",
-  "epochs_completed": 970,
-  "total_samples_trained": 60000,
-  "web_harvest_clips": 2311,
+  "epochs_completed": 995,
+  "total_samples_trained": 61600,
+  "web_harvest_clips": 2365,
   "accuracy_pct": 100.0,
   "false_positive_rate_pct": 0.0,
   "raw_video_bytes_stored": 0,
   "weights": {
     "strike": [
-      0.5524,
-      -0.62911,
-      -4.63647,
-      0.71699,
-      1.06342,
-      0.24888,
-      0.05573,
-      -0.43333,
-      -0.7876,
-      -0.50482,
-      -0.26717,
-      -0.08437
+      0.55726,
+      -0.63819,
+      -4.64416,
+      0.72716,
+      1.08087,
+      0.25348,
+      0.05991,
+      -0.44291,
+      -0.79814,
+      -0.51387,
+      -0.26817,
+      -0.08592
     ],
     "fall": [
-      -0.11256,
-      -0.07172,
-      -1.10163,
-      -0.05224,
-      -0.9511,
-      -0.73433,
-      1.24988,
-      -3.9276,
-      -0.43105,
-      -0.07131,
-      1.96258,
-      -0.43735
+      -0.11251,
+      -0.07103,
+      -1.1105,
+      -0.05218,
+      -0.95648,
+      -0.73898,
+      1.24842,
+      -3.929,
+      -0.44714,
+      -0.07246,
+      1.97541,
+      -0.43727
     ],
     "suffocation": [
-      -0.79743,
-      -0.76434,
-      0.53609,
-      -0.50511,
-      0.58584,
-      0.56012,
-      0.87152,
-      -3.25365,
-      2.20363,
-      -3.55183,
-      -1.52818,
-      -2.88893
+      -0.80282,
+      -0.76892,
+      0.54524,
+      -0.50882,
+      0.59265,
+      0.56627,
+      0.87334,
+      -3.25403,
+      2.21965,
+      -3.55221,
+      -1.54574,
+      -2.88973
     ]
   },
   "biases": {
-    "strike": -2.75676,
-    "fall": -2.80755,
-    "suffocation": -0.78859
+    "strike": -2.7669,
+    "fall": -2.81729,
+    "suffocation": -0.77965
   },
   "recent_cloud_cycles": [
+    {
+      "timestamp": "2026-11-14 15:27:11 KST",
+      "source": "UCF-Crime 글로벌 실제 CCTV 범죄·사고 1,900건 데이터셋",
+      "epochs_added": 25,
+      "clips_distilled": 54,
+      "epoch_now": 995,
+      "accuracy_pct": 100.0,
+      "fpr_pct": 0.0
+    },
     {
       "timestamp": "2026-11-14 08:36:04 KST",
       "source": "RWF-2000 실전 CCTV 폭행 vs 일상 행동 대조 데이터셋",
@@ -155,17 +164,8 @@
       "epoch_now": 720,
       "accuracy_pct": 100.0,
       "fpr_pct": 0.0
-    },
-    {
-      "timestamp": "2026-11-11 08:21:04 KST",
-      "source": "RWF-2000 실전 CCTV 폭행 vs 일상 행동 대조 데이터셋",
-      "epochs_added": 25,
-      "clips_distilled": 45,
-      "epoch_now": 695,
-      "accuracy_pct": 100.0,
-      "fpr_pct": 0.0
     }
   ],
-  "last_updated_utc": "2026-11-14T08:36:04Z",
-  "last_updated_kst": "2026-11-14 08:36:04 KST"
+  "last_updated_utc": "2026-11-14T15:27:11Z",
+  "last_updated_kst": "2026-11-14 15:27:11 KST"
 }
