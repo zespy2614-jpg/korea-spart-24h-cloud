@@ -1,62 +1,71 @@
 {
   "engine_version": "Cloud-24H-Biomechanical-12D-v2.5",
   "cloud_provider": "GitHub Actions Ubuntu-Latest 24/7 Nonstop Cluster",
-  "epochs_completed": 1120,
-  "total_samples_trained": 69600,
-  "web_harvest_clips": 2613,
+  "epochs_completed": 1145,
+  "total_samples_trained": 71200,
+  "web_harvest_clips": 2675,
   "accuracy_pct": 100.0,
   "false_positive_rate_pct": 0.0,
   "raw_video_bytes_stored": 0,
   "weights": {
     "strike": [
-      0.57618,
-      -0.67917,
-      -4.67899,
-      0.77121,
-      1.15674,
-      0.2732,
-      0.07816,
-      -0.48566,
-      -0.84567,
-      -0.55345,
-      -0.27264,
-      -0.09227
+      0.58019,
+      -0.68648,
+      -4.68528,
+      0.77964,
+      1.17094,
+      0.27684,
+      0.08155,
+      -0.49334,
+      -0.85414,
+      -0.56054,
+      -0.27347,
+      -0.0933
     ],
     "fall": [
-      -0.11176,
-      -0.06655,
-      -1.14695,
+      -0.11175,
+      -0.06593,
+      -1.15384,
       -0.05139,
-      -0.98136,
-      -0.76117,
-      1.24395,
-      -3.93592,
-      -0.51027,
-      -0.0784,
-      2.03882,
-      -0.43683
+      -0.98573,
+      -0.76531,
+      1.24305,
+      -3.93718,
+      -0.52234,
+      -0.07948,
+      2.05034,
+      -0.43665
     ],
     "suffocation": [
-      -0.82744,
-      -0.79017,
-      0.58861,
-      -0.52585,
-      0.62335,
-      0.59506,
-      0.88272,
-      -3.2553,
-      2.2971,
-      -3.55317,
-      -1.627,
-      -2.89309
+      -0.83192,
+      -0.79401,
+      0.5962,
+      -0.52885,
+      0.62868,
+      0.60026,
+      0.88433,
+      -3.25562,
+      2.31065,
+      -3.55332,
+      -1.64169,
+      -2.89379
     ]
   },
   "biases": {
-    "strike": -2.81213,
-    "fall": -2.85644,
-    "suffocation": -0.7365
+    "strike": -2.82044,
+    "fall": -2.86399,
+    "suffocation": -0.72891
   },
   "recent_cloud_cycles": [
+    {
+      "timestamp": "2026-11-15 23:22:48 KST",
+      "source": "한국 AI-Hub 요양원·어린이집·매장 이상행동 CCTV 스켈레톤 스트림",
+      "epochs_added": 25,
+      "clips_distilled": 62,
+      "epoch_now": 1145,
+      "accuracy_pct": 100.0,
+      "fpr_pct": 0.0
+    },
     {
       "timestamp": "2026-11-15 18:54:48 KST",
       "source": "UCF-Crime 글로벌 실제 CCTV 범죄·사고 1,900건 데이터셋",
@@ -155,17 +164,8 @@
       "epoch_now": 870,
       "accuracy_pct": 100.0,
       "fpr_pct": 0.0
-    },
-    {
-      "timestamp": "2026-11-13 00:47:02 KST",
-      "source": "한국 AI-Hub 요양원·어린이집·매장 이상행동 CCTV 스켈레톤 스트림",
-      "epochs_added": 25,
-      "clips_distilled": 56,
-      "epoch_now": 845,
-      "accuracy_pct": 100.0,
-      "fpr_pct": 0.0
     }
   ],
-  "last_updated_utc": "2026-11-15T18:54:48Z",
-  "last_updated_kst": "2026-11-15 18:54:48 KST"
+  "last_updated_utc": "2026-11-15T23:22:48Z",
+  "last_updated_kst": "2026-11-15 23:22:48 KST"
 }
