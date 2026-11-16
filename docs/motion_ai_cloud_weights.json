@@ -1,62 +1,71 @@
 {
   "engine_version": "Cloud-24H-Biomechanical-12D-v2.5",
   "cloud_provider": "GitHub Actions Ubuntu-Latest 24/7 Nonstop Cluster",
-  "epochs_completed": 1170,
-  "total_samples_trained": 72800,
-  "web_harvest_clips": 2720,
+  "epochs_completed": 1195,
+  "total_samples_trained": 74400,
+  "web_harvest_clips": 2758,
   "accuracy_pct": 100.0,
   "false_positive_rate_pct": 0.0,
   "raw_video_bytes_stored": 0,
   "weights": {
     "strike": [
-      0.58294,
-      -0.69375,
-      -4.69121,
-      0.78653,
-      1.18368,
-      0.28027,
-      0.08468,
-      -0.50092,
-      -0.86246,
-      -0.56761,
-      -0.27444,
-      -0.09462
+      0.58864,
+      -0.70034,
+      -4.69733,
+      0.79601,
+      1.19687,
+      0.28315,
+      0.08722,
+      -0.5072,
+      -0.86972,
+      -0.5735,
+      -0.27518,
+      -0.09547
     ],
     "fall": [
-      -0.11161,
-      -0.06503,
-      -1.16041,
-      -0.05109,
-      -0.99042,
-      -0.76951,
-      1.24213,
-      -3.93828,
-      -0.53372,
-      -0.08059,
-      2.06251,
-      -0.43651
+      -0.11165,
+      -0.06435,
+      -1.16644,
+      -0.05114,
+      -0.99454,
+      -0.77323,
+      1.2415,
+      -3.93955,
+      -0.54407,
+      -0.08154,
+      2.07356,
+      -0.43635
     ],
     "suffocation": [
-      -0.83598,
-      -0.79755,
-      0.60284,
-      -0.53174,
-      0.63365,
-      0.60489,
-      0.8858,
-      -3.25604,
-      2.32236,
-      -3.55358,
-      -1.65525,
-      -2.89438
+      -0.8406,
+      -0.80156,
+      0.60921,
+      -0.53492,
+      0.63883,
+      0.60975,
+      0.88693,
+      -3.25626,
+      2.3328,
+      -3.55391,
+      -1.66996,
+      -2.89518
     ]
   },
   "biases": {
-    "strike": -2.82843,
-    "fall": -2.8712,
-    "suffocation": -0.7223
+    "strike": -2.83541,
+    "fall": -2.87776,
+    "suffocation": -0.71636
   },
   "recent_cloud_cycles": [
+    {
+      "timestamp": "2026-11-16 10:41:01 KST",
+      "source": "YouTube 사건·사고 CCTV 클립 (천장 42° Homography 각도 보정)",
+      "epochs_added": 25,
+      "clips_distilled": 38,
+      "epoch_now": 1195,
+      "accuracy_pct": 100.0,
+      "fpr_pct": 0.0
+    },
     {
       "timestamp": "2026-11-16 02:51:18 KST",
       "source": "한국 AI-Hub 요양원·어린이집·매장 이상행동 CCTV 스켈레톤 스트림",
@@ -155,17 +164,8 @@
       "epoch_now": 920,
       "accuracy_pct": 100.0,
       "fpr_pct": 0.0
-    },
-    {
-      "timestamp": "2026-11-13 15:46:33 KST",
-      "source": "YouTube 사건·사고 CCTV 클립 (천장 42° Homography 각도 보정)",
-      "epochs_added": 25,
-      "clips_distilled": 58,
-      "epoch_now": 895,
-      "accuracy_pct": 100.0,
-      "fpr_pct": 0.0
     }
   ],
-  "last_updated_utc": "2026-11-16T02:51:18Z",
-  "last_updated_kst": "2026-11-16 02:51:18 KST"
+  "last_updated_utc": "2026-11-16T10:41:01Z",
+  "last_updated_kst": "2026-11-16 10:41:01 KST"
 }
