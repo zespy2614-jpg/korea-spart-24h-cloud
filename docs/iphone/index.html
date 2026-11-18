@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="엘리포엠 아이폰">
+<title>엘리포엠 · 아이폰 자동 연결 가이드</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{margin:0;padding:0;background:#F4F4F8;color:#121212;font-family:'Pretendard Variable',Pretendard,'Apple SD Gothic Neo',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;word-break:keep-all;overflow-wrap:break-word;line-height:1.6;}
+.wrap{max-width:560px;margin:0 auto;padding:24px 16px 48px 16px;}
+.badge{display:inline-block;padding:6px 14px;border-radius:9999px;background:rgba(20,40,160,0.10);color:#1428A0;font-size:0.82rem;font-weight:700;margin-bottom:10px;}
+h1{margin:0 0 8px 0;font-size:1.65rem;font-weight:800;letter-spacing:-0.025em;}
+.lead{margin:0 0 20px 0;color:#55555E;font-size:0.98rem;}
+.card{background:#FFFFFF;border-radius:26px;padding:22px 20px;margin-bottom:14px;box-shadow:0 4px 20px rgba(0,0,0,0.03);}
+.card h2{margin:0 0 10px 0;font-size:1.12rem;font-weight:700;letter-spacing:-0.02em;}
+ol{margin:0;padding-left:20px;color:#22222A;font-size:0.95rem;}
+li{margin-bottom:8px;}
+.btn{display:flex;align-items:center;justify-content:center;width:100%;min-height:52px;padding:12px 20px;border-radius:9999px;background:#0381FE;color:#FFFFFF;font-size:1rem;font-weight:700;text-decoration:none;border:none;cursor:pointer;margin-top:14px;font-family:inherit;}
+.btn.navy{background:#1428A0;}
+.toast{position:fixed;top:16px;left:50%;transform:translateX(-50%);background:#17171C;color:#F9F9FB;padding:11px 18px;border-radius:9999px;font-size:0.88rem;font-weight:600;display:none;max-width:90vw;text-align:center;z-index:100;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="badge">아이폰 공식 연동 안내</span>
+  <h1>아이폰 무선 카플레이 · 1초 자동 핫스팟</h1>
+  <p class="lead">앱스토어 설치 없이 아이폰 순정 기능만으로 시동 시 자동 연결됩니다.</p>
+
+  <section class="card">
+    <h2>1. 무선 카플레이 연결</h2>
+    <ol>
+      <li>아이폰 <b>설정 → 블루투스</b>와 <b>와이파이</b>를 모두 켜 주세요.</li>
+      <li>블루투스 목록에서 <b>엘리포엠 안드로이드오토</b>를 눌러 연결합니다.</li>
+      <li>화면에 뜨는 안내창에서 <b>카플레이 사용</b>을 누르면 다음 시동부터 자동 실행됩니다.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>2. 시동 켤 때 1초 자동 핫스팟 켜기</h2>
+    <ol>
+      <li>차량 올인원의 <b>자동 핫스팟 → 설정</b>에서 핫스팟 이름(<b>iPhone</b>)과 비밀번호를 1회 저장합니다.</li>
+      <li>아래 버튼을 눌러 아이폰 기본 <b>단축어</b> 앱을 엽니다.</li>
+      <li>하단 <b>자동화 → [+] → 블루투스</b>에서 기기 <b>엘리포엠 안드로이드오토</b>, <b>연결됨</b>, <b>즉시 실행</b>을 선택합니다.</li>
+      <li>동작에서 <b>개인용 핫스팟 설정 → 켜기</b>를 추가하면 시동 켤 때마다 자동으로 연결됩니다.</li>
+    </ol>
+    <button type="button" class="btn" onclick="openSc()">아이폰 단축어 앱 바로 열기</button>
+  </section>
+
+  <section class="card">
+    <h2>3. 차량 전용 리모컨 웹앱 열기</h2>
+    <p style="margin:0;color:#55555E;font-size:0.94rem">차량이 아이폰 개인용 핫스팟에 연결된 상태에서 아래 버튼을 누르거나 사파리에서 차량 주소를 열고 <b>홈 화면에 추가</b>를 누르면 바탕화면 앱으로 작동합니다.</p>
+    <a class="btn navy" href="http://172.20.10.2:8580/?ios=1">차량 리모컨 화면 열기 (핫스팟 연결 시)</a>
+  </section>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script>
+function openSc(){
+  var t=document.getElementById('toast');
+  t.innerText='아이폰 기본 단축어 앱을 실행합니다.';
+  t.style.display='block';
+  setTimeout(function(){t.style.display='none';},2200);
+  setTimeout(function(){window.location.href='shortcuts://';},180);
+}
+</script>
+</body>
+</html>
