@@ -1,16 +1,16 @@
 {
  "ok": true,
  "channel": "car",
- "updated": "2026-11-13",
+ "updated": "2026-11-19",
  "apps": [
   {
    "package": "com.zqc.mhotspot",
    "title": "자동 핫스팟",
-   "version": "v5.15",
-   "build": 30,
-   "apkUrl": "https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/car/hotspot_30.apk",
-   "sha256": "6dbcb98c3971db0837c7b6ddcc8d1f88dfff4c50f9a480ad7ca2c4dc5eccbd94",
-   "size": 90664
+   "version": "v5.31",
+   "build": 46,
+   "apkUrl": "https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/MStickCarHotspot_Car_v5.31.apk",
+   "sha256": "99d6799ec24e2bea3ebe104b62b8d966351e2a70139b314e2259364f6ca0967f",
+   "size": 246392
   },
   {
    "package": "com.zqc.kor.launcher3",
@@ -24,11 +24,11 @@
   {
    "package": "com.zqc.kor.wallpaper",
    "title": "배경화면 (화면 도우미)",
-   "version": "v3.4.0",
-   "build": 320,
-   "apkUrl": "https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/ELIPHOEM_System_v3.4.0.apk",
-   "sha256": "33900daabc477b8813abf356c14ccb352943a5525b5553e1543cbb27c3d9b275",
-   "size": 66909509
+   "version": "v3.6.5",
+   "build": 349,
+   "apkUrl": "https://zespy2614-jpg.github.io/korea-spart-24h-cloud/downloads/ELIPHOEM_System_v3.6.5.apk",
+   "sha256": "0a753d8b54b56626d82304b532db1e65c5e8e18fddcad143b180ab155c8d95cd",
+   "size": 67122501
   }
  ]
 }
