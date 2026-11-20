@@ -1,62 +1,71 @@
 {
   "engine_version": "Cloud-24H-Biomechanical-12D-v2.5",
   "cloud_provider": "GitHub Actions Ubuntu-Latest 24/7 Nonstop Cluster",
-  "epochs_completed": 1495,
-  "total_samples_trained": 93600,
-  "web_harvest_clips": 3391,
+  "epochs_completed": 1520,
+  "total_samples_trained": 95200,
+  "web_harvest_clips": 3434,
   "accuracy_pct": 100.0,
   "false_positive_rate_pct": 0.0,
   "raw_video_bytes_stored": 0,
   "weights": {
     "strike": [
-      0.61764,
-      -0.76919,
-      -4.75805,
-      0.86917,
-      1.32349,
-      0.31478,
-      0.11992,
-      -0.58266,
-      -0.95482,
-      -0.64432,
-      -0.28442,
-      -0.10632
+      0.62002,
+      -0.77402,
+      -4.76245,
+      0.8745,
+      1.33233,
+      0.31692,
+      0.12216,
+      -0.58787,
+      -0.96075,
+      -0.64899,
+      -0.28506,
+      -0.10707
     ],
     "fall": [
-      -0.1117,
-      -0.05696,
-      -1.22697,
-      -0.05096,
-      -1.03933,
-      -0.81463,
-      1.23633,
-      -3.95299,
-      -0.64247,
-      -0.0924,
-      2.19428,
-      -0.43498
+      -0.11168,
+      -0.05636,
+      -1.23147,
+      -0.05109,
+      -1.04274,
+      -0.81777,
+      1.236,
+      -3.95394,
+      -0.64975,
+      -0.0932,
+      2.20339,
+      -0.43487
     ],
     "suffocation": [
-      -0.8834,
-      -0.8375,
-      0.6767,
-      -0.5639,
-      0.6866,
-      0.65516,
-      0.90141,
-      -3.25916,
-      2.45272,
-      -3.5566,
-      -1.80298,
-      -2.90182
+      -0.88653,
+      -0.84009,
+      0.68133,
+      -0.56588,
+      0.68979,
+      0.65829,
+      0.90232,
+      -3.25952,
+      2.46082,
+      -3.55682,
+      -1.81212,
+      -2.90234
     ]
   },
   "biases": {
-    "strike": -2.9145,
-    "fall": -2.94208,
-    "suffocation": -0.64976
+    "strike": -2.92003,
+    "fall": -2.94679,
+    "suffocation": -0.64528
   },
   "recent_cloud_cycles": [
+    {
+      "timestamp": "2026-11-20 22:55:43 KST",
+      "source": "RWF-2000 실전 CCTV 폭행 vs 일상 행동 대조 데이터셋",
+      "epochs_added": 25,
+      "clips_distilled": 43,
+      "epoch_now": 1520,
+      "accuracy_pct": 100.0,
+      "fpr_pct": 0.0
+    },
     {
       "timestamp": "2026-11-20 16:35:26 KST",
       "source": "YouTube 사건·사고 CCTV 클립 (천장 42° Homography 각도 보정)",
@@ -155,17 +164,8 @@
       "epoch_now": 1245,
       "accuracy_pct": 100.0,
       "fpr_pct": 0.0
-    },
-    {
-      "timestamp": "2026-11-16 20:49:23 KST",
-      "source": "RWF-2000 실전 CCTV 폭행 vs 일상 행동 대조 데이터셋",
-      "epochs_added": 25,
-      "clips_distilled": 37,
-      "epoch_now": 1220,
-      "accuracy_pct": 100.0,
-      "fpr_pct": 0.0
     }
   ],
-  "last_updated_utc": "2026-11-20T16:35:26Z",
-  "last_updated_kst": "2026-11-20 16:35:26 KST"
+  "last_updated_utc": "2026-11-20T22:55:43Z",
+  "last_updated_kst": "2026-11-20 22:55:43 KST"
 }
