@@ -1,62 +1,71 @@
 {
   "engine_version": "Cloud-24H-Biomechanical-12D-v2.5",
   "cloud_provider": "GitHub Actions Ubuntu-Latest 24/7 Nonstop Cluster",
-  "epochs_completed": 1720,
-  "total_samples_trained": 108000,
-  "web_harvest_clips": 3862,
+  "epochs_completed": 1745,
+  "total_samples_trained": 109600,
+  "web_harvest_clips": 3901,
   "accuracy_pct": 100.0,
   "false_positive_rate_pct": 0.0,
   "raw_video_bytes_stored": 0,
   "weights": {
     "strike": [
-      0.63583,
-      -0.80959,
-      -4.7956,
-      0.91334,
-      1.39657,
-      0.33239,
-      0.1388,
-      -0.62775,
-      -1.00615,
-      -0.68634,
-      -0.28998,
-      -0.11206
+      0.63766,
+      -0.8137,
+      -4.79944,
+      0.91792,
+      1.40408,
+      0.33413,
+      0.1407,
+      -0.63242,
+      -1.01124,
+      -0.69078,
+      -0.29058,
+      -0.11268
     ],
     "fall": [
-      -0.1134,
-      -0.05292,
-      -1.2625,
-      -0.05229,
-      -1.06722,
-      -0.84026,
-      1.23405,
-      -3.96135,
-      -0.70025,
-      -0.09865,
-      2.26776,
+      -0.11357,
+      -0.05256,
+      -1.26619,
+      -0.05249,
+      -1.07005,
+      -0.84286,
+      1.23384,
+      -3.9622,
+      -0.7062,
+      -0.0993,
+      2.27536,
       -0.43426
     ],
     "suffocation": [
-      -0.90923,
-      -0.85897,
-      0.71368,
-      -0.581,
-      0.71289,
-      0.67993,
-      0.90895,
-      -3.26222,
-      2.51831,
-      -3.55911,
-      -1.87839,
-      -2.90609
+      -0.91203,
+      -0.8613,
+      0.71699,
+      -0.58278,
+      0.71557,
+      0.68251,
+      0.90954,
+      -3.26255,
+      2.52402,
+      -3.55933,
+      -1.88637,
+      -2.90655
     ]
   },
   "biases": {
-    "strike": -2.96202,
-    "fall": -2.98057,
-    "suffocation": -0.61387
+    "strike": -2.96696,
+    "fall": -2.9846,
+    "suffocation": -0.61075
   },
   "recent_cloud_cycles": [
+    {
+      "timestamp": "2026-11-23 08:04:21 KST",
+      "source": "YouTube 사건·사고 CCTV 클립 (천장 42° Homography 각도 보정)",
+      "epochs_added": 25,
+      "clips_distilled": 39,
+      "epoch_now": 1745,
+      "accuracy_pct": 100.0,
+      "fpr_pct": 0.0
+    },
     {
       "timestamp": "2026-11-23 00:29:34 KST",
       "source": "UCF-Crime 글로벌 실제 CCTV 범죄·사고 1,900건 데이터셋",
@@ -155,17 +164,8 @@
       "epoch_now": 1470,
       "accuracy_pct": 100.0,
       "fpr_pct": 0.0
-    },
-    {
-      "timestamp": "2026-11-20 00:37:37 KST",
-      "source": "UCF-Crime 글로벌 실제 CCTV 범죄·사고 1,900건 데이터셋",
-      "epochs_added": 25,
-      "clips_distilled": 63,
-      "epoch_now": 1445,
-      "accuracy_pct": 100.0,
-      "fpr_pct": 0.0
     }
   ],
-  "last_updated_utc": "2026-11-23T00:29:34Z",
-  "last_updated_kst": "2026-11-23 00:29:34 KST"
+  "last_updated_utc": "2026-11-23T08:04:21Z",
+  "last_updated_kst": "2026-11-23 08:04:21 KST"
 }
