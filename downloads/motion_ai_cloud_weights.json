@@ -1,62 +1,71 @@
 {
   "engine_version": "Cloud-24H-Biomechanical-12D-v2.5",
   "cloud_provider": "GitHub Actions Ubuntu-Latest 24/7 Nonstop Cluster",
-  "epochs_completed": 1845,
-  "total_samples_trained": 116000,
-  "web_harvest_clips": 4114,
+  "epochs_completed": 1870,
+  "total_samples_trained": 117600,
+  "web_harvest_clips": 4170,
   "accuracy_pct": 100.0,
   "false_positive_rate_pct": 0.0,
   "raw_video_bytes_stored": 0,
   "weights": {
     "strike": [
-      0.64476,
-      -0.82918,
-      -4.81385,
-      0.935,
-      1.43188,
-      0.34053,
-      0.14761,
-      -0.64993,
-      -1.03065,
-      -0.70731,
-      -0.293,
-      -0.11509
+      0.64651,
+      -0.8328,
+      -4.8172,
+      0.93903,
+      1.43842,
+      0.34196,
+      0.14919,
+      -0.65407,
+      -1.03524,
+      -0.71115,
+      -0.29364,
+      -0.11562
     ],
     "fall": [
-      -0.11474,
-      -0.05141,
-      -1.28011,
-      -0.05374,
-      -1.08076,
-      -0.85255,
-      1.23308,
-      -3.9655,
-      -0.72866,
-      -0.10194,
-      2.30334,
-      -0.43416
+      -0.11502,
+      -0.05093,
+      -1.2834,
+      -0.05393,
+      -1.08342,
+      -0.85501,
+      1.23285,
+      -3.9663,
+      -0.73419,
+      -0.10261,
+      2.31025,
+      -0.43411
     ],
     "suffocation": [
-      -0.92223,
-      -0.86956,
-      0.73164,
-      -0.58937,
-      0.7255,
-      0.69169,
-      0.91255,
-      -3.26394,
-      2.55016,
-      -3.56041,
-      -1.91528,
-      -2.90828
+      -0.92452,
+      -0.87165,
+      0.73507,
+      -0.59098,
+      0.72778,
+      0.69395,
+      0.91336,
+      -3.26426,
+      2.55643,
+      -3.56061,
+      -1.92207,
+      -2.90868
     ]
   },
   "biases": {
-    "strike": -2.9855,
-    "fall": -2.99981,
-    "suffocation": -0.59656
+    "strike": -2.98983,
+    "fall": -3.0035,
+    "suffocation": -0.59313
   },
   "recent_cloud_cycles": [
+    {
+      "timestamp": "2026-11-25 08:27:01 KST",
+      "source": "YouTube 사건·사고 CCTV 클립 (천장 42° Homography 각도 보정)",
+      "epochs_added": 25,
+      "clips_distilled": 56,
+      "epoch_now": 1870,
+      "accuracy_pct": 100.0,
+      "fpr_pct": 0.0
+    },
     {
       "timestamp": "2026-11-25 00:03:49 KST",
       "source": "YouTube 사건·사고 CCTV 클립 (천장 42° Homography 각도 보정)",
@@ -155,17 +164,8 @@
       "epoch_now": 1595,
       "accuracy_pct": 100.0,
       "fpr_pct": 0.0
-    },
-    {
-      "timestamp": "2026-11-21 11:54:58 KST",
-      "source": "YouTube 사건·사고 CCTV 클립 (천장 42° Homography 각도 보정)",
-      "epochs_added": 25,
-      "clips_distilled": 55,
-      "epoch_now": 1570,
-      "accuracy_pct": 100.0,
-      "fpr_pct": 0.0
     }
   ],
-  "last_updated_utc": "2026-11-25T00:03:49Z",
-  "last_updated_kst": "2026-11-25 00:03:49 KST"
+  "last_updated_utc": "2026-11-25T08:27:01Z",
+  "last_updated_kst": "2026-11-25 08:27:01 KST"
 }
