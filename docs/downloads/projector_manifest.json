@@ -1,14 +1,14 @@
 {
   "brand": "ELIPHOEM ®",
   "platform": "RK3566_SMART_PROJECTOR_ANDROID12",
-  "versionCode": 320,
-  "versionName": "ELIPHOEM Cinema OS v3.2.0-KR (Build 320)",
-  "apkUrl": "https://eliphoem-ota-kr.s3.ap-northeast-2.amazonaws.com/firmware/rk3566/ELIPHOEM_Projector_v3.2.0.apk",
-  "mirrorApkUrl": "https://raw.githubusercontent.com/zespy2614-jpg/korea-spart-24h-cloud/main/docs/downloads/ELIPHOEM_Projector_v3.2.0.apk",
-  "lanApkUrl": "http://192.168.123.104:8080/firmware/rk3566/ELIPHOEM_Projector_v3.2.0.apk",
-  "sha256": "648256a7477071e49ce2e58ea3a5dddda3e68e3430d4eadf11187e5ce926fd07",
-  "fileSize": 926181,
-  "releaseDate": "2026-11-06",
+  "versionCode": 326,
+  "versionName": "ELIPHOEM Cinema OS v3.2.6-KR (Build 326)",
+  "apkUrl": "https://raw.githubusercontent.com/zespy2614-jpg/korea-spart-24h-cloud/main/docs/downloads/ELIPHOEM_Projector_v3.2.6.apk",
+  "mirrorApkUrl": "https://raw.githubusercontent.com/zespy2614-jpg/korea-spart-24h-cloud/main/docs/downloads/ELIPHOEM_Projector_v3.2.6.apk",
+  "lanApkUrl": "http://192.168.123.104:8080/firmware/rk3566/ELIPHOEM_Projector_v3.2.6.apk",
+  "sha256": "d551caa89b3bde2b32e89644f692ff957388c24b1338e222246b902dc2bd8549",
+  "fileSize": 983525,
+  "releaseDate": "2026-11-28",
   "forceUpdate": false,
-  "changelog": "• [클라우드 OTA] AWS S3 서울 리전(ap-northeast-2) 무선 펌웨어 업데이트 시스템 탑재\n• [보안 강화] 비인가 중국 OTA 백도어(com.txcz.update / oott) 영구 차단 및 SHA-256 해시 검증 적용\n• [키스톤/HDMI] 4점 화면보정 뒤로가기 즉시 홈 복귀 및 HDMI '신호 없음' 완벽 한글화\n• [미디어/입력] 크롬 브라우저 & VLC 플레이어 기본 탑재 및 리모컨 키보드 대문자 고정/특수문자 3페이지 확장"
+  "changelog": "• [홈 화면 속도 2배 개선] 배경·카드 셰이더 캐싱 및 하드웨어 레이어 최적화로 홈 버벅임 대폭 해소 (p50 36ms→16ms)\n• [빠른 설정 다듬기] Wi-Fi QR 안내 문구와 상태 버튼 간 여백 정리\n• [OTA 업데이트 안정화] 클라우드 서버 우선 조회(지연 제거), 실제 설치 버전 자동 인식 및 서버 미연결 오류 안내 정확화"
 }
